@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import EmbedLoader from '../../../components/EmbedLoader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
 import {
   leagueLabsHero,
   leagueLabsOverview,
@@ -37,14 +38,13 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           <a class="button button--secondary" href={leagueLabsHero.secondaryAction.href}>{leagueLabsHero.secondaryAction.label}</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">Why Join League Labs?</h2>
-        <ul class="hero__list">
-          {leagueLabsHero.highlights.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </aside>
+      <CalloutCard
+        class="hero__aside"
+        headingLevel={2}
+        title="Why Join League Labs?"
+        items={leagueLabsHero.highlights}
+        itemsClass="hero__list"
+      />
     </div>
   </section>
 
@@ -60,22 +60,20 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         <p>{leagueLabsOverview.advancedTrack}</p>
       </div>
       <div class="about-grid__cards">
-        <article class="card info-card">
-          <h3 class="card__title">Skills You Will Practice</h3>
+        <CalloutCard class="info-card" title="Skills You Will Practice">
           <ul>
             {leagueLabsOverview.skills.map((skill) => (
               <li>{skill}</li>
             ))}
           </ul>
-        </article>
-        <article class="card info-card">
-          <h3 class="card__title">Popular Topics</h3>
+        </CalloutCard>
+        <CalloutCard class="info-card" title="Popular Topics">
           <ul>
             {leagueLabsTopics.map((topic) => (
               <li>{topic}</li>
             ))}
           </ul>
-        </article>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -88,10 +86,9 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       />
       <div class="special-grid">
         {leagueLabsSpecialPrograms.map((program) => (
-          <article class="card special-card">
-            <h3 class="card__title">{program.title}</h3>
+          <CalloutCard class="special-card" title={program.title}>
             <p class="card__body">{program.description}</p>
-          </article>
+          </CalloutCard>
         ))}
       </div>
     </div>
@@ -111,15 +108,12 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           ))}
         </ol>
       </div>
-      <aside class="two-column__aside card emphasis">
-        <h3 class="card__title">Intern Benefits</h3>
-        <ul>
-          {leagueLabsBenefits.map((benefit) => (
-            <li>{benefit}</li>
-          ))}
-        </ul>
-        <a class="button button--primary" href={leagueLabsHero.primaryAction.href}>Join the Interest List</a>
-      </aside>
+      <CalloutCard
+        class="two-column__aside emphasis"
+        title="Intern Benefits"
+        items={leagueLabsBenefits}
+        cta={{ label: 'Join the Interest List', href: leagueLabsHero.primaryAction.href }}
+      />
     </div>
   </section>
 
@@ -159,11 +153,13 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           ))}
         </ol>
       </div>
-      <aside class="two-column__aside card info-card">
-        <h3 class="card__title">Stay in the Loop</h3>
+      <CalloutCard
+        class="two-column__aside info-card"
+        title="Stay in the Loop"
+        cta={{ label: applicationDetails.googleGroup.label, href: applicationDetails.googleGroup.href, variant: 'secondary' }}
+      >
         <p>Join our Google Group for program updates and project assignments.</p>
-        <a class="button button--secondary" href={applicationDetails.googleGroup.href}>{applicationDetails.googleGroup.label}</a>
-      </aside>
+      </CalloutCard>
     </div>
   </section>
 
@@ -187,42 +183,46 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       />
       <div class="idea-grid">
         {projectIdeas.map((idea) => (
-          <article class="card idea-card">
-            <h3 class="card__title">{idea.title}</h3>
+          <CalloutCard class="idea-card" title={idea.title}>
             <p class="card__body">{idea.description}</p>
             {idea.href && (
               <a class="link" href={idea.href} target="_blank" rel="noopener">Learn more</a>
             )}
-          </article>
+          </CalloutCard>
         ))}
       </div>
     </div>
   </section>
 
   <section class="section section--surface-alt" id="news">
-    <div class="container news-card card">
-      <div>
-        <SectionHeader
-          title="League Labs News"
-          description={newsHighlight.description}
-          align="left"
-        />
-      </div>
-      <a class="button button--primary" href={newsHighlight.href} target="_blank" rel="noopener">Read Updates</a>
+    <div class="container">
+      <CalloutCard
+        class="news-card"
+        headingLevel={2}
+        title="League Labs News"
+        cta={{ label: 'Read Updates', href: newsHighlight.href }}
+      >
+        <p>{newsHighlight.description}</p>
+      </CalloutCard>
     </div>
   </section>
 
   <section class="section" id="contact">
-    <div class="container contact-card card">
-      <h2 class="card__title">Questions About League Labs?</h2>
-      <p>
-        Reach out to our team to confirm eligibility, request a recommendation, or coordinate a custom project track. We are here to help you make the most of your internship.
-      </p>
-      <ul>
-        <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
-        <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
-      </ul>
-      <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+    <div class="container">
+      <CalloutCard
+        class="contact-card"
+        headingLevel={2}
+        title="Questions About League Labs?"
+        cta={{ label: 'Contact Form', href: '/about/contact/', variant: 'secondary' }}
+      >
+        <p>
+          Reach out to our team to confirm eligibility, request a recommendation, or coordinate a custom project track. We are here to help you make the most of your internship.
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+        </ul>
+      </CalloutCard>
     </div>
   </section>
 </BaseLayout>

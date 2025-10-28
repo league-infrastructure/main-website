@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
+import CalloutCard from '../../../../components/ui/CalloutCard.astro';
 
 const reasons = [
   'Students on FIRST robotics teams',
@@ -64,16 +65,22 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
         </p>
       </div>
       <aside class="hero__aside">
-        <article class="card try-card">
-          <h2 class="card__title">Try a Class</h2>
+        <CalloutCard
+          class="try-card"
+          headingLevel={2}
+          title="Try a Class"
+          cta={{
+            label: 'Join the Tech Club',
+            href: 'https://www.meetup.com/the-league-tech-club',
+            variant: 'primary',
+          }}
+        >
           <p class="card__body">
             Create a Pike13 account to receive a Beta Test pass for a free introductory class, or join the LEAGUE Tech
             Club meetup group for complimentary Python and Java workshops across San Diego.
           </p>
-          <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club">Join the Tech Club</a>
-        </article>
-        <article class="card map-card">
-          <h3 class="card__title">Carmel Valley Classroom</h3>
+        </CalloutCard>
+        <CalloutCard class="map-card" title="Carmel Valley Classroom">
           <p class="card__body">{address}</p>
           <iframe
             title="Carmel Valley Classroom"
@@ -82,7 +89,7 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
             loading="lazy"
             allowfullscreen
           ></iframe>
-        </article>
+        </CalloutCard>
       </aside>
     </div>
   </section>
@@ -95,13 +102,12 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
       />
       <div class="grid grid--two language-grid">
         {languageCards.map((card) => (
-          <article class="card language-card">
-            <figure class="language-card__media">
+          <CalloutCard class="language-card" title={card.title}>
+            <figure slot="media" class="language-card__media">
               <img src={card.image.src} alt={card.image.alt} loading="lazy" />
             </figure>
-            <h3 class="card__title">{card.title}</h3>
             <a class="button button--primary" href={card.href}>{card.cta}</a>
-          </article>
+          </CalloutCard>
         ))}
       </div>
     </div>

@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import HeroSection from '../../components/ui/HeroSection.astro';
+import ProgramCard from '../../components/ui/ProgramCard.astro';
+import CalloutCard from '../../components/ui/CalloutCard.astro';
 import {
   codingProgramsHero,
   mainPrograms,
@@ -40,27 +42,15 @@ import {
       />
       <div class="program-grid">
         {mainPrograms.map((program) => (
-          <article class="card">
-            {program.image && (
-              <figure class="card__media">
-                <img src={program.image.src} alt={program.image.alt} loading="lazy" />
-              </figure>
-            )}
-            <div class="card__body">
-              <p class="card__eyebrow">{program.level}</p>
-              <h2>{program.title}</h2>
-              <p>{program.description}</p>
-              <ul>
-                {program.highlights.map((highlight) => (
-                  <li>{highlight}</li>
-                ))}
-              </ul>
-              {program.price && <p class="card__price">{program.price}</p>}
-            </div>
-            <div class="card__footer">
-              <a class="button button--secondary" href={program.link}>{program.cta}</a>
-            </div>
-          </article>
+          <ProgramCard
+            title={program.title}
+            level={program.level}
+            description={program.description}
+            highlights={program.highlights}
+            price={program.price}
+            image={program.image}
+            cta={{ label: program.cta, href: program.link, variant: 'secondary' }}
+          />
         ))}
       </div>
     </div>
@@ -115,11 +105,10 @@ import {
       />
       <div class="support-grid">
         {otherPrograms.map((program) => (
-          <article class="card support-card">
-            <h3>{program.title}</h3>
+          <CalloutCard class="support-card" title={program.title}>
             <p>{program.description}</p>
-            <a class="link" href={program.href}>Learn more</a>
-          </article>
+            <a slot="footer" class="link" href={program.href}>Learn more</a>
+          </CalloutCard>
         ))}
       </div>
     </div>
@@ -128,10 +117,9 @@ import {
   <section class="section section--split">
     <div class="container split-grid">
       {whyHighlights.map((highlight) => (
-        <article class="card split-card">
-          <h3>{highlight.title}</h3>
+        <CalloutCard class="split-card" title={highlight.title}>
           <p>{highlight.body}</p>
-        </article>
+        </CalloutCard>
       ))}
     </div>
   </section>

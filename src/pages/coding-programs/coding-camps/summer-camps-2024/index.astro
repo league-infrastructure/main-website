@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
+import CalloutCard from '../../../../components/ui/CalloutCard.astro';
+import CampSessionCard from '../../../../components/ui/CampSessionCard.astro';
 import { campResources, campContact } from '../../../../data/codingCamps';
 import { summer2024Hero, featuredCamps, campTips, partnershipHighlight } from '../../../../data/summer2024';
 
@@ -22,14 +24,13 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <a class="button button--secondary" href={summer2024Hero.secondaryAction.href}>{summer2024Hero.secondaryAction.label}</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">Why Families Pick The League</h2>
-        <ul class="hero__list">
-          {summer2024Hero.highlights.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </aside>
+      <CalloutCard
+        class="hero__aside"
+        headingLevel={2}
+        title="Why Families Pick The League"
+        items={summer2024Hero.highlights}
+        itemsClass="hero__list"
+      />
     </div>
   </section>
 
@@ -41,23 +42,18 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
       />
       <div class="camp-grid">
         {featuredCamps.map((camp) => (
-          <article class="card camp">
-            <header>
-              <p class="camp__level">{camp.level}</p>
-              <h3 class="card__title">{camp.title}</h3>
-            </header>
-            <p class="card__body">{camp.summary}</p>
-            <ul class="camp__schedule">
-              {camp.schedule.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-            <ul class="camp__details">
-              <li><strong>Location:</strong> {camp.location}</li>
-              <li><strong>Tuition:</strong> {camp.price}</li>
-            </ul>
-            <a class="button button--primary" href={camp.action.href}>{camp.action.label}</a>
-          </article>
+          <CampSessionCard
+            class="camp"
+            level={camp.level}
+            title={camp.title}
+            summary={camp.summary}
+            schedule={camp.schedule}
+            details={[
+              { label: 'Location', value: camp.location },
+              { label: 'Tuition', value: camp.price },
+            ]}
+            cta={{ label: camp.action.label, href: camp.action.href }}
+          />
         ))}
       </div>
     </div>
@@ -77,18 +73,16 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           ))}
         </ul>
       </div>
-      <aside class="two-column__aside card emphasis">
-        <h3 class="card__title">{partnershipHighlight.title}</h3>
+      <CalloutCard class="two-column__aside emphasis" title={partnershipHighlight.title}>
         <p>{partnershipHighlight.description}</p>
         <a class="link" href={partnershipHighlight.href} target="_blank" rel="noopener">{partnershipHighlight.linkLabel}</a>
-      </aside>
+      </CalloutCard>
     </div>
   </section>
 
   <section class="section" id="resources">
     <div class="container resource-grid">
-      <div class="card resource-card">
-        <h3 class="card__title">Prep & Study Guides</h3>
+      <CalloutCard class="resource-card" title="Prep & Study Guides">
         <ul>
           {campResources.map((resource) => (
             <li>
@@ -96,9 +90,12 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
             </li>
           ))}
         </ul>
-      </div>
-      <div class="card contact-card">
-        <h3 class="card__title">Plan a Custom Camp</h3>
+      </CalloutCard>
+      <CalloutCard
+        class="contact-card"
+        title="Plan a Custom Camp"
+        cta={{ label: 'Contact Form', href: '/about/contact/', variant: 'secondary' }}
+      >
         <p>
           Design a private camp, request scholarship support, or reserve a block of seats for your troop. Email or call and our team
           will follow up with availability and next steps.
@@ -107,8 +104,7 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
           <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
         </ul>
-        <a class="button button--secondary" href="/about/contact/">Contact Form</a>
-      </div>
+      </CalloutCard>
     </div>
   </section>
 </BaseLayout>

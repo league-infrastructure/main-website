@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
 import PikeWidget from '../../../../components/PikeWidget.astro';
+import CalloutCard from '../../../../components/ui/CalloutCard.astro';
 
 const heroHighlights = [
   'Head start on AP Computer Science and college courses',
@@ -38,15 +39,15 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
         </div>
       </div>
       <aside class="hero__aside">
-        <article class="card highlight-card">
-          <h2 class="card__title">Why Choose Java</h2>
-          <ul class="highlight-card__list">
-            {heroHighlights.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-          <a class="link" href="/coding-programs/classes/python-vs-java/">Compare Python and Java</a>
-        </article>
+        <CalloutCard
+          class="highlight-card"
+          headingLevel={2}
+          title="Why Choose Java"
+          items={heroHighlights}
+          itemsClass="highlight-card__list"
+        >
+          <a slot="footer" class="link" href="/coding-programs/classes/python-vs-java/">Compare Python and Java</a>
+        </CalloutCard>
       </aside>
     </div>
   </section>
@@ -63,16 +64,21 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
         <PikeWidget elementId="java-schedule" serviceIds={[263387]} locationIds={[22675]} />
       </div>
       <aside class="schedule-aside">
-        <article class="card try-card">
-          <h3 class="card__title">Try a Class</h3>
+        <CalloutCard
+          class="try-card"
+          title="Try a Class"
+          cta={{
+            label: 'Join the Tech Club',
+            href: 'https://www.meetup.com/the-league-tech-club',
+            variant: 'primary',
+          }}
+        >
           <p class="card__body">
             New Pike13 accounts include a Beta Test pass for a free introductory class. You can also drop into the
             LEAGUE Tech Club meetups for weekly Java and Python workshops across San Diego.
           </p>
-          <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club">Join the Tech Club</a>
-        </article>
-        <article class="card map-card">
-          <h3 class="card__title">Carmel Valley Classroom</h3>
+        </CalloutCard>
+        <CalloutCard class="map-card" title="Carmel Valley Classroom">
           <p class="card__body">{address}</p>
           <iframe
             title="Carmel Valley Classroom"
@@ -81,7 +87,7 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
             loading="lazy"
             allowfullscreen
           ></iframe>
-        </article>
+        </CalloutCard>
       </aside>
     </div>
   </section>

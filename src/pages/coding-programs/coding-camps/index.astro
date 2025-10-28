@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
+import CampTrackCard from '../../../components/ui/CampTrackCard.astro';
 import {
   codingCampsHero,
   codeArcadeInfo,
@@ -28,13 +30,13 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <a class="button button--secondary" href={codingCampsHero.secondaryAction.href}>{codingCampsHero.secondaryAction.label}</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">What Campers Gain</h2>
-        <ul class="hero__list">
-          {codingCampsHero.highlights.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
+      <aside class="hero__aside">
+        <CalloutCard
+          headingLevel={2}
+          title="What Campers Gain"
+          items={codingCampsHero.highlights}
+          itemsClass="hero__list"
+        />
       </aside>
     </div>
   </section>
@@ -55,8 +57,7 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
             <a class="button button--primary" href={codeArcadeInfo.action.href}>{codeArcadeInfo.action.label}</a>
           </div>
         </div>
-        <div class="two-column__aside card emphasis">
-          <h3 class="card__title">Drop-In Format</h3>
+        <CalloutCard class="two-column__aside emphasis" title="Drop-In Format">
           <p>
             Flexible sign-ups let students tailor each day around Python, Java, robotics, AI, or independent projects. Mentors keep
             learners challenged and help them launch something new every session.
@@ -64,7 +65,7 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <p>
             Families can mix Code Arcade mornings with afternoon SLAMS or Tech Club events to build a full-day experience.
           </p>
-        </div>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -77,19 +78,16 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
       />
       <div class="track-grid">
         {campTracks.map((track) => (
-          <article class="card track">
-            <figure class="track__media">
-              <img src={track.image.src} alt={track.image.alt} loading="lazy" />
-            </figure>
-            <div class="track__content">
-              <p class="track__level">{track.level}</p>
-              <h3 class="card__title">{track.title}</h3>
-              <p class="card__body">{track.description}</p>
-              {track.link && (
-                <a class="link" href={track.link} target="_blank" rel="noopener">Learn more</a>
-              )}
-            </div>
-          </article>
+          <CampTrackCard
+            class="track"
+            title={track.title}
+            level={track.level}
+            description={track.description}
+            image={track.image}
+            linkHref={track.link}
+            linkTarget="_blank"
+            linkRel="noopener"
+          />
         ))}
       </div>
     </div>
@@ -109,8 +107,7 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
             <a class="button button--primary" href={slamInfo.action.href}>{slamInfo.action.label}</a>
           </div>
         </div>
-        <div class="two-column__aside card emphasis">
-          <h3 class="card__title">Ready for Level-Ups</h3>
+        <CalloutCard class="two-column__aside emphasis" title="Ready for Level-Ups">
           <p>
             SLAMS compress a month of curriculum into a single break week. Students leave with new projects, mentor feedback, and
             momentum for their weekly classes.
@@ -118,15 +115,14 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <p>
             Need help picking dates or confirming eligibility? Reach out and we will build a plan that fits your goals.
           </p>
-        </div>
+        </CalloutCard>
       </div>
     </div>
   </section>
 
   <section class="section section--surface-alt" id="resources">
     <div class="container resource-grid">
-      <div class="card resource-card">
-        <h3 class="card__title">Prep & Study Guides</h3>
+      <CalloutCard class="resource-card" title="Prep & Study Guides">
         <ul>
           {campResources.map((resource) => (
             <li>
@@ -134,9 +130,8 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
             </li>
           ))}
         </ul>
-      </div>
-      <div class="card contact-card">
-        <h3 class="card__title">Plan a Custom Camp</h3>
+      </CalloutCard>
+      <CalloutCard class="contact-card" title="Plan a Custom Camp">
         <p>
           Design a private camp or troop workshop at your site, or request scholarship details. Email or call and our team will
           follow up with availability and next steps.
@@ -146,7 +141,7 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
         </ul>
         <a class="button button--secondary" href="/about/contact/">Contact Form</a>
-      </div>
+      </CalloutCard>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'article'> {
+  level: number | string;
+  title: string;
+  description: string;
+}
+
+const { level, title, description, class: className, ...rest } = Astro.props as Props & { class?: string };
+---
+
+<article class:list={['card', className]} {...rest}>
+  <div class="level-card__badge">{level}</div>
+  <h3 class="card__title">{title}</h3>
+  <p class="card__body">{description}</p>
+</article>

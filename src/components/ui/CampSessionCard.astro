@@ -1,0 +1,66 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Button from './Button.astro';
+
+interface Detail {
+  label: string;
+  value: string;
+}
+
+interface CTA {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  target?: string;
+  rel?: string;
+}
+
+interface Props extends HTMLAttributes<'article'> {
+  level: string;
+  title: string;
+  summary: string;
+  schedule: string[];
+  details: Detail[];
+  cta?: CTA;
+}
+
+const {
+  level,
+  title,
+  summary,
+  schedule,
+  details,
+  cta,
+  class: className,
+  ...rest
+} = Astro.props as Props & { class?: string };
+---
+
+<article class:list={['card', className]} {...rest}>
+  <header>
+    <p class="camp__level">{level}</p>
+    <h3 class="card__title">{title}</h3>
+  </header>
+  <p class="card__body">{summary}</p>
+  <ul class="camp__schedule">
+    {schedule.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+  <ul class="camp__details">
+    {details.map((detail) => (
+      <li><strong>{detail.label}:</strong> {detail.value}</li>
+    ))}
+  </ul>
+  {cta && (
+    <Button
+      class="camp__cta"
+      href={cta.href}
+      variant={cta.variant ?? 'primary'}
+      target={cta.target}
+      rel={cta.rel}
+    >
+      {cta.label}
+    </Button>
+  )}
+</article>

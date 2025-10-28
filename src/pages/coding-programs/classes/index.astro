@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
+import ClassTrackCard from '../../../components/ui/ClassTrackCard.astro';
+import LevelCard from '../../../components/ui/LevelCard.astro';
 
 const pythonTracks = [
   {
@@ -152,16 +155,16 @@ const whyReasons = [
         </div>
       </div>
       <aside class="hero__aside">
-        <article class="card fact-card">
-          <h2 class="card__title">Flexible Membership</h2>
+        <CalloutCard
+          class="fact-card"
+          headingLevel={2}
+          title="Flexible Membership"
+          items={['Grades 5-12', '5 students per teacher', 'Monthly or drop-in pricing']}
+          itemsClass="fact-card__list"
+        >
           <p class="card__body">Mix and match in-person or online classes, pause when needed, and reschedule with ease.</p>
-          <ul class="fact-card__list">
-            <li>Grades 5-12</li>
-            <li>5 students per teacher</li>
-            <li>Monthly or drop-in pricing</li>
-          </ul>
-          <a class="link" href="/coding-programs/classes/python-vs-java/">Need help choosing a language?</a>
-        </article>
+          <a slot="footer" class="link" href="/coding-programs/classes/python-vs-java/">Need help choosing a language?</a>
+        </CalloutCard>
       </aside>
     </div>
   </section>
@@ -180,19 +183,14 @@ const whyReasons = [
       </p>
       <div class="grid grid--two">
         {pythonTracks.map((track) => (
-          <article class="card class-card">
-            <h3 class="card__title">{track.title}</h3>
-            <p class="card__body">{track.description}</p>
-            <ul class="class-card__list">
-              {track.highlights.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-            <p class="class-card__tuition">{track.tuition}</p>
-            <div class="button-group">
-              <a class="button button--primary" href={track.enrollLink}>Enroll</a>
-            </div>
-          </article>
+          <ClassTrackCard
+            class="class-card"
+            title={track.title}
+            description={track.description}
+            highlights={track.highlights}
+            tuition={track.tuition}
+            ctaHref={track.enrollLink}
+          />
         ))}
       </div>
     </div>
@@ -212,19 +210,14 @@ const whyReasons = [
       </p>
       <div class="grid grid--two">
         {javaTracks.map((track) => (
-          <article class="card class-card">
-            <h3 class="card__title">{track.title}</h3>
-            <p class="card__body">{track.description}</p>
-            <ul class="class-card__list">
-              {track.highlights.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-            <p class="class-card__tuition">{track.tuition}</p>
-            <div class="button-group">
-              <a class="button button--primary" href={track.enrollLink}>Enroll</a>
-            </div>
-          </article>
+          <ClassTrackCard
+            class="class-card"
+            title={track.title}
+            description={track.description}
+            highlights={track.highlights}
+            tuition={track.tuition}
+            ctaHref={track.enrollLink}
+          />
         ))}
       </div>
     </div>
@@ -251,10 +244,9 @@ const whyReasons = [
     <div class="container">
       <div class="grid grid--two why-grid">
         {whyReasons.map((item) => (
-          <article class="card why-card">
-            <h3 class="card__title">{item.title}</h3>
+          <CalloutCard class="why-card" title={item.title}>
             <p class="card__body">{item.body}</p>
-          </article>
+          </CalloutCard>
         ))}
       </div>
     </div>
@@ -269,11 +261,7 @@ const whyReasons = [
       />
       <div class="levels-grid">
         {courseLevels.map((level) => (
-          <article class="card level-card">
-            <div class="level-card__badge">{level.level}</div>
-            <h3 class="card__title">{level.title}</h3>
-            <p class="card__body">{level.description}</p>
-          </article>
+          <LevelCard class="level-card" level={level.level} title={level.title} description={level.description} />
         ))}
       </div>
     </div>

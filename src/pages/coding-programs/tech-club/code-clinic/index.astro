@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
+import CalloutCard from '../../../../components/ui/CalloutCard.astro';
 import { meetupLinks } from '../../../../data/techClub';
 
 const highlights = [
@@ -37,13 +38,13 @@ const sessionTopics = [
           <a class="button button--secondary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">Who Should Attend</h2>
-        <ul class="hero__list">
-          {highlights.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
+      <CalloutCard
+        class="hero__aside"
+        headingLevel={2}
+        title="Who Should Attend"
+        items={highlights}
+        itemsClass="hero__list"
+      >
         <figure class="hero__media">
           <img
             src="https://www.jointheleague.org/wp-content/uploads/2025/04/denimkids.jpeg"
@@ -51,7 +52,7 @@ const sessionTopics = [
             loading="lazy"
           />
         </figure>
-      </aside>
+      </CalloutCard>
     </div>
   </section>
 
@@ -73,14 +74,13 @@ const sessionTopics = [
           college applications. Alumni frequently mentor new participants, keeping the clinic collaborative and fast paced.
         </p>
       </div>
-      <div class="two-column__list card">
-        <h3 class="card__title">Recent Clinic Topics</h3>
+      <CalloutCard class="two-column__list" title="Recent Clinic Topics">
         <ul>
           {sessionTopics.map((topic) => (
             <li>{topic}</li>
           ))}
         </ul>
-      </div>
+      </CalloutCard>
     </div>
   </section>
 
@@ -102,23 +102,25 @@ const sessionTopics = [
   </section>
 
   <section class="section">
-    <div class="container try-card card">
-      <div class="try-card__copy">
-        <h2 class="card__title">Try a Free Tech Club Class</h2>
-        <p>
-          Not sure Code Clinic is the right fit? Join the Tech Club Meetup to sample Python, Java, robotics, and
-          electronics workshops that welcome all experience levels. You can build confidence there and step into Code
-          Clinic when you are ready for a deeper challenge.
-        </p>
-        <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
-      </div>
-      <figure class="try-card__media">
-        <img
-          src="https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png"
-          alt="The League Tech Club logo"
-          loading="lazy"
-        />
-      </figure>
+    <div class="container">
+      <CalloutCard class="try-card">
+        <div class="try-card__copy">
+          <h2 class="card__title">Try a Free Tech Club Class</h2>
+          <p>
+            Not sure Code Clinic is the right fit? Join the Tech Club Meetup to sample Python, Java, robotics, and
+            electronics workshops that welcome all experience levels. You can build confidence there and step into Code
+            Clinic when you are ready for a deeper challenge.
+          </p>
+          <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+        </div>
+        <figure class="try-card__media">
+          <img
+            src="https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png"
+            alt="The League Tech Club logo"
+            loading="lazy"
+          />
+        </figure>
+      </CalloutCard>
     </div>
   </section>
 </BaseLayout>

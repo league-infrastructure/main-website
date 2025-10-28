@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
+import CalloutCard from '../../../../components/ui/CalloutCard.astro';
 import { meetupLinks, contactInfo } from '../../../../data/techClub';
 
 const classOptions = [
@@ -81,13 +82,17 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           <a class="button button--secondary" href="#schedule">View Schedule</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">Four Workshops, Three Languages</h2>
-        <ul class="hero__list">
-          <li>Friendly instructors and mentors with scouting experience</li>
-          <li>Project-based classes that end with shareable code</li>
-          <li>Options for troops, patrols, or individual Scouts</li>
-        </ul>
+      <aside class="hero__aside">
+        <CalloutCard
+          headingLevel={2}
+          title="Four Workshops, Three Languages"
+          items={[
+            'Friendly instructors and mentors with scouting experience',
+            'Project-based classes that end with shareable code',
+            'Options for troops, patrols, or individual Scouts',
+          ]}
+          itemsClass="hero__list"
+        />
       </aside>
     </div>
   </section>
@@ -100,13 +105,12 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       />
       <div class="offerings-grid">
         {classOptions.map((item) => (
-          <article class="card offering">
-            <figure class="offering__media">
+          <CalloutCard class="offering" title={item.title}>
+            <figure slot="media" class="offering__media">
               <img src={item.image.src} alt={item.image.alt} loading="lazy" />
             </figure>
-            <h3 class="card__title">{item.title}</h3>
             <p class="card__body">{item.description}</p>
-          </article>
+          </CalloutCard>
         ))}
       </div>
     </div>
@@ -122,8 +126,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           ))}
         </ol>
       </div>
-      <aside class="two-column__list card resources">
-        <h3 class="card__title">Helpful Resources</h3>
+      <CalloutCard class="two-column__list resources" title="Helpful Resources">
         <ul>
           {resources.map((resource) => (
             <li>
@@ -131,7 +134,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
             </li>
           ))}
         </ul>
-      </aside>
+      </CalloutCard>
     </div>
   </section>
 
@@ -159,7 +162,11 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         description="Plan a dedicated merit badge workshop for your troop, district, or council."
         align="left"
       />
-      <div class="card contact-card">
+      <CalloutCard
+        class="contact-card"
+        title="Schedule a Troop Event"
+        cta={{ label: 'Request a Group Session', href: '/about/contact/' }}
+      >
         <p>
           We can tailor workshops to your timeline, location, and Scout experience level. Fill out the request form or
           contact our Executive Director to coordinate instructors and equipment.
@@ -168,8 +175,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
           <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
         </ul>
-        <a class="button button--primary" href="/about/contact/">Request a Group Session</a>
-      </div>
+      </CalloutCard>
     </div>
   </section>
 </BaseLayout>

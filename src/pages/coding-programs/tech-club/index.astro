@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import EmbedLoader from '../../../components/EmbedLoader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
 import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
 
 const donationScript =
@@ -24,15 +25,15 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           <a class="button button--secondary" href={techClubHero.secondaryAction.href}>{techClubHero.secondaryAction.label}</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">What to Expect</h2>
-        <ul class="hero__list">
-          {techClubHero.details.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-        <a class="link" href={meetupLinks.techClub}>Browse the upcoming schedule</a>
-      </aside>
+      <CalloutCard
+        class="hero__aside"
+        title="What to Expect"
+        headingLevel={2}
+        items={techClubHero.details}
+        itemsClass="hero__list"
+      >
+        <a slot="footer" class="link" href={meetupLinks.techClub}>Browse the upcoming schedule</a>
+      </CalloutCard>
     </div>
   </section>
 
@@ -44,13 +45,12 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       />
       <div class="program-grid">
         {techClubPrograms.map((program) => (
-          <article class="card program-card">
-            <figure class="program-card__media">
+          <CalloutCard class="program-card" title={program.title}>
+            <figure slot="media" class="program-card__media">
               <img src={program.image.src} alt={program.image.alt} loading="lazy" />
             </figure>
-            <h3 class="card__title">{program.title}</h3>
             <p class="card__body">{program.description}</p>
-          </article>
+          </CalloutCard>
         ))}
       </div>
     </div>
@@ -76,8 +76,11 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
             training.
           </p>
         </div>
-        <div class="two-column__list card">
-          <h3 class="card__title">Topics We Cover</h3>
+        <CalloutCard
+          class="two-column__list"
+          title="Topics We Cover"
+          cta={{ label: 'Join the Tech Club Meetup', href: meetupLinks.techClub, variant: 'primary' }}
+        >
           <ul>
             {techClubTopics.map((topic) => (
               <li>
@@ -85,8 +88,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
               </li>
             ))}
           </ul>
-          <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
-        </div>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -125,14 +127,16 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
             community.
           </p>
         </div>
-        <div class="two-column__list card contact-card">
-          <h3 class="card__title">Contact</h3>
+        <CalloutCard
+          class="two-column__list contact-card"
+          title="Contact"
+          cta={{ label: 'Contact Form', href: '/about/contact/', variant: 'secondary' }}
+        >
           <ul>
             <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
             <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
           </ul>
-          <a class="button button--secondary" href="/about/contact/">Contact Form</a>
-        </div>
+        </CalloutCard>
       </div>
     </div>
   </section>

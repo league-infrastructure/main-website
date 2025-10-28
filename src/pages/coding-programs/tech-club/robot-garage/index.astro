@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
+import CalloutCard from '../../../../components/ui/CalloutCard.astro';
 import { meetupLinks } from '../../../../data/techClub';
 
 const heroHighlights = [
@@ -42,13 +43,13 @@ const clinicLists = [
           <a class="button button--secondary" href={meetupLinks.techClub}>Try a Free Tech Club Class</a>
         </div>
       </div>
-      <aside class="hero__aside card">
-        <h2 class="card__title">Program Highlights</h2>
-        <ul class="hero__list">
-          {heroHighlights.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
+      <CalloutCard
+        class="hero__aside"
+        headingLevel={2}
+        title="Program Highlights"
+        items={heroHighlights}
+        itemsClass="hero__list"
+      >
         <figure class="hero__media">
           <img
             src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_4216.png"
@@ -56,7 +57,7 @@ const clinicLists = [
             loading="lazy"
           />
         </figure>
-      </aside>
+      </CalloutCard>
     </div>
   </section>
 
@@ -72,8 +73,8 @@ const clinicLists = [
           <p>{note}</p>
         ))}
       </div>
-      <div class="two-column__list card">
-        <figure class="side-image">
+      <CalloutCard class="two-column__list">
+        <figure slot="media" class="side-image">
           <img
             src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_3009-800x842.png"
             alt="Robot prototype built by students"
@@ -85,7 +86,7 @@ const clinicLists = [
           GitHub and practice iterative design so they can present polished demos to robotics teams, college admissions
           offices, and potential employers.
         </p>
-      </div>
+      </CalloutCard>
     </div>
   </section>
 
@@ -96,7 +97,13 @@ const clinicLists = [
         description="Summer 2025 programming clinics support both FIRST FRC and FTC robotics teams."
       />
       <div class="clinic-grid">
-        <div class="card clinic-card">
+        <CalloutCard
+          class="clinic-card"
+          cta={{
+            label: 'Register for the Programming Clinic',
+            href: 'https://docs.google.com/forms/d/e/1FAIpQLSdHk68vyMAJehdkNO5-tY_aMcv0LdDJOoEXaoSLtciT3x0fVA/viewform?usp=dialog',
+          }}
+        >
           <p>
             Students sharpen their Python and Java skills, practice FIRST tooling, and experiment with advanced concepts
             such as PID control, filtering, AprilTags, and autonomous route planning. We are recruiting robotics students,
@@ -114,21 +121,14 @@ const clinicLists = [
             If you are already on a FIRST team, complete the registration form so we can coordinate classes, mentors, and
             space for your season.
           </p>
-          <a
-            class="button button--primary"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdHk68vyMAJehdkNO5-tY_aMcv0LdDJOoEXaoSLtciT3x0fVA/viewform?usp=dialog"
-          >
-            Register for the Programming Clinic
-          </a>
-        </div>
-        <aside class="card clinic-card">
-          <h3 class="card__title">Related Programs</h3>
+        </CalloutCard>
+        <CalloutCard class="clinic-card" title="Related Programs">
           <ul class="clinic-links">
             <li><a href="/coding-programs/tech-club/code-clinic/">Code Clinic</a></li>
             <li><a href="/coding-programs/league-labs/">League Labs</a></li>
             <li><a href="/coding-programs/coding-camps/summer-2025/summer-projects/#research">AI Research Projects</a></li>
           </ul>
-        </aside>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -152,14 +152,7 @@ const clinicLists = [
 
   <section class="section section--surface-alt">
     <div class="container try-grid">
-      <article class="card try-card">
-        <figure class="try-card__media">
-          <img
-            src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_2975-800x895.png"
-            alt="Students soldering at the Tech Club"
-            loading="lazy"
-          />
-        </figure>
+      <CalloutCard class="try-card">
         <div class="try-card__copy">
           <h2 class="card__title">Not Sure Yet?</h2>
           <p>
@@ -171,15 +164,25 @@ const clinicLists = [
             <a class="button button--secondary" href="/about/contact/">Contact the League</a>
           </div>
         </div>
-      </article>
-      <article class="card partner-card">
-        <h2 class="card__title">Bring the Tech Club to You</h2>
+        <figure class="try-card__media">
+          <img
+            src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_2975-800x895.png"
+            alt="Students soldering at the Tech Club"
+            loading="lazy"
+          />
+        </figure>
+      </CalloutCard>
+      <CalloutCard
+        class="partner-card"
+        headingLevel={2}
+        title="Bring the Tech Club to You"
+        cta={{ label: 'Learn About Hosting', href: '/coding-programs/tech-club/#host-tech-club', variant: 'secondary' }}
+      >
         <p>
           We regularly partner with schools, companies, and libraries to host pop-up robotics and electronics clinics. Get
           in touch if you would like the League to run a session for your community.
         </p>
-        <a class="button button--secondary" href="/coding-programs/tech-club/#host-tech-club">Learn About Hosting</a>
-      </article>
+      </CalloutCard>
     </div>
   </section>
 </BaseLayout>

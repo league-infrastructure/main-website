@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Image {
+  src: string;
+  alt: string;
+}
+
+interface Props extends HTMLAttributes<'article'> {
+  title: string;
+  level: string;
+  description: string;
+  image: Image;
+  linkHref?: string;
+  linkLabel?: string;
+  linkTarget?: string;
+  linkRel?: string;
+}
+
+const {
+  title,
+  level,
+  description,
+  image,
+  linkHref,
+  linkLabel = 'Learn more',
+  linkTarget,
+  linkRel,
+  class: className,
+  ...rest
+} = Astro.props as Props & { class?: string };
+---
+
+<article class:list={['card', className]} {...rest}>
+  <figure class="track__media">
+    <img src={image.src} alt={image.alt} loading="lazy" />
+  </figure>
+  <div class="track__content">
+    <p class="track__level">{level}</p>
+    <h3 class="card__title">{title}</h3>
+    <p class="card__body">{description}</p>
+    {linkHref && (
+      <a class="link" href={linkHref} target={linkTarget} rel={linkRel}>{linkLabel}</a>
+    )}
+  </div>
+</article>

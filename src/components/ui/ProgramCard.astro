@@ -1,0 +1,70 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Image {
+  src: string;
+  alt: string;
+}
+
+interface CTA {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+  target?: string;
+  rel?: string;
+}
+
+interface Props extends HTMLAttributes<'article'> {
+  title: string;
+  level: string;
+  description: string;
+  highlights: string[];
+  price?: string;
+  image?: Image;
+  cta: CTA;
+}
+
+const {
+  title,
+  level,
+  description,
+  highlights = [],
+  price,
+  image,
+  cta,
+  class: className,
+  ...rest
+} = Astro.props as Props & { class?: string };
+---
+
+<article class:list={[ 'card', className ]} {...rest}>
+  {image && (
+    <figure class="card__media">
+      <img src={image.src} alt={image.alt} loading="lazy" />
+    </figure>
+  )}
+  <div class="card__body">
+    <p class="card__eyebrow">{level}</p>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <ul>
+      {highlights.map((highlight) => (
+        <li>{highlight}</li>
+      ))}
+    </ul>
+    {price && <p class="card__price">{price}</p>}
+  </div>
+  <div class="card__footer">
+    <a
+      class:list={[
+        'button',
+        cta.variant === 'secondary' ? 'button--secondary' : 'button--primary',
+      ]}
+      href={cta.href}
+      target={cta.target}
+      rel={cta.rel}
+    >
+      {cta.label}
+    </a>
+  </div>
+</article>

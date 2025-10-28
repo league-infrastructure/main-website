@@ -1,0 +1,52 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'article'> {
+  title: string;
+  description: string;
+  highlights: string[];
+  tuition?: string;
+  ctaHref: string;
+  ctaLabel?: string;
+  ctaVariant?: 'primary' | 'secondary';
+  ctaTarget?: string;
+  ctaRel?: string;
+}
+
+const {
+  title,
+  description,
+  highlights = [],
+  tuition,
+  ctaHref,
+  ctaLabel = 'Enroll',
+  ctaVariant = 'primary',
+  ctaTarget,
+  ctaRel,
+  class: className,
+  ...rest
+} = Astro.props as Props & { class?: string };
+---
+
+<article class:list={['card', className]} {...rest}>
+  <h3 class="card__title">{title}</h3>
+  <p class="card__body">{description}</p>
+  {highlights.length > 0 && (
+    <ul class="class-card__list">
+      {highlights.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  )}
+  {tuition && <p class="class-card__tuition">{tuition}</p>}
+  <div class="button-group">
+    <a
+      class:list={['button', ctaVariant === 'secondary' ? 'button--secondary' : 'button--primary']}
+      href={ctaHref}
+      target={ctaTarget}
+      rel={ctaRel}
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</article>
