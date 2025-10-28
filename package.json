@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.15.2"
+    "astro": "^5.15.2",
+    "fulldev-ui": "^0.6.5"
   }
 }
