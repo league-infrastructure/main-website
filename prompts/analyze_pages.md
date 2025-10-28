@@ -50,8 +50,20 @@ collection will need. For instace the product comparison table will need
 "Level", "Duration", "Price", etc, and the staff entries will nee name, picture
 and blub. 
 
-2) Inventory media assets to determine and classify them in to categories, 
-such as 'logo', 'blog image',  "icon", or "page image"
+2) Inventory media assets to determine and classify them in to categories, such
+as 'logo', 'blog image',  "icon", or "page image"
 
-3) For each major component, provide a deeper description of what properties
-it should have, including sub-content, sub-components and style. 
+3) For each major component, provide a deeper description of what properties it
+should have, including sub-content, sub-components and style. 
+
+4) Review all of the pages and develop a list of the types of pages we have. For
+and a "Program Page". What are all of them that will need a special type? Note
+instance, there is a "Home Page" of course, but also "About" a "Program List"
+that many types of pages will not need a special type, and can use some moreA
+general template. 
+
+5) Extract menus. We have several menus: one at the very top of the page (
+   phone, email and client portal ) one in the header, and one in the footer.
+   Extract the names of the pages that these menus point to. 
+
+6) Extract all of the identified content collections into JSON files. Create a data directory to put them into. 

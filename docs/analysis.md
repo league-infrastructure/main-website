@@ -159,3 +159,42 @@ The site reuses 17 core presentation patterns that inform our Astro component pl
 3. Audit remaining pages in `scrape/pages/` to confirm no additional unique components are missing (e.g., contact forms, modals).
 4. Inventory media assets (logos, photography, lottie JSON) and plan a migration path from current WordPress uploads.
 5. Prototype the comparison table and donation widget integrations early—they present the highest layout and integration risk.
+
+## Page Template Types
+- **Homepage**: marketing-focused landing page combining hero, program highlights, testimonials, media gallery, CTA band, and global footer partials; pulls data from multiple collections.
+- **Program Category**: showcases multiple programs within a portfolio (e.g., `/coding-programs/`) using hero, program card grids, comparison tables, checklists, and related content boxes.
+- **Program Detail**: individual program microsite (e.g., `/coding-programs/classes/python/`) featuring hero, program specifics, schedule, tuition, testimonials, and CTAs.
+- **Mission/About**: storytelling page (e.g., `/about/`) with hero, mission statements, lottie features, staff and board directories, and supporting CTAs.
+- **Donate/Support**: conversion-oriented layout combining embed widgets, impact lists, FAQ accordion, alternative donation methods, and assurance content.
+- **News/Blog Index**: card grid of posts with optional featured slider, category filters, and infinite scroll or pagination.
+- **Blog Post**: single-article template with hero image, metadata, rich content, share links, related posts, and newsletter CTA.
+- **Utility/Portal**: compact informational pages (e.g., client portal) relying on text blocks, embedded forms, and CTA partials.
+- **Modal/Popup**: reusable overlay content triggered globally (newsletter, alerts) implemented via Astro partials with structured modal definitions.
+
+## Navigation Menus
+- **Top Utility Bar**
+	- `(858) 284-0481` → `tel:18582840481`
+	- `Location & Contact` → `/locations`
+	- `Client Portal` → `https://www.jointheleague.org/client-portal/`
+- **Primary Header Menu**
+	- `About` → `/about/`
+	- `Programs` → `/coding-programs/`
+	- `Curriculum` → `https://curriculum.jointheleague.org/`
+	- `News` → `/news/`
+	- `Policies` → `/about/policies/`
+	- `Supporters` → `/donate/supporters/`
+	- CTA: `Donate` → `/donate`
+	- CTA: `Volunteer` → `/volunteer`
+- **Footer Links**
+	- `Subscribe` form posts to `/about/`
+	- Contact: `(858) 284-0481` → `tel:18582840481`
+	- Contact: `info@jointheleague.org` → `mailto:info@jointheleague.org`
+	- Contact: `Location & Contact` → `/locations`
+	- Social: `Facebook` → `https://www.facebook.com/LeagueOfAmazingProgrammers`
+	- Social: `Twitter` → `https://twitter.com/LEAGUEofAmazing`
+	- Social: `Instagram` → `https://www.instagram.com/theleagueofamazingprogrammers/`
+	- Social: `YouTube` → `https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A`
+	- Social: `LinkedIn` → `https://www.linkedin.com/company/the-league-of-amazing-programmers`
+	- Policy: `Nondiscrimination Policy` → `/nondiscrimination-policy/`
+	- Policy: `Privacy Policy` → `/privacy-policy/`
+	- Policy: `Safe Reopening Plan` → `/wp-content/uploads/2021/11/LOAP_SafeReopeningPlan.pdf`
