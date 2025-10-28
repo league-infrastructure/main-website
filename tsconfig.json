@@ -1,5 +1,11 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "paths": {
+      "fulldev-ui/*": ["./node_modules/fulldev-ui/src/*"]
+    },
+    "moduleResolution": "bundler"
+  },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
 }

@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Group from 'fulldev-ui/structures/Group.astro';
+import Button from './Button.astro';
+
+interface Action {
+  label: string;
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  icon?: string;
+  target?: string;
+  rel?: string;
+}
+
+interface Props extends HTMLAttributes<'div'> {
+  actions?: Action[];
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { actions = [], size = 'md', class: className, ...rest } = Astro.props as Props & {
+  class?: string;
+};
+
+const hasContent = actions.length > 0 || Astro.slots.default;
+---
+
+{hasContent && (
+  <Group class:list={['button-group', className]} {...rest}>
+    {actions.map(({ label, href, variant, icon, target, rel }) => (
+      <Button
+        label={label}
+        href={href}
+        variant={variant}
+        size={size}
+        icon={icon}
+        target={target}
+        rel={rel}
+      />
+    ))}
+    <slot />
+  </Group>
+)}

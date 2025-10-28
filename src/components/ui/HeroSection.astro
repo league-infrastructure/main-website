@@ -1,0 +1,165 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Section from 'fulldev-ui/structures/Section.astro';
+import Container from 'fulldev-ui/structures/Container.astro';
+import Stack from 'fulldev-ui/structures/Stack.astro';
+import Card from 'fulldev-ui/structures/Card.astro';
+import Heading from 'fulldev-ui/components/Heading.astro';
+import Paragraph from 'fulldev-ui/components/Paragraph.astro';
+import Tagline from 'fulldev-ui/components/Tagline.astro';
+import List from 'fulldev-ui/components/List.astro';
+import Button from './Button.astro';
+import ButtonGroup from './ButtonGroup.astro';
+
+interface Action {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  icon?: string;
+  target?: string;
+  rel?: string;
+}
+
+interface AsideAction extends Action {}
+
+interface Aside {
+  title: string;
+  description?: string;
+  items?: string[];
+  action?: AsideAction;
+}
+
+interface Props extends HTMLAttributes<'section'> {
+  surface?: 'default' | 'alt' | 'tint';
+  tag?: string;
+  title: string;
+  description?: string;
+  note?: string;
+  status?: string;
+  details?: string[];
+  actions?: Action[];
+  aside?: Aside;
+}
+
+const {
+  surface = 'default',
+  tag,
+  title,
+  description,
+  note,
+  status,
+  details = [],
+  actions = [],
+  aside,
+  class: className,
+  ...rest
+} = Astro.props as Props & { class?: string };
+
+const hasMedia = Boolean(Astro.slots.media);
+---
+
+<Section
+  class:list={[className, 'hero-section', surface !== 'default' ? `section--surface-${surface}` : undefined]}
+  {...rest}
+>
+  <Container class="hero-section__container">
+    <div class:list={['hero-section__layout', hasMedia ? 'hero-section__layout--split' : undefined]}>
+      <Stack class="hero-section__content">
+        {tag && <Tagline class="hero-section__tag" size="sm">{tag}</Tagline>}
+        <Heading depth={1} size="5xl" class="hero-section__title">{title}</Heading>
+        {description && (
+          <Paragraph size="lg" class="hero-section__description">{description}</Paragraph>
+        )}
+        <slot name="description" />
+        {note && (
+          <Paragraph size="sm" class="hero-section__note">{note}</Paragraph>
+        )}
+        {status && (
+          <Paragraph size="sm" class="hero-section__status" muted>{status}</Paragraph>
+        )}
+        {details.length > 0 && <List class="hero-section__details" items={details} />}
+        <slot />
+        <ButtonGroup actions={actions} class="hero-section__actions" />
+      </Stack>
+      {hasMedia && (
+        <div class="hero-section__media">
+          <slot name="media" />
+        </div>
+      )}
+      {aside && (
+        <Card class="hero-section__aside">
+          <Heading depth={2} size="2xl" class="hero-section__aside-title">{aside.title}</Heading>
+          {aside.description && (
+            <Paragraph size="sm" class="hero-section__aside-description">{aside.description}</Paragraph>
+          )}
+          {aside.items?.length && <List class="hero-section__aside-list" items={aside.items} />}
+          {aside.action && (
+            <Button
+              class="hero-section__aside-action"
+              href={aside.action.href}
+              variant={aside.action.variant ?? 'secondary'}
+              icon={aside.action.icon}
+              target={aside.action.target}
+              rel={aside.action.rel}
+            >
+              {aside.action.label}
+            </Button>
+          )}
+        </Card>
+      )}
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .hero-section__container {
+    position: relative;
+  }
+
+  .hero-section__layout {
+    display: grid;
+    gap: var(--space-3xl, 64px);
+    align-items: center;
+  }
+
+  .hero-section__layout--split {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero-section__content {
+    gap: var(--space-xl, 32px);
+  }
+
+  .hero-section__description,
+  .hero-section__note,
+  .hero-section__status {
+    margin: 0;
+  }
+
+  .hero-section__details {
+    margin: 0;
+  }
+
+  .hero-section__actions {
+    margin-top: var(--space-md, 16px);
+  }
+
+  .hero-section__media {
+    position: relative;
+  }
+
+  .hero-section__aside {
+    display: grid;
+    gap: var(--space-md, 16px);
+  }
+
+  .hero-section__aside-list {
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .hero-section__layout {
+      gap: var(--space-2xl, 48px);
+    }
+  }
+</style>

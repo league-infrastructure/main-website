@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import ButtonPrimitive from 'fulldev-ui/components/Button.astro';
+
+interface Props extends HTMLAttributes<'button'> {
+  href?: string;
+  label?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  icon?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  label,
+  href,
+  variant = 'primary',
+  size = 'md',
+  icon,
+  target,
+  rel,
+  ...rest
+} = Astro.props as Props;
+---
+
+<ButtonPrimitive
+  variant={variant}
+  size={size}
+  icon={icon}
+  href={href}
+  target={target}
+  rel={rel}
+  {...rest}
+>
+  {label ? label : <slot />}
+</ButtonPrimitive>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import HeroSection from '../../components/ui/HeroSection.astro';
 import {
   codingProgramsHero,
   mainPrograms,
@@ -15,28 +16,21 @@ import {
   title="Coding Programs"
   description="Weekly Python and Java classes, free Tech Club workshops, and seasonal camps that help San Diego students grow from beginner coders to certified professionals."
 >
-  <section class="section hero">
-    <div class="container hero__content">
-      <div class="hero__copy">
-        <p class="eyebrow">Grades 5-12</p>
-        <h1>{codingProgramsHero.title}</h1>
-        <p>{codingProgramsHero.description}</p>
-        <ul class="hero__list">
-          {codingProgramsHero.details.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-        <div class="hero__actions">
-          {codingProgramsHero.actions.map((action) => (
-            <a class="button" href={action.href}>{action.label}</a>
-          ))}
-        </div>
-      </div>
-      <figure class="hero__media">
-        <img src={codingProgramsHero.image.src} alt={codingProgramsHero.image.alt} loading="lazy" />
-      </figure>
-    </div>
-  </section>
+  <HeroSection
+    class="section programs-hero"
+    title={codingProgramsHero.title}
+    description={codingProgramsHero.description}
+    note="Grades 5-12"
+    details={codingProgramsHero.details}
+    actions={codingProgramsHero.actions.map((action, index) => ({
+      ...action,
+      variant: index === 0 ? 'primary' : 'secondary',
+    }))}
+  >
+    <figure slot="media" class="programs-hero__media">
+      <img src={codingProgramsHero.image.src} alt={codingProgramsHero.image.alt} loading="lazy" />
+    </figure>
+  </HeroSection>
 
   <section class="section">
     <div class="container">
@@ -157,44 +151,35 @@ import {
 </BaseLayout>
 
 <style>
-  .hero__content {
-    display: grid;
-    gap: var(--space-3xl);
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .programs-hero {
+    position: relative;
+    background: var(--color-hero-gradient);
+    padding: var(--space-4xl) 0 var(--space-3xl);
   }
 
-  .hero__copy h1 {
+  .programs-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(93, 95, 239, 0.18), transparent 55%);
+    pointer-events: none;
+  }
+
+  .programs-hero .hero-section__title {
     margin-bottom: var(--space-lg);
   }
 
-  .eyebrow {
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: var(--space-sm);
-  }
-
-  .hero__list {
-    margin: var(--space-lg) 0;
-    padding-left: 20px;
+  .programs-hero .hero-section__details {
     display: grid;
     gap: var(--space-sm);
   }
 
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-  }
-
-  .hero__media {
+  .programs-hero__media {
     margin: 0;
     text-align: center;
   }
 
-  .hero__media img {
+  .programs-hero__media img {
     max-width: 400px;
     width: 100%;
     height: auto;

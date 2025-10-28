@@ -1,37 +1,41 @@
 ---
 import { heroContent } from '../../data/home';
+import HeroSection from '../ui/HeroSection.astro';
 
 const { eyebrow, title, description, primaryCta, secondaryCta, image } = heroContent;
 ---
 
-<section class="hero">
-  <div class="container hero__inner">
-    <div class="hero__content">
-      <span class="tag">{eyebrow}</span>
-      <h1 class="hero__title">{title}</h1>
-      <p class="hero__description">{description}</p>
-      <div class="button-group">
-        <a class="button button--primary" href={primaryCta.href}>{primaryCta.label}</a>
-        <a class="button button--secondary" href={secondaryCta.href} target="_blank" rel="noreferrer">
-          {secondaryCta.label}
-        </a>
-      </div>
-    </div>
-    <div class="hero__media">
-      <div class="hero__blob" aria-hidden="true"></div>
-      <img src={image.src} alt={image.alt} loading="lazy" />
-    </div>
+<HeroSection
+  class="home-hero"
+  surface="tint"
+  tag={eyebrow}
+  title={title}
+  description={description}
+  actions={[
+    { label: primaryCta.label, href: primaryCta.href, variant: 'primary' },
+    {
+      label: secondaryCta.label,
+      href: secondaryCta.href,
+      variant: 'secondary',
+      target: '_blank',
+      rel: 'noreferrer',
+    },
+  ]}
+>
+  <div slot="media" class="home-hero__media">
+    <div class="home-hero__blob" aria-hidden="true"></div>
+    <img src={image.src} alt={image.alt} loading="lazy" />
   </div>
-</section>
+</HeroSection>
 
 <style>
-  .hero {
+  .home-hero {
     position: relative;
     background: var(--color-hero-gradient);
     padding: var(--space-4xl) 0 var(--space-3xl);
   }
 
-  .hero::before {
+  .home-hero::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -39,64 +43,41 @@ const { eyebrow, title, description, primaryCta, secondaryCta, image } = heroCon
     pointer-events: none;
   }
 
-  .hero__inner {
+  .home-hero .hero-section__container {
     position: relative;
-    display: grid;
-    gap: var(--space-3xl);
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
-  .hero__content {
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .hero__title {
-    margin: 0;
-    font-size: clamp(36px, 5vw, 52px);
-    line-height: 1.1;
-    color: var(--color-text);
-  }
-
-  .hero__description {
-    margin: 0;
-    font-size: 20px;
-    color: var(--color-body);
-  }
-
-  .hero__media {
+  .home-hero__media {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .hero__blob {
+  .home-hero__blob {
     position: absolute;
     width: 420px;
     height: 420px;
     background: radial-gradient(circle at 30% 30%, rgba(243, 113, 33, 0.35), transparent 60%);
-    filter: blur(0px);
     transform: translateY(8%);
     border-radius: 50%;
     z-index: -1;
   }
 
-  .hero__media img {
+  .home-hero__media img {
     width: min(100%, 460px);
   }
 
   @media (max-width: 768px) {
-    .hero {
+    .home-hero {
       padding: var(--space-3xl) 0 var(--space-2xl);
     }
 
-    .hero__media {
+    .home-hero__media {
       order: -1;
     }
 
-    .hero__blob {
+    .home-hero__blob {
       width: 320px;
       height: 320px;
     }

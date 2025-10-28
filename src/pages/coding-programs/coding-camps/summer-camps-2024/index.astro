@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { campResources, campContact } from '../../../../data/codingCamps';
+import { summer2024Hero, featuredCamps, campTips, partnershipHighlight } from '../../../../data/summer2024';
+
+const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="Summer Camps 2024"
+  description="Browse 2024 League camps including Tech Discovery, AI, Minecraft modding, Unity game design, and more."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">{summer2024Hero.tag}</p>
+        <h1>{summer2024Hero.title}</h1>
+        <p>{summer2024Hero.description}</p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={summer2024Hero.primaryAction.href}>{summer2024Hero.primaryAction.label}</a>
+          <a class="button button--secondary" href={summer2024Hero.secondaryAction.href}>{summer2024Hero.secondaryAction.label}</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Why Families Pick The League</h2>
+        <ul class="hero__list">
+          {summer2024Hero.highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="camps">
+    <div class="container">
+      <SectionHeader
+        title="2024 Camp Catalog"
+        description="Choose the schedule and topic that fits your student. Every camp below links directly to Pike13 registration."
+      />
+      <div class="camp-grid">
+        {featuredCamps.map((camp) => (
+          <article class="card camp">
+            <header>
+              <p class="camp__level">{camp.level}</p>
+              <h3 class="card__title">{camp.title}</h3>
+            </header>
+            <p class="card__body">{camp.summary}</p>
+            <ul class="camp__schedule">
+              {camp.schedule.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <ul class="camp__details">
+              <li><strong>Location:</strong> {camp.location}</li>
+              <li><strong>Tuition:</strong> {camp.price}</li>
+            </ul>
+            <a class="button button--primary" href={camp.action.href}>{camp.action.label}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="tips">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="What to Expect"
+          description="League camps combine skill building with time to explore, collaborate, and have fun."
+          align="left"
+        />
+        <ul class="tips">
+          {campTips.map((tip) => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <aside class="two-column__aside card emphasis">
+        <h3 class="card__title">{partnershipHighlight.title}</h3>
+        <p>{partnershipHighlight.description}</p>
+        <a class="link" href={partnershipHighlight.href} target="_blank" rel="noopener">{partnershipHighlight.linkLabel}</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="resources">
+    <div class="container resource-grid">
+      <div class="card resource-card">
+        <h3 class="card__title">Prep & Study Guides</h3>
+        <ul>
+          {campResources.map((resource) => (
+            <li>
+              <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="card contact-card">
+        <h3 class="card__title">Plan a Custom Camp</h3>
+        <p>
+          Design a private camp, request scholarship support, or reserve a block of seats for your troop. Email or call and our team
+          will follow up with availability and next steps.
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
+        </ul>
+        <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .camp-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .camp {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .camp__level {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .camp__schedule,
+  .camp__details {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__aside {
+    gap: var(--space-lg);
+  }
+
+  .tips {
+    margin: var(--space-lg) 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .resource-card ul,
+  .contact-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .emphasis {
+    background: var(--color-surface-alt);
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list,
+    .camp__schedule,
+    .camp__details,
+    .tips {
+      padding-left: 16px;
+    }
+  }
+</style>

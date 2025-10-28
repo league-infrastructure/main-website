@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { campResources, campContact } from '../../../../data/codingCamps';
+import { summer2024Hero, featuredCamps, campTips, partnershipHighlight } from '../../../../data/summer2024';
+
+const primaryHighlights = featuredCamps.filter((camp) =>
+  ['AI Camp (with Think Machine)', 'All-Day Tech Discovery Camp', 'Half-Day Tech Discovery Camp'].includes(camp.title)
+);
+const builderTracks = featuredCamps.filter((camp) =>
+  ['Intro to Python Camp', 'Intro to Java Camp', 'Unity Game Development', 'Minecraft Modding', 'Computer Hardware Camp'].includes(
+    camp.title
+  )
+);
+const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="Summer Coding Camps"
+  description="Summer camps at The League blend coding, robotics, drones, and creative technology projects for grades 5–12."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">{summer2024Hero.tag}</p>
+        <h1>Plan Your League Summer</h1>
+        <p>
+          Mix and match week-long camps, half-day experiences, and afternoon intensives. Whether your student wants to explore
+          technology for the first time or dive deep into AI, robotics, or game development, the League has a summer track ready for
+          them.
+        </p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={summer2024Hero.primaryAction.href}>Browse Camp Catalog</a>
+          <a class="button button--secondary" href={summer2024Hero.secondaryAction.href}>Request Scholarships</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Why Families Pick The League</h2>
+        <ul class="hero__list">
+          {summer2024Hero.highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="signature-weeks">
+    <div class="container">
+      <SectionHeader
+        title="Signature Experiences"
+        description="These camps sell out fast and set the tone for the rest of the summer. Secure your seat early."
+      />
+      <div class="camp-grid">
+        {primaryHighlights.map((camp) => (
+          <article class="card camp">
+            <header>
+              <p class="camp__level">{camp.level}</p>
+              <h3 class="card__title">{camp.title}</h3>
+            </header>
+            <p class="card__body">{camp.summary}</p>
+            <ul class="camp__schedule">
+              {camp.schedule.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <ul class="camp__details">
+              <li><strong>Location:</strong> {camp.location}</li>
+              <li><strong>Tuition:</strong> {camp.price}</li>
+            </ul>
+            <a class="button button--primary" href={camp.action.href}>{camp.action.label}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="build-tracks">
+    <div class="container">
+      <SectionHeader
+        title="Skill-Building Tracks"
+        description="Pair morning fundamentals with afternoon electives to design the perfect progression."
+      />
+      <div class="camp-grid">
+        {builderTracks.map((camp) => (
+          <article class="card camp">
+            <header>
+              <p class="camp__level">{camp.level}</p>
+              <h3 class="card__title">{camp.title}</h3>
+            </header>
+            <p class="card__body">{camp.summary}</p>
+            <ul class="camp__schedule">
+              {camp.schedule.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <ul class="camp__details">
+              <li><strong>Location:</strong> {camp.location}</li>
+              <li><strong>Tuition:</strong> {camp.price}</li>
+            </ul>
+            <a class="button button--secondary" href={camp.action.href}>{camp.action.label}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="day-in-life">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="A Day at Camp"
+          description="Every session balances instruction, creativity, collaboration, and time to regroup with mentors."
+          align="left"
+        />
+        <ul class="tips">
+          {campTips.map((tip) => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <aside class="two-column__aside card emphasis">
+        <h3 class="card__title">{partnershipHighlight.title}</h3>
+        <p>{partnershipHighlight.description}</p>
+        <a class="link" href={partnershipHighlight.href} target="_blank" rel="noopener">{partnershipHighlight.linkLabel}</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="resources">
+    <div class="container resource-grid">
+      <div class="card resource-card">
+        <h3 class="card__title">Prep & Study Guides</h3>
+        <ul>
+          {campResources.map((resource) => (
+            <li>
+              <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="card contact-card">
+        <h3 class="card__title">Plan a Custom Camp</h3>
+        <p>
+          Want an on-site experience for your troop or company? Need help building the perfect week-by-week plan? Email or call and our
+          team will help.
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
+        </ul>
+        <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .camp-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .camp {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .camp__level {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .camp__schedule,
+  .camp__details,
+  .tips {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__aside {
+    gap: var(--space-lg);
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .resource-card ul,
+  .contact-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .emphasis {
+    background: var(--color-surface-alt);
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list,
+    .camp__schedule,
+    .camp__details,
+    .tips {
+      padding-left: 16px;
+    }
+  }
+</style>

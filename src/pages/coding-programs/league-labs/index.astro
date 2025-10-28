@@ -1,0 +1,388 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import EmbedLoader from '../../../components/EmbedLoader.astro';
+import {
+  leagueLabsHero,
+  leagueLabsOverview,
+  leagueLabsTopics,
+  leagueLabsSpecialPrograms,
+  classDevelopmentProcess,
+  leagueLabsBenefits,
+  projectExamples,
+  applicationDetails,
+  meetingEmbedUrl,
+  projectIdeas,
+  newsHighlight,
+} from '../../../data/leagueLabs';
+import { contactInfo } from '../../../data/techClub';
+
+const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="League Labs Internship"
+  description="Intern with the League to design new classes, teach peers, and build career-ready experience across curriculum and software projects."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">{leagueLabsHero.tag}</p>
+        <h1>{leagueLabsHero.title}</h1>
+        <p>{leagueLabsHero.description}</p>
+        <p class="note"><strong>Timeline:</strong> {leagueLabsHero.scheduleNote}</p>
+        <p class="status">{leagueLabsHero.status}</p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={leagueLabsHero.primaryAction.href}>{leagueLabsHero.primaryAction.label}</a>
+          <a class="button button--secondary" href={leagueLabsHero.secondaryAction.href}>{leagueLabsHero.secondaryAction.label}</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Why Join League Labs?</h2>
+        <ul class="hero__list">
+          {leagueLabsHero.highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-grid__copy">
+        <SectionHeader
+          title="Design, Teach, and Ship Curriculum"
+          description="Choose a topic you care about, build a shareable lesson, and launch it with support from League mentors."
+          align="left"
+        />
+        <p>{leagueLabsOverview.summary}</p>
+        <p>{leagueLabsOverview.advancedTrack}</p>
+      </div>
+      <div class="about-grid__cards">
+        <article class="card info-card">
+          <h3 class="card__title">Skills You Will Practice</h3>
+          <ul>
+            {leagueLabsOverview.skills.map((skill) => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+        </article>
+        <article class="card info-card">
+          <h3 class="card__title">Popular Topics</h3>
+          <ul>
+            {leagueLabsTopics.map((topic) => (
+              <li>{topic}</li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="special-programs">
+    <div class="container">
+      <SectionHeader
+        title="Special Focus Tracks"
+        description="Shape your internship around robotics teams or science outreach by joining one of these themed cohorts."
+      />
+      <div class="special-grid">
+        {leagueLabsSpecialPrograms.map((program) => (
+          <article class="card special-card">
+            <h3 class="card__title">{program.title}</h3>
+            <p class="card__body">{program.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-you-will-do">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="What You Will Do"
+          description="Interns develop new classes or contribute to our online IDE, following a full product development cycle."
+          align="left"
+        />
+        <ol class="process">
+          {classDevelopmentProcess.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+      <aside class="two-column__aside card emphasis">
+        <h3 class="card__title">Intern Benefits</h3>
+        <ul>
+          {leagueLabsBenefits.map((benefit) => (
+            <li>{benefit}</li>
+          ))}
+        </ul>
+        <a class="button button--primary" href={leagueLabsHero.primaryAction.href}>Join the Interest List</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="project-examples">
+    <div class="container">
+      <SectionHeader
+        title="Project Inspiration"
+        description="Review published League curriculum to see the format and depth interns aim for."
+      />
+      <div class="resource-grid">
+        <p>{projectExamples.blurb}</p>
+        <div class="resource-grid__links">
+          <ul>
+            {projectExamples.links.map((resource) => (
+              <li>
+                <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="Application Process"
+          description="Share your interests, meet the mentors, and stay connected through League Labs announcements."
+          align="left"
+        />
+        <p class="status">{applicationDetails.statusNote}</p>
+        <ol class="process">
+          {applicationDetails.steps.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+      <aside class="two-column__aside card info-card">
+        <h3 class="card__title">Stay in the Loop</h3>
+        <p>Join our Google Group for program updates and project assignments.</p>
+        <a class="button button--secondary" href={applicationDetails.googleGroup.href}>{applicationDetails.googleGroup.label}</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="meetings">
+    <div class="container">
+      <SectionHeader
+        title="Kickoff Meeting Schedule"
+        description="RSVP for an upcoming kickoff session to confirm expectations and choose your first project."
+      />
+      <div class="embed">
+        <EmbedLoader src={meetingEmbedUrl} title="League Labs kickoff meetings" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="project-ideas">
+    <div class="container">
+      <SectionHeader
+        title="Hot Projects"
+        description="Jump into an in-progress idea or pitch your own. These initiatives need interns right now."
+      />
+      <div class="idea-grid">
+        {projectIdeas.map((idea) => (
+          <article class="card idea-card">
+            <h3 class="card__title">{idea.title}</h3>
+            <p class="card__body">{idea.description}</p>
+            {idea.href && (
+              <a class="link" href={idea.href} target="_blank" rel="noopener">Learn more</a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="news">
+    <div class="container news-card card">
+      <div>
+        <SectionHeader
+          title="League Labs News"
+          description={newsHighlight.description}
+          align="left"
+        />
+      </div>
+      <a class="button button--primary" href={newsHighlight.href} target="_blank" rel="noopener">Read Updates</a>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container contact-card card">
+      <h2 class="card__title">Questions About League Labs?</h2>
+      <p>
+        Reach out to our team to confirm eligibility, request a recommendation, or coordinate a custom project track. We are here to help you make the most of your internship.
+      </p>
+      <ul>
+        <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
+        <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+      </ul>
+      <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .note {
+    font-weight: 600;
+    margin-top: var(--space-md);
+  }
+
+  .status {
+    margin-top: var(--space-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .about-grid {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .about-grid__cards {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .info-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .special-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .special-card {
+    gap: var(--space-lg);
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__aside {
+    gap: var(--space-lg);
+  }
+
+  .process {
+    margin: var(--space-lg) 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .emphasis {
+    background: var(--color-surface-subtle);
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: start;
+  }
+
+  .resource-grid__links ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .embed {
+    margin-top: var(--space-xl);
+  }
+
+  .idea-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .idea-card {
+    gap: var(--space-lg);
+  }
+
+  .link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: flex-start;
+  }
+
+  .contact-card ul {
+    margin: var(--space-md) 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .about-grid {
+      gap: var(--space-2xl);
+    }
+
+    .process {
+      padding-left: 16px;
+    }
+  }
+</style>
