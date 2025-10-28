@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { campTracks, campResources, campContact } from '../../../../data/codingCamps';
+import {
+  summer2025Hero,
+  dropInHighlights,
+  dropInNotes,
+  weeklyCamps,
+  dailyFlow,
+  faqItems,
+} from '../../../../data/summer2025';
+
+const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="Summer 2025 Code Arcade"
+  description="Drop-in mornings, weekly Python and Java camps, and specialty labs covering AI, robotics, and game design."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">{summer2025Hero.tag}</p>
+        <h1>{summer2025Hero.title}</h1>
+        <p>{summer2025Hero.description}</p>
+        <ul class="hero__meta">
+          <li><strong>Dates:</strong> {summer2025Hero.dates}</li>
+          <li><strong>Hours:</strong> {summer2025Hero.time}</li>
+          <li><strong>Location:</strong> {summer2025Hero.location}</li>
+          <li><strong>Price:</strong> {summer2025Hero.price}</li>
+        </ul>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={summer2025Hero.primaryAction.href}>{summer2025Hero.primaryAction.label}</a>
+          <a class="button button--secondary" href={summer2025Hero.secondaryAction.href}>{summer2025Hero.secondaryAction.label}</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Why Campers Love Code Arcade</h2>
+        <ul class="hero__list">
+          {dropInHighlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="drop-in">
+    <div class="container">
+      <SectionHeader
+        title="Drop-In Morning Sessions"
+        description="Choose the days that fit your schedule. Mentors customize each session around what your student wants to build."
+      />
+      <div class="notes-card card">
+        <ul>
+          {dropInNotes.map((note) => (
+            <li>{note}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="weekly-camps">
+    <div class="container">
+      <SectionHeader
+        title="Weekly Morning Camps"
+        description="Prefer structured instruction? Reserve a seat in our week-long Python or Java intensives."
+      />
+      <div class="camp-grid">
+        {weeklyCamps.map((camp) => (
+          <article class="card camp">
+            <header>
+              <p class="camp__level">{camp.level}</p>
+              <h3 class="card__title">{camp.title}</h3>
+            </header>
+            <p class="card__body">{camp.summary}</p>
+            <ul class="camp__schedule">
+              {camp.schedule.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <ul class="camp__details">
+              <li><strong>Location:</strong> {camp.location}</li>
+              <li><strong>Tuition:</strong> {camp.price}</li>
+            </ul>
+            <a class="button button--primary" href={camp.action.href}>{camp.action.label}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="daily-flow">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="Daily Flow"
+          description="Every session blends instruction, independent building, and time to show off what campers created."
+          align="left"
+        />
+        <ol class="flow-list">
+          {dailyFlow.map((entry) => (
+            <li>
+              <span class="flow-list__time">{entry.time}</span>
+              <span class="flow-list__activity">{entry.activity}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <aside class="two-column__aside card emphasis">
+        <h3 class="card__title">Bring a Friend</h3>
+        <p>
+          Campers can register with friends or siblings and still tailor projects to their individual interests. Mentors make sure
+          everyone leaves with something to demo.
+        </p>
+        <p>
+          Planning a troop or club field trip? We can reserve a block of seats and adapt the agenda for your group.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="specialty-labs">
+    <div class="container">
+      <SectionHeader
+        title="Specialty Labs"
+        description="Rotate through themed labs covering AI, game development, robotics, and microcontrollers."
+      />
+      <div class="track-grid">
+        {campTracks.map((track) => (
+          <article class="card track">
+            <figure class="track__media">
+              <img src={track.image.src} alt={track.image.alt} loading="lazy" />
+            </figure>
+            <div class="track__content">
+              <p class="track__level">{track.level}</p>
+              <h3 class="card__title">{track.title}</h3>
+              <p class="card__body">{track.description}</p>
+              {track.link && (
+                <a class="link" href={track.link} target="_blank" rel="noopener">Learn more</a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <SectionHeader title="Frequently Asked Questions" description="Have another question? Email or call and we will help." />
+      <div class="faq-grid">
+        {faqItems.map((item) => (
+          <article class="card faq">
+            <h3 class="card__title">{item.question}</h3>
+            <p class="card__body">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="resources">
+    <div class="container resource-grid">
+      <div class="card resource-card">
+        <h3 class="card__title">Prep & Study Guides</h3>
+        <ul>
+          {campResources.map((resource) => (
+            <li>
+              <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="card contact-card">
+        <h3 class="card__title">Plan a Custom Camp</h3>
+        <p>
+          Design a private camp or request scholarship information. Email or call and our team will follow up with availability and
+          next steps.
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
+        </ul>
+        <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__meta {
+    margin: var(--space-lg) 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .notes-card {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .notes-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .camp-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .camp {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .camp__level {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .camp__schedule,
+  .camp__details {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__aside {
+    gap: var(--space-lg);
+  }
+
+  .flow-list {
+    margin: var(--space-lg) 0 0;
+    padding-left: 0;
+    list-style: none;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .flow-list li {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .flow-list__time {
+    font-weight: 600;
+  }
+
+  .track-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .track {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .track__media {
+    margin: 0;
+  }
+
+  .track__media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .track__level {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .faq {
+    gap: var(--space-lg);
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .resource-card ul,
+  .contact-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .emphasis {
+    background: var(--color-surface-alt);
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__meta,
+    .hero__list,
+    .camp__schedule,
+    .camp__details,
+    .notes-card ul {
+      padding-left: 16px;
+    }
+  }
+</style>

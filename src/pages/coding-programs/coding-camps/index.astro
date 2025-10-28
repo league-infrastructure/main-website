@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import {
+  codingCampsHero,
+  codeArcadeInfo,
+  campTracks,
+  slamInfo,
+  campResources,
+  campContact,
+} from '../../../data/codingCamps';
+
+const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="Coding Camps & Holiday SLAMS"
+  description="Week-long camps, drop-in Code Arcade sessions, and holiday SLAMS accelerate Python, Java, robotics, and AI skills with League mentors."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">{codingCampsHero.tag}</p>
+        <h1>{codingCampsHero.title}</h1>
+        <p>{codingCampsHero.description}</p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={codingCampsHero.primaryAction.href}>{codingCampsHero.primaryAction.label}</a>
+          <a class="button button--secondary" href={codingCampsHero.secondaryAction.href}>{codingCampsHero.secondaryAction.label}</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">What Campers Gain</h2>
+        <ul class="hero__list">
+          {codingCampsHero.highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="code-arcade">
+    <div class="container">
+      <div class="two-column">
+        <div class="two-column__copy">
+          <SectionHeader title={codeArcadeInfo.title} description={codeArcadeInfo.description} align="left" />
+          <p class="details"><strong>Schedule:</strong> {codeArcadeInfo.schedule}</p>
+          <p class="details"><strong>Price:</strong> {codeArcadeInfo.price}</p>
+          <ul class="notes">
+            {codeArcadeInfo.notes.map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+          <div class="button-group">
+            <a class="button button--primary" href={codeArcadeInfo.action.href}>{codeArcadeInfo.action.label}</a>
+          </div>
+        </div>
+        <div class="two-column__aside card emphasis">
+          <h3 class="card__title">Drop-In Format</h3>
+          <p>
+            Flexible sign-ups let students tailor each day around Python, Java, robotics, AI, or independent projects. Mentors keep
+            learners challenged and help them launch something new every session.
+          </p>
+          <p>
+            Families can mix Code Arcade mornings with afternoon SLAMS or Tech Club events to build a full-day experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="tracks">
+    <div class="container">
+      <SectionHeader
+        title="Choose Your Track"
+        description="Campers rotate through themed labs or double down on one specialty with support from League mentors."
+      />
+      <div class="track-grid">
+        {campTracks.map((track) => (
+          <article class="card track">
+            <figure class="track__media">
+              <img src={track.image.src} alt={track.image.alt} loading="lazy" />
+            </figure>
+            <div class="track__content">
+              <p class="track__level">{track.level}</p>
+              <h3 class="card__title">{track.title}</h3>
+              <p class="card__body">{track.description}</p>
+              {track.link && (
+                <a class="link" href={track.link} target="_blank" rel="noopener">Learn more</a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="holiday-slams">
+    <div class="container">
+      <div class="two-column">
+        <div class="two-column__copy">
+          <SectionHeader title={slamInfo.title} description={slamInfo.description} align="left" />
+          <ul class="notes">
+            {slamInfo.prerequisites.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <div class="button-group">
+            <a class="button button--primary" href={slamInfo.action.href}>{slamInfo.action.label}</a>
+          </div>
+        </div>
+        <div class="two-column__aside card emphasis">
+          <h3 class="card__title">Ready for Level-Ups</h3>
+          <p>
+            SLAMS compress a month of curriculum into a single break week. Students leave with new projects, mentor feedback, and
+            momentum for their weekly classes.
+          </p>
+          <p>
+            Need help picking dates or confirming eligibility? Reach out and we will build a plan that fits your goals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="resources">
+    <div class="container resource-grid">
+      <div class="card resource-card">
+        <h3 class="card__title">Prep & Study Guides</h3>
+        <ul>
+          {campResources.map((resource) => (
+            <li>
+              <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="card contact-card">
+        <h3 class="card__title">Plan a Custom Camp</h3>
+        <p>
+          Design a private camp or troop workshop at your site, or request scholarship details. Email or call and our team will
+          follow up with availability and next steps.
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
+        </ul>
+        <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__aside {
+    gap: var(--space-lg);
+  }
+
+  .details {
+    font-weight: 600;
+  }
+
+  .notes {
+    margin: var(--space-lg) 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .track-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .track {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .track__media {
+    margin: 0;
+  }
+
+  .track__media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .track__level {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .resource-card ul,
+  .contact-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .emphasis {
+    background: var(--color-surface-alt);
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list {
+      padding-left: 16px;
+    }
+
+    .notes {
+      padding-left: 16px;
+    }
+  }
+</style>

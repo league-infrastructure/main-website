@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
+import EmbedLoader from '../../../components/EmbedLoader.astro';
 import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
 
 const donationScript =
@@ -97,12 +98,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         description="Check the live Tech Club calendar to RSVP for classes near you or join an online session."
       />
       <div class="embed">
-        <iframe
+        <EmbedLoader
           src="https://snips.jtlapp.net/leaguesync/meetups/the-league-tech-club.html"
           title="Tech Club schedule"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        />
       </div>
     </div>
   </section>

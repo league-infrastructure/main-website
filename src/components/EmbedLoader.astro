@@ -1,0 +1,115 @@
+---
+export interface Props {
+  src: string;
+  title?: string;
+  class?: string;
+}
+
+const { src, title, class: className } = Astro.props;
+const elementId = `embed-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div 
+  id={elementId} 
+  class={`embed-loader ${className || ''}`}
+  data-src={src}
+  data-title={title}
+>
+  <div class="embed-loader__loading">
+    <p>Loading {title}...</p>
+  </div>
+</div>
+
+<script>
+  class EmbedLoader extends HTMLElement {
+    private loaded = false;
+
+    connectedCallback() {
+      if (!this.loaded) {
+        this.loadContent();
+        this.loaded = true;
+      }
+    }
+
+    private async loadContent() {
+      const src = this.dataset.src;
+      const title = this.dataset.title;
+      
+      if (!src) return;
+
+      try {
+        const response = await fetch(src);
+        if (!response.ok) {
+          throw new Error(`Failed to load content: ${response.status}`);
+        }
+        
+        const html = await response.text();
+        this.innerHTML = html;
+      } catch (error) {
+        console.error('Error loading embed content:', error);
+        this.innerHTML = `
+          <div class="embed-loader__error">
+            <p>Failed to load ${title || 'content'}. Please try again later.</p>
+          </div>
+        `;
+      }
+    }
+  }
+
+  // Register the custom element
+  if (!customElements.get('embed-loader')) {
+    customElements.define('embed-loader', EmbedLoader);
+  }
+
+  // Initialize existing elements
+  document.querySelectorAll('.embed-loader').forEach((element) => {
+    if (element instanceof EmbedLoader) {
+      element.connectedCallback();
+    }
+  });
+</script>
+
+<style>
+  .embed-loader {
+    width: 100%;
+    min-height: 520px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .embed-loader__loading,
+  .embed-loader__error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 520px;
+    padding: var(--space-xl);
+    text-align: center;
+  }
+
+  .embed-loader__loading p {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .embed-loader__error {
+    background: var(--color-surface-alt);
+  }
+
+  .embed-loader__error p {
+    color: var(--color-danger);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .embed-loader {
+      min-height: 420px;
+    }
+
+    .embed-loader__loading,
+    .embed-loader__error {
+      min-height: 420px;
+    }
+  }
+</style>
