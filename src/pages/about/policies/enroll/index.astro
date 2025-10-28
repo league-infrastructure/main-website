@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Guide to Enrollment"
+  description="Create your Parent Portal account, purchase a plan or pass, and enroll in LEAGUE classes with confidence."
+>
+  <section class="section hero">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <span class="tag">Policy Center</span>
+        <h1>How to Enroll in LEAGUE Classes</h1>
+        <p>
+          Getting started takes three quick steps: create an account for you and your students, purchase the right plan or pass, and enroll in the classes that match your schedule. Use this guide to move through each step.
+        </p>
+      </div>
+      <div class="hero__media">
+        <img
+          src="https://www.jointheleague.org/wp-content/uploads/2021/12/current_students.png"
+          alt="Students working together in a coding class"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="create-account">
+    <div class="container content">
+      <h2>Create an Account</h2>
+      <p>
+        Start by creating a Pike13 account for yourself, then add every child who will attend classes as a dependent. You can add dependents during sign-up or later by visiting your profile and selecting <strong>+ Manage Another Person</strong>.
+      </p>
+      <a class="button" href="https://jtl.pike13.com/me" target="_blank" rel="noreferrer">
+        Log In to the Parent Portal
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="plans-and-passes">
+    <div class="container content">
+      <h2>Plans and Passes</h2>
+      <p>
+        After your account is ready, purchase the plan or pass that fits your student. Plans recur monthly, while passes cover individual visits. Assign the plan or pass to the correct student when prompted.
+      </p>
+      <div class="plan-grid">
+        <div class="card">
+          <h3>Monthly Membership</h3>
+          <p>$280 per month for up to five visits. Available for Python and Java classes, online or in person.</p>
+        </div>
+        <div class="card">
+          <h3>Tech Club Membership</h3>
+          <p>Free plan that unlocks access to Tech Club sessions.</p>
+        </div>
+        <div class="card">
+          <h3>Monthly Tuition</h3>
+          <p>$280 per month for one weekly visit. Legacy plan available for existing families.</p>
+        </div>
+        <div class="card">
+          <h3>Class Pass</h3>
+          <p>$70 per class. Purchase individual visits as needed.</p>
+        </div>
+        <div class="card">
+          <h3>Beta Test Pass</h3>
+          <p>Complimentary pass to try out a class.</p>
+        </div>
+      </div>
+      <p>
+        Purchase plans and passes from the <a href="https://jtl.pike13.com/people/me/shop" target="_blank" rel="noreferrer">Plans and Passes</a> page (requires login).
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="enrolling-in-classes">
+    <div class="container content">
+      <h2>Enrolling in Classes</h2>
+      <div class="subsection">
+        <h3>Find a Weekly Class</h3>
+        <p>
+          Visit the <a href="https://jtl.pike13.com/categories/93504" target="_blank" rel="noreferrer">Classes page</a> to browse the monthly schedule. Choose the day, time, and format that works best for your student.
+        </p>
+      </div>
+      <div class="subsection">
+        <h3>Bulk Enrollment</h3>
+        <p>
+          Python and Java classes meet weekly. After the first session, let the instructor know if you would like to be automatically enrolled in the same day and time each week. You can also <a href="mailto:info@jointheleague.org?subject=Bulk%20Enrollment&amp;body=Hi%2C%20I%20would%20like%20to%20bulk%20enroll%20in%20weekly%20classes." rel="noreferrer">email us</a> to confirm recurring enrollment.
+        </p>
+      </div>
+      <div class="subsection">
+        <h3>Cancel a Class</h3>
+        <ol>
+          <li>Sign in to the Client Portal.</li>
+          <li>Select the appointment under <strong>Upcoming</strong>.</li>
+          <li>Choose <strong>Cancel Registration</strong> and confirm.</li>
+        </ol>
+        <p>A visit is deducted from your plan or pass if a class is not cancelled.</p>
+      </div>
+      <div class="subsection">
+        <h3>Schedule a Make-up</h3>
+        <p>
+          Cancelling a class issues a make-up pass. Return to the class schedule, pick another session, and select the pass you want to use at checkout. Make-ups can be scheduled within the same week or on a future date.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: var(--color-hero-gradient);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .hero__content {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .hero__media {
+    justify-self: center;
+  }
+
+  .hero__media img {
+    width: min(420px, 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .content {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 760px;
+  }
+
+  .plan-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .card {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .subsection {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .subsection ol {
+    display: grid;
+    gap: var(--space-xs);
+    padding-left: var(--space-lg);
+  }
+
+  .content a {
+    color: var(--color-primary);
+  }
+
+  .content a:hover {
+    text-decoration: underline;
+  }
+</style>

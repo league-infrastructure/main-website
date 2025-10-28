@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { mainCampus, satelliteLocations } from '../../../data/locations';
+---
+
+<BaseLayout title="Locations" description="Find The League of Amazing Programmers classes across San Diego County, including our Carmel Valley campus and community partner sites.">
+  <section class="section">
+    <div class="container locations">
+      <div class="locations__intro">
+        <h1>Where We Teach</h1>
+        <p>
+          The League offers in-person classes at our Carmel Valley campus and at partner sites throughout San Diego County. Use the address and links below to plan your visit.
+        </p>
+      </div>
+      <article class="card locations__feature">
+        <h2>{mainCampus.name}</h2>
+        <p>
+          {mainCampus.address.map((line) => (
+            <Fragment>
+              {line}
+              <br />
+            </Fragment>
+          ))}
+        </p>
+        <p>
+          <a href={mainCampus.directionsUrl} target="_blank" rel="noreferrer">Get Directions</a>
+        </p>
+        <p>
+          <strong>Phone:</strong> <a href={mainCampus.phoneHref}>{mainCampus.phone}</a><br />
+          <strong>Email:</strong> <a href={mainCampus.emailHref}>{mainCampus.email}</a>
+        </p>
+        <p class="locations__note">{mainCampus.responseNote}</p>
+      </article>
+      <div class="locations__grid">
+        {satelliteLocations.map((location) => (
+          <article class="card locations__card">
+            <h3>{location.name}</h3>
+            <p>
+              {location.address.map((line) => (
+                <Fragment>
+                  {line}
+                  <br />
+                </Fragment>
+              ))}
+            </p>
+            <div class="locations__links">
+              <a href={location.directionsUrl} target="_blank" rel="noreferrer">Directions</a>
+              <a href={location.website} target="_blank" rel="noreferrer">Site Details</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .locations {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  .locations__feature {
+    max-width: 600px;
+  }
+
+  .locations__note {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 14px;
+  }
+
+  .locations__grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .locations__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { siteSettings, socialLinks } from '../../../data/siteSettings';
+import { mainNavigation } from '../../../data/navigation';
+---
+
+<BaseLayout title="Contact" description="Get in touch with The League of Amazing Programmers for general inquiries, partnerships, or program questions.">
+  <section class="section">
+    <div class="container contact">
+      <div class="contact__intro">
+        <h1>Contact Us</h1>
+        <p>
+          We would love to hear from you. Reach out with questions about our programs, donations, or partnership opportunities and the team will connect you to the right person.
+        </p>
+      </div>
+      <div class="contact__grid">
+        <article class="card">
+          <h2>Visit &amp; Call</h2>
+          <p>
+            {siteSettings.address}<br />
+            <a href={siteSettings.directionsUrl} rel="noreferrer">Get directions</a>
+          </p>
+          <p>
+            <strong>Phone:</strong> <a href={siteSettings.phoneHref}>{siteSettings.phone}</a><br />
+            <strong>Email:</strong> <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a>
+          </p>
+        </article>
+        <article class="card">
+          <h2>Quick Links</h2>
+          <ul class="list-reset contact__links">
+            {mainNavigation.map((item) => (
+              <li>
+                <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noreferrer' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li><a href="/donate/volunteer/">Volunteer with The League</a></li>
+            <li><a href="/donate/create-a-fundraiser/">Create a fundraiser</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Follow The League</h2>
+          <ul class="list-reset contact__links">
+            {socialLinks.map((item) => (
+              <li>
+                <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+      <div class="contact__cta card">
+        <h2>Send Us a Message</h2>
+        <p>
+          Email us at <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a> with your name, the best way to reach you, and how we can help. A team member will respond within two business days.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  .contact__intro {
+    max-width: 720px;
+  }
+
+  .contact__grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .contact__links {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .contact__cta {
+    max-width: 720px;
+  }
+</style>

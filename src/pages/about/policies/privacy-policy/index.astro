@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    id: 'information-we-may-ask-you-to-provide',
+    title: 'I. Information We May Ask You to Provide',
+    body: `
+<p>Through our LEAGUE Sites &amp; Services, we collect information about you and/or your student when you choose to provide it to us. You may share details in order to use LEAGUE Sites &amp; Services, purchase products, request information, apply for a role, register for programs, or verify age. In general, we may ask you for:</p>
+<ul>
+  <li>Contact information such as name, email address, mailing address, and phone numbers (note to parents/guardians of children: if we know a user is under 13, we ask for parent or guardian involvement);</li>
+  <li>Month, day, and year of birth;</li>
+  <li>Gender preference;</li>
+  <li>Course interests;</li>
+  <li>Billing information such as credit card number and billing address;</li>
+  <li>User names to third-party systems (for example, Facebook);</li>
+  <li>Information shared on forums or chat rooms within our LEAGUE Sites &amp; Services (note to parents/guardians of children: forums and chat rooms allow a child user to share personal information that would be visible to other users);</li>
+  <li>Information included in resumes and job applications; and</li>
+  <li>Health details, participation limitations or needs, immunization status, and allergy information.</li>
+</ul>
+<p><em>Note to parents/guardians:</em> We only collect the information described above from someone we know to be a child after we receive verifiable consent, unless a limited exception applies. See the section titled "Our Commitment to Children's Privacy" for more.</p>
+`,
+  },
+  {
+    id: 'information-collected-automatically',
+    title: 'II. Information Collected Automatically',
+    body: `
+<p><strong>Cookies and other tracking technologies</strong></p>
+<p>We may use cookies, web beacons, pixel tags, log files, Local Storage Objects, or similar technologies to collect information about visitors to and users of LEAGUE Sites &amp; Services. This can include the date and time you visit, the pages you view, the time spent within our sites, how often you return, click-stream data, and emails you open, forward, or click. We may automatically gather your browser and operating system type, Internet Service Provider, IP address, software version, and the domain you used to access LEAGUE Sites &amp; Services. We use this information to monitor and improve LEAGUE Sites &amp; Services, support internal operations, personalize your experience, verify e-signatures, and perform internal analysis.</p>
+<p>We do not use cookies or similar technologies to track your activities on non-LEAGUE sites or to serve ads based on browsing activities outside of LEAGUE Sites &amp; Services. LEAGUE Sites &amp; Services do not recognize "Do Not Track" headers or similar mechanisms.</p>
+<p>Our Sites &amp; Services may use third-party plug-ins to provide additional services. These third parties may collect information about you. When we use a plug-in we identify it and link to the third party's privacy policy. We may also collect geolocation information from your device so we can customize your experience. You can typically disable geolocation collection in your device or app settings.</p>
+<p><strong>Social media</strong></p>
+<p>You can interact with our content on or through social media services and other third-party platforms. When you do, you may allow us to access certain information in your profile such as name, email, photo, gender, birthday, location, IDs, user files, connections, or posts. Refer to the privacy policies on those services to manage what they share.</p>
+<p>If we interact with you through third-party sites, we may receive information about your engagement with our content there, including content viewed and ads clicked.</p>
+<p><strong>Information from third-party services</strong></p>
+<p>We may obtain information from third parties and combine it with details collected through our Websites. For example, if you log in through a social login or other authentication service, we access information based on that provider's authorization process. You should review privacy settings on third-party services to understand what they share with us.</p>
+`,
+  },
+  {
+    id: 'control-cookies',
+    title: 'III. Your Ability to Control Cookies and Similar Technologies',
+    body: `
+<p>We use cookies or similar technologies to monitor and improve LEAGUE Sites &amp; Services, support internal operations, personalize your experience, support e-signatures, and conduct internal analysis. You can accept or decline cookies. Most browsers accept cookies by default, but you can usually adjust your settings to decline them. Consult your browser's help resources for instructions.</p>
+<p>If you decline cookies, some services may not function properly, such as logging in or managing a shopping cart. We do not share cookie data with third parties.</p>
+`,
+  },
+  {
+    id: 'how-we-use-information',
+    title: 'IV. How We May Use Your Information',
+    body: `
+<p>We may use information collected from and about you and/or your student to:</p>
+<ul>
+  <li>Register you or your student with LEAGUE Sites &amp; Services;</li>
+  <li>Provide access to LEAGUE Sites &amp; Services;</li>
+  <li>Fulfill orders, process payments, and prevent transactional fraud;</li>
+  <li>Respond to requests or inquiries;</li>
+  <li>Provide information about our products and services;</li>
+  <li>Consider you for employment or volunteer opportunities;</li>
+  <li>Register you or your student in programs;</li>
+  <li>Verify your student's age;</li>
+  <li>Monitor and improve LEAGUE Sites &amp; Services, support internal operations, personalize the online experience, and conduct internal analysis;</li>
+  <li>Protect the security or integrity of LEAGUE Sites &amp; Services and our business;</li>
+  <li>Facilitate the sale or potential sale of our business or assets; or</li>
+  <li>Meet legal requirements.</li>
+</ul>
+`,
+  },
+  {
+    id: 'how-we-share-information',
+    title: 'V. How We Share Information',
+    body: `
+<p>We do not sell or share your or your student's information with third parties except for the limited purposes described below. Parents or guardians of children under 13 may consent to collection and use without consenting to disclosure to certain third parties.</p>
+<p><strong>1. Law enforcement and safety</strong></p>
+<p>We may access, preserve, and/or disclose information collected through LEAGUE Sites &amp; Services if required by law or if we believe it is reasonably necessary to comply with legal process, enforce our Terms and Conditions, respond to claims, protect rights or property, or safeguard personal safety. We may also disclose information to limit legal liability.</p>
+<p><strong>2. Service providers</strong></p>
+<p>Information may be shared with third parties engaged to deliver services such as housing, meals, payment processing, email distribution, software, or other technical functions. These providers only receive the information needed to perform their duties and agree to maintain confidentiality. Review the policies of third-party providers, such as payment processors, before sharing additional information with them.</p>
+<p><strong>3. Business transfer</strong></p>
+<p>If we sell or purchase assets, or if another entity acquires us, information collected may be transferred. In bankruptcy or reorganization proceedings, information may be treated as an asset. We will seek to ensure any transferee honors this privacy statement.</p>
+`,
+  },
+  {
+    id: 'commitment-to-childrens-privacy',
+    title: "VI. Our Commitment to Children's Privacy",
+    body: `
+<p>Protecting children's privacy is paramount. We comply with the Children's Online Privacy Protection Act (COPPA). Our LEAGUE Sites &amp; Services are intended for general audiences. We do not knowingly allow anyone under 13 to provide personal information without verifiable parental or guardian consent, except where limited exceptions apply, including but not limited to:</p>
+<ul>
+  <li>Collecting a parent or child's contact information solely to provide notice and obtain consent;</li>
+  <li>Collecting a parent's contact details to provide voluntary notice about a child's participation when no other personal information is collected;</li>
+  <li>Collecting a child's contact information to respond one time to a specific request and deleting it afterward;</li>
+  <li>Collecting a child and parent's contact information to respond more than once to a specific request without using it otherwise;</li>
+  <li>Collecting contact information to protect a child's safety without using it for unrelated purposes;</li>
+  <li>Collecting a persistent identifier solely to support internal operations; or</li>
+  <li>Other instances permitted or required by law.</li>
+</ul>
+<p>If we obtain verifiable consent, we collect, use, and disclose the child's information as described in this statement. Some features, such as forums and chat rooms, allow child users to share comments that may include personal information visible to other users. Parents should advise children of the risks of posting personal information online.</p>
+`,
+  },
+  {
+    id: 'parental-guardian-rights',
+    title: 'VII. Parental/Guardian Rights',
+    body: `
+<p>Parents or guardians can review or have their child's personal information deleted and may refuse further collection or use. To exercise these rights, email <a href="mailto:info@jointheleague.org">info@jointheleague.org</a> or mail your request to The LEAGUE of Amazing Programmers, 12625 High Bluff Drive #107, San Diego, CA 92130. You can also call (858) 284-0481.</p>
+`,
+  },
+  {
+    id: 'restrictions-on-child-users',
+    title: 'VIII. Restrictions on Child Users',
+    body: `
+<p>Children under 13 are prevented from accessing areas of LEAGUE Sites &amp; Services that include client account information or age-inappropriate content as defined by the Entertainment Software Rating Board (ESRB), unless a parent or guardian approves access.</p>
+`,
+  },
+  {
+    id: 'forums-and-chats',
+    title: 'IX. Forums and Chats',
+    body: `
+<p>Forums and chat rooms may be available. Content posted there can be read by anyone. Information shared in these areas could include personal details visible to others and is no longer private. We cannot guarantee the security of information disclosed in public areas, and users participate at their own risk. We reserve the right to monitor content and remove age-inappropriate or personally identifiable information.</p>
+`,
+  },
+  {
+    id: 'links-and-third-parties',
+    title: 'X. Links and Third Parties',
+    body: `
+<p>We may include or offer third-party websites, products, and services on LEAGUE Sites &amp; Services. These third parties maintain independent privacy policies, and we are not responsible for their content or activities. Our sites may also contain links to other resources provided for convenience. These external sites are not under our control, and accessing them is at your own risk.</p>
+`,
+  },
+  {
+    id: 'international-visitors',
+    title: 'XI. International Visitors',
+    body: `
+<p>LEAGUE Sites &amp; Services are operated on servers located in the United States. By using LEAGUE Sites &amp; Services from the European Union or other regions with different data laws, you consent to transferring your personal information to the United States.</p>
+`,
+  },
+  {
+    id: 'data-security',
+    title: 'XII. Data Security Commitment',
+    body: `
+<p>We implement reasonable physical, electronic, and managerial procedures to safeguard information. Secure Sockets Layer (SSL) protocol protects sensitive personal information on account and registration pages. Sensitive data is encrypted on LEAGUE Sites &amp; Services and when stored on servers.</p>
+`,
+  },
+  {
+    id: 'access-correct-delete',
+    title: 'XIII. How You Can Access, Request a Copy, Correct, or Ask for Information to Be Deleted',
+    body: `
+<p>Certain personal information collected through our services may be available to you. If you created a password-protected account, you can access it to review the information provided.</p>
+<p>You may also email or mail us to request a copy, correction, or deletion of personal information. Include registration details such as name, phone, and email address. We may request additional information to verify identity.</p>
+<p>Email: <a href="mailto:info@jointheleague.org">info@jointheleague.org</a><br />
+Phone: 1-858-284-0481</p>
+`,
+  },
+  {
+    id: 'contact-and-opt-out',
+    title: 'XIV. How to Contact Us / Opting Out of Electronic Communications',
+    body: `
+<p>If you have questions about this Privacy Policy, or if you have provided your email or address and prefer not to receive marketing information, contact us via email or phone. Provide your name and the email addresses or mailing addresses to remove.</p>
+<p>If you signed up for text messages and wish to stop receiving them, call or email us with your name, account email, and phone number(s) to remove.</p>
+<p>Email: <a href="mailto:info@jointheleague.org">info@jointheleague.org</a><br />
+Phone: 1-858-284-0481</p>
+`,
+  },
+  {
+    id: 'terms-and-conditions',
+    title: 'XV. Terms and Conditions',
+    body: `
+<p>Your use of LEAGUE Sites &amp; Services, and any information you provide, is subject to The LEAGUE of Amazing Programmers Terms and Conditions.</p>
+`,
+  },
+  {
+    id: 'privacy-statement-changes',
+    title: 'XVI. Privacy Statement Changes',
+    body: `
+<p>We occasionally amend this privacy statement and reserve the right to change, modify, add, or remove portions at any time. If we materially change the use of personal information, we will announce it on relevant LEAGUE Sites &amp; Services and note it in this statement. The effective date appears at the beginning. Questions can be sent to <a href="mailto:info@jointheleague.org">info@jointheleague.org</a> or mailed to 12625 High Bluff Drive #107, San Diego, CA 92130.</p>
+`,
+  },
+  {
+    id: 'credit-card-information',
+    title: 'XVII. Your Credit Card Information and Transactions',
+    body: `
+<p>For convenience, you can have us bill you or pay by credit card. If you choose credit card payment, we keep the card information on file but do not display it online. Your card security number is not stored in our system.</p>
+<p>We use Secure Socket Layer (SSL) encryption to safeguard transactions. Your information, including credit card data, is encrypted as it travels over the internet.</p>
+`,
+  },
+  {
+    id: 'social-networking-disclaimer',
+    title: 'XVIII. Social Networking Disclaimer',
+    body: `
+<p>The LEAGUE of Amazing Programmers provides opportunities for social networking on platforms such as Facebook, Instagram, Twitter, Flickr, and YouTube. These sites are not affiliated with The LEAGUE and maintain their own terms and policies. Please read the Terms and Conditions on each platform. These Terms apply whether you are a visitor or a participant on sites with an official LEAGUE affiliation.</p>
+<p>When you register for a LEAGUE program, your participant may access social networking sites and can create accounts if they meet the requirements. Interaction guidelines include:</p>
+<ul>
+  <li>We provide a medium for online socializing, but users are responsible for their interactions.</li>
+  <li>We do not screen members or moderate statements beyond platform policies.</li>
+  <li>Participants must exercise caution and judgment when sharing personal information.</li>
+  <li>Parents should advise participants to take reasonable precautions when interacting with others online or in person.</li>
+  <li>Participants must not harass, threaten, bully, stalk, or invade privacy, and must not encourage others to do so.</li>
+  <li>Participants should not share social networking information directly with LEAGUE staff, and staff will not share personal contact details.</li>
+</ul>
+`,
+  },
+  {
+    id: 'copyright-and-intellectual-property',
+    title: 'XIX. Copyright and Intellectual Property Policy',
+    body: `
+<p>You and your participant agree not to use social networking sites to offer, display, distribute, transmit, or store material that infringes copyrighted works, trademarks, service marks, or other intellectual property rights. The LEAGUE reserves the right to terminate accounts of users who repeatedly infringe or are believed to infringe the rights of others.</p>
+`,
+  },
+  {
+    id: 'disclaimer',
+    title: 'XX. Disclaimer',
+    body: `
+<p>By using social networking sites or submitting content, you agree that The LEAGUE of Amazing Programmers is not liable for lost or misdirected submissions, technical errors, communication disruptions, or damages caused by computer viruses or site access. LEAGUE Sites &amp; Services and member submissions are provided "as is" without warranty. Some jurisdictions do not allow certain exclusions, so portions of this disclaimer may not apply.</p>
+`,
+  },
+  {
+    id: 'indemnification',
+    title: 'XXI. Indemnification',
+    body: `
+<p>You agree to defend, indemnify, and hold The LEAGUE of Amazing Programmers, its officers, directors, employees, and agents harmless from claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or connected with your access to or use of affiliated social networking sites, your violation of these Terms, your infringement of third-party rights, or any claim that your submitted content caused damage or violated rights.</p>
+`,
+  },
+];
+
+const toc = sections.map(({ id, title }) => ({ id, title }));
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Learn how The League of Amazing Programmers collects, uses, and protects personal information across our sites and services."
+>
+  <section class="section policy-hero">
+    <div class="container policy-hero__content">
+      <span class="tag">Policy Center</span>
+      <h1>Privacy Policy</h1>
+      <p>
+        Publish Date: 11/03/2020. This privacy policy applies to individuals who visit or use LEAGUE Sites &amp; Services that collect data or display these terms. By using our sites, you agree to the collection, use, and disclosure of data as described.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container policy-intro">
+      <p>All references to "us," "we," or "our" refer to The LEAGUE of Amazing Programmers. References to "child" or "children" indicate individuals under 13 years of age.</p>
+      <p>By accessing or using any LEAGUE Site or Service, you consent to the terms in this privacy statement.</p>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container policy-toc">
+      <h2>On this page</h2>
+      <ul class="policy-toc__list">
+        {toc.map((item) => (
+          <li><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {sections.map((section) => (
+    <section class="section policy-detail" id={section.id}>
+      <div class="container policy-detail__inner">
+        <h2>{section.title}</h2>
+        <div class="policy-detail__content" set:html={section.body} />
+      </div>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+  .policy-hero {
+    background: var(--color-hero-gradient);
+  }
+
+  .policy-hero__content {
+    display: grid;
+    gap: var(--space-md);
+    max-width: 720px;
+  }
+
+  .policy-intro {
+    display: grid;
+    gap: var(--space-md);
+    max-width: 720px;
+  }
+
+  .policy-toc {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .policy-toc__list {
+    display: grid;
+    gap: var(--space-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .policy-toc__list a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .policy-toc__list a:hover {
+    border-color: var(--color-primary);
+  }
+
+  .policy-detail__inner {
+    display: grid;
+    gap: var(--space-md);
+    max-width: 840px;
+  }
+
+  .policy-detail__content {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .policy-detail__content ul,
+  .policy-detail__content ol {
+    display: grid;
+    gap: var(--space-sm);
+    padding-left: var(--space-lg);
+  }
+
+  .policy-detail__content a {
+    color: var(--color-primary);
+  }
+
+  .policy-detail__content a:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Tuition Assistance"
+  description="Learn how The League of Amazing Programmers supports families with sliding-scale tuition and full scholarships for qualifying students."
+>
+  <section class="section tuition-hero">
+    <div class="container tuition-hero__inner">
+      <h1>Tuition Assistance</h1>
+      <p>
+        As a nonprofit, we believe every student deserves access to computer science education regardless of household income. We reserve tuition assistance spots for San Diego County students who qualify for financial support.
+      </p>
+      <p>
+        Families with students participating in the Federal Free and Reduced Lunch Program may qualify for 100% financial aid on workshops and regular classes. Additional aid is available on a sliding scale based on household income.
+      </p>
+      <p class="tuition-hero__note">
+        Tuition assistance must be renewed each year. Regular attendance is required; the League may reassign the spot if classes are missed consistently.
+      </p>
+      <a
+        class="button button--primary"
+        href="https://form.typeform.com/to/WF4LUN?typeform-source=jointheleague.typeform.com"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Apply Now
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tuition-hero {
+    background: linear-gradient(135deg, rgba(45, 36, 24, 0.94), rgba(45, 36, 24, 0.45)),
+      url('https://www.jointheleague.org/wp-content/uploads/2021/09/2020.01.14-Bell-MS-Tech-Discovery-Day_5-scaled.jpg') center/cover;
+    color: #ffffff;
+  }
+
+  .tuition-hero__inner {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 760px;
+  }
+
+  .tuition-hero__note {
+    margin: 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .tuition-hero .button--primary {
+    justify-self: start;
+  }
+</style>
