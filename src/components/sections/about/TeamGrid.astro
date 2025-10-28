@@ -1,0 +1,24 @@
+---
+import SectionHeader from '../../SectionHeader.astro';
+import ProfileCard from '../../ProfileCard.astro';
+import { staffTeam } from '../../../data/about';
+---
+
+<section class="section">
+  <div class="container">
+    <SectionHeader title="Our Staff & Teachers" description="Experienced educators and industry professionals guide students through every level, offering mentorship, certification prep, and project coaching." />
+    <div class="profiles">
+      {staffTeam.map((person) => (
+        <ProfileCard person={person} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .profiles {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+</style>

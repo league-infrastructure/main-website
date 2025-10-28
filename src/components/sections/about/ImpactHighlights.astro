@@ -1,0 +1,35 @@
+---
+import SectionHeader from '../../SectionHeader.astro';
+import { impactHighlights } from '../../../data/about';
+---
+
+<section class="section">
+  <div class="container">
+    <SectionHeader title="Impact Highlights" description="From awareness to career readiness, we pair real-world curriculum with mentorship so students can translate coding skills into futures they love." />
+    <div class="impact__grid">
+      {impactHighlights.map((item) => (
+        <article class="card impact__card">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .impact__grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .impact__card h3 {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .impact__card p {
+    margin: 0;
+  }
+</style>
