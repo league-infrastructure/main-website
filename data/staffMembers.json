@@ -1,0 +1,116 @@
+[
+  {
+    "id": "eric-busboom",
+    "name": "Eric Busboom",
+    "role": "Executive Director",
+    "bio": null,
+    "email": "eric.busboom@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/EricBusboom.png",
+    "priority": 1,
+    "socialLinks": {}
+  },
+  {
+    "id": "osvaldo-ruiz",
+    "name": "Osvaldo Ruiz",
+    "role": "Programs Manager",
+    "bio": null,
+    "email": "osvaldo.ruiz@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/OsvaldoRuiz-e1635886323498.png",
+    "priority": 2,
+    "socialLinks": {}
+  },
+  {
+    "id": "liz-groves",
+    "name": "Liz Groves",
+    "role": "Operations",
+    "bio": null,
+    "email": "liz.groves@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/Liz-Groves.png",
+    "priority": 3,
+    "socialLinks": {}
+  },
+  {
+    "id": "michael-johnson",
+    "name": "Michael Johnson",
+    "role": "Head Teacher",
+    "bio": null,
+    "email": "mike.johnson@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/MikeJohnson-e1635886431891.png",
+    "priority": 4,
+    "socialLinks": {}
+  },
+  {
+    "id": "jed-stumpf",
+    "name": "Jed Stumpf",
+    "role": "Teacher and Development Manager",
+    "bio": null,
+    "email": "jed.stumpf@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2024/09/jed_stumpf-circle.png",
+    "priority": 5,
+    "socialLinks": {}
+  },
+  {
+    "id": "colby-schexnayder",
+    "name": "Colby Schexnayder",
+    "role": "League Teacher",
+    "bio": null,
+    "email": "colby.schexnayder@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/ColbyShexnayder-e1635884609205.png",
+    "priority": 6,
+    "socialLinks": {}
+  },
+  {
+    "id": "nick-graham",
+    "name": "Nick Graham",
+    "role": "League Teacher",
+    "bio": null,
+    "email": "nick.graham@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2022/10/Nick.jpeg",
+    "priority": 7,
+    "socialLinks": {}
+  },
+  {
+    "id": "keith-groves",
+    "name": "Keith Groves",
+    "role": "Curriculum Manager",
+    "bio": null,
+    "email": "keith.groves@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/KeithGroves2.png",
+    "priority": 8,
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/keithalgroves/"
+    }
+  },
+  {
+    "id": "daniel-commins",
+    "name": "Daniel Commins",
+    "role": "League Teacher",
+    "bio": null,
+    "email": "daniel.commins@jointheleague.org",
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2021/10/DanielCommins-e1635886381127.png",
+    "priority": 9,
+    "socialLinks": {}
+  },
+  {
+    "id": "tammy-neuhaus",
+    "name": "Tammy Neuhaus",
+    "role": "League Teacher",
+    "bio": null,
+    "email": null,
+    "phone": null,
+    "headshot": "https://www.jointheleague.org/wp-content/uploads/2024/09/tammy.jpeg",
+    "priority": 10,
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/tamarah-neuhaus-0ba66935/"
+    }
+  }
+]

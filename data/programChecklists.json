@@ -1,0 +1,202 @@
+[
+  {
+    "programSlug": "tech-club",
+    "heading": "Tech Club",
+    "items": [
+      {
+        "icon": "fa-graduation-cap",
+        "label": "Beginner",
+        "description": null
+      },
+      {
+        "icon": "fa-clock",
+        "label": "1 to 1.5 hours per class",
+        "description": null
+      },
+      {
+        "icon": "fa-tag",
+        "label": "Free",
+        "description": null
+      },
+      {
+        "icon": "fa-calendar",
+        "label": "Available Year Round",
+        "description": null
+      },
+      {
+        "icon": "fa-user-friends",
+        "label": "5 Students : 1 Teacher",
+        "description": null
+      },
+      {
+        "icon": "fa-code",
+        "label": "Java, Python and others",
+        "description": null
+      }
+    ]
+  },
+  {
+    "programSlug": "java-coding-classes",
+    "heading": "Java Coding Classes",
+    "items": [
+      {
+        "icon": "fa-graduation-cap",
+        "label": "Intermediate to Advanced",
+        "description": null
+      },
+      {
+        "icon": "fa-clock",
+        "label": "One Day per Week for 1.5 Hours",
+        "description": null
+      },
+      {
+        "icon": "fa-tag",
+        "label": "$260/month (annual)",
+        "description": null
+      },
+      {
+        "icon": "fa-check",
+        "label": "Tuition Assistance Available",
+        "description": null
+      },
+      {
+        "icon": "fa-calendar",
+        "label": "Available Year Round",
+        "description": null
+      },
+      {
+        "icon": "fa-user-friends",
+        "label": "5 Students : 1 Teacher",
+        "description": null
+      },
+      {
+        "icon": "fa-code",
+        "label": "Java Programming Language",
+        "description": null
+      }
+    ]
+  },
+  {
+    "programSlug": "python-coding-classes",
+    "heading": "Python Coding Classes",
+    "items": [
+      {
+        "icon": "fa-graduation-cap",
+        "label": "Beginner",
+        "description": null
+      },
+      {
+        "icon": "fa-clock",
+        "label": "One Day per Week for 1.5 Hours",
+        "description": null
+      },
+      {
+        "icon": "fa-tag",
+        "label": "$260/month (annual)",
+        "description": null
+      },
+      {
+        "icon": "fa-check",
+        "label": "Tuition Assistance Available",
+        "description": null
+      },
+      {
+        "icon": "fa-calendar",
+        "label": "Available Year Round",
+        "description": null
+      },
+      {
+        "icon": "fa-user-friends",
+        "label": "5 Students : 1 Teacher",
+        "description": null
+      },
+      {
+        "icon": "fa-code",
+        "label": "Python Programming Language",
+        "description": null
+      }
+    ]
+  },
+  {
+    "programSlug": "private-classes",
+    "heading": "Private Classes",
+    "items": [
+      {
+        "icon": "fa-graduation-cap",
+        "label": "All Levels",
+        "description": "For students who need extra, individualized help"
+      },
+      {
+        "icon": "fa-clock",
+        "label": "One Day per Week for 1.5 Hours",
+        "description": null
+      },
+      {
+        "icon": "fa-tag",
+        "label": "$390/month (annual)",
+        "description": null
+      },
+      {
+        "icon": "fa-check",
+        "label": "Tuition Assistance Available",
+        "description": null
+      },
+      {
+        "icon": "fa-calendar",
+        "label": "Available Year Round",
+        "description": null
+      },
+      {
+        "icon": "fa-user-friends",
+        "label": "1 : 1 Virtual Classes",
+        "description": null
+      },
+      {
+        "icon": "fa-code",
+        "label": "Java and Python",
+        "description": null
+      }
+    ]
+  },
+  {
+    "programSlug": "seasonal-coding-camps",
+    "heading": "Seasonal Coding Camps",
+    "items": [
+      {
+        "icon": "fa-graduation-cap",
+        "label": "All Levels",
+        "description": null
+      },
+      {
+        "icon": "fa-clock",
+        "label": "Week-long, weekend and afterschool camps",
+        "description": null
+      },
+      {
+        "icon": "fa-tag",
+        "label": "variable",
+        "description": null
+      },
+      {
+        "icon": "fa-check",
+        "label": "Tuition Assistance Available",
+        "description": null
+      },
+      {
+        "icon": "fa-calendar",
+        "label": "Spring Break, Summer Vacation, Winter Holiday Season",
+        "description": null
+      },
+      {
+        "icon": "fa-user-friends",
+        "label": "5 Students : 1 Teacher",
+        "description": null
+      },
+      {
+        "icon": "fa-code",
+        "label": "Programming languages vary by camp",
+        "description": "Contact the team for more information."
+      }
+    ]
+  }
+]

@@ -198,3 +198,10 @@ The site reuses 17 core presentation patterns that inform our Astro component pl
 	- Policy: `Nondiscrimination Policy` → `/nondiscrimination-policy/`
 	- Policy: `Privacy Policy` → `/privacy-policy/`
 	- Policy: `Safe Reopening Plan` → `/wp-content/uploads/2021/11/LOAP_SafeReopeningPlan.pdf`
+
+## Update 6: Program Data Extracts
+- **Structured files added**: `data/programs.json`, `data/programComparisonRows.json`, and `data/programChecklists.json` capture the primary program offerings identified in Update 4.
+- **Coverage**: Python, Java, Tech Club, Private Classes, and Seasonal Coding Camps now include shared fields for cards, comparison tables, and checklist/mobile variants.
+- **Source notes**: Tuition and schedule values come from the comparison table; checklist pricing retains on-page copy (even when amounts differ) so we can reconcile with stakeholders later.
+- **Additional extracts**: Added `data/staffMembers.json` (10 staff profiles with contact metadata) and `data/boardMembers.json` (6 directors with roles and affiliations) pulled from `/scrape/live/about/index.html` person grids.
+- **Next extraction targets**: Testimonials, FAQs, and donation methods remain to be exported into the remaining collections.

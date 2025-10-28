@@ -1,0 +1,77 @@
+[
+  {
+    "programSlug": "tech-club",
+    "displayName": "Tech Club",
+    "level": "Beginner",
+    "duration": "60 to 90 minutes per class",
+    "tuition": "Free",
+    "tuitionAssistance": {
+      "available": false,
+      "note": null
+    },
+    "schedule": "Year-round",
+    "studentTeacherRatio": "10 students : 1 teacher",
+    "languages": ["Python"],
+    "additionalNotes": "Free community classes held at partner schools and libraries."
+  },
+  {
+    "programSlug": "java-coding-classes",
+    "displayName": "Java Coding Classes",
+    "level": "Beginner to Advanced",
+    "duration": "One day per week for 1.5 hours",
+    "tuition": "$280 monthly",
+    "tuitionAssistance": {
+      "available": true,
+      "note": "Tuition assistance available upon request"
+    },
+    "schedule": "Year-round",
+    "studentTeacherRatio": "5 students : 1 teacher",
+    "languages": ["Java"],
+    "additionalNotes": null
+  },
+  {
+    "programSlug": "python-coding-classes",
+    "displayName": "Python Coding Classes",
+    "level": "Beginner",
+    "duration": "One day per week for 1.5 hours",
+    "tuition": "$280 monthly",
+    "tuitionAssistance": {
+      "available": true,
+      "note": "Tuition assistance available upon request"
+    },
+    "schedule": "Year-round",
+    "studentTeacherRatio": "5 students : 1 teacher",
+    "languages": ["Python"],
+    "additionalNotes": null
+  },
+  {
+    "programSlug": "private-classes",
+    "displayName": "Private Classes",
+    "level": "All Levels",
+    "duration": "One day per week for 1.5 hours",
+    "tuition": "$430 monthly",
+    "tuitionAssistance": {
+      "available": false,
+      "note": null
+    },
+    "schedule": "Year-round",
+    "studentTeacherRatio": "1 : 1 virtual classes",
+    "languages": ["Java", "Python"],
+    "additionalNotes": "Individualized mentoring for custom projects."
+  },
+  {
+    "programSlug": "seasonal-coding-camps",
+    "displayName": "Seasonal Coding Camps",
+    "level": "All Levels",
+    "duration": "Week-long, weekend, and afterschool camps",
+    "tuition": "Variable",
+    "tuitionAssistance": {
+      "available": true,
+      "note": "Tuition assistance available for qualifying families"
+    },
+    "schedule": "Spring Break, Summer Vacation, Winter Holiday Season",
+    "studentTeacherRatio": "5 students : 1 teacher",
+    "languages": ["Varies"],
+    "additionalNotes": "Programming languages and topics vary by camp; contact the team for details."
+  }
+]
