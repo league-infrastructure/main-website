@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+
+const reasons = [
+  'Students on FIRST robotics teams',
+  'Learners preparing for AP Computer Science A independently',
+  'Students looking for a new challenge',
+  'High school juniors and seniors who want a head start on college CS classes',
+];
+
+const languageCards = [
+  {
+    title: 'Java Classes',
+    image: {
+      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/java.png',
+      alt: 'Java program illustration',
+    },
+    href: '/coding-programs/classes/java/',
+    cta: 'Enroll in a Java Class',
+  },
+  {
+    title: 'Python Classes',
+    image: {
+      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/python.png',
+      alt: 'Python program illustration',
+    },
+    href: '/coding-programs/classes/python/',
+    cta: 'Enroll in a Python Class',
+  },
+];
+
+const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
+---
+
+<BaseLayout
+  title="Python or Java"
+  description="Understand whether Python or Java is the best starting point for your student and see how to try a free class."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">Choosing a language</p>
+        <h1>Python or Java?</h1>
+        <p>
+          Python and Java are two of the most popular programming languages. Python tops the TIOBE index thanks to its
+          role in data science, AI, and scientific computing. Java remains essential for enterprise systems, AP
+          Computer Science, and robotics programs worldwide.
+        </p>
+        <p>
+          Younger students generally have an easier time starting with Python because the syntax is clean and direct.
+          After a year or two of Python, we recommend adding Java to expand into enterprise patterns, AP coursework, and
+          robotics.
+        </p>
+        <p><strong>Students who might start directly with Java include:</strong></p>
+        <ul class="hero__list">
+          {reasons.map((reason) => (
+            <li>{reason}</li>
+          ))}
+        </ul>
+        <p>
+          No matter where students begin, the fundamentals carry across languages and careers. Professional developers
+          learn multiple languages over time, so it is easy to switch tracks as interests evolve.
+        </p>
+      </div>
+      <aside class="hero__aside">
+        <article class="card try-card">
+          <h2 class="card__title">Try a Class</h2>
+          <p class="card__body">
+            Create a Pike13 account to receive a Beta Test pass for a free introductory class, or join the LEAGUE Tech
+            Club meetup group for complimentary Python and Java workshops across San Diego.
+          </p>
+          <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club">Join the Tech Club</a>
+        </article>
+        <article class="card map-card">
+          <h3 class="card__title">Carmel Valley Classroom</h3>
+          <p class="card__body">{address}</p>
+          <iframe
+            title="Carmel Valley Classroom"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.998260066406!2d-117.24212868713121!3d32.94748027348285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc089e19a7250d%3A0x2d1205c0f125f801!2s12625%20High%20Bluff%20Dr%2C%20San%20Diego%2C%20CA%2092130!5e0!3m2!1sen!2sus!4v1734721995347!5m2!1sen!2sus"
+            referrerpolicy="no-referrer-when-downgrade"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </article>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Choose Your Path"
+        description="Ready to get started? Explore the Python and Java tracks to find the perfect fit."
+      />
+      <div class="grid grid--two language-grid">
+        {languageCards.map((card) => (
+          <article class="card language-card">
+            <figure class="language-card__media">
+              <img src={card.image.src} alt={card.image.alt} loading="lazy" />
+            </figure>
+            <h3 class="card__title">{card.title}</h3>
+            <a class="button button--primary" href={card.href}>{card.cta}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__copy h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__list {
+    margin: var(--space-lg) 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .hero__aside {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .try-card,
+  .map-card {
+    gap: var(--space-lg);
+  }
+
+  .map-card iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    border-radius: var(--radius-md);
+  }
+
+  .language-grid {
+    align-items: stretch;
+  }
+
+  .language-card {
+    text-align: center;
+    gap: var(--space-xl);
+  }
+
+  .language-card__media {
+    margin: 0;
+  }
+
+  .language-card__media img {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list {
+      padding-left: 16px;
+    }
+  }
+</style>

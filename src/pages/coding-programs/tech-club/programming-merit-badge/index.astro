@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { meetupLinks, contactInfo } from '../../../../data/techClub';
+
+const classOptions = [
+  {
+    title: 'Introduction to Python Programming',
+    description:
+      'Cover loops, variables, functions, and Turtle graphics to satisfy requirement 5 with the world\'s most popular language.',
+    image: {
+      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/python.png',
+      alt: 'Python icon',
+    },
+  },
+  {
+    title: 'Introduction to JavaScript Programming',
+    description:
+      'Use a browser-based editor to practice the logic required for requirements 5b and 5c.',
+    image: {
+      src: 'https://www.jointheleague.org/wp-content/uploads/2024/05/JavascriptLogo.png',
+      alt: 'JavaScript icon',
+    },
+  },
+  {
+    title: 'Introduction to Java Programming',
+    description:
+      'Experience professional tooling such as VS Code and GitHub while writing programs in Java.',
+    image: {
+      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/java.png',
+      alt: 'Java icon',
+    },
+  },
+  {
+    title: 'Robotics and Microcontrollers',
+    description:
+      'Program BBC micro:bit controllers with blocks, Python, or JavaScript to satisfy hardware-focused requirements.',
+    image: {
+      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/cutebot-1.png',
+      alt: 'Microcontroller icon',
+    },
+  },
+];
+
+const steps = [
+  'Choose a class from the schedule below. Micro:bit sessions complete requirement 5a the fastest, while pairing Python with Micro:bit builds stronger programming skills.',
+  'Print the Programming Merit Badge workbook or track your progress digitally. Review the requirements in advance.',
+  'Research requirements 1 through 4 and 6 on your own or with your troop so that you arrive ready to demonstrate your knowledge.',
+  'Attend your scheduled Tech Club session to complete requirement 5 and get feedback from League mentors.',
+  'Schedule a follow-up with a League counselor if you still need sign-offs for remaining requirements.',
+];
+
+const resources = [
+  { label: 'Programming Merit Badge Requirements', href: 'https://www.scouting.org/merit-badges/programming/' },
+  { label: 'Programming Merit Badge Book (PDF)', href: 'https://filestore.scouting.org/filestore/merit_badge_reqandres/programming.pdf' },
+  { label: 'Programming Workbook', href: 'http://www.usscouts.org/mb/worksheets/programming.pdf' },
+  { label: 'Intro to Python Curriculum', href: 'https://league-curriculum.github.io/Python-Introduction/' },
+  { label: 'Python Apprentice Curriculum', href: 'https://python-apprentice.jointheleague.org/' },
+  { label: 'Hour of Micro:bit Curriculum', href: 'https://league-curriculum.github.io/HourofMicrobit/' },
+];
+
+const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="Programming Merit Badge"
+  description="Free Tech Club classes help Scouts complete the BSA Programming Merit Badge requirements."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">BSA programming merit badge</p>
+        <h1>Earn the Programming Merit Badge</h1>
+        <p>
+          The League Tech Club offers free 90-minute workshops that satisfy the project requirements for the BSA
+          Programming Merit Badge. Scouts can attend individually or troops can book a dedicated session. Each class is
+          led by experienced mentors and includes time for questions, troubleshooting, and next steps.
+        </p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+          <a class="button button--secondary" href="#schedule">View Schedule</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Four Workshops, Three Languages</h2>
+        <ul class="hero__list">
+          <li>Friendly instructors and mentors with scouting experience</li>
+          <li>Project-based classes that end with shareable code</li>
+          <li>Options for troops, patrols, or individual Scouts</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Choose Your Classes"
+        description="Scouts complete requirement 5 by attending sessions that introduce multiple languages and environments."
+      />
+      <div class="offerings-grid">
+        {classOptions.map((item) => (
+          <article class="card offering">
+            <figure class="offering__media">
+              <img src={item.image.src} alt={item.image.alt} loading="lazy" />
+            </figure>
+            <h3 class="card__title">{item.title}</h3>
+            <p class="card__body">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader title="Step-by-Step Plan" description="Use this checklist to prepare for your merit badge sessions." align="left" />
+        <ol class="steps">
+          {steps.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+      <aside class="two-column__list card resources">
+        <h3 class="card__title">Helpful Resources</h3>
+        <ul>
+          {resources.map((resource) => (
+            <li>
+              <a href={resource.href}>{resource.label}</a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="container">
+      <SectionHeader
+        title="Class Schedule"
+        description="RSVP through Meetup to reserve your spot. Parents should register and list Scouts as guests."
+      />
+      <div class="embed">
+        <iframe
+          src="https://snips.jtlapp.net/leaguesync/meetups/the-league-tech-club-BSA.html"
+          title="Programming Merit Badge schedule"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="group-sessions">
+    <div class="container contact-grid">
+      <SectionHeader
+        title="Schedule a Troop Event"
+        description="Plan a dedicated merit badge workshop for your troop, district, or council."
+        align="left"
+      />
+      <div class="card contact-card">
+        <p>
+          We can tailor workshops to your timeline, location, and Scout experience level. Fill out the request form or
+          contact our Executive Director to coordinate instructors and equipment.
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+        </ul>
+        <a class="button button--primary" href="/about/contact/">Request a Group Session</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .offerings-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .offering {
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  .offering__media {
+    margin: 0;
+  }
+
+  .offering__media img {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .steps {
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .resources ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .embed iframe {
+    width: 100%;
+    min-height: 520px;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .contact-card {
+    gap: var(--space-lg);
+    max-width: 560px;
+  }
+
+  .contact-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list {
+      padding-left: 16px;
+    }
+
+    .embed iframe {
+      min-height: 420px;
+    }
+  }
+</style>

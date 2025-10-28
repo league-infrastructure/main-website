@@ -1,0 +1,413 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+
+const pythonTracks = [
+  {
+    title: 'Python (Carmel Valley)',
+    description: 'Build core programming habits with hands-on projects in our Carmel Valley classroom.',
+    highlights: [
+      'Official Python certificates offered',
+      'One class per week',
+      'Meets in Carmel Valley',
+      'Beginner to advanced cohorts',
+    ],
+    tuition: '$280 per month or $70 per class',
+    enrollLink: 'https://jtl.pike13.com/group_classes/270616',
+  },
+  {
+    title: 'Python Online',
+    description: 'Join the same curriculum live on Zoom with classmates from across San Diego and beyond.',
+    highlights: [
+      'Official Python certificates offered',
+      'One class per week',
+      'Live on Zoom',
+      'Beginner to advanced cohorts',
+    ],
+    tuition: '$280 per month or $70 per class',
+    enrollLink: 'https://jtl.pike13.com/group_classes/255811',
+  },
+];
+
+const javaTracks = [
+  {
+    title: 'Java (Carmel Valley)',
+    description: 'Prepare for AP Computer Science and enterprise software careers with in-person mentorship.',
+    highlights: [
+      'Oracle Java certification preparation',
+      'One class per week',
+      'Meets in Carmel Valley',
+      'Intermediate to advanced cohorts',
+    ],
+    tuition: '$280 per month or $70 per class',
+    enrollLink: 'https://jtl.pike13.com/group_classes/263387',
+  },
+  {
+    title: 'Java Online',
+    description: 'Practice professional Java workflows remotely with small cohorts and live instructors.',
+    highlights: [
+      'Oracle Java certification preparation',
+      'One class per week',
+      'Live on Zoom',
+      'Intermediate to advanced cohorts',
+    ],
+    tuition: '$280 per month or $70 per class',
+    enrollLink: 'https://jtl.pike13.com/group_classes/191042',
+  },
+];
+
+const courseLevels = [
+  {
+    level: 0,
+    title: 'Loop, Logic, Variables',
+    description:
+      'Gain fluency with the building blocks of programming using professional tools like Eclipse and GitHub while mastering loops, logic, and variables.',
+  },
+  {
+    level: 1,
+    title: 'Classes, Objects, & Methods',
+    description:
+      'Understand object-oriented programming concepts and design graphical user interfaces with Java Swing.',
+  },
+  {
+    level: 2,
+    title: 'Building Games with Java',
+    description:
+      'Ship a polished game through iterative testing, usability feedback, and GitHub publishing for a growing portfolio.',
+  },
+  {
+    level: 3,
+    title: 'Data Structures & Algorithms',
+    description:
+      'Implement lists, stacks, and hash maps while practicing classic sorting and searching algorithms.',
+  },
+  {
+    level: 4,
+    title: 'Object-Oriented Programming Principles',
+    description:
+      'Deepen OOP mastery with topics like encapsulation, polymorphism, templates, and exception handling in preparation for AP CS A.',
+  },
+  {
+    level: 5,
+    title: 'Lambdas, Streams, & IO',
+    description:
+      'Explore file IO, bit manipulation, networking, concurrency, and modern Java features such as lambdas and streams.',
+  },
+  {
+    level: 6,
+    title: 'Collaborative Coding Principles',
+    description:
+      'Apply agile workflows, build tooling, and full-stack practices while creating mobile and web applications in teams.',
+  },
+  {
+    level: 7,
+    title: 'Advanced Project for Social Good',
+    description:
+      'Partner with community organizations to design and deliver software that solves real problems.',
+  },
+  {
+    level: 8,
+    title: 'Oracle Java Certification',
+    description:
+      'Prepare for the Java SE 8 Programmer I (1Z0-808) exam through guided study and targeted practice questions.',
+  },
+];
+
+const whyReasons = [
+  {
+    title: 'Why Java?',
+    body:
+      'Java powers AP Computer Science, enterprise software, robotics, and mission-critical systems at places like NASA and major financial firms. Students who master Java can tackle complex projects and professional certifications.',
+  },
+  {
+    title: 'Why Python?',
+    body:
+      'Python is the most approachable first language thanks to its clean syntax, yet it is indispensable for AI, data science, automation, and robotics. Skills transfer quickly to new languages and technologies.',
+  },
+];
+---
+
+<BaseLayout
+  title="Coding Classes"
+  description="Weekly Python and Java classes that guide San Diego students from their first loop to professional certifications with flexible schedules and small cohorts."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">Year-round enrollment</p>
+        <h1>Weekly Java and Python Coding Classes</h1>
+        <p>
+          In our long-term program students start with the fundamentals of programming and continue to advance for
+          four to six years. The curriculum balances problem solving, collaboration, and professional tooling so they
+          can grow into employable software developers.
+        </p>
+        <p>
+          Attend once per week in Carmel Valley or online. Choose a monthly membership or purchase classes one at a
+          time to build a schedule that fits your family.
+        </p>
+        <p>Both Python and Java tracks are available to grades 5 through 12 with a five-to-one student/teacher ratio.</p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href="/coding-programs/classes/python/">Explore Python Track</a>
+          <a class="button button--secondary" href="/coding-programs/classes/java/">Explore Java Track</a>
+        </div>
+      </div>
+      <aside class="hero__aside">
+        <article class="card fact-card">
+          <h2 class="card__title">Flexible Membership</h2>
+          <p class="card__body">Mix and match in-person or online classes, pause when needed, and reschedule with ease.</p>
+          <ul class="fact-card__list">
+            <li>Grades 5-12</li>
+            <li>5 students per teacher</li>
+            <li>Monthly or drop-in pricing</li>
+          </ul>
+          <a class="link" href="/coding-programs/classes/python-vs-java/">Need help choosing a language?</a>
+        </article>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Python Classes"
+        description="Start with the most approachable language and build confidence quickly."
+        align="left"
+      />
+      <p class="section__intro">
+        Our Python curriculum is ideal for younger students and first-time programmers. Students progress from
+        foundational logic to advanced projects while preparing for official Python certificates.
+        <a href="/coding-programs/classes/python/">Learn more about Python classes</a>.
+      </p>
+      <div class="grid grid--two">
+        {pythonTracks.map((track) => (
+          <article class="card class-card">
+            <h3 class="card__title">{track.title}</h3>
+            <p class="card__body">{track.description}</p>
+            <ul class="class-card__list">
+              {track.highlights.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <p class="class-card__tuition">{track.tuition}</p>
+            <div class="button-group">
+              <a class="button button--primary" href={track.enrollLink}>Enroll</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <SectionHeader
+        title="Java Classes"
+        description="Step into enterprise-grade software, AP Computer Science prep, and Oracle certification."
+        align="left"
+      />
+      <p class="section__intro">
+        Java students apply their Python foundations or prior experience to a rigorous eight-level track. The program
+        prepares learners for AP Computer Science A, FIRST robotics teams, and professional certification exams.
+        <a href="/coding-programs/classes/java/">Learn more about Java classes</a>.
+      </p>
+      <div class="grid grid--two">
+        {javaTracks.map((track) => (
+          <article class="card class-card">
+            <h3 class="card__title">{track.title}</h3>
+            <p class="card__body">{track.description}</p>
+            <ul class="class-card__list">
+              {track.highlights.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <p class="class-card__tuition">{track.tuition}</p>
+            <div class="button-group">
+              <a class="button button--primary" href={track.enrollLink}>Enroll</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container try-card">
+      <SectionHeader
+        title="Not Sure? Try a Free Class"
+        description="New Pike13 accounts include a Beta Test pass for a complimentary intro session."
+        align="left"
+      />
+      <div class="try-card__body">
+        <p>
+          Join the LEAGUE Tech Club meetup group to drop into free Java and Python workshops hosted in libraries and
+          schools across San Diego. It is the fastest way to experience our teaching style and meet our instructors.
+        </p>
+        <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club">Join the Tech Club</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--two why-grid">
+        {whyReasons.map((item) => (
+          <article class="card why-card">
+            <h3 class="card__title">{item.title}</h3>
+            <p class="card__body">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <SectionHeader
+        title="Course Levels"
+        description="Students progress through a proven eight-level pathway that culminates in Oracle certification."
+        align="left"
+      />
+      <div class="levels-grid">
+        {courseLevels.map((level) => (
+          <article class="card level-card">
+            <div class="level-card__badge">{level.level}</div>
+            <h3 class="card__title">{level.title}</h3>
+            <p class="card__body">{level.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__copy h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    display: flex;
+  }
+
+  .fact-card {
+    width: 100%;
+    gap: var(--space-lg);
+  }
+
+  .fact-card__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .fact-card .link {
+    font-weight: 600;
+  }
+
+  .section__intro {
+    margin-bottom: var(--space-2xl);
+    max-width: 760px;
+  }
+
+  .section__intro a {
+    font-weight: 600;
+  }
+
+  .class-card {
+    gap: var(--space-lg);
+  }
+
+  .class-card__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .class-card__tuition {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  .try-card {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .try-card__body {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 640px;
+  }
+
+  .why-grid {
+    align-items: stretch;
+  }
+
+  .why-card {
+    gap: var(--space-md);
+  }
+
+  .levels-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .level-card {
+    position: relative;
+    padding-top: var(--space-2xl);
+  }
+
+  .level-card__badge {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-xl);
+    font-size: 48px;
+    font-weight: 700;
+    color: #54cad5;
+    line-height: 1;
+  }
+
+  .level-card .card__title {
+    margin-top: 56px;
+  }
+
+  @media (max-width: 900px) {
+    .level-card__badge {
+      position: static;
+      font-size: 36px;
+    }
+
+    .level-card .card__title {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .fact-card__list {
+      padding-left: 16px;
+    }
+  }
+</style>

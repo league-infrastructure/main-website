@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { meetupLinks } from '../../../../data/techClub';
+
+const heroHighlights = [
+  'Learn to build and program robots end to end',
+  'Choose from multiple weekly sessions',
+  'Ideal for intermediate and advanced students',
+  'Pacific Beach and Carmel Valley locations',
+  'Included with League membership',
+];
+
+const programNotes = [
+  'Robot Garage students explore mechanical design, electronics, motion control, and computer vision while building custom projects. Participants wire sensors, configure microcontrollers, and program motors using platforms like Arduino, micro:bit, and Raspberry Pi.',
+  'Instruction combines common lessons on foundational skills with independent project time. Beginners start with LEDs and motors. Advanced students experiment with neural networks, cameras, and industrial robotic arms.',
+];
+
+const clinicLists = [
+  'Robotics students attend free Code Clinic classes focused on FIRST programming topics.',
+  'Student instructors join League Labs, our internship track where teams build new lessons.',
+  'Researchers dive into machine vision and AI through our summer projects program.',
+];
+---
+
+<BaseLayout
+  title="Robot Garage"
+  description="Hands-on robotics labs that combine hardware, microcontrollers, and advanced programming for committed students."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">Robotics programs</p>
+        <h1>Robot Garage</h1>
+        <p>
+          The Robot Garage is where League students design, wire, and program robots from the ground up. Teams work with
+          motors, cameras, microcontrollers, and sensors to ship ambitious hardware projects while receiving mentorship
+          from industry professionals.
+        </p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href="https://jtl.pike13.com/welcome">Become a Member</a>
+          <a class="button button--secondary" href={meetupLinks.techClub}>Try a Free Tech Club Class</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Program Highlights</h2>
+        <ul class="hero__list">
+          {heroHighlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <figure class="hero__media">
+          <img
+            src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_4216.png"
+            alt="Student programming a robot in the League Robot Garage"
+            loading="lazy"
+          />
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="Build Real Hardware Projects"
+          description="Robot Garage students combine fabrication, programming, and experimentation to construct sophisticated robots."
+          align="left"
+        />
+        {programNotes.map((note) => (
+          <p>{note}</p>
+        ))}
+      </div>
+      <div class="two-column__list card">
+        <figure class="side-image">
+          <img
+            src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_3009-800x842.png"
+            alt="Robot prototype built by students"
+            loading="lazy"
+          />
+        </figure>
+        <p class="card__body">
+          Projects range from autonomous rovers and robotic arms to face-tracking cameras. Students document their work in
+          GitHub and practice iterative design so they can present polished demos to robotics teams, college admissions
+          offices, and potential employers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="first">
+    <div class="container">
+      <SectionHeader
+        title="FIRST Programming Clinic"
+        description="Summer 2025 programming clinics support both FIRST FRC and FTC robotics teams."
+      />
+      <div class="clinic-grid">
+        <div class="card clinic-card">
+          <p>
+            Students sharpen their Python and Java skills, practice FIRST tooling, and experiment with advanced concepts
+            such as PID control, filtering, AprilTags, and autonomous route planning. We are recruiting robotics students,
+            volunteer instructors, and adult sponsors to help shape the curriculum.
+          </p>
+          <p>
+            The FIRST Robotics program connects three pathways based on how you want to participate:
+          </p>
+          <ul>
+            {clinicLists.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <p>
+            If you are already on a FIRST team, complete the registration form so we can coordinate classes, mentors, and
+            space for your season.
+          </p>
+          <a
+            class="button button--primary"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdHk68vyMAJehdkNO5-tY_aMcv0LdDJOoEXaoSLtciT3x0fVA/viewform?usp=dialog"
+          >
+            Register for the Programming Clinic
+          </a>
+        </div>
+        <aside class="card clinic-card">
+          <h3 class="card__title">Related Programs</h3>
+          <ul class="clinic-links">
+            <li><a href="/coding-programs/tech-club/code-clinic/">Code Clinic</a></li>
+            <li><a href="/coding-programs/league-labs/">League Labs</a></li>
+            <li><a href="/coding-programs/coding-camps/summer-2025/summer-projects/#research">AI Research Projects</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Schedule"
+        description="Use your League membership to book Robot Garage sessions in Carmel Valley or Pacific Beach."
+      />
+      <div class="embed">
+        <iframe
+          src="https://snips.jtlapp.net/leaguesync/html/326658/all-5w.html"
+          title="Robot Garage schedule"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container try-grid">
+      <article class="card try-card">
+        <figure class="try-card__media">
+          <img
+            src="https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_2975-800x895.png"
+            alt="Students soldering at the Tech Club"
+            loading="lazy"
+          />
+        </figure>
+        <div class="try-card__copy">
+          <h2 class="card__title">Not Sure Yet?</h2>
+          <p>
+            Visit the Robot Garage by dropping into a free Tech Club meetup. Look for Soldering Clinic and Introduction to
+            Motors classes on the calendar or contact us to arrange a tour.
+          </p>
+          <div class="button-group">
+            <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+            <a class="button button--secondary" href="/about/contact/">Contact the League</a>
+          </div>
+        </div>
+      </article>
+      <article class="card partner-card">
+        <h2 class="card__title">Bring the Tech Club to You</h2>
+        <p>
+          We regularly partner with schools, companies, and libraries to host pop-up robotics and electronics clinics. Get
+          in touch if you would like the League to run a session for your community.
+        </p>
+        <a class="button button--secondary" href="/coding-programs/tech-club/#host-tech-club">Learn About Hosting</a>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .hero__media {
+    margin: 0;
+  }
+
+  .hero__media img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__list {
+    gap: var(--space-lg);
+  }
+
+  .side-image {
+    margin: 0;
+  }
+
+  .side-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .clinic-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .clinic-card {
+    gap: var(--space-lg);
+  }
+
+  .clinic-card ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .clinic-links {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .embed iframe {
+    width: 100%;
+    min-height: 520px;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .try-grid {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .try-card {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .try-card__media {
+    margin: 0;
+    text-align: center;
+  }
+
+  .try-card__media img {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .try-card__copy {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .partner-card {
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list {
+      padding-left: 16px;
+    }
+
+    .embed iframe {
+      min-height: 420px;
+    }
+  }
+</style>

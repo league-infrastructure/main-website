@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import PikeWidget from '../../../../components/PikeWidget.astro';
+
+const heroHighlights = [
+  'Head start on AP Computer Science and college courses',
+  'One class per week',
+  'Meets in Carmel Valley or live on Zoom',
+  'Intermediate to advanced cohorts',
+  '$280 per month or $70 per class',
+];
+
+const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
+---
+
+<BaseLayout
+  title="Java Programming"
+  description="Weekly Java classes in Carmel Valley and online that prepare students for AP Computer Science and Oracle certification."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">Java programming</p>
+        <h1>Weekly Java Classes</h1>
+        <p>
+          Java is the backbone of enterprise software, Android apps, robotics, and mission-critical systems. It is the
+          language of AP Computer Science A and a mainstay in industries from finance to aerospace.
+        </p>
+        <p>
+          Our Java track advances students through eight levels of project-based learning, professional tooling, and
+          exam preparation. Along the way they build GitHub portfolios, collaborate in agile teams, and pursue Oracle
+          Java certification.
+        </p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href="https://jtl.pike13.com/group_classes/263387">Enroll In Person</a>
+          <a class="button button--secondary" href="https://jtl.pike13.com/group_classes/191042">View Online Schedule</a>
+        </div>
+      </div>
+      <aside class="hero__aside">
+        <article class="card highlight-card">
+          <h2 class="card__title">Why Choose Java</h2>
+          <ul class="highlight-card__list">
+            {heroHighlights.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a class="link" href="/coding-programs/classes/python-vs-java/">Compare Python and Java</a>
+        </article>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container schedule-grid">
+      <div>
+        <SectionHeader title="Weekly In-Person Schedule" align="left" />
+        <p class="schedule-grid__intro">
+          Java classes meet once per week. Choose monthly membership pricing or pay per class, then reserve the sessions
+          that fit your calendar. Our Carmel Valley schedule is below. You can also review the
+          <a href="https://jtl.pike13.com/group_classes/191042">live online schedule</a>.
+        </p>
+        <PikeWidget elementId="java-schedule" serviceIds={[263387]} locationIds={[22675]} />
+      </div>
+      <aside class="schedule-aside">
+        <article class="card try-card">
+          <h3 class="card__title">Try a Class</h3>
+          <p class="card__body">
+            New Pike13 accounts include a Beta Test pass for a free introductory class. You can also drop into the
+            LEAGUE Tech Club meetups for weekly Java and Python workshops across San Diego.
+          </p>
+          <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club">Join the Tech Club</a>
+        </article>
+        <article class="card map-card">
+          <h3 class="card__title">Carmel Valley Classroom</h3>
+          <p class="card__body">{address}</p>
+          <iframe
+            title="Carmel Valley Classroom"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.998260066406!2d-117.24212868713121!3d32.94748027348285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc089e19a7250d%3A0x2d1205c0f125f801!2s12625%20High%20Bluff%20Dr%2C%20San%20Diego%2C%20CA%2092130!5e0!3m2!1sen!2sus!4v1734721995347!5m2!1sen!2sus"
+            referrerpolicy="no-referrer-when-downgrade"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </article>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    display: flex;
+  }
+
+  .highlight-card {
+    width: 100%;
+    gap: var(--space-lg);
+  }
+
+  .highlight-card__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .schedule-grid {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .schedule-grid__intro {
+    max-width: 680px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .schedule-grid__intro a {
+    font-weight: 600;
+  }
+
+  .schedule-aside {
+    display: grid;
+    gap: var(--space-2xl);
+    align-content: start;
+  }
+
+  .try-card {
+    gap: var(--space-lg);
+  }
+
+  .map-card {
+    gap: var(--space-lg);
+  }
+
+  .map-card iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    border-radius: var(--radius-md);
+  }
+
+  @media (max-width: 900px) {
+    .schedule-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .highlight-card__list {
+      padding-left: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+interface Props {
+  elementId: string;
+  serviceIds: number[];
+  locationIds: number[];
+  openInNewTab?: boolean;
+  dateWindow?: { start: number; end: number };
+  businessColor?: string;
+}
+
+const {
+  elementId,
+  serviceIds,
+  locationIds,
+  openInNewTab = true,
+  dateWindow = { start: 0, end: 30 },
+  businessColor = '#007bb4',
+} = Astro.props as Props;
+
+const widgetConfig = {
+  elementId,
+  type: 'schedule',
+  useHashRoutes: false,
+  subdomain: 'jtl',
+  date: dateWindow,
+  style: { businessColor },
+  openInTab: openInNewTab,
+  locationIds,
+  serviceIds,
+};
+---
+
+<div id={elementId} class="pike-widget"></div>
+<script is:inline>
+  (() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const config = ${JSON.stringify(widgetConfig)};
+    const attach = () => {
+      if (typeof window.Pike13Widget === 'function') {
+        window.Pike13Widget(config);
+      }
+    };
+
+    const existingScript = document.querySelector('script[data-pike13="widget"]');
+    if (existingScript) {
+      if (typeof window.Pike13Widget === 'function') {
+        attach();
+      } else {
+        existingScript.addEventListener('load', attach, { once: true });
+      }
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://widgets.pike13.com/widget.js';
+    script.dataset.pike13 = 'widget';
+    script.addEventListener('load', attach, { once: true });
+    document.head.append(script);
+  })();
+</script>
+
+<style>
+  .pike-widget {
+    min-height: 320px;
+  }
+</style>

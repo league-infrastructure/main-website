@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
+
+const donationScript =
+  'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=100&suggested_donation_amounts[]=50';
+const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="League Tech Club"
+  description="Free Python, Java, robotics, and JavaScript workshops offered across San Diego libraries, schools, and community spaces."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">{techClubHero.tag}</p>
+        <h1>{techClubHero.title}</h1>
+        <p>{techClubHero.description}</p>
+        <div class="hero__actions button-group">
+          <a class="button button--primary" href={techClubHero.primaryAction.href}>{techClubHero.primaryAction.label}</a>
+          <a class="button button--secondary" href={techClubHero.secondaryAction.href}>{techClubHero.secondaryAction.label}</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">What to Expect</h2>
+        <ul class="hero__list">
+          {techClubHero.details.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <a class="link" href={meetupLinks.techClub}>Browse the upcoming schedule</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Hands-On Workshops"
+        description="Every Tech Club session focuses on a single topic so students can experiment, ask questions, and ship something new in under an hour."
+      />
+      <div class="program-grid">
+        {techClubPrograms.map((program) => (
+          <article class="card program-card">
+            <figure class="program-card__media">
+              <img src={program.image.src} alt={program.image.alt} loading="lazy" />
+            </figure>
+            <h3 class="card__title">{program.title}</h3>
+            <p class="card__body">{program.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <div class="two-column">
+        <div class="two-column__copy">
+          <SectionHeader
+            title="Start Coding in 60 Minutes"
+            description="Each Tech Club class runs about an hour and introduces core programming concepts through mini projects."
+            align="left"
+          />
+          <p>
+            Sessions are hosted across San Diego County in partnership with schools, libraries, recreation centers, and
+            community organizations. Volunteer mentors from the League guide learners through projects, debug code side by
+            side, and share next steps for students who want to keep going.
+          </p>
+          <p>
+            New families can drop into a single meetup while returning members weave Tech Club events into their weekly
+            schedule. All classes are free with optional donations supporting hardware, classroom space, and instructor
+            training.
+          </p>
+        </div>
+        <div class="two-column__list card">
+          <h3 class="card__title">Topics We Cover</h3>
+          <ul>
+            {techClubTopics.map((topic) => (
+              <li>
+                <strong>{topic.title}:</strong> {topic.body}
+              </li>
+            ))}
+          </ul>
+          <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="upcoming-events">
+    <div class="container">
+      <SectionHeader
+        title="Upcoming Events"
+        description="Check the live Tech Club calendar to RSVP for classes near you or join an online session."
+      />
+      <div class="embed">
+        <iframe
+          src="https://snips.jtlapp.net/leaguesync/meetups/the-league-tech-club.html"
+          title="Tech Club schedule"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt" id="host-tech-club">
+    <div class="container">
+      <div class="two-column">
+        <div class="two-column__copy">
+          <SectionHeader
+            title="Host the Tech Club"
+            description="Bring free programming workshops to your school, company, or library."
+            align="left"
+          />
+          <p>
+            The League offers Tech Club sessions anywhere in San Diego County to fulfill our mission of giving every
+            student an introduction to coding. We supply instructors, curriculum, and equipment. You help us recruit
+            students and provide space.
+          </p>
+          <p>
+            Ready to partner? Reach out to our Executive Director, Eric Busboom, to plan a series tailored to your
+            community.
+          </p>
+        </div>
+        <div class="two-column__list card contact-card">
+          <h3 class="card__title">Contact</h3>
+          <ul>
+            <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
+            <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+          </ul>
+          <a class="button button--secondary" href="/about/contact/">Contact Form</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support-tech-club">
+    <div class="container donation">
+      <SectionHeader
+        title="Support Free Community Classes"
+        description="A $250 gift funds a full Tech Club session in a neighborhood library, school, or community center."
+      />
+      <div id="give-lively-widget" class="donation__widget" />
+      <p class="donation__note">
+        Prefer a direct link? Visit
+        <a href="https://secure.givelively.org/donate/the-league-of-amazing-programmers" target="_blank" rel="noopener">
+          our Give Lively page
+        </a>
+        to contribute.
+      </p>
+    </div>
+    <script is:inline data-src={donationScript}>
+      if (typeof window !== 'undefined') {
+        const current = document.currentScript;
+        const donationSrc = current?.dataset.src;
+        const existing = document.querySelector('script[data-givelively="tech-club"]');
+        const loadWidget = () => {
+          if (typeof window.GiveLively !== 'undefined') {
+            window.GiveLively.setup();
+          }
+        };
+
+        if (!existing && donationSrc) {
+          const script = document.createElement('script');
+          script.src = donationSrc;
+          script.dataset.givelively = 'tech-club';
+          script.addEventListener('load', loadWidget, { once: true });
+          document.head.append(script);
+        } else if (typeof window.GiveLively !== 'undefined') {
+          loadWidget();
+        }
+      }
+    </script>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .program-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .program-card {
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  .program-card__media {
+    margin: 0;
+  }
+
+  .program-card__media img {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__list {
+    gap: var(--space-lg);
+  }
+
+  .two-column__list ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .contact-card ul {
+    gap: var(--space-md);
+  }
+
+  .embed iframe {
+    width: 100%;
+    min-height: 520px;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .donation {
+    display: grid;
+    gap: var(--space-xl);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .donation__widget {
+    width: min(560px, 100%);
+  }
+
+  .donation__note {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list {
+      padding-left: 16px;
+    }
+
+    .two-column {
+      gap: var(--space-2xl);
+    }
+
+    .embed iframe {
+      min-height: 420px;
+    }
+  }
+</style>

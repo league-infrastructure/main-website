@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { meetupLinks } from '../../../../data/techClub';
+
+const highlights = [
+  'Designed for intermediate and advanced students',
+  'Explore neural networks, data analysis, Docker, and more',
+  'Live online with occasional in-person deep dives',
+  'Always free to attend',
+];
+
+const sessionTopics = [
+  'Introduction to Neural Networks: review the math that powers modern AI.',
+  'Introduction to Codespaces: spin up full development environments in minutes.',
+  'Introduction to C++: add a systems language to your toolkit after Java or Python.',
+  'Introduction to Docker: package and deploy apps with industry-standard tools.',
+];
+---
+
+<BaseLayout
+  title="Code Clinic"
+  description="Advanced workshops that push past AP Computer Science with deep dives into modern software engineering topics."
+>
+  <section class="section section--surface-alt hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="tag">Advanced workshops</p>
+        <h1>Code Clinic</h1>
+        <p>
+          Code Clinic is a free program for students who want to go beyond AP Computer Science. Each session is a one-hour
+          dive into professional topics such as neural networks, data analysis, containerization, or refactoring. Students
+          leave with new tools, repos to explore, and a path toward self-directed projects.
+        </p>
+        <div class="button-group hero__actions">
+          <a class="button button--primary" href={meetupLinks.codeClinic}>Register for a Session</a>
+          <a class="button button--secondary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+        </div>
+      </div>
+      <aside class="hero__aside card">
+        <h2 class="card__title">Who Should Attend</h2>
+        <ul class="hero__list">
+          {highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <figure class="hero__media">
+          <img
+            src="https://www.jointheleague.org/wp-content/uploads/2025/04/denimkids.jpeg"
+            alt="Students working together during an advanced coding workshop"
+            loading="lazy"
+          />
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column">
+      <div class="two-column__copy">
+        <SectionHeader
+          title="Dive Into Professional Topics"
+          description="Code Clinic offers one to two-hour masterclasses ideal for students who already feel comfortable in Java or Python."
+          align="left"
+        />
+        <p>
+          Sessions are hosted live on Zoom with occasional in-person meetups for hands-on hardware labs. Instructors walk
+          through real repositories, tooling, and production workflows so students gain experience with the same practices
+          used by professional engineers.
+        </p>
+        <p>
+          Many attendees are preparing for internships, leading FIRST robotics teams, or expanding their portfolios for
+          college applications. Alumni frequently mentor new participants, keeping the clinic collaborative and fast paced.
+        </p>
+      </div>
+      <div class="two-column__list card">
+        <h3 class="card__title">Recent Clinic Topics</h3>
+        <ul>
+          {sessionTopics.map((topic) => (
+            <li>{topic}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <SectionHeader
+        title="Upcoming Events"
+        description="New sessions are posted regularly. RSVP to reserve a seat and receive workshop materials."
+      />
+      <div class="embed">
+        <iframe
+          src="https://snips.jtlapp.net/leaguesync/meetups/the-league-code-clinic-all.html"
+          title="Code Clinic schedule"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container try-card card">
+      <div class="try-card__copy">
+        <h2 class="card__title">Try a Free Tech Club Class</h2>
+        <p>
+          Not sure Code Clinic is the right fit? Join the Tech Club Meetup to sample Python, Java, robotics, and
+          electronics workshops that welcome all experience levels. You can build confidence there and step into Code
+          Clinic when you are ready for a deeper challenge.
+        </p>
+        <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+      </div>
+      <figure class="try-card__media">
+        <img
+          src="https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png"
+          alt="The League Tech Club logo"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__actions {
+    margin-top: var(--space-xl);
+  }
+
+  .hero__aside {
+    gap: var(--space-xl);
+  }
+
+  .hero__list {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .hero__media {
+    margin: 0;
+  }
+
+  .hero__media img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .two-column {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .two-column__list {
+    gap: var(--space-lg);
+  }
+
+  .two-column__list ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .embed iframe {
+    width: 100%;
+    min-height: 520px;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .try-card {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .try-card__copy {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .try-card__media {
+    margin: 0;
+    text-align: center;
+  }
+
+  .try-card__media img {
+    max-width: 220px;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .hero__grid {
+      gap: var(--space-2xl);
+    }
+
+    .hero__list {
+      padding-left: 16px;
+    }
+
+    .embed iframe {
+      min-height: 420px;
+    }
+  }
+</style>

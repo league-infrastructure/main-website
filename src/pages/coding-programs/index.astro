@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import {
+  codingProgramsHero,
+  mainPrograms,
+  programComparison,
+  otherPrograms,
+  whyHighlights,
+  startOptions,
+} from '../../data/codingPrograms';
+---
+
+<BaseLayout
+  title="Coding Programs"
+  description="Weekly Python and Java classes, free Tech Club workshops, and seasonal camps that help San Diego students grow from beginner coders to certified professionals."
+>
+  <section class="section hero">
+    <div class="container hero__content">
+      <div class="hero__copy">
+        <p class="eyebrow">Grades 5-12</p>
+        <h1>{codingProgramsHero.title}</h1>
+        <p>{codingProgramsHero.description}</p>
+        <ul class="hero__list">
+          {codingProgramsHero.details.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <div class="hero__actions">
+          {codingProgramsHero.actions.map((action) => (
+            <a class="button" href={action.href}>{action.label}</a>
+          ))}
+        </div>
+      </div>
+      <figure class="hero__media">
+        <img src={codingProgramsHero.image.src} alt={codingProgramsHero.image.alt} loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Main Programs"
+        description="Choose the learning path that matches your schedule, skill level, and goals."
+      />
+      <div class="program-grid">
+        {mainPrograms.map((program) => (
+          <article class="card">
+            {program.image && (
+              <figure class="card__media">
+                <img src={program.image.src} alt={program.image.alt} loading="lazy" />
+              </figure>
+            )}
+            <div class="card__body">
+              <p class="card__eyebrow">{program.level}</p>
+              <h2>{program.title}</h2>
+              <p>{program.description}</p>
+              <ul>
+                {program.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+              {program.price && <p class="card__price">{program.price}</p>}
+            </div>
+            <div class="card__footer">
+              <a class="button button--secondary" href={program.link}>{program.cta}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--accent">
+    <div class="container">
+      <SectionHeader
+        title="Compare Our Programs"
+        description="See key differences in cost, timing, and format across every League offering."
+      />
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Program</th>
+              <th scope="col">Level</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Tuition</th>
+              <th scope="col">Assistance</th>
+              <th scope="col">Schedule</th>
+              <th scope="col">Ratio</th>
+              <th scope="col">Languages</th>
+            </tr>
+          </thead>
+          <tbody>
+            {programComparison.map((row) => (
+              <tr>
+                <th scope="row">
+                  <a href={row.link}>{row.program}</a>
+                </th>
+                <td>{row.level}</td>
+                <td>{row.duration}</td>
+                <td>{row.tuition}</td>
+                <td>{row.assistance}</td>
+                <td>{row.schedule}</td>
+                <td>{row.ratio}</td>
+                <td>{row.languages}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="More Ways to Learn"
+        description="Extend your skills with specialty workshops, internships, and robotics programs."
+      />
+      <div class="support-grid">
+        {otherPrograms.map((program) => (
+          <article class="card support-card">
+            <h3>{program.title}</h3>
+            <p>{program.description}</p>
+            <a class="link" href={program.href}>Learn more</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--split">
+    <div class="container split-grid">
+      {whyHighlights.map((highlight) => (
+        <article class="card split-card">
+          <h3>{highlight.title}</h3>
+          <p>{highlight.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--cta">
+    <div class="container cta">
+      <div class="cta__copy">
+        <h2>{startOptions.title}</h2>
+        <p>{startOptions.description}</p>
+        <a class="button" href={startOptions.action.href}>{startOptions.action.label}</a>
+      </div>
+      <figure class="cta__media">
+        <img src={startOptions.image.src} alt={startOptions.image.alt} loading="lazy" />
+      </figure>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__content {
+    display: grid;
+    gap: var(--space-3xl);
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero__copy h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__list {
+    margin: var(--space-lg) 0;
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .hero__media {
+    margin: 0;
+    text-align: center;
+  }
+
+  .hero__media img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+  }
+
+  .program-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    border-radius: 24px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card__media {
+    margin: 0;
+    text-align: center;
+  }
+
+  .card__media img {
+    max-width: 160px;
+    width: 100%;
+  }
+
+  .card__eyebrow {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--color-accent);
+  }
+
+  .card ul {
+    padding-left: 20px;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .card__price {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .card__footer {
+    margin-top: auto;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .button:hover {
+    opacity: 0.9;
+  }
+
+  .button--secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+
+  .section--accent {
+    background: var(--color-surface-subtle);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+
+  th,
+  td {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  tbody tr:last-child th,
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  th a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .support-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .support-card {
+    gap: var(--space-md);
+  }
+
+  .link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .section--split {
+    background: var(--color-surface);
+  }
+
+  .split-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .split-card {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+  }
+
+  .section--cta {
+    background: var(--color-surface-subtle);
+  }
+
+  .cta {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .cta__copy h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta__media {
+    margin: 0;
+    text-align: center;
+  }
+
+  .cta__media img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      padding: var(--space-lg);
+    }
+
+    th,
+    td {
+      padding: var(--space-sm);
+    }
+  }
+</style>
