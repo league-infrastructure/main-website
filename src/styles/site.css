@@ -589,9 +589,16 @@
 }
 
 .site-header__logo {
-	font-weight: 700;
-	font-size: 20px;
+	display: inline-flex;
+	align-items: center;
 	color: var(--color-text);
+	text-decoration: none;
+}
+
+.site-header__logo img {
+	display: block;
+	height: 48px;
+	width: auto;
 }
 
 .site-header__nav {

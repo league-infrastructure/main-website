@@ -6,7 +6,7 @@ import { siteSettings } from '../data/siteSettings';
 <header class="site-header">
   <div class="site-header__top">
     <div class="container site-header__top-inner">
-      <span class="site-header__tagline">{siteSettings.tagline}</span>
+      <span class="site-header__tagline" aria-hidden="true"></span>
       <nav aria-label="Utility">
         <ul class="list-reset site-header__utility-list">
           {utilityLinks.map((link) => (
@@ -17,7 +17,14 @@ import { siteSettings } from '../data/siteSettings';
     </div>
   </div>
   <div class="container site-header__main">
-    <a class="site-header__logo" href="/">{siteSettings.name}</a>
+    <a class="site-header__logo" href="/">
+      <img
+        src="/wp-content/uploads/2022/01/logosymbol-e1641498341753.png"
+        alt={`${siteSettings.name} logo`}
+        width="243"
+        height="196"
+      />
+    </a>
     <nav aria-label="Main navigation" class="site-header__nav">
       <ul class="list-reset site-header__nav-list">
         {mainNavigation.map((item) => (
