@@ -91,7 +91,7 @@ const sections = [
   title="Non-discrimination Policy"
   description="How The League of Amazing Programmers maintains a respectful, bias-free environment for students, families, and staff."
 >
-  <section class="section policy-hero">
+  <section class="section hero">
     <div class="container policy-hero__content">
       <span class="tag">Policy Center</span>
       <h1>Non-discrimination Policy</h1>
@@ -121,65 +121,3 @@ const sections = [
     </section>
   ))}
 </BaseLayout>
-
-<style>
-  .policy-hero {
-    background: var(--color-hero-gradient);
-  }
-
-  .policy-hero__content {
-    display: grid;
-    gap: var(--space-md);
-    max-width: 720px;
-  }
-
-  .policy-toc {
-    display: grid;
-    gap: var(--space-md);
-    max-width: 640px;
-  }
-
-  .policy-toc__list {
-    display: grid;
-    gap: var(--space-sm);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .policy-toc__list a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
-  }
-
-  .policy-toc__list a:hover {
-    border-color: var(--color-primary);
-  }
-
-  .policy-detail__inner {
-    display: grid;
-    gap: var(--space-md);
-    max-width: 840px;
-  }
-
-  .policy-detail__content {
-    display: grid;
-    gap: var(--space-md);
-  }
-
-  .policy-detail__content ul {
-    display: grid;
-    gap: var(--space-sm);
-    padding-left: var(--space-lg);
-  }
-
-  .policy-detail__content a {
-    color: var(--color-primary);
-  }
-
-  .policy-detail__content a:hover {
-    text-decoration: underline;
-  }
-</style>

@@ -55,9 +55,9 @@ const quickLinks = [
   title="Policies & Procedures"
   description="Review The League of Amazing Programmers policies on tuition, payments, make-ups, cancellations, and enrollment."
 >
-  <section class="section policy-hero">
-    <div class="container policy-hero__grid">
-      <div class="policy-hero__content">
+  <section class="section hero">
+    <div class="container hero__grid hero__grid--compact hero__grid--cozy">
+      <div class="hero__content">
         <span class="tag">Current Families</span>
         <h1>Policies &amp; Procedures</h1>
         <p>
@@ -67,7 +67,7 @@ const quickLinks = [
           Client Portal
         </a>
       </div>
-      <div class="policy-hero__media">
+      <div class="hero__media">
         <img
           src="https://www.jointheleague.org/wp-content/uploads/2021/12/current_students.png"
           alt="Students collaborating at The League"
@@ -207,81 +207,3 @@ const quickLinks = [
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  .policy-hero {
-    background: var(--color-hero-gradient);
-  }
-
-  .policy-hero__grid {
-    display: grid;
-    gap: var(--space-xl);
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-
-  .policy-hero__content {
-    display: grid;
-    gap: var(--space-md);
-  }
-
-  .policy-hero__media {
-    justify-self: center;
-  }
-
-  .policy-hero__media img {
-    width: min(420px, 100%);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-  }
-
-  .policy-links {
-    display: grid;
-    gap: var(--space-xl);
-  }
-
-  .policy-links__grid {
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
-  .policy-link {
-    display: grid;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid transparent;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .policy-link:hover {
-    border-color: var(--color-primary);
-    transform: translateY(-4px);
-  }
-
-  .policy-section {
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .policy-section h2 {
-    font-size: clamp(1.75rem, 2.5vw, 2rem);
-  }
-
-  .policy-section__content {
-    display: grid;
-    gap: var(--space-md);
-  }
-
-  .policy-section__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-  }
-
-  .policy-note {
-    font-weight: 600;
-  }
-</style>

@@ -4,6 +4,8 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import EmbedLoader from '../../../components/EmbedLoader.astro';
 import CalloutCard from '../../../components/ui/CalloutCard.astro';
 import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
+import '../../../styles/pages/coding-programs/base.css';
+import '../../../styles/pages/coding-programs/tech-club/index.css';
 
 const donationScript =
   'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=100&suggested_donation_amounts[]=50';
@@ -179,117 +181,5 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       }
     </script>
   </section>
+
 </BaseLayout>
-
-<style>
-  .hero {
-    padding-top: var(--space-4xl);
-  }
-
-  .hero__grid {
-    display: grid;
-    gap: var(--space-3xl);
-    align-items: stretch;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .hero__actions {
-    margin-top: var(--space-xl);
-  }
-
-  .hero__aside {
-    gap: var(--space-xl);
-  }
-
-  .hero__list {
-    margin: 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .program-grid {
-    display: grid;
-    gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-
-  .program-card {
-    text-align: center;
-    gap: var(--space-lg);
-  }
-
-  .program-card__media {
-    margin: 0;
-  }
-
-  .program-card__media img {
-    max-width: 160px;
-    margin: 0 auto;
-  }
-
-  .two-column {
-    display: grid;
-    gap: var(--space-3xl);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    align-items: start;
-  }
-
-  .two-column__list {
-    gap: var(--space-lg);
-  }
-
-  .two-column__list ul {
-    margin: 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .contact-card ul {
-    gap: var(--space-md);
-  }
-
-  .embed iframe {
-    width: 100%;
-    min-height: 520px;
-    border: 0;
-    border-radius: var(--radius-md);
-    background: var(--color-surface);
-    box-shadow: var(--shadow-md);
-  }
-
-  .donation {
-    display: grid;
-    gap: var(--space-xl);
-    justify-items: center;
-    text-align: center;
-  }
-
-  .donation__widget {
-    width: min(560px, 100%);
-  }
-
-  .donation__note {
-    margin: 0;
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 600px) {
-    .hero__grid {
-      gap: var(--space-2xl);
-    }
-
-    .hero__list {
-      padding-left: 16px;
-    }
-
-    .two-column {
-      gap: var(--space-2xl);
-    }
-
-    .embed iframe {
-      min-height: 420px;
-    }
-  }
-</style>

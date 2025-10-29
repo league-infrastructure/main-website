@@ -66,7 +66,7 @@ const checklist = [
   description="Safety protocols that guide on-campus classes at The League of Amazing Programmers."
 >
   <section class="section hero">
-    <div class="container hero__content">
+    <div class="container hero__content policy-hero__content">
       <span class="tag">Policy Center</span>
       <h1>Re-opening Safety Measures</h1>
       <p>
@@ -76,7 +76,7 @@ const checklist = [
   </section>
 
   <section class="section">
-    <div class="container intro">
+    <div class="container policy-intro">
       <p>
         We continue to monitor public health recommendations and adjust on-campus experiences accordingly. Review the checklist below to prepare for class and understand how we structure safe learning environments.
       </p>
@@ -84,9 +84,9 @@ const checklist = [
   </section>
 
   <section class="section section--surface-alt">
-    <div class="container checklist">
+    <div class="container policy-checklist">
       {checklist.map((section) => (
-        <div class="card">
+        <div class="card policy-checklist__card">
           <h2>{section.title}</h2>
           <ul>
             {section.items.map((item) => (
@@ -97,42 +97,7 @@ const checklist = [
       ))}
     </div>
   </section>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
-
-<style>
-  .hero {
-    background: var(--color-hero-gradient);
-  }
-
-  .hero__content {
-    display: grid;
-    gap: var(--space-md);
-    max-width: 720px;
-  }
-
-  .intro {
-    max-width: 720px;
-  }
-
-  .checklist {
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-
-  .card {
-    display: grid;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-  }
-
-  .card ul {
-    display: grid;
-    gap: var(--space-xs);
-    padding-left: var(--space-lg);
-    margin: 0;
-  }
-</style>

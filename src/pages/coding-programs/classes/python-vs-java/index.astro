@@ -2,6 +2,8 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
 import CalloutCard from '../../../../components/ui/CalloutCard.astro';
+import '../../../../styles/pages/coding-programs/base.css';
+import '../../../../styles/pages/coding-programs/classes/python-vs-java.css';
 
 const reasons = [
   'Students on FIRST robotics teams',
@@ -112,73 +114,5 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
       </div>
     </div>
   </section>
+
 </BaseLayout>
-
-<style>
-  .hero {
-    padding-top: var(--space-4xl);
-  }
-
-  .hero__grid {
-    display: grid;
-    gap: var(--space-3xl);
-    align-items: stretch;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .hero__copy h1 {
-    margin-bottom: var(--space-lg);
-  }
-
-  .hero__list {
-    margin: var(--space-lg) 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-xs);
-  }
-
-  .hero__aside {
-    display: grid;
-    gap: var(--space-2xl);
-  }
-
-  .try-card,
-  .map-card {
-    gap: var(--space-lg);
-  }
-
-  .map-card iframe {
-    width: 100%;
-    height: 320px;
-    border: 0;
-    border-radius: var(--radius-md);
-  }
-
-  .language-grid {
-    align-items: stretch;
-  }
-
-  .language-card {
-    text-align: center;
-    gap: var(--space-xl);
-  }
-
-  .language-card__media {
-    margin: 0;
-  }
-
-  .language-card__media img {
-    max-width: 180px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 600px) {
-    .hero__grid {
-      gap: var(--space-2xl);
-    }
-
-    .hero__list {
-      padding-left: 16px;
-    }
-  }
-</style>

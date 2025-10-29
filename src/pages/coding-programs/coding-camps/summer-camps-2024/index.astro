@@ -5,6 +5,8 @@ import CalloutCard from '../../../../components/ui/CalloutCard.astro';
 import CampSessionCard from '../../../../components/ui/CampSessionCard.astro';
 import { campResources, campContact } from '../../../../data/codingCamps';
 import { summer2024Hero, featuredCamps, campTips, partnershipHighlight } from '../../../../data/summer2024';
+import '../../../../../styles/pages/coding-programs/base.css';
+import '../../../../../styles/pages/coding-programs/coding-camps/detail.css';
 
 const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 ---
@@ -107,108 +109,5 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
       </CalloutCard>
     </div>
   </section>
+
 </BaseLayout>
-
-<style>
-  .hero {
-    padding-top: var(--space-4xl);
-  }
-
-  .hero__grid {
-    display: grid;
-    gap: var(--space-3xl);
-    align-items: stretch;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .hero__actions {
-    margin-top: var(--space-xl);
-  }
-
-  .hero__aside {
-    gap: var(--space-xl);
-  }
-
-  .hero__list {
-    margin: 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .camp-grid {
-    display: grid;
-    gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .camp {
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .camp__level {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
-  }
-
-  .camp__schedule,
-  .camp__details {
-    margin: 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .two-column {
-    display: grid;
-    gap: var(--space-3xl);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    align-items: start;
-  }
-
-  .two-column__aside {
-    gap: var(--space-lg);
-  }
-
-  .tips {
-    margin: var(--space-lg) 0 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .resource-grid {
-    display: grid;
-    gap: var(--space-2xl);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .resource-card ul,
-  .contact-card ul {
-    margin: 0;
-    padding-left: 20px;
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .emphasis {
-    background: var(--color-surface-alt);
-  }
-
-  @media (max-width: 600px) {
-    .hero__grid {
-      gap: var(--space-2xl);
-    }
-
-    .hero__list,
-    .camp__schedule,
-    .camp__details,
-    .tips {
-      padding-left: 16px;
-    }
-  }
-</style>

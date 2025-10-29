@@ -1,0 +1,99 @@
+.hero__copy h1 {
+  margin-bottom: var(--space-lg);
+}
+
+.fact-card {
+  width: 100%;
+  gap: var(--space-lg);
+}
+
+.fact-card__list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.fact-card .link {
+  font-weight: 600;
+}
+
+.section__intro {
+  margin-bottom: var(--space-2xl);
+  max-width: 760px;
+}
+
+.section__intro a {
+  font-weight: 600;
+}
+
+.class-card {
+  gap: var(--space-lg);
+}
+
+.class-card__list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.class-card__tuition {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.try-card__body {
+  max-width: 640px;
+}
+
+.why-grid {
+  align-items: stretch;
+}
+
+.why-card {
+  gap: var(--space-md);
+}
+
+.levels-grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.level-card {
+  position: relative;
+  padding-top: var(--space-2xl);
+}
+
+.level-card__badge {
+  position: absolute;
+  top: var(--space-lg);
+  left: var(--space-xl);
+  font-size: 48px;
+  font-weight: 700;
+  color: #54cad5;
+  line-height: 1;
+}
+
+.level-card .card__title {
+  margin-top: 56px;
+}
+
+@media (max-width: 900px) {
+  .level-card__badge {
+    position: static;
+    font-size: 36px;
+  }
+
+  .level-card .card__title {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .fact-card__list {
+    padding-left: 16px;
+  }
+}

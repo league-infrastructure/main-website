@@ -1,0 +1,101 @@
+.hero__aside {
+  gap: var(--space-xl);
+}
+
+.camp-grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.track-grid,
+.faq-grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.camp {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.camp__level {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.camp__schedule,
+.camp__details,
+.tips {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.two-column {
+  display: grid;
+  gap: var(--space-3xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+
+.two-column__aside {
+  gap: var(--space-lg);
+}
+
+.track {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.track__media,
+.side-image {
+  margin: 0;
+}
+
+.track__media img,
+.side-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.track__level {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.resource-grid {
+  display: grid;
+  gap: var(--space-2xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.resource-card ul,
+.contact-card ul,
+.clinic-card ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.emphasis {
+  background: var(--color-surface-alt);
+}
+
+@media (max-width: 600px) {
+  .camp__schedule,
+  .camp__details,
+  .tips {
+    padding-left: 16px;
+  }
+}

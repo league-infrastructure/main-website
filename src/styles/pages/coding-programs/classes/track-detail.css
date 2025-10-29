@@ -1,0 +1,44 @@
+.highlight-card {
+  width: 100%;
+  gap: var(--space-lg);
+}
+
+.highlight-card__list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.schedule-grid {
+  display: grid;
+  gap: var(--space-3xl);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.schedule-grid__intro {
+  max-width: 680px;
+  margin-bottom: var(--space-xl);
+}
+
+.schedule-grid__intro a {
+  font-weight: 600;
+}
+
+.schedule-aside {
+  display: grid;
+  gap: var(--space-2xl);
+  align-content: start;
+}
+
+@media (max-width: 900px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .highlight-card__list {
+    padding-left: 16px;
+  }
+}

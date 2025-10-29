@@ -7,7 +7,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
   description="Create your Parent Portal account, purchase a plan or pass, and enroll in LEAGUE classes with confidence."
 >
   <section class="section hero">
-    <div class="container hero__grid">
+  <div class="container hero__grid hero__grid--compact hero__grid--cozy">
       <div class="hero__content">
         <span class="tag">Policy Center</span>
         <h1>How to Enroll in LEAGUE Classes</h1>
@@ -44,23 +44,23 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         After your account is ready, purchase the plan or pass that fits your student. Plans recur monthly, while passes cover individual visits. Assign the plan or pass to the correct student when prompted.
       </p>
       <div class="plan-grid">
-        <div class="card">
+        <div class="card card--grid card--compact">
           <h3>Monthly Membership</h3>
           <p>$280 per month for up to five visits. Available for Python and Java classes, online or in person.</p>
         </div>
-        <div class="card">
+        <div class="card card--grid card--compact">
           <h3>Tech Club Membership</h3>
           <p>Free plan that unlocks access to Tech Club sessions.</p>
         </div>
-        <div class="card">
+        <div class="card card--grid card--compact">
           <h3>Monthly Tuition</h3>
           <p>$280 per month for one weekly visit. Legacy plan available for existing families.</p>
         </div>
-        <div class="card">
+        <div class="card card--grid card--compact">
           <h3>Class Pass</h3>
           <p>$70 per class. Purchase individual visits as needed.</p>
         </div>
-        <div class="card">
+        <div class="card card--grid card--compact">
           <h3>Beta Test Pass</h3>
           <p>Complimentary pass to try out a class.</p>
         </div>
@@ -104,71 +104,3 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  .hero {
-    background: var(--color-hero-gradient);
-  }
-
-  .hero__grid {
-    display: grid;
-    gap: var(--space-xl);
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-
-  .hero__content {
-    display: grid;
-    gap: var(--space-md);
-  }
-
-  .hero__media {
-    justify-self: center;
-  }
-
-  .hero__media img {
-    width: min(420px, 100%);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-  }
-
-  .content {
-    display: grid;
-    gap: var(--space-lg);
-    max-width: 760px;
-  }
-
-  .plan-grid {
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
-  .card {
-    display: grid;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-  }
-
-  .subsection {
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .subsection ol {
-    display: grid;
-    gap: var(--space-xs);
-    padding-left: var(--space-lg);
-  }
-
-  .content a {
-    color: var(--color-primary);
-  }
-
-  .content a:hover {
-    text-decoration: underline;
-  }
-</style>

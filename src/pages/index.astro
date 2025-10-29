@@ -1,23 +1,137 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HomeHero from '../components/sections/HomeHero.astro';
-import ProgramsOverview from '../components/sections/ProgramsOverview.astro';
-import CareerPrep from '../components/sections/CareerPrep.astro';
-import CommunityVideo from '../components/sections/CommunityVideo.astro';
-import Testimonials from '../components/sections/Testimonials.astro';
-import ClassroomGallery from '../components/sections/ClassroomGallery.astro';
-import PrimaryCTA from '../components/sections/PrimaryCTA.astro';
+import HeroSection from '../components/ui/HeroSection.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import {
+  heroContent,
+  programsOverview,
+  careerPrep,
+  communityVideo,
+  testimonials,
+  galleryImages,
+  primaryCta,
+} from '../data/home';
+import '../styles/pages/home.css';
+const { eyebrow, title, description, primaryCta: heroPrimary, secondaryCta, image } = heroContent;
+const { title: programsTitle, description: programsDescription, highlights } = programsOverview;
+const {
+  title: careerTitle,
+  description: careerDescription,
+  logos,
+} = careerPrep;
+const { title: videoTitle, embedUrl } = communityVideo;
+const { title: ctaTitle, description: ctaDescription, primary, secondary } = primaryCta;
 ---
 
 <BaseLayout
   title="Igniting Young Minds Through Coding"
   description="The League of Amazing Programmers offers weekly coding classes, mentorship, and career preparation for students in grades 4-12."
 >
-  <HomeHero />
-  <ProgramsOverview />
-  <CareerPrep />
-  <CommunityVideo />
-  <Testimonials />
-  <ClassroomGallery />
-  <PrimaryCTA />
+  <HeroSection
+    class="home-hero"
+    surface="tint"
+    tag={eyebrow}
+    title={title}
+    description={description}
+    actions={[
+      { label: heroPrimary.label, href: heroPrimary.href, variant: 'primary' },
+      {
+        label: secondaryCta.label,
+        href: secondaryCta.href,
+        variant: 'secondary',
+        target: '_blank',
+        rel: 'noreferrer',
+      },
+    ]}
+  >
+    <div slot="media" class="home-hero__media">
+      <div class="home-hero__blob" aria-hidden="true"></div>
+      <img src={image.src} alt={image.alt} loading="lazy" />
+    </div>
+  </HeroSection>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader title={programsTitle} description={programsDescription} />
+      <div class="programs__grid">
+        {highlights.map((item) => (
+          <div class="card">
+            <p class="card__body">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container career">
+      <SectionHeader title={careerTitle} description={careerDescription} align="left" />
+      <div class="career__logos">
+        {logos.map((logo) => (
+          <figure class="career__logo">
+            <img src={logo.src} alt={logo.name} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container video">
+      <SectionHeader title={videoTitle} />
+      <div class="video__frame">
+        <iframe
+          src={`${embedUrl}?title=0&byline=0&portrait=0`}
+          title="Hear from our community"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader title="Voices from The League" />
+      <div class="testimonials">
+        {testimonials.map((item) => (
+          <blockquote>
+            <p>{item.quote}</p>
+            <footer>
+              {item.author} <span aria-hidden="true">|</span> {item.role}
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader title="Take a Peek Inside Our Classroom" />
+      <div class="gallery">
+        {galleryImages.map((image) => (
+          <figure class="gallery__item">
+            <img src={image.src} alt={image.alt} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="container cta__inner">
+      <div>
+        <h2 class="cta__title">{ctaTitle}</h2>
+        <p class="cta__description">{ctaDescription}</p>
+      </div>
+      <div class="button-group">
+        <a class="button button--primary" href={primary.href}>{primary.label}</a>
+        <a class="button button--secondary" href={secondary.href} target="_blank" rel="noreferrer">
+          {secondary.label}
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

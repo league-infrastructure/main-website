@@ -14,13 +14,3 @@ const { eyebrow, title, description, align = 'center' } = Astro.props as Props;
   <h2 class="section__title">{title}</h2>
   {description && <p class="section__description">{description}</p>}
 </header>
-
-<style>
-  .section__header--left {
-    text-align: left;
-  }
-
-  .section__header--left .section__description {
-    margin-inline: 0;
-  }
-</style>
