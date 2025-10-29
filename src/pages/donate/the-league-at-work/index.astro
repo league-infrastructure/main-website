@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/ui/HeroSection.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
+import { leagueAtWorkHero, leagueAtWorkHighlights, leagueAtWorkProcess } from '../../../data/donate';
+---
+
+<BaseLayout
+  title="The League at Work"
+  description="Partner with The League of Amazing Programmers to host corporate coding workshops, family events, and impact-driven volunteer days."
+>
+  <HeroSection
+    surface="alt"
+    tag={leagueAtWorkHero.tag}
+    title={leagueAtWorkHero.title}
+    description={leagueAtWorkHero.description}
+    details={leagueAtWorkHero.details}
+    actions={leagueAtWorkHero.actions}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        align="left"
+        eyebrow="Program Formats"
+        title="Design an Experience for Your Team"
+        description="Combine hands-on learning with social impact and leave employees feeling inspired."
+      />
+      <div class="fundraiser-grid">
+        {leagueAtWorkHighlights.map((highlight) => (
+          <CalloutCard title={highlight.title}>
+            <p>{highlight.description}</p>
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <SectionHeader
+        align="left"
+        eyebrow="How It Works"
+        title="Three Collaborative Steps"
+      />
+      <div class="process-grid">
+        {leagueAtWorkProcess.map((step) => (
+          <div class="process-grid__item">
+            <span class="process-grid__step">{step.step}</span>
+            <p>{step.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CalloutCard
+        title="Plan Your League at Work Program"
+        cta={{ label: 'Schedule a Call', href: 'mailto:info@jointheleague.org?subject=League%20at%20Work%20Inquiry', variant: 'secondary' }}
+      >
+        <p>
+          Share your goals, audience, and timeline and we will craft a proposal that includes curriculum, staffing, equipment, and impact reporting tailored to your organization.
+        </p>
+      </CalloutCard>
+    </div>
+  </section>
+</BaseLayout>

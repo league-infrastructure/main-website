@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/ui/HeroSection.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
+import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } from '../../../data/donate';
+---
+
+<BaseLayout
+  title="Create a Fundraiser"
+  description="Launch a peer-to-peer fundraiser or community event that powers scholarships and coding experiences for San Diego students."
+>
+  <HeroSection
+    surface="alt"
+    tag={fundraiserHero.tag}
+    title={fundraiserHero.title}
+    description={fundraiserHero.description}
+    actions={fundraiserHero.actions}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        align="left"
+        eyebrow="Ideas"
+        title="Kickstart Your Campaign"
+        description="Choose the format that fits your personality, goals, and community."
+      />
+      <div class="fundraiser-grid">
+        {fundraiserIdeas.map((idea) => (
+          <CalloutCard title={idea.title}>
+            <p>{idea.description}</p>
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <SectionHeader
+        align="left"
+        eyebrow="Timeline"
+        title="Three Steps to Launch"
+      />
+      <ol class="steps-list">
+        {fundraiserSteps.map((step) => (
+          <li>
+            <p>{step}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        align="left"
+        eyebrow="We Have Your Back"
+        title="Fundraising Support"
+      />
+      <div class="fundraiser-support">
+        {fundraiserSupport.map((item) => (
+          <CalloutCard title={item.title}>
+            <p>{item.body}</p>
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <CalloutCard
+        title="Tell Us About Your Idea"
+        cta={{ label: 'Email Our Team', href: 'mailto:info@jointheleague.org?subject=Fundraiser%20Idea', variant: 'secondary' }}
+      >
+        <p>
+          Need graphics, student speakers, or classroom demos? Let us know how we can support your fundraiser and make it a success.
+        </p>
+      </CalloutCard>
+    </div>
+  </section>
+</BaseLayout>

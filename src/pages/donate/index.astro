@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/ui/HeroSection.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CalloutCard from '../../components/ui/CalloutCard.astro';
+import {
+  donateHero,
+  giveLivelyScript,
+  donationImpact,
+  donationMethods,
+  donationFaq
+} from '../../data/donate';
+import { siteSettings } from '../../data/siteSettings';
+---
+
+<BaseLayout
+  title="Donate"
+  description="Support The League of Amazing Programmers and help every student in San Diego access high-quality computer science education."
+>
+  <HeroSection
+    surface="alt"
+    tag={donateHero.tag}
+    title={donateHero.title}
+    description={donateHero.description}
+    details={donateHero.details}
+    actions={donateHero.actions}
+    aside={donateHero.aside}
+  />
+
+  <section class="section" id="donate-now">
+    <div class="container donation-widget">
+      <div class="donation-widget__grid">
+        <div>
+          <SectionHeader
+            align="left"
+            eyebrow="Give Online"
+            title="Make a Secure Donation"
+            description="Use our Give Lively form to make a one-time gift or start a monthly donation that keeps classes running year-round."
+          />
+          <div id="give-lively-widget" class="donation-widget__embed" />
+          <p class="donation-widget__note">
+            Prefer a direct link? Visit
+            <a href="https://secure.givelively.org/donate/the-league-of-amazing-programmers" target="_blank" rel="noreferrer">
+              our Give Lively page
+            </a>
+            or email
+            <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a>
+            for stock, DAF, or employer matching details.
+          </p>
+        </div>
+        <CalloutCard class="card--compact" title="Need Donation Support?">
+          <p>
+            We are happy to provide invoices, customized receipts, and paperwork for matching gifts or corporate sponsorships. Reach out and we will follow up within two business days.
+          </p>
+          <p>
+            Email: <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a><br />
+            Phone: <a href={siteSettings.phoneHref}>{siteSettings.phone}</a>
+          </p>
+        </CalloutCard>
+      </div>
+    </div>
+    <script is:inline data-src={giveLivelyScript}>
+      if (typeof window !== 'undefined') {
+        const current = document.currentScript;
+        const donationSrc = current?.dataset.src;
+        const existing = document.querySelector('script[data-givelively="donate-main"]');
+        const loadWidget = () => {
+          if (typeof window.GiveLively !== 'undefined') {
+            window.GiveLively.setup();
+          }
+        };
+
+        if (!existing && donationSrc) {
+          const script = document.createElement('script');
+          script.src = donationSrc;
+          script.dataset.givelively = 'donate-main';
+          script.addEventListener('load', loadWidget, { once: true });
+          document.head.append(script);
+        } else if (typeof window.GiveLively !== 'undefined') {
+          loadWidget();
+        }
+      }
+    </script>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container donation-impact">
+      <SectionHeader
+        align="left"
+        eyebrow="Impact"
+        title="How Your Gift Helps"
+        description="Every dollar advances youth-led innovation, mentorship, and access to technology."
+      />
+      <div class="donation-impact__grid">
+        {donationImpact.map((item) => (
+          <CalloutCard class="donation-impact__card" title={item.title}>
+            <p>{item.description}</p>
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container donation-methods">
+      <SectionHeader
+        align="left"
+        eyebrow="More Ways to Give"
+        title="Choose the Giving Method that Works for You"
+        description="From recurring gifts to stock transfers, we will help you maximize your impact."
+      />
+      <div class="donation-methods__grid">
+        {donationMethods.map((method) => (
+          <CalloutCard title={method.title} cta={method.cta}>
+            <p>{method.description}</p>
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <SectionHeader
+        align="left"
+        eyebrow="Questions"
+        title="Donation FAQs"
+        description="Do not see your answer? Email us and we will help right away."
+      />
+      <div class="faq-grid">
+        {donationFaq.map((item) => (
+          <CalloutCard title={item.question}>
+            <p>{item.answer}</p>
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CalloutCard
+        class="contact-card"
+        title="Connect with Our Development Team"
+        cta={{ label: 'Contact Us', href: '/about/contact/', variant: 'secondary' }}
+      >
+        <p>
+          We welcome conversations about corporate partnerships, in-kind donations, peer-to-peer fundraisers, and legacy gifts. Let us know how you would like to engage, and we will craft the right plan together.
+        </p>
+      </CalloutCard>
+    </div>
+  </section>
+</BaseLayout>
