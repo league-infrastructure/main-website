@@ -4,44 +4,40 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import HeroSection from '../../components/ui/HeroSection.astro';
 import ProgramCard from '../../components/ui/ProgramCard.astro';
 import CalloutCard from '../../components/ui/CalloutCard.astro';
-import {
-  codingProgramsHero,
-  mainPrograms,
-  programComparison,
-  otherPrograms,
-  whyHighlights,
-  startOptions,
-} from '../../data/codingPrograms';
+import yaml from 'js-yaml';
+import fs from 'fs';
+import path from 'path';
+
+// Load YAML content from parallel file
+const yamlPath = path.resolve('./src/pages/coding-programs/_index.yaml');
+const yamlContent = yaml.load(fs.readFileSync(yamlPath, 'utf8')) as any;
 ---
 
 <BaseLayout
-  title="Coding Programs"
-  description="Weekly Python and Java classes, free Tech Club workshops, and seasonal camps that help San Diego students grow from beginner coders to certified professionals."
+  title={yamlContent.base_layout.title}
+  description={yamlContent.base_layout.description}
 >
   <HeroSection
-    class="section programs-hero"
-    title={codingProgramsHero.title}
-    description={codingProgramsHero.description}
-    note="Grades 5-12"
-    details={codingProgramsHero.details}
-    actions={codingProgramsHero.actions.map((action, index) => ({
-      ...action,
-      variant: index === 0 ? 'primary' : 'secondary',
-    }))}
+    class={yamlContent.hero_section.class}
+    title={yamlContent.hero_section.title}
+    description={yamlContent.hero_section.description}
+    note={yamlContent.hero_section.note}
+    details={yamlContent.hero_section.details}
+    actions={yamlContent.hero_section.actions}
   >
     <figure slot="media" class="programs-hero__media">
-      <img src={codingProgramsHero.image.src} alt={codingProgramsHero.image.alt} loading="lazy" />
+      <img src={yamlContent.hero_section.media.image.src} alt={yamlContent.hero_section.media.image.alt} loading="lazy" />
     </figure>
   </HeroSection>
 
-  <section class="section">
+  <section class={yamlContent.main_programs.section.class}>
     <div class="container">
       <SectionHeader
-        title="Main Programs"
-        description="Choose the learning path that matches your schedule, skill level, and goals."
+        title={yamlContent.main_programs.section.header.title}
+        description={yamlContent.main_programs.section.header.description}
       />
       <div class="program-grid">
-        {mainPrograms.map((program) => (
+        {yamlContent.main_programs.section.program_grid.map((program: any) => (
           <ProgramCard
             title={program.title}
             level={program.level}
@@ -56,28 +52,23 @@ import {
     </div>
   </section>
 
-  <section class="section section--accent">
+  <section class={yamlContent.program_comparison.section.class}>
     <div class="container">
       <SectionHeader
-        title="Compare Our Programs"
-        description="See key differences in cost, timing, and format across every League offering."
+        title={yamlContent.program_comparison.section.header.title}
+        description={yamlContent.program_comparison.section.header.description}
       />
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
-              <th scope="col">Program</th>
-              <th scope="col">Level</th>
-              <th scope="col">Duration</th>
-              <th scope="col">Tuition</th>
-              <th scope="col">Assistance</th>
-              <th scope="col">Schedule</th>
-              <th scope="col">Ratio</th>
-              <th scope="col">Languages</th>
+              {yamlContent.program_comparison.section.table.headers.map((header: string) => (
+                <th scope="col">{header}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            {programComparison.map((row) => (
+            {yamlContent.program_comparison.section.table.rows.map((row: any) => (
               <tr>
                 <th scope="row">
                   <a href={row.link}>{row.program}</a>
@@ -97,14 +88,14 @@ import {
     </div>
   </section>
 
-  <section class="section">
+  <section class={yamlContent.other_programs.section.class}>
     <div class="container">
       <SectionHeader
-        title="More Ways to Learn"
-        description="Extend your skills with specialty workshops, internships, and robotics programs."
+        title={yamlContent.other_programs.section.header.title}
+        description={yamlContent.other_programs.section.header.description}
       />
       <div class="support-grid">
-        {otherPrograms.map((program) => (
+        {yamlContent.other_programs.section.support_grid.map((program: any) => (
           <CalloutCard class="support-card" title={program.title}>
             <p>{program.description}</p>
             <a slot="footer" class="link" href={program.href}>Learn more</a>
@@ -114,25 +105,25 @@ import {
     </div>
   </section>
 
-  <section class="section section--split">
+  <section class={yamlContent.why_highlights.section.class}>
     <div class="container split-grid">
-      {whyHighlights.map((highlight) => (
+      {yamlContent.why_highlights.section.split_grid.map((highlight: any) => (
         <CalloutCard class="split-card" title={highlight.title}>
-          <p>{highlight.body}</p>
+          <p>{highlight._content}</p>
         </CalloutCard>
       ))}
     </div>
   </section>
 
-  <section class="section section--cta">
+  <section class={yamlContent.start_options.section.class}>
     <div class="container cta">
       <div class="cta__copy">
-        <h2>{startOptions.title}</h2>
-        <p>{startOptions.description}</p>
-        <a class="button" href={startOptions.action.href}>{startOptions.action.label}</a>
+        <h2>{yamlContent.start_options.section.cta.copy.title}</h2>
+        <p>{yamlContent.start_options.section.cta.copy.description}</p>
+        <a class="button" href={yamlContent.start_options.section.cta.copy.action.href}>{yamlContent.start_options.section.cta.copy.action.label}</a>
       </div>
       <figure class="cta__media">
-        <img src={startOptions.image.src} alt={startOptions.image.alt} loading="lazy" />
+        <img src={yamlContent.start_options.section.cta.media.image.src} alt={yamlContent.start_options.section.cta.media.image.alt} loading="lazy" />
       </figure>
     </div>
   </section>
