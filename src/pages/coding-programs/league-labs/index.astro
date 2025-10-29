@@ -17,8 +17,6 @@ import {
   newsHighlight,
 } from '../../../data/leagueLabs';
 import { contactInfo } from '../../../data/techClub';
-import '../../../styles/pages/coding-programs/base.css';
-import '../../../styles/pages/coding-programs/league-labs.css';
 
 const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 ---
@@ -111,7 +109,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         </ol>
       </div>
       <CalloutCard
-        class="two-column__aside emphasis"
+        class="two-column__aside emphasis emphasis--subtle"
         title="Intern Benefits"
         items={leagueLabsBenefits}
         cta={{ label: 'Join the Interest List', href: leagueLabsHero.primaryAction.href }}

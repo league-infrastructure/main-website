@@ -4,8 +4,6 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import EmbedLoader from '../../../components/EmbedLoader.astro';
 import CalloutCard from '../../../components/ui/CalloutCard.astro';
 import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
-import '../../../styles/pages/coding-programs/base.css';
-import '../../../styles/pages/coding-programs/tech-club/index.css';
 
 const donationScript =
   'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=100&suggested_donation_amounts[]=50';
@@ -47,7 +45,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       />
       <div class="program-grid">
         {techClubPrograms.map((program) => (
-          <CalloutCard class="program-card" title={program.title}>
+          <CalloutCard class="program-card program-card--center" title={program.title}>
             <figure slot="media" class="program-card__media">
               <img src={program.image.src} alt={program.image.alt} loading="lazy" />
             </figure>

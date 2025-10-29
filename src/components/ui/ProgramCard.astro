@@ -37,7 +37,7 @@ const {
 } = Astro.props as Props & { class?: string };
 ---
 
-<article class:list={[ 'card', className ]} {...rest}>
+<article class:list={['card', 'program-card', className]} {...rest}>
   {image && (
     <figure class="card__media">
       <img src={image.src} alt={image.alt} loading="lazy" />
