@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://jointheleague.github.io',
-	base: '/main-website/',
+	site: 'https://devel.jointheleague.org',
+	
 });
