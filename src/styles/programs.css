@@ -361,8 +361,9 @@ th a {
 }
 
 .language-card__media img {
-  max-width: 180px;
-  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .level-card {

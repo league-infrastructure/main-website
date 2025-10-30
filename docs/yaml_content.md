@@ -138,4 +138,16 @@ main_programs:
         # ... more program cards
 ```
 
-This format provides a clean separation between content and presentation while maintaining the flexibility to handle complex component hierarchies.
+This format provides a clean separation between content and presentation while
+maintaining the flexibility to handle complex component hierarchies.
+
+## Candidate Pages for YAML Migration
+
+The following Astro pages still define large content collections inline. Each
+centers on one primary object type with many entries, making them good fits for
+`_index.yaml` files:
+
+- `src/pages/index.astro` — hero actions, program cards, testimonials, gallery
+  items, tuition bullets, and recognition badges all live in `src/data/home.ts`;
+  moving to YAML would let content editors adjust home messaging without
+  touching TypeScript.
