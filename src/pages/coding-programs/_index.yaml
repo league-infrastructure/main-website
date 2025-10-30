@@ -1,21 +1,21 @@
 base_layout:
   title: "Coding Programs"
-  description: |
-    Weekly Python and Java classes, free Tech Club workshops, and seasonal camps that help San Diego students 
+  description: >
+    Weekly Python and Java classes, free Tech Club workshops,
+    and seasonal camps that help San Diego students 
     grow from beginner coders to certified professionals.
 
 hero_section:
   class: "section programs-hero"
   title: "Weekly Coding That Grows With Students"
-  description: |
-    Python and Java tracks guide 5th through 12th graders from their first line of code to professional certifications. 
+  description: >
+    Python and Java tracks guide 5th through 12th graders from their first 
+    line of code to professional certifications. 
     Students can learn in Carmel Valley, at partner schools, or online from anywhere.
-  note: "Grades 5-12"
+  note: "Grades 3-12"
   details:
-    - |
-      Curriculum designed to keep pace with students for four to six years of mastery.
-    - |
-      Classes run seven days a week with in-person and live online options.
+    - Curriculum designed to keep pace with students for four to six years of mastery.
+    - Classes run seven days a week with in-person and live online options.
   actions:
     - label: "View Weekly Classes"
       href: "/coding-programs/classes/"
@@ -44,7 +44,7 @@ main_programs:
           problem solving, logic, and collaboration.
         price: "$280 per month"
         link: "/coding-programs/classes/python/"
-        cta: "See Python Track"
+        cta: "Explore Python Track"
         highlights:
           - "Official Python certificates"
           - "In-person and online cohorts"

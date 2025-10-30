@@ -4,14 +4,13 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import HeroSection from '../../components/ui/HeroSection.astro';
 import ProgramCard from '../../components/ui/ProgramCard.astro';
 import CalloutCard from '../../components/ui/CalloutCard.astro';
-import yaml from 'js-yaml';
-import fs from 'fs';
-import path from 'path';
+import { load } from 'js-yaml';
+import programsSource from './_index.yaml?raw';
 
-// Load YAML content from parallel file
-const yamlPath = path.resolve('./src/pages/coding-programs/_index.yaml');
-const yamlContent = yaml.load(fs.readFileSync(yamlPath, 'utf8')) as any;
+// Parse YAML via raw import so the dev server watches updates to the source file.
+const yamlContent = load(programsSource) as Record<string, any>;
 ---
+
 
 <BaseLayout
   title={yamlContent.base_layout.title}
