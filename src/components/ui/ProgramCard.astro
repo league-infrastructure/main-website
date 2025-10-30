@@ -21,7 +21,8 @@ interface Props extends HTMLAttributes<'article'> {
   highlights: string[];
   price?: string;
   image?: Image;
-  cta: CTA;
+  cta?: CTA;
+  actions?: CTA[];
 }
 
 const {
@@ -32,9 +33,12 @@ const {
   price,
   image,
   cta,
+  actions,
   class: className,
   ...rest
 } = Astro.props as Props & { class?: string };
+
+const actionList = actions && actions.length > 0 ? actions : cta ? [cta] : [];
 ---
 
 <article class:list={['card', 'program-card', className]} {...rest}>
@@ -54,17 +58,23 @@ const {
     </ul>
     {price && <p class="card__price">{price}</p>}
   </div>
-  <div class="card__footer">
-    <a
-      class:list={[
-        'button',
-        cta.variant === 'secondary' ? 'button--secondary' : 'button--primary',
-      ]}
-      href={cta.href}
-      target={cta.target}
-      rel={cta.rel}
-    >
-      {cta.label}
-    </a>
-  </div>
+  {actionList.length > 0 && (
+    <div class="card__footer">
+      <div class="button-group">
+        {actionList.map((action) => (
+          <a
+            class:list=[
+              'button',
+              action.variant === 'secondary' ? 'button--secondary' : 'button--primary',
+            ]
+            href={action.href}
+            target={action.target}
+            rel={action.rel}
+          >
+            {action.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
 </article>

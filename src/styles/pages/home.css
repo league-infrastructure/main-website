@@ -37,12 +37,6 @@
   width: min(100%, 460px);
 }
 
-.programs__grid {
-  display: grid;
-  gap: var(--space-xl);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
 .career {
   display: grid;
   gap: var(--space-2xl);
@@ -142,6 +136,79 @@ blockquote footer {
   object-fit: cover;
 }
 
+.tuition {
+  display: grid;
+  gap: var(--space-lg);
+  max-width: 680px;
+}
+
+.tuition__details {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: var(--space-sm);
+  color: var(--color-body);
+}
+
+.tuition__note {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(2, 20, 43, 0.72);
+}
+
+.recognition {
+  display: grid;
+  gap: var(--space-2xl);
+  justify-items: center;
+}
+
+.recognition__logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  justify-content: center;
+  align-items: center;
+}
+
+.recognition__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recognition__logo:hover,
+.recognition__logo:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover, var(--shadow-card));
+}
+
+.recognition__logo img {
+  max-height: 72px;
+  width: auto;
+}
+
+.newsletter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newsletter__copy h2 {
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.newsletter__copy p {
+  margin: 0;
+  max-width: 540px;
+}
+
 .cta {
   background: var(--color-primary);
   color: #ffffff;
@@ -188,5 +255,14 @@ blockquote footer {
   .home-hero__blob {
     width: 320px;
     height: 320px;
+  }
+
+  .newsletter {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .newsletter__copy p {
+    margin-inline: auto;
   }
 }

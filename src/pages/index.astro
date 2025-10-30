@@ -1,19 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/ui/HeroSection.astro';
+import ProgramCard from '../components/ui/ProgramCard.astro';
+import CalloutCard from '../components/ui/CalloutCard.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import {
   heroContent,
-  programsOverview,
+  weeklyPrograms,
+  freePrograms,
+  otherProgramsHome,
   careerPrep,
   communityVideo,
   testimonials,
   galleryImages,
   primaryCta,
+  tuitionAssistance,
+  recognition,
+  newsletter,
 } from '../data/home';
 import '../styles/pages/home.css';
 const { eyebrow, title, description, primaryCta: heroPrimary, secondaryCta, image } = heroContent;
-const { title: programsTitle, description: programsDescription, highlights } = programsOverview;
+const {
+  title: weeklyProgramsTitle,
+  description: weeklyProgramsDescription,
+  programs: weeklyProgramCards,
+} = weeklyPrograms;
+const { title: freeProgramsTitle, description: freeProgramsDescription, programs: freeProgramCards } = freePrograms;
+const {
+  title: otherProgramsTitle,
+  description: otherProgramsDescription,
+  programs: otherProgramsList,
+} = otherProgramsHome;
 const {
   title: careerTitle,
   description: careerDescription,
@@ -21,6 +38,9 @@ const {
 } = careerPrep;
 const { title: videoTitle, embedUrl } = communityVideo;
 const { title: ctaTitle, description: ctaDescription, primary, secondary } = primaryCta;
+const { title: tuitionTitle, lead: tuitionLead, details: tuitionDetails, apply: tuitionApply, note: tuitionNote } = tuitionAssistance;
+const { title: recognitionTitle, description: recognitionDescription, badges } = recognition;
+const { title: newsletterTitle, description: newsletterDescription, cta: newsletterCta } = newsletter;
 ---
 
 <BaseLayout
@@ -52,12 +72,51 @@ const { title: ctaTitle, description: ctaDescription, primary, secondary } = pri
 
   <section class="section">
     <div class="container">
-      <SectionHeader title={programsTitle} description={programsDescription} />
-      <div class="programs__grid">
-        {highlights.map((item) => (
-          <div class="card">
-            <p class="card__body">{item}</p>
-          </div>
+      <SectionHeader title={weeklyProgramsTitle} description={weeklyProgramsDescription} />
+      <div class="program-grid">
+        {weeklyProgramCards.map((program) => (
+          <ProgramCard
+            title={program.title}
+            level={program.level}
+            description={program.description}
+            highlights={program.highlights}
+            price={program.price}
+            image={program.image}
+            actions={program.actions}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeader title={freeProgramsTitle} description={freeProgramsDescription} />
+      <div class="program-grid">
+        {freeProgramCards.map((program) => (
+          <ProgramCard
+            title={program.title}
+            level={program.level}
+            description={program.description}
+            highlights={program.highlights}
+            price={program.price}
+            image={program.image}
+            actions={program.actions}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader title={otherProgramsTitle} description={otherProgramsDescription} />
+      <div class="support-grid">
+        {otherProgramsList.map((program) => (
+          <CalloutCard class="support-card" title={program.title}>
+            <p>{program.description}</p>
+            <a slot="footer" class="link" href={program.href}>Learn more</a>
+          </CalloutCard>
         ))}
       </div>
     </div>
@@ -72,6 +131,30 @@ const { title: ctaTitle, description: ctaDescription, primary, secondary } = pri
             <img src={logo.src} alt={logo.name} loading="lazy" />
           </figure>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <div class="tuition">
+        <SectionHeader title={tuitionTitle} description={tuitionLead} align="left" />
+        <ul class="tuition__details">
+          {tuitionDetails.map((detail) => (
+            <li>{detail}</li>
+          ))}
+        </ul>
+        <div class="button-group">
+          <a
+            class="button button--primary"
+            href={tuitionApply.href}
+            target={tuitionApply.target}
+            rel={tuitionApply.rel}
+          >
+            {tuitionApply.label}
+          </a>
+        </div>
+        <p class="tuition__note">{tuitionNote}</p>
       </div>
     </div>
   </section>
@@ -116,6 +199,38 @@ const { title: ctaTitle, description: ctaDescription, primary, secondary } = pri
             <img src={image.src} alt={image.alt} loading="lazy" />
           </figure>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container recognition">
+      <SectionHeader title={recognitionTitle} description={recognitionDescription} />
+      <div class="recognition__logos">
+        {badges.map((badge) => (
+          <a
+            class="recognition__logo"
+            href={badge.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={badge.src} alt={badge.name} loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container">
+      <div class="newsletter">
+        <div class="newsletter__copy">
+          <h2>{newsletterTitle}</h2>
+          <p>{newsletterDescription}</p>
+        </div>
+        <a class="button button--primary" href={newsletterCta.href}>
+          {newsletterCta.label}
+        </a>
       </div>
     </div>
   </section>
