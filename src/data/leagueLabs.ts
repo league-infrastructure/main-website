@@ -115,7 +115,7 @@ export const projectIdeas = [
     title: 'Programming Merit Badge',
     description:
       'Collaborate with Scouts to run the BSA Programming Merit Badge and document the full workshop flow.',
-    href: 'https://www.jointheleague.org/coding-programs/tech-club/programming-merit-badge/',
+  href: 'https://www.jointheleague.org/programs/tech-club/programming-merit-badge/',
   },
   {
     title: 'Neural Nets From Scratch',

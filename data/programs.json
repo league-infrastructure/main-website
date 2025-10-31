@@ -54,7 +54,7 @@
     "tuition": "Free",
     "tuitionFrequency": null,
     "ctaLabel": "Learn More",
-    "ctaHref": "https://www.jointheleague.org/coding-programs/tech/",
+  "ctaHref": "https://www.jointheleague.org/programs/tech/",
     "ordering": 3,
     "tags": ["featured", "main-program"]
   },

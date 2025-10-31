@@ -16,7 +16,7 @@ For each Astro page, create a parallel `.yaml` file that contains all the text c
 
 ## Example
 
-Based on `src/pages/coding-programs/index.astro`, here's how the content structure works:
+Based on `src/pages/programs/index.astro`, here's how the content structure works:
 
 ### Original Astro Component Usage
 ```astro
@@ -46,10 +46,10 @@ hero_section:
     - Classes run seven days a week with in-person and live online options.
   actions:
     - label: "View Weekly Classes"
-      href: "/coding-programs/classes/"
+      href: "/programs/classes/"
       variant: "primary"
     - label: "Explore Tech Club"
-      href: "/coding-programs/tech-club/"
+      href: "/programs/tech-club/"
       variant: "secondary"
   media:
     image:
@@ -66,7 +66,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Load YAML content from parallel file
-const yamlPath = path.resolve('./src/pages/coding-programs/_index.yaml');
+const yamlPath = path.resolve('./src/pages/programs/_index.yaml');
 const yamlContent = yaml.load(fs.readFileSync(yamlPath, 'utf8')) as any;
 ---
 
@@ -148,6 +148,6 @@ centers on one primary object type with many entries, making them good fits for
 `_index.yaml` files:
 
 - `src/pages/index.astro` — hero actions, program cards, testimonials, gallery
-  items, tuition bullets, and recognition badges all live in `src/data/home.ts`;
+  items, and recognition badges all live in `src/data/home.ts`;
   moving to YAML would let content editors adjust home messaging without
   touching TypeScript.

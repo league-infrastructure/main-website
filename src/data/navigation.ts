@@ -6,7 +6,7 @@ export const utilityLinks = [
 
 export const mainNavigation = [
   { label: 'About', href: '/about/' },
-  { label: 'Programs', href: '/coding-programs/' },
+  { label: 'Programs', href: '/programs/' },
   { label: 'Curriculum', href: 'https://curriculum.jointheleague.org/', external: true },
   { label: 'News', href: '/news/' },
   { label: 'Policies', href: '/about/policies/' },

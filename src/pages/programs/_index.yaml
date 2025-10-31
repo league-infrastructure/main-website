@@ -18,10 +18,10 @@ hero_section:
     - Classes run seven days a week with in-person and live online options.
   actions:
     - label: "View Weekly Classes"
-      href: "/coding-programs/classes/"
+      href: "/programs/classes/"
       variant: "primary"
     - label: "Explore Tech Club"
-      href: "/coding-programs/tech-club/"
+      href: "/programs/tech-club/"
       variant: "secondary"
   media:
     image:
@@ -43,7 +43,7 @@ main_programs:
           Start with the most approachable programming language and build real projects while mastering 
           problem solving, logic, and collaboration.
         price: "$280 per month"
-        link: "/coding-programs/classes/python/"
+  link: "/programs/classes/python/"
         cta: "Explore Python Track"
         highlights:
           - "Official Python certificates"
@@ -58,7 +58,7 @@ main_programs:
           Progress toward AP Computer Science readiness and Oracle Professional Certification with 
           industry-grade tools and mentorship.
         price: "$280 per month"
-        link: "/coding-programs/classes/java/"
+  link: "/programs/classes/java/"
         cta: "Explore Java Track"
         highlights:
           - "Oracle-aligned curriculum"
@@ -73,7 +73,7 @@ main_programs:
           Drop into free and low-cost workshops that introduce Python, Java, AI, robotics, electronics, 
           and more across San Diego libraries and schools.
         price: "Free"
-        link: "/coding-programs/tech-club/"
+  link: "/programs/tech-club/"
         cta: "Join Tech Club"
         highlights:
           - "Multiple weekly meetups"
@@ -109,7 +109,7 @@ program_comparison:
           schedule: "Year-round"
           ratio: "10 students per teacher"
           languages: "Python"
-          link: "/coding-programs/tech-club/"
+          link: "/programs/tech-club/"
         - program: "Python Coding Classes"
           level: "Beginner"
           duration: "1.5 hours weekly"
@@ -118,7 +118,7 @@ program_comparison:
           schedule: "Year-round"
           ratio: "5 students per teacher"
           languages: "Python"
-          link: "/coding-programs/classes/python/"
+          link: "/programs/classes/python/"
         - program: "Java Coding Classes"
           level: "Beginner to Advanced"
           duration: "1.5 hours weekly"
@@ -127,7 +127,7 @@ program_comparison:
           schedule: "Year-round"
           ratio: "5 students per teacher"
           languages: "Java"
-          link: "/coding-programs/classes/java/"
+          link: "/programs/classes/java/"
         - program: "Private Classes"
           level: "All Levels"
           duration: "90 minutes weekly"
@@ -145,7 +145,7 @@ program_comparison:
           schedule: "Spring, summer, and winter sessions"
           ratio: "5 students per teacher"
           languages: "Varies by camp"
-          link: "/coding-programs/coding-camps/"
+          link: "/camps/"
 
 other_programs:
   section:
@@ -158,23 +158,23 @@ other_programs:
       - title: "Code Clinic"
         description: |
           Online deep dives into emerging technologies for advanced students.
-        href: "/coding-programs/tech-club/code-clinic/"
+  href: "/programs/tech-club/code-clinic/"
       - title: "Project Clinic"
         description: |
           Personalized consulting sessions to ship your independent project.
-        href: "/coding-programs/project-clinic/"
+  href: "/programs/project-clinic/"
       - title: "FIRST Robot Programming"
         description: |
           Free skills classes supporting FIRST FTC and FRC robotics teams.
-        href: "/coding-programs/tech-club/robot-garage/#first"
+  href: "/programs/tech-club/robot-garage/#first"
       - title: "League Labs"
         description: |
           Intern with the League to design future curriculum and earn job experience.
-        href: "/coding-programs/league-labs/"
+  href: "/programs/league-labs/"
       - title: "Summer Research"
         description: |
           Collaborate on research projects in computational science and AI.
-        href: "/coding-programs/coding-camps/summer-2025/summer-projects/#research"
+  href: "/camps/summer-2025/summer-projects/#research"
       - title: "League at Work"
         description: |
           Bring League instruction to your company as an employee benefit.
