@@ -1,5 +1,5 @@
 base_layout:
-  title: "Coding Programs"
+  title: "Programs"
   description: >
     Weekly Python and Java classes, free Tech Club workshops,
     and seasonal camps that help San Diego students 
@@ -31,7 +31,7 @@ hero_section:
 
 main_programs:
   section:
-    class: "section"
+    class: "section section--programs-main"
     header:
       title: "Main Programs"
       description: |
@@ -43,7 +43,7 @@ main_programs:
           Start with the most approachable programming language and build real projects while mastering 
           problem solving, logic, and collaboration.
         price: "$280 per month"
-  link: "/programs/classes/python/"
+        link: "/programs/classes/python/"
         cta: "Explore Python Track"
         highlights:
           - "Official Python certificates"
@@ -58,7 +58,7 @@ main_programs:
           Progress toward AP Computer Science readiness and Oracle Professional Certification with 
           industry-grade tools and mentorship.
         price: "$280 per month"
-  link: "/programs/classes/java/"
+        link: "/programs/classes/java/"
         cta: "Explore Java Track"
         highlights:
           - "Oracle-aligned curriculum"
@@ -73,7 +73,7 @@ main_programs:
           Drop into free and low-cost workshops that introduce Python, Java, AI, robotics, electronics, 
           and more across San Diego libraries and schools.
         price: "Free"
-  link: "/programs/tech-club/"
+        link: "/programs/tech-club/"
         cta: "Join Tech Club"
         highlights:
           - "Multiple weekly meetups"
@@ -85,7 +85,7 @@ main_programs:
 
 program_comparison:
   section:
-    class: "section section--accent"
+  class: "section section--program-comparison"
     header:
       title: "Compare Our Programs"
       description: |
@@ -149,7 +149,7 @@ program_comparison:
 
 other_programs:
   section:
-    class: "section"
+  class: "section section--support"
     header:
       title: "More Ways to Learn"
       description: |
@@ -158,23 +158,23 @@ other_programs:
       - title: "Code Clinic"
         description: |
           Online deep dives into emerging technologies for advanced students.
-  href: "/programs/tech-club/code-clinic/"
+        href: "/programs/tech-club/code-clinic/"
       - title: "Project Clinic"
         description: |
           Personalized consulting sessions to ship your independent project.
-  href: "/programs/project-clinic/"
+        href: "/programs/project-clinic/"
       - title: "FIRST Robot Programming"
         description: |
           Free skills classes supporting FIRST FTC and FRC robotics teams.
-  href: "/programs/tech-club/robot-garage/#first"
+        href: "/programs/tech-club/robot-garage/#first"
       - title: "League Labs"
         description: |
           Intern with the League to design future curriculum and earn job experience.
-  href: "/programs/league-labs/"
+        href: "/programs/league-labs/"
       - title: "Summer Research"
         description: |
           Collaborate on research projects in computational science and AI.
-  href: "/camps/summer-2025/summer-projects/#research"
+        href: "/camps/summer-2025/summer-projects/#research"
       - title: "League at Work"
         description: |
           Bring League instruction to your company as an employee benefit.
@@ -195,7 +195,7 @@ why_highlights:
 
 start_options:
   section:
-    class: "section section--cta"
+  class: "section section--cta section--cta-peach"
     cta:
       copy:
         title: "Try a Class Before You Commit"

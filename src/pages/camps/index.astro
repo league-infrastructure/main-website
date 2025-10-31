@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import SectionHeader from '../../../components/SectionHeader.astro';
-import CalloutCard from '../../../components/ui/CalloutCard.astro';
-import CampTrackCard from '../../../components/ui/CampTrackCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CalloutCard from '../../components/ui/CalloutCard.astro';
+import CampTrackCard from '../../components/ui/CampTrackCard.astro';
 import {
   codingCampsHero,
   codeArcadeInfo,
@@ -10,7 +10,7 @@ import {
   slamInfo,
   campResources,
   campContact,
-} from '../../../data/codingCamps';
+} from '../../data/codingCamps';
 
 const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 ---

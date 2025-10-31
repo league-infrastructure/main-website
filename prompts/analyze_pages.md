@@ -18,7 +18,7 @@ We will be using Astro to build the site, probably with a basic theme like https
 
 Here are some pages that require special attention: 
 
-* https://www.jointheleague.org/coding-programs/
+* https://www.jointheleague.org/programs/
 * https://www.jointheleague.org/about/
 
 These pages have muiltple section, with tables and graphic seperators that we'd like to repilicate
@@ -35,8 +35,8 @@ theme we build in Astro such as "Comparison Table" or "Product Description" or
 "Staff Member"
 
 To get HTML pages, you can construct a URL to the site from the path to the stored page.txt file. For instance,
-the page `scrape/coding-programs/coding-camps/summer-2025/page.txt` can be fetched from 
-`https://www.jointheleague.org/coding-programs/coding-camps/summer-2025/`
+the page `scrape/programs/coding-camps/summer-2025/page.txt` can be fetched from 
+`https://www.jointheleague.org/camps/summer-2025/`
 
 Also document anything else that you think will be important in rebuilding our site in Astro. 
 

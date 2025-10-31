@@ -8,7 +8,7 @@ are should be blank.
 
 2) The "Logo" is not a logo:
 
-<div class="container site-header__main"> <a class="site-header__logo" href="/">The League of Amazing Programmers</a> <nav aria-label="Main navigation" class="site-header__nav"> <ul class="list-reset site-header__nav-list"> <li> <a href="/about/"> About </a> </li><li> <a href="/coding-programs/"> Programs </a> </li><li> <a href="https://curriculum.jointheleague.org/" target="_blank" rel="noreferrer"> Curriculum </a> </li><li> <a href="/news/"> News </a> </li><li> <a href="/about/policies/"> Policies </a> </li><li> <a href="/donate/supporters/"> Supporters </a> </li> </ul> </nav> <div class="site-header__actions"> <a class="button button--primary" href="/donate/"> Donate </a><a class="button button--secondary" href="/donate/volunteer/"> Volunteer </a> </div> </div>
+<div class="container site-header__main"> <a class="site-header__logo" href="/">The League of Amazing Programmers</a> <nav aria-label="Main navigation" class="site-header__nav"> <ul class="list-reset site-header__nav-list"> <li> <a href="/about/"> About </a> </li><li> <a href="/programs/"> Programs </a> </li><li> <a href="https://curriculum.jointheleague.org/" target="_blank" rel="noreferrer"> Curriculum </a> </li><li> <a href="/news/"> News </a> </li><li> <a href="/about/policies/"> Policies </a> </li><li> <a href="/donate/supporters/"> Supporters </a> </li> </ul> </nav> <div class="site-header__actions"> <a class="button button--primary" href="/donate/"> Donate </a><a class="button button--secondary" href="/donate/volunteer/"> Volunteer </a> </div> </div>
 
 ( class: site-header__logo ) 
 

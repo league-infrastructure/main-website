@@ -11,7 +11,7 @@ The site reuses 17 core presentation patterns that inform our Astro component pl
 
 ## Page Highlights
 - **Home (`/`)**: Hero with program CTA buttons, program overview cards (global include), "Preparing Youth" feature with logo strip, Vimeo testimonial video, three-column testimonial quotes, photo gallery, and orange CTA footer.
-- **Coding Programs (`/coding-programs/`)**: Extensive three-card "Main Programs" grid, secondary "Other Programs" content boxes, detailed comparison table, repeated checklist cards for each offering, dual "Why Python/Java" content columns, more callouts to Tech Club/Java/Python, and global CTA sections. Heavy reuse of orange/indigo palette and iconography.
+- **Programs (`/programs/`)**: Extensive three-card "Main Programs" grid, secondary "Other Programs" content boxes, detailed comparison table, repeated checklist cards for each offering, dual "Why Python/Java" content columns, more callouts to Tech Club/Java/Python, and global CTA sections. Heavy reuse of orange/indigo palette and iconography.
 - **About (`/about/`)**: Gradient hero, mission statement with background image overlay, two sequential lottie-enhanced text blocks, large staff directory (9+ cards), board roster cards in wrapped grid, plus global CTA/footer inserts.
 - **Donate (`/donate/`)**: Embedded Give Lively widget above fold, supportive impact bullet list, split layout with imagery, FAQ accordion, and icon-based content boxes for alternative giving methods (PayPal, Venmo, Text).
 - **News (`/news/`)**: Post slider hero followed by masonry-ish three-column blog grid with load-more/infinite scroll.
@@ -162,8 +162,8 @@ The site reuses 17 core presentation patterns that inform our Astro component pl
 
 ## Page Template Types
 - **Homepage**: marketing-focused landing page combining hero, program highlights, testimonials, media gallery, CTA band, and global footer partials; pulls data from multiple collections.
-- **Program Category**: showcases multiple programs within a portfolio (e.g., `/coding-programs/`) using hero, program card grids, comparison tables, checklists, and related content boxes.
-- **Program Detail**: individual program microsite (e.g., `/coding-programs/classes/python/`) featuring hero, program specifics, schedule, tuition, testimonials, and CTAs.
+- **Program Category**: showcases multiple programs within a portfolio (e.g., `/programs/`) using hero, program card grids, comparison tables, checklists, and related content boxes.
+- **Program Detail**: individual program microsite (e.g., `/programs/classes/python/`) featuring hero, program specifics, schedule, tuition, testimonials, and CTAs.
 - **Mission/About**: storytelling page (e.g., `/about/`) with hero, mission statements, lottie features, staff and board directories, and supporting CTAs.
 - **Donate/Support**: conversion-oriented layout combining embed widgets, impact lists, FAQ accordion, alternative donation methods, and assurance content.
 - **News/Blog Index**: card grid of posts with optional featured slider, category filters, and infinite scroll or pagination.
@@ -178,7 +178,7 @@ The site reuses 17 core presentation patterns that inform our Astro component pl
 	- `Client Portal` → `https://www.jointheleague.org/client-portal/`
 - **Primary Header Menu**
 	- `About` → `/about/`
-	- `Programs` → `/coding-programs/`
+	- `Programs` → `/programs/`
 	- `Curriculum` → `https://curriculum.jointheleague.org/`
 	- `News` → `/news/`
 	- `Policies` → `/about/policies/`

@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import SectionHeader from '../../../../components/SectionHeader.astro';
-import CalloutCard from '../../../../components/ui/CalloutCard.astro';
-import CampTrackCard from '../../../../components/ui/CampTrackCard.astro';
-import CampSessionCard from '../../../../components/ui/CampSessionCard.astro';
-import { campTracks, campResources, campContact } from '../../../../data/codingCamps';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CalloutCard from '../../../components/ui/CalloutCard.astro';
+import CampTrackCard from '../../../components/ui/CampTrackCard.astro';
+import CampSessionCard from '../../../components/ui/CampSessionCard.astro';
+import { campTracks, campResources, campContact } from '../../../data/codingCamps';
 import {
   summer2025Hero,
   dropInHighlights,
@@ -12,7 +12,7 @@ import {
   weeklyCamps,
   dailyFlow,
   faqItems,
-} from '../../../../data/summer2025';
+} from '../../../data/summer2025';
 
 const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 ---

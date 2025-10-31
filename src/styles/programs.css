@@ -1,7 +1,7 @@
 /* Coding Programs Shared Styles */
 .programs-hero {
   position: relative;
-  background: var(--color-hero-gradient);
+  background: linear-gradient(180deg, rgba(93, 95, 239, 0.22) 0%, rgba(243, 113, 33, 0.14) 45%, #fff2e8 100%);
   padding: var(--space-4xl) 0 var(--space-3xl);
 }
 
@@ -9,7 +9,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(93, 95, 239, 0.18), transparent 55%);
+  background: radial-gradient(circle at 12% 18%, rgba(93, 95, 239, 0.28), transparent 45%),
+    radial-gradient(circle at 88% 12%, rgba(243, 113, 33, 0.18), transparent 35%);
   pointer-events: none;
 }
 
@@ -52,6 +53,22 @@
   background: var(--color-surface-subtle);
 }
 
+.section--programs-main {
+  background: linear-gradient(180deg, rgba(255, 242, 232, 0.92) 0%, #ffffff 75%);
+}
+
+.section--program-comparison {
+  background: #ffffff;
+}
+
+.section--support {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 242, 232, 0.78) 100%);
+}
+
+.section--cta-peach {
+  background: var(--color-peach);
+}
+
 .section--split {
   background: var(--color-surface);
 }
@@ -80,6 +97,8 @@
 .support-card {
   display: grid;
   gap: var(--space-md);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
 }
 
 .cta {
@@ -125,6 +144,14 @@ td {
 tbody tr:last-child th,
 tbody tr:last-child td {
   border-bottom: none;
+}
+
+.section--program-comparison tbody tr:nth-child(even) {
+  background: var(--color-peach);
+}
+
+.section--program-comparison tbody tr:nth-child(odd) {
+  background: #ffffff;
 }
 
 th a {
