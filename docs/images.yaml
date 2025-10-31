@@ -1,3 +1,73 @@
+src/data/home.ts:
+  https://www.jointheleague.org/wp-content/uploads/2021/04/computer-robot-1.png: /images/2021/04/computer-robot-1.png
+  https://www.jointheleague.org/wp-content/uploads/2021/05/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png: /images/2021/05/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png
+  https://www.jointheleague.org/wp-content/uploads/2021/05/Copy-of-MX-Library-Workshop_1.png: /images/2021/05/Copy-of-MX-Library-Workshop_1.png
+  https://www.jointheleague.org/wp-content/uploads/2021/05/girl-scouts-2020-03.png: /images/2021/05/girl-scouts-2020-03.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/Seal-2023-transp-1400px.png: /images/2021/09/Seal-2023-transp-1400px.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/codingcamps.png: /images/2021/09/codingcamps.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/java.png: /images/2021/09/java.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/python.png: /images/2021/09/python.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/amazon.png: /images/2021/10/amazon.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/google.png: /images/2021/10/google.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/intuit.png: /images/2021/10/intuit.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/microsoft.png: /images/2021/10/microsoft.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/playstation-e1633381878724.png: /images/2021/10/playstation-e1633381878724.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/sony.png: /images/2021/10/sony.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/toprated.png: /images/2021/10/toprated.png
+  https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-800x658.png: /images/2022/01/logo2-800x658.png
+  https://www.jointheleague.org/wp-content/uploads/2025/04/current_students.png: /images/2025/04/current_students.png
+
+src/data/codingPrograms.ts:
+  https://www.jointheleague.org/wp-content/uploads/2021/09/programs.png: /images/2021/09/programs.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/python.png: /images/2021/09/python.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/java.png: /images/2021/09/java.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/codingcamps.png: /images/2021/09/codingcamps.png
+  https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png: /images/2024/02/TheLEAGUEBlack-300x249.png
+
+src/data/techClub.ts:
+  https://www.jointheleague.org/wp-content/uploads/2024/03/python.png: /images/2024/03/python.png
+  https://www.jointheleague.org/wp-content/uploads/2024/03/java.png: /images/2024/03/java.png
+  https://www.jointheleague.org/wp-content/uploads/2024/03/cutebot-1.png: /images/2024/03/cutebot-1.png
+  https://www.jointheleague.org/wp-content/uploads/2024/05/JavascriptLogo.png: /images/2024/05/JavascriptLogo.png
+
+src/data/codingCamps.ts:
+  https://www.jointheleague.org/wp-content/uploads/2023/05/AdobeStock_230441943-scaled-e1742318677815.jpeg: /images/2023/05/AdobeStock_230441943-scaled-e1742318677815.jpeg
+  https://www.jointheleague.org/wp-content/uploads/2024/03/cutebot-1-e1742319239492.png: /images/2024/03/cutebot-1-e1742319239492.png
+  https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_3003-e1742319406441.png: /images/2024/06/IMG_3003-e1742319406441.png
+  https://www.jointheleague.org/wp-content/uploads/2025/03/Python-Games-e1742318505702.png: /images/2025/03/Python-Games-e1742318505702.png
+  https://www.jointheleague.org/wp-content/uploads/2025/03/meowbit-e1742318910377.png: /images/2025/03/meowbit-e1742318910377.png
+  https://www.jointheleague.org/wp-content/uploads/2025/04/carte-microbit.jpg: /images/2025/04/carte-microbit.jpg
+  https://www.jointheleague.org/wp-content/uploads/2021/09/python.png: /images/2021/09/python.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/java.png: /images/2021/09/java.png
+
+src/data/about.ts:
+  https://www.jointheleague.org/wp-content/uploads/2021/10/about_flag.png: /images/2021/10/about_flag.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/EricBusboom.png: /images/2021/10/EricBusboom.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/OsvaldoRuiz-e1635886323498.png: /images/2021/10/OsvaldoRuiz-e1635886323498.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/Liz-Groves.png: /images/2021/10/Liz-Groves.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/MikeJohnson-e1635886431891.png: /images/2021/10/MikeJohnson-e1635886431891.png
+  https://www.jointheleague.org/wp-content/uploads/2024/09/jed_stumpf-circle.png: /images/2024/09/jed_stumpf-circle.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/ColbyShexnayder-e1635884609205.png: /images/2021/10/ColbyShexnayder-e1635884609205.png
+  https://www.jointheleague.org/wp-content/uploads/2022/10/Nick-300x300.jpeg: /images/2022/10/Nick-300x300.jpeg
+  https://www.jointheleague.org/wp-content/uploads/2021/10/KeithGroves2.png: /images/2021/10/KeithGroves2.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/DanielCommins-e1635886381127.png: /images/2021/10/DanielCommins-e1635886381127.png
+  https://www.jointheleague.org/wp-content/uploads/2024/09/tammy.jpeg: /images/2024/09/tammy.jpeg
+  https://www.jointheleague.org/wp-content/uploads/2023/08/Bio-Pic-C-Dolan.jpg: /images/2023/08/Bio-Pic-C-Dolan.jpg
+  https://www.jointheleague.org/wp-content/uploads/2021/10/StanKurdziel.png: /images/2021/10/StanKurdziel.png
+  https://www.jointheleague.org/wp-content/uploads/2021/10/DebraSchade.png: /images/2021/10/DebraSchade.png
+  https://www.jointheleague.org/wp-content/uploads/2022/01/kevin-lee-circle-300x300.png: /images/2022/01/kevin-lee-circle-300x300.png
+  https://www.jointheleague.org/wp-content/uploads/2022/01/uyen-tran-circle.png: /images/2022/01/uyen-tran-circle.png
+
+src/components/Header.astro:
+  https://www.jointheleague.org/wp-content/uploads/2022/01/logosymbol-e1641498341753.png: /images/2022/01/logosymbol-e1641498341753.png
+
+src/components/Footer.astro:
+  https://www.jointheleague.org/wp-content/uploads/2021/11/LOAP_SafeReopeningPlan.pdf: /images/2021/11/LOAP_SafeReopeningPlan.pdf
+
+src/data/donate.ts:
+  https://www.jointheleague.org/wp-content/uploads/2023/11/League-at-Work.pdf: /images/2023/11/League-at-Work.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/08/Fundraiser-Toolkit.pdf: /images/2023/08/Fundraiser-Toolkit.pdf
+
 src/pages/about/impact/index.astro:
   https://www.jointheleague.org/wp-content/uploads/2023/12/2017-2018-WTS-Audited-Financial-Statements.pdf: /images/2023/12/2017-2018-WTS-Audited-Financial-Statements.pdf
   https://www.jointheleague.org/wp-content/uploads/2023/12/2019-2020-WTS-Audited-Financial-Statements.pdf: /images/2023/12/2019-2020-WTS-Audited-Financial-Statements.pdf
@@ -15,6 +85,12 @@ src/pages/about/policies/nondiscrimination-policy/index.astro:
 src/pages/programs/classes/python-vs-java/index.astro:
   https://www.jointheleague.org/wp-content/uploads/2021/09/java.png: /images/2021/09/java.png
   https://www.jointheleague.org/wp-content/uploads/2021/09/python.png: /images/2021/09/python.png
+src/pages/programs/_index.yaml:
+  https://www.jointheleague.org/wp-content/uploads/2021/09/codingcamps.png: /images/2021/09/codingcamps.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/java.png: /images/2021/09/java.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/programs.png: /images/2021/09/programs.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/python.png: /images/2021/09/python.png
+  https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png: /images/2024/02/TheLEAGUEBlack-300x249.png
 src/pages/programs/tech-club/code-clinic/index.astro:
   https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png: /images/2024/02/TheLEAGUEBlack-300x249.png
   https://www.jointheleague.org/wp-content/uploads/2025/04/denimkids.jpeg: /images/2025/04/denimkids.jpeg

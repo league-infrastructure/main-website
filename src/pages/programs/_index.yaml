@@ -25,7 +25,7 @@ hero_section:
       variant: "secondary"
   media:
     image:
-      src: "https://www.jointheleague.org/wp-content/uploads/2021/09/programs.png"
+  src: "/images/2021/09/programs.png"
       alt: "League students collaborating during a coding class"
       loading: "lazy"
 
@@ -50,7 +50,7 @@ main_programs:
           - "In-person and online cohorts"
           - "Small classes with five students per teacher"
         image:
-          src: "https://www.jointheleague.org/wp-content/uploads/2021/09/python.png"
+          src: "/images/2021/09/python.png"
           alt: "Illustration representing Python coding"
       - title: "Java Coding Classes"
         level: "Intermediate to Advanced"
@@ -65,7 +65,7 @@ main_programs:
           - "Hybrid and online schedules"
           - "Project-based learning across eight levels"
         image:
-          src: "https://www.jointheleague.org/wp-content/uploads/2021/09/java.png"
+          src: "/images/2021/09/java.png"
           alt: "Illustration representing Java development"
       - title: "Tech Club"
         level: "Beginner to Advanced"
@@ -80,7 +80,7 @@ main_programs:
           - "Hands-on demos and mini-projects"
           - "Volunteer mentors and alumni support"
         image:
-          src: "https://www.jointheleague.org/wp-content/uploads/2021/09/codingcamps.png"
+          src: "/images/2021/09/codingcamps.png"
           alt: "Illustration highlighting collaborative workshops"
 
 program_comparison:
@@ -207,6 +207,6 @@ start_options:
           href: "https://www.meetup.com/the-league-tech-club"
       media:
         image:
-          src: "https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png"
+          src: "/images/2024/02/TheLEAGUEBlack-300x249.png"
           alt: "The League Tech Club logo"
           loading: "lazy"

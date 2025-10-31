@@ -1,7 +1,7 @@
 ---
 title: League Featured In Councilmember Bry February 2017 Newsletter
 date: '2017-02-07'
-featuredImage: https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png
+featuredImage: /uploads/2017/04/League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png
 ---
 
 <span style="color: #999999;">February 2017</span>
@@ -10,6 +10,6 @@ featuredImage: https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017
 
 &nbsp;
 
-<a href="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/02/BarbaraBryFeb2017Newsletter.pdf">...read more</a>
+<a href="/uploads/2017/02/BarbaraBryFeb2017Newsletter.pdf">...read more</a>
 
-<img class="size-full wp-image-26481 alignleft" style="color: #999999;" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png" alt="" width="316" height="303" />
+<img class="size-full wp-image-26481 alignleft" style="color: #999999;" src="/uploads/2017/04/League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png" alt="" width="316" height="303" />

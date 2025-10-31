@@ -6,7 +6,7 @@ date: '2014-11-29'
 
 <span style="color: #999999;">Assets Science, November 2014</span>
 
-I’m passionate about software engineering and I’m passionate about education so I jumped at the chance to become a volunteer teacher at <a href="https://www.eryary.sautebrandpartners.com/">The League of Amazing Programmers.</a>
+I’m passionate about software engineering and I’m passionate about education so I jumped at the chance to become a volunteer teacher at The League of Amazing Programmers.
 
 The League’s mission is to give kids the advantage they need to prepare for science and technology careers of the 21st century. They accomplish this using in person Java programming classes focused on the development of games, social and mobile applications and automated robots.
 

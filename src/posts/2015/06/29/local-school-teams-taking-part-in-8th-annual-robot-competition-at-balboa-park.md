@@ -1,10 +1,10 @@
 ---
 title: Local School Teams Taking Part In 8th Annual Robot Competition At Balboa Park
 date: '2015-06-29'
-featuredImage: https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/Local-school-teams-taking-part-in-8th-annual-robot-competition-at-Balboa-Park.jpg
+featuredImage: /uploads/2017/04/Local-school-teams-taking-part-in-8th-annual-robot-competition-at-Balboa-Park.jpg
 ---
 
-<span style="color: #999999;"><img class="alignleft size-full wp-image-26486" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/Local-school-teams-taking-part-in-8th-annual-robot-competition-at-Balboa-Park.jpg" alt="" width="300" height="197" />Del Mar Times Newspaper, June 2015</span>
+<span style="color: #999999;"><img class="alignleft size-full wp-image-26486" src="/uploads/2017/04/Local-school-teams-taking-part-in-8th-annual-robot-competition-at-Balboa-Park.jpg" alt="" width="300" height="197" />Del Mar Times Newspaper, June 2015</span>
 
 "More than 75 students from across California will participate in the eighth annual Autonomous Robotics Competition (iAROC) at the Reuben H. Fleet Science Center in Balboa Park.
 

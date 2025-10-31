@@ -48,3 +48,5 @@ src/posts. Use the same permalinks the wordpress site : /year/month/day.
   location in this sie ( in src/public? not sure ) Dont run the program yet, but
   you can add a --dry-run command to veryify that the program works. Use click
   for program args and options, its already installed.  
+
+- [DONE] There are still a lot of posts and pages that have images from the old site in them. Go through all of the posts looking for them. 

@@ -1,12 +1,12 @@
 ---
 title: Starting A League First Robotics Team
 date: '2024-05-05'
-featuredImage: https://www.jointheleague.org/wp-content/uploads/2024/05/FTC-Fleet-800x363.png
+featuredImage: /uploads/2024/05/FTC-Fleet-800x363.png
 ---
 
 For several years before the pandemic, the LEAGUE had a FIRST Tech Challenge Robotics (FTC) Team, but we have not run it in recent years. FTC is the second tier of the FIRST robotics program, easier and less expensive than the top-tier FRC program. Regardless, the challenges are the same and the programming is similar. Here is our fleet of three robots from the last competition we entered in 2022:
 
-<img class="aligncenter size-fusion-800 wp-image-29925" src="https://www.jointheleague.org/wp-content/uploads/2024/05/FTC-Fleet-800x363.png" alt="" width="800" height="363" />
+<img class="aligncenter size-fusion-800 wp-image-29925" src="/uploads/2024/05/FTC-Fleet-800x363.png" alt="" width="800" height="363" />
 
 And, we've had some wins in the past; in 2017, an FTC team at R. Roger Rowe Middle school, in which all of the programmers were LEAGUE students, <a href="https://www.jointheleague.org/2017/02/07/league-students-place-1st-in-first-tech-challenge-robotics-competition/">took a first in regional competition. </a>
 

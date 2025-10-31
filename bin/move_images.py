@@ -2,22 +2,26 @@ from __future__ import annotations
 
 import shutil
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Tuple
 
 import click
 import yaml
 
 
-def flatten_mapping(data: Dict[str, Dict[str, str]]) -> Dict[str, str]:
+def flatten_mapping(data: Dict[str, Dict[str, str]]) -> Tuple[Dict[str, str], Dict[str, Tuple[str, ...]]]:
     flat: Dict[str, str] = {}
-    for images in data.values():
+    sources: Dict[str, set[str]] = {}
+
+    for source, images in data.items():
         for original, new in images.items():
             if original in flat and flat[original] != new:
                 raise click.ClickException(
                     f'Conflicting targets for {original}: {flat[original]} vs {new}'
                 )
             flat[original] = new
-    return flat
+            sources.setdefault(original, set()).add(source)
+
+    return flat, {key: tuple(sorted(value)) for key, value in sources.items()}
 
 
 def resolve_source_path(original_url: str, source_root: Path) -> Path:
@@ -75,7 +79,7 @@ def main(
     if not isinstance(data, dict):
         raise click.ClickException('Mapping file must describe a dictionary of image mappings.')
 
-    flat_mapping = flatten_mapping(data)
+    flat_mapping, reference_sources = flatten_mapping(data)
     if not flat_mapping:
         click.echo('No images to process.')
         return
@@ -83,19 +87,32 @@ def main(
     operations = 0
     skipped = 0
     missing = 0
+    already_present = 0
 
     for original_url, new_url in flat_mapping.items():
         source_path = resolve_source_path(original_url, source_root)
         destination_path = resolve_destination_path(new_url, destination_root)
 
-        if not source_path.exists():
-            click.echo(f'[missing] {source_path}', err=True)
-            missing += 1
+        source_exists = source_path.exists()
+        destination_exists = destination_path.exists()
+
+        if not source_exists:
+            refs = reference_sources.get(original_url, ())
+            ref_list = ', '.join(refs) if refs else 'unknown source'
+            if destination_exists:
+                click.echo(
+                    f'[already] {destination_path} (source missing; referenced in {ref_list})',
+                    err=True,
+                )
+                already_present += 1
+            else:
+                click.echo(f'[missing] {source_path} (referenced in {ref_list})', err=True)
+                missing += 1
             continue
 
         destination_path.parent.mkdir(parents=True, exist_ok=True)
 
-        if destination_path.exists() and not overwrite:
+        if destination_exists and not overwrite:
             click.echo(f'[skip] {destination_path} already exists', err=True)
             skipped += 1
             continue
@@ -115,7 +132,7 @@ def main(
         click.echo(f'Moved {source_path} -> {destination_path}')
 
     click.echo(
-        f'Processed {operations} images (skipped {skipped}, missing {missing}).'
+        f'Processed {operations} images (skipped {skipped}, missing {missing}, already present {already_present}).'
     )
 
 

@@ -297,7 +297,7 @@ export const leagueAtWorkHero: HeroData = {
   ],
   actions: [
     { label: 'Schedule a Consultation', href: 'mailto:info@jointheleague.org?subject=League%20at%20Work%20Inquiry', variant: 'primary' },
-    { label: 'Download Program Overview', href: 'https://www.jointheleague.org/wp-content/uploads/2023/11/League-at-Work.pdf', variant: 'secondary', target: '_blank', rel: 'noreferrer' }
+    { label: 'Download Program Overview', href: '/images/2023/11/League-at-Work.pdf', variant: 'secondary', target: '_blank', rel: 'noreferrer' }
   ]
 };
 
@@ -341,7 +341,7 @@ export const fundraiserHero: HeroData = {
     'Host a birthday fundraiser, stream-a-thon, or community event to expand access to computer science education. We will supply assets, messaging, and staff support.',
   actions: [
     { label: 'Launch a Fundraiser', href: 'https://secure.givelively.org/donate/the-league-of-amazing-programmers/fundraisers/new', variant: 'primary', target: '_blank', rel: 'noreferrer' },
-    { label: 'Download Toolkit', href: 'https://www.jointheleague.org/wp-content/uploads/2023/08/Fundraiser-Toolkit.pdf', variant: 'secondary', target: '_blank', rel: 'noreferrer' }
+    { label: 'Download Toolkit', href: '/images/2023/08/Fundraiser-Toolkit.pdf', variant: 'secondary', target: '_blank', rel: 'noreferrer' }
   ]
 };
 

@@ -7,7 +7,7 @@ export const codingProgramsHero = {
     'Classes run seven days a week with in-person and live online options.',
   ],
   image: {
-    src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/programs.png',
+    src: '/images/2021/09/programs.png',
     alt: 'League students collaborating during a coding class',
   },
   actions: [
@@ -37,11 +37,11 @@ export const mainPrograms: ProgramCard[] = [
     description:
       'Start with the most approachable programming language and build real projects while mastering problem solving, logic, and collaboration.',
     price: '$280 per month',
-  link: '/programs/classes/python/',
+    link: '/programs/classes/python/',
     cta: 'See Python Track',
     highlights: ['Official Python certificates', 'In-person and online cohorts', 'Small classes with five students per teacher'],
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/python.png',
+      src: '/images/2021/09/python.png',
       alt: 'Illustration representing Python coding',
     },
   },
@@ -51,11 +51,11 @@ export const mainPrograms: ProgramCard[] = [
     description:
       'Progress toward AP Computer Science readiness and Oracle Professional Certification with industry-grade tools and mentorship.',
     price: '$280 per month',
-  link: '/programs/classes/java/',
+    link: '/programs/classes/java/',
     cta: 'Explore Java Track',
     highlights: ['Oracle-aligned curriculum', 'Hybrid and online schedules', 'Project-based learning across eight levels'],
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/java.png',
+      src: '/images/2021/09/java.png',
       alt: 'Illustration representing Java development',
     },
   },
@@ -65,11 +65,11 @@ export const mainPrograms: ProgramCard[] = [
     description:
       'Drop into free and low-cost workshops that introduce Python, Java, AI, robotics, electronics, and more across San Diego libraries and schools.',
     price: 'Free',
-  link: '/programs/tech-club/',
+    link: '/programs/tech-club/',
     cta: 'Join Tech Club',
     highlights: ['Multiple weekly meetups', 'Hands-on demos and mini-projects', 'Volunteer mentors and alumni support'],
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/codingcamps.png',
+      src: '/images/2021/09/codingcamps.png',
       alt: 'Illustration highlighting collaborative workshops',
     },
   },
@@ -97,7 +97,7 @@ export const programComparison: ComparisonRow[] = [
     schedule: 'Year-round',
     ratio: '10 students per teacher',
     languages: 'Python',
-  link: '/programs/tech-club/',
+    link: '/programs/tech-club/',
   },
   {
     program: 'Python Coding Classes',
@@ -108,7 +108,7 @@ export const programComparison: ComparisonRow[] = [
     schedule: 'Year-round',
     ratio: '5 students per teacher',
     languages: 'Python',
-  link: '/programs/classes/python/',
+    link: '/programs/classes/python/',
   },
   {
     program: 'Java Coding Classes',
@@ -119,7 +119,7 @@ export const programComparison: ComparisonRow[] = [
     schedule: 'Year-round',
     ratio: '5 students per teacher',
     languages: 'Java',
-  link: '/programs/classes/java/',
+    link: '/programs/classes/java/',
   },
   {
     program: 'Private Classes',
@@ -141,7 +141,7 @@ export const programComparison: ComparisonRow[] = [
     schedule: 'Spring, summer, and winter sessions',
     ratio: '5 students per teacher',
     languages: 'Varies by camp',
-  link: '/camps/',
+    link: '/camps/',
   },
 ];
 
@@ -155,27 +155,27 @@ export const otherPrograms: SupportProgram[] = [
   {
     title: 'Code Clinic',
     description: 'Online deep dives into emerging technologies for advanced students.',
-  href: '/programs/tech-club/code-clinic/',
+    href: '/programs/tech-club/code-clinic/',
   },
   {
     title: 'Project Clinic',
     description: 'Personalized consulting sessions to ship your independent project.',
-  href: '/programs/project-clinic/',
+    href: '/programs/project-clinic/',
   },
   {
     title: 'FIRST Robot Programming',
     description: 'Free skills classes supporting FIRST FTC and FRC robotics teams.',
-  href: '/programs/tech-club/robot-garage/#first',
+    href: '/programs/tech-club/robot-garage/#first',
   },
   {
     title: 'League Labs',
     description: 'Intern with the League to design future curriculum and earn job experience.',
-  href: '/programs/league-labs/',
+    href: '/programs/league-labs/',
   },
   {
     title: 'Summer Research',
     description: 'Collaborate on research projects in computational science and AI.',
-  href: '/camps/summer-2025/summer-projects/#research',
+    href: '/camps/summer-2025/summer-projects/#research',
   },
   {
     title: 'League at Work',
@@ -211,7 +211,7 @@ export const startOptions = {
     href: 'https://www.meetup.com/the-league-tech-club',
   },
   image: {
-    src: 'https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png',
+    src: '/images/2024/02/TheLEAGUEBlack-300x249.png',
     alt: 'The League Tech Club logo',
   },
 };

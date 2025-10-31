@@ -6,7 +6,7 @@ export const heroContent = {
   primaryCta: { label: 'View Our Programs', href: '/programs/' },
   secondaryCta: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
   image: {
-    src: 'https://www.jointheleague.org/wp-content/uploads/2021/04/computer-robot-1.png',
+  src: '/images/2021/04/computer-robot-1.png',
     alt: 'Student-built robot with laptop',
   },
 };
@@ -61,7 +61,7 @@ export const weeklyPrograms = {
       ],
       price: '$280 per month',
       image: {
-        src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/python.png',
+  src: '/images/2021/09/python.png',
         alt: 'Illustration representing Python coding',
       },
       actions: [
@@ -97,7 +97,7 @@ export const weeklyPrograms = {
       ],
       price: '$280 per month',
       image: {
-        src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/java.png',
+  src: '/images/2021/09/java.png',
         alt: 'Illustration representing Java development',
       },
       actions: [
@@ -141,7 +141,7 @@ export const freePrograms = {
       ],
       price: 'Free',
       image: {
-        src: 'https://www.jointheleague.org/wp-content/uploads/2025/04/current_students.png',
+  src: '/images/2025/04/current_students.png',
         alt: 'Students attending Tech Club workshop',
       },
       actions: [
@@ -170,7 +170,7 @@ export const freePrograms = {
       ],
       price: 'Free',
       image: {
-        src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/codingcamps.png',
+  src: '/images/2021/09/codingcamps.png',
         alt: 'Illustration of students collaborating on laptops',
       },
       actions: [
@@ -217,17 +217,17 @@ export const recognition = {
   badges: [
     {
       name: 'Guidestar Platinum Seal',
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/Seal-2023-transp-1400px.png',
+  src: '/images/2021/09/Seal-2023-transp-1400px.png',
       href: 'https://www.guidestar.org/profile/shared/64911aa4-cc70-40d6-93be-0f7cad50f6d7',
     },
     {
       name: 'GreatNonprofits Top-Rated',
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/toprated.png',
+  src: '/images/2021/10/toprated.png',
       href: 'https://greatnonprofits.org/org/league-of-amazing-programmers',
     },
     {
       name: 'Scout Programs',
-      src: 'https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-800x658.png',
+  src: '/images/2022/01/logo2-800x658.png',
   href: 'https://www.jointheleague.org/programs/tech-club/programming-merit-badge/',
     },
   ] satisfies RecognitionBadge[],
@@ -248,12 +248,12 @@ export const careerPrep = {
   description:
     'Students are prepared to enter the workforce as programmers or continue their education in college. We work closely with students to earn professional Java certification and secure opportunities at top companies. Our students have secured opportunities with many familiar names.',
   logos: [
-    { name: 'Google', src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/google.png' },
-    { name: 'Amazon', src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/amazon.png' },
-    { name: 'Microsoft', src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/microsoft.png' },
-    { name: 'Sony', src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/sony.png' },
-    { name: 'Intuit', src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/intuit.png' },
-    { name: 'PlayStation', src: 'https://www.jointheleague.org/wp-content/uploads/2021/10/playstation-e1633381878724.png' },
+  { name: 'Google', src: '/images/2021/10/google.png' },
+  { name: 'Amazon', src: '/images/2021/10/amazon.png' },
+  { name: 'Microsoft', src: '/images/2021/10/microsoft.png' },
+  { name: 'Sony', src: '/images/2021/10/sony.png' },
+  { name: 'Intuit', src: '/images/2021/10/intuit.png' },
+  { name: 'PlayStation', src: '/images/2021/10/playstation-e1633381878724.png' },
   ],
 };
 
@@ -280,15 +280,15 @@ export const testimonials = [
 
 export const galleryImages = [
   {
-    src: 'https://www.jointheleague.org/wp-content/uploads/2021/05/Copy-of-MX-Library-Workshop_1.png',
+  src: '/images/2021/05/Copy-of-MX-Library-Workshop_1.png',
     alt: 'Students collaborating in coding workshop',
   },
   {
-    src: 'https://www.jointheleague.org/wp-content/uploads/2021/05/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png',
+  src: '/images/2021/05/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png',
     alt: 'Students attending cybersecurity competition',
   },
   {
-    src: 'https://www.jointheleague.org/wp-content/uploads/2021/05/girl-scouts-2020-03.png',
+  src: '/images/2021/05/girl-scouts-2020-03.png',
     alt: 'Girl Scouts learning robotics at The League',
   },
 ];

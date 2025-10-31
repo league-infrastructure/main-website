@@ -52,7 +52,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Create art, music, and chatbots while learning prompt engineering, machine vision, and language models in partnership with Think Machine.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2023/05/AdobeStock_230441943-scaled-e1742318677815.jpeg',
+      src: '/images/2023/05/AdobeStock_230441943-scaled-e1742318677815.jpeg',
       alt: 'Student experimenting with artificial intelligence tools',
     },
     link: 'https://thinkmachine.io/',
@@ -63,7 +63,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Build and ship games in Python or JavaScript, then publish them so friends and family can play online.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2025/03/Python-Games-e1742318505702.png',
+      src: '/images/2025/03/Python-Games-e1742318505702.png',
       alt: 'Pixelated characters representing web game development',
     },
   },
@@ -73,7 +73,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Program Micro:bit handheld consoles using block code, Python, or JavaScript to create portable retro-inspired games.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2025/03/meowbit-e1742318910377.png',
+      src: '/images/2025/03/meowbit-e1742318910377.png',
       alt: 'Micro:bit handheld game console',
     },
     link: 'https://a.co/d/20ACbkP',
@@ -84,7 +84,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Bring robots to life with motors, sensors, lights, and wireless communication using Micro:bit, Arduino, or Raspberry Pi.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/cutebot-1-e1742319239492.png',
+      src: '/images/2024/03/cutebot-1-e1742319239492.png',
       alt: 'Micro:bit powered robotics project',
     },
   },
@@ -94,7 +94,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Design wearable and portable gadgets that react to inputs from buttons, sensors, and LEDs while learning embedded programming.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2025/04/carte-microbit.jpg',
+      src: '/images/2025/04/carte-microbit.jpg',
       alt: 'Microcontroller board connected to sensors and lights',
     },
   },
@@ -104,7 +104,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Work with coaches to scope and prototype any technical idea—from music generators to IoT devices—and leave with a plan to continue at home.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_3003-e1742319406441.png',
+      src: '/images/2024/06/IMG_3003-e1742319406441.png',
       alt: 'Student collaborating on a custom coding project',
     },
   },
@@ -114,7 +114,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Master loops, functions, and data structures while building visualizations, automations, and games in the world’s most popular language.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/python.png',
+      src: '/images/2021/09/python.png',
       alt: 'Python logo illustration',
     },
   },
@@ -124,7 +124,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Learn the language of AP Computer Science and FIRST Robotics with professional tooling such as VS Code, GitHub, and IntelliJ.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2021/09/java.png',
+      src: '/images/2021/09/java.png',
       alt: 'Java logo illustration',
     },
   },

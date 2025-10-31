@@ -1,7 +1,7 @@
 ---
 title: Wins D4sd 2017
 date: '2017-10-29'
-featuredImage: https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/TE5C5466-1-1.jpg
+featuredImage: /uploads/2017/10/TE5C5466-1-1.jpg
 ---
 
 High School-Aged Students’ Solution for Solving a Complex City Problem Outmatches Those of Professional and College-Level Designers to Claim Civic Design Challenge’s $5000 Grand Prize
@@ -31,4 +31,4 @@ The competition drew 50 applications in early October, with eight finalists sele
 
 Design for San Diego (D4SD) is a combined effort to solve complex city problems through design thinking and crowdsourcing, led by the UC San Diego Design Lab—with support from the National Science Foundation, Design Forward Alliance and SCALE SD.
 
-<img class="alignnone size-medium wp-image-27132" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/TE5C5466-1-1.jpg" alt="" width="300" height="288" /><img class="alignnone size-medium wp-image-27158" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/MG_5502-1.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27155" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/IMG_7292.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27146" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/IMG_7390.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27145" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/IMG_7382.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27144" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/IMG_7369.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27138" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/10/MG_5490-1.jpg" alt="" width="300" height="1" />
+<img class="alignnone size-medium wp-image-27132" src="/uploads/2017/10/TE5C5466-1-1.jpg" alt="" width="300" height="288" /><img class="alignnone size-medium wp-image-27158" src="/uploads/2017/10/MG_5502-1.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27155" src="/uploads/2017/10/IMG_7292.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27146" src="/uploads/2017/10/IMG_7390.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27145" src="/uploads/2017/10/IMG_7382.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27144" src="/uploads/2017/10/IMG_7369.jpg" alt="" width="300" height="1" /><img class="alignnone size-medium wp-image-27138" src="/uploads/2017/10/MG_5490-1.jpg" alt="" width="300" height="1" />

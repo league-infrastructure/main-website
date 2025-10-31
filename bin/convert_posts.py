@@ -24,6 +24,12 @@ SPECIAL_TOKEN_OVERRIDES = {
 }
 
 
+UPLOAD_URL_PATTERN = re.compile(
+    r'https?://(?:www\.)?(?:jointheleague\.org|eryary\.sautebrandpartners\.com)/wp-content/uploads/([\w./%-]+)',
+    re.IGNORECASE,
+)
+
+
 class ImageExtractor(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -58,6 +64,17 @@ def extract_images(html: str) -> List[Tuple[str, str | None]]:
     parser = ImageExtractor()
     parser.feed(html)
     return parser.images
+
+
+def to_local_upload(url: str) -> str:
+    match = UPLOAD_URL_PATTERN.search(url)
+    if not match:
+        return url
+    return f'/uploads/{match.group(1)}'
+
+
+def rewrite_upload_urls(text: str) -> str:
+    return UPLOAD_URL_PATTERN.sub(lambda match: f'/uploads/{match.group(1)}', text)
 
 
 def normalise_content(raw: str) -> str:
@@ -122,6 +139,7 @@ def main(input_dir: Path, output_dir: Path, clean: bool, force: bool) -> None:
 
         raw_content = page_txt.read_text(encoding='utf-8')
         content = normalise_content(raw_content)
+        content = rewrite_upload_urls(content)
         images = extract_images(content)
         first_image = images[0] if images else None
 
@@ -131,7 +149,7 @@ def main(input_dir: Path, output_dir: Path, clean: bool, force: bool) -> None:
         }
 
         if first_image:
-            frontmatter['featuredImage'] = first_image[0]
+            frontmatter['featuredImage'] = to_local_upload(first_image[0])
             if first_image[1]:
                 frontmatter['featuredImageAlt'] = first_image[1]
 

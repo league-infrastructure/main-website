@@ -1,12 +1,12 @@
 ---
 title: A Message From Our Executive Director
 date: '2021-01-15'
-featuredImage: https://www.eryary.sautebrandpartners.com/wp-content/uploads/2018/01/SarahCooper.png
+featuredImage: /uploads/2018/01/SarahCooper.png
 featuredImageAlt: Executive Director Sarah Tuakli Cooper
 ---
 
 <!-- wp:paragraph -->
-<p><img class="wp-image-27927" style="width: 150px;" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2018/01/SarahCooper.png" alt="Executive Director Sarah Tuakli Cooper" /></p>
+<p><img class="wp-image-27927" style="width: 150px;" src="/uploads/2018/01/SarahCooper.png" alt="Executive Director Sarah Tuakli Cooper" /></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

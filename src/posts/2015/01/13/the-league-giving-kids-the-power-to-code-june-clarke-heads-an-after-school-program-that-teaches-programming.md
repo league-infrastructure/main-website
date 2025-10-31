@@ -2,12 +2,12 @@
 title: The League Giving Kids The Power To Code June Clarke Heads An After School
   Program That Teaches Programming
 date: '2015-01-13'
-featuredImage: https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/The-League-giving-kids-the-power-to-code-June-Clarke-heads-an-after-school-program-that-teaches-programming.jpg
+featuredImage: /uploads/2017/04/The-League-giving-kids-the-power-to-code-June-Clarke-heads-an-after-school-program-that-teaches-programming.jpg
 ---
 
-<img class="alignleft size-full wp-image-26492" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/The-League-giving-kids-the-power-to-code-June-Clarke-heads-an-after-school-program-that-teaches-programming.jpg" alt="" width="300" height="169" />
+<img class="alignleft size-full wp-image-26492" src="/uploads/2017/04/The-League-giving-kids-the-power-to-code-June-Clarke-heads-an-after-school-program-that-teaches-programming.jpg" alt="" width="300" height="169" />
 <p class="wp-caption-text"><span style="color: #999999;">The San Diego Union-Tribune, January 2015</span></p>
-"<a href="https://www.eryary.sautebrandpartners.com/">The League of Amazing Programmers</a> is a nonprofit after school program that teaches kids the skill of computer programming.
+"The League of Amazing Programmers is a nonprofit after school program that teaches kids the skill of computer programming.
 
 Students from grades 5 to 12 go to the Carmel Valley-based campus and work with professional programmers on everything from creating games to making mobile phone apps.
 

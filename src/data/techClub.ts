@@ -33,7 +33,7 @@ export const techClubPrograms: ProgramOffering[] = [
     description:
       'Start programming with Turtle graphics, loops, variables, and functions in the world\'s most popular language.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/python.png',
+      src: '/images/2024/03/python.png',
       alt: 'Python class illustration',
     },
   },
@@ -42,7 +42,7 @@ export const techClubPrograms: ProgramOffering[] = [
     description:
       'Build games and simulations in the language used for AP Computer Science and FIRST Robotics competitions.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/java.png',
+      src: '/images/2024/03/java.png',
       alt: 'Java class illustration',
     },
   },
@@ -51,7 +51,7 @@ export const techClubPrograms: ProgramOffering[] = [
     description:
       'Program BBC micro:bit controllers to light LEDs, play music, and drive robots using blocks, Python, or JavaScript.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2024/03/cutebot-1.png',
+      src: '/images/2024/03/cutebot-1.png',
       alt: 'Microcontroller and robotics illustration',
     },
   },
@@ -60,7 +60,7 @@ export const techClubPrograms: ProgramOffering[] = [
     description:
       'Learn the building blocks of the web with JavaScript inside an approachable online coding environment.',
     image: {
-      src: 'https://www.jointheleague.org/wp-content/uploads/2024/05/JavascriptLogo.png',
+      src: '/images/2024/05/JavascriptLogo.png',
       alt: 'JavaScript logo illustration',
     },
   },
