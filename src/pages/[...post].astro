@@ -1,0 +1,45 @@
+---
+import type { GetStaticPathsResult } from 'astro';
+import PostLayout from '../layouts/PostLayout.astro';
+
+interface RouteProps {
+  Content: any;
+  frontmatter: Record<string, any>;
+}
+
+interface PostModule {
+  file: string;
+  frontmatter: Record<string, any>;
+  default: any;
+}
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const posts = (await Astro.glob('../posts/**/*.md')) as PostModule[];
+
+  const routes = posts.map((post) => {
+    const relativePath = post.file.split('/src/posts/')[1]?.replace(/\.md$/, '');
+
+    if (!relativePath) {
+      throw new Error(`Unable to determine path for post: ${post.file}`);
+    }
+
+    const segments = relativePath.split('/');
+
+    return {
+      params: { post: segments },
+      props: {
+        Content: post.default,
+        frontmatter: post.frontmatter,
+      },
+    };
+  });
+
+  return routes as unknown as GetStaticPathsResult;
+}
+
+const { Content, frontmatter } = Astro.props as unknown as RouteProps;
+---
+
+<PostLayout frontmatter={frontmatter}>
+  <Content />
+</PostLayout>

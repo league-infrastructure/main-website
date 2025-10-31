@@ -1,0 +1,51 @@
+src/pages/about/impact/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2023/12/2017-2018-WTS-Audited-Financial-Statements.pdf: /uploads/2023/12/2017-2018-WTS-Audited-Financial-Statements.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/12/2019-2020-WTS-Audited-Financial-Statements.pdf: /uploads/2023/12/2019-2020-WTS-Audited-Financial-Statements.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/12/2019_WTS_990_pg1.pdf: /uploads/2023/12/2019_WTS_990_pg1.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/12/2020_WTS_990.pdf: /uploads/2023/12/2020_WTS_990.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/12/2021_WTS_990_pg1.pdf: /uploads/2023/12/2021_WTS_990_pg1.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/12/2022_WTS_990_pg1.pdf: /uploads/2023/12/2022_WTS_990_pg1.pdf
+  https://www.jointheleague.org/wp-content/uploads/2023/12/The-League-of-Amazing-Programmers-Impact-Report-2022-23.pdf: /uploads/2023/12/The-League-of-Amazing-Programmers-Impact-Report-2022-23.pdf
+src/pages/about/policies/enroll/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2021/12/current_students.png: /uploads/2021/12/current_students.png
+src/pages/about/policies/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2021/12/current_students.png: /uploads/2021/12/current_students.png
+src/pages/about/policies/nondiscrimination-policy/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2023/11/Student-Code-of-Conduct-09-2023.pdf: /uploads/2023/11/Student-Code-of-Conduct-09-2023.pdf
+src/pages/programs/classes/python-vs-java/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2021/09/java.png: /uploads/2021/09/java.png
+  https://www.jointheleague.org/wp-content/uploads/2021/09/python.png: /uploads/2021/09/python.png
+src/pages/programs/tech-club/code-clinic/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2024/02/TheLEAGUEBlack-300x249.png: /uploads/2024/02/TheLEAGUEBlack-300x249.png
+  https://www.jointheleague.org/wp-content/uploads/2025/04/denimkids.jpeg: /uploads/2025/04/denimkids.jpeg
+src/pages/programs/tech-club/programming-merit-badge/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2024/03/cutebot-1.png: /uploads/2024/03/cutebot-1.png
+  https://www.jointheleague.org/wp-content/uploads/2024/03/java.png: /uploads/2024/03/java.png
+  https://www.jointheleague.org/wp-content/uploads/2024/03/python.png: /uploads/2024/03/python.png
+  https://www.jointheleague.org/wp-content/uploads/2024/05/JavascriptLogo.png: /uploads/2024/05/JavascriptLogo.png
+src/pages/programs/tech-club/robot-garage/index.astro:
+  https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_2975-800x895.png: /uploads/2024/06/IMG_2975-800x895.png
+  https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_3009-800x842.png: /uploads/2024/06/IMG_3009-800x842.png
+  https://www.jointheleague.org/wp-content/uploads/2024/06/IMG_4216.png: /uploads/2024/06/IMG_4216.png
+src/posts/2017/02/03/carmel-valley-youths-win-second-place-at-robot-competition.md:
+  https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-1024x426.png: /uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-1024x426.png
+src/posts/2017/02/03/former-league-student-visits.md:
+  https://www.jointheleague.org/wp-content/uploads/2017/02/Former-League-Student-Visits-Classroom-225x300.jpg: /uploads/2017/02/Former-League-Student-Visits-Classroom-225x300.jpg
+src/posts/2022/12/16/students-develop-low-cost-ventilator.md:
+  https://www.jointheleague.org/wp-content/uploads/2022/12/Dalia-Sebat-284x300.jpg: /uploads/2022/12/Dalia-Sebat-284x300.jpg
+  https://www.jointheleague.org/wp-content/uploads/2022/12/Rowan-Law-300x300.jpeg: /uploads/2022/12/Rowan-Law-300x300.jpeg
+  https://www.jointheleague.org/wp-content/uploads/2022/12/Yashwin-Madakamutil-300x300.jpeg: /uploads/2022/12/Yashwin-Madakamutil-300x300.jpeg
+src/posts/2023/02/27/the-league-receiving-1000-donation-from-san-diego-self-storage.md:
+  https://www.jointheleague.org/wp-content/uploads/2023/02/My-project-1-scaled.jpg: /uploads/2023/02/My-project-1-scaled.jpg
+src/posts/2024/05/05/starting-a-league-first-robotics-team.md:
+  https://www.jointheleague.org/wp-content/uploads/2024/05/FTC-Fleet-800x363.png: /uploads/2024/05/FTC-Fleet-800x363.png
+src/posts/2025/01/10/vex-iq-parts-to-donate.md:
+  https://www.jointheleague.org/wp-content/uploads/2025/01/IMG_3272.png: /uploads/2025/01/IMG_3272.png
+  https://www.jointheleague.org/wp-content/uploads/2025/01/IMG_3273.png: /uploads/2025/01/IMG_3273.png
+  https://www.jointheleague.org/wp-content/uploads/2025/01/IMG_3356.png: /uploads/2025/01/IMG_3356.png
+  https://www.jointheleague.org/wp-content/uploads/2025/01/IMG_3357.png: /uploads/2025/01/IMG_3357.png
+  https://www.jointheleague.org/wp-content/uploads/2025/01/IMG_3410.png: /uploads/2025/01/IMG_3410.png
+  https://www.jointheleague.org/wp-content/uploads/2025/01/IMG_3411.png: /uploads/2025/01/IMG_3411.png
+src/posts/2025/06/20/wanted-intern-robot-builder.md:
+  https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-600x600.png: /uploads/2025/06/mobile_robots-1-600x600.png
+  https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms-800x800.png: /uploads/2025/06/robot_arms-800x800.png

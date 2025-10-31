@@ -1,0 +1,51 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import '../styles/post.css';
+
+interface Frontmatter {
+  title?: string;
+  date?: string;
+  description?: string;
+  featuredImage?: string | null;
+  featuredImageAlt?: string;
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props as Props;
+const { title, date, description, featuredImage, featuredImageAlt } = frontmatter;
+const pageTitle = title ?? 'League Update';
+const isoDate = date ? new Date(date).toISOString().split('T')[0] : undefined;
+const displayDate = date
+  ? new Date(date).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })
+  : undefined;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <article class="post">
+    <div class="container post__inner">
+      <header class="post__header">
+        {title && <h1 class="post__title">{title}</h1>}
+        {date && isoDate && (
+          <time class="post__date" datetime={isoDate}>
+            {displayDate}
+          </time>
+        )}
+        {featuredImage && (
+          <figure class="post__media">
+            <img src={featuredImage} alt={featuredImageAlt ?? pageTitle} loading="lazy" />
+          </figure>
+        )}
+      </header>
+      <div class="post__content">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

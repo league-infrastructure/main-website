@@ -3,7 +3,9 @@ name = "website"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+    "click>=8.3.0",
     "python-dotenv>=1.2.1",
+    "pyyaml>=6.0.3",
     "requests>=2.32.5",
     "wordpress-api>=1.2.9",
 ]

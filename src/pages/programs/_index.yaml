@@ -85,7 +85,7 @@ main_programs:
 
 program_comparison:
   section:
-  class: "section section--program-comparison"
+    class: "section section--program-comparison"
     header:
       title: "Compare Our Programs"
       description: |
@@ -149,7 +149,7 @@ program_comparison:
 
 other_programs:
   section:
-  class: "section section--support"
+    class: "section section--support"
     header:
       title: "More Ways to Learn"
       description: |
@@ -195,7 +195,7 @@ why_highlights:
 
 start_options:
   section:
-  class: "section section--cta section--cta-peach"
+    class: "section section--cta section--cta-peach"
     cta:
       copy:
         title: "Try a Class Before You Commit"
