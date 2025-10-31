@@ -3,7 +3,7 @@ export const heroContent = {
   title: 'Igniting Young Minds Through Coding',
   description:
     'At The League of Amazing Programmers, we prepare kids for the science and technology careers of the 21st century through a multi-level program of weekly classes up to industry certification.',
-  primaryCta: { label: 'View Our Programs', href: '/coding-programs/' },
+  primaryCta: { label: 'View Our Programs', href: '/programs/' },
   secondaryCta: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
   image: {
     src: 'https://www.jointheleague.org/wp-content/uploads/2021/04/computer-robot-1.png',
@@ -80,7 +80,7 @@ export const weeklyPrograms = {
         },
         {
           label: 'Learn More',
-          href: '/coding-programs/classes/python/',
+          href: '/programs/classes/python/',
           variant: 'secondary',
         },
       ] satisfies CTA[],
@@ -116,7 +116,7 @@ export const weeklyPrograms = {
         },
         {
           label: 'Learn More',
-          href: '/coding-programs/classes/java/',
+          href: '/programs/classes/java/',
           variant: 'secondary',
         },
       ] satisfies CTA[],
@@ -153,7 +153,7 @@ export const freePrograms = {
         },
         {
           label: 'Learn More',
-          href: '/coding-programs/tech-club/',
+          href: '/programs/tech-club/',
           variant: 'secondary',
         },
       ] satisfies CTA[],
@@ -176,7 +176,7 @@ export const freePrograms = {
       actions: [
         {
           label: 'Request an Invite',
-          href: 'https://www.jointheleague.org/coding-programs/tech-club/code-clinic/',
+          href: 'https://www.jointheleague.org/programs/tech-club/code-clinic/',
         },
       ] satisfies CTA[],
     },
@@ -191,42 +191,24 @@ export const otherProgramsHome = {
     {
       title: 'League Labs',
       description: 'Intern with the LEAGUE; get job experience while creating new classes for future students.',
-      href: '/coding-programs/league-labs/',
+  href: '/programs/league-labs/',
     },
     {
       title: 'Project Clinic',
       description: 'Partner with our mentors to ship independent programming, robotics, or electronics projects.',
-      href: '/coding-programs/project-clinic/',
+  href: '/programs/project-clinic/',
     },
     {
       title: 'Programming Merit Badge',
       description: 'Complete Programming Merit Badge requirement 5 in a free 90-minute workshop.',
-      href: '/coding-programs/tech-club/programming-merit-badge/',
+  href: '/programs/tech-club/programming-merit-badge/',
     },
     {
       title: 'FIRST Robot Programming',
       description: 'Free skills classes supporting FIRST FTC and FRC robotics teams throughout the season.',
-      href: '/coding-programs/tech-club/robot-garage/#first',
+  href: '/programs/tech-club/robot-garage/#first',
     },
   ] satisfies OtherProgram[],
-};
-
-export const tuitionAssistance = {
-  title: 'Tuition Assistance',
-  lead: 'We believe every student deserves access to computer science education regardless of household income.',
-  details: [
-    'Sliding-scale tuition for workshops and weekly classes',
-    '100% financial aid for students in the Federal Free and Reduced Lunch Program',
-    'Annual renewal with mentorship to keep students progressing',
-  ],
-  apply: {
-    label: 'Apply Now',
-    href: 'https://jointheleague.typeform.com/to/WF4LUN',
-    target: '_blank',
-    rel: 'noreferrer',
-  } satisfies CTA,
-  note:
-    'Tuition assistance must be renewed each year. Regular attendance is required to maintain eligibility.',
 };
 
 export const recognition = {
@@ -246,7 +228,7 @@ export const recognition = {
     {
       name: 'Scout Programs',
       src: 'https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-800x658.png',
-      href: 'https://www.jointheleague.org/coding-programs/tech-club/programming-merit-badge/',
+  href: 'https://www.jointheleague.org/programs/tech-club/programming-merit-badge/',
     },
   ] satisfies RecognitionBadge[],
 };
@@ -314,7 +296,7 @@ export const galleryImages = [
 export const primaryCta = {
   title: 'Get Started',
   description: 'Ready to begin? Explore programs or jump right into enrollment today.',
-  primary: { label: 'View Our Programs', href: '/coding-programs/' },
+  primary: { label: 'View Our Programs', href: '/programs/' },
   secondary: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
 };
 

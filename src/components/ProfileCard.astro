@@ -3,12 +3,17 @@ import type { TeamMember } from '../data/about';
 
 interface Props {
   person: TeamMember;
+  variant?: 'peach' | 'surface';
 }
 
-const { person } = Astro.props as Props;
+const { person, variant = 'peach' } = Astro.props as Props;
 ---
 
-<article class="profile">
+<article class:list={[
+  'profile',
+  variant !== 'peach' && `profile--${variant}`
+]}
+>
   <div class="profile__image" role="presentation">
     <img src={person.image.src} alt={person.image.alt} loading="lazy" />
   </div>

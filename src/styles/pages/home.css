@@ -58,24 +58,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 96px;
-}
-
-.career__logo img {
-  max-width: 120px;
-  height: auto;
-  filter: grayscale(0.2);
-}
-
-.video {
-  display: grid;
-  gap: var(--space-xl);
-}
-
-.video__frame {
-  position: relative;
-  padding-top: 56.25%;
-  border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-card);
 }
@@ -136,26 +118,6 @@ blockquote footer {
   object-fit: cover;
 }
 
-.tuition {
-  display: grid;
-  gap: var(--space-lg);
-  max-width: 680px;
-}
-
-.tuition__details {
-  margin: 0;
-  padding-left: 20px;
-  display: grid;
-  gap: var(--space-sm);
-  color: var(--color-body);
-}
-
-.tuition__note {
-  margin: 0;
-  font-size: 0.95rem;
-  color: rgba(2, 20, 43, 0.72);
-}
-
 .recognition {
   display: grid;
   gap: var(--space-2xl);
@@ -165,9 +127,9 @@ blockquote footer {
 .recognition__logos {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xl);
-  justify-content: center;
+  gap: var(--space-lg);
   align-items: center;
+  justify-content: center;
 }
 
 .recognition__logo {

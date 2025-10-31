@@ -14,7 +14,6 @@ import {
   testimonials,
   galleryImages,
   primaryCta,
-  tuitionAssistance,
   recognition,
   newsletter,
 } from '../data/home';
@@ -38,7 +37,6 @@ const {
 } = careerPrep;
 const { title: videoTitle, embedUrl } = communityVideo;
 const { title: ctaTitle, description: ctaDescription, primary, secondary } = primaryCta;
-const { title: tuitionTitle, lead: tuitionLead, details: tuitionDetails, apply: tuitionApply, note: tuitionNote } = tuitionAssistance;
 const { title: recognitionTitle, description: recognitionDescription, badges } = recognition;
 const { title: newsletterTitle, description: newsletterDescription, cta: newsletterCta } = newsletter;
 ---
@@ -131,30 +129,6 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
             <img src={logo.src} alt={logo.name} loading="lazy" />
           </figure>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--surface-alt">
-    <div class="container">
-      <div class="tuition">
-        <SectionHeader title={tuitionTitle} description={tuitionLead} align="left" />
-        <ul class="tuition__details">
-          {tuitionDetails.map((detail) => (
-            <li>{detail}</li>
-          ))}
-        </ul>
-        <div class="button-group">
-          <a
-            class="button button--primary"
-            href={tuitionApply.href}
-            target={tuitionApply.target}
-            rel={tuitionApply.rel}
-          >
-            {tuitionApply.label}
-          </a>
-        </div>
-        <p class="tuition__note">{tuitionNote}</p>
       </div>
     </div>
   </section>

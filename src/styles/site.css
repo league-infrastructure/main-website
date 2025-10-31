@@ -249,9 +249,14 @@
 	display: grid;
 	gap: var(--space-md);
 	padding: var(--space-xl);
-	background: #ffffff;
+	background: var(--color-peach);
 	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-card);
+}
+
+.profile--surface {
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
 }
 
 .profile__image {
@@ -701,30 +706,6 @@
 
 /* Section Patterns */
 
-/* Tuition assistance hero */
-.tuition-hero {
-	background: linear-gradient(135deg, rgba(45, 36, 24, 0.94), rgba(45, 36, 24, 0.45)),
-		url('https://www.jointheleague.org/wp-content/uploads/2021/09/2020.01.14-Bell-MS-Tech-Discovery-Day_5-scaled.jpg')
-			center/cover;
-	color: #ffffff;
-}
-
-.tuition-hero__inner {
-	display: grid;
-	gap: var(--space-lg);
-	max-width: 760px;
-}
-
-.tuition-hero__note {
-	margin: 0;
-	font-style: italic;
-	color: rgba(255, 255, 255, 0.78);
-}
-
-.tuition-hero .button--primary {
-	justify-self: start;
-}
-
 /* About hero */
 .content {
 	display: grid;
@@ -877,6 +858,10 @@
 }
 
 /* Impact highlights */
+.impact {
+	background: linear-gradient(180deg, var(--color-peach) 0%, #ffffff 75%);
+}
+
 .impact__grid {
 	display: grid;
 	gap: var(--space-xl);
@@ -894,8 +879,8 @@
 
 /* Mission Statement section */
 .mission {
-	background: linear-gradient(135deg, rgba(93, 95, 239, 0.88), rgba(243, 113, 33, 0.88));
-	color: #ffffff;
+	background: var(--color-peach);
+	color: var(--color-body);
 }
 
 .mission__inner {
@@ -909,10 +894,5 @@
 	max-width: 760px;
 	font-size: 20px;
 	line-height: 1.8;
-}
-
-.mission .section__eyebrow,
-.mission .section__title,
-.mission .section__description {
-	color: #ffffff;
+	color: var(--color-body);
 }
