@@ -25,7 +25,7 @@ hero_section:
       variant: "secondary"
   media:
     image:
-  src: "/images/2021/09/programs.png"
+      src: "/images/2021/09/programs.png"
       alt: "League students collaborating during a coding class"
       loading: "lazy"
 

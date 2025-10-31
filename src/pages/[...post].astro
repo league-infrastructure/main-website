@@ -7,29 +7,26 @@ interface RouteProps {
   frontmatter: Record<string, any>;
 }
 
-interface PostModule {
-  file: string;
-  frontmatter: Record<string, any>;
-  default: any;
-}
-
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const posts = (await Astro.glob('../posts/**/*.md')) as PostModule[];
+  const modules = import.meta.glob('../posts/**/*.md', { eager: true }) as Record<
+    string,
+    { default: any; frontmatter: Record<string, any> }
+  >;
 
-  const routes = posts.map((post) => {
-    const relativePath = post.file.split('/src/posts/')[1]?.replace(/\.md$/, '');
+  const routes = Object.entries(modules).map(([file, mod]) => {
+    const relativePath = file
+      .replace(/^\.\.\/posts\//, '')
+      .replace(/\.md$/, '');
 
-    if (!relativePath) {
-      throw new Error(`Unable to determine path for post: ${post.file}`);
+    if (!relativePath || relativePath === file) {
+      throw new Error(`Unable to determine path for post: ${file}`);
     }
 
-    const segments = relativePath.split('/');
-
     return {
-      params: { post: segments },
+      params: { post: relativePath },
       props: {
-        Content: post.default,
-        frontmatter: post.frontmatter,
+        Content: mod.default,
+        frontmatter: mod.frontmatter,
       },
     };
   });
