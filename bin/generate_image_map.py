@@ -36,12 +36,12 @@ def to_project_relative(path: Path, project_root: Path) -> str:
     return str(relative).replace('\\', '/')
 
 
-def map_new_url(original: str) -> str | None:
+def map_new_url(original: str, base_path: str) -> str | None:
     match = re.search(r'/wp-content/uploads/(.+)$', original)
     if not match:
         return None
     relative = match.group(1)
-    return f'/uploads/{relative}'
+    return f'{base_path}/{relative}'
 
 
 def build_mapping(paths: Iterable[Path], project_root: Path) -> Dict[str, Dict[str, str]]:
@@ -55,8 +55,9 @@ def build_mapping(paths: Iterable[Path], project_root: Path) -> Dict[str, Dict[s
 
         key = to_project_relative(path, project_root)
         mapping[key] = {}
+        base_path = '/images' if key.startswith('src/pages/') else '/uploads'
         for url in sorted(urls):
-            new_url = map_new_url(url)
+            new_url = map_new_url(url, base_path)
             if not new_url:
                 continue
             mapping[key][url] = new_url
