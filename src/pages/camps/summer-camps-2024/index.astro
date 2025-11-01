@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
-import CalloutCard from '../../../components/ui/CalloutCard.astro';
-import CampSessionCard from '../../../components/ui/CampSessionCard.astro';
+import CalloutCard from '../../../components/CalloutCard.astro';
+import CampSessionCard from '../../../components/CampSessionCard.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import { campResources, campContact } from '../../../data/codingCamps';
 import { summer2024Hero, featuredCamps, campTips, partnershipHighlight } from '../../../data/summer2024';
 
@@ -13,26 +14,28 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
   title="Summer Camps 2024"
   description="Browse 2024 League camps including Tech Discovery, AI, Minecraft modding, Unity game design, and more."
 >
-  <section class="section section--surface-alt hero">
-    <div class="container hero__grid">
-      <div class="hero__copy">
-        <p class="tag">{summer2024Hero.tag}</p>
-        <h1>{summer2024Hero.title}</h1>
-        <p>{summer2024Hero.description}</p>
-        <div class="button-group hero__actions">
-          <a class="button button--primary" href={summer2024Hero.primaryAction.href}>{summer2024Hero.primaryAction.label}</a>
-          <a class="button button--secondary" href={summer2024Hero.secondaryAction.href}>{summer2024Hero.secondaryAction.label}</a>
-        </div>
-      </div>
-      <CalloutCard
-        class="hero__aside"
-        headingLevel={2}
-        title="Why Families Pick The League"
-        items={summer2024Hero.highlights}
-        itemsClass="hero__list"
-      />
-    </div>
-  </section>
+  <HeroSection
+    surface="alt"
+    tag={summer2024Hero.tag}
+    title={summer2024Hero.title}
+    description={summer2024Hero.description}
+    actions={[
+      {
+        label: summer2024Hero.primaryAction.label,
+        href: summer2024Hero.primaryAction.href,
+        variant: "primary"
+      },
+      {
+        label: summer2024Hero.secondaryAction.label,
+        href: summer2024Hero.secondaryAction.href,
+        variant: "secondary"
+      }
+    ]}
+    aside={{
+      title: "Why Families Pick The League",
+      items: summer2024Hero.highlights
+    }}
+  />
 
   <section class="section" id="camps">
     <div class="container">

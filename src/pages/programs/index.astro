@@ -1,15 +1,169 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
-import Section from '../../components/ui/Section.astro';
-import HeroSection from '../../components/ui/HeroSection.astro';
-import ProgramCard from '../../components/ui/ProgramCard.astro';
-import CalloutCard from '../../components/ui/CalloutCard.astro';
-import { load } from 'js-yaml';
-import programsSource from './_index.yaml?raw';
+import Section from '../../components/Section.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import ProgramCard from '../../components/ProgramCard.astro';
+import CalloutCard from '../../components/CalloutCard.astro';
 
-// Parse YAML via raw import so the dev server watches updates to the source file.
-const yamlContent = load(programsSource) as Record<string, any>;
+// Programs data moved from _index.yaml
+const yamlContent = {
+  main_programs: [
+    {
+      id: "python-classes",
+      title: "Python Coding Classes",
+      level: "Beginner",
+      description: "Start with the most approachable programming language and build "+
+        "real projects while mastering problem solving, logic, and collaboration.",
+      price: "$280 per month",
+      link: "/programs/classes/python/",
+      cta: "Explore Python Track",
+      highlights: [
+        "Official Python certificates",
+        "In-person and online cohorts",
+        "Small classes with five students per teacher"
+      ],
+      image: {
+        src: "/images/2021/09/python.png",
+        alt: "Illustration representing Python coding"
+      },
+      display_in: ["card", "table"],
+      table_data: {
+        program: "Python Coding Classes",
+        level: "Beginner",
+        duration: "1.5 hours weekly",
+        tuition: "$280 monthly",
+        assistance: "Available",
+        schedule: "Year-round",
+        ratio: "5 students per teacher",
+        languages: "Python"
+      }
+    },
+    {
+      id: "java-classes",
+      title: "Java Coding Classes",
+      level: "Intermediate to Advanced",
+      description: "Progress toward AP Computer Science readiness and Oracle Professional Certification "+
+      "with industry-grade tools and mentorship.",
+      price: "$280 per month",
+      link: "/programs/classes/java/",
+      cta: "Explore Java Track",
+      highlights: [
+        "Oracle-aligned curriculum",
+        "Hybrid and online schedules",
+        "Project-based learning across eight levels"
+      ],
+      image: {
+        src: "/images/2021/09/java.png",
+        alt: "Illustration representing Java development"
+      },
+      display_in: ["card", "table"],
+      table_data: {
+        program: "Java Coding Classes",
+        level: "Beginner to Advanced",
+        duration: "1.5 hours weekly",
+        tuition: "$280 monthly",
+        assistance: "Available",
+        schedule: "Year-round",
+        ratio: "5 students per teacher",
+        languages: "Java"
+      }
+    },
+    {
+      id: "tech-club",
+      title: "Tech Club",
+      level: "Beginner to Advanced",
+      description: "Drop into free and low-cost workshops that introduce Python, Java, AI, robotics, electronics, and more across San Diego libraries and schools.",
+      price: "Free",
+      link: "/programs/tech-club/",
+      cta: "Join Tech Club",
+      highlights: [
+        "Multiple weekly meetups",
+        "Hands-on demos and mini-projects",
+        "Volunteer mentors and alumni support"
+      ],
+      image: {
+        src: "/images/2021/09/codingcamps.png",
+        alt: "Illustration highlighting collaborative workshops"
+      },
+      display_in: ["card", "table"],
+      table_data: {
+        program: "Tech Club",
+        level: "Beginner",
+        duration: "60 to 90 minutes per class",
+        tuition: "Free",
+        assistance: "Not needed",
+        schedule: "Year-round",
+        ratio: "10 students per teacher",
+        languages: "Python"
+      }
+    },
+    {
+      id: "private-classes",
+      title: "Private Classes",
+      link: "https://jointheleague.typeform.com/to/winxxt",
+      display_in: ["table"],
+      table_data: {
+        program: "Private Classes",
+        level: "All Levels",
+        duration: "90 minutes weekly",
+        tuition: "$430 monthly",
+        assistance: "Not available",
+        schedule: "Year-round",
+        ratio: "1 student per teacher",
+        languages: "Java and Python"
+      }
+    },
+    {
+      id: "seasonal-camps",
+      title: "Seasonal Coding Camps",
+      link: "/camps/",
+      display_in: ["table"],
+      table_data: {
+        program: "Seasonal Coding Camps",
+        level: "All Levels",
+        duration: "Week-long, weekend, and afterschool camps",
+        tuition: "Varies",
+        assistance: "Available",
+        schedule: "Spring, summer, and winter sessions",
+        ratio: "5 students per teacher",
+        languages: "Varies by camp"
+      }
+    }
+  ],
+  other_programs: [
+    {
+      title: "Code Clinic",
+      description: "Online deep dives into emerging technologies for advanced students.",
+      href: "/programs/tech-club/code-clinic/"
+    },
+    {
+      title: "Project Clinic",
+      description: "Personalized consulting sessions to ship your independent project.",
+      href: "/programs/project-clinic/"
+    },
+    {
+      title: "FIRST Robot Programming",
+      description: "Free skills classes supporting FIRST FTC and FRC robotics teams.",
+      href: "/programs/tech-club/robot-garage/#first"
+    },
+    {
+      title: "League Labs",
+      description: "Intern with the League to design future curriculum and earn job experience.",
+      href: "/programs/league-labs/"
+    },
+    {
+      title: "Summer Research",
+      description: "Collaborate on research projects in computational science and AI.",
+      href: "/camps/summer-2025/summer-projects/#research"
+    },
+    {
+      title: "League at Work",
+      description: "Bring League instruction to your company as an employee benefit.",
+      href: "/donate/the-league-at-work/"
+    }
+  ]
+};
 ---
 
 
@@ -19,8 +173,6 @@ const yamlContent = load(programsSource) as Record<string, any>;
 >
   <HeroSection
     class="section programs-hero"
-    title="Weekly Coding That Grows With Students"
-    description="Python and Java tracks guide 5th through 12th graders from their first line of code to professional certifications. Students can learn in Carmel Valley, at partner schools, or online from anywhere."
     note="Grades 3-12"
     details={[
       "Curriculum designed to keep pace with students for four to six years of mastery.",
@@ -39,6 +191,8 @@ const yamlContent = load(programsSource) as Record<string, any>;
       }
     ]}
   >
+    <h1 slot="title">Weekly Coding That Grows With Students</h1>
+    <p slot="description">Python and Java tracks guide 5th through 12th graders from their first line of code to professional certifications. Students can learn in Carmel Valley, at partner schools, or online from anywhere.</p>
     <figure slot="media" class="programs-hero__media">
       <img src="/images/2021/09/programs.png" alt="League students collaborating during a coding class" loading="lazy" />
     </figure>

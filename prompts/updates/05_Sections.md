@@ -33,3 +33,12 @@ Programs" there is just one data structure that holds the programs for both the
 cards and the table, so add a value `display_in` that is a list that can have 0,
 1 or 2 of the strings {`card`, `table`} to determine where to display the
 program. 
+
+- [DONE] We have two hero components, src/components/ui/Hero.astro,
+  src/components/ui/HeroSection.astro are these different? If not,  consolidate them. 
+
+- [DONE] Review all of the pages that have a Hero section that is implemented directly
+with divs and use the Hero components, if possible. 
+
+- [DONE] Why do we have a components/ui directory? Move all of the components in this
+  dir to the main /src/components/ dir

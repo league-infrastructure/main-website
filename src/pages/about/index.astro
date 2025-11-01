@@ -2,7 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ProfileCard from '../../components/ProfileCard.astro';
-import Section from '../../components/ui/Section.astro';
+import Section from '../../components/Section.astro';
+import HeroSection from '../../components/HeroSection.astro';
 
 // Team Member interface and data
 interface TeamMember {
@@ -167,19 +168,19 @@ const boardMembers: TeamMember[] = [
   description="Learn how The League of Amazing Programmers empowers San Diego youth with coding education, mentorship, and industry-aligned pathways to careers."
 >
   <!-- AboutHero section -->
-  <Section class="about-hero">
-    <div class="about-hero__inner">
-      <div class="about-hero__content">
-        <h1>About The League of Amazing Programmers</h1>
-        <p class="lead">We are a San Diego-based nonprofit teaching coding to 5th–12th graders through eight levels of mastery, from absolute beginner to job-ready, certified programmer.</p>
-        <p>We take students through eight levels of mastery, culminating in professional Java certification so every learner can thrive in the workforce of the 21st century.</p>
-      </div>
-      <figure class="about-hero__media">
-        <span class="about-hero__blob" aria-hidden="true"></span>
-        <img src="/images/about_flag.png" alt="League students celebrating with The League flag" loading="lazy" />
-      </figure>
-    </div>
-  </Section>
+  <HeroSection
+    class="about-hero"
+    details={[
+      "We take students through eight levels of mastery, culminating in professional Java certification so every learner can thrive in the workforce of the 21st century."
+    ]}
+  >
+    <h1 slot="title">About The League of Amazing Programmers</h1>
+    <p slot="description">We are a San Diego-based nonprofit teaching coding to 5th–12th graders through eight levels of mastery, from absolute beginner to job-ready, certified programmer.</p>
+    <figure slot="media" class="about-hero__media">
+      <span class="about-hero__blob" aria-hidden="true"></span>
+      <img src="/images/about_flag.png" alt="League students celebrating with The League flag" loading="lazy" />
+    </figure>
+  </HeroSection>
 
   <!-- MissionStatement section -->
   <Section bgcolor="#f8f9fa" containerClass="mission__inner">

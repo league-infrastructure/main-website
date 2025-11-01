@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/ui/HeroSection.astro';
-import Hero from '../components/ui/Hero.astro';
-import ProgramCard from '../components/ui/ProgramCard.astro';
-import CalloutCard from '../components/ui/CalloutCard.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import CalloutCard from '../components/CalloutCard.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-import Section from '../components/ui/Section.astro';
+import Section from '../components/Section.astro';
 import '../styles/pages/home.css';
 import '../styles/programs.css';
 
@@ -16,7 +15,7 @@ import '../styles/programs.css';
   title="Igniting Young Minds Through Coding"
   description="The League of Amazing Programmers offers weekly coding classes, mentorship, and career preparation for students in grades 4-12."
 >
-  <Hero>
+  <HeroSection>
     <img 
       slot="logo" 
       src="/logos/wordmark-h-1200.png" 
@@ -24,18 +23,15 @@ import '../styles/programs.css';
       class="custom-hero__logo" 
     />
     <h1 slot="tagline" class="custom-hero__tagline">Igniting Young Minds Through Coding</h1>
-    <p slot="description" class="custom-hero__description">
-      <strong>At The League of Amazing Programmers, we prepare kids for the science 
-        and technology careers of the 21st century</strong> through a multi-level
-         program of weekly classes up to industry certification.
-    </p>
+    <p slot="description">At The League of Amazing Programmers, we prepare kids for the 
+      science and technology careers of the 21st century through a multi-level program of weekly classes up to industry certification.</p>
     <img 
-      slot="image" 
+      slot="media" 
       src="/images/computer-robot-1.png" 
       alt="Student-built robot with laptop" 
-      class="custom-hero__image" 
+      loading="lazy"
     />
-  </Hero>
+  </HeroSection>
 
   <Section>
     <SectionHeader>
@@ -319,3 +315,17 @@ import '../styles/programs.css';
     </div>
   </Section>
 </BaseLayout>
+
+<style>
+  .custom-hero__tagline {
+    color: #ff6b35; /* Orange color */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-hero__logo {
+    margin-bottom: 1rem;
+    max-width: 300px;
+  }
+</style>

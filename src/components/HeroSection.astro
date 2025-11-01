@@ -32,7 +32,7 @@ interface Aside {
 interface Props extends HTMLAttributes<'section'> {
   surface?: 'default' | 'alt' | 'tint';
   tag?: string;
-  title: string;
+  title?: string;
   description?: string;
   note?: string;
   status?: string;
@@ -65,12 +65,17 @@ const hasMedia = Boolean(Astro.slots.media);
   <Container class="hero-section__container">
     <div class:list={['hero-section__layout', hasMedia ? 'hero-section__layout--split' : undefined]}>
       <Stack class="hero-section__content">
+        <slot name="logo" />
         {tag && <Tagline class="hero-section__tag" size="sm">{tag}</Tagline>}
-        <Heading depth={1} size="5xl" class="hero-section__title">{title}</Heading>
-        {description && (
-          <Paragraph size="lg" class="hero-section__description">{description}</Paragraph>
-        )}
-        <slot name="description" />
+        <slot name="tagline" />
+        <slot name="title">
+          {title && <Heading depth={1} size="5xl" class="hero-section__title">{title}</Heading>}
+        </slot>
+        <slot name="description">
+          {description && (
+            <Paragraph size="lg" class="hero-section__description">{description}</Paragraph>
+          )}
+        </slot>
         {note && (
           <Paragraph size="sm" class="hero-section__note">{note}</Paragraph>
         )}

@@ -2,7 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import UpcomingEvents from '../../../components/UpcomingEvents.astro';
-import CalloutCard from '../../../components/ui/CalloutCard.astro';
+import CalloutCard from '../../../components/CalloutCard.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
 
 const donationScript =
@@ -14,28 +15,33 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
   title="League Tech Club"
   description="Free Python, Java, robotics, and JavaScript workshops offered across San Diego libraries, schools, and community spaces."
 >
-  <section class="section section--surface-alt hero">
-    <div class="container hero__grid">
-      <div class="hero__copy">
-        <p class="tag">{techClubHero.tag}</p>
-        <h1>{techClubHero.title}</h1>
-        <p>{techClubHero.description}</p>
-        <div class="hero__actions button-group">
-          <a class="button button--primary" href={techClubHero.primaryAction.href}>{techClubHero.primaryAction.label}</a>
-          <a class="button button--secondary" href={techClubHero.secondaryAction.href}>{techClubHero.secondaryAction.label}</a>
-        </div>
-      </div>
-      <CalloutCard
-        class="hero__aside"
-        title="What to Expect"
-        headingLevel={2}
-        items={techClubHero.details}
-        itemsClass="hero__list"
-      >
-        <a slot="footer" class="link" href={meetupLinks.techClub}>Browse the upcoming schedule</a>
-      </CalloutCard>
-    </div>
-  </section>
+  <HeroSection
+    surface="alt"
+    tag={techClubHero.tag}
+    title={techClubHero.title}
+    description={techClubHero.description}
+    actions={[
+      {
+        label: techClubHero.primaryAction.label,
+        href: techClubHero.primaryAction.href,
+        variant: "primary"
+      },
+      {
+        label: techClubHero.secondaryAction.label,
+        href: techClubHero.secondaryAction.href,
+        variant: "secondary"
+      }
+    ]}
+    aside={{
+      title: "What to Expect",
+      items: techClubHero.details,
+      action: {
+        label: "Browse the upcoming schedule",
+        href: meetupLinks.techClub,
+        variant: "secondary"
+      }
+    }}
+  />
 
   <section class="section">
     <div class="container">

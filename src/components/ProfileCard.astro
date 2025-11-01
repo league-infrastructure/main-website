@@ -1,5 +1,14 @@
 ---
-import type { TeamMember } from '../data/about';
+interface TeamMember {
+  name: string;
+  role: string;
+  email?: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  link?: string;
+}
 
 interface Props {
   person: TeamMember;
