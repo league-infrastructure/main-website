@@ -1,19 +1,242 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import AboutHero from '../../components/sections/about/AboutHero.astro';
-import MissionStatement from '../../components/sections/about/MissionStatement.astro';
-import ImpactHighlights from '../../components/sections/about/ImpactHighlights.astro';
-import TeamGrid from '../../components/sections/about/TeamGrid.astro';
-import BoardGrid from '../../components/sections/about/BoardGrid.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ProfileCard from '../../components/ProfileCard.astro';
+import Section from '../../components/ui/Section.astro';
+
+// Team Member interface and data
+interface TeamMember {
+  name: string;
+  role: string;
+  email?: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  link?: string;
+}
+
+const staffTeam: TeamMember[] = [
+  {
+    name: 'Eric Busboom',
+    role: 'Executive Director',
+    email: 'eric.busboom@jointheleague.org',
+    image: {
+      src: '/images/staff/EricBusboom.png',
+      alt: 'Portrait of Eric Busboom',
+    },
+  },
+  {
+    name: 'Osvaldo Ruiz',
+    role: 'Programs Manager',
+    email: 'osvaldo.ruiz@jointheleague.org',
+    image: {
+      src: '/images/staff/OsvaldoRuiz-e1635886323498.png',
+      alt: 'Portrait of Osvaldo Ruiz',
+    },
+  },
+  {
+    name: 'Liz Groves',
+    role: 'Operations',
+    email: 'liz.groves@jointheleague.org',
+    image: {
+      src: '/images/2021/10/Liz-Groves.png',
+      alt: 'Portrait of Liz Groves',
+    },
+  },
+  {
+    name: 'Michael Johnson',
+    role: 'Head Teacher',
+    email: 'mike.johnson@jointheleague.org',
+    image: {
+      src: '/images/staff/MikeJohnson-e1635886431891.png',
+      alt: 'Portrait of Michael Johnson',
+    },
+  },
+  {
+    name: 'Jed Stumpf',
+    role: 'Teacher & Development Manager',
+    email: 'jed.stumpf@jointheleague.org',
+    image: {
+      src: '/images/staff/jed_stumpf-circle.png',
+      alt: 'Portrait of Jed Stumpf',
+    },
+  },
+  {
+    name: 'Colby Schexnayder',
+    role: 'League Teacher',
+    email: 'colby.schexnayder@jointheleague.org',
+    image: {
+      src: '/images/staff/ColbyShexnayder-e1635884609205.png',
+      alt: 'Portrait of Colby Schexnayder',
+    },
+  },
+  {
+    name: 'Nick Graham',
+    role: 'League Teacher',
+    email: 'nick.graham@jointheleague.org',
+    image: {
+      src: '/images/2022/10/Nick-300x300.jpeg',
+      alt: 'Portrait of Nick Graham',
+    },
+  },
+  {
+    name: 'Keith Groves',
+    role: 'Curriculum Manager',
+    email: 'keith.groves@jointheleague.org',
+    image: {
+      src: '/images/staff/KeithGroves2.png',
+      alt: 'Portrait of Keith Groves',
+    },
+    link: 'https://www.linkedin.com/in/keithalgroves/',
+  },
+  {
+    name: 'Daniel Commins',
+    role: 'League Teacher',
+    email: 'daniel.commins@jointheleague.org',
+    image: {
+      src: '/images/staff/DanielCommins-e1635886381127.png',
+      alt: 'Portrait of Daniel Commins',
+    },
+  },
+  {
+    name: 'Tammy Neuhaus',
+    role: 'League Teacher',
+    image: {
+      src: '/images/staff/tammy.jpeg',
+      alt: 'Portrait of Tammy Neuhaus',
+    },
+    link: 'https://www.linkedin.com/in/tamarah-neuhaus-0ba66935/',
+  },
+];
+
+const boardMembers: TeamMember[] = [
+  {
+    name: 'Eric Busboom',
+    role: 'Board Chair · President, Civic Knowledge',
+    image: {
+      src: '/images/staff/EricBusboom.png',
+      alt: 'Portrait of Eric Busboom',
+    },
+  },
+  {
+    name: 'Christine Dolan',
+    role: 'Treasurer · Fractional CFO for Nonprofits',
+    image: {
+      src: '/images/board/Bio-Pic-C-Dolan.jpg',
+      alt: 'Portrait of Christine Dolan',
+    },
+  },
+  {
+    name: 'Stan Kurdziel',
+    role: 'Senior Android Developer, ResMed',
+    image: {
+      src: '/images/board/StanKurdziel.png',
+      alt: 'Portrait of Stan Kurdziel',
+    },
+  },
+  {
+    name: 'Debra Schade',
+    role: 'Board Vice President, Solana Beach School District',
+    image: {
+      src: '/images/board/DebraSchade.png',
+      alt: 'Portrait of Debra Schade',
+    },
+  },
+  {
+    name: 'Kevin Lee',
+    role: 'Software Architect · Former Director of Engineering, Qualcomm',
+    image: {
+      src: '/images/2022/01/kevin-lee-circle-300x300.png',
+      alt: 'Portrait of Kevin Lee',
+    },
+  },
+  {
+    name: 'Uyen Tran',
+    role: 'Branch Manager, City Heights/Weingart Library',
+    image: {
+      src: '/images/board/uyen-tran-circle.png',
+      alt: 'Portrait of Uyen Tran',
+    },
+  },
+];
 ---
 
 <BaseLayout
   title="About The League"
   description="Learn how The League of Amazing Programmers empowers San Diego youth with coding education, mentorship, and industry-aligned pathways to careers."
 >
-  <AboutHero />
-  <MissionStatement />
-  <ImpactHighlights />
-  <TeamGrid />
-  <BoardGrid />
+  <!-- AboutHero section -->
+  <Section class="about-hero">
+    <div class="about-hero__inner">
+      <div class="about-hero__content">
+        <h1>About The League of Amazing Programmers</h1>
+        <p class="lead">We are a San Diego-based nonprofit teaching coding to 5th–12th graders through eight levels of mastery, from absolute beginner to job-ready, certified programmer.</p>
+        <p>We take students through eight levels of mastery, culminating in professional Java certification so every learner can thrive in the workforce of the 21st century.</p>
+      </div>
+      <figure class="about-hero__media">
+        <span class="about-hero__blob" aria-hidden="true"></span>
+        <img src="/images/about_flag.png" alt="League students celebrating with The League flag" loading="lazy" />
+      </figure>
+    </div>
+  </Section>
+
+  <!-- MissionStatement section -->
+  <Section bgcolor="#f8f9fa" containerClass="mission__inner">
+    <SectionHeader>
+      <h2>Our Mission</h2>
+    </SectionHeader>
+    <p>We help more youth—especially girls and underserved students—gain the skills, 
+      confidence, and mentorship to be leaders in the digital age. Students build critical
+       thinking, self-confidence, and professional certifications that translate directly 
+       into college and career opportunities.</p>
+  </Section>
+
+  <!-- ImpactHighlights section -->
+  <Section class="impact">
+    <SectionHeader>
+      <h2>Impact Highlights</h2>
+      <p>From awareness to career readiness, we pair real-world curriculum with mentorship 
+        'so students can translate coding skills into futures they love.</p>
+    </SectionHeader>
+    <div class="impact__grid">
+      <article class="card impact__card">
+        <h3>Coding Jobs</h3>
+        <p>Over one million programming jobs in the United States were projected 
+          to remain unfilled by 2022. We spark early interest and provide the training 
+          students need to pursue computer science in college and beyond.</p>
+      </article>
+      <article class="card impact__card">
+        <h3>Entry Into Workforce</h3>
+        <p>Our curriculum culminates in Oracle Professional Certification preparation, 
+          enabling graduates to enter the workforce as programmers immediately after high school.</p>
+      </article>
+    </div>
+  </Section>
+
+  <!-- TeamGrid section -->
+  <Section>
+    <SectionHeader>
+      <h2>Our Staff & Teachers</h2>
+      <p>Experienced educators and industry professionals guide students through every level, offering mentorship, certification prep, and project coaching.</p>
+    </SectionHeader>
+    <div class="profiles">
+      {staffTeam.map((person) => (
+        <ProfileCard person={person} />
+      ))}
+    </div>
+  </Section>
+
+  <!-- BoardGrid section -->
+  <Section bgcolor="#f8f9fa">
+    <SectionHeader>
+      <h2>Board of Directors</h2>
+      <p>Leaders from technology, education, and civic organizations provide strategic direction, governance, and support for our mission.</p>
+    </SectionHeader>
+    <div class="profiles">
+      {boardMembers.map((person) => (
+        <ProfileCard person={person} variant="surface" />
+      ))}
+    </div>
+  </Section>
 </BaseLayout>

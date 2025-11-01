@@ -1,6 +1,6 @@
 # Sections
 
-- THe About page still has:
+- [DONE] THe About page still has:
 
 ```
   <AboutHero />
@@ -12,7 +12,7 @@
 
 These should all be expanded by moving the code from the referred component into the About page.
 
-- We have a lot of code like this: 
+- [DONE] We have a lot of code like this: 
 
   <section class="section section--surface-alt" id="weekly-camps">
     <div class="container">
@@ -23,10 +23,10 @@ These should all be expanded by moving the code from the referred component into
 and I'd like to compress it to something that uses `<Section>` You should add some extra attributes for things
 like 'id'. 
 
-- For the programs page, move all of the data that is not part of iteration, like the Hero Section, 
+- [DONE] For the programs page, move all of the data that is not part of iteration, like the Hero Section, 
 out of the _index.yaml file and into the page. The lists of programs should remain defined by data. 
 
-- Move the lists of data for the About page out of the `_index.yaml` file back
+- [DONE] Move the lists of data for the About page out of the `_index.yaml` file back
 into the frontmatter of the page as type script data structures. Use one data
 structure for "Main programs" and one for "Other ways to learn". FOr the "Main
 Programs" there is just one data structure that holds the programs for both the

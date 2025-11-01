@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import Section from '../../components/ui/Section.astro';
 import HeroSection from '../../components/ui/HeroSection.astro';
 import ProgramCard from '../../components/ui/ProgramCard.astro';
 import CalloutCard from '../../components/ui/CalloutCard.astro';
@@ -13,30 +14,43 @@ const yamlContent = load(programsSource) as Record<string, any>;
 
 
 <BaseLayout
-  title={yamlContent.base_layout.title}
-  description={yamlContent.base_layout.description}
+  title="Programs"
+  description="Weekly Python and Java classes, free Tech Club workshops, and seasonal camps that help San Diego students grow from beginner coders to certified professionals."
 >
   <HeroSection
-    class={yamlContent.hero_section.class}
-    title={yamlContent.hero_section.title}
-    description={yamlContent.hero_section.description}
-    note={yamlContent.hero_section.note}
-    details={yamlContent.hero_section.details}
-    actions={yamlContent.hero_section.actions}
+    class="section programs-hero"
+    title="Weekly Coding That Grows With Students"
+    description="Python and Java tracks guide 5th through 12th graders from their first line of code to professional certifications. Students can learn in Carmel Valley, at partner schools, or online from anywhere."
+    note="Grades 3-12"
+    details={[
+      "Curriculum designed to keep pace with students for four to six years of mastery.",
+      "Classes run seven days a week with in-person and live online options."
+    ]}
+    actions={[
+      {
+        label: "View Weekly Classes",
+        href: "/programs/classes/",
+        variant: "primary" as const
+      },
+      {
+        label: "Explore Tech Club", 
+        href: "/programs/tech-club/",
+        variant: "secondary" as const
+      }
+    ]}
   >
     <figure slot="media" class="programs-hero__media">
-      <img src={yamlContent.hero_section.media.image.src} alt={yamlContent.hero_section.media.image.alt} loading="lazy" />
+      <img src="/images/2021/09/programs.png" alt="League students collaborating during a coding class" loading="lazy" />
     </figure>
   </HeroSection>
 
-  <section class={yamlContent.main_programs.section.class}>
-    <div class="container">
-      <SectionHeader>
-        <h2>{yamlContent.main_programs.section.header.title}</h2>
-        <p>{yamlContent.main_programs.section.header.description}</p>
-      </SectionHeader>
+  <Section class="section--programs-main">
+    <SectionHeader>
+      <h2>Main Programs</h2>
+      <p>Choose the learning path that matches your schedule, skill level, and goals.</p>
+    </SectionHeader>
       <div class="program-grid">
-        {yamlContent.main_programs.section.program_grid.map((program: any) => (
+        {yamlContent.main_programs.filter((program: any) => program.display_in.includes('card')).map((program: any) => (
           <ProgramCard>
             <figure class="card__media">
               <img src={program.image.src} alt={program.image.alt} loading="lazy" />
@@ -60,82 +74,79 @@ const yamlContent = load(programsSource) as Record<string, any>;
           </ProgramCard>
         ))}
       </div>
-    </div>
-  </section>
+  </Section>
 
-  <section class={yamlContent.program_comparison.section.class}>
-    <div class="container">
-      <SectionHeader>
-        <h2>{yamlContent.program_comparison.section.header.title}</h2>
-        <p>{yamlContent.program_comparison.section.header.description}</p>
-      </SectionHeader>
+  <Section class="section--program-comparison">
+    <SectionHeader>
+      <h2>Compare Our Programs</h2>
+      <p>See key differences in cost, timing, and format across every League offering.</p>
+    </SectionHeader>
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
-              {yamlContent.program_comparison.section.table.headers.map((header: string) => (
-                <th scope="col">{header}</th>
-              ))}
+              <th scope="col">Program</th>
+              <th scope="col">Level</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Tuition</th>
+              <th scope="col">Assistance</th>
+              <th scope="col">Schedule</th>
+              <th scope="col">Ratio</th>
+              <th scope="col">Languages</th>
             </tr>
           </thead>
           <tbody>
-            {yamlContent.program_comparison.section.table.rows.map((row: any) => (
+            {yamlContent.main_programs.filter((program: any) => program.display_in.includes('table')).map((program: any) => (
               <tr>
                 <th scope="row">
-                  <a href={row.link}>{row.program}</a>
+                  <a href={program.link}>{program.table_data.program}</a>
                 </th>
-                <td>{row.level}</td>
-                <td>{row.duration}</td>
-                <td>{row.tuition}</td>
-                <td>{row.assistance}</td>
-                <td>{row.schedule}</td>
-                <td>{row.ratio}</td>
-                <td>{row.languages}</td>
+                <td>{program.table_data.level}</td>
+                <td>{program.table_data.duration}</td>
+                <td>{program.table_data.tuition}</td>
+                <td>{program.table_data.assistance}</td>
+                <td>{program.table_data.schedule}</td>
+                <td>{program.table_data.ratio}</td>
+                <td>{program.table_data.languages}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
+  </Section>
 
-  <section class={yamlContent.other_programs.section.class}>
-    <div class="container">
-      <SectionHeader>
-        <h2>{yamlContent.other_programs.section.header.title}</h2>
-        <p>{yamlContent.other_programs.section.header.description}</p>
-      </SectionHeader>
+  <Section class="section--support">
+    <SectionHeader>
+      <h2>More Ways to Learn</h2>
+      <p>Extend your skills with specialty workshops, internships, and robotics programs.</p>
+    </SectionHeader>
       <div class="support-grid">
-        {yamlContent.other_programs.section.support_grid.map((program: any) => (
+        {yamlContent.other_programs.map((program: any) => (
           <CalloutCard class="support-card" title={program.title}>
             <p>{program.description}</p>
             <a slot="footer" class="link" href={program.href}>Learn more</a>
           </CalloutCard>
         ))}
       </div>
-    </div>
-  </section>
+  </Section>
 
-  <section class={yamlContent.why_highlights.section.class}>
-    <div class="container split-grid">
-      {yamlContent.why_highlights.section.split_grid.map((highlight: any) => (
-        <CalloutCard class="split-card" title={highlight.title}>
-          <p>{highlight._content}</p>
-        </CalloutCard>
-      ))}
-    </div>
-  </section>
+  <Section class="section--split" containerClass="split-grid">
+    <CalloutCard class="split-card" title="Why Python?">
+      <p>Python has a clear, readable syntax that lets beginners focus on logic. It powers AI, data science, robotics, and scientific computing, making it the ideal first language with limitless career paths.</p>
+    </CalloutCard>
+    <CalloutCard class="split-card" title="Why Java?">
+      <p>Java underpins AP Computer Science and enterprise applications worldwide. Students gain experience with professional tools and patterns used by NASA, finance firms, and large-scale software teams.</p>
+    </CalloutCard>
+  </Section>
 
-  <section class={yamlContent.start_options.section.class}>
-    <div class="container cta">
-      <div class="cta__copy">
-        <h2>{yamlContent.start_options.section.cta.copy.title}</h2>
-        <p>{yamlContent.start_options.section.cta.copy.description}</p>
-        <a class="button" href={yamlContent.start_options.section.cta.copy.action.href}>{yamlContent.start_options.section.cta.copy.action.label}</a>
-      </div>
-      <figure class="cta__media">
-        <img src={yamlContent.start_options.section.cta.media.image.src} alt={yamlContent.start_options.section.cta.media.image.alt} loading="lazy" />
-      </figure>
+    <Section class="section--cta">
+    <div class="split-layout">
+      <h2>Ready to Join?</h2>
+      <p>Transform your future with hands-on coding experience. Join our supportive community and learn from industry professionals.</p>
+      <a class="button" href="/register">Get Started Today</a>
     </div>
-  </section>
+    <div class="split-layout">
+      <img src="/images/students-coding-together.webp" alt="Students collaborating on coding projects in a bright classroom environment" loading="lazy" />
+    </div>
+  </Section>
 </BaseLayout>

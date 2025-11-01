@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
+import Section from '../../../components/ui/Section.astro';
 import CalloutCard from '../../../components/ui/CalloutCard.astro';
 import CampTrackCard from '../../../components/ui/CampTrackCard.astro';
 import CampSessionCard from '../../../components/ui/CampSessionCard.astro';
@@ -48,22 +49,19 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
     </div>
   </section>
 
-  <section class="section" id="drop-in">
-    <div class="container">
-      <SectionHeader>
-        <h2>Drop-In Morning Sessions</h2>
-        <p>Choose the days that fit your schedule. Mentors customize each session around what your student wants to build.</p>
-      </SectionHeader>
-      <CalloutCard class="notes-card" items={dropInNotes} itemsClass="notes-card__list" />
-    </div>
-  </section>
+  <Section id="drop-in">
+    <SectionHeader>
+      <h2>Drop-In Morning Sessions</h2>
+      <p>Choose the days that fit your schedule. Mentors customize each session around what your student wants to build.</p>
+    </SectionHeader>
+    <CalloutCard class="notes-card" items={dropInNotes} itemsClass="notes-card__list" />
+  </Section>
 
-  <section class="section section--surface-alt" id="weekly-camps">
-    <div class="container">
-      <SectionHeader>
-        <h2>Weekly Morning Camps</h2>
-        <p>Prefer structured instruction? Reserve a seat in our week-long Python or Java intensives.</p>
-      </SectionHeader>
+  <Section bgcolor="#f8f9fa" id="weekly-camps">
+    <SectionHeader>
+      <h2>Weekly Morning Camps</h2>
+      <p>Prefer structured instruction? Reserve a seat in our week-long Python or Java intensives.</p>
+    </SectionHeader>
       <div class="camp-grid">
         {weeklyCamps.map((camp) => (
           <CampSessionCard
@@ -80,16 +78,14 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           />
         ))}
       </div>
-    </div>
-  </section>
+  </Section>
 
-  <section class="section" id="daily-flow">
-    <div class="container two-column">
-      <div class="two-column__copy">
-        <SectionHeader align="left">
-          <h2>Daily Flow</h2>
-          <p>Every session blends instruction, independent building, and time to show off what campers created.</p>
-        </SectionHeader>
+  <Section id="daily-flow" containerClass="two-column">
+    <div class="two-column__copy">
+      <SectionHeader align="left">
+        <h2>Daily Flow</h2>
+        <p>Every session blends instruction, independent building, and time to show off what campers created.</p>
+      </SectionHeader>
         <ol class="flow-list">
           {dailyFlow.map((entry) => (
             <li>
@@ -108,15 +104,13 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           Planning a troop or club field trip? We can reserve a block of seats and adapt the agenda for your group.
         </p>
       </CalloutCard>
-    </div>
-  </section>
+  </Section>
 
-  <section class="section section--surface-alt" id="specialty-labs">
-    <div class="container">
-      <SectionHeader>
-        <h2>Specialty Labs</h2>
-        <p>Rotate through themed labs covering AI, game development, robotics, and microcontrollers.</p>
-      </SectionHeader>
+  <Section bgcolor="#f8f9fa" id="specialty-labs">
+    <SectionHeader>
+      <h2>Specialty Labs</h2>
+      <p>Rotate through themed labs covering AI, game development, robotics, and microcontrollers.</p>
+    </SectionHeader>
       <div class="track-grid">
         {campTracks.map((track) => (
           <CampTrackCard
@@ -131,15 +125,13 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           />
         ))}
       </div>
-    </div>
-  </section>
+  </Section>
 
-  <section class="section" id="faq">
-    <div class="container">
-      <SectionHeader>
-        <h2>Frequently Asked Questions</h2>
-        <p>Have another question? Email or call and we will help.</p>
-      </SectionHeader>
+  <Section id="faq">
+    <SectionHeader>
+      <h2>Frequently Asked Questions</h2>
+      <p>Have another question? Email or call and we will help.</p>
+    </SectionHeader>
       <div class="faq-grid">
         {faqItems.map((item) => (
           <CalloutCard class="faq" title={item.question}>
@@ -147,11 +139,9 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           </CalloutCard>
         ))}
       </div>
-    </div>
-  </section>
+  </Section>
 
-  <section class="section section--surface-alt" id="resources">
-    <div class="container resource-grid">
+  <Section bgcolor="#f8f9fa" id="resources" containerClass="resource-grid">
       <CalloutCard class="resource-card" title="Prep & Study Guides">
         <ul>
           {campResources.map((resource) => (
@@ -175,7 +165,6 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
         </ul>
       </CalloutCard>
-    </div>
-  </section>
+  </Section>
 </BaseLayout>
 
