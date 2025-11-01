@@ -45,7 +45,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
     <div class="container">
       <div class="two-column">
         <div class="two-column__copy">
-          <SectionHeader title={codeArcadeInfo.title} description={codeArcadeInfo.description} align="left" />
+          <SectionHeader align="left">
+            <h2>{codeArcadeInfo.title}</h2>
+            <p>{codeArcadeInfo.description}</p>
+          </SectionHeader>
           <p class="details"><strong>Schedule:</strong> {codeArcadeInfo.schedule}</p>
           <p class="details"><strong>Price:</strong> {codeArcadeInfo.price}</p>
           <ul class="notes">
@@ -72,10 +75,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section section--surface-alt" id="tracks">
     <div class="container">
-      <SectionHeader
-        title="Choose Your Track"
-        description="Campers rotate through themed labs or double down on one specialty with support from League mentors."
-      />
+      <SectionHeader>
+        <h2>Choose Your Track</h2>
+        <p>Campers rotate through themed labs or double down on one specialty with support from League mentors.</p>
+      </SectionHeader>
       <div class="track-grid">
         {campTracks.map((track) => (
           <CampTrackCard
@@ -97,7 +100,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
     <div class="container">
       <div class="two-column">
         <div class="two-column__copy">
-          <SectionHeader title={slamInfo.title} description={slamInfo.description} align="left" />
+          <SectionHeader align="left">
+            <h2>{slamInfo.title}</h2>
+            <p>{slamInfo.description}</p>
+          </SectionHeader>
           <ul class="notes">
             {slamInfo.prerequisites.map((item) => (
               <li>{item}</li>

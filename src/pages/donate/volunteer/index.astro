@@ -21,12 +21,11 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Volunteer Roles"
-        title="Find the Right Fit"
-        description="We provide training, curriculum, and ongoing support so you can focus on encouraging students."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Volunteer Roles</eyebrow>
+        <h2>Find the Right Fit</h2>
+        <p>We provide training, curriculum, and ongoing support so you can focus on encouraging students.</p>
+      </SectionHeader>
       <div class="volunteer-grid">
         {volunteerRoles.map((role) => (
           <CalloutCard title={role.title}>
@@ -44,12 +43,11 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
 
   <section class="section section--surface-alt">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Next Steps"
-        title="How to Get Started"
-        description="It only takes a few simple steps to begin volunteering. We will guide you through the entire process."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Next Steps</eyebrow>
+        <h2>How to Get Started</h2>
+        <p>It only takes a few simple steps to begin volunteering. We will guide you through the entire process.</p>
+      </SectionHeader>
       <ol class="steps-list">
         {volunteerSteps.map((step) => (
           <li>
@@ -62,12 +60,11 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="FAQ"
-        title="Volunteer Questions"
-        description="Reach out if you have additional questions about availability, logistics, or skill requirements."
-      />
+      <SectionHeader align="left">
+        <eyebrow>FAQ</eyebrow>
+        <h2>Volunteer Questions</h2>
+        <p>Reach out if you have additional questions about availability, logistics, or skill requirements.</p>
+      </SectionHeader>
       <div class="faq-grid">
         {volunteerFaq.map((item) => (
           <CalloutCard title={item.question}>

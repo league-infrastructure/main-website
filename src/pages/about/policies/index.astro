@@ -78,12 +78,10 @@ const quickLinks = [
 
   <section class="section">
     <div class="container policy-links">
-      <SectionHeader
-        align="left"
-        eyebrow="Quick Reference"
-        title="Explore Policy Topics"
-        description="Jump to common tuition and enrollment questions or review our detailed policy guides."
-      />
+      <SectionHeader align="left">
+        <h2>Explore Policy Topics</h2>
+        <p>Jump to common tuition and enrollment questions or review our detailed policy guides.</p>
+      </SectionHeader>
       <div class="policy-links__grid">
         {quickLinks.map((item) => (
           <a class="policy-link card" href={item.href}>
@@ -200,9 +198,8 @@ const quickLinks = [
           <li>Share ongoing scheduling preferences with our staff or your instructor.</li>
         </ul>
         <p>
-          A step-by-step walkthrough is available in our <a href="/about/policies/enroll/">Guide to Enrollment</a>.
         </p>
-      </div>
+      </div>step-by-step walkthrough is available in our <a href="/about/policies/enroll/">Guide to Enrollment</a>.
     </div>
-  </section>
+  </section>v>
 </BaseLayout>

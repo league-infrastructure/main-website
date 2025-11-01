@@ -36,10 +36,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="camps">
     <div class="container">
-      <SectionHeader
-        title="2024 Camp Catalog"
-        description="Choose the schedule and topic that fits your student. Every camp below links directly to Pike13 registration."
-      />
+      <SectionHeader>
+        <h2>2024 Camp Catalog</h2>
+        <p>Choose the schedule and topic that fits your student. Every camp below links directly to Pike13 registration.</p>
+      </SectionHeader>
       <div class="camp-grid">
         {featuredCamps.map((camp) => (
           <CampSessionCard
@@ -62,11 +62,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
   <section class="section section--surface-alt" id="tips">
     <div class="container two-column">
       <div class="two-column__copy">
-        <SectionHeader
-          title="What to Expect"
-          description="League camps combine skill building with time to explore, collaborate, and have fun."
-          align="left"
-        />
+        <SectionHeader align="left">
+          <h2>What to Expect</h2>
+          <p>League camps combine skill building with time to explore, collaborate, and have fun.</p>
+        </SectionHeader>
         <ul class="tips">
           {campTips.map((tip) => (
             <li>{tip}</li>

@@ -48,10 +48,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="signature-weeks">
     <div class="container">
-      <SectionHeader
-        title="Signature Experiences"
-        description="These camps sell out fast and set the tone for the rest of the summer. Secure your seat early."
-      />
+      <SectionHeader>
+        <h2>Signature Experiences</h2>
+        <p>These camps sell out fast and set the tone for the rest of the summer. Secure your seat early.</p>
+      </SectionHeader>
       <div class="camp-grid">
         {primaryHighlights.map((camp) => (
           <CampSessionCard
@@ -73,10 +73,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section section--surface-alt" id="build-tracks">
     <div class="container">
-      <SectionHeader
-        title="Skill-Building Tracks"
-        description="Pair morning fundamentals with afternoon electives to design the perfect progression."
-      />
+      <SectionHeader>
+        <h2>Skill-Building Tracks</h2>
+        <p>Pair morning fundamentals with afternoon electives to design the perfect progression.</p>
+      </SectionHeader>
       <div class="camp-grid">
         {builderTracks.map((camp) => (
           <CampSessionCard
@@ -99,11 +99,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
   <section class="section" id="day-in-life">
     <div class="container two-column">
       <div class="two-column__copy">
-        <SectionHeader
-          title="A Day at Camp"
-          description="Every session balances instruction, creativity, collaboration, and time to regroup with mentors."
-          align="left"
-        />
+        <SectionHeader align="left">
+          <h2>A Day at Camp</h2>
+          <p>Every session balances instruction, creativity, collaboration, and time to regroup with mentors.</p>
+        </SectionHeader>
         <ul class="tips">
           {campTips.map((tip) => (
             <li>{tip}</li>

@@ -20,12 +20,11 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Ideas"
-        title="Kickstart Your Campaign"
-        description="Choose the format that fits your personality, goals, and community."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Ideas</eyebrow>
+        <h2>Kickstart Your Campaign</h2>
+        <p>Choose the format that fits your personality, goals, and community.</p>
+      </SectionHeader>
       <div class="fundraiser-grid">
         {fundraiserIdeas.map((idea) => (
           <CalloutCard title={idea.title}>
@@ -38,11 +37,10 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
 
   <section class="section section--surface-alt">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Timeline"
-        title="Three Steps to Launch"
-      />
+      <SectionHeader align="left">
+        <eyebrow>Timeline</eyebrow>
+        <h2>Three Steps to Launch</h2>
+      </SectionHeader>
       <ol class="steps-list">
         {fundraiserSteps.map((step) => (
           <li>
@@ -55,11 +53,10 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="We Have Your Back"
-        title="Fundraising Support"
-      />
+      <SectionHeader align="left">
+        <eyebrow>We Have Your Back</eyebrow>
+        <h2>Fundraising Support</h2>
+      </SectionHeader>
       <div class="fundraiser-support">
         {fundraiserSupport.map((item) => (
           <CalloutCard title={item.title}>

@@ -31,21 +31,33 @@ const yamlContent = load(programsSource) as Record<string, any>;
 
   <section class={yamlContent.main_programs.section.class}>
     <div class="container">
-      <SectionHeader
-        title={yamlContent.main_programs.section.header.title}
-        description={yamlContent.main_programs.section.header.description}
-      />
+      <SectionHeader>
+        <h2>{yamlContent.main_programs.section.header.title}</h2>
+        <p>{yamlContent.main_programs.section.header.description}</p>
+      </SectionHeader>
       <div class="program-grid">
         {yamlContent.main_programs.section.program_grid.map((program: any) => (
-          <ProgramCard
-            title={program.title}
-            level={program.level}
-            description={program.description}
-            highlights={program.highlights}
-            price={program.price}
-            image={program.image}
-            cta={{ label: program.cta, href: program.link, variant: 'secondary' }}
-          />
+          <ProgramCard>
+            <figure class="card__media">
+              <img src={program.image.src} alt={program.image.alt} loading="lazy" />
+            </figure>
+            <div class="card__body">
+              <p class="card__eyebrow">{program.level.toUpperCase()}</p>
+              <h2>{program.title}</h2>
+              <description>{program.description}</description>
+              <ul>
+                {program.highlights.map((highlight: string) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+              <price>{program.price}</price>
+            </div>
+            <footer class="card__footer">
+              <div class="button-group learn-more-button">
+                <a class="button button--secondary" href={program.link}>{program.cta}</a>
+              </div>
+            </footer>
+          </ProgramCard>
         ))}
       </div>
     </div>
@@ -53,10 +65,10 @@ const yamlContent = load(programsSource) as Record<string, any>;
 
   <section class={yamlContent.program_comparison.section.class}>
     <div class="container">
-      <SectionHeader
-        title={yamlContent.program_comparison.section.header.title}
-        description={yamlContent.program_comparison.section.header.description}
-      />
+      <SectionHeader>
+        <h2>{yamlContent.program_comparison.section.header.title}</h2>
+        <p>{yamlContent.program_comparison.section.header.description}</p>
+      </SectionHeader>
       <div class="table-wrapper">
         <table>
           <thead>
@@ -89,10 +101,10 @@ const yamlContent = load(programsSource) as Record<string, any>;
 
   <section class={yamlContent.other_programs.section.class}>
     <div class="container">
-      <SectionHeader
-        title={yamlContent.other_programs.section.header.title}
-        description={yamlContent.other_programs.section.header.description}
-      />
+      <SectionHeader>
+        <h2>{yamlContent.other_programs.section.header.title}</h2>
+        <p>{yamlContent.other_programs.section.header.description}</p>
+      </SectionHeader>
       <div class="support-grid">
         {yamlContent.other_programs.section.support_grid.map((program: any) => (
           <CalloutCard class="support-card" title={program.title}>

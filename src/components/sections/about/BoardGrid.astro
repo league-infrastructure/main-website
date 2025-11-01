@@ -6,7 +6,10 @@ import { boardMembers } from '../../../data/about';
 
 <section class="section section--tint">
   <div class="container">
-    <SectionHeader title="Board of Directors" description="Leaders from technology, education, and civic organizations provide strategic direction, governance, and support for our mission." />
+    <SectionHeader>
+      <h2>Board of Directors</h2>
+      <p>Leaders from technology, education, and civic organizations provide strategic direction, governance, and support for our mission.</p>
+    </SectionHeader>
     <div class="profiles">
       {boardMembers.map((person) => (
         <ProfileCard person={person} variant="surface" />

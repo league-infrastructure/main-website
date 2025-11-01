@@ -6,7 +6,10 @@ import { staffTeam } from '../../../data/about';
 
 <section class="section">
   <div class="container">
-    <SectionHeader title="Our Staff & Teachers" description="Experienced educators and industry professionals guide students through every level, offering mentorship, certification prep, and project coaching." />
+    <SectionHeader>
+      <h2>Our Staff & Teachers</h2>
+      <p>Experienced educators and industry professionals guide students through every level, offering mentorship, certification prep, and project coaching.</p>
+    </SectionHeader>
     <div class="profiles">
       {staffTeam.map((person) => (
         <ProfileCard person={person} />

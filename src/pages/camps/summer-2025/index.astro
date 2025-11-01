@@ -50,20 +50,20 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="drop-in">
     <div class="container">
-      <SectionHeader
-        title="Drop-In Morning Sessions"
-        description="Choose the days that fit your schedule. Mentors customize each session around what your student wants to build."
-      />
+      <SectionHeader>
+        <h2>Drop-In Morning Sessions</h2>
+        <p>Choose the days that fit your schedule. Mentors customize each session around what your student wants to build.</p>
+      </SectionHeader>
       <CalloutCard class="notes-card" items={dropInNotes} itemsClass="notes-card__list" />
     </div>
   </section>
 
   <section class="section section--surface-alt" id="weekly-camps">
     <div class="container">
-      <SectionHeader
-        title="Weekly Morning Camps"
-        description="Prefer structured instruction? Reserve a seat in our week-long Python or Java intensives."
-      />
+      <SectionHeader>
+        <h2>Weekly Morning Camps</h2>
+        <p>Prefer structured instruction? Reserve a seat in our week-long Python or Java intensives.</p>
+      </SectionHeader>
       <div class="camp-grid">
         {weeklyCamps.map((camp) => (
           <CampSessionCard
@@ -86,11 +86,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
   <section class="section" id="daily-flow">
     <div class="container two-column">
       <div class="two-column__copy">
-        <SectionHeader
-          title="Daily Flow"
-          description="Every session blends instruction, independent building, and time to show off what campers created."
-          align="left"
-        />
+        <SectionHeader align="left">
+          <h2>Daily Flow</h2>
+          <p>Every session blends instruction, independent building, and time to show off what campers created.</p>
+        </SectionHeader>
         <ol class="flow-list">
           {dailyFlow.map((entry) => (
             <li>
@@ -114,10 +113,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section section--surface-alt" id="specialty-labs">
     <div class="container">
-      <SectionHeader
-        title="Specialty Labs"
-        description="Rotate through themed labs covering AI, game development, robotics, and microcontrollers."
-      />
+      <SectionHeader>
+        <h2>Specialty Labs</h2>
+        <p>Rotate through themed labs covering AI, game development, robotics, and microcontrollers.</p>
+      </SectionHeader>
       <div class="track-grid">
         {campTracks.map((track) => (
           <CampTrackCard
@@ -137,7 +136,10 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="faq">
     <div class="container">
-      <SectionHeader title="Frequently Asked Questions" description="Have another question? Email or call and we will help." />
+      <SectionHeader>
+        <h2>Frequently Asked Questions</h2>
+        <p>Have another question? Email or call and we will help.</p>
+      </SectionHeader>
       <div class="faq-grid">
         {faqItems.map((item) => (
           <CalloutCard class="faq" title={item.question}>

@@ -21,12 +21,11 @@ import { leagueAtWorkHero, leagueAtWorkHighlights, leagueAtWorkProcess } from '.
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Program Formats"
-        title="Design an Experience for Your Team"
-        description="Combine hands-on learning with social impact and leave employees feeling inspired."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Program Formats</eyebrow>
+        <h2>Design an Experience for Your Team</h2>
+        <p>Combine hands-on learning with social impact and leave employees feeling inspired.</p>
+      </SectionHeader>
       <div class="fundraiser-grid">
         {leagueAtWorkHighlights.map((highlight) => (
           <CalloutCard title={highlight.title}>
@@ -39,11 +38,10 @@ import { leagueAtWorkHero, leagueAtWorkHighlights, leagueAtWorkProcess } from '.
 
   <section class="section section--surface-alt">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="How It Works"
-        title="Three Collaborative Steps"
-      />
+      <SectionHeader align="left">
+        <eyebrow>How It Works</eyebrow>
+        <h2>Three Collaborative Steps</h2>
+      </SectionHeader>
       <div class="process-grid">
         {leagueAtWorkProcess.map((step) => (
           <div class="process-grid__item">

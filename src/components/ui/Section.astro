@@ -1,0 +1,50 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'section'> {
+  bgcolor?: string;
+  startBgcolor?: string;
+  endBgcolor?: string;
+  containerClass?: string;
+}
+
+const { 
+  bgcolor, 
+  startBgcolor, 
+  endBgcolor, 
+  containerClass,
+  class: className, 
+  ...rest 
+} = Astro.props as Props & { class?: string };
+
+// Determine the CSS classes and inline styles
+const classes = ['section'];
+
+// Add tint class if bgcolor is specified or if it's a fade
+if (bgcolor || (startBgcolor && endBgcolor)) {
+  classes.push('section--tint');
+}
+
+// Generate gradient or solid background style
+let backgroundStyle = '';
+if (startBgcolor && endBgcolor) {
+  backgroundStyle = `background: linear-gradient(to bottom, ${startBgcolor}, ${endBgcolor});`;
+} else if (bgcolor) {
+  backgroundStyle = `background-color: ${bgcolor};`;
+}
+
+// Container classes - pass through className to container if provided
+const containerClasses = ['container'];
+if (className) {
+  containerClasses.push(className);
+}
+if (containerClass) {
+  containerClasses.push(containerClass);
+}
+---
+
+<section class:list={classes} style={backgroundStyle} {...rest}>
+  <div class:list={containerClasses}>
+    <slot />
+  </div>
+</section>

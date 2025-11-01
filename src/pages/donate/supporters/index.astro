@@ -20,12 +20,11 @@ import { supportersHero, supporterTiers, gratitudeHighlights } from '../../../da
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Giving Circles"
-        title="Levels of Support"
-        description="Every contribution—large or small—creates transformational opportunities for youth across San Diego."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Giving Circles</eyebrow>
+        <h2>Levels of Support</h2>
+        <p>Every contribution—large or small—creates transformational opportunities for youth across San Diego.</p>
+      </SectionHeader>
       <div class="supporter-grid">
         {supporterTiers.map((tier) => (
           <CalloutCard title={tier.title}>
@@ -43,12 +42,11 @@ import { supportersHero, supporterTiers, gratitudeHighlights } from '../../../da
 
   <section class="section section--surface-alt">
     <div class="container gratitude">
-      <SectionHeader
-        align="left"
-        eyebrow="With Gratitude"
-        title="Thank You to Our Community"
-        description="We celebrate every donor, volunteer, and partner who invests in future technologists."
-      />
+      <SectionHeader align="left">
+        <eyebrow>With Gratitude</eyebrow>
+        <h2>Thank You to Our Community</h2>
+        <p>We celebrate every donor, volunteer, and partner who invests in future technologists.</p>
+      </SectionHeader>
       <div class="gratitude-grid">
         {gratitudeHighlights.map((highlight) => (
           <CalloutCard title={highlight.title}>

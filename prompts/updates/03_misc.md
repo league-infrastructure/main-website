@@ -1,4 +1,3 @@
-
 # Misc Updates
 
 - [DONE] In coding-programs/classes/python-vs-java, the images in the cards in "CHoose
@@ -60,7 +59,7 @@ src/posts. Use the same permalinks the wordpress site : /year/month/day.
   * docs/ PDF files, like our finanacials. 
   * images/ everything else. 
 
--  Move the data used in the home page back into the home page, directly in the
+- [DONE] Move the data used in the home page back into the home page, directly in the
 page component attributes. Expand the program cards too. So instead of having a
 `const weeklyPrograms` data structure, just put the title and description
 directly in the SectionHeader, etc components. This is not about just getting
@@ -94,3 +93,38 @@ and put that data into
         </div>
       </div>
 ```
+
+- In components with one large text block, such as description in SectionHeader and ProgramCard, make the description the CDATA for the component, and lets the titles be in a title tag,  such as: 
+
+```
+      <SectionHeader >
+      <h2>Weekly Programming Classes</h2>
+      <summary>Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.</summary>
+      </SectionHeader>
+```
+
+Let's make all of the content elements of ProgramCard into tags, but try to use existing tags where possible, such as: 
+
+```
+        <ProgramCard
+          <h2>Java Coding Classes</h2>
+          <description>For students of all levels who want to learn industry-level Java programming. Our comprehensive 8-level curriculum takes students from basic syntax to advanced object-oriented programming, preparing them for Oracle certification and college-level computer science.<description>
+          <ul>
+              <li>Oracle-aligned curriculum</li>
+              <li>Hybrid and online schedules</li>
+              <li>Project-based learning across eight levels</li>
+              <li>Industry-standard development tools (Eclipse, IntelliJ)</li>
+              <li>Professional certification preparation</li>
+              <li>Advanced topics: data structures, algorithms, design patterns</li>
+          </ul>
+          <price>$280 per Month</price>
+          <footer>
+          <cta class="primary" href="https://jtl.pike13.com/group_classes/270616">Enroll in Person</cta>
+          <cta class="secondary" href="https://jtl.pike13.com/group_classes/270616">Enroll Online</cta>
+          <a href="...">Learn More</a>
+          </footer>
+        </ProgramCard>
+```
+
+You can create custom tags where it makes things more clear, like with `<cta>`.
+

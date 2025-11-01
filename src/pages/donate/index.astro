@@ -31,12 +31,11 @@ import { siteSettings } from '../../data/siteSettings';
     <div class="container donation-widget">
       <div class="donation-widget__grid">
         <div>
-          <SectionHeader
-            align="left"
-            eyebrow="Give Online"
-            title="Make a Secure Donation"
-            description="Use our Give Lively form to make a one-time gift or start a monthly donation that keeps classes running year-round."
-          />
+          <SectionHeader align="left">
+            <eyebrow>Give Online</eyebrow>
+            <h2>Make a Secure Donation</h2>
+            <p>Use our Give Lively form to make a one-time gift or start a monthly donation that keeps classes running year-round.</p>
+          </SectionHeader>
           <div id="give-lively-widget" class="donation-widget__embed" />
           <p class="donation-widget__note">
             Prefer a direct link? Visit
@@ -85,12 +84,11 @@ import { siteSettings } from '../../data/siteSettings';
 
   <section class="section section--surface-alt">
     <div class="container donation-impact">
-      <SectionHeader
-        align="left"
-        eyebrow="Impact"
-        title="How Your Gift Helps"
-        description="Every dollar advances youth-led innovation, mentorship, and access to technology."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Impact</eyebrow>
+        <h2>How Your Gift Helps</h2>
+        <p>Every dollar advances youth-led innovation, mentorship, and access to technology.</p>
+      </SectionHeader>
       <div class="donation-impact__grid">
         {donationImpact.map((item) => (
           <CalloutCard class="donation-impact__card" title={item.title}>
@@ -103,12 +101,11 @@ import { siteSettings } from '../../data/siteSettings';
 
   <section class="section">
     <div class="container donation-methods">
-      <SectionHeader
-        align="left"
-        eyebrow="More Ways to Give"
-        title="Choose the Giving Method that Works for You"
-        description="From recurring gifts to stock transfers, we will help you maximize your impact."
-      />
+      <SectionHeader align="left">
+        <eyebrow>More Ways to Give</eyebrow>
+        <h2>Choose the Giving Method that Works for You</h2>
+        <p>From recurring gifts to stock transfers, we will help you maximize your impact.</p>
+      </SectionHeader>
       <div class="donation-methods__grid">
         {donationMethods.map((method) => (
           <CalloutCard title={method.title} cta={method.cta}>
@@ -121,12 +118,11 @@ import { siteSettings } from '../../data/siteSettings';
 
   <section class="section section--surface-alt">
     <div class="container">
-      <SectionHeader
-        align="left"
-        eyebrow="Questions"
-        title="Donation FAQs"
-        description="Do not see your answer? Email us and we will help right away."
-      />
+      <SectionHeader align="left">
+        <eyebrow>Questions</eyebrow>
+        <h2>Donation FAQs</h2>
+        <p>Do not see your answer? Email us and we will help right away.</p>
+      </SectionHeader>
       <div class="faq-grid">
         {donationFaq.map((item) => (
           <CalloutCard title={item.question}>

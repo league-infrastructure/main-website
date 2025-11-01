@@ -39,10 +39,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section">
     <div class="container">
-      <SectionHeader
-        title="Hands-On Workshops"
-        description="Every Tech Club session focuses on a single topic so students can experiment, ask questions, and ship something new in under an hour."
-      />
+      <SectionHeader>
+        <h2>Hands-On Workshops</h2>
+        <p>Every Tech Club session focuses on a single topic so students can experiment, ask questions, and ship something new in under an hour.</p>
+      </SectionHeader>
       <div class="program-grid">
         {techClubPrograms.map((program) => (
           <CalloutCard class="program-card program-card--center" title={program.title}>
@@ -60,11 +60,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
     <div class="container">
       <div class="two-column">
         <div class="two-column__copy">
-          <SectionHeader
-            title="Start Coding in 60 Minutes"
-            description="Each Tech Club class runs about an hour and introduces core programming concepts through mini projects."
-            align="left"
-          />
+          <SectionHeader align="left">
+            <h2>Start Coding in 60 Minutes</h2>
+            <p>Each Tech Club class runs about an hour and introduces core programming concepts through mini projects.</p>
+          </SectionHeader>
           <p>
             Sessions are hosted across San Diego County in partnership with schools, libraries, recreation centers, and
             community organizations. Volunteer mentors from the League guide learners through projects, debug code side by
@@ -95,10 +94,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="upcoming-events">
     <div class="container">
-      <SectionHeader
-        title="Upcoming Events"
-        description="Check the live Tech Club calendar to RSVP for classes near you or join an online session."
-      />
+      <SectionHeader>
+        <h2>Upcoming Events</h2>
+        <p>Check the live Tech Club calendar to RSVP for classes near you or join an online session.</p>
+      </SectionHeader>
       <UpcomingEvents meetupGroup="the-league-tech-club" />
     </div>
   </section>
@@ -107,11 +106,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
     <div class="container">
       <div class="two-column">
         <div class="two-column__copy">
-          <SectionHeader
-            title="Host the Tech Club"
-            description="Bring free programming workshops to your school, company, or library."
-            align="left"
-          />
+          <SectionHeader align="left">
+            <h2>Host the Tech Club</h2>
+            <p>Bring free programming workshops to your school, company, or library.</p>
+          </SectionHeader>
           <p>
             The League offers Tech Club sessions anywhere in San Diego County to fulfill our mission of giving every
             student an introduction to coding. We supply instructors, curriculum, and equipment. You help us recruit
@@ -138,10 +136,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="support-tech-club">
     <div class="container donation">
-      <SectionHeader
-        title="Support Free Community Classes"
-        description="A $250 gift funds a full Tech Club session in a neighborhood library, school, or community center."
-      />
+      <SectionHeader>
+        <h2>Support Free Community Classes</h2>
+        <p>A $250 gift funds a full Tech Club session in a neighborhood library, school, or community center.</p>
+      </SectionHeader>
       <div id="give-lively-widget" class="donation__widget" />
       <p class="donation__note">
         Prefer a direct link? Visit

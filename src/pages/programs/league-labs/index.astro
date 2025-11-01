@@ -51,11 +51,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
   <section class="section" id="about">
     <div class="container about-grid">
       <div class="about-grid__copy">
-        <SectionHeader
-          title="Design, Teach, and Ship Curriculum"
-          description="Choose a topic you care about, build a shareable lesson, and launch it with support from League mentors."
-          align="left"
-        />
+        <SectionHeader align="left">
+          <h2>Design, Teach, and Ship Curriculum</h2>
+          <p>Choose a topic you care about, build a shareable lesson, and launch it with support from League mentors.</p>
+        </SectionHeader>
         <p>{leagueLabsOverview.summary}</p>
         <p>{leagueLabsOverview.advancedTrack}</p>
       </div>
@@ -80,10 +79,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section section--surface-alt" id="special-programs">
     <div class="container">
-      <SectionHeader
-        title="Special Focus Tracks"
-        description="Shape your internship around robotics teams or science outreach by joining one of these themed cohorts."
-      />
+      <SectionHeader>
+        <h2>Special Focus Tracks</h2>
+        <p>Shape your internship around robotics teams or science outreach by joining one of these themed cohorts.</p>
+      </SectionHeader>
       <div class="special-grid">
         {leagueLabsSpecialPrograms.map((program) => (
           <CalloutCard class="special-card" title={program.title}>
@@ -97,11 +96,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
   <section class="section" id="what-you-will-do">
     <div class="container two-column">
       <div class="two-column__copy">
-        <SectionHeader
-          title="What You Will Do"
-          description="Interns develop new classes or contribute to our online IDE, following a full product development cycle."
-          align="left"
-        />
+        <SectionHeader align="left">
+          <h2>What You Will Do</h2>
+          <p>Interns develop new classes or contribute to our online IDE, following a full product development cycle.</p>
+        </SectionHeader>
         <ol class="process">
           {classDevelopmentProcess.map((step) => (
             <li>{step}</li>
@@ -119,10 +117,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section section--surface-alt" id="project-examples">
     <div class="container">
-      <SectionHeader
-        title="Project Inspiration"
-        description="Review published League curriculum to see the format and depth interns aim for."
-      />
+      <SectionHeader>
+        <h2>Project Inspiration</h2>
+        <p>Review published League curriculum to see the format and depth interns aim for.</p>
+      </SectionHeader>
       <div class="resource-grid">
         <p>{projectExamples.blurb}</p>
         <div class="resource-grid__links">
@@ -141,11 +139,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
   <section class="section" id="apply">
     <div class="container two-column">
       <div class="two-column__copy">
-        <SectionHeader
-          title="Application Process"
-          description="Share your interests, meet the mentors, and stay connected through League Labs announcements."
-          align="left"
-        />
+        <SectionHeader align="left">
+          <h2>Application Process</h2>
+          <p>Share your interests, meet the mentors, and stay connected through League Labs announcements.</p>
+        </SectionHeader>
         <p class="status">{applicationDetails.statusNote}</p>
         <ol class="process">
           {applicationDetails.steps.map((step) => (
@@ -165,10 +162,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section section--surface-alt" id="meetings">
     <div class="container">
-      <SectionHeader
-        title="Kickoff Meeting Schedule"
-        description="RSVP for an upcoming kickoff session to confirm expectations and choose your first project."
-      />
+      <SectionHeader>
+        <h2>Kickoff Meeting Schedule</h2>
+        <p>RSVP for an upcoming kickoff session to confirm expectations and choose your first project.</p>
+      </SectionHeader>
       <div class="embed">
         <EmbedLoader src={meetingEmbedUrl} title="League Labs kickoff meetings" />
       </div>
@@ -177,10 +174,10 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 
   <section class="section" id="project-ideas">
     <div class="container">
-      <SectionHeader
-        title="Hot Projects"
-        description="Jump into an in-progress idea or pitch your own. These initiatives need interns right now."
-      />
+      <SectionHeader>
+        <h2>Hot Projects</h2>
+        <p>Jump into an in-progress idea or pitch your own. These initiatives need interns right now.</p>
+      </SectionHeader>
       <div class="idea-grid">
         {projectIdeas.map((idea) => (
           <CalloutCard class="idea-card" title={idea.title}>

@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/ui/HeroSection.astro';
+import Hero from '../components/ui/Hero.astro';
 import ProgramCard from '../components/ui/ProgramCard.astro';
 import CalloutCard from '../components/ui/CalloutCard.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import Section from '../components/ui/Section.astro';
 import '../styles/pages/home.css';
 import '../styles/programs.css';
 
@@ -14,352 +16,306 @@ import '../styles/programs.css';
   title="Igniting Young Minds Through Coding"
   description="The League of Amazing Programmers offers weekly coding classes, mentorship, and career preparation for students in grades 4-12."
 >
-  <!-- Custom Hero Section to match original site -->
-  <section class="custom-hero">
-    <div class="container">
-      <div class="custom-hero__content">
-        <div class="custom-hero__left">
-          <!-- Use the wordmark logo -->
-          <img src="/logos/wordmark-h-1200.png" 
-               alt="The League of Amazing Programmers" 
-               class="custom-hero__logo" />
-          <h1 class="custom-hero__tagline">Igniting Young Minds Through Coding</h1>
-          <p class="custom-hero__description">
-            <strong>At The League of Amazing Programmers, we prepare kids for the science 
-              and technology careers of the 21st century</strong> through a multi-level
-               program of weekly classes up to industry certification.
-          </p>
+  <Hero>
+    <img 
+      slot="logo" 
+      src="/logos/wordmark-h-1200.png" 
+      alt="The League of Amazing Programmers" 
+      class="custom-hero__logo" 
+    />
+    <h1 slot="tagline" class="custom-hero__tagline">Igniting Young Minds Through Coding</h1>
+    <p slot="description" class="custom-hero__description">
+      <strong>At The League of Amazing Programmers, we prepare kids for the science 
+        and technology careers of the 21st century</strong> through a multi-level
+         program of weekly classes up to industry certification.
+    </p>
+    <img 
+      slot="image" 
+      src="/images/computer-robot-1.png" 
+      alt="Student-built robot with laptop" 
+      class="custom-hero__image" 
+    />
+  </Hero>
+
+  <Section>
+    <SectionHeader>
+      <h2 class="section__title">Weekly Programming Classes</h2>
+      <p class="section__description">Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.</p>
+    </SectionHeader>
+    <div class="program-grid">
+      <ProgramCard>
+        <figure class="card__media">
+          <img src="/images/python_1.png" alt="Illustration representing Python coding" loading="lazy" />
+        </figure>
+        <div class="card__body">
+          <p class="card__eyebrow">BEGINNER</p>
+          <h2>Python Coding Classes</h2>
+          <description>Python is the best language to start with. It's the most popular programming language, and useful for every kind of programming. Students learn fundamental programming concepts including variables, loops, conditionals, functions, and object-oriented programming through hands-on projects and real-world applications.</description>
+          <ul>
+            <li>Official Python certificates</li>
+            <li>In-person and online cohorts</li>
+            <li>Small classes with five students per teacher</li>
+            <li>Interactive coding exercises and games</li>
+            <li>Portfolio development with GitHub</li>
+            <li>Preparation for AP Computer Science Principles</li>
+          </ul>
+          <price>$280 per month</price>
         </div>
-        <div class="custom-hero__right">
-          <img src="/images/computer-robot-1.png" alt="Student-built robot with laptop" class="custom-hero__image" />
-          <!-- Remove nonprofit badge for now since it doesn't exist -->
+        <footer class="card__footer">
+          <div class="button-group enrollment-buttons">
+            <cta class="primary" href="https://jtl.pike13.com/group_classes/270616" target="_blank" rel="noreferrer">Enroll In-Person</cta>
+            <cta class="secondary" href="https://jtl.pike13.com/group_classes/255811" target="_blank" rel="noreferrer">Enroll Online</cta>
+          </div>
+          <div class="button-group learn-more-button">
+            <a class="button button--secondary" href="/programs/classes/python/">Learn More</a>
+          </div>
+        </footer>
+      </ProgramCard>
+      <ProgramCard>
+        <figure class="card__media">
+          <img src="/images/java_1.png" alt="Illustration representing Java development" loading="lazy" />
+        </figure>
+        <div class="card__body">
+          <p class="card__eyebrow">BEGINNER TO ADVANCED</p>
+          <h2>Java Coding Classes</h2>
+          <description>For students of all levels who want to learn industry-level Java programming. Our comprehensive 8-level curriculum takes students from basic syntax to advanced object-oriented programming, preparing them for Oracle certification and college-level computer science.</description>
+          <ul>
+            <li>Oracle-aligned curriculum</li>
+            <li>Hybrid and online schedules</li>
+            <li>Project-based learning across eight levels</li>
+            <li>Industry-standard development tools (Eclipse, IntelliJ)</li>
+            <li>Professional certification preparation</li>
+            <li>Advanced topics: data structures, algorithms, design patterns</li>
+          </ul>
+          <price>$280 per month</price>
         </div>
+        <footer class="card__footer">
+          <div class="button-group enrollment-buttons">
+            <cta class="primary" href="https://jtl.pike13.com/group_classes/263387" target="_blank" rel="noreferrer">Enroll In-Person</cta>
+            <cta class="secondary" href="https://jtl.pike13.com/group_classes/191042" target="_blank" rel="noreferrer">Enroll Online</cta>
+          </div>
+          <div class="button-group learn-more-button">
+            <a class="button button--secondary" href="/programs/classes/java/">Learn More</a>
+          </div>
+        </footer>
+      </ProgramCard>
+    </div>
+  </Section>
+
+  <Section bgcolor="var(--color-surface-tint)">
+    <SectionHeader>
+      <h2>Free Classes</h2>
+      <p>Our Tech Club program offers free introductory classes in Python, Java, robotics and electronics to schools and library all over San Diego County. For more advanced students, the Code Clinic offers online classes in professional programming technologies and techniques.</p>
+    </SectionHeader>
+    <div class="program-grid">
+      <ProgramCard>
+        <figure class="card__media">
+          <img src="/images/current_students.png" alt="Students attending Tech Club workshop" loading="lazy" />
+        </figure>
+        <div class="card__body">
+          <p class="card__eyebrow">BEGINNER TO INTERMEDIATE</p>
+          <h2>Free Tech Club</h2>
+          <description>Learn Python, Java, AI, robotics, electronics and many other tech skills at our free Tech Club classes. Tech Club classes are taught several times a week at schools and Libraries all around San Diego and are designed for beginners to programming. Students explore various technology topics through hands-on workshops and collaborative projects.</description>
+          <ul>
+            <li>Multiple weekly meetups</li>
+            <li>Hands-on demos and mini-projects</li>
+            <li>Volunteer mentors and alumni support</li>
+            <li>Arduino and Raspberry Pi workshops</li>
+            <li>Introduction to artificial intelligence</li>
+            <li>Robotics programming and competitions</li>
+          </ul>
+          <price>Free</price>
+        </div>
+        <footer class="card__footer">
+          <div class="button-group">
+            <cta class="primary" href="https://www.meetup.com/the-league-tech-club" target="_blank" rel="noreferrer">See Upcoming Sessions</cta>
+            <a class="button button--secondary" href="/programs/tech-club/">Learn More</a>
+          </div>
+        </footer>
+      </ProgramCard>
+      <ProgramCard>
+        <figure class="card__media">
+          <img src="/images/codingcamps.png" alt="Illustration of students collaborating on laptops" loading="lazy" />
+        </figure>
+        <div class="card__body">
+          <p class="card__eyebrow">INTERMEDIATE TO ADVANCED</p>
+          <h2>Code Clinic</h2>
+          <description>Code Clinic is a free online program for advanced students to extend their skills beyond AP Computer Science. In these 1 hour virtual classes, students will get an introduction to tech topics like neural networks, data analysis, Docker containers, code refactoring, functional programming, and many others. Each session focuses on cutting-edge technologies used in professional software development.</description>
+          <ul>
+            <li>Live online masterclasses</li>
+            <li>Focus on emerging technologies</li>
+            <li>Led by professional engineers</li>
+            <li>Advanced topics: machine learning, cloud computing</li>
+            <li>Professional development practices</li>
+            <li>Industry guest speakers and mentors</li>
+          </ul>
+          <price>Free</price>
+        </div>
+        <footer class="card__footer">
+          <div class="button-group">
+            <cta class="primary" href="https://www.jointheleague.org/programs/tech-club/code-clinic/">Request an Invite</cta>
+          </div>
+        </footer>
+      </ProgramCard>
+    </div>
+  </Section>
+
+  <Section>
+    <SectionHeader>
+      <h2>Other Programs</h2>
+      <p>Dive deeper with specialty clinics, internships, and badges that keep students building between weekly classes.</p>
+    </SectionHeader>
+    <div class="support-grid">
+      <CalloutCard class="support-card" title="League Labs">
+        <p>Intern with the LEAGUE; get job experience while creating new classes for future students.</p>
+        <a slot="footer" class="link" href="/programs/league-labs/">Learn more</a>
+      </CalloutCard>
+      <CalloutCard class="support-card" title="Project Clinic">
+        <p>Partner with our mentors to ship independent programming, robotics, or electronics projects.</p>
+        <a slot="footer" class="link" href="/programs/project-clinic/">Learn more</a>
+      </CalloutCard>
+      <CalloutCard class="support-card" title="Programming Merit Badge">
+        <p>Complete Programming Merit Badge requirement 5 in a free 90-minute workshop.</p>
+        <a slot="footer" class="link" href="/programs/tech-club/programming-merit-badge/">Learn more</a>
+      </CalloutCard>
+      <CalloutCard class="support-card" title="FIRST Robot Programming">
+        <p>Free skills classes supporting FIRST FTC and FRC robotics teams throughout the season.</p>
+        <a slot="footer" class="link" href="/programs/tech-club/robot-garage/#first">Learn more</a>
+      </CalloutCard>
+    </div>
+  </Section>
+
+  <Section bgcolor="var(--color-surface-tint)" class="career">
+    <div class="career__image">
+      <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
+    </div>
+    <div class="career__content">
+      <SectionHeader align="left">
+        <h2>Preparing Youth for Careers</h2>
+        <p>Students are prepared to enter the work force as a programmer or to continue their education in a college or university. We work closely with students to gain professional certification as a Java programmer and secure job opportunities at top companies. Our students have secured opportunities with many familiar names.</p>
+      </SectionHeader>
+      <div class="career__logos">
+        <figure class="career__logo">
+          <img src="/images/google.png" alt="Google" loading="lazy" />
+        </figure>
+        <figure class="career__logo">
+          <img src="/images/amazon.png" alt="Amazon" loading="lazy" />
+        </figure>
+        <figure class="career__logo">
+          <img src="/images/microsoft.png" alt="Microsoft" loading="lazy" />
+        </figure>
+        <figure class="career__logo">
+          <img src="/images/sony.png" alt="Sony" loading="lazy" />
+        </figure>
+        <figure class="career__logo">
+          <img src="/images/intuit.png" alt="Intuit" loading="lazy" />
+        </figure>
+        <figure class="career__logo">
+          <img src="/images/playstation-e1633381878724.png" alt="PlayStation" loading="lazy" />
+        </figure>
       </div>
     </div>
-  </section>
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHeader 
-        title="Weekly Programming Classes"
-        description="Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose."
-      />
-      <div class="program-grid">
-        <ProgramCard
-          title="Python Coding Classes"
-          level="BEGINNER"
-          description="Python is the best language to start with. It's the most popular programming language, and useful for every kind of programming. Students learn fundamental programming concepts including variables, loops, conditionals, functions, and object-oriented programming through hands-on projects and real-world applications."
-          highlights={[
-            'Official Python certificates',
-            'In-person and online cohorts',
-            'Small classes with five students per teacher',
-            'Interactive coding exercises and games',
-            'Portfolio development with GitHub',
-            'Preparation for AP Computer Science Principles',
-          ]}
-          price="$280 per month"
-          image={{
-            src: '/images/python_1.png',
-            alt: 'Illustration representing Python coding',
-          }}
-          actions={[
-            {
-              label: 'Enroll In-Person',
-              href: 'https://jtl.pike13.com/group_classes/270616',
-              target: '_blank',
-              rel: 'noreferrer',
-            },
-            {
-              label: 'Enroll Online',
-              href: 'https://jtl.pike13.com/group_classes/255811',
-              target: '_blank',
-              rel: 'noreferrer',
-              variant: 'secondary',
-            },
-            {
-              label: 'Learn More',
-              href: '/programs/classes/python/',
-              variant: 'secondary',
-            },
-          ]}
-        />
-        <ProgramCard
-          title="Java Coding Classes"
-          level="BEGINNER TO ADVANCED"
-          description="For students of all levels who want to learn industry-level Java programming. Our comprehensive 8-level curriculum takes students from basic syntax to advanced object-oriented programming, preparing them for Oracle certification and college-level computer science."
-          highlights={[
-            'Oracle-aligned curriculum',
-            'Hybrid and online schedules',
-            'Project-based learning across eight levels',
-            'Industry-standard development tools (Eclipse, IntelliJ)',
-            'Professional certification preparation',
-            'Advanced topics: data structures, algorithms, design patterns',
-          ]}
-          price="$280 per month"
-          image={{
-            src: '/images/java_1.png',
-            alt: 'Illustration representing Java development',
-          }}
-          actions={[
-            {
-              label: 'Enroll In-Person',
-              href: 'https://jtl.pike13.com/group_classes/263387',
-              target: '_blank',
-              rel: 'noreferrer',
-            },
-            {
-              label: 'Enroll Online',
-              href: 'https://jtl.pike13.com/group_classes/191042',
-              target: '_blank',
-              rel: 'noreferrer',
-              variant: 'secondary',
-            },
-            {
-              label: 'Learn More',
-              href: '/programs/classes/java/',
-              variant: 'secondary',
-            },
-          ]}
-        />
-      </div>
+  <Section>
+    <SectionHeader>
+      <h2>Voices from The League</h2>
+    </SectionHeader>
+    <div class="testimonials">
+      <blockquote>
+        <p>The LEAGUE of Amazing Programmers have build my confidence to become an engineer. I've had a wonderful experience so far with the league classes and the extraordinary internship that changed my perspective in engineering.</p>
+        <footer>
+          Stephanie <span aria-hidden="true">|</span> Student
+        </footer>
+      </blockquote>
+      <blockquote>
+        <p>The LEAGUE of Amazing Programmers has helped me develop my software skills and also improve my skills in problem solving. The skills I learned from the league helped me lead an award winning robotics team in the San Diego Region.</p>
+        <footer>
+          Lucas <span aria-hidden="true">|</span> Student
+        </footer>
+      </blockquote>
+      <blockquote>
+        <p>I first joined The LEAGUE of Amazing Programmers in the 7th grade as 
+          just something my mom wanted me to do. Little did I know that it
+           would become not only one of my favorite activities but would
+            develop into my career choice.</p>
+        <footer>
+          R. Ramirez <span aria-hidden="true">|</span> Student
+        </footer>
+      </blockquote>
     </div>
-  </section>
+  </Section>
 
-  <section class="section section--tint">
-    <div class="container">
-      <SectionHeader 
-        title="Free Classes"
-        description="Our Tech Club program offers free introductory classes in Python, Java, robotics and electronics to schools and library all over San Diego County. For more advanced students, the Code Clinic offers online classes in professional programming technologies and techniques."
-      />
-      <div class="program-grid">
-        <ProgramCard
-          title="Free Tech Club"
-          level="BEGINNER TO INTERMEDIATE"
-          description="Learn Python, Java, AI, robotics, electronics and many other tech skills at our free Tech Club classes. Tech Club classes are taught several times a week at schools and Libraries all around San Diego and are designed for beginners to programming. Students explore various technology topics through hands-on workshops and collaborative projects."
-          highlights={[
-            'Multiple weekly meetups',
-            'Hands-on demos and mini-projects',
-            'Volunteer mentors and alumni support',
-            'Arduino and Raspberry Pi workshops',
-            'Introduction to artificial intelligence',
-            'Robotics programming and competitions',
-          ]}
-          price="Free"
-          image={{
-            src: '/images/current_students.png',
-            alt: 'Students attending Tech Club workshop',
-          }}
-          actions={[
-            {
-              label: 'See Upcoming Sessions',
-              href: 'https://www.meetup.com/the-league-tech-club',
-              target: '_blank',
-              rel: 'noreferrer',
-            },
-            {
-              label: 'Learn More',
-              href: '/programs/tech-club/',
-              variant: 'secondary',
-            },
-          ]}
-        />
-        <ProgramCard
-          title="Code Clinic"
-          level="INTERMEDIATE TO ADVANCED"
-          description="Code Clinic is a free online program for advanced students to extend their skills beyond AP Computer Science. In these 1 hour virtual classes, students will get an introduction to tech topics like neural networks, data analysis, Docker containers, code refactoring, functional programming, and many others. Each session focuses on cutting-edge technologies used in professional software development."
-          highlights={[
-            'Live online masterclasses',
-            'Focus on emerging technologies',
-            'Led by professional engineers',
-            'Advanced topics: machine learning, cloud computing',
-            'Professional development practices',
-            'Industry guest speakers and mentors',
-          ]}
-          price="Free"
-          image={{
-            src: '/images/codingcamps.png',
-            alt: 'Illustration of students collaborating on laptops',
-          }}
-          actions={[
-            {
-              label: 'Request an Invite',
-              href: 'https://www.jointheleague.org/programs/tech-club/code-clinic/',
-            },
-          ]}
-        />
-      </div>
+  <Section bgcolor="var(--color-surface-tint)">
+    <h2>Hear From Our Community</h2>
+    <div style="text-align: center; margin: 2rem 0;">
+      <iframe
+        src="https://player.vimeo.com/video/290793328?title=0&byline=0&portrait=0"
+        width="640"
+        height="360"
+        title="Hear from our community"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
-  </section>
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHeader 
-        title="Other Programs"
-        description="Dive deeper with specialty clinics, internships, and badges that keep students building between weekly classes."
-      />
-      <div class="support-grid">
-        <CalloutCard class="support-card" title="League Labs">
-          <p>Intern with the LEAGUE; get job experience while creating new classes for future students.</p>
-          <a slot="footer" class="link" href="/programs/league-labs/">Learn more</a>
-        </CalloutCard>
-        <CalloutCard class="support-card" title="Project Clinic">
-          <p>Partner with our mentors to ship independent programming, robotics, or electronics projects.</p>
-          <a slot="footer" class="link" href="/programs/project-clinic/">Learn more</a>
-        </CalloutCard>
-        <CalloutCard class="support-card" title="Programming Merit Badge">
-          <p>Complete Programming Merit Badge requirement 5 in a free 90-minute workshop.</p>
-          <a slot="footer" class="link" href="/programs/tech-club/programming-merit-badge/">Learn more</a>
-        </CalloutCard>
-        <CalloutCard class="support-card" title="FIRST Robot Programming">
-          <p>Free skills classes supporting FIRST FTC and FRC robotics teams throughout the season.</p>
-          <a slot="footer" class="link" href="/programs/tech-club/robot-garage/#first">Learn more</a>
-        </CalloutCard>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tint">
-    <div class="container career">
-      <div class="career__image">
+  <Section>
+    <SectionHeader>
+      <h2>Take a Peek Inside Our Classroom</h2>
+    </SectionHeader>
+    <div class="gallery">
+      <figure class="gallery__item">
+        <img src="/images/Copy-of-MX-Library-Workshop_1.png" alt="Students collaborating in coding workshop" loading="lazy" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png" alt="Students attending cybersecurity competition" loading="lazy" />
+      </figure>
+      <figure class="gallery__item">
         <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
-      </div>
-      <div class="career__content">
-        <SectionHeader 
-          title="Preparing Youth for Careers"
-          description="Students are prepared to enter the work force as a programmer or to continue their education in a college or university. We work closely with students to gain professional certification as a Java programmer and secure job opportunities at top companies. Our students have secured opportunities with many familiar names."
-          align="left" 
-        />
-        <div class="career__logos">
-          <figure class="career__logo">
-            <img src="/images/google.png" alt="Google" loading="lazy" />
-          </figure>
-          <figure class="career__logo">
-            <img src="/images/amazon.png" alt="Amazon" loading="lazy" />
-          </figure>
-          <figure class="career__logo">
-            <img src="/images/microsoft.png" alt="Microsoft" loading="lazy" />
-          </figure>
-          <figure class="career__logo">
-            <img src="/images/sony.png" alt="Sony" loading="lazy" />
-          </figure>
-          <figure class="career__logo">
-            <img src="/images/intuit.png" alt="Intuit" loading="lazy" />
-          </figure>
-          <figure class="career__logo">
-            <img src="/images/playstation-e1633381878724.png" alt="PlayStation" loading="lazy" />
-          </figure>
-        </div>
-      </div>
+      </figure>
     </div>
-  </section>
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHeader title="Voices from The League" />
-      <div class="testimonials">
-        <blockquote>
-          <p>The LEAGUE of Amazing Programmers have build my confidence to become an engineer. I've had a wonderful experience so far with the league classes and the extraordinary internship that changed my perspective in engineering.</p>
-          <footer>
-            Stephanie <span aria-hidden="true">|</span> Student
-          </footer>
-        </blockquote>
-        <blockquote>
-          <p>The LEAGUE of Amazing Programmers has helped me develop my software skills and also improve my skills in problem solving. The skills I learned from the league helped me lead an award winning robotics team in the San Diego Region.</p>
-          <footer>
-            Lucas <span aria-hidden="true">|</span> Student
-          </footer>
-        </blockquote>
-        <blockquote>
-          <p>I first joined The LEAGUE of Amazing Programmers in the 7th grade as 
-            just something my mom wanted me to do. Little did I know that it
-             would become not only one of my favorite activities but would
-              develop into my career choice.</p>
-          <footer>
-            R. Ramirez <span aria-hidden="true">|</span> Student
-          </footer>
-        </blockquote>
-      </div>
+  <Section class="recognition">
+    <SectionHeader>
+      <h2>Community Recognition</h2>
+      <p>We are proud to earn the trust of families, partners, and philanthropic leaders across San Diego.</p>
+    </SectionHeader>
+    <div class="recognition__logos">
+      <a
+        class="recognition__logo"
+        href="https://greatnonprofits.org/org/league-of-amazing-programmers"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img src="/images/toprated.png" alt="GreatNonprofits Top-Rated" loading="lazy" />
+      </a>
     </div>
-  </section>
+  </Section>
 
-  <section class="section section--tint">
-    <div class="container">
-      <h2>Hear From Our Community</h2>
-      <div style="text-align: center; margin: 2rem 0;">
-        <iframe
-          src="https://player.vimeo.com/video/290793328?title=0&byline=0&portrait=0"
-          width="640"
-          height="360"
-          title="Hear from our community"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+  <Section bgcolor="var(--color-surface-alt)">
+    <div class="newsletter">
+      <div class="newsletter__copy">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get League news, upcoming classes, and student highlights delivered monthly.</p>
       </div>
+      <a class="button button--primary" href="mailto:info@jointheleague.org?subject=Newsletter%20Signup">
+        Sign Up
+      </a>
     </div>
-  </section>
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHeader title="Take a Peek Inside Our Classroom" />
-      <div class="gallery">
-        <figure class="gallery__item">
-          <img src="/images/Copy-of-MX-Library-Workshop_1.png" alt="Students collaborating in coding workshop" loading="lazy" />
-        </figure>
-        <figure class="gallery__item">
-          <img src="/images/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png" alt="Students attending cybersecurity competition" loading="lazy" />
-        </figure>
-        <figure class="gallery__item">
-          <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
-        </figure>
-      </div>
+  <Section containerClass="cta__inner" class="cta">
+    <div>
+      <h2 class="cta__title">Get Started</h2>
+      <p class="cta__description">Ready to begin? Explore programs or jump right into enrollment today.</p>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container recognition">
-      <SectionHeader 
-        title="Community Recognition"
-        description="We are proud to earn the trust of families, partners, and philanthropic leaders across San Diego."
-      />
-      <div class="recognition__logos">
-        <a
-          class="recognition__logo"
-          href="https://greatnonprofits.org/org/league-of-amazing-programmers"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src="/images/toprated.png" alt="GreatNonprofits Top-Rated" loading="lazy" />
-        </a>
-      </div>
+    <div class="button-group">
+      <a class="button button--primary" href="/programs/">View Our Programs</a>
+      <a class="button button--secondary" href="https://jtl.pike13.com/pages/welcome" target="_blank" rel="noreferrer">
+        Join Now
+      </a>
     </div>
-  </section>
-
-  <section class="section section--surface-alt">
-    <div class="container">
-      <div class="newsletter">
-        <div class="newsletter__copy">
-          <h2>Subscribe to Our Newsletter</h2>
-          <p>Get League news, upcoming classes, and student highlights delivered monthly.</p>
-        </div>
-        <a class="button button--primary" href="mailto:info@jointheleague.org?subject=Newsletter%20Signup">
-          Sign Up
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta">
-    <div class="container cta__inner">
-      <div>
-        <h2 class="cta__title">Get Started</h2>
-        <p class="cta__description">Ready to begin? Explore programs or jump right into enrollment today.</p>
-      </div>
-      <div class="button-group">
-        <a class="button button--primary" href="/programs/">View Our Programs</a>
-        <a class="button button--secondary" href="https://jtl.pike13.com/pages/welcome" target="_blank" rel="noreferrer">
-          Join Now
-        </a>
-      </div>
-    </div>
-  </section>
+  </Section>
 </BaseLayout>
