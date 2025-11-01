@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
-import EmbedLoader from '../../../components/EmbedLoader.astro';
+import UpcomingEvents from '../../../components/UpcomingEvents.astro';
 import CalloutCard from '../../../components/ui/CalloutCard.astro';
 import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
 
@@ -99,12 +99,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         title="Upcoming Events"
         description="Check the live Tech Club calendar to RSVP for classes near you or join an online session."
       />
-      <div class="embed">
-        <EmbedLoader
-          src="https://snips.jtlapp.net/leaguesync/meetups/the-league-tech-club.html"
-          title="Tech Club schedule"
-        />
-      </div>
+      <UpcomingEvents meetupGroup="the-league-tech-club" />
     </div>
   </section>
 

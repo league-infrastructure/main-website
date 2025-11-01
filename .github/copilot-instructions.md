@@ -23,4 +23,7 @@ string "[DONE]" at the beginning of the items, just after the number or dash
 that indicates it is a list item, or at the beginning of the paragraph if it is
 not a list item.
 
-When you make changes to the codebase based on these update notes,
+When you make changes to the codebase based on these update notes.
+
+For visual changes to pages, as opposed to just content changes, use browsermcp
+or puppeteer to check that the page has definitely changed. 

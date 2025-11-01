@@ -47,13 +47,13 @@ interface RecognitionBadge {
 export const weeklyPrograms = {
   title: 'Weekly Programming Classes',
   description:
-    'Our coding classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more. We work closely with every student to make coding fun and engaging, in-person or online.',
+    'Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.',
   programs: [
     {
       title: 'Python Coding Classes',
-      level: 'Beginner',
+      level: 'BEGINNER',
       description:
-        'Python is the most popular first language for a reason. Students build projects while mastering problem solving, logic, and collaboration.',
+        'Python is the best language to start with. It\'s the most popular programming language, and useful for every kind of programming.',
       highlights: [
         'Official Python certificates',
         'In-person and online cohorts',
@@ -87,9 +87,9 @@ export const weeklyPrograms = {
     },
     {
       title: 'Java Coding Classes',
-      level: 'Beginner to Advanced',
+      level: 'BEGINNER TO ADVANCED',
       description:
-        'Progress toward AP Computer Science readiness and Oracle Professional Certification with industry-grade tools and mentorship.',
+        'For students of all levels who want to learn industry-level Java programming.',
       highlights: [
         'Oracle-aligned curriculum',
         'Hybrid and online schedules',
@@ -127,13 +127,13 @@ export const weeklyPrograms = {
 export const freePrograms = {
   title: 'Free Classes',
   description:
-    'Explore no-cost workshops that introduce Python, Java, robotics, and professional programming skills across San Diego and online.',
+    'Our Tech Club program offers free introductory classes in Python, Java, robotics and electronics to schools and library all over San Diego County. For more advanced students, the Code Clinic offers online classes in professional programming technologies and techniques.',
   programs: [
     {
       title: 'Free Tech Club',
-      level: 'Beginner to Intermediate',
+      level: 'BEGINNER TO INTERMEDIATE',
       description:
-        'Learn Python, Java, AI, robotics, electronics, and more in weekly sessions at schools and libraries around San Diego County.',
+        'Learn Python, Java, AI, robotics, electronics and many other tech skills a our free Tech Club classes. Tech Club classes are taught several times a week at schools and Libraries all around San Diego and are design for beginners to programming.',
       highlights: [
         'Multiple weekly meetups',
         'Hands-on demos and mini-projects',
@@ -160,9 +160,9 @@ export const freePrograms = {
     },
     {
       title: 'Code Clinic',
-      level: 'Intermediate to Advanced',
+      level: 'INTERMEDIATE TO ADVANCED',
       description:
-        'Extend skills beyond AP Computer Science with guided dives into neural networks, data analysis, Docker, functional programming, and more.',
+        'Code Clinic is a free online program for advanced students to extend their skills beyond AP Computer Science. In these 1 hour virtual classes, students will get an introduction to tech topics like neural networks, data analysis, Docker containers, code refactoring, functional programming, and many others.',
       highlights: [
         'Live online masterclasses',
         'Focus on emerging technologies',
@@ -246,7 +246,7 @@ export const newsletter = {
 export const careerPrep = {
   title: 'Preparing Youth for Careers',
   description:
-    'Students are prepared to enter the workforce as programmers or continue their education in college. We work closely with students to earn professional Java certification and secure opportunities at top companies. Our students have secured opportunities with many familiar names.',
+    'Students are prepared to enter the work force as a programmer or to continue their education in a college or university. We work closely with students to gain professional certification as a Java programmer and secure job opportunities at top companies. Our students have secured opportunities with many familiar names.',
   logos: [
   { name: 'Google', src: '/images/2021/10/google.png' },
   { name: 'Amazon', src: '/images/2021/10/amazon.png' },
@@ -260,19 +260,19 @@ export const careerPrep = {
 export const testimonials = [
   {
     quote:
-      'The LEAGUE of Amazing Programmers has built my confidence to become an engineer. The classes and internship changed how I view engineering.',
+      'The LEAGUE of Amazing Programmers have build my confidence to become an engineer. I\'ve had a wonderful experience so far with the league classes and the extraordinary internship that changed my perspective in engineering.',
     author: 'Stephanie',
     role: 'Student',
   },
   {
     quote:
-      'My software skills and problem-solving ability have grown so much. The League helped me lead an award-winning robotics team in San Diego.',
+      'The LEAGUE of Amazing Programmers has helped me develop my software skills and also improve my skills in problem solving. The skills I learned from the league helped me lead an award winning robotics team in the San Diego Region.',
     author: 'Lucas',
     role: 'Student',
   },
   {
     quote:
-      'I joined The League in 7th grade. It quickly became a favorite activity and set me on the path toward a career in programming.',
+      'I first joined The LEAGUE of Amazing Programmers in the 7th grade as just something my mom wanted me to do. Little did I know that it would become not only one of my favorite activities but would develop into my career choice.',
     author: 'R. Ramirez',
     role: 'Student',
   },
@@ -298,6 +298,16 @@ export const primaryCta = {
   description: 'Ready to begin? Explore programs or jump right into enrollment today.',
   primary: { label: 'View Our Programs', href: '/programs/' },
   secondary: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
+};
+
+export const tuitionAssistance = {
+  title: 'Tuition Assistance',
+  description: 'As a non-profit organization, we believe that all children should have the opportunity to learn computer programming regardless of their family\'s financial status. We currently offer tuition assistance to students in San Diego County based on their ability to pay. If your child participates in the Federal Free and Reduced Lunch Program, you may be eligible to receive 100% financial aid for workshops and regular classes. We also offer varying discounts on tuition (sliding scale) depending on your total household income.',
+  note: 'Please note: tuition assistance must be renewed every year and regular attendance is required. If a student is not attending classes regularly, LEAGUE reserves the right to reverse enrolling the student from the program.',
+  cta: {
+    label: 'Apply Now',
+    href: 'https://jointheleague.typeform.com/to/WF4LUN'
+  }
 };
 
 export const communityVideo = {

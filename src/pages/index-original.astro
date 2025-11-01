@@ -1,8 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/ui/HeroSection.astro';
-import ProgramCard from '../components/ui/ProgramCard.astro';
-import CalloutCard from '../components/ui/CalloutCard.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import {
   heroContent,
@@ -10,7 +7,7 @@ import {
   freePrograms,
   otherProgramsHome,
   careerPrep,
-  communityVideo,
+  tuitionAssistance,
   testimonials,
   galleryImages,
   primaryCta,
@@ -19,23 +16,11 @@ import {
 } from '../data/home';
 import '../styles/pages/home.css';
 const { eyebrow, title, description, primaryCta: heroPrimary, secondaryCta, image } = heroContent;
-const {
-  title: weeklyProgramsTitle,
-  description: weeklyProgramsDescription,
-  programs: weeklyProgramCards,
-} = weeklyPrograms;
+const { title: weeklyProgramsTitle, description: weeklyProgramsDescription, programs: weeklyProgramCards } = weeklyPrograms;
 const { title: freeProgramsTitle, description: freeProgramsDescription, programs: freeProgramCards } = freePrograms;
-const {
-  title: otherProgramsTitle,
-  description: otherProgramsDescription,
-  programs: otherProgramsList,
-} = otherProgramsHome;
-const {
-  title: careerTitle,
-  description: careerDescription,
-  logos,
-} = careerPrep;
-const { title: videoTitle, embedUrl } = communityVideo;
+const { title: otherProgramsTitle, description: otherProgramsDescription, programs: otherProgramsList } = otherProgramsHome;
+const { title: careerTitle, description: careerDescription, logos } = careerPrep;
+const { title: tuitionTitle, description: tuitionDescription, note: tuitionNote, cta: tuitionCta } = tuitionAssistance;
 const { title: ctaTitle, description: ctaDescription, primary, secondary } = primaryCta;
 const { title: recognitionTitle, description: recognitionDescription, badges } = recognition;
 const { title: newsletterTitle, description: newsletterDescription, cta: newsletterCta } = newsletter;
@@ -120,6 +105,12 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
     </div>
   </section>
 
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <img src="/images/2021/05/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" style="max-width: 100%; height: auto; border-radius: var(--radius-lg);" />
+    </div>
+  </section>
+
   <section class="section section--tint">
     <div class="container career">
       <SectionHeader title={careerTitle} description={careerDescription} align="left" />
@@ -129,6 +120,33 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
             <img src={logo.src} alt={logo.name} loading="lazy" />
           </figure>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader title={tuitionTitle} description={tuitionDescription} />
+      <p class="tuition-note">"{tuitionNote}"</p>
+      <div style="text-align: center; margin-top: var(--space-lg);">
+        <a class="button button--primary" href={tuitionCta.href}>
+          {tuitionCta.label}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container video">
+      <SectionHeader title={videoTitle} />
+      <div class="video__frame">
+        <iframe
+          src={`${embedUrl}?title=0&byline=0&portrait=0`}
+          title="Hear from our community"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -145,22 +163,6 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
             </footer>
           </blockquote>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tint">
-    <div class="container">
-      <h2>Hear From Our Community</h2>
-      <div style="text-align: center; margin: 2rem 0;">
-        <iframe
-          src="https://player.vimeo.com/video/290793328?title=0&byline=0&portrait=0"
-          width="640"
-          height="360"
-          title="Hear from our community"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
       </div>
     </div>
   </section>
