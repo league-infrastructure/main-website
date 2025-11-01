@@ -5,7 +5,7 @@ export const aboutHero = {
   emphasis:
     'We take students through eight levels of mastery, culminating in professional Java certification so every learner can thrive in the workforce of the 21st century.',
   image: {
-    src: '/images/images/about_flag.png',
+    src: '/images/about_flag.png',
     alt: 'League students celebrating with The League flag',
   },
 };

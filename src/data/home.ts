@@ -6,7 +6,7 @@ export const heroContent = {
   primaryCta: { label: 'View Our Programs', href: '/programs/' },
   secondaryCta: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
   image: {
-  src: '/images/images/computer-robot-1.png',
+  src: '/images/computer-robot-1.png',
     alt: 'Student-built robot with laptop',
   },
 };
@@ -61,7 +61,7 @@ export const weeklyPrograms = {
       ],
       price: '$280 per month',
       image: {
-  src: '/images/images/python.png',
+  src: '/images/python.png',
         alt: 'Illustration representing Python coding',
       },
       actions: [
@@ -97,7 +97,7 @@ export const weeklyPrograms = {
       ],
       price: '$280 per month',
       image: {
-  src: '/images/images/java.png',
+  src: '/images/java.png',
         alt: 'Illustration representing Java development',
       },
       actions: [
@@ -217,17 +217,17 @@ export const recognition = {
   badges: [
     {
       name: 'Guidestar Platinum Seal',
-  src: '/images/2021/09/Seal-2023-transp-1400px.png',
+  src: '/images/Seal-2023-transp-1400px.png',
       href: 'https://www.guidestar.org/profile/shared/64911aa4-cc70-40d6-93be-0f7cad50f6d7',
     },
     {
       name: 'GreatNonprofits Top-Rated',
-  src: '/images/2021/10/toprated.png',
+  src: '/images/toprated.png',
       href: 'https://greatnonprofits.org/org/league-of-amazing-programmers',
     },
     {
       name: 'Scout Programs',
-  src: '/images/2022/01/logo2-800x658.png',
+  src: '/images/logo2-800x658.png',
   href: 'https://www.jointheleague.org/programs/tech-club/programming-merit-badge/',
     },
   ] satisfies RecognitionBadge[],
@@ -248,12 +248,12 @@ export const careerPrep = {
   description:
     'Students are prepared to enter the work force as a programmer or to continue their education in a college or university. We work closely with students to gain professional certification as a Java programmer and secure job opportunities at top companies. Our students have secured opportunities with many familiar names.',
   logos: [
-  { name: 'Google', src: '/images/images/google.png' },
-  { name: 'Amazon', src: '/images/images/amazon.png' },
-  { name: 'Microsoft', src: '/images/images/microsoft.png' },
-  { name: 'Sony', src: '/images/images/sony.png' },
-  { name: 'Intuit', src: '/images/images/intuit.png' },
-  { name: 'PlayStation', src: '/images/images/playstation-e1633381878724.png' },
+  { name: 'Google', src: '/images/google.png' },
+  { name: 'Amazon', src: '/images/amazon.png' },
+  { name: 'Microsoft', src: '/images/microsoft.png' },
+  { name: 'Sony', src: '/images/sony.png' },
+  { name: 'Intuit', src: '/images/intuit.png' },
+  { name: 'PlayStation', src: '/images/playstation-e1633381878724.png' },
   ],
 };
 
@@ -280,15 +280,15 @@ export const testimonials = [
 
 export const galleryImages = [
   {
-  src: '/images/2021/05/Copy-of-MX-Library-Workshop_1.png',
+  src: '/images/Copy-of-MX-Library-Workshop_1.png',
     alt: 'Students collaborating in coding workshop',
   },
   {
-  src: '/images/2021/05/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png',
+  src: '/images/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png',
     alt: 'Students attending cybersecurity competition',
   },
   {
-  src: '/images/2021/05/girl-scouts-2020-03.png',
+  src: '/images/girl-scouts-2020-03.png',
     alt: 'Girl Scouts learning robotics at The League',
   },
 ];

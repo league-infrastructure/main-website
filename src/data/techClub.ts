@@ -33,7 +33,7 @@ export const techClubPrograms: ProgramOffering[] = [
     description:
       'Start programming with Turtle graphics, loops, variables, and functions in the world\'s most popular language.',
     image: {
-      src: '/images/images/python.png',
+      src: '/images/python.png',
       alt: 'Python class illustration',
     },
   },
@@ -42,7 +42,7 @@ export const techClubPrograms: ProgramOffering[] = [
     description:
       'Build games and simulations in the language used for AP Computer Science and FIRST Robotics competitions.',
     image: {
-      src: '/images/images/java.png',
+      src: '/images/java.png',
       alt: 'Java class illustration',
     },
   },
