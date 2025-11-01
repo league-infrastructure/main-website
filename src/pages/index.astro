@@ -5,6 +5,7 @@ import ProgramCard from '../components/ui/ProgramCard.astro';
 import CalloutCard from '../components/ui/CalloutCard.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import '../styles/pages/home.css';
+import '../styles/programs.css';
 
 // Types
 interface CTA {
@@ -15,26 +16,10 @@ interface CTA {
   rel?: string;
 }
 
-// Hero content
-const heroContent = {
-  eyebrow: 'Igniting Young Minds',
-  title: 'Igniting Young Minds Through Coding',
-  description:
-    'At The League of Amazing Programmers, we prepare kids for the science and technology careers of the 21st century through a multi-level program of weekly classes up to industry certification.',
-  primaryCta: { label: 'View Our Programs', href: '/programs/' },
-  secondaryCta: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
-  image: {
-    src: '/images/computer-robot-1.png',
-    alt: 'Student-built robot with laptop',
-  },
-};
+// Data now inlined directly in components below
 
-// Weekly programming classes
-const weeklyPrograms = {
-  title: 'Weekly Programming Classes',
-  description:
-    'Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.',
-  programs: [
+// Weekly programs data now inlined
+const weeklyProgramsData = [
     {
       title: 'Python Coding Classes',
       level: 'BEGINNER',
@@ -113,8 +98,7 @@ const weeklyPrograms = {
         },
       ] satisfies CTA[],
     },
-  ],
-};
+  ];
 
 // Free programs
 const freePrograms = {
@@ -302,28 +286,7 @@ const galleryImages = [
   },
 ];
 
-// Destructure for template usage
-const { eyebrow, title, description, primaryCta: heroPrimary, secondaryCta, image } = heroContent;
-const {
-  title: weeklyProgramsTitle,
-  description: weeklyProgramsDescription,
-  programs: weeklyProgramCards,
-} = weeklyPrograms;
-const { title: freeProgramsTitle, description: freeProgramsDescription, programs: freeProgramCards } = freePrograms;
-const {
-  title: otherProgramsTitle,
-  description: otherProgramsDescription,
-  programs: otherProgramsList,
-} = otherProgramsHome;
-const {
-  title: careerTitle,
-  description: careerDescription,
-  logos,
-} = careerPrep;
-const { title: videoTitle, embedUrl } = communityVideo;
-const { title: ctaTitle, description: ctaDescription, primary, secondary } = primaryCta;
-const { title: recognitionTitle, description: recognitionDescription, badges } = recognition;
-const { title: newsletterTitle, description: newsletterDescription, cta: newsletterCta } = newsletter;
+// No more destructuring - use data directly in components
 ---
 
 <BaseLayout
@@ -347,7 +310,7 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
           </p>
         </div>
         <div class="custom-hero__right">
-          <img src={image.src} alt={image.alt} class="custom-hero__image" />
+          <img src="/images/computer-robot-1.png" alt="Student-built robot with laptop" class="custom-hero__image" />
           <!-- Remove nonprofit badge for now since it doesn't exist -->
         </div>
       </div>
@@ -356,9 +319,12 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
 
   <section class="section">
     <div class="container">
-      <SectionHeader title={weeklyProgramsTitle} description={weeklyProgramsDescription} />
+      <SectionHeader 
+        title="Weekly Programming Classes"
+        description="Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose."
+      />
       <div class="program-grid">
-        {weeklyProgramCards.map((program) => (
+        {weeklyProgramsData.map((program) => (
           <ProgramCard
             title={program.title}
             level={program.level}
@@ -375,9 +341,12 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
 
   <section class="section section--tint">
     <div class="container">
-      <SectionHeader title={freeProgramsTitle} description={freeProgramsDescription} />
+      <SectionHeader 
+        title="Free Classes"
+        description="Our Tech Club program offers free introductory classes in Python, Java, robotics and electronics to schools and library all over San Diego County. For more advanced students, the Code Clinic offers online classes in professional programming technologies and techniques."
+      />
       <div class="program-grid">
-        {freeProgramCards.map((program) => (
+        {freePrograms.programs.map((program) => (
           <ProgramCard
             title={program.title}
             level={program.level}
@@ -394,9 +363,9 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
 
   <section class="section">
     <div class="container">
-      <SectionHeader title={otherProgramsTitle} description={otherProgramsDescription} />
+      <SectionHeader title={otherProgramsHome.title} description={otherProgramsHome.description} />
       <div class="support-grid">
-        {otherProgramsList.map((program) => (
+        {otherProgramsHome.programs.map((program) => (
           <CalloutCard class="support-card" title={program.title}>
             <p>{program.description}</p>
             <a slot="footer" class="link" href={program.href}>Learn more</a>
@@ -412,9 +381,9 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
         <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
       </div>
       <div class="career__content">
-        <SectionHeader title={careerTitle} description={careerDescription} align="left" />
+        <SectionHeader title={careerPrep.title} description={careerPrep.description} align="left" />
         <div class="career__logos">
-          {logos.map((logo) => (
+          {careerPrep.logos.map((logo) => (
             <figure class="career__logo">
               <img src={logo.src} alt={logo.name} loading="lazy" />
             </figure>
@@ -471,9 +440,9 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
 
   <section class="section">
     <div class="container recognition">
-      <SectionHeader title={recognitionTitle} description={recognitionDescription} />
+      <SectionHeader title={recognition.title} description={recognition.description} />
       <div class="recognition__logos">
-        {badges.map((badge) => (
+        {recognition.badges.map((badge) => (
           <a
             class="recognition__logo"
             href={badge.href}
@@ -491,11 +460,11 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
     <div class="container">
       <div class="newsletter">
         <div class="newsletter__copy">
-          <h2>{newsletterTitle}</h2>
-          <p>{newsletterDescription}</p>
+          <h2>{newsletter.title}</h2>
+          <p>{newsletter.description}</p>
         </div>
-        <a class="button button--primary" href={newsletterCta.href}>
-          {newsletterCta.label}
+        <a class="button button--primary" href={newsletter.cta.href}>
+          {newsletter.cta.label}
         </a>
       </div>
     </div>
@@ -504,13 +473,13 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
   <section class="section cta">
     <div class="container cta__inner">
       <div>
-        <h2 class="cta__title">{ctaTitle}</h2>
-        <p class="cta__description">{ctaDescription}</p>
+        <h2 class="cta__title">{primaryCta.title}</h2>
+        <p class="cta__description">{primaryCta.description}</p>
       </div>
       <div class="button-group">
-        <a class="button button--primary" href={primary.href}>{primary.label}</a>
-        <a class="button button--secondary" href={secondary.href} target="_blank" rel="noreferrer">
-          {secondary.label}
+        <a class="button button--primary" href={primaryCta.primary.href}>{primaryCta.primary.label}</a>
+        <a class="button button--secondary" href={primaryCta.secondary.href} target="_blank" rel="noreferrer">
+          {primaryCta.secondary.label}
         </a>
       </div>
     </div>

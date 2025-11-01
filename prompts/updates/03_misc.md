@@ -60,6 +60,37 @@ src/posts. Use the same permalinks the wordpress site : /year/month/day.
   * docs/ PDF files, like our finanacials. 
   * images/ everything else. 
 
-- [DONE] Move the data used in the home page back into the home page, directly in the page component attributes. Expand the 
-program cards too. 
+-  Move the data used in the home page back into the home page, directly in the
+page component attributes. Expand the program cards too. So instead of having a
+`const weeklyPrograms` data structure, just put the title and description
+directly in the SectionHeader, etc components. This is not about just getting
+rid of the destructuring, but about removeing the data structures entirely and
+putting the text from the data structures directtly into the page. 
 
+That is, get rid of
+
+```
+// Hero content
+const heroContent = {
+  eyebrow: 'Igniting Young Minds',
+  title: 'Igniting Young Minds Through Coding',
+  description:
+    'At The League of Amazing Programmers, we prepare kids for the science and technology careers of the 21st century through a multi-level program of weekly classes up to industry certification.',
+  primaryCta: { label: 'View Our Programs', href: '/programs/' },
+  secondaryCta: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
+  image: {
+    src: '/images/computer-robot-1.png',
+    alt: 'Student-built robot with laptop',
+  },
+};
+```
+
+and put that data into 
+
+```
+        <div class="custom-hero__right">
+          <img src="/images/computer-robot-1.png" alt="Student-built robot with laptop" class="custom-hero__image" />
+          <!-- Remove nonprofit badge for now since it doesn't exist -->
+        </div>
+      </div>
+```
