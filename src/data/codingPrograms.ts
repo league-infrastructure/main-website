@@ -41,7 +41,7 @@ export const mainPrograms: ProgramCard[] = [
     cta: 'See Python Track',
     highlights: ['Official Python certificates', 'In-person and online cohorts', 'Small classes with five students per teacher'],
     image: {
-      src: '/images/2021/09/python.png',
+      src: '/images/images/python.png',
       alt: 'Illustration representing Python coding',
     },
   },
@@ -55,7 +55,7 @@ export const mainPrograms: ProgramCard[] = [
     cta: 'Explore Java Track',
     highlights: ['Oracle-aligned curriculum', 'Hybrid and online schedules', 'Project-based learning across eight levels'],
     image: {
-      src: '/images/2021/09/java.png',
+      src: '/images/images/java.png',
       alt: 'Illustration representing Java development',
     },
   },

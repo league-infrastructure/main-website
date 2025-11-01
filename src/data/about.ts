@@ -5,7 +5,7 @@ export const aboutHero = {
   emphasis:
     'We take students through eight levels of mastery, culminating in professional Java certification so every learner can thrive in the workforce of the 21st century.',
   image: {
-    src: '/images/2021/10/about_flag.png',
+    src: '/images/images/about_flag.png',
     alt: 'League students celebrating with The League flag',
   },
 };
@@ -46,7 +46,7 @@ export const staffTeam: TeamMember[] = [
     role: 'Executive Director',
     email: 'eric.busboom@jointheleague.org',
     image: {
-      src: '/images/2021/10/EricBusboom.png',
+      src: '/images/staff/EricBusboom.png',
       alt: 'Portrait of Eric Busboom',
     },
   },
@@ -55,7 +55,7 @@ export const staffTeam: TeamMember[] = [
     role: 'Programs Manager',
     email: 'osvaldo.ruiz@jointheleague.org',
     image: {
-      src: '/images/2021/10/OsvaldoRuiz-e1635886323498.png',
+      src: '/images/staff/OsvaldoRuiz-e1635886323498.png',
       alt: 'Portrait of Osvaldo Ruiz',
     },
   },
@@ -73,7 +73,7 @@ export const staffTeam: TeamMember[] = [
     role: 'Head Teacher',
     email: 'mike.johnson@jointheleague.org',
     image: {
-      src: '/images/2021/10/MikeJohnson-e1635886431891.png',
+      src: '/images/staff/MikeJohnson-e1635886431891.png',
       alt: 'Portrait of Michael Johnson',
     },
   },
@@ -82,7 +82,7 @@ export const staffTeam: TeamMember[] = [
     role: 'Teacher & Development Manager',
     email: 'jed.stumpf@jointheleague.org',
     image: {
-      src: '/images/2024/09/jed_stumpf-circle.png',
+      src: '/images/staff/jed_stumpf-circle.png',
       alt: 'Portrait of Jed Stumpf',
     },
   },
@@ -91,7 +91,7 @@ export const staffTeam: TeamMember[] = [
     role: 'League Teacher',
     email: 'colby.schexnayder@jointheleague.org',
     image: {
-      src: '/images/2021/10/ColbyShexnayder-e1635884609205.png',
+      src: '/images/staff/ColbyShexnayder-e1635884609205.png',
       alt: 'Portrait of Colby Schexnayder',
     },
   },
@@ -109,7 +109,7 @@ export const staffTeam: TeamMember[] = [
     role: 'Curriculum Manager',
     email: 'keith.groves@jointheleague.org',
     image: {
-      src: '/images/2021/10/KeithGroves2.png',
+      src: '/images/staff/KeithGroves2.png',
       alt: 'Portrait of Keith Groves',
     },
     link: 'https://www.linkedin.com/in/keithalgroves/',
@@ -119,7 +119,7 @@ export const staffTeam: TeamMember[] = [
     role: 'League Teacher',
     email: 'daniel.commins@jointheleague.org',
     image: {
-      src: '/images/2021/10/DanielCommins-e1635886381127.png',
+      src: '/images/staff/DanielCommins-e1635886381127.png',
       alt: 'Portrait of Daniel Commins',
     },
   },
@@ -127,7 +127,7 @@ export const staffTeam: TeamMember[] = [
     name: 'Tammy Neuhaus',
     role: 'League Teacher',
     image: {
-      src: '/images/2024/09/tammy.jpeg',
+      src: '/images/staff/tammy.jpeg',
       alt: 'Portrait of Tammy Neuhaus',
     },
     link: 'https://www.linkedin.com/in/tamarah-neuhaus-0ba66935/',
@@ -139,7 +139,7 @@ export const boardMembers: TeamMember[] = [
     name: 'Eric Busboom',
     role: 'Board Chair · President, Civic Knowledge',
     image: {
-      src: '/images/2021/10/EricBusboom.png',
+      src: '/images/staff/EricBusboom.png',
       alt: 'Portrait of Eric Busboom',
     },
   },
@@ -147,7 +147,7 @@ export const boardMembers: TeamMember[] = [
     name: 'Christine Dolan',
     role: 'Treasurer · Fractional CFO for Nonprofits',
     image: {
-      src: '/images/2023/08/Bio-Pic-C-Dolan.jpg',
+      src: '/images/board/Bio-Pic-C-Dolan.jpg',
       alt: 'Portrait of Christine Dolan',
     },
   },
@@ -155,7 +155,7 @@ export const boardMembers: TeamMember[] = [
     name: 'Stan Kurdziel',
     role: 'Senior Android Developer, ResMed',
     image: {
-      src: '/images/2021/10/StanKurdziel.png',
+      src: '/images/board/StanKurdziel.png',
       alt: 'Portrait of Stan Kurdziel',
     },
   },
@@ -163,7 +163,7 @@ export const boardMembers: TeamMember[] = [
     name: 'Debra Schade',
     role: 'Board Vice President, Solana Beach School District',
     image: {
-      src: '/images/2021/10/DebraSchade.png',
+      src: '/images/board/DebraSchade.png',
       alt: 'Portrait of Debra Schade',
     },
   },
@@ -179,7 +179,7 @@ export const boardMembers: TeamMember[] = [
     name: 'Uyen Tran',
     role: 'Branch Manager, City Heights/Weingart Library',
     image: {
-      src: '/images/2022/01/uyen-tran-circle.png',
+      src: '/images/board/uyen-tran-circle.png',
       alt: 'Portrait of Uyen Tran',
     },
   },

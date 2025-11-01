@@ -6,7 +6,7 @@ export const heroContent = {
   primaryCta: { label: 'View Our Programs', href: '/programs/' },
   secondaryCta: { label: 'Join Now', href: 'https://jtl.pike13.com/pages/welcome' },
   image: {
-  src: '/images/2021/04/computer-robot-1.png',
+  src: '/images/images/computer-robot-1.png',
     alt: 'Student-built robot with laptop',
   },
 };
@@ -61,7 +61,7 @@ export const weeklyPrograms = {
       ],
       price: '$280 per month',
       image: {
-  src: '/images/2021/09/python.png',
+  src: '/images/images/python.png',
         alt: 'Illustration representing Python coding',
       },
       actions: [
@@ -97,7 +97,7 @@ export const weeklyPrograms = {
       ],
       price: '$280 per month',
       image: {
-  src: '/images/2021/09/java.png',
+  src: '/images/images/java.png',
         alt: 'Illustration representing Java development',
       },
       actions: [
@@ -248,12 +248,12 @@ export const careerPrep = {
   description:
     'Students are prepared to enter the work force as a programmer or to continue their education in a college or university. We work closely with students to gain professional certification as a Java programmer and secure job opportunities at top companies. Our students have secured opportunities with many familiar names.',
   logos: [
-  { name: 'Google', src: '/images/2021/10/google.png' },
-  { name: 'Amazon', src: '/images/2021/10/amazon.png' },
-  { name: 'Microsoft', src: '/images/2021/10/microsoft.png' },
-  { name: 'Sony', src: '/images/2021/10/sony.png' },
-  { name: 'Intuit', src: '/images/2021/10/intuit.png' },
-  { name: 'PlayStation', src: '/images/2021/10/playstation-e1633381878724.png' },
+  { name: 'Google', src: '/images/images/google.png' },
+  { name: 'Amazon', src: '/images/images/amazon.png' },
+  { name: 'Microsoft', src: '/images/images/microsoft.png' },
+  { name: 'Sony', src: '/images/images/sony.png' },
+  { name: 'Intuit', src: '/images/images/intuit.png' },
+  { name: 'PlayStation', src: '/images/images/playstation-e1633381878724.png' },
   ],
 };
 

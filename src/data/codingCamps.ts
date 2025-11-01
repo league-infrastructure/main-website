@@ -114,7 +114,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Master loops, functions, and data structures while building visualizations, automations, and games in the world’s most popular language.',
     image: {
-      src: '/images/2021/09/python.png',
+      src: '/images/images/python.png',
       alt: 'Python logo illustration',
     },
   },
@@ -124,7 +124,7 @@ export const campTracks: CampTrack[] = [
     description:
       'Learn the language of AP Computer Science and FIRST Robotics with professional tooling such as VS Code, GitHub, and IntelliJ.',
     image: {
-      src: '/images/2021/09/java.png',
+      src: '/images/images/java.png',
       alt: 'Java logo illustration',
     },
   },

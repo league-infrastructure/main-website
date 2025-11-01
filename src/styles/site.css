@@ -584,6 +584,18 @@
 .site-header__utility-list a {
 	color: var(--color-body);
 	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: color 0.2s ease;
+}
+
+.site-header__utility-list a:hover {
+	color: var(--color-primary);
+}
+
+.utility-icon {
+	font-size: 0.875rem;
 }
 
 .site-header__main {

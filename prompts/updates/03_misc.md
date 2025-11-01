@@ -49,4 +49,17 @@ src/posts. Use the same permalinks the wordpress site : /year/month/day.
   you can add a --dry-run command to veryify that the program works. Use click
   for program args and options, its already installed.  
 
-- [DONE] There are still a lot of posts and pages that have images from the old site in them. Go through all of the posts looking for them. 
+- [DONE] There are still a lot of posts and pages that have images from the old
+  site in them. Go throußgh all of the posts looking for them. 
+
+
+- [DONE] Lets rename the images so there are no dates in them. Instead, put them into directories by type: 
+
+  * staff/ staff headshots
+  * board/ board headshots
+  * docs/ PDF files, like our finanacials. 
+  * images/ everything else. 
+
+- [DONE] Move the data used in the home page back into the home page, directly in the page component attributes. Expand the 
+program cards too. 
+
