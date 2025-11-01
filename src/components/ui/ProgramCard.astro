@@ -60,21 +60,47 @@ const actionList = actions && actions.length > 0 ? actions : cta ? [cta] : [];
   </div>
   {actionList.length > 0 && (
     <div class="card__footer">
-      <div class="button-group">
-        {actionList.map((action) => (
-          <a
-            class:list=[
-              'button',
-              action.variant === 'secondary' ? 'button--secondary' : 'button--primary',
-            ]
-            href={action.href}
-            target={action.target}
-            rel={action.rel}
-          >
-            {action.label}
-          </a>
-        ))}
-      </div>
+      {(() => {
+        const enrollButtons = actionList.filter(action => action.label.includes('Enroll'));
+        const learnMoreButton = actionList.find(action => action.label.includes('Learn More'));
+        
+        return (
+          <>
+            {enrollButtons.length > 0 && (
+              <div class="button-group enrollment-buttons">
+                {enrollButtons.map((action) => (
+                  <a
+                    class:list=[
+                      'button',
+                      action.variant === 'secondary' ? 'button--secondary' : 'button--primary',
+                    ]
+                    href={action.href}
+                    target={action.target}
+                    rel={action.rel}
+                  >
+                    {action.label}
+                  </a>
+                ))}
+              </div>
+            )}
+            {learnMoreButton && (
+              <div class="button-group learn-more-button">
+                <a
+                  class:list=[
+                    'button',
+                    learnMoreButton.variant === 'secondary' ? 'button--secondary' : 'button--primary',
+                  ]
+                  href={learnMoreButton.href}
+                  target={learnMoreButton.target}
+                  rel={learnMoreButton.rel}
+                >
+                  {learnMoreButton.label}
+                </a>
+              </div>
+            )}
+          </>
+        );
+      })()}
     </div>
   )}
 </article>

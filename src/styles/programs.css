@@ -422,13 +422,24 @@ th a {
 }
 
 .program-card .card__media img {
-  max-width: 160px;
-  width: 100%;
-  margin: 0 auto;
+  width: 100%; /* Take up 100% of the card like original site */
+  height: auto;
+  margin: 0;
 }
 
 .program-card .card__footer {
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.program-card .enrollment-buttons {
+  justify-content: space-between;
+}
+
+.program-card .learn-more-button {
+  justify-content: center;
 }
 
 .program-card--center {

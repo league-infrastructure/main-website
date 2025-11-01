@@ -45,28 +45,30 @@ const { title: newsletterTitle, description: newsletterDescription, cta: newslet
   title="Igniting Young Minds Through Coding"
   description="The League of Amazing Programmers offers weekly coding classes, mentorship, and career preparation for students in grades 4-12."
 >
-  <HeroSection
-    class="home-hero"
-    surface="tint"
-    tag={eyebrow}
-    title={title}
-    description={description}
-    actions={[
-      { label: heroPrimary.label, href: heroPrimary.href, variant: 'primary' },
-      {
-        label: secondaryCta.label,
-        href: secondaryCta.href,
-        variant: 'secondary',
-        target: '_blank',
-        rel: 'noreferrer',
-      },
-    ]}
-  >
-    <div slot="media" class="home-hero__media">
-      <div class="home-hero__blob" aria-hidden="true"></div>
-      <img src={image.src} alt={image.alt} loading="lazy" />
+  <!-- Custom Hero Section to match original site -->
+  <section class="custom-hero">
+    <div class="container">
+      <div class="custom-hero__content">
+        <div class="custom-hero__left">
+          <!-- Replace "Igniting Young Minds" text with the logo -->
+          <img src="/images/2023/02/League-Logo-F-Horiz-Orange-FINAL-1-1200x325.png" 
+               alt="The League of Amazing Programmers" 
+               class="custom-hero__logo" />
+          <h1 class="custom-hero__tagline">Igniting Young Minds Through Coding</h1>
+          <p class="custom-hero__description">
+            <strong>At The League of Amazing Programmers, we prepare kids for the science and technology careers of the 21st century</strong> through a multi-level program of weekly classes up to industry certification.
+          </p>
+        </div>
+        <div class="custom-hero__right">
+          <img src={image.src} alt={image.alt} class="custom-hero__image" />
+          <!-- Add nonprofit badge -->
+          <img src="/images/2021/09/Seal-2023-transp-1400px.png" 
+               alt="2023 California Nonprofit of the Year" 
+               class="custom-hero__badge" />
+        </div>
+      </div>
     </div>
-  </HeroSection>
+  </section>
 
   <section class="section">
     <div class="container">
