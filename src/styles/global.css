@@ -133,7 +133,7 @@ main {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  padding: var(--space-xl);
+
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -157,6 +157,11 @@ main {
 .card__body {
   margin: 0;
   color: var(--color-body);
+  padding: var(--space-xl);
+}
+
+.card__footer {
+  padding: var(--space-xl);
 }
 
 .button-group {
@@ -279,10 +284,6 @@ blockquote footer {
     padding: var(--space-2xl) 0;
   }
 
-  .card {
-    border-radius: 24px;
-    padding: var(--space-lg);
-  }
 
   .footer__bottom {
     flex-direction: column;

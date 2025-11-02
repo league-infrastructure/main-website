@@ -94,37 +94,6 @@ and put that data into
       </div>
 ```
 
-- In components with one large text block, such as description in SectionHeader and ProgramCard, make the description the CDATA for the component, and lets the titles be in a title tag,  such as: 
-
-```
-      <SectionHeader >
-      <h2>Weekly Programming Classes</h2>
-      <summary>Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.</summary>
-      </SectionHeader>
-```
-
-Let's make all of the content elements of ProgramCard into tags, but try to use existing tags where possible, such as: 
-
-```
-        <ProgramCard
-          <h2>Java Coding Classes</h2>
-          <description>For students of all levels who want to learn industry-level Java programming. Our comprehensive 8-level curriculum takes students from basic syntax to advanced object-oriented programming, preparing them for Oracle certification and college-level computer science.<description>
-          <ul>
-              <li>Oracle-aligned curriculum</li>
-              <li>Hybrid and online schedules</li>
-              <li>Project-based learning across eight levels</li>
-              <li>Industry-standard development tools (Eclipse, IntelliJ)</li>
-              <li>Professional certification preparation</li>
-              <li>Advanced topics: data structures, algorithms, design patterns</li>
-          </ul>
-          <price>$280 per Month</price>
-          <footer>
-          <cta class="primary" href="https://jtl.pike13.com/group_classes/270616">Enroll in Person</cta>
-          <cta class="secondary" href="https://jtl.pike13.com/group_classes/270616">Enroll Online</cta>
-          <a href="...">Learn More</a>
-          </footer>
-        </ProgramCard>
-```
-
-You can create custom tags where it makes things more clear, like with `<cta>`.
-
+- [DONE] Consolidate CSS. Follow project instuctions (.github/copilot-instructions.md )
+for which styles go in `global.css` versus `site.css`, then move any page specific styles
+in styles/pages/ into the pages. 
