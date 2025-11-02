@@ -15,7 +15,7 @@ import '../styles/programs.css';
   title="Igniting Young Minds Through Coding"
   description="The League of Amazing Programmers offers weekly coding classes, mentorship, and career preparation for students in grades 4-12."
 >
-  <HeroSection>
+  <HeroSection class="hero-gradient">
     <img 
       slot="logo" 
       src="/logos/wordmark-h-1200.png" 
@@ -33,7 +33,7 @@ import '../styles/programs.css';
     />
   </HeroSection>
 
-  <Section>
+  <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
     <SectionHeader>
       <h2 class="section__title">Weekly Programming Classes</h2>
       <p class="section__description">Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.</p>
@@ -59,11 +59,11 @@ import '../styles/programs.css';
         </div>
         <footer class="card__footer">
           <div class="button-group enrollment-buttons">
-            <cta class="primary" href="https://jtl.pike13.com/group_classes/270616" target="_blank" rel="noreferrer">Enroll In-Person</cta>
-            <cta class="secondary" href="https://jtl.pike13.com/group_classes/255811" target="_blank" rel="noreferrer">Enroll Online</cta>
+            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/270616" target="_blank" rel="noreferrer">Enroll In-Person</a>
+            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/255811" target="_blank" rel="noreferrer">Enroll Online</a>
           </div>
           <div class="button-group learn-more-button">
-            <a class="button button--secondary" href="/programs/classes/python/">Learn More</a>
+            <a class="program-learn-more-link" href="/programs/classes/python/">Learn More</a>
           </div>
         </footer>
       </ProgramCard>
@@ -87,18 +87,18 @@ import '../styles/programs.css';
         </div>
         <footer class="card__footer">
           <div class="button-group enrollment-buttons">
-            <cta class="primary" href="https://jtl.pike13.com/group_classes/263387" target="_blank" rel="noreferrer">Enroll In-Person</cta>
-            <cta class="secondary" href="https://jtl.pike13.com/group_classes/191042" target="_blank" rel="noreferrer">Enroll Online</cta>
+            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/263387" target="_blank" rel="noreferrer">Enroll In-Person</a>
+            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/191042" target="_blank" rel="noreferrer">Enroll Online</a>
           </div>
           <div class="button-group learn-more-button">
-            <a class="button button--secondary" href="/programs/classes/java/">Learn More</a>
+            <a class="program-learn-more-link" href="/programs/classes/java/">Learn More</a>
           </div>
         </footer>
       </ProgramCard>
     </div>
   </Section>
 
-  <Section bgcolor="var(--color-surface-tint)">
+  <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
     <SectionHeader>
       <h2>Free Classes</h2>
       <p>Our Tech Club program offers free introductory classes in Python, Java, robotics and electronics to schools and library all over San Diego County. For more advanced students, the Code Clinic offers online classes in professional programming technologies and techniques.</p>
@@ -156,7 +156,7 @@ import '../styles/programs.css';
     </div>
   </Section>
 
-  <Section>
+  <Section startBgcolor="#fcdac5" endBgcolor="white">
     <SectionHeader>
       <h2>Other Programs</h2>
       <p>Dive deeper with specialty clinics, internships, and badges that keep students building between weekly classes.</p>
@@ -181,7 +181,7 @@ import '../styles/programs.css';
     </div>
   </Section>
 
-  <Section bgcolor="var(--color-surface-tint)" class="career">
+  <Section startBgcolor="white" endBgcolor="white" class="career">
     <div class="career__image">
       <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
     </div>
@@ -213,46 +213,42 @@ import '../styles/programs.css';
     </div>
   </Section>
 
-  <Section>
-    <SectionHeader>
-      <h2>Voices from The League</h2>
-    </SectionHeader>
-    <div class="testimonials">
-      <blockquote>
-        <p>The LEAGUE of Amazing Programmers have build my confidence to become an engineer. I've had a wonderful experience so far with the league classes and the extraordinary internship that changed my perspective in engineering.</p>
-        <footer>
-          Stephanie <span aria-hidden="true">|</span> Student
-        </footer>
-      </blockquote>
-      <blockquote>
-        <p>The LEAGUE of Amazing Programmers has helped me develop my software skills and also improve my skills in problem solving. The skills I learned from the league helped me lead an award winning robotics team in the San Diego Region.</p>
-        <footer>
-          Lucas <span aria-hidden="true">|</span> Student
-        </footer>
-      </blockquote>
-      <blockquote>
-        <p>I first joined The LEAGUE of Amazing Programmers in the 7th grade as 
-          just something my mom wanted me to do. Little did I know that it
-           would become not only one of my favorite activities but would
-            develop into my career choice.</p>
-        <footer>
-          R. Ramirez <span aria-hidden="true">|</span> Student
-        </footer>
-      </blockquote>
-    </div>
-  </Section>
-
-  <Section bgcolor="var(--color-surface-tint)">
-    <h2>Hear From Our Community</h2>
-    <div style="text-align: center; margin: 2rem 0;">
-      <iframe
-        src="https://player.vimeo.com/video/290793328?title=0&byline=0&portrait=0"
-        width="640"
-        height="360"
-        title="Hear from our community"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+  <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
+    <div style="text-align: center;">
+      <h1>Hear From Our Community</h1>
+      <div style="margin: 2rem 0;">
+        <iframe
+          src="https://player.vimeo.com/video/290793328?title=0&byline=0&portrait=0"
+          width="640"
+          height="360"
+          title="Hear from our community"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="testimonials">
+        <blockquote>
+          <p>The LEAGUE of Amazing Programmers have build my confidence to become an engineer. I've had a wonderful experience so far with the league classes and the extraordinary internship that changed my perspective in engineering.</p>
+          <footer>
+            Stephanie <span aria-hidden="true">|</span> Student
+          </footer>
+        </blockquote>
+        <blockquote>
+          <p>The LEAGUE of Amazing Programmers has helped me develop my software skills and also improve my skills in problem solving. The skills I learned from the league helped me lead an award winning robotics team in the San Diego Region.</p>
+          <footer>
+            Lucas <span aria-hidden="true">|</span> Student
+          </footer>
+        </blockquote>
+        <blockquote>
+          <p>I first joined The LEAGUE of Amazing Programmers in the 7th grade as 
+            just something my mom wanted me to do. Little did I know that it
+             would become not only one of my favorite activities but would
+              develop into my career choice.</p>
+          <footer>
+            R. Ramirez <span aria-hidden="true">|</span> Student
+          </footer>
+        </blockquote>
+      </div>
     </div>
   </Section>
 
@@ -302,16 +298,15 @@ import '../styles/programs.css';
     </div>
   </Section>
 
-  <Section containerClass="cta__inner" class="cta">
-    <div>
+  <Section startBgcolor="#f37121" endBgcolor="#f37121" class="cta">
+    <div class="cta__content">
       <h2 class="cta__title">Get Started</h2>
-      <p class="cta__description">Ready to begin? Explore programs or jump right into enrollment today.</p>
-    </div>
-    <div class="button-group">
-      <a class="button button--primary" href="/programs/">View Our Programs</a>
-      <a class="button button--secondary" href="https://jtl.pike13.com/pages/welcome" target="_blank" rel="noreferrer">
-        Join Now
-      </a>
+      <div class="cta__buttons">
+        <a class="button button--primary" href="/programs/">View Our Programs</a>
+        <a class="button button--secondary" href="https://jtl.pike13.com/pages/welcome" target="_blank" rel="noreferrer">
+          Join Now
+        </a>
+      </div>
     </div>
   </Section>
 </BaseLayout>
