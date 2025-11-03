@@ -97,3 +97,6 @@ and put that data into
 - [DONE] Consolidate CSS. Follow project instuctions (.github/copilot-instructions.md )
 for which styles go in `global.css` versus `site.css`, then move any page specific styles
 in styles/pages/ into the pages. 
+
+
+- [DONE] Review all pags looking for <section> tags that shoulid be <Section> components. 
