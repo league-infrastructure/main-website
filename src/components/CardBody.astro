@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  eyebrow?: string;
+}
+
+const { class: className, eyebrow, ...rest } = Astro.props as Props & { class?: string };
+---
+
+<div class:list={['card__body', className]} {...rest}>
+  {eyebrow && <p class="card__eyebrow">{eyebrow}</p>}
+  <slot name="title" />
+  <slot />
+</div>

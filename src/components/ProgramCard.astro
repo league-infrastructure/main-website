@@ -1,11 +1,17 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<'article'> {}
+interface Props extends HTMLAttributes<'article'> {
+  img: string;
+  alt: string;
+}
 
-const { class: className, ...rest } = Astro.props as Props & { class?: string };
+const { class: className, img, alt, ...rest } = Astro.props as Props & { class?: string };
 ---
 
 <article class:list={['card', 'program-card', className]} {...rest}>
+  <figure class="card__media">
+    <img src={img} alt={alt} loading="lazy" />
+  </figure>
   <slot />
 </article>

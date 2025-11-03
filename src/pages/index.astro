@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import ProgramCard from "../components/ProgramCard.astro";
+import CardBody from "../components/CardBody.astro";
+import CardFooter from "../components/CardFooter.astro";
 import CalloutCard from "../components/CalloutCard.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Section from "../components/Section.astro";
@@ -46,17 +48,9 @@ import Section from "../components/Section.astro";
       </p>
     </SectionHeader>
     <div class="program-grid">
-      <ProgramCard>
-        <figure class="card__media">
-          <img
-            src="/images/python_1.png"
-            alt="Illustration representing Python coding"
-            loading="lazy"
-          />
-        </figure>
-        <div class="card__body">
-          <p class="card__eyebrow">BEGINNER</p>
-          <h2>Python Coding Classes</h2>
+      <ProgramCard img="/images/python_1.png" alt="Illustration representing Python coding">
+        <CardBody eyebrow="BEGINNER">
+          <h2 slot="title">Python Coding Classes</h2>
           <description
             >Python is the best language to start with. It's the most popular
             programming language, and useful for every kind of programming.
@@ -73,40 +67,30 @@ import Section from "../components/Section.astro";
             <li>Preparation for AP Computer Science Principles</li>
           </ul>
           <price>$280 per month</price>
-        </div>
-        <footer class="card__footer">
-          <div class="button-group enrollment-buttons">
-            <a
-              class="button button--primary"
-              href="https://jtl.pike13.com/group_classes/270616"
-              target="_blank"
-              rel="noreferrer">Enroll In-Person</a
-            >
-            <a
-              class="button button--primary"
-              href="https://jtl.pike13.com/group_classes/255811"
-              target="_blank"
-              rel="noreferrer">Enroll Online</a
-            >
-          </div>
-          <div class="button-group learn-more-button">
-            <a class="program-learn-more-link" href="/programs/classes/python/"
-              >Learn More</a
-            >
-          </div>
-        </footer>
+        </CardBody>
+        <CardFooter>
+          <a
+            slot="primary"
+            class="button button--primary"
+            href="https://jtl.pike13.com/group_classes/270616"
+            target="_blank"
+            rel="noreferrer">Enroll In-Person</a
+          >
+          <a
+            slot="secondary"
+            class="button button--primary"
+            href="https://jtl.pike13.com/group_classes/255811"
+            target="_blank"
+            rel="noreferrer">Enroll Online</a
+          >
+          <a slot="learn-more" class="program-learn-more-link" href="/programs/classes/python/"
+            >Learn More</a
+          >
+        </CardFooter>
       </ProgramCard>
-      <ProgramCard>
-        <figure class="card__media">
-          <img
-            src="/images/java_1.png"
-            alt="Illustration representing Java development"
-            loading="lazy"
-          />
-        </figure>
-        <div class="card__body">
-          <p class="card__eyebrow">BEGINNER TO ADVANCED</p>
-          <h2>Java Coding Classes</h2>
+      <ProgramCard img="/images/java_1.png" alt="Illustration representing Java development">
+        <CardBody eyebrow="BEGINNER TO ADVANCED">
+          <h2 slot="title">Java Coding Classes</h2>
           <description
             >For students of all levels who want to learn industry-level Java
             programming. Our comprehensive 8-level curriculum takes students
@@ -124,28 +108,26 @@ import Section from "../components/Section.astro";
             </li>
           </ul>
           <price>$280 per month</price>
-        </div>
-        <footer class="card__footer">
-          <div class="button-group enrollment-buttons">
-            <a
-              class="button button--primary"
-              href="https://jtl.pike13.com/group_classes/263387"
-              target="_blank"
-              rel="noreferrer">Enroll In-Person</a
-            >
-            <a
-              class="button button--primary"
-              href="https://jtl.pike13.com/group_classes/191042"
-              target="_blank"
-              rel="noreferrer">Enroll Online</a
-            >
-          </div>
-          <div class="button-group learn-more-button">
-            <a class="program-learn-more-link" href="/programs/classes/java/"
-              >Learn More</a
-            >
-          </div>
-        </footer>
+        </CardBody>
+        <CardFooter>
+          <a
+            slot="primary"
+            class="button button--primary"
+            href="https://jtl.pike13.com/group_classes/263387"
+            target="_blank"
+            rel="noreferrer">Enroll In-Person</a
+          >
+          <a
+            slot="secondary"
+            class="button button--primary"
+            href="https://jtl.pike13.com/group_classes/191042"
+            target="_blank"
+            rel="noreferrer">Enroll Online</a
+          >
+          <a slot="learn-more" class="program-learn-more-link" href="/programs/classes/java/"
+            >Learn More</a
+          >
+        </CardFooter>
       </ProgramCard>
     </div>
   </Section>
@@ -161,17 +143,9 @@ import Section from "../components/Section.astro";
       </p>
     </SectionHeader>
     <div class="program-grid">
-      <ProgramCard>
-        <figure class="card__media">
-          <img
-            src="/images/current_students.png"
-            alt="Students attending Tech Club workshop"
-            loading="lazy"
-          />
-        </figure>
-        <div class="card__body">
-          <p class="card__eyebrow">BEGINNER TO INTERMEDIATE</p>
-          <h2>Free Tech Club</h2>
+      <ProgramCard img="/images/current_students.png" alt="Students attending Tech Club workshop">
+        <CardBody eyebrow="BEGINNER TO INTERMEDIATE">
+          <h2 slot="title">Free Tech Club</h2>
           <description
             >Learn Python, Java, AI, robotics, electronics and many other tech
             skills at our free Tech Club classes. Tech Club classes are taught
@@ -189,35 +163,23 @@ import Section from "../components/Section.astro";
             <li>Robotics programming and competitions</li>
           </ul>
           <price>Free</price>
-        </div>
-        <footer class="card__footer">
-          <div class="button-group">
-            <a
-              class="button button--primary"
-              href="https://www.meetup.com/the-league-tech-club"
-              target="_blank"
-              rel="noreferrer">Join Tech Club</a
-            >
-            
-            <a class="program-learn-more-link" href="/programs/tech-club/" >
-              Learn More
-              </a
-            >
-          </div>
-
-        </footer>
+        </CardBody>
+        <CardFooter>
+          <a
+            slot="primary"
+            class="button button--primary"
+            href="https://www.meetup.com/the-league-tech-club"
+            target="_blank"
+            rel="noreferrer">Join Tech Club</a
+          >
+          <a slot="learn-more" class="program-learn-more-link" href="/programs/tech-club/"
+            >Learn More</a
+          >
+        </CardFooter>
       </ProgramCard>
-      <ProgramCard>
-        <figure class="card__media">
-          <img
-            src="/images/codingcamps.png"
-            alt="Illustration of students collaborating on laptops"
-            loading="lazy"
-          />
-        </figure>
-        <div class="card__body">
-          <p class="card__eyebrow">INTERMEDIATE TO ADVANCED</p>
-          <h2>Code Clinic</h2>
+      <ProgramCard img="/images/codingcamps.png" alt="Illustration of students collaborating on laptops">
+        <CardBody eyebrow="INTERMEDIATE TO ADVANCED">
+          <h2 slot="title">Code Clinic</h2>
           <description
             >Code Clinic is a free online program for advanced students to
             extend their skills beyond AP Computer Science. In these 1 hour
@@ -236,22 +198,18 @@ import Section from "../components/Section.astro";
             <li>Industry guest speakers and mentors</li>
           </ul>
           <price>Free</price>
-        </div>
-        <footer class="card__footer">
-          <div class="button-group enrollment-buttons">
-            <a
-              class="button button--primary"
-              href="https://www.jointheleague.org/programs/tech-club/code-clinic/"
-              >Join Code Clinic</a
-            >
-          </div>
-          <div class="button-group learn-more-button">
-            <a
-              class="program-learn-more-link"
-              href="/programs/tech-club/code-clinic/">Learn More</a
-            >
-          </div>
-        </footer>
+        </CardBody>
+        <CardFooter>
+          <a
+            slot="primary"
+            class="button button--primary"
+            href="https://www.jointheleague.org/programs/tech-club/code-clinic/"
+            >Join Code Clinic</a
+          >
+          <a slot="learn-more" class="program-learn-more-link" href="/programs/tech-club/code-clinic/"
+            >Learn More</a
+          >
+        </CardFooter>
       </ProgramCard>
     </div>
   </Section>

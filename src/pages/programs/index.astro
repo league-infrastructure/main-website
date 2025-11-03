@@ -4,6 +4,8 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import Section from '../../components/Section.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import ProgramCard from '../../components/ProgramCard.astro';
+import CardBody from '../../components/CardBody.astro';
+import CardFooter from '../../components/CardFooter.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
 
 // Programs data moved from _index.yaml
@@ -205,13 +207,9 @@ const yamlContent = {
     </SectionHeader>
       <div class="program-grid">
         {yamlContent.main_programs.filter((program: any) => program.display_in.includes('card')).map((program: any) => (
-          <ProgramCard>
-            <figure class="card__media">
-              <img src={program.image.src} alt={program.image.alt} loading="lazy" />
-            </figure>
-            <div class="card__body">
-              <p class="card__eyebrow">{program.level.toUpperCase()}</p>
-              <h2>{program.title}</h2>
+          <ProgramCard img={program.image.src} alt={program.image.alt}>
+            <CardBody eyebrow={program.level.toUpperCase()}>
+              <h2 slot="title">{program.title}</h2>
               <description>{program.description}</description>
               <ul>
                 {program.highlights.map((highlight: string) => (
@@ -219,12 +217,10 @@ const yamlContent = {
                 ))}
               </ul>
               <price>{program.price}</price>
-            </div>
-            <footer class="card__footer">
-              <div class="button-group learn-more-button">
-                <a class="button button--secondary" href={program.link}>{program.cta}</a>
-              </div>
-            </footer>
+            </CardBody>
+            <CardFooter>
+              <a slot="primary" class="button button--primary" href={program.link}>{program.cta}</a>
+            </CardFooter>
           </ProgramCard>
         ))}
       </div>
