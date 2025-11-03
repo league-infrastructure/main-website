@@ -6,9 +6,9 @@
   centered horizontally, and the image is very wide, so the left and right sides
   are off the screen; this is intentional. 
 
-- [DONE] REview https://www.jointheleague.org/about/ for how  the "Coding Jobs" and
-  "Entry INto workforce" sections appear. In the demo site, they are cards, but
-  each of them should have it's own section. 
+- [DONE] REview https://www.jointheleague.org/about/ for how  the "Coding Jobs"
+  and "Entry INto workforce" sections appear. In the demo site, they are cards,
+  but each of them should have it's own section. 
 
 - [DONE] Copy the lottie animations for  "Coding Jobs" and "Entry INto workforce" from
   https://www.jointheleague.org/about/ Note that the icon is on the left for one
