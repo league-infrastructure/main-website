@@ -304,3 +304,72 @@ const yamlContent = {
     </div>
   </Section>
 </BaseLayout>
+
+<style>
+  /* Programs page specific styles */
+  .programs-hero {
+    position: relative;
+    background: linear-gradient(180deg, rgba(93, 95, 239, 0.22) 0%, rgba(243, 113, 33, 0.14) 45%, #fff2e8 100%);
+    padding: var(--space-4xl) 0 var(--space-3xl);
+  }
+
+  .programs-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 12% 18%, rgba(93, 95, 239, 0.28), transparent 45%),
+      radial-gradient(circle at 88% 12%, rgba(243, 113, 33, 0.18), transparent 35%);
+    pointer-events: none;
+  }
+
+  .programs-hero .hero-section__title {
+    margin-bottom: var(--space-lg);
+  }
+
+  .programs-hero .hero-section__details {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .programs-hero__media {
+    margin: 0;
+    text-align: center;
+  }
+
+  .programs-hero__media img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+  }
+
+  .section--programs-main {
+    background: linear-gradient(180deg, rgba(255, 242, 232, 0.92) 0%, #ffffff 75%);
+  }
+
+  .section--program-comparison {
+    background: #ffffff;
+  }
+
+  .section--program-comparison tbody tr:nth-child(even) {
+    background: var(--color-peach);
+  }
+
+  .section--program-comparison tbody tr:nth-child(odd) {
+    background: #ffffff;
+  }
+
+  .section--split {
+    background: var(--color-surface);
+  }
+
+  .split-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .split-card {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+  }
+</style>

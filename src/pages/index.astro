@@ -1,13 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import ProgramCard from '../components/ProgramCard.astro';
-import CalloutCard from '../components/CalloutCard.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import Section from '../components/Section.astro';
-import '../styles/programs.css';
-
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ProgramCard from "../components/ProgramCard.astro";
+import CalloutCard from "../components/CalloutCard.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Section from "../components/Section.astro";
 ---
 
 <BaseLayout
@@ -15,19 +12,24 @@ import '../styles/programs.css';
   description="The League of Amazing Programmers offers weekly coding classes, mentorship, and career preparation for students in grades 4-12."
 >
   <HeroSection class="hero-gradient">
-    <img 
-      slot="logo" 
-      src="/logos/wordmark-h-1200.png" 
-      alt="The League of Amazing Programmers" 
-      class="custom-hero__logo" 
+    <img
+      slot="logo"
+      src="/logos/wordmark-h-1200.png"
+      alt="The League of Amazing Programmers"
+      class="custom-hero__logo"
     />
-    <h1 slot="tagline" class="custom-hero__tagline">Igniting Young Minds Through Coding</h1>
-    <p slot="description">At The League of Amazing Programmers, we prepare kids for the 
-      science and technology careers of the 21st century through a multi-level program of weekly classes up to industry certification.</p>
-    <img 
-      slot="media" 
-      src="/images/computer-robot-1.png" 
-      alt="Student-built robot with laptop" 
+    <h1 slot="tagline" class="custom-hero__tagline">
+      Igniting Young Minds Through Coding
+    </h1>
+    <p slot="description">
+      At The League of Amazing Programmers, we prepare kids for the science and
+      technology careers of the 21st century through a multi-level program of
+      weekly classes up to industry certification.
+    </p>
+    <img
+      slot="media"
+      src="/images/computer-robot-1.png"
+      alt="Student-built robot with laptop"
       loading="lazy"
     />
   </HeroSection>
@@ -35,17 +37,33 @@ import '../styles/programs.css';
   <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
     <SectionHeader>
       <h2 class="section__title">Weekly Programming Classes</h2>
-      <p class="section__description">Our Coding Classes are for students in grades 4-12 who are eager to learn programming. Classes are taught by alumni from Brown University, UCSD, Cornell, and more! We work closely with all students to make coding fun and engaging. All our classes are now available in-person or online – you choose.</p>
+      <p class="section__description">
+        Our Coding Classes are for students in grades 4-12 who are eager to
+        learn programming. Classes are taught by alumni from Brown University,
+        UCSD, Cornell, and more! We work closely with all students to make
+        coding fun and engaging. All our classes are now available in-person or
+        online – you choose.
+      </p>
     </SectionHeader>
     <div class="program-grid">
       <ProgramCard>
         <figure class="card__media">
-          <img src="/images/python_1.png" alt="Illustration representing Python coding" loading="lazy" />
+          <img
+            src="/images/python_1.png"
+            alt="Illustration representing Python coding"
+            loading="lazy"
+          />
         </figure>
         <div class="card__body">
           <p class="card__eyebrow">BEGINNER</p>
           <h2>Python Coding Classes</h2>
-          <description>Python is the best language to start with. It's the most popular programming language, and useful for every kind of programming. Students learn fundamental programming concepts including variables, loops, conditionals, functions, and object-oriented programming through hands-on projects and real-world applications.</description>
+          <description
+            >Python is the best language to start with. It's the most popular
+            programming language, and useful for every kind of programming.
+            Students learn fundamental programming concepts including variables,
+            loops, conditionals, functions, and object-oriented programming
+            through hands-on projects and real-world applications.</description
+          >
           <ul>
             <li>Official Python certificates</li>
             <li>In-person and online cohorts</li>
@@ -58,39 +76,74 @@ import '../styles/programs.css';
         </div>
         <footer class="card__footer">
           <div class="button-group enrollment-buttons">
-            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/270616" target="_blank" rel="noreferrer">Enroll In-Person</a>
-            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/255811" target="_blank" rel="noreferrer">Enroll Online</a>
+            <a
+              class="button button--primary"
+              href="https://jtl.pike13.com/group_classes/270616"
+              target="_blank"
+              rel="noreferrer">Enroll In-Person</a
+            >
+            <a
+              class="button button--primary"
+              href="https://jtl.pike13.com/group_classes/255811"
+              target="_blank"
+              rel="noreferrer">Enroll Online</a
+            >
           </div>
           <div class="button-group learn-more-button">
-            <a class="program-learn-more-link" href="/programs/classes/python/">Learn More</a>
+            <a class="program-learn-more-link" href="/programs/classes/python/"
+              >Learn More</a
+            >
           </div>
         </footer>
       </ProgramCard>
       <ProgramCard>
         <figure class="card__media">
-          <img src="/images/java_1.png" alt="Illustration representing Java development" loading="lazy" />
+          <img
+            src="/images/java_1.png"
+            alt="Illustration representing Java development"
+            loading="lazy"
+          />
         </figure>
         <div class="card__body">
           <p class="card__eyebrow">BEGINNER TO ADVANCED</p>
           <h2>Java Coding Classes</h2>
-          <description>For students of all levels who want to learn industry-level Java programming. Our comprehensive 8-level curriculum takes students from basic syntax to advanced object-oriented programming, preparing them for Oracle certification and college-level computer science.</description>
+          <description
+            >For students of all levels who want to learn industry-level Java
+            programming. Our comprehensive 8-level curriculum takes students
+            from basic syntax to advanced object-oriented programming, preparing
+            them for Oracle certification and college-level computer science.</description
+          >
           <ul>
             <li>Oracle-aligned curriculum</li>
             <li>Hybrid and online schedules</li>
             <li>Project-based learning across eight levels</li>
             <li>Industry-standard development tools (Eclipse, IntelliJ)</li>
             <li>Professional certification preparation</li>
-            <li>Advanced topics: data structures, algorithms, design patterns</li>
+            <li>
+              Advanced topics: data structures, algorithms, design patterns
+            </li>
           </ul>
           <price>$280 per month</price>
         </div>
         <footer class="card__footer">
           <div class="button-group enrollment-buttons">
-            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/263387" target="_blank" rel="noreferrer">Enroll In-Person</a>
-            <a class="button button--primary" href="https://jtl.pike13.com/group_classes/191042" target="_blank" rel="noreferrer">Enroll Online</a>
+            <a
+              class="button button--primary"
+              href="https://jtl.pike13.com/group_classes/263387"
+              target="_blank"
+              rel="noreferrer">Enroll In-Person</a
+            >
+            <a
+              class="button button--primary"
+              href="https://jtl.pike13.com/group_classes/191042"
+              target="_blank"
+              rel="noreferrer">Enroll Online</a
+            >
           </div>
           <div class="button-group learn-more-button">
-            <a class="program-learn-more-link" href="/programs/classes/java/">Learn More</a>
+            <a class="program-learn-more-link" href="/programs/classes/java/"
+              >Learn More</a
+            >
           </div>
         </footer>
       </ProgramCard>
@@ -100,17 +153,33 @@ import '../styles/programs.css';
   <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
     <SectionHeader>
       <h2>Free Classes</h2>
-      <p>Our Tech Club program offers free introductory classes in Python, Java, robotics and electronics to schools and library all over San Diego County. For more advanced students, the Code Clinic offers online classes in professional programming technologies and techniques.</p>
+      <p>
+        Our Tech Club program offers free introductory classes in Python, Java,
+        robotics and electronics to schools and library all over San Diego
+        County. For more advanced students, the Code Clinic offers online
+        classes in professional programming technologies and techniques.
+      </p>
     </SectionHeader>
     <div class="program-grid">
       <ProgramCard>
         <figure class="card__media">
-          <img src="/images/current_students.png" alt="Students attending Tech Club workshop" loading="lazy" />
+          <img
+            src="/images/current_students.png"
+            alt="Students attending Tech Club workshop"
+            loading="lazy"
+          />
         </figure>
         <div class="card__body">
           <p class="card__eyebrow">BEGINNER TO INTERMEDIATE</p>
           <h2>Free Tech Club</h2>
-          <description>Learn Python, Java, AI, robotics, electronics and many other tech skills at our free Tech Club classes. Tech Club classes are taught several times a week at schools and Libraries all around San Diego and are designed for beginners to programming. Students explore various technology topics through hands-on workshops and collaborative projects.</description>
+          <description
+            >Learn Python, Java, AI, robotics, electronics and many other tech
+            skills at our free Tech Club classes. Tech Club classes are taught
+            several times a week at schools and Libraries all around San Diego
+            and are designed for beginners to programming. Students explore
+            various technology topics through hands-on workshops and
+            collaborative projects.</description
+          >
           <ul>
             <li>Multiple weekly meetups</li>
             <li>Hands-on demos and mini-projects</li>
@@ -123,19 +192,41 @@ import '../styles/programs.css';
         </div>
         <footer class="card__footer">
           <div class="button-group">
-            <cta class="primary" href="https://www.meetup.com/the-league-tech-club" target="_blank" rel="noreferrer">See Upcoming Sessions</cta>
-            <a class="button button--secondary" href="/programs/tech-club/">Learn More</a>
+            <a
+              class="button button--primary"
+              href="https://www.meetup.com/the-league-tech-club"
+              target="_blank"
+              rel="noreferrer">Join Tech Club</a
+            >
+            
+            <a class="program-learn-more-link" href="/programs/tech-club/" >
+              Learn More
+              </a
+            >
           </div>
+
         </footer>
       </ProgramCard>
       <ProgramCard>
         <figure class="card__media">
-          <img src="/images/codingcamps.png" alt="Illustration of students collaborating on laptops" loading="lazy" />
+          <img
+            src="/images/codingcamps.png"
+            alt="Illustration of students collaborating on laptops"
+            loading="lazy"
+          />
         </figure>
         <div class="card__body">
           <p class="card__eyebrow">INTERMEDIATE TO ADVANCED</p>
           <h2>Code Clinic</h2>
-          <description>Code Clinic is a free online program for advanced students to extend their skills beyond AP Computer Science. In these 1 hour virtual classes, students will get an introduction to tech topics like neural networks, data analysis, Docker containers, code refactoring, functional programming, and many others. Each session focuses on cutting-edge technologies used in professional software development.</description>
+          <description
+            >Code Clinic is a free online program for advanced students to
+            extend their skills beyond AP Computer Science. In these 1 hour
+            virtual classes, students will get an introduction to tech topics
+            like neural networks, data analysis, Docker containers, code
+            refactoring, functional programming, and many others. Each session
+            focuses on cutting-edge technologies used in professional software
+            development.</description
+          >
           <ul>
             <li>Live online masterclasses</li>
             <li>Focus on emerging technologies</li>
@@ -147,8 +238,18 @@ import '../styles/programs.css';
           <price>Free</price>
         </div>
         <footer class="card__footer">
-          <div class="button-group">
-            <cta class="primary" href="https://www.jointheleague.org/programs/tech-club/code-clinic/">Request an Invite</cta>
+          <div class="button-group enrollment-buttons">
+            <a
+              class="button button--primary"
+              href="https://www.jointheleague.org/programs/tech-club/code-clinic/"
+              >Join Code Clinic</a
+            >
+          </div>
+          <div class="button-group learn-more-button">
+            <a
+              class="program-learn-more-link"
+              href="/programs/tech-club/code-clinic/">Learn More</a
+            >
           </div>
         </footer>
       </ProgramCard>
@@ -158,36 +259,73 @@ import '../styles/programs.css';
   <Section startBgcolor="#fcdac5" endBgcolor="white">
     <SectionHeader>
       <h2>Other Programs</h2>
-      <p>Dive deeper with specialty clinics, internships, and badges that keep students building between weekly classes.</p>
+      <p>
+        Dive deeper with specialty clinics, internships, and badges that keep
+        students building between weekly classes.
+      </p>
     </SectionHeader>
     <div class="support-grid">
       <CalloutCard class="support-card" title="League Labs">
-        <p>Intern with the LEAGUE; get job experience while creating new classes for future students.</p>
-        <a slot="footer" class="link" href="/programs/league-labs/">Learn more</a>
+        <p>
+          Intern with the LEAGUE; get job experience while creating new classes
+          for future students.
+        </p>
+        <a slot="footer" class="link" href="/programs/league-labs/"
+          >Learn more</a
+        >
       </CalloutCard>
       <CalloutCard class="support-card" title="Project Clinic">
-        <p>Partner with our mentors to ship independent programming, robotics, or electronics projects.</p>
-        <a slot="footer" class="link" href="/programs/project-clinic/">Learn more</a>
+        <p>
+          Partner with our mentors to ship independent programming, robotics, or
+          electronics projects.
+        </p>
+        <a slot="footer" class="link" href="/programs/project-clinic/"
+          >Learn more</a
+        >
       </CalloutCard>
       <CalloutCard class="support-card" title="Programming Merit Badge">
-        <p>Complete Programming Merit Badge requirement 5 in a free 90-minute workshop.</p>
-        <a slot="footer" class="link" href="/programs/tech-club/programming-merit-badge/">Learn more</a>
+        <p>
+          Complete Programming Merit Badge requirement 5 in a free 90-minute
+          workshop.
+        </p>
+        <a
+          slot="footer"
+          class="link"
+          href="/programs/tech-club/programming-merit-badge/">Learn more</a
+        >
       </CalloutCard>
       <CalloutCard class="support-card" title="FIRST Robot Programming">
-        <p>Free skills classes supporting FIRST FTC and FRC robotics teams throughout the season.</p>
-        <a slot="footer" class="link" href="/programs/tech-club/robot-garage/#first">Learn more</a>
+        <p>
+          Free skills classes supporting FIRST FTC and FRC robotics teams
+          throughout the season.
+        </p>
+        <a
+          slot="footer"
+          class="link"
+          href="/programs/tech-club/robot-garage/#first">Learn more</a
+        >
       </CalloutCard>
     </div>
   </Section>
 
   <Section startBgcolor="white" endBgcolor="white" class="career">
     <div class="career__image">
-      <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
+      <img
+        src="/images/girl-scouts-2020-03.png"
+        alt="Girl Scouts learning robotics at The League"
+        loading="lazy"
+      />
     </div>
     <div class="career__content">
       <SectionHeader align="left">
         <h2>Preparing Youth for Careers</h2>
-        <p>Students are prepared to enter the work force as a programmer or to continue their education in a college or university. We work closely with students to gain professional certification as a Java programmer and secure job opportunities at top companies. Our students have secured opportunities with many familiar names.</p>
+        <p>
+          Students are prepared to enter the work force as a programmer or to
+          continue their education in a college or university. We work closely
+          with students to gain professional certification as a Java programmer
+          and secure job opportunities at top companies. Our students have
+          secured opportunities with many familiar names.
+        </p>
       </SectionHeader>
       <div class="career__logos">
         <figure class="career__logo">
@@ -206,7 +344,11 @@ import '../styles/programs.css';
           <img src="/images/intuit.png" alt="Intuit" loading="lazy" />
         </figure>
         <figure class="career__logo">
-          <img src="/images/playstation-e1633381878724.png" alt="PlayStation" loading="lazy" />
+          <img
+            src="/images/playstation-e1633381878724.png"
+            alt="PlayStation"
+            loading="lazy"
+          />
         </figure>
       </div>
     </div>
@@ -222,27 +364,38 @@ import '../styles/programs.css';
           height="360"
           title="Hear from our community"
           allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen></iframe>
       </div>
       <div class="testimonials">
         <blockquote>
-          <p>The LEAGUE of Amazing Programmers have build my confidence to become an engineer. I've had a wonderful experience so far with the league classes and the extraordinary internship that changed my perspective in engineering.</p>
+          <p>
+            The LEAGUE of Amazing Programmers have build my confidence to become
+            an engineer. I've had a wonderful experience so far with the league
+            classes and the extraordinary internship that changed my perspective
+            in engineering.
+          </p>
           <footer>
             Stephanie <span aria-hidden="true">|</span> Student
           </footer>
         </blockquote>
         <blockquote>
-          <p>The LEAGUE of Amazing Programmers has helped me develop my software skills and also improve my skills in problem solving. The skills I learned from the league helped me lead an award winning robotics team in the San Diego Region.</p>
+          <p>
+            The LEAGUE of Amazing Programmers has helped me develop my software
+            skills and also improve my skills in problem solving. The skills I
+            learned from the league helped me lead an award winning robotics
+            team in the San Diego Region.
+          </p>
           <footer>
             Lucas <span aria-hidden="true">|</span> Student
           </footer>
         </blockquote>
         <blockquote>
-          <p>I first joined The LEAGUE of Amazing Programmers in the 7th grade as 
+          <p>
+            I first joined The LEAGUE of Amazing Programmers in the 7th grade as
             just something my mom wanted me to do. Little did I know that it
-             would become not only one of my favorite activities but would
-              develop into my career choice.</p>
+            would become not only one of my favorite activities but would
+            develop into my career choice.
+          </p>
           <footer>
             R. Ramirez <span aria-hidden="true">|</span> Student
           </footer>
@@ -257,13 +410,25 @@ import '../styles/programs.css';
     </SectionHeader>
     <div class="gallery">
       <figure class="gallery__item">
-        <img src="/images/Copy-of-MX-Library-Workshop_1.png" alt="Students collaborating in coding workshop" loading="lazy" />
+        <img
+          src="/images/Copy-of-MX-Library-Workshop_1.png"
+          alt="Students collaborating in coding workshop"
+          loading="lazy"
+        />
       </figure>
       <figure class="gallery__item">
-        <img src="/images/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png" alt="Students attending cybersecurity competition" loading="lazy" />
+        <img
+          src="/images/Copy-of-Forcepoint-Cybersecurity-Comp_4-e1632432194464.png"
+          alt="Students attending cybersecurity competition"
+          loading="lazy"
+        />
       </figure>
       <figure class="gallery__item">
-        <img src="/images/girl-scouts-2020-03.png" alt="Girl Scouts learning robotics at The League" loading="lazy" />
+        <img
+          src="/images/girl-scouts-2020-03.png"
+          alt="Girl Scouts learning robotics at The League"
+          loading="lazy"
+        />
       </figure>
     </div>
   </Section>
@@ -271,7 +436,10 @@ import '../styles/programs.css';
   <Section class="recognition">
     <SectionHeader>
       <h2>Community Recognition</h2>
-      <p>We are proud to earn the trust of families, partners, and philanthropic leaders across San Diego.</p>
+      <p>
+        We are proud to earn the trust of families, partners, and philanthropic
+        leaders across San Diego.
+      </p>
     </SectionHeader>
     <div class="recognition__logos">
       <a
@@ -280,7 +448,11 @@ import '../styles/programs.css';
         target="_blank"
         rel="noreferrer"
       >
-        <img src="/images/toprated.png" alt="GreatNonprofits Top-Rated" loading="lazy" />
+        <img
+          src="/images/toprated.png"
+          alt="GreatNonprofits Top-Rated"
+          loading="lazy"
+        />
       </a>
     </div>
   </Section>
@@ -289,9 +461,15 @@ import '../styles/programs.css';
     <div class="newsletter">
       <div class="newsletter__copy">
         <h2>Subscribe to Our Newsletter</h2>
-        <p>Get League news, upcoming classes, and student highlights delivered monthly.</p>
+        <p>
+          Get League news, upcoming classes, and student highlights delivered
+          monthly.
+        </p>
       </div>
-      <a class="button button--primary" href="mailto:info@jointheleague.org?subject=Newsletter%20Signup">
+      <a
+        class="button button--primary"
+        href="mailto:info@jointheleague.org?subject=Newsletter%20Signup"
+      >
         Sign Up
       </a>
     </div>
@@ -301,8 +479,14 @@ import '../styles/programs.css';
     <div class="cta__content">
       <h2 class="cta__title">Get Started</h2>
       <div class="cta__buttons">
-        <a class="button button--primary" href="/programs/">View Our Programs</a>
-        <a class="button button--secondary" href="https://jtl.pike13.com/pages/welcome" target="_blank" rel="noreferrer">
+        <a class="button button--primary" href="/programs/">View Our Programs</a
+        >
+        <a
+          class="button button--secondary"
+          href="https://jtl.pike13.com/pages/welcome"
+          target="_blank"
+          rel="noreferrer"
+        >
           Join Now
         </a>
       </div>
@@ -311,353 +495,371 @@ import '../styles/programs.css';
 </BaseLayout>
 
 <style>
-/* Custom Hero to match original site */
-.custom-hero {
-  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fcdac5 100%);
-  padding: 2rem 0;
-}
+  /* Custom Hero to match original site */
+  .custom-hero {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      #fcdac5 100%
+    );
+    padding: 2rem 0;
+  }
 
-.custom-hero__content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.custom-hero__logo {
-  width: 350px;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.custom-hero__tagline {
-  color: #f37121;
-  font-size: 1.8rem;
-  font-weight: 400;
-  margin: 1rem 0;
-  line-height: 1.2;
-}
-
-.custom-hero__description {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.custom-hero__description strong {
-  font-weight: 700;
-}
-
-.custom-hero__right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.custom-hero__image {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-}
-
-.custom-hero__badge {
-  width: 120px;
-  height: auto;
-}
-
-@media (max-width: 768px) {
   .custom-hero__content {
-    grid-template-columns: 1fr;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
-  
+
   .custom-hero__logo {
+    width: 350px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .custom-hero__tagline {
+    color: #f37121;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 1rem 0;
+    line-height: 1.2;
+  }
+
+  .custom-hero__description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .custom-hero__description strong {
+    font-weight: 700;
+  }
+
+  .custom-hero__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .custom-hero__image {
+    width: 100%;
     max-width: 300px;
+    height: auto;
   }
-  
+
   .custom-hero__badge {
-    position: static;
-    margin-top: 1rem;
-    width: 100px;
+    width: 120px;
+    height: auto;
   }
-}
 
-.hero-gradient {
-  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fcdac5 100%);
-  margin-bottom: 0;
-}
+  @media (max-width: 768px) {
+    .custom-hero__content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
 
-.hero-gradient + .section {
-  margin-top: 0;
-}
+    .custom-hero__logo {
+      max-width: 300px;
+    }
 
-.program-learn-more-link {
-  color: #f37121;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.program-learn-more-link:hover {
-  color: #c35512;
-  text-decoration: underline;
-}
-
-.home-hero {
-  position: relative;
-  background: var(--color-hero-gradient);
-  padding: var(--space-4xl) 0 var(--space-3xl);
-}
-
-.home-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(93, 95, 239, 0.18), transparent 55%);
-  pointer-events: none;
-}
-
-.home-hero .hero-section__container {
-  position: relative;
-}
-
-.home-hero__media {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-hero__blob {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle at 30% 30%, rgba(243, 113, 33, 0.35), transparent 60%);
-  transform: translateY(8%);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.home-hero__media img {
-  width: min(100%, 460px);
-}
-
-.career {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: var(--space-2xl);
-  align-items: start;
-}
-
-.career__image {
-  width: 100%;
-}
-
-.career__image img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-sm);
-}
-
-@media (max-width: 768px) {
-  .career {
-    grid-template-columns: 1fr;
+    .custom-hero__badge {
+      position: static;
+      margin-top: 1rem;
+      width: 100px;
+    }
   }
-}
 
-.career__logos {
-  display: grid;
-  gap: var(--space-xl);
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  align-items: center;
-}
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      #fcdac5 100%
+    );
+    margin-bottom: 0;
+  }
 
-.career__logo {
-  margin: 0;
-  padding: var(--space-md);
-  background: #ffffff;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+  .hero-gradient + .section {
+    margin-top: 0;
+  }
 
-.video__frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+  .program-learn-more-link {
+    color: #f37121;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
 
-.testimonials {
-  display: grid;
-  gap: var(--space-xl);
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
+  .program-learn-more-link:hover {
+    color: #c35512;
+    text-decoration: underline;
+  }
 
-blockquote {
-  position: relative;
-}
-
-blockquote::before {
-  content: '"';
-  position: absolute;
-  top: var(--space-xs);
-  left: var(--space-xs);
-  font-size: 48px;
-  color: rgba(93, 95, 239, 0.2);
-}
-
-blockquote p {
-  margin: 0;
-}
-
-blockquote footer {
-  display: inline-flex;
-  gap: var(--space-xs);
-  align-items: center;
-}
-
-.gallery {
-  display: grid;
-  gap: var(--space-xl);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.gallery__item {
-  margin: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-
-.gallery__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.recognition {
-  display: grid;
-  gap: var(--space-2xl);
-  justify-items: center;
-}
-
-.recognition__logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
-  align-items: center;
-  justify-content: center;
-}
-
-.recognition__logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-sm) var(--space-lg);
-  background: #ffffff;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.recognition__logo:hover,
-.recognition__logo:focus {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card-hover, var(--shadow-card));
-}
-
-.recognition__logo img {
-  max-height: 72px;
-  width: auto;
-}
-
-.newsletter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
-  align-items: center;
-  justify-content: space-between;
-}
-
-.newsletter__copy h2 {
-  margin: 0 0 var(--space-sm) 0;
-}
-
-.newsletter__copy p {
-  margin: 0;
-  max-width: 540px;
-}
-
-.cta {
-  color: #ffffff;
-  min-height: 400px;
-}
-
-.cta__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2xl);
-  text-align: center;
-  min-height: 300px;
-}
-
-.cta__title {
-  margin: 0;
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: bold;
-}
-
-.cta__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  align-items: center;
-}
-
-.cta .button--secondary {
-  background: transparent;
-  color: #ffffff;
-  border-color: #ffffff;
-}
-
-.cta .button--secondary:hover,
-.cta .button--secondary:focus {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-@media (max-width: 768px) {
   .home-hero {
-    padding: var(--space-3xl) 0 var(--space-2xl);
+    position: relative;
+    background: var(--color-hero-gradient);
+    padding: var(--space-4xl) 0 var(--space-3xl);
+  }
+
+  .home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(93, 95, 239, 0.18),
+      transparent 55%
+    );
+    pointer-events: none;
+  }
+
+  .home-hero .hero-section__container {
+    position: relative;
   }
 
   .home-hero__media {
-    order: -1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .home-hero__blob {
-    width: 320px;
-    height: 320px;
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(243, 113, 33, 0.35),
+      transparent 60%
+    );
+    transform: translateY(8%);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .home-hero__media img {
+    width: min(100%, 460px);
+  }
+
+  .career {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .career__image {
+    width: 100%;
+  }
+
+  .career__image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 768px) {
+    .career {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .career__logos {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    align-items: center;
+  }
+
+  .career__logo {
+    margin: 0;
+    padding: var(--space-md);
+    background: #ffffff;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .video__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .testimonials {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  blockquote {
+    position: relative;
+  }
+
+  blockquote::before {
+    content: '"';
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    font-size: 48px;
+    color: rgba(93, 95, 239, 0.2);
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  blockquote footer {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .gallery {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .gallery__item {
+    margin: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .recognition {
+    display: grid;
+    gap: var(--space-2xl);
+    justify-items: center;
+  }
+
+  .recognition__logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recognition__logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-lg);
+    background: #ffffff;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .recognition__logo:hover,
+  .recognition__logo:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover, var(--shadow-card));
+  }
+
+  .recognition__logo img {
+    max-height: 72px;
+    width: auto;
   }
 
   .newsletter {
-    justify-content: center;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .newsletter__copy h2 {
+    margin: 0 0 var(--space-sm) 0;
   }
 
   .newsletter__copy p {
-    margin-inline: auto;
+    margin: 0;
+    max-width: 540px;
   }
-}
+
+  .cta {
+    color: #ffffff;
+    min-height: 400px;
+  }
+
+  .cta__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2xl);
+    text-align: center;
+    min-height: 300px;
+  }
+
+  .cta__title {
+    margin: 0;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: bold;
+  }
+
+  .cta__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .cta .button--secondary {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .cta .button--secondary:hover,
+  .cta .button--secondary:focus {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  @media (max-width: 768px) {
+    .home-hero {
+      padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+
+    .home-hero__media {
+      order: -1;
+    }
+
+    .home-hero__blob {
+      width: 320px;
+      height: 320px;
+    }
+
+    .newsletter {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .newsletter__copy p {
+      margin-inline: auto;
+    }
+  }
 </style>
