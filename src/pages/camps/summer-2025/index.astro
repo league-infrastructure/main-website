@@ -5,17 +5,153 @@ import Section from '../../../components/Section.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
 import CampTrackCard from '../../../components/CampTrackCard.astro';
 import CampSessionCard from '../../../components/CampSessionCard.astro';
-import { campTracks, campResources, campContact } from '../../../data/codingCamps';
-import {
-  summer2025Hero,
-  dropInHighlights,
-  dropInNotes,
-  weeklyCamps,
-  dailyFlow,
-  faqItems,
-} from '../../../data/summer2025';
 
-const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
+const phoneHref = '6198897571';
+
+const summer2025Hero = {
+  tag: 'Summer 2025',
+  title: 'Summer Code Arcade',
+  description:
+    'A flexible half-day camp where students prototype games, build robots, explore AI, and level up Python or Java skills with League mentors.',
+  dates: 'June 1 – August 8, 2025',
+  time: 'Weekdays • 9:00 AM – 1:00 PM (select weekend afternoons 1:00 – 4:00 PM)',
+  location: 'Carmel Valley Campus',
+  price: '$79 per session',
+  primaryAction: {
+    label: 'Enroll in Code Arcade',
+    href: 'https://jtl.pike13.com/group_classes/341456',
+  },
+  secondaryAction: {
+    label: 'Ask About Scholarships',
+    href: 'mailto:eric.busboom@jointheleague.org',
+  },
+};
+
+const dropInHighlights = [
+  'Self-paced coaching for Python, Java, robotics, AI, and microcontrollers',
+  'Mentors help campers scope projects that match their experience and interests',
+  'Combine Code Arcade mornings with afternoon SLAMS or Tech Club events for full-day learning',
+];
+
+const dropInNotes = [
+  'Choose the days that work for your family—no multi-week commitment required.',
+  'Campers can rotate between topics or stay focused on one area throughout the week.',
+  'Every session ends with progress checkpoints so students know how to keep building from home.',
+];
+
+const campTracks = [
+  {
+    title: 'AI Camp',
+    level: 'Beginner to advanced',
+    description:
+      'Build and train models for image recognition, language processing, and prediction games using Python libraries like Scikit-learn.',
+    image: {
+      src: '/images/2024/06/IMG_3021.jpeg',
+      alt: 'AI camp student training machine learning models',
+    },
+    link: 'https://jtl.pike13.com/group_classes/335329',
+  },
+  {
+    title: 'Web Games',
+    level: 'Beginner to intermediate',
+    description:
+      'Code interactive games in the browser using HTML, CSS, and JavaScript. Deploy projects online and challenge friends.',
+    image: {
+      src: '/images/2024/06/IMG_3014.jpeg',
+      alt: 'Student working on a web-based game',
+    },
+  },
+  {
+    title: 'Handheld Console Games',
+    level: 'Intermediate to advanced',
+    description:
+      'Design original arcade-style games in Java that run on real handheld gaming hardware like the Arduboy.',
+    image: {
+      src: '/images/2024/06/IMG_3016.jpeg',
+      alt: 'Students programming handheld gaming console',
+    },
+  },
+  {
+    title: 'Robotics Lab',
+    level: 'Beginner to intermediate',
+    description:
+      'Program robots with cameras, sensors, and movement using Python and Java. Build mazes, line-followers, and obstacle courses.',
+    image: {
+      src: '/images/2024/06/IMG_3023.jpeg',
+      alt: 'Student programming a robot in the lab',
+    },
+  },
+  {
+    title: 'Microcontrollers',
+    level: 'Beginner to intermediate',
+    description:
+      'Wire circuits and code Micro:bit and Arduino controllers to create LED displays, sound machines, and IoT projects.',
+    image: {
+      src: '/images/2024/03/cutebot-1.png',
+      alt: 'Microcontroller programming with LED displays',
+    },
+  },
+  {
+    title: 'Invent Your Own Project',
+    level: 'All levels',
+    description:
+      'Work with coaches to scope and prototype any technical idea—from music generators to IoT devices—and leave with a plan to continue at home.',
+    image: {
+      src: '/images/2024/06/IMG_3003-e1742319406441.png',
+      alt: 'Student collaborating on a custom coding project',
+    },
+  },
+  {
+    title: 'Python Foundations',
+    level: 'Beginner to advanced',
+    description:
+      'Master loops, functions, and data structures while building visualizations, automations, and games in the world\'s most popular language.',
+    image: {
+      src: '/images/python.png',
+      alt: 'Python logo illustration',
+    },
+  },
+  {
+    title: 'Java Foundations',
+    level: 'Beginner to advanced',
+    description:
+      'Learn the language of AP Computer Science and FIRST Robotics with professional tooling such as VS Code, GitHub, and IntelliJ.',
+    image: {
+      src: '/images/java.png',
+      alt: 'Java logo illustration',
+    },
+  },
+];
+
+const dailyFlow = [
+  { time: '9:00 AM', activity: 'Check-in, project planning, and progress goals with mentors' },
+  { time: '9:30 AM', activity: 'Guided workshops covering Python, Java, AI, or robotics fundamentals' },
+  { time: '10:45 AM', activity: 'Build time with one-on-one coaching and debugging support' },
+  { time: '12:30 PM', activity: 'Showcase, reflections, and take-home resources' },
+];
+
+const faqItems = [
+  {
+    question: 'What skill level do campers need?',
+    answer:
+      'All experience levels are welcome. Mentors tailor goals to each student, whether they are writing their first line of code or advancing toward AP Computer Science and robotics competitions.',
+  },
+  {
+    question: 'Do students need to bring a laptop?',
+    answer:
+      'Devices are provided, but campers may bring their own if they prefer. We recommend bringing a USB drive or GitHub account to save projects.',
+  },
+  {
+    question: 'Can I combine Code Arcade with a Holiday SLAM?',
+    answer:
+      'Yes. Many campers attend Code Arcade in the morning and join SLAM sessions or Tech Club meetups later in the day for additional practice.',
+  },
+  {
+    question: 'Is financial assistance available?',
+    answer:
+      'Scholarships are available. Email eric.busboom@jointheleague.org and our team will follow up with the latest opportunities.',
+  },
+];
 ---
 
 <BaseLayout
@@ -63,20 +199,30 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
       <p>Prefer structured instruction? Reserve a seat in our week-long Python or Java intensives.</p>
     </SectionHeader>
       <div class="camp-grid">
-        {weeklyCamps.map((camp) => (
-          <CampSessionCard
-            class="camp"
-            level={camp.level}
-            title={camp.title}
-            summary={camp.summary}
-            schedule={camp.schedule}
-            details={[
-              { label: 'Location', value: camp.location },
-              { label: 'Tuition', value: camp.price },
-            ]}
-            cta={{ label: camp.action.label, href: camp.action.href }}
-          />
-        ))}
+        <CampSessionCard
+          class="camp"
+          level="Beginner"
+          title="Intro to Python Camp"
+          summary="Learn the foundations of Python through games, animations, and problem-solving challenges designed for first-time coders."
+          schedule={['Monday – Friday • 10:00 AM – 12:00 PM', 'June 3 – 7', 'June 17 – 21', 'July 8 – 12', 'July 22 – 26', 'August 5 – 9']}
+          details={[
+            { label: 'Location', value: 'Carmel Valley Campus (CV)' },
+            { label: 'Tuition', value: '$395 per week' },
+          ]}
+          cta={{ label: 'Book Python Camp', href: 'https://jtl.pike13.com/courses/320425' }}
+        />
+        <CampSessionCard
+          class="camp"
+          level="Beginner to Intermediate"
+          title="Intro to Java Camp"
+          summary="Step into the language of AP Computer Science while building interactive games and mastering professional developer tools."
+          schedule={['Monday – Friday • 10:00 AM – 12:00 PM', 'June 10 – 14', 'June 24 – 28', 'July 15 – 19', 'July 29 – August 2']}
+          details={[
+            { label: 'Location', value: 'Carmel Valley Campus (CV)' },
+            { label: 'Tuition', value: '$395 per week' },
+          ]}
+          cta={{ label: 'Book Java Camp', href: 'https://jtl.pike13.com/courses/320134' }}
+        />
       </div>
   </Section>
 
@@ -144,11 +290,15 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
   <Section bgcolor="#f8f9fa" id="resources" containerClass="resource-grid">
       <CalloutCard class="resource-card" title="Prep & Study Guides">
         <ul>
-          {campResources.map((resource) => (
-            <li>
-              <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
-            </li>
-          ))}
+          <li>
+            <a href="http://www.usscouts.org/mb/worksheets/programming.pdf" target="_blank" rel="noopener">Programming Merit Badge Workbook</a>
+          </li>
+          <li>
+            <a href="https://league-curriculum.github.io/Python-Introduction/" target="_blank" rel="noopener">Python Introduction Curriculum</a>
+          </li>
+          <li>
+            <a href="https://league-curriculum.github.io/HourofMicrobit/" target="_blank" rel="noopener">Hour of Micro:bit Curriculum</a>
+          </li>
         </ul>
       </CalloutCard>
       <CalloutCard
@@ -161,8 +311,8 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           next steps.
         </p>
         <ul>
-          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
-          <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
+          <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
         </ul>
       </CalloutCard>
   </Section>

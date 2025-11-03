@@ -3,7 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HeroSection from '../../../components/HeroSection.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
-import { supportersHero, supporterTiers, gratitudeHighlights } from '../../../data/donate';
+
+
 ---
 
 <BaseLayout
@@ -12,10 +13,13 @@ import { supportersHero, supporterTiers, gratitudeHighlights } from '../../../da
 >
   <HeroSection
     surface="alt"
-    tag={supportersHero.tag}
-    title={supportersHero.title}
-    description={supportersHero.description}
-    actions={supportersHero.actions}
+    tag="Community of Support"
+    title="Celebrating the Champions of Future Coders"
+    description="Philanthropic partners, foundations, and volunteers power accessible computer science education. Together, we open doors to career paths and lifelong curiosity."
+    actions={[
+      { label: 'Become a Sponsor', href: '/donate/the-league-at-work/', variant: 'primary' },
+      { label: 'Contact Our Team', href: 'mailto:info@jointheleague.org', variant: 'secondary' }
+    ]}
   />
 
   <section class="section">
@@ -26,16 +30,30 @@ import { supportersHero, supporterTiers, gratitudeHighlights } from '../../../da
         <p>Every contribution—large or small—creates transformational opportunities for youth across San Diego.</p>
       </SectionHeader>
       <div class="supporter-grid">
-        {supporterTiers.map((tier) => (
-          <CalloutCard title={tier.title}>
-            <p>{tier.description}</p>
-            <ul class="card__list">
-              {tier.highlights.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </CalloutCard>
-        ))}
+        <CalloutCard title="Visionary Partners">
+          <p>Annual investments of $25,000 or more fund full scholarship cohorts, League Labs internships, and multi-site Tech Club expansion.</p>
+          <ul class="card__list">
+            <li>Corporate & family foundations aligned with workforce readiness</li>
+            <li>Multi-year commitments sustaining program growth</li>
+            <li>Recognition in annual report, website, and student showcases</li>
+          </ul>
+        </CalloutCard>
+        <CalloutCard title="Innovation Circle">
+          <p>Gifts between $5,000 and $24,999 underwrite classroom technology, instructor development, and transportation for community workshops.</p>
+          <ul class="card__list">
+            <li>Sponsor a semester of Level 0–6 classes for an entire cohort</li>
+            <li>Provide laptops and robotics kits for Tech Club participants</li>
+            <li>Receive personalized impact updates and classroom visits</li>
+          </ul>
+        </CalloutCard>
+        <CalloutCard title="Community Builders">
+          <p>Monthly donors and event sponsors ensure every family can access affordable tuition, field trips, and competition fees.</p>
+          <ul class="card__list">
+            <li>Host fundraising events or company volunteer days</li>
+            <li>Promote campaigns like Hour of Code and Code Jam</li>
+            <li>Share your expertise as a guest speaker or mentor</li>
+          </ul>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -48,11 +66,15 @@ import { supportersHero, supporterTiers, gratitudeHighlights } from '../../../da
         <p>We celebrate every donor, volunteer, and partner who invests in future technologists.</p>
       </SectionHeader>
       <div class="gratitude-grid">
-        {gratitudeHighlights.map((highlight) => (
-          <CalloutCard title={highlight.title}>
-            <p>{highlight.body}</p>
-          </CalloutCard>
-        ))}
+        <CalloutCard title="Corporate Champions">
+          <p>Thanks to technology companies, startups, and professional associations across San Diego for fueling hands-on learning through sponsorships, pro bono consulting, and employee volunteerism.</p>
+        </CalloutCard>
+        <CalloutCard title="Foundation & Civic Partners">
+          <p>Local foundations and civic groups provide critical grants that stabilize core programs and make tuition assistance possible for families who need it most.</p>
+        </CalloutCard>
+        <CalloutCard title="Individual Donors & Alumni">
+          <p>Parents, alumni, and community advocates give monthly, host peer-to-peer fundraisers, and champion our mission by sharing League stories across their networks.</p>
+        </CalloutCard>
       </div>
     </div>
   </section>

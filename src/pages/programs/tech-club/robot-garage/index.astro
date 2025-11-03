@@ -2,26 +2,8 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
 import CalloutCard from '../../../../components/CalloutCard.astro';
-import { meetupLinks } from '../../../../data/techClub';
 
-const heroHighlights = [
-  'Learn to build and program robots end to end',
-  'Choose from multiple weekly sessions',
-  'Ideal for intermediate and advanced students',
-  'Pacific Beach and Carmel Valley locations',
-  'Included with League membership',
-];
 
-const programNotes = [
-  'Robot Garage students explore mechanical design, electronics, motion control, and computer vision while building custom projects. Participants wire sensors, configure microcontrollers, and program motors using platforms like Arduino, micro:bit, and Raspberry Pi.',
-  'Instruction combines common lessons on foundational skills with independent project time. Beginners start with LEDs and motors. Advanced students experiment with neural networks, cameras, and industrial robotic arms.',
-];
-
-const clinicLists = [
-  'Robotics students attend free Code Clinic classes focused on FIRST programming topics.',
-  'Student instructors join League Labs, our internship track where teams build new lessons.',
-  'Researchers dive into machine vision and AI through our summer projects program.',
-];
 ---
 
 <BaseLayout
@@ -40,16 +22,22 @@ const clinicLists = [
         </p>
         <div class="button-group hero__actions">
           <a class="button button--primary" href="https://jtl.pike13.com/welcome">Become a Member</a>
-          <a class="button button--secondary" href={meetupLinks.techClub}>Try a Free Tech Club Class</a>
+          <a class="button button--secondary" href="https://www.meetup.com/the-league-tech-club/">Try a Free Tech Club Class</a>
         </div>
       </div>
       <CalloutCard
         class="hero__aside"
         headingLevel={2}
         title="Program Highlights"
-        items={heroHighlights}
         itemsClass="hero__list"
       >
+        <ul>
+          <li>Learn to build and program robots end to end</li>
+          <li>Choose from multiple weekly sessions</li>
+          <li>Ideal for intermediate and advanced students</li>
+          <li>Pacific Beach and Carmel Valley locations</li>
+          <li>Included with League membership</li>
+        </ul>
         <figure class="hero__media">
           <img
             src="/images/2024/06/IMG_4216.png"
@@ -68,9 +56,12 @@ const clinicLists = [
           <h2>Build Real Hardware Projects</h2>
           <p>Robot Garage students combine fabrication, programming, and experimentation to construct sophisticated robots.</p>
         </SectionHeader>
-        {programNotes.map((note) => (
-          <p>{note}</p>
-        ))}
+        <p>
+          Robot Garage students explore mechanical design, electronics, motion control, and computer vision while building custom projects. Participants wire sensors, configure microcontrollers, and program motors using platforms like Arduino, micro:bit, and Raspberry Pi.
+        </p>
+        <p>
+          Instruction combines common lessons on foundational skills with independent project time. Beginners start with LEDs and motors. Advanced students experiment with neural networks, cameras, and industrial robotic arms.
+        </p>
       </div>
       <CalloutCard class="two-column__list">
         <figure slot="media" class="side-image">
@@ -112,9 +103,9 @@ const clinicLists = [
             The FIRST Robotics program connects three pathways based on how you want to participate:
           </p>
           <ul>
-            {clinicLists.map((item) => (
-              <li>{item}</li>
-            ))}
+            <li>Robotics students attend free Code Clinic classes focused on FIRST programming topics.</li>
+            <li>Student instructors join League Labs, our internship track where teams build new lessons.</li>
+            <li>Researchers dive into machine vision and AI through our summer projects program.</li>
           </ul>
           <p>
             If you are already on a FIRST team, complete the registration form so we can coordinate classes, mentors, and
@@ -159,7 +150,7 @@ const clinicLists = [
             Motors classes on the calendar or contact us to arrange a tour.
           </p>
           <div class="button-group">
-            <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+            <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club/">Join the Tech Club Meetup</a>
             <a class="button button--secondary" href="/about/contact/">Contact the League</a>
           </div>
         </div>

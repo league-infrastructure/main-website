@@ -4,11 +4,74 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import UpcomingEvents from '../../../components/UpcomingEvents.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
 import HeroSection from '../../../components/HeroSection.astro';
-import { techClubHero, techClubPrograms, techClubTopics, meetupLinks, contactInfo } from '../../../data/techClub';
 
 const donationScript =
   'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=100&suggested_donation_amounts[]=50';
-const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
+const phoneHref = '6198897571';
+
+
+
+const techClubPrograms = [
+  {
+    title: 'Introduction to Python Programming',
+    description:
+      'Start programming with Turtle graphics, loops, variables, and functions in the world\'s most popular language.',
+    image: {
+      src: '/images/python.png',
+      alt: 'Python class illustration',
+    },
+  },
+  {
+    title: 'Introduction to Java Programming',
+    description:
+      'Build games and simulations in the language used for AP Computer Science and FIRST Robotics competitions.',
+    image: {
+      src: '/images/java.png',
+      alt: 'Java class illustration',
+    },
+  },
+  {
+    title: 'Robotics and Microcontrollers',
+    description:
+      'Program BBC micro:bit controllers to light LEDs, play music, and drive robots using blocks, Python, or JavaScript.',
+    image: {
+      src: '/images/2024/03/cutebot-1.png',
+      alt: 'Microcontroller and robotics illustration',
+    },
+  },
+  {
+    title: 'Introduction to JavaScript Programming',
+    description:
+      'Learn the building blocks of the web with JavaScript inside an approachable online coding environment.',
+    image: {
+      src: '/images/2024/05/JavascriptLogo.png',
+      alt: 'JavaScript logo illustration',
+    },
+  },
+];
+
+const techClubTopics = [
+  {
+    title: 'Python',
+    body:
+      'Students explore Python through Turtle graphics before moving into core concepts like variables, loops, and functions. Every class ends with a working program.',
+  },
+  {
+    title: 'Java',
+    body:
+      'Java introduces professional tools such as GitHub and VS Code while laying the groundwork for AP Computer Science and robotics programming.',
+  },
+  {
+    title: 'Microcontrollers',
+    body:
+      'Micro:bit microcontrollers let students experiment with sensors, lights, and wireless communication using blocks, Python, or JavaScript.',
+  },
+  {
+    title: 'JavaScript',
+    body:
+      'JavaScript sessions mirror our Java classes but use a simplified browser-based editor so that newcomers can focus on logic and problem solving.',
+  },
+];
 ---
 
 <BaseLayout
@@ -17,27 +80,31 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
 >
   <HeroSection
     surface="alt"
-    tag={techClubHero.tag}
-    title={techClubHero.title}
-    description={techClubHero.description}
+    tag="Free community classes"
+    title="The League Tech Club"
+    description="Free and low-cost workshops hosted across San Diego libraries, schools, rec centers, and companies introduce students to Python, Java, robotics, electronics, and more."
     actions={[
       {
-        label: techClubHero.primaryAction.label,
-        href: techClubHero.primaryAction.href,
+        label: "Join the Meetup Group",
+        href: "https://www.meetup.com/the-league-tech-club/",
         variant: "primary"
       },
       {
-        label: techClubHero.secondaryAction.label,
-        href: techClubHero.secondaryAction.href,
+        label: "Host a Tech Club Event",
+        href: "#host-tech-club",
         variant: "secondary"
       }
     ]}
     aside={{
       title: "What to Expect",
-      items: techClubHero.details,
+      items: [
+        'Weekly introductions to Python, Java, robotics, electronics, and JavaScript',
+        'Sessions run onsite around San Diego County and live online',
+        'Open to grades 4 through 12 with volunteer mentors supporting every class',
+      ],
       action: {
         label: "Browse the upcoming schedule",
-        href: meetupLinks.techClub,
+        href: 'https://www.meetup.com/the-league-tech-club/',
         variant: "secondary"
       }
     }}
@@ -84,7 +151,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         <CalloutCard
           class="two-column__list"
           title="Topics We Cover"
-          cta={{ label: 'Join the Tech Club Meetup', href: meetupLinks.techClub, variant: 'primary' }}
+          cta={{ label: 'Join the Tech Club Meetup', href: 'https://www.meetup.com/the-league-tech-club/', variant: 'primary' }}
         >
           <ul>
             {techClubTopics.map((topic) => (
@@ -132,8 +199,8 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           cta={{ label: 'Contact Form', href: '/about/contact/', variant: 'secondary' }}
         >
           <ul>
-            <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
-            <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+            <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
+            <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
           </ul>
         </CalloutCard>
       </div>

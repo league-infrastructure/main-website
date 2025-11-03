@@ -2,7 +2,6 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
 import CalloutCard from '../../../../components/CalloutCard.astro';
-import { meetupLinks, contactInfo } from '../../../../data/techClub';
 
 const classOptions = [
   {
@@ -60,7 +59,7 @@ const resources = [
   { label: 'Hour of Micro:bit Curriculum', href: 'https://league-curriculum.github.io/HourofMicrobit/' },
 ];
 
-const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
+const phoneHref = '6198897571';
 ---
 
 <BaseLayout
@@ -78,7 +77,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           led by experienced mentors and includes time for questions, troubleshooting, and next steps.
         </p>
         <div class="button-group hero__actions">
-          <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+          <a class="button button--primary" href="https://www.meetup.com/the-league-of-amazing-programmers/">Join the Tech Club Meetup</a>
           <a class="button button--secondary" href="#schedule">View Schedule</a>
         </div>
       </div>
@@ -174,8 +173,8 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           contact our Executive Director to coordinate instructors and equipment.
         </p>
         <ul>
-          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
-          <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
+          <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
         </ul>
       </CalloutCard>
     </div>

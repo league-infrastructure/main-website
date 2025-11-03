@@ -2,21 +2,8 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../../components/SectionHeader.astro';
 import CalloutCard from '../../../../components/CalloutCard.astro';
-import { meetupLinks } from '../../../../data/techClub';
 
-const highlights = [
-  'Designed for intermediate and advanced students',
-  'Explore neural networks, data analysis, Docker, and more',
-  'Live online with occasional in-person deep dives',
-  'Always free to attend',
-];
 
-const sessionTopics = [
-  'Introduction to Neural Networks: review the math that powers modern AI.',
-  'Introduction to Codespaces: spin up full development environments in minutes.',
-  'Introduction to C++: add a systems language to your toolkit after Java or Python.',
-  'Introduction to Docker: package and deploy apps with industry-standard tools.',
-];
 ---
 
 <BaseLayout
@@ -34,17 +21,22 @@ const sessionTopics = [
           leave with new tools, repos to explore, and a path toward self-directed projects.
         </p>
         <div class="button-group hero__actions">
-          <a class="button button--primary" href={meetupLinks.codeClinic}>Register for a Session</a>
-          <a class="button button--secondary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+          <a class="button button--primary" href="https://www.meetup.com/the-league-code-clinic/">Register for a Session</a>
+          <a class="button button--secondary" href="https://www.meetup.com/the-league-tech-club/">Join the Tech Club Meetup</a>
         </div>
       </div>
       <CalloutCard
         class="hero__aside"
         headingLevel={2}
         title="Who Should Attend"
-        items={highlights}
         itemsClass="hero__list"
       >
+        <ul>
+          <li>Designed for intermediate and advanced students</li>
+          <li>Explore neural networks, data analysis, Docker, and more</li>
+          <li>Live online with occasional in-person deep dives</li>
+          <li>Always free to attend</li>
+        </ul>
         <figure class="hero__media">
           <img
             src="/images/2025/04/denimkids.jpeg"
@@ -75,9 +67,10 @@ const sessionTopics = [
       </div>
       <CalloutCard class="two-column__list" title="Recent Clinic Topics">
         <ul>
-          {sessionTopics.map((topic) => (
-            <li>{topic}</li>
-          ))}
+          <li>Introduction to Neural Networks: review the math that powers modern AI.</li>
+          <li>Introduction to Codespaces: spin up full development environments in minutes.</li>
+          <li>Introduction to C++: add a systems language to your toolkit after Java or Python.</li>
+          <li>Introduction to Docker: package and deploy apps with industry-standard tools.</li>
         </ul>
       </CalloutCard>
     </div>
@@ -110,7 +103,7 @@ const sessionTopics = [
             electronics workshops that welcome all experience levels. You can build confidence there and step into Code
             Clinic when you are ready for a deeper challenge.
           </p>
-          <a class="button button--primary" href={meetupLinks.techClub}>Join the Tech Club Meetup</a>
+          <a class="button button--primary" href="https://www.meetup.com/the-league-tech-club/">Join the Tech Club Meetup</a>
         </div>
         <figure class="try-card__media">
           <img

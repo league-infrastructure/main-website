@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionHeader from '../../components/SectionHeader.astro';
-import Section from '../../components/Section.astro';
-import HeroSection from '../../components/HeroSection.astro';
-import ProgramCard from '../../components/ProgramCard.astro';
-import CardBody from '../../components/CardBody.astro';
-import CardFooter from '../../components/CardFooter.astro';
-import CalloutCard from '../../components/CalloutCard.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import Section from "../../components/Section.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import ProgramCard from "../../components/ProgramCard.astro";
+import CardBody from "../../components/CardBody.astro";
+import CardFooter from "../../components/CardFooter.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
 
 // Programs data moved from _index.yaml
 const yamlContent = {
@@ -15,7 +15,8 @@ const yamlContent = {
       id: "python-classes",
       title: "Python Coding Classes",
       level: "Beginner",
-      description: "Start with the most approachable programming language and build "+
+      description:
+        "Start with the most approachable programming language and build " +
         "real projects while mastering problem solving, logic, and collaboration.",
       price: "$280 per month",
       link: "/programs/classes/python/",
@@ -23,11 +24,11 @@ const yamlContent = {
       highlights: [
         "Official Python certificates",
         "In-person and online cohorts",
-        "Small classes with five students per teacher"
+        "Small classes with five students per teacher",
       ],
       image: {
         src: "/images/2021/09/python.png",
-        alt: "Illustration representing Python coding"
+        alt: "Illustration representing Python coding",
       },
       display_in: ["card", "table"],
       table_data: {
@@ -38,26 +39,27 @@ const yamlContent = {
         assistance: "Available",
         schedule: "Year-round",
         ratio: "5 students per teacher",
-        languages: "Python"
-      }
+        languages: "Python",
+      },
     },
     {
       id: "java-classes",
       title: "Java Coding Classes",
       level: "Intermediate to Advanced",
-      description: "Progress toward AP Computer Science readiness and Oracle Professional Certification "+
-      "with industry-grade tools and mentorship.",
+      description:
+        "Progress toward AP Computer Science readiness and Oracle Professional Certification " +
+        "with industry-grade tools and mentorship.",
       price: "$280 per month",
       link: "/programs/classes/java/",
       cta: "Explore Java Track",
       highlights: [
         "Oracle-aligned curriculum",
         "Hybrid and online schedules",
-        "Project-based learning across eight levels"
+        "Project-based learning across eight levels",
       ],
       image: {
         src: "/images/2021/09/java.png",
-        alt: "Illustration representing Java development"
+        alt: "Illustration representing Java development",
       },
       display_in: ["card", "table"],
       table_data: {
@@ -68,25 +70,26 @@ const yamlContent = {
         assistance: "Available",
         schedule: "Year-round",
         ratio: "5 students per teacher",
-        languages: "Java"
-      }
+        languages: "Java",
+      },
     },
     {
       id: "tech-club",
       title: "Tech Club",
       level: "Beginner to Advanced",
-      description: "Drop into free and low-cost workshops that introduce Python, Java, AI, robotics, electronics, and more across San Diego libraries and schools.",
+      description:
+        "Drop into free and low-cost workshops that introduce Python, Java, AI, robotics, electronics, and more across San Diego libraries and schools.",
       price: "Free",
       link: "/programs/tech-club/",
       cta: "Join Tech Club",
       highlights: [
         "Multiple weekly meetups",
         "Hands-on demos and mini-projects",
-        "Volunteer mentors and alumni support"
+        "Volunteer mentors and alumni support",
       ],
       image: {
         src: "/images/2021/09/codingcamps.png",
-        alt: "Illustration highlighting collaborative workshops"
+        alt: "Illustration highlighting collaborative workshops",
       },
       display_in: ["card", "table"],
       table_data: {
@@ -97,8 +100,8 @@ const yamlContent = {
         assistance: "Not needed",
         schedule: "Year-round",
         ratio: "10 students per teacher",
-        languages: "Python"
-      }
+        languages: "Python",
+      },
     },
     {
       id: "private-classes",
@@ -113,8 +116,8 @@ const yamlContent = {
         assistance: "Not available",
         schedule: "Year-round",
         ratio: "1 student per teacher",
-        languages: "Java and Python"
-      }
+        languages: "Java and Python",
+      },
     },
     {
       id: "seasonal-camps",
@@ -129,45 +132,50 @@ const yamlContent = {
         assistance: "Available",
         schedule: "Spring, summer, and winter sessions",
         ratio: "5 students per teacher",
-        languages: "Varies by camp"
-      }
-    }
+        languages: "Varies by camp",
+      },
+    },
   ],
   other_programs: [
     {
       title: "Code Clinic",
-      description: "Online deep dives into emerging technologies for advanced students.",
-      href: "/programs/tech-club/code-clinic/"
+      description:
+        "Online deep dives into emerging technologies for advanced students.",
+      href: "/programs/tech-club/code-clinic/",
     },
     {
       title: "Project Clinic",
-      description: "Personalized consulting sessions to ship your independent project.",
-      href: "/programs/project-clinic/"
+      description:
+        "Personalized consulting sessions to ship your independent project.",
+      href: "/programs/project-clinic/",
     },
     {
       title: "FIRST Robot Programming",
-      description: "Free skills classes supporting FIRST FTC and FRC robotics teams.",
-      href: "/programs/tech-club/robot-garage/#first"
+      description:
+        "Free skills classes supporting FIRST FTC and FRC robotics teams.",
+      href: "/programs/tech-club/robot-garage/#first",
     },
     {
       title: "League Labs",
-      description: "Intern with the League to design future curriculum and earn job experience.",
-      href: "/programs/league-labs/"
+      description:
+        "Intern with the League to design future curriculum and earn job experience.",
+      href: "/programs/league-labs/",
     },
     {
       title: "Summer Research",
-      description: "Collaborate on research projects in computational science and AI.",
-      href: "/camps/summer-2025/summer-projects/#research"
+      description:
+        "Collaborate on research projects in computational science and AI.",
+      href: "/camps/summer-2025/summer-projects/#research",
     },
     {
       title: "League at Work",
-      description: "Bring League instruction to your company as an employee benefit.",
-      href: "/donate/the-league-at-work/"
-    }
-  ]
+      description:
+        "Bring League instruction to your company as an employee benefit.",
+      href: "/donate/the-league-at-work/",
+    },
+  ],
 };
 ---
-
 
 <BaseLayout
   title="Programs"
@@ -178,125 +186,175 @@ const yamlContent = {
     note="Grades 3-12"
     details={[
       "Curriculum designed to keep pace with students for four to six years of mastery.",
-      "Classes run seven days a week with in-person and live online options."
+      "Classes run seven days a week with in-person and live online options.",
     ]}
     actions={[
       {
         label: "View Weekly Classes",
         href: "/programs/classes/",
-        variant: "primary" as const
+        variant: "primary" as const,
       },
       {
-        label: "Explore Tech Club", 
+        label: "Explore Tech Club",
         href: "/programs/tech-club/",
-        variant: "secondary" as const
-      }
+        variant: "secondary" as const,
+      },
     ]}
   >
     <h1 slot="title">Weekly Coding That Grows With Students</h1>
-    <p slot="description">Python and Java tracks guide 5th through 12th graders from their first line of code to professional certifications. Students can learn in Carmel Valley, at partner schools, or online from anywhere.</p>
+    <p slot="description">
+      Python and Java tracks guide 5th through 12th graders from their first
+      line of code to professional certifications. Students can learn in Carmel
+      Valley, at partner schools, or online from anywhere.
+    </p>
     <figure slot="media" class="programs-hero__media">
-      <img src="/images/2021/09/programs.png" alt="League students collaborating during a coding class" loading="lazy" />
+      <img
+        src="/images/programs.png"
+        alt="League students collaborating during a coding class"
+        loading="lazy"
+      />
     </figure>
   </HeroSection>
 
   <Section class="section--programs-main">
     <SectionHeader>
       <h2>Main Programs</h2>
-      <p>Choose the learning path that matches your schedule, skill level, and goals.</p>
+      <p>
+        Choose the learning path that matches your schedule, skill level, and
+        goals.
+      </p>
     </SectionHeader>
-      <div class="program-grid">
-        {yamlContent.main_programs.filter((program: any) => program.display_in.includes('card')).map((program: any) => (
-          <ProgramCard img={program.image.src} alt={program.image.alt}>
-            <CardBody eyebrow={program.level.toUpperCase()}>
-              <h2 slot="title">{program.title}</h2>
-              <description>{program.description}</description>
-              <ul>
-                {program.highlights.map((highlight: string) => (
-                  <li>{highlight}</li>
-                ))}
-              </ul>
-              <price>{program.price}</price>
-            </CardBody>
-            <CardFooter>
-              <a slot="primary" class="button button--primary" href={program.link}>{program.cta}</a>
-            </CardFooter>
-          </ProgramCard>
-        ))}
-      </div>
+    <div class="program-grid">
+      {
+        yamlContent.main_programs
+          .filter((program: any) => program.display_in.includes("card"))
+          .map((program: any) => (
+            <ProgramCard img={program.image.src} alt={program.image.alt}>
+              <CardBody eyebrow={program.level.toUpperCase()}>
+                <h2 slot="title">{program.title}</h2>
+                <description>{program.description}</description>
+                <ul>
+                  {program.highlights.map((highlight: string) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+                <price>{program.price}</price>
+              </CardBody>
+              <CardFooter>
+                <a
+                  slot="primary"
+                  class="button button--primary"
+                  href={program.link}
+                >
+                  {program.cta}
+                </a>
+              </CardFooter>
+            </ProgramCard>
+          ))
+      }
+    </div>
   </Section>
 
   <Section class="section--program-comparison">
     <SectionHeader>
       <h2>Compare Our Programs</h2>
-      <p>See key differences in cost, timing, and format across every League offering.</p>
+      <p>
+        See key differences in cost, timing, and format across every League
+        offering.
+      </p>
     </SectionHeader>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Program</th>
-              <th scope="col">Level</th>
-              <th scope="col">Duration</th>
-              <th scope="col">Tuition</th>
-              <th scope="col">Assistance</th>
-              <th scope="col">Schedule</th>
-              <th scope="col">Ratio</th>
-              <th scope="col">Languages</th>
-            </tr>
-          </thead>
-          <tbody>
-            {yamlContent.main_programs.filter((program: any) => program.display_in.includes('table')).map((program: any) => (
-              <tr>
-                <th scope="row">
-                  <a href={program.link}>{program.table_data.program}</a>
-                </th>
-                <td>{program.table_data.level}</td>
-                <td>{program.table_data.duration}</td>
-                <td>{program.table_data.tuition}</td>
-                <td>{program.table_data.assistance}</td>
-                <td>{program.table_data.schedule}</td>
-                <td>{program.table_data.ratio}</td>
-                <td>{program.table_data.languages}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Program</th>
+            <th scope="col">Level</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Tuition</th>
+            <th scope="col">Assistance</th>
+            <th scope="col">Schedule</th>
+            <th scope="col">Ratio</th>
+            <th scope="col">Languages</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            yamlContent.main_programs
+              .filter((program: any) => program.display_in.includes("table"))
+              .map((program: any) => (
+                <tr>
+                  <th scope="row">
+                    <a href={program.link}>{program.table_data.program}</a>
+                  </th>
+                  <td>{program.table_data.level}</td>
+                  <td>{program.table_data.duration}</td>
+                  <td>{program.table_data.tuition}</td>
+                  <td>{program.table_data.assistance}</td>
+                  <td>{program.table_data.schedule}</td>
+                  <td>{program.table_data.ratio}</td>
+                  <td>{program.table_data.languages}</td>
+                </tr>
+              ))
+          }
+        </tbody>
+      </table>
+    </div>
   </Section>
 
   <Section class="section--support">
     <SectionHeader>
       <h2>More Ways to Learn</h2>
-      <p>Extend your skills with specialty workshops, internships, and robotics programs.</p>
+      <p>
+        Extend your skills with specialty workshops, internships, and robotics
+        programs.
+      </p>
     </SectionHeader>
-      <div class="support-grid">
-        {yamlContent.other_programs.map((program: any) => (
+    <div class="support-grid">
+      {
+        yamlContent.other_programs.map((program: any) => (
           <CalloutCard class="support-card" title={program.title}>
             <p>{program.description}</p>
-            <a slot="footer" class="link" href={program.href}>Learn more</a>
+            <a slot="footer" class="link" href={program.href}>
+              Learn more
+            </a>
           </CalloutCard>
-        ))}
-      </div>
+        ))
+      }
+    </div>
   </Section>
 
   <Section class="section--split" containerClass="split-grid">
     <CalloutCard class="split-card" title="Why Python?">
-      <p>Python has a clear, readable syntax that lets beginners focus on logic. It powers AI, data science, robotics, and scientific computing, making it the ideal first language with limitless career paths.</p>
+      <p>
+        Python has a clear, readable syntax that lets beginners focus on logic.
+        It powers AI, data science, robotics, and scientific computing, making
+        it the ideal first language with limitless career paths.
+      </p>
     </CalloutCard>
     <CalloutCard class="split-card" title="Why Java?">
-      <p>Java underpins AP Computer Science and enterprise applications worldwide. Students gain experience with professional tools and patterns used by NASA, finance firms, and large-scale software teams.</p>
+      <p>
+        Java underpins AP Computer Science and enterprise applications
+        worldwide. Students gain experience with professional tools and patterns
+        used by NASA, finance firms, and large-scale software teams.
+      </p>
     </CalloutCard>
   </Section>
 
-    <Section class="section--cta">
+  <Section class="section--cta">
     <div class="split-layout">
       <h2>Ready to Join?</h2>
-      <p>Transform your future with hands-on coding experience. Join our supportive community and learn from industry professionals.</p>
+      <p>
+        Transform your future with hands-on coding experience. Join our
+        supportive community and learn from industry professionals.
+      </p>
       <a class="button" href="/register">Get Started Today</a>
     </div>
     <div class="split-layout">
-      <img src="/images/students-coding-together.webp" alt="Students collaborating on coding projects in a bright classroom environment" loading="lazy" />
+      <img
+        src="/images/students-coding-together.webp"
+        alt="Students collaborating on coding projects in a bright classroom environment"
+        loading="lazy"
+      />
     </div>
   </Section>
 </BaseLayout>
@@ -305,16 +363,29 @@ const yamlContent = {
   /* Programs page specific styles */
   .programs-hero {
     position: relative;
-    background: linear-gradient(180deg, rgba(93, 95, 239, 0.22) 0%, rgba(243, 113, 33, 0.14) 45%, #fff2e8 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(93, 95, 239, 0.22) 0%,
+      rgba(243, 113, 33, 0.14) 45%,
+      #fff2e8 100%
+    );
     padding: var(--space-4xl) 0 var(--space-3xl);
   }
 
   .programs-hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 12% 18%, rgba(93, 95, 239, 0.28), transparent 45%),
-      radial-gradient(circle at 88% 12%, rgba(243, 113, 33, 0.18), transparent 35%);
+    background: radial-gradient(
+        circle at 12% 18%,
+        rgba(93, 95, 239, 0.28),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 88% 12%,
+        rgba(243, 113, 33, 0.18),
+        transparent 35%
+      );
     pointer-events: none;
   }
 
@@ -339,7 +410,11 @@ const yamlContent = {
   }
 
   .section--programs-main {
-    background: linear-gradient(180deg, rgba(255, 242, 232, 0.92) 0%, #ffffff 75%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 242, 232, 0.92) 0%,
+      #ffffff 75%
+    );
   }
 
   .section--program-comparison {

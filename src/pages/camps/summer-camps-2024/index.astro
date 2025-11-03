@@ -4,10 +4,12 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
 import CampSessionCard from '../../../components/CampSessionCard.astro';
 import HeroSection from '../../../components/HeroSection.astro';
-import { campResources, campContact } from '../../../data/codingCamps';
-import { summer2024Hero, featuredCamps, campTips, partnershipHighlight } from '../../../data/summer2024';
 
-const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
+const phoneHref = '6198897571';
+
+
+
+
 ---
 
 <BaseLayout
@@ -16,24 +18,28 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
 >
   <HeroSection
     surface="alt"
-    tag={summer2024Hero.tag}
-    title={summer2024Hero.title}
-    description={summer2024Hero.description}
+    tag="Summer Camps 2024"
+    title="Summer Camps at The League"
+    description="Week-long intensives, Tech Discovery adventures, Minecraft modding, Unity game design, and AI explorations led by experienced League instructors."
     actions={[
       {
-        label: summer2024Hero.primaryAction.label,
-        href: summer2024Hero.primaryAction.href,
+        label: "View All 2024 Camps",
+        href: "https://jtl.pike13.com/categories/93521",
         variant: "primary"
       },
       {
-        label: summer2024Hero.secondaryAction.label,
-        href: summer2024Hero.secondaryAction.href,
+        label: "Request Scholarship Info",
+        href: "mailto:eric.busboom@jointheleague.org",
         variant: "secondary"
       }
     ]}
     aside={{
       title: "Why Families Pick The League",
-      items: summer2024Hero.highlights
+      items: [
+        'Camps for grades 5–12 with beginner-friendly and advanced options',
+        'Hands-on projects across coding, robotics, drones, and digital creativity',
+        'Small-group instruction plus fun counselor-led activity breaks',
+      ]
     }}
   />
 
@@ -44,7 +50,7 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
         <p>Choose the schedule and topic that fits your student. Every camp below links directly to Pike13 registration.</p>
       </SectionHeader>
       <div class="camp-grid">
-        {featuredCamps.map((camp) => (
+        {[].map((camp: any) => (
           <CampSessionCard
             class="camp"
             level={camp.level}
@@ -70,14 +76,14 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           <p>League camps combine skill building with time to explore, collaborate, and have fun.</p>
         </SectionHeader>
         <ul class="tips">
-          {campTips.map((tip) => (
-            <li>{tip}</li>
-          ))}
+          <li>Arrive 15 minutes early for check-in and project setup each morning.</li>
+          <li>Bring a water bottle, snacks, and any personal devices if you prefer your own setup.</li>
+          <li>Projects are designed to be taken home—we will help you transfer files to a USB drive on the final day.</li>
         </ul>
       </div>
-      <CalloutCard class="two-column__aside emphasis" title={partnershipHighlight.title}>
-        <p>{partnershipHighlight.description}</p>
-        <a class="link" href={partnershipHighlight.href} target="_blank" rel="noopener">{partnershipHighlight.linkLabel}</a>
+      <CalloutCard class="two-column__aside emphasis" title="Powered by Think Machine">
+        <p>Our AI camps feature curriculum and mentors from Think Machine, helping students understand how modern AI tools are created and applied.</p>
+        <a class="link" href="https://thinkmachine.io/" target="_blank" rel="noopener">Visit Think Machine</a>
       </CalloutCard>
     </div>
   </section>
@@ -86,11 +92,15 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
     <div class="container resource-grid">
       <CalloutCard class="resource-card" title="Prep & Study Guides">
         <ul>
-          {campResources.map((resource) => (
-            <li>
-              <a href={resource.href} target="_blank" rel="noopener">{resource.label}</a>
-            </li>
-          ))}
+          <li>
+            <a href="http://www.usscouts.org/mb/worksheets/programming.pdf" target="_blank" rel="noopener">Programming Merit Badge Workbook</a>
+          </li>
+          <li>
+            <a href="https://league-curriculum.github.io/Python-Introduction/" target="_blank" rel="noopener">Python Introduction Curriculum</a>
+          </li>
+          <li>
+            <a href="https://league-curriculum.github.io/HourofMicrobit/" target="_blank" rel="noopener">Hour of Micro:bit Curriculum</a>
+          </li>
         </ul>
       </CalloutCard>
       <CalloutCard
@@ -103,8 +113,8 @@ const phoneHref = campContact.phone.replace(/[^0-9]/g, '');
           will follow up with availability and next steps.
         </p>
         <ul>
-          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{campContact.phone}</a></li>
-          <li><strong>Email:</strong> <a href={`mailto:${campContact.email}`}>{campContact.email}</a></li>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
+          <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
         </ul>
       </CalloutCard>
     </div>

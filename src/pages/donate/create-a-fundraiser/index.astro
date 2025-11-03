@@ -3,7 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HeroSection from '../../../components/HeroSection.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
-import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } from '../../../data/donate';
+
+
 ---
 
 <BaseLayout
@@ -12,10 +13,13 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
 >
   <HeroSection
     surface="alt"
-    tag={fundraiserHero.tag}
-    title={fundraiserHero.title}
-    description={fundraiserHero.description}
-    actions={fundraiserHero.actions}
+    tag="Peer-to-Peer Giving"
+    title="Rally Your Community for The League"
+    description="Host a birthday fundraiser, stream-a-thon, or community event to expand access to computer science education. We will supply assets, messaging, and staff support."
+    actions={[
+      { label: 'Launch a Fundraiser', href: 'https://secure.givelively.org/donate/the-league-of-amazing-programmers/fundraisers/new', variant: 'primary', target: '_blank', rel: 'noreferrer' },
+      { label: 'Download Toolkit', href: '/images/2023/08/Fundraiser-Toolkit.pdf', variant: 'secondary', target: '_blank', rel: 'noreferrer' }
+    ]}
   />
 
   <section class="section">
@@ -26,11 +30,15 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
         <p>Choose the format that fits your personality, goals, and community.</p>
       </SectionHeader>
       <div class="fundraiser-grid">
-        {fundraiserIdeas.map((idea) => (
-          <CalloutCard title={idea.title}>
-            <p>{idea.description}</p>
-          </CalloutCard>
-        ))}
+        <CalloutCard title="Celebration Campaigns">
+          <p>Dedicate birthdays, graduations, or milestone achievements to The League. Share your story online and invite friends to give in lieu of gifts.</p>
+        </CalloutCard>
+        <CalloutCard title="Company or School Challenges">
+          <p>Set up a friendly competition between departments, classrooms, or clubs. Track progress with a public Give Lively page and unlock prizes along the way.</p>
+        </CalloutCard>
+        <CalloutCard title="Streaming & Gaming Events">
+          <p>Livestream coding challenges, esports tournaments, or maker nights. Collect donations via overlays and interactive goal trackers.</p>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -42,11 +50,15 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
         <h2>Three Steps to Launch</h2>
       </SectionHeader>
       <ol class="steps-list">
-        {fundraiserSteps.map((step) => (
-          <li>
-            <p>{step}</p>
-          </li>
-        ))}
+        <li>
+          <p>Create your Give Lively fundraising page and personalize the story with photos or video.</p>
+        </li>
+        <li>
+          <p>Set a goal, choose a campaign timeline, and invite friends, family, and coworkers to join.</p>
+        </li>
+        <li>
+          <p>Share updates, celebrate milestones, and thank donors with the toolkit templates.</p>
+        </li>
       </ol>
     </div>
   </section>
@@ -58,11 +70,15 @@ import { fundraiserHero, fundraiserIdeas, fundraiserSteps, fundraiserSupport } f
         <h2>Fundraising Support</h2>
       </SectionHeader>
       <div class="fundraiser-support">
-        {fundraiserSupport.map((item) => (
-          <CalloutCard title={item.title}>
-            <p>{item.body}</p>
-          </CalloutCard>
-        ))}
+        <CalloutCard title="Coaching & Assets">
+          <p>Our development team provides messaging templates, logos, and sample social posts so you can launch quickly.</p>
+        </CalloutCard>
+        <CalloutCard title="Event Support">
+          <p>Need speakers, student demos, or volunteer mentors? We can coordinate League representatives for your event.</p>
+        </CalloutCard>
+        <CalloutCard title="Recognition">
+          <p>Fundraiser hosts receive shout-outs in our newsletter and social channels, plus invitations to student showcases.</p>
+        </CalloutCard>
       </div>
     </div>
   </section>

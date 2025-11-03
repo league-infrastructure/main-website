@@ -3,7 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HeroSection from '../../../components/HeroSection.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
-import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../../../data/donate';
+
+
 ---
 
 <BaseLayout
@@ -12,11 +13,24 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
 >
   <HeroSection
     surface="alt"
-    tag={volunteerHero.tag}
-    title={volunteerHero.title}
-    description={volunteerHero.description}
-    details={volunteerHero.details}
-    actions={volunteerHero.actions}
+    tag="Volunteer With Us"
+    title="Share Your Skills, Inspire Young Programmers"
+    description="You do not need to be a professional developer to make a difference. Volunteers coach students, support events, and help classrooms run smoothly—online and in person."
+    details={[
+      'Flexible commitments from one-time events to weekly sessions',
+      'Training, lesson plans, and on-site staff guidance provided',
+      'Background checks covered by The League'
+    ]}
+    actions={[
+      {
+        label: 'Apply to Volunteer',
+        href: 'https://form.typeform.com/to/wniXXT',
+        variant: 'primary',
+        target: '_blank',
+        rel: 'noreferrer'
+      },
+      { label: 'View Upcoming Events', href: 'https://www.meetup.com/the-league-tech-club/', variant: 'secondary', target: '_blank', rel: 'noreferrer' }
+    ]}
   />
 
   <section class="section">
@@ -27,16 +41,30 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
         <p>We provide training, curriculum, and ongoing support so you can focus on encouraging students.</p>
       </SectionHeader>
       <div class="volunteer-grid">
-        {volunteerRoles.map((role) => (
-          <CalloutCard title={role.title}>
-            <p>{role.description}</p>
-            <ul class="card__list">
-              {role.items.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </CalloutCard>
-        ))}
+        <CalloutCard title="Classroom Mentor">
+          <p>Support instructors during weekly Level 0–6 classes by pairing with students, answering questions, and celebrating milestones.</p>
+          <ul class="card__list">
+            <li>Commit 2–3 hours per week for at least one session block</li>
+            <li>Comfortable with beginner Java or Python concepts</li>
+            <li>Shadow experienced mentors before leading breakout rooms</li>
+          </ul>
+        </CalloutCard>
+        <CalloutCard title="Tech Club Guide">
+          <p>Welcome new families at community workshops, set up laptops, and assist with hands-on activities across San Diego libraries and schools.</p>
+          <ul class="card__list">
+            <li>Weekend or evening availability for pop-up events</li>
+            <li>Great communication skills and excitement for outreach</li>
+            <li>Ideal for parents, alumni, and corporate volunteer teams</li>
+          </ul>
+        </CalloutCard>
+        <CalloutCard title="Special Projects Mentor">
+          <p>Coach League Labs interns, FIRST Robotics teams, or hackathon participants on advanced topics like AI, web development, or debugging.</p>
+          <ul class="card__list">
+            <li>Subject-matter expertise in software engineering or hardware</li>
+            <li>Remote and on-site options based on student project needs</li>
+            <li>Helps students prepare for demos, pitches, and competitions</li>
+          </ul>
+        </CalloutCard>
       </div>
     </div>
   </section>
@@ -49,11 +77,15 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
         <p>It only takes a few simple steps to begin volunteering. We will guide you through the entire process.</p>
       </SectionHeader>
       <ol class="steps-list">
-        {volunteerSteps.map((step) => (
-          <li>
-            <p>{step}</p>
-          </li>
-        ))}
+        <li>
+          <p>Submit the volunteer interest form and share your availability.</p>
+        </li>
+        <li>
+          <p>Complete a short interview and background check (covered by The League).</p>
+        </li>
+        <li>
+          <p>Attend orientation, shadow a class, and start supporting students.</p>
+        </li>
       </ol>
     </div>
   </section>
@@ -66,11 +98,15 @@ import { volunteerHero, volunteerRoles, volunteerSteps, volunteerFaq } from '../
         <p>Reach out if you have additional questions about availability, logistics, or skill requirements.</p>
       </SectionHeader>
       <div class="faq-grid">
-        {volunteerFaq.map((item) => (
-          <CalloutCard title={item.question}>
-            <p>{item.answer}</p>
-          </CalloutCard>
-        ))}
+        <CalloutCard title="Do I need to know how to code?">
+          <p>Not necessarily. Many volunteers focus on logistics, encouragement, and project management. We will match you with roles that fit your comfort level.</p>
+        </CalloutCard>
+        <CalloutCard title="Can corporate teams volunteer together?">
+          <p>Yes. We coordinate custom volunteer days and ongoing mentorship programs for employee groups. Email info@jointheleague.org to design an experience.</p>
+        </CalloutCard>
+        <CalloutCard title="Are remote volunteer opportunities available?">
+          <p>We offer virtual tutoring, Zoom-based Tech Club sessions, and curriculum review projects throughout the year.</p>
+        </CalloutCard>
       </div>
     </div>
   </section>

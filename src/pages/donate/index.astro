@@ -3,14 +3,85 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
-import {
-  donateHero,
-  giveLivelyScript,
-  donationImpact,
-  donationMethods,
-  donationFaq
-} from '../../data/donate';
-import { siteSettings } from '../../data/siteSettings';
+
+
+
+const giveLivelyScript =
+  'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_in_honor_of=true&show_suggested_amount_buttons=true&suggested_donation_amounts[]=500&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=75&suggested_donation_amounts[]=25&address_required=false';
+
+const donationImpact = [
+  {
+    title: 'Scholarships & Tuition Assistance',
+    description:
+      'Gifts unlock need-based tuition for students who qualify for free and reduced lunch, ensuring cost never blocks a curious learner.'
+  },
+  {
+    title: 'Volunteer Mentor Training',
+    description:
+      'Donations fund onboarding, background checks, and ongoing mentor development so every class is supported by caring adults.'
+  },
+  {
+    title: 'Equipment & Curriculum',
+    description:
+      'Support provides laptops, robotics kits, and updated curriculum so students can build, test, and ship real projects.'
+  }
+];
+
+const donationMethods = [
+  {
+    title: 'Recurring Giving',
+    description:
+      'Set up a sustaining gift through Give Lively to fuel classes every month and help us plan for year-round programming.',
+    cta: { label: 'Start a Monthly Gift', href: '#donate-now', variant: 'secondary' as const }
+  },
+  {
+    title: 'PayPal or Check',
+    description:
+      'Prefer PayPal or mailing a check? Reach out and we will send instructions for tax receipts and matching paperwork.',
+    cta: { label: 'Request Details', href: 'mailto:info@jointheleague.org', variant: 'secondary' as const }
+  },
+  {
+    title: 'Employer Matching',
+    description:
+      'Double your impact through corporate matching gifts or payroll deductions. We can provide EIN and verification forms.',
+    cta: { label: 'Start a Match', href: 'mailto:info@jointheleague.org?subject=Employer%20Matching%20Gift', variant: 'secondary' as const }
+  },
+  {
+    title: 'Stock & Donor-Advised Funds',
+    description:
+      'We gratefully accept appreciated securities and DAF distributions. Contact us to coordinate wire instructions.',
+    cta: { label: 'Coordinate a Transfer', href: 'mailto:info@jointheleague.org?subject=Stock%20or%20DAF%20Gift', variant: 'secondary' as const }
+  },
+  {
+    title: 'Planned Giving',
+    description:
+      'Create a legacy through estate gifts, beneficiary designations, or charitable trusts that sustain future students.',
+    cta: { label: 'Plan a Legacy Gift', href: 'mailto:info@jointheleague.org?subject=Planned%20Giving%20Inquiry', variant: 'secondary' as const }
+  }
+];
+
+const donationFaq = [
+  {
+    question: 'Is my donation tax-deductible?',
+    answer:
+      'Yes. The League of Amazing Programmers is a 501(c)(3) nonprofit. You will receive an email receipt immediately after giving and a year-end summary upon request.'
+  },
+  {
+    question: 'Can I dedicate my gift in honor of someone?',
+    answer:
+      'Absolutely. The Give Lively form includes an "In Honor Of" option and we are happy to send a notification card or email to your honoree.'
+  },
+  {
+    question: 'How do I update or cancel a recurring donation?',
+    answer:
+      'Email info@jointheleague.org and our team will adjust your recurring gift within two business days. You can also make changes directly through Give Lively.'
+  },
+  {
+    question: 'Do you accept in-kind donations?',
+    answer:
+      'Yes. We welcome new or gently used laptops, robotics kits, and classroom supplies. Contact us to review current needs and drop-off details.'
+  }
+];
 ---
 
 <BaseLayout
@@ -19,12 +90,27 @@ import { siteSettings } from '../../data/siteSettings';
 >
   <HeroSection
     surface="alt"
-    tag={donateHero.tag}
-    title={donateHero.title}
-    description={donateHero.description}
-    details={donateHero.details}
-    actions={donateHero.actions}
-    aside={donateHero.aside}
+    tag="Support The League"
+    title="Fuel the Next Generation of Programmers"
+    description="Every contribution keeps tuition affordable, funds scholarships, and equips classrooms so San Diego youth can build real-world coding experience."
+    details={[
+      '100% of gifts stay local to mentor students across San Diego County',
+      'Small class sizes with professional instructors and volunteer mentors',
+      'Scholarships, laptops, and internship stipends for emerging programmers'
+    ]}
+    actions={[
+      { label: 'Donate Now', href: '#donate-now', variant: 'primary' },
+      { label: 'See Our Supporters', href: '/donate/supporters/', variant: 'secondary' }
+    ]}
+    aside={{
+      title: 'Your Gift Supports',
+      items: [
+        'Sliding-scale tuition and full scholarships',
+        'Volunteer mentor training and classroom supplies',
+        'Tech Club outreach in libraries, schools, and community centers',
+        'League Labs internships that launch student-led curriculum'
+      ]
+    }}
   />
 
   <section class="section" id="donate-now">
@@ -43,7 +129,7 @@ import { siteSettings } from '../../data/siteSettings';
               our Give Lively page
             </a>
             or email
-            <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a>
+            <a href="mailto:info@jointheleague.org">info@jointheleague.org</a>
             for stock, DAF, or employer matching details.
           </p>
         </div>
@@ -52,8 +138,8 @@ import { siteSettings } from '../../data/siteSettings';
             We are happy to provide invoices, customized receipts, and paperwork for matching gifts or corporate sponsorships. Reach out and we will follow up within two business days.
           </p>
           <p>
-            Email: <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a><br />
-            Phone: <a href={siteSettings.phoneHref}>{siteSettings.phone}</a>
+            Email: <a href="mailto:info@jointheleague.org">info@jointheleague.org</a><br />
+            Phone: <a href="tel:18582840481">(858) 284-0481</a>
           </p>
         </CalloutCard>
       </div>

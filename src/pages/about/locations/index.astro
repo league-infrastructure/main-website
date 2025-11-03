@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { mainCampus, satelliteLocations } from '../../../data/locations';
 ---
 
 <BaseLayout title="Locations" description="Find The League of Amazing Programmers classes across San Diego County, including our Carmel Valley campus and community partner sites.">
@@ -13,42 +12,55 @@ import { mainCampus, satelliteLocations } from '../../../data/locations';
         </p>
       </div>
       <article class="card locations__feature">
-        <h2>{mainCampus.name}</h2>
+        <h2>Main Campus & Office</h2>
         <p>
-          {mainCampus.address.map((line) => (
-            <Fragment>
-              {line}
-              <br />
-            </Fragment>
-          ))}
+          12625 High Bluff Drive #113<br />
+          Hacienda Building<br />
+          San Diego, CA 92130<br />
         </p>
         <p>
-          <a href={mainCampus.directionsUrl} target="_blank" rel="noreferrer">Get Directions</a>
+          <a href="https://goo.gl/maps/GUdss2BayCqGmDCLA" target="_blank" rel="noreferrer">Get Directions</a>
         </p>
         <p>
-          <strong>Phone:</strong> <a href={mainCampus.phoneHref}>{mainCampus.phone}</a><br />
-          <strong>Email:</strong> <a href={mainCampus.emailHref}>{mainCampus.email}</a>
+          <strong>Phone:</strong> <a href="tel:18582840481">(858) 284-0481</a><br />
+          <strong>Email:</strong> <a href="mailto:info@jointheleague.org">info@jointheleague.org</a>
         </p>
-        <p class="locations__note">{mainCampus.responseNote}</p>
+        <p class="locations__note">If we miss your call, please leave a voicemail or email us. We typically respond within 24 working hours.</p>
       </article>
       <div class="locations__grid">
-        {satelliteLocations.map((location) => (
-          <article class="card locations__card">
-            <h3>{location.name}</h3>
-            <p>
-              {location.address.map((line) => (
-                <Fragment>
-                  {line}
-                  <br />
-                </Fragment>
-              ))}
-            </p>
-            <div class="locations__links">
-              <a href={location.directionsUrl} target="_blank" rel="noreferrer">Directions</a>
-              <a href={location.website} target="_blank" rel="noreferrer">Site Details</a>
-            </div>
-          </article>
-        ))}
+        <article class="card locations__card">
+          <h3>Digital Start North County</h3>
+          <p>
+            1408 S Mission Rd<br />
+            Fallbrook, CA 92028<br />
+          </p>
+          <div class="locations__links">
+            <a href="https://goo.gl/maps/1ZESVmrBLwwPM7wK7" target="_blank" rel="noreferrer">Directions</a>
+            <a href="https://digitalstartnorthcounty.com/" target="_blank" rel="noreferrer">Site Details</a>
+          </div>
+        </article>
+        <article class="card locations__card">
+          <h3>Malcolm X Library</h3>
+          <p>
+            5148 Market St.<br />
+            San Diego, CA 92114<br />
+          </p>
+          <div class="locations__links">
+            <a href="https://goo.gl/maps/3ZPDmdzuxgY5wNLo7" target="_blank" rel="noreferrer">Directions</a>
+            <a href="https://www.sandiego.gov/public-library/locations/valencia-park-malcolm-x-library" target="_blank" rel="noreferrer">Site Details</a>
+          </div>
+        </article>
+        <article class="card locations__card">
+          <h3>San Diego Central Library</h3>
+          <p>
+            330 Park Blvd.<br />
+            San Diego, CA 92101<br />
+          </p>
+          <div class="locations__links">
+            <a href="https://goo.gl/maps/bNEJWu6RjoXiH5q48" target="_blank" rel="noreferrer">Directions</a>
+            <a href="https://www.sandiego.gov/public-library/central-library" target="_blank" rel="noreferrer">Site Details</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
