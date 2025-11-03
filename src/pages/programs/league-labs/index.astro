@@ -3,22 +3,121 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import EmbedLoader from '../../../components/EmbedLoader.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
-import {
-  leagueLabsHero,
-  leagueLabsOverview,
-  leagueLabsTopics,
-  leagueLabsSpecialPrograms,
-  classDevelopmentProcess,
-  leagueLabsBenefits,
-  projectExamples,
-  applicationDetails,
-  meetingEmbedUrl,
-  projectIdeas,
-  newsHighlight,
-} from '../../../data/leagueLabs';
-import { contactInfo } from '../../../data/techClub';
 
-const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
+// Data that has iteration - moved as structures
+const leagueLabsTopics = [
+  'Python—introductory programming or specialty topics like web or data analysis',
+  'Java—from foundational skills to advanced concepts',
+  'Game development in Python or JavaScript',
+  'Robotics with FIRST FTC, FRC, Arduino, micro:bit, or Raspberry Pi',
+  'Artificial Intelligence—using AI tools, building models, or understanding ethics',
+];
+
+const leagueLabsSpecialPrograms = [
+  {
+    title: 'FIRST Robotics Focus',
+    description:
+      'Join a cohort dedicated to creating lessons for FIRST FTC and FRC teams. Mention your team number on the application to be matched with peers building robotics curriculum.',
+  },
+  {
+    title: 'Science Fair to Classroom',
+    description:
+      'Transform your science fair project into a League class that demonstrates the computing techniques behind your research.',
+  },
+];
+
+const classDevelopmentProcess = [
+  'Research similar lessons for inspiration and gather references.',
+  'Prototype your class, then beta test it with friends or fellow interns.',
+  'Collect feedback, open tickets, and iterate on improvements.',
+  'Promote the class through Tech Club channels such as Code Clinic.',
+  'Teach online and in-person sessions, gathering reflections after each run.',
+];
+
+const leagueLabsBenefits = [
+  'Build technical and professional skills simultaneously.',
+  'Dive deeply into a favorite technology or emerging field.',
+  'Earn resume-ready experience while giving back to the community.',
+];
+
+const overviewSkills = [
+  'Tools like GitHub, GitHub Codespaces, and Visual Studio Code',
+  'Programming fundamentals and applied problem solving',
+  'Product development and human-centered design',
+  'Marketing and promotion, including beta testing your class',
+];
+
+const projectExamples = {
+  blurb:
+    'Explore published League curriculum like the Motors Clinic or Python Games lessons to spark ideas for your own project.',
+  links: [
+    {
+      label: 'Motors Clinic Curriculum',
+      href: 'https://league-curriculum.github.io/Motors/index.html#',
+    },
+    {
+      label: 'Python Games Lessons',
+      href: 'https://github.com/league-curriculum/Python-Games/blob/master/lessons/01_Motion_and_Physics/00_Motion_and_Physics.ipynb',
+    },
+    {
+      label: 'League Curriculum Library',
+      href: 'https://curriculum.jointheleague.org/',
+    },
+  ],
+};
+
+const applicationSteps = [
+  'Submit the League Labs internship interest form to tell us about your goals and experience.',
+  'Register for an upcoming kickoff meeting to confirm the program is a good fit.',
+  'Join the League Labs Google Group to stay informed about project assignments and announcements.',
+];
+
+const projectIdeas = [
+  {
+    title: 'Algorithms with Cards Class',
+    description:
+      'Help build a data structures class that uses playing cards to visualize algorithms, then implement them in Python.',
+    href: 'https://www.meetup.com/the-league-code-clinic/events/307422492',
+  },
+  {
+    title: 'Programming Merit Badge',
+    description:
+      'Collaborate with Scouts to run the BSA Programming Merit Badge and document the full workshop flow.',
+    href: 'https://www.jointheleague.org/programs/tech-club/programming-merit-badge/',
+  },
+  {
+    title: 'Neural Nets From Scratch',
+    description:
+      'Turn the NNFS book into a guided series that helps peers build neural networks from the ground up.',
+    href: 'https://nnfs.io/',
+  },
+  {
+    title: 'Micro:bit Experiments',
+    description:
+      'Extend the Hour of Micro:bit into multi-session projects featuring gadgets, games, and robotics.',
+    href: 'https://league-curriculum.github.io/HourofMicrobit/',
+  },
+  {
+    title: 'Python Code Challenges',
+    description:
+      'Curate challenges from LeetCode, HackerRank, or CodeWars and design League versions with walkthroughs.',
+    href: 'https://leetcode.com/',
+  },
+  {
+    title: 'FIRST Robotics Curriculum',
+    description:
+      'Create intro and advanced lessons for FTC or FRC teams covering topics like vision, CAN bus, or simulation.',
+  },
+];
+
+const heroHighlights = [
+  'Design and launch 90-minute classes you teach to Tech Club and Code Clinic students',
+  'Collaborate with mentors to refine curriculum using feedback and product development best practices',
+  'Explore advanced software projects including the code.jointheleague.org platform',
+];
+
+// Contact info
+const phoneHref = '6198897571';
 ---
 
 <BaseLayout
@@ -28,21 +127,21 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
   <section class="section section--surface-alt hero">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <p class="tag">{leagueLabsHero.tag}</p>
-        <h1>{leagueLabsHero.title}</h1>
-        <p>{leagueLabsHero.description}</p>
-        <p class="note"><strong>Timeline:</strong> {leagueLabsHero.scheduleNote}</p>
-        <p class="status">{leagueLabsHero.status}</p>
+        <p class="tag">High school internship</p>
+        <h1>League Labs Internship</h1>
+        <p>Build your college resume, explore new technologies, and contribute real curriculum that impacts League students across San Diego.</p>
+        <p class="note"><strong>Timeline:</strong> League Labs Summer 2025 runs from June 1 to September 30.</p>
+        <p class="status">Applications for Summer 2025 are closed, but you can register now to be notified about the Fall 2025 cohort.</p>
         <div class="button-group hero__actions">
-          <a class="button button--primary" href={leagueLabsHero.primaryAction.href}>{leagueLabsHero.primaryAction.label}</a>
-          <a class="button button--secondary" href={leagueLabsHero.secondaryAction.href}>{leagueLabsHero.secondaryAction.label}</a>
+          <a class="button button--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform?usp=dialog">Join the Fall 2025 Interest List</a>
+          <a class="button button--secondary" href="http://labs.jointheleague.org/">Visit the Intern Portal</a>
         </div>
       </div>
       <CalloutCard
         class="hero__aside"
         headingLevel={2}
         title="Why Join League Labs?"
-        items={leagueLabsHero.highlights}
+        items={heroHighlights}
         itemsClass="hero__list"
       />
     </div>
@@ -55,13 +154,13 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           <h2>Design, Teach, and Ship Curriculum</h2>
           <p>Choose a topic you care about, build a shareable lesson, and launch it with support from League mentors.</p>
         </SectionHeader>
-        <p>{leagueLabsOverview.summary}</p>
-        <p>{leagueLabsOverview.advancedTrack}</p>
+        <p>LEAGUE Labs is an unpaid internship for high school students who want to design new League classes and gain professional experience. Interns select a topic they care about, build a lesson plan, and teach it to peers across Tech Club or Code Clinic sessions.</p>
+        <p>Advanced interns can contribute to code.jointheleague.org, the web-based IDE our team is building to deliver League Labs curriculum. That project covers Python web applications, Docker, VS Code extensions, SQL, and modern deployment workflows.</p>
       </div>
       <div class="about-grid__cards">
         <CalloutCard class="info-card" title="Skills You Will Practice">
           <ul>
-            {leagueLabsOverview.skills.map((skill) => (
+            {overviewSkills.map((skill) => (
               <li>{skill}</li>
             ))}
           </ul>
@@ -110,7 +209,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         class="two-column__aside emphasis emphasis--subtle"
         title="Intern Benefits"
         items={leagueLabsBenefits}
-        cta={{ label: 'Join the Interest List', href: leagueLabsHero.primaryAction.href }}
+        cta={{ label: 'Join the Interest List', href: 'https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform?usp=dialog' }}
       />
     </div>
   </section>
@@ -143,9 +242,9 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           <h2>Application Process</h2>
           <p>Share your interests, meet the mentors, and stay connected through League Labs announcements.</p>
         </SectionHeader>
-        <p class="status">{applicationDetails.statusNote}</p>
+        <p class="status">Applications for Summer 2025 are currently closed. Complete the interest form to receive details about the next kickoff meetings and Fall 2025 opportunities.</p>
         <ol class="process">
-          {applicationDetails.steps.map((step) => (
+          {applicationSteps.map((step) => (
             <li>{step}</li>
           ))}
         </ol>
@@ -153,7 +252,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
       <CalloutCard
         class="two-column__aside info-card"
         title="Stay in the Loop"
-        cta={{ label: applicationDetails.googleGroup.label, href: applicationDetails.googleGroup.href, variant: 'secondary' }}
+        cta={{ label: 'League Labs Google Group', href: 'https://groups.google.com/a/jointheleague.org/g/labs', variant: 'secondary' }}
       >
         <p>Join our Google Group for program updates and project assignments.</p>
       </CalloutCard>
@@ -167,7 +266,7 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         <p>RSVP for an upcoming kickoff session to confirm expectations and choose your first project.</p>
       </SectionHeader>
       <div class="embed">
-        <EmbedLoader src={meetingEmbedUrl} title="League Labs kickoff meetings" />
+        <EmbedLoader src="https://snips.jtlapp.net/leaguesync/meetups/the-league-code-clinic-high_voltage.html" title="League Labs kickoff meetings" />
       </div>
     </div>
   </section>
@@ -197,9 +296,9 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
         class="news-card"
         headingLevel={2}
         title="League Labs News"
-        cta={{ label: 'Read Updates', href: newsHighlight.href }}
+        cta={{ label: 'Read Updates', href: 'https://www.jointheleague.org/category/league-labs/' }}
       >
-        <p>{newsHighlight.description}</p>
+        <p>Stay up to date on intern achievements and project launches by following the League Labs news feed.</p>
       </CalloutCard>
     </div>
   </section>
@@ -216,8 +315,8 @@ const phoneHref = contactInfo.phone.replace(/[^0-9]/g, '');
           Reach out to our team to confirm eligibility, request a recommendation, or coordinate a custom project track. We are here to help you make the most of your internship.
         </p>
         <ul>
-          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{contactInfo.phone}</a></li>
-          <li><strong>Email:</strong> <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+          <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
+          <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
         </ul>
       </CalloutCard>
     </div>

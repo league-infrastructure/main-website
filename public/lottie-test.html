@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lottie Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+    <h1>Lottie Animation Test</h1>
+    
+    <h2>Graph Animation:</h2>
+    <div id="graph-animation" style="width: 300px; height: 300px; border: 1px solid #ccc;"></div>
+    
+    <h2>Entry Animation:</h2>
+    <div id="entry-animation" style="width: 300px; height: 300px; border: 1px solid #ccc;"></div>
+    
+    <script>
+        console.log('Testing Lottie animations...');
+        
+        // Load graph animation
+        setTimeout(() => {
+            const graphContainer = document.getElementById('graph-animation');
+            const graphAnimation = lottie.loadAnimation({
+                container: graphContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '/graph.json'
+            });
+            
+            graphAnimation.addEventListener('DOMLoaded', () => {
+                console.log('Graph animation loaded successfully');
+            });
+            
+            graphAnimation.addEventListener('loadError', (error) => {
+                console.error('Graph animation load error:', error);
+            });
+        }, 500);
+        
+        // Load entry animation
+        setTimeout(() => {
+            const entryContainer = document.getElementById('entry-animation');
+            const entryAnimation = lottie.loadAnimation({
+                container: entryContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '/entry.json'
+            });
+            
+            entryAnimation.addEventListener('DOMLoaded', () => {
+                console.log('Entry animation loaded successfully');
+            });
+            
+            entryAnimation.addEventListener('loadError', (error) => {
+                console.error('Entry animation load error:', error);
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

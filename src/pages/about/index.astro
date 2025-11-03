@@ -1,9 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionHeader from '../../components/SectionHeader.astro';
-import ProfileCard from '../../components/ProfileCard.astro';
-import Section from '../../components/Section.astro';
-import HeroSection from '../../components/HeroSection.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ProfileCard from "../../components/ProfileCard.astro";
+import Section from "../../components/Section.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import LottieAnimation from "../../components/LottieAnimation.astro";
 
 // Team Member interface and data
 interface TeamMember {
@@ -19,145 +20,110 @@ interface TeamMember {
 
 const staffTeam: TeamMember[] = [
   {
-    name: 'Eric Busboom',
-    role: 'Executive Director',
-    email: 'eric.busboom@jointheleague.org',
+    name: "Eric Busboom",
+    role: "Executive Director",
+    email: "eric.busboom@jointheleague.org",
     image: {
-      src: '/images/staff/EricBusboom.png',
-      alt: 'Portrait of Eric Busboom',
+      src: "/images/staff/EricBusboom.png",
+      alt: "Portrait of Eric Busboom",
     },
   },
   {
-    name: 'Osvaldo Ruiz',
-    role: 'Programs Manager',
-    email: 'osvaldo.ruiz@jointheleague.org',
+    name: "Osvaldo Ruiz",
+    role: "Programs Manager",
+    email: "osvaldo.ruiz@jointheleague.org",
     image: {
-      src: '/images/staff/OsvaldoRuiz-e1635886323498.png',
-      alt: 'Portrait of Osvaldo Ruiz',
+      src: "/images/staff/OsvaldoRuiz-e1635886323498.png",
+      alt: "Portrait of Osvaldo Ruiz",
     },
   },
   {
-    name: 'Liz Groves',
-    role: 'Operations',
-    email: 'liz.groves@jointheleague.org',
+    name: "Liz Groves",
+    role: "Director of Operations",
+    email: "liz.groves@jointheleague.org",
     image: {
-      src: '/images/2021/10/Liz-Groves.png',
-      alt: 'Portrait of Liz Groves',
+      src: "/images/2021/10/Liz-Groves.png",
+      alt: "Portrait of Liz Groves",
     },
   },
   {
-    name: 'Michael Johnson',
-    role: 'Head Teacher',
-    email: 'mike.johnson@jointheleague.org',
+    name: "Michael Johnson",
+    role: "Instructor",
+    email: "mike.johnson@jointheleague.org",
     image: {
-      src: '/images/staff/MikeJohnson-e1635886431891.png',
-      alt: 'Portrait of Michael Johnson',
+      src: "/images/staff/MikeJohnson-e1635886431891.png",
+      alt: "Portrait of Michael Johnson",
     },
   },
   {
-    name: 'Jed Stumpf',
-    role: 'Teacher & Development Manager',
-    email: 'jed.stumpf@jointheleague.org',
+    name: "Jed Stumpf",
+    role: "Teacher & Development Manager",
+    email: "jed.stumpf@jointheleague.org",
     image: {
-      src: '/images/staff/jed_stumpf-circle.png',
-      alt: 'Portrait of Jed Stumpf',
+      src: "/images/staff/jed_stumpf-circle.png",
+      alt: "Portrait of Jed Stumpf",
     },
   },
   {
-    name: 'Colby Schexnayder',
-    role: 'League Teacher',
-    email: 'colby.schexnayder@jointheleague.org',
+    name: "Colby Schexnayder",
+    role: "Instructor",
+    email: "colby.schexnayder@jointheleague.org",
     image: {
-      src: '/images/staff/ColbyShexnayder-e1635884609205.png',
-      alt: 'Portrait of Colby Schexnayder',
+      src: "/images/staff/ColbyShexnayder-e1635884609205.png",
+      alt: "Portrait of Colby Schexnayder",
     },
   },
   {
-    name: 'Nick Graham',
-    role: 'League Teacher',
-    email: 'nick.graham@jointheleague.org',
+    name: "Nick Graham",
+    role: "Instructor",
+    email: "nick.graham@jointheleague.org",
     image: {
-      src: '/images/2022/10/Nick-300x300.jpeg',
-      alt: 'Portrait of Nick Graham',
+      src: "/images/2022/10/Nick-300x300.jpeg",
+      alt: "Portrait of Nick Graham",
     },
-  },
-  {
-    name: 'Keith Groves',
-    role: 'Curriculum Manager',
-    email: 'keith.groves@jointheleague.org',
-    image: {
-      src: '/images/staff/KeithGroves2.png',
-      alt: 'Portrait of Keith Groves',
-    },
-    link: 'https://www.linkedin.com/in/keithalgroves/',
-  },
-  {
-    name: 'Daniel Commins',
-    role: 'League Teacher',
-    email: 'daniel.commins@jointheleague.org',
-    image: {
-      src: '/images/staff/DanielCommins-e1635886381127.png',
-      alt: 'Portrait of Daniel Commins',
-    },
-  },
-  {
-    name: 'Tammy Neuhaus',
-    role: 'League Teacher',
-    image: {
-      src: '/images/staff/tammy.jpeg',
-      alt: 'Portrait of Tammy Neuhaus',
-    },
-    link: 'https://www.linkedin.com/in/tamarah-neuhaus-0ba66935/',
   },
 ];
 
 const boardMembers: TeamMember[] = [
   {
-    name: 'Eric Busboom',
-    role: 'Board Chair · President, Civic Knowledge',
+    name: "Eric Busboom",
+    role: "Board Chair · President, Civic Knowledge",
     image: {
-      src: '/images/staff/EricBusboom.png',
-      alt: 'Portrait of Eric Busboom',
+      src: "/images/staff/EricBusboom.png",
+      alt: "Portrait of Eric Busboom",
+    },
+  },
+
+  {
+    name: "Stan Kurdziel",
+    role: "Senior Android Developer, ResMed",
+    image: {
+      src: "/images/board/StanKurdziel.png",
+      alt: "Portrait of Stan Kurdziel",
     },
   },
   {
-    name: 'Christine Dolan',
-    role: 'Treasurer · Fractional CFO for Nonprofits',
+    name: "Debra Schade",
+    role: "Board Vice President, Solana Beach School District",
     image: {
-      src: '/images/board/Bio-Pic-C-Dolan.jpg',
-      alt: 'Portrait of Christine Dolan',
+      src: "/images/board/DebraSchade.png",
+      alt: "Portrait of Debra Schade",
     },
   },
   {
-    name: 'Stan Kurdziel',
-    role: 'Senior Android Developer, ResMed',
+    name: "Kevin Lee",
+    role: "Software Architect · Former Director of Engineering, Qualcomm",
     image: {
-      src: '/images/board/StanKurdziel.png',
-      alt: 'Portrait of Stan Kurdziel',
+      src: "/images/2022/01/kevin-lee-circle-300x300.png",
+      alt: "Portrait of Kevin Lee",
     },
   },
   {
-    name: 'Debra Schade',
-    role: 'Board Vice President, Solana Beach School District',
+    name: "Uyen Tran",
+    role: "Branch Manager, City Heights/Weingart Library",
     image: {
-      src: '/images/board/DebraSchade.png',
-      alt: 'Portrait of Debra Schade',
-    },
-  },
-  {
-    name: 'Kevin Lee',
-    role: 'Software Architect · Former Director of Engineering, Qualcomm',
-    image: {
-      src: '/images/2022/01/kevin-lee-circle-300x300.png',
-      alt: 'Portrait of Kevin Lee',
-    },
-  },
-  {
-    name: 'Uyen Tran',
-    role: 'Branch Manager, City Heights/Weingart Library',
-    image: {
-      src: '/images/board/uyen-tran-circle.png',
-      alt: 'Portrait of Uyen Tran',
+      src: "/images/board/uyen-tran-circle.png",
+      alt: "Portrait of Uyen Tran",
     },
   },
 ];
@@ -168,50 +134,87 @@ const boardMembers: TeamMember[] = [
   description="Learn how The League of Amazing Programmers empowers San Diego youth with coding education, mentorship, and industry-aligned pathways to careers."
 >
   <!-- AboutHero section -->
-  <HeroSection
-    class="about-hero"
-    details={[
-      "We take students through eight levels of mastery, culminating in professional Java certification so every learner can thrive in the workforce of the 21st century."
-    ]}
-  >
-    <h1 slot="title">About The League of Amazing Programmers</h1>
-    <p slot="description">We are a San Diego-based nonprofit teaching coding to 5th–12th graders through eight levels of mastery, from absolute beginner to job-ready, certified programmer.</p>
+  <HeroSection class="about-hero">
+    <h1 slot="title">About The League</h1>
+    <p slot="description">
+      The LEAGUE of Amazing Programmers is a San Diego-based nonprofit
+      organization that teaches coding to kids and teens in 3th-12th grade. We
+      take students through 8 levels of mastery – from beginner all the way to
+      being a job-ready, certified programmer!
+    </p>
     <figure slot="media" class="about-hero__media">
       <span class="about-hero__blob" aria-hidden="true"></span>
-      <img src="/images/about_flag.png" alt="League students celebrating with The League flag" loading="lazy" />
+      <img
+        src="/images/about_flag.png"
+        alt="League students celebrating with The League flag"
+        loading="lazy"
+      />
     </figure>
   </HeroSection>
 
   <!-- MissionStatement section -->
-  <Section bgcolor="#f8f9fa" containerClass="mission__inner">
-    <SectionHeader>
-      <h2>Our Mission</h2>
-    </SectionHeader>
-    <p>We help more youth—especially girls and underserved students—gain the skills, 
-      confidence, and mentorship to be leaders in the digital age. Students build critical
-       thinking, self-confidence, and professional certifications that translate directly 
-       into college and career opportunities.</p>
+  <section class="mission-section">
+    <div class="container">
+      <SectionHeader>
+        <h2>Our Mission</h2>
+      </SectionHeader>
+      <p>
+        Our mission is to help more youth, including girls and underserved
+        students, acquire the skills and education needed to be leaders in the
+        digital age, and contribute to the workforce of the 21st century. We aim
+        to create a positive impact on all students by helping them develop
+        critical thinking skills and self-confidence through learning computer
+        programming.
+      </p>
+    </div>
+  </section>
+
+  <!-- Coding Jobs section -->
+  <Section class="coding-jobs">
+    <div class="container coding-jobs__content">
+      <div class="coding-jobs__text">
+        <h2>Coding Jobs</h2>
+        <p>
+          The Bureau of Labor Statistics projects that over 1 million
+          programming jobs in the U.S. will be unfilled by 2022. The LEAGUE
+          seeks to address this problem by teaching students to code, getting
+          them interested at a young age so that they are more likely to pursue
+          programming in college and in their careers.
+        </p>
+      </div>
+      <div class="coding-jobs__icon">
+        <LottieAnimation
+          src="/graph.json"
+          width={250}
+          height={250}
+          className="coding-jobs__animation"
+        />
+      </div>
+    </div>
   </Section>
 
-  <!-- ImpactHighlights section -->
-  <Section class="impact">
-    <SectionHeader>
-      <h2>Impact Highlights</h2>
-      <p>From awareness to career readiness, we pair real-world curriculum with mentorship 
-        'so students can translate coding skills into futures they love.</p>
-    </SectionHeader>
-    <div class="impact__grid">
-      <article class="card impact__card">
-        <h3>Coding Jobs</h3>
-        <p>Over one million programming jobs in the United States were projected 
-          to remain unfilled by 2022. We spark early interest and provide the training 
-          students need to pursue computer science in college and beyond.</p>
-      </article>
-      <article class="card impact__card">
-        <h3>Entry Into Workforce</h3>
-        <p>Our curriculum culminates in Oracle Professional Certification preparation, 
-          enabling graduates to enter the workforce as programmers immediately after high school.</p>
-      </article>
+  <!-- Entry Into Workforce section -->
+  <Section bgcolor="#f8f9fa" class="workforce">
+    <div class="container workforce__content">
+      <div class="workforce__icon">
+        <LottieAnimation
+          src="/entry.json"
+          width={250}
+          height={250}
+          className="workforce__animation"
+        />
+      </div>
+      <div class="workforce__text">
+        <h2>Entry Into Workforce</h2>
+        <p>
+          Our curriculum culminates in Oracle Professional Certification
+          preparation, enabling graduates to enter the workforce as programmers
+          immediately after high school without requiring a college degree.
+          Young students' lives are positively impacted through the critical
+          thinking skills and self-confidence they gain from learning with The
+          LEAGUE!
+        </p>
+      </div>
     </div>
   </Section>
 
@@ -219,12 +222,14 @@ const boardMembers: TeamMember[] = [
   <Section>
     <SectionHeader>
       <h2>Our Staff & Teachers</h2>
-      <p>Experienced educators and industry professionals guide students through every level, offering mentorship, certification prep, and project coaching.</p>
+      <p>
+        Experienced educators and industry professionals guide students through
+        every level, offering mentorship, certification prep, and project
+        coaching.
+      </p>
     </SectionHeader>
     <div class="profiles">
-      {staffTeam.map((person) => (
-        <ProfileCard person={person} />
-      ))}
+      {staffTeam.map((person) => <ProfileCard person={person} />)}
     </div>
   </Section>
 
@@ -232,12 +237,152 @@ const boardMembers: TeamMember[] = [
   <Section bgcolor="#f8f9fa">
     <SectionHeader>
       <h2>Board of Directors</h2>
-      <p>Leaders from technology, education, and civic organizations provide strategic direction, governance, and support for our mission.</p>
+      <p>
+        Leaders from technology, education, and civic organizations provide
+        strategic direction, governance, and support for our mission.
+      </p>
     </SectionHeader>
     <div class="profiles">
-      {boardMembers.map((person) => (
-        <ProfileCard person={person} variant="surface" />
-      ))}
+      {
+        boardMembers.map((person) => (
+          <ProfileCard person={person} variant="surface" />
+        ))
+      }
     </div>
   </Section>
 </BaseLayout>
+
+<style>
+  /* Mission Section with Background */
+  .mission-section {
+    min-height: 100vh;
+    background-image: url("/images/Our_MissionBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .mission-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .mission-section .container {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .mission-section h2 {
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .mission-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: white;
+  }
+
+  /* Coding Jobs Section */
+  .coding-jobs__content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .coding-jobs__text h2 {
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .coding-jobs__text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  .coding-jobs__icon .lottie-animation {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Workforce Section */
+  .workforce__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .workforce__text h2 {
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .workforce__text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  .workforce__icon .lottie-animation {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .mission-section {
+      min-height: 70vh;
+    }
+
+    .coding-jobs__content,
+    .workforce__content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .workforce__content {
+      grid-template-areas:
+        "icon"
+        "text";
+    }
+
+    .workforce__icon {
+      grid-area: icon;
+    }
+
+    .workforce__text {
+      grid-area: text;
+    }
+
+    .coding-jobs__icon .lottie-animation,
+    .workforce__icon .lottie-animation {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  /* Profile Grid Styling */
+  .profiles {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+</style>

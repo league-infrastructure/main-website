@@ -6,6 +6,8 @@
 - Sections alternate between white and pastel backdrops and often include anchor
   targets (e.g., `#viewmore`) for smooth-scrolling cues.
 
+
+
 ## Color Palette
 | Role | Hex | Notes |
 | --- | --- | --- |

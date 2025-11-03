@@ -12,6 +12,7 @@
     "astro": "^5.15.2",
     "fulldev-ui": "^0.6.5",
     "js-yaml": "^4.1.0",
+    "lottie-web": "^5.13.0",
     "puppeteer": "^24.27.0"
   },
   "devDependencies": {

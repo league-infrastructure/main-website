@@ -1,0 +1,76 @@
+---
+export interface Props {
+  src: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  autoplay?: boolean;
+  loop?: boolean;
+}
+
+const { 
+  src, 
+  width = 200, 
+  height = 200, 
+  className = '',
+  autoplay = true,
+  loop = true 
+} = Astro.props;
+
+// Generate a unique ID for this animation instance
+const animationId = `lottie-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<!-- Load lottie-web from CDN -->
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" defer></script>
+
+<div 
+  id={animationId}
+  class:list={['lottie-animation', className]}
+  style={`width: ${width}px; height: ${height}px;`}
+></div>
+
+<script is:inline define:vars={{ animationId, src, autoplay, loop }}>
+  // Function to load animation
+  function loadLottieAnimation() {
+    if (typeof lottie !== 'undefined') {
+      const container = document.getElementById(animationId);
+      if (container) {
+        console.log('Loading Lottie animation:', src);
+        const animation = lottie.loadAnimation({
+          container: container,
+          renderer: 'svg',
+          loop: loop,
+          autoplay: autoplay,
+          path: src
+        });
+        
+        animation.addEventListener('DOMLoaded', () => {
+          console.log('Lottie animation loaded successfully:', src);
+        });
+        
+        animation.addEventListener('loadError', (error) => {
+          console.error('Lottie animation load error:', error);
+        });
+      } else {
+        console.error('Container not found for animation:', animationId);
+      }
+    } else {
+      // Retry after a short delay if lottie is not loaded yet
+      setTimeout(loadLottieAnimation, 100);
+    }
+  }
+  
+  // Start loading when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadLottieAnimation);
+  } else {
+    loadLottieAnimation();
+  }
+</script>
+
+<style>
+  .lottie-animation {
+    display: inline-block;
+  }
+</style>
