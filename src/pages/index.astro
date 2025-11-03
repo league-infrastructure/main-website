@@ -7,6 +7,7 @@ import CardFooter from "../components/CardFooter.astro";
 import CalloutCard from "../components/CalloutCard.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Section from "../components/Section.astro";
+import Section_40_60 from "../components/Section_40_60.astro";
 ---
 
 <BaseLayout
@@ -266,15 +267,15 @@ import Section from "../components/Section.astro";
     </div>
   </Section>
 
-  <Section startBgcolor="white" endBgcolor="white" class="career">
-    <div class="career__image">
+  <Section_40_60 startBgcolor="white" endBgcolor="white">
+    <div slot="slot1" class="career__image">
       <img
         src="/images/girl-scouts-2020-03.png"
         alt="Girl Scouts learning robotics at The League"
         loading="lazy"
       />
     </div>
-    <div class="career__content">
+    <div slot="slot2" class="career__content">
       <SectionHeader align="left">
         <h2>Preparing Youth for Careers</h2>
         <p>
@@ -310,7 +311,7 @@ import Section from "../components/Section.astro";
         </figure>
       </div>
     </div>
-  </Section>
+  </Section_40_60>
 
   <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
     <div style="text-align: center;">
@@ -605,13 +606,6 @@ import Section from "../components/Section.astro";
     width: min(100%, 460px);
   }
 
-  .career {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: var(--space-2xl);
-    align-items: start;
-  }
-
   .career__image {
     width: 100%;
   }
@@ -622,16 +616,10 @@ import Section from "../components/Section.astro";
     border-radius: var(--radius-sm);
   }
 
-  @media (max-width: 768px) {
-    .career {
-      grid-template-columns: 1fr;
-    }
-  }
-
   .career__logos {
     display: grid;
     gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
     align-items: center;
   }
 

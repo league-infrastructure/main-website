@@ -1,0 +1,79 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'section'> {
+  bgcolor?: string;
+  startBgcolor?: string;
+  endBgcolor?: string;
+  containerClass?: string;
+}
+
+const { 
+  bgcolor, 
+  startBgcolor, 
+  endBgcolor, 
+  containerClass,
+  class: className, 
+  ...rest 
+} = Astro.props as Props & { class?: string };
+
+// Determine the CSS classes and inline styles
+const classes = ['section', 'section--40-60'];
+
+// Add tint class if bgcolor is specified or if it's a fade
+if (bgcolor || (startBgcolor && endBgcolor)) {
+  classes.push('section--tint');
+}
+
+// Generate gradient or solid background style
+let backgroundStyle = '';
+if (startBgcolor && endBgcolor) {
+  backgroundStyle = `background: linear-gradient(to bottom, ${startBgcolor}, ${endBgcolor});`;
+} else if (bgcolor) {
+  backgroundStyle = `background-color: ${bgcolor};`;
+}
+
+// Container classes - pass through className to container if provided
+const containerClasses = ['container', 'container--40-60'];
+if (className) {
+  containerClasses.push(className);
+}
+if (containerClass) {
+  containerClasses.push(containerClass);
+}
+---
+
+<section class:list={classes} style={backgroundStyle} {...rest}>
+  <div class:list={containerClasses}>
+    <div class="section__slot1">
+      <slot name="slot1" />
+    </div>
+    <div class="section__slot2">
+      <slot name="slot2" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .container--40-60 {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .section__slot1 {
+    width: 100%;
+  }
+
+  .section__slot2 {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .container--40-60 {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>

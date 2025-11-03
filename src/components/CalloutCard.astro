@@ -35,31 +35,37 @@ const hasMedia = Astro.slots.has('media');
 ---
 
 <article class:list={['card', className]} {...rest}>
-  {eyebrow && <p class="card__eyebrow">{eyebrow}</p>}
   {hasMedia && <slot name="media" />}
-  {title && safeHeadingLevel === 2 && <h2 class="card__title">{title}</h2>}
-  {title && safeHeadingLevel === 3 && <h3 class="card__title">{title}</h3>}
-  {title && safeHeadingLevel === 4 && <h4 class="card__title">{title}</h4>}
-  {title && safeHeadingLevel === 5 && <h5 class="card__title">{title}</h5>}
-  {title && safeHeadingLevel === 6 && <h6 class="card__title">{title}</h6>}
-  {items && items.length > 0 && (
-    <ul class:list={[ 'card__list', itemsClass ]}>
-      {items.map((item) => (
-        <li>{item}</li>
-      ))}
-    </ul>
+  <div class="card__body">
+    {eyebrow && <p class="card__eyebrow">{eyebrow}</p>}
+    {title && safeHeadingLevel === 2 && <h2 class="card__title">{title}</h2>}
+    {title && safeHeadingLevel === 3 && <h3 class="card__title">{title}</h3>}
+    {title && safeHeadingLevel === 4 && <h4 class="card__title">{title}</h4>}
+    {title && safeHeadingLevel === 5 && <h5 class="card__title">{title}</h5>}
+    {title && safeHeadingLevel === 6 && <h6 class="card__title">{title}</h6>}
+    {items && items.length > 0 && (
+      <ul class:list={[ 'card__list', itemsClass ]}>
+        {items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    )}
+    <slot />
+  </div>
+  {(cta || Astro.slots.has('footer')) && (
+    <div class="card__footer">
+      {cta && (
+        <Button
+          class="card__cta"
+          href={cta.href}
+          variant={cta.variant ?? 'primary'}
+          target={cta.target}
+          rel={cta.rel}
+        >
+          {cta.label}
+        </Button>
+      )}
+      <slot name="footer" />
+    </div>
   )}
-  <slot />
-  {cta && (
-    <Button
-      class="card__cta"
-      href={cta.href}
-      variant={cta.variant ?? 'primary'}
-      target={cta.target}
-      rel={cta.rel}
-    >
-      {cta.label}
-    </Button>
-  )}
-  <slot name="footer" />
 </article>
