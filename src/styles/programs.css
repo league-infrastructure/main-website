@@ -355,11 +355,18 @@ th a {
 
 .program-card .card__media {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
 .program-card .card__media img {
-  width: 100%; /* Take up 100% of the card like original site */
+  width: auto;
   height: auto;
+  max-height: 200px;
+  max-width: 100%;
+  object-fit: contain;
   margin: 0;
 }
 

@@ -204,6 +204,50 @@ main {
   background: var(--color-primary);
 }
 
+/* fulldev-ui button variant classes */
+.variant-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  background: var(--color-primary);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.variant-primary:hover,
+.variant-primary:focus {
+  background: var(--color-primary-dark);
+  color: #ffffff;
+}
+
+.variant-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  background: #ffffff;
+  color: var(--color-text);
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+
+.variant-secondary:hover,
+.variant-secondary:focus {
+  color: #ffffff;
+  background: var(--color-primary);
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
