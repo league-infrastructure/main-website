@@ -7,7 +7,7 @@ Program Cards ccurrently look like:
       <ProgramCard>
         <figure class="card__media">
           <img
-            src="/images/python_1.png"
+            src="/images/python_header.png"
             alt="Illustration representing Python coding"
             loading="lazy"
           />
@@ -60,7 +60,7 @@ Program Cards ccurrently look like:
 But they should work like this: 
 
 ```html
-      <ProgramCard img="/images/python_1.png" alt="Illustration representing Python coding">
+      <ProgramCard img="/images/python_header.png" alt="Illustration representing Python coding">
         <CardBody
             eyebrow="BEGINNER"
         >
