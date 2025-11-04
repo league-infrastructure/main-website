@@ -1,33 +1,49 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<'div'> {
-  'max-columns'?: number | string;
+interface Props extends HTMLAttributes<"div"> {
+  "max-columns"?: number | string;
   maxColumns?: number | string;
+  "min-width"?: number | string;
+  minWidth?: number | string;
 }
 
 const props = Astro.props as Props & { class?: string; style?: string };
-const className = props.class;
-const inlineStyle = props.style;
-const hyphenMax = props['max-columns'];
+const { class: className, style: inlineStyle, ...rest } = props;
+
+const hyphenMax = props["max-columns"];
 const camelMax = props.maxColumns;
 const parsedMax = Number(hyphenMax ?? camelMax);
-const maxColumns = Number.isFinite(parsedMax) && parsedMax > 0 ? parsedMax : 3;
+const hasCustomColumns = Number.isFinite(parsedMax) && parsedMax > 0;
+const columnCount = hasCustomColumns
+  ? Math.max(1, Math.floor(Number(parsedMax)))
+  : null;
 
-const rest = { ...props } as Record<string, any>;
-delete rest.class;
-delete rest.style;
-delete rest.maxColumns;
-delete rest['max-columns'];
+const rawMin = props["min-width"] ?? props.minWidth;
+const parsedMin = Number(rawMin);
+const minWidthPx = Number.isFinite(parsedMin) && parsedMin > 0 ? parsedMin : 300;
 
-const classes = ['card-grid'];
+delete (rest as Record<string, unknown>)["max-columns"];
+delete (rest as Record<string, unknown>).maxColumns;
+delete (rest as Record<string, unknown>)["min-width"];
+delete (rest as Record<string, unknown>).minWidth;
+
+const classes = ["card-grid"];
 if (className) {
   classes.push(className);
 }
 
-const styleValue = inlineStyle && inlineStyle.trim().length > 0
-  ? `${inlineStyle}; --card-grid-max-columns: ${maxColumns}`
-  : `--card-grid-max-columns: ${maxColumns}`;
+const styleParts: string[] = [];
+if (inlineStyle && inlineStyle.trim().length > 0) {
+  styleParts.push(inlineStyle.trim().replace(/;$/, ""));
+}
+styleParts.push(`--card-grid-min-width: ${minWidthPx}px`);
+if (columnCount) {
+  styleParts.push(
+    `--card-grid-template: repeat(${columnCount}, minmax(var(--card-grid-min-width, 300px), 1fr))`
+  );
+}
+const styleValue = styleParts.join("; ");
 ---
 
 <div class:list={classes} style={styleValue} {...rest}>
@@ -35,13 +51,14 @@ const styleValue = inlineStyle && inlineStyle.trim().length > 0
 </div>
 
 <style>
+
   .card-grid {
     display: grid;
     gap: var(--space-xl);
     width: 100%;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(max(220px, calc(100% / var(--card-grid-max-columns))), 1fr)
+    grid-template-columns: var(
+      --card-grid-template,
+      repeat(auto-fit, minmax(var(--card-grid-min-width, 300px), 1fr))
     );
   }
 

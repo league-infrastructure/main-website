@@ -7,6 +7,7 @@ import ProgramCard from "../../components/ProgramCard.astro";
 import CardBody from "../../components/CardBody.astro";
 import CardFooter from "../../components/CardFooter.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
+import CardGrid from "../../components/CardGrid.astro";
 
 // Programs data moved from _index.yaml
 const yamlContent = {
@@ -27,7 +28,7 @@ const yamlContent = {
         "Small classes with five students per teacher",
       ],
       image: {
-        src: "/images/python.png",
+        src: "/images/python_header.png",
         alt: "Illustration representing Python coding",
       },
       display_in: ["card", "table"],
@@ -58,7 +59,7 @@ const yamlContent = {
         "Project-based learning across eight levels",
       ],
       image: {
-        src: "/images/java.png",
+        src: "/images/java_header.png",
         alt: "Illustration representing Java development",
       },
       display_in: ["card", "table"],
@@ -224,7 +225,7 @@ const yamlContent = {
         goals.
       </p>
     </SectionHeader>
-    <div class="program-grid">
+    <CardGrid min-width={300}>
       {
         yamlContent.main_programs
           .filter((program: any) => program.display_in.includes("card"))
@@ -253,7 +254,7 @@ const yamlContent = {
             </ProgramCard>
           ))
       }
-    </div>
+    </CardGrid>
   </Section>
 
   <Section class="section--program-comparison">
@@ -316,7 +317,7 @@ const yamlContent = {
         programs.
       </p>
     </SectionHeader>
-    <div class="support-grid">
+    <CardGrid min-width={300}>
       {
         yamlContent.other_programs.map((program: any) => (
           <CalloutCard class="support-card" title={program.title}>
@@ -327,7 +328,7 @@ const yamlContent = {
           </CalloutCard>
         ))
       }
-    </div>
+    </CardGrid>
   </Section>
 
 
