@@ -33,3 +33,16 @@ const hasPrice = Astro.slots.has('price');
     </div>
   )}
 </footer>
+
+<style>
+  .card__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  .card__footer .button-group {
+    justify-content: center;
+  }
+</style>

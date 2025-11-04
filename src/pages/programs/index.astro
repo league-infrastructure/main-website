@@ -238,9 +238,10 @@ const yamlContent = {
                     <li>{highlight}</li>
                   ))}
                 </ul>
-                <price>{program.price}</price>
+               
               </CardBody>
               <CardFooter>
+                 <p slot="price">{program.price}</p>
                 <a
                   slot="primary"
                   class="button button--primary"
@@ -269,7 +270,6 @@ const yamlContent = {
           <tr>
             <th scope="col"></th>
             {
-              // Program names become the column headers
               yamlContent.main_programs
                 .filter((program: any) => program.display_in.includes("table"))
                 .map((program: any) => (
@@ -280,15 +280,14 @@ const yamlContent = {
         </thead>
         <tbody>
           {
-            // Transposed rows: each original column becomes a row label
             [
-              { label: 'Level', key: 'level' },
-              { label: 'Duration', key: 'duration' },
-              { label: 'Tuition', key: 'tuition' },
-              { label: 'Assistance', key: 'assistance' },
-              { label: 'Schedule', key: 'schedule' },
-              { label: 'Ratio', key: 'ratio' },
-              { label: 'Languages', key: 'languages' },
+              { label: "Level", key: "level" },
+              { label: "Duration", key: "duration" },
+              { label: "Tuition", key: "tuition" },
+              { label: "Assistance", key: "assistance" },
+              { label: "Schedule", key: "schedule" },
+              { label: "Ratio", key: "ratio" },
+              { label: "Languages", key: "languages" },
             ].map((row: any) => (
               <tr>
                 <th scope="row">{row.label}</th>
@@ -421,6 +420,25 @@ const yamlContent = {
   }
 
 
+  .section--programs-main .program-card {
+    gap: 0;
+  }
+
+  .section--programs-main .card__media {
+    margin: 0;
+    width: 100%;
+
+    overflow: hidden;
+  }
+
+  .section--programs-main .card__media img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
+
 
 
   .program-card .card__footer {
@@ -459,23 +477,17 @@ const yamlContent = {
 
   .comparison-table thead {
     background: #ffffff !important;
-    color: var(--color-primary) !important;
-  }
-
-  .comparison-table thead th {
-    background: #ffffff !important;
-    color: var(--color-primary) !important;
-  }
-
-  /* Responsive adjustments for this page */
-  @media (max-width: 600px) {
-    th,
-    td {
-      padding: var(--space-sm);
+    .section--programs-main .program-card {
+      /* Removed page-level overrides now handled inside ProgramCard component */
     }
-
-    .split-layout {
-      gap: var(--space-xl);
+  
+    .section--programs-main .card__media {
+      /* Removed page-level overrides now handled inside ProgramCard component */
+    }
+  
+    .section--programs-main .card__media img {
+      /* Removed page-level overrides now handled inside ProgramCard component */
+    }
     }
   }
 </style>
