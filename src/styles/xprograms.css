@@ -666,3 +666,25 @@ th a {
     gap: var(--space-2xl);
   }
 }
+
+/* Program comparison table styling */
+.section--program-comparison table th:nth-child(even),
+.section--program-comparison table td:nth-child(even) {
+  background-color: var(--color-table-alt) !important;
+}
+
+.section--program-comparison table th,
+.section--program-comparison table td {
+  font-size: 24pt;
+  color: var(--color-primary);
+}
+
+.comparison-table thead {
+  background: #ffffff !important;
+  color: var(--color-primary) !important;
+}
+
+.comparison-table thead th {
+  background: #ffffff !important;
+  color: var(--color-primary) !important;
+}

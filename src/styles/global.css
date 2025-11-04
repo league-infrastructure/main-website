@@ -5,6 +5,7 @@
   --color-primary-dark: #c35512;
   --color-secondary: #5d5fef;
   --color-peach: #fff2e8;
+  --color-table-alt: #f2f2ff;
   --color-hero-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fcdac5 100%);
   --color-surface: #ffffff;
   --color-surface-alt: #f6f6fa;
@@ -164,6 +165,14 @@ main {
   padding: var(--space-xl);
 }
 
+.card__price {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-primary);
+}
+
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -273,10 +282,7 @@ main {
   overflow: hidden;
 }
 
-.table thead {
-  background: var(--color-primary);
-  color: #ffffff;
-}
+
 
 .table th,
 .table td {
@@ -289,6 +295,10 @@ main {
 .table tbody tr:nth-child(even) {
   background: rgba(243, 113, 33, 0.05);
 }
+
+
+
+
 
 blockquote {
   margin: 0;
