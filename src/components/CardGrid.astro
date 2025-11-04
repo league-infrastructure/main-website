@@ -1,0 +1,53 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  'max-columns'?: number | string;
+  maxColumns?: number | string;
+}
+
+const props = Astro.props as Props & { class?: string; style?: string };
+const className = props.class;
+const inlineStyle = props.style;
+const hyphenMax = props['max-columns'];
+const camelMax = props.maxColumns;
+const parsedMax = Number(hyphenMax ?? camelMax);
+const maxColumns = Number.isFinite(parsedMax) && parsedMax > 0 ? parsedMax : 3;
+
+const rest = { ...props } as Record<string, any>;
+delete rest.class;
+delete rest.style;
+delete rest.maxColumns;
+delete rest['max-columns'];
+
+const classes = ['card-grid'];
+if (className) {
+  classes.push(className);
+}
+
+const styleValue = inlineStyle && inlineStyle.trim().length > 0
+  ? `${inlineStyle}; --card-grid-max-columns: ${maxColumns}`
+  : `--card-grid-max-columns: ${maxColumns}`;
+---
+
+<div class:list={classes} style={styleValue} {...rest}>
+  <slot />
+</div>
+
+<style>
+  .card-grid {
+    display: grid;
+    gap: var(--space-xl);
+    width: 100%;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(max(220px, calc(100% / var(--card-grid-max-columns))), 1fr)
+    );
+  }
+
+  @media (max-width: 600px) {
+    .card-grid {
+      gap: var(--space-lg);
+    }
+  }
+</style>
