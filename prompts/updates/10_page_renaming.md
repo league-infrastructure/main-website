@@ -45,4 +45,7 @@ end, you will see instruictions for filling in your part.
    get the right paths. Complete this task by first creating a script in
    `test/dev/` to move all of the files, then let me review and run the program.
    After that, you will edit the files to fix the paths. Script ready at
-   `test/dev/move_remaining_index_pages.py` (not yet executed) for review.
+   `test/dev/move_remaining_index_pages.py` and run; updated relative imports for
+   the moved top-level pages (`about.astro`, `about/policies.astro`, `camps.astro`,
+   `donate.astro`, `programs.astro`, `programs/classes.astro`, `programs/tech-club.astro`)
+   plus their leaf descendants to ensure `npm run astro check` passes.
