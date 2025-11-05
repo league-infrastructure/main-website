@@ -54,6 +54,12 @@ When you make changes to the codebase based on these update notes.
 For visual changes to pages, as opposed to just content changes, use browsermcp
 or puppeteer to check that the page has definitely changed. 
 
+# Coding Style
+
+Page names. Prefer to no to use 'index.astro' for a page name. Use
+`pagename.astro` instead. If you will create a subpath, it is ok to have both
+`pagename.astro` and `pagename/`
+
 # CSS
 
 This project uses two main CSS files with specific purposes:
