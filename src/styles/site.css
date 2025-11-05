@@ -758,29 +758,6 @@
 	gap: var(--space-xl);
 }
 
-.policy-links__grid {
-	display: grid;
-	gap: var(--space-lg);
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.policy-link {
-	display: grid;
-	gap: var(--space-sm);
-	padding: var(--space-lg);
-	text-decoration: none;
-	color: inherit;
-	border: 1px solid transparent;
-	border-radius: var(--radius-md);
-	transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.policy-link:hover,
-.policy-link:focus {
-	border-color: var(--color-primary);
-	transform: translateY(-4px);
-}
-
 .policy-section {
 	display: grid;
 	gap: var(--space-lg);

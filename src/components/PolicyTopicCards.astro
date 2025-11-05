@@ -1,0 +1,147 @@
+---
+import CardGrid from "./CardGrid.astro";
+---
+
+<CardGrid class="policy-topic-cards" data-policy-topic-cards>
+  <p class="policy-topic-cards__placeholder">
+    Policy topics will appear here once the page content loads.
+  </p>
+</CardGrid>
+
+<template data-policy-topic-template>
+  <a class="policy-topic-card" href="#">
+    <h3 class="policy-topic-card__title"></h3>
+    <p class="policy-topic-card__summary"></p>
+  </a>
+</template>
+
+<script is:inline>
+  const initPolicyTopicCards = () => {
+    const container = document.querySelector("[data-policy-topic-cards]");
+    const template = document.querySelector("[data-policy-topic-template]");
+
+    if (!(container instanceof HTMLElement) || !(template instanceof HTMLTemplateElement)) {
+      return;
+    }
+
+    if (container.dataset.policyTopicCardsInitialized === "true") {
+      return;
+    }
+
+    const prototype = template.content.firstElementChild;
+    if (!(prototype instanceof HTMLElement)) {
+      return;
+    }
+
+    const sections = Array.from(document.querySelectorAll("[data-policy-section]"));
+
+    if (!sections.length) {
+      container.innerHTML =
+        '<p class="policy-topic-cards__placeholder">Policy topics will appear here when content is available.</p>';
+      container.dataset.policyTopicCardsInitialized = "true";
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    sections.forEach((section) => {
+      if (!(section instanceof HTMLElement)) {
+        return;
+      }
+
+      const sectionId = section.id;
+      if (!sectionId) {
+        return;
+      }
+
+      const card = prototype.cloneNode(true);
+      if (!(card instanceof HTMLElement)) {
+        return;
+      }
+
+      const titleElement = card.querySelector(".policy-topic-card__title");
+      const summaryElement = card.querySelector(".policy-topic-card__summary");
+
+      const derivedTitle =
+        (section.dataset.policyTitle || section.querySelector("h2")?.textContent || "").trim() ||
+        "Policy Section";
+
+      const derivedSummary =
+        (section.dataset.policySummary || section.querySelector("p")?.textContent || "").trim() ||
+        "Review this policy section for more details.";
+
+      if (card instanceof HTMLAnchorElement) {
+        card.href = `#${sectionId}`;
+      } else {
+        card.setAttribute("href", `#${sectionId}`);
+      }
+
+      if (titleElement) {
+        titleElement.textContent = derivedTitle;
+      }
+
+      if (summaryElement) {
+        summaryElement.textContent = derivedSummary;
+      }
+
+      fragment.appendChild(card);
+    });
+
+    container.innerHTML = "";
+    container.appendChild(fragment);
+    container.dataset.policyTopicCardsInitialized = "true";
+  };
+
+  if (typeof window !== "undefined") {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPolicyTopicCards, {
+        once: true,
+      });
+    } else {
+      initPolicyTopicCards();
+    }
+  }
+</script>
+
+<style>
+  .policy-topic-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--surface-border, rgba(17, 24, 39, 0.08));
+    border-radius: var(--radius-lg);
+    background-color: var(--surface-card, #fff);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 100%;
+  }
+
+  .policy-topic-card:hover,
+  .policy-topic-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  }
+
+  .policy-topic-card__title {
+    font-size: var(--font-size-lg, 1.125rem);
+    font-weight: var(--font-weight-semibold, 600);
+    margin: 0;
+  }
+
+  .policy-topic-card__summary {
+    margin: 0;
+    color: var(--text-muted, #475467);
+    line-height: 1.5;
+  }
+
+  .policy-topic-cards__placeholder {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: var(--space-lg);
+    text-align: center;
+    border-radius: var(--radius-lg);
+    background: var(--surface-muted, #f5f5fa);
+  }
+</style>

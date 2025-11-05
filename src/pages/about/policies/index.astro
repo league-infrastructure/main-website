@@ -2,93 +2,39 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import SectionHeader from "../../../components/SectionHeader.astro";
 import Section from "../../../components/Section.astro";
-
-const quickLinks = [
-  {
-    title: "Membership Plans",
-    description:
-      "Understand tuition plans, monthly billing, and how memberships roll over.",
-    href: "#membership-plans",
-  },
-  {
-    title: "Payment Options",
-    description:
-      "Set up auto-pay and keep tuition current through the Parent Portal.",
-    href: "#payment-options",
-  },
-  {
-    title: "Make-up Policies",
-    description: "How to use make-up passes and schedule replacement classes.",
-    href: "#makeup-policies",
-  },
-  {
-    title: "Refunds & Late Fees",
-    description:
-      "Review refund eligibility and timing for late payment penalties.",
-    href: "#refund-policies",
-  },
-  {
-    title: "Cancellation Policies",
-    description:
-      "Steps to cancel a class and avoid losing a visit on your plan.",
-    href: "#cancellation-policies",
-  },
-  {
-    title: "Guide to Enrollment",
-    description:
-      "Create your account, purchase plans, and enroll in ongoing classes.",
-    href: "#enrolling-in-classes",
-  },
-  {
-    title: "Privacy Policy",
-    description: "See how we collect, store, and use student information.",
-    href: "/about/policies/privacy-policy/",
-  },
-  {
-    title: "Non-discrimination Policy",
-    description: "Read our code of conduct for students, families, and staff.",
-    href: "/about/policies/nondiscrimination-policy/",
-  },
-  {
-    title: "COVID-19 Safety",
-    description:
-      "Review health screenings, classroom protocols, and ventilation measures.",
-    href: "/about/policies/covid-policy/",
-  },
-];
+import HeroSection from "../../../components/HeroSection.astro";
+import PolicyTopicCards from "../../../components/PolicyTopicCards.astro";
 ---
 
 <BaseLayout
   title="Policies & Procedures"
   description="Review The League of Amazing Programmers policies on tuition, payments, make-ups, cancellations, and enrollment."
 >
-  <Section
-    class="hero"
-    containerClass="hero__grid hero__grid--compact hero__grid--cozy"
+  <HeroSection
+    class="policies-hero"
+    actions={[
+      {
+        label: "Client Portal",
+        href: "https://jtl.pike13.com/accounts/sign_in",
+        variant: "primary" as const,
+        target: "_blank",
+        rel: "noreferrer",
+      },
+    ]}
   >
-    <div class="hero__content">
-      <h1>Policies &amp; Procedures</h1>
-      <p>
-        LEAGUE policies outline how tuition, memberships, attendance, and
-        communication work across our programs. Most tasks can be completed
-        through the Client Portal using the button below.
-      </p>
-      <button
-        class="button button--primary"
-        type="button"
-        onclick="window.open('https://jtl.pike13.com/accounts/sign_in', '_blank', 'noreferrer')"
-      >
-        Client Portal
-      </button>
-    </div>
-    <div class="hero__media">
-      <img
-        src="/images/current_students.png"
-        alt="Students collaborating at The League"
-        loading="lazy"
-      />
-    </div>
-  </Section>
+    <h1 slot="title">Policies &amp; Procedures</h1>
+    <p slot="description">
+      LEAGUE policies outline how tuition, memberships, attendance, and
+      communication work across our programs. Most tasks can be completed
+      through the Client Portal using the button below.
+    </p>
+    <img
+      slot="media"
+      src="/images/current_students.png"
+      alt="Students collaborating at The League"
+      loading="lazy"
+    />
+  </HeroSection>
 
   <Section class="policy-links">
     <SectionHeader align="left">
@@ -98,19 +44,16 @@ const quickLinks = [
         policy guides.
       </p>
     </SectionHeader>
-    <div class="policy-links__grid">
-      {
-        quickLinks.map((item) => (
-          <a class="policy-link card" href={item.href}>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </a>
-        ))
-      }
-    </div>
+    <PolicyTopicCards />
   </Section>
 
-  <Section bgcolor="#f6f6fa" class="policy-section" id="membership-plans">
+  <Section
+    bgcolor="#f6f6fa"
+    class="policy-section"
+    id="membership-plans"
+    data-policy-section
+    data-policy-summary="Compare tuition plans, membership passes, and billing essentials."
+  >
     <h2>Membership Plans and Passes</h2>
     <div class="policy-section__content">
       <p>
@@ -149,132 +92,153 @@ const quickLinks = [
     </div>
   </Section>
 
-  <Section class="policy-section" id="payment-options">
-      <h2>Payment Options</h2>
-      <div class="policy-section__content">
-        <p>
-          Tuition payments are processed through our auto-pay program. A valid
-          credit card must be added to your Parent Portal account when you
-          enroll so that charges can draft automatically each month.
-        </p>
-        <p class="policy-note">Set up auto-pay in the Client Portal:</p>
-        <ol>
-          <li>
-            Sign in at <a
-              href="https://jtl.pike13.com/accounts/sign_in"
-              target="_blank"
-              rel="noreferrer">jtl.pike13.com</a
-            >.
-          </li>
-          <li>Open <strong>Your Stuff</strong> at the top of the page.</li>
-          <li>
-            Select <strong>Payment Methods</strong> and choose <strong
-              >Add New Card</strong
-            >.
-          </li>
-          <li>Enter your card information and click <strong>Save</strong>.</li>
-        </ol>
-      </div>
+  <Section
+    class="policy-section"
+    id="payment-options"
+    data-policy-section
+    data-policy-summary="Set up auto-pay and manage stored payment methods in the Client Portal."
+  >
+    <h2>Payment Options</h2>
+    <div class="policy-section__content">
+      <p>
+        Tuition payments are processed through our auto-pay program. A valid
+        credit card must be added to your Parent Portal account when you
+        enroll so that charges can draft automatically each month.
+      </p>
+      <p class="policy-note">Set up auto-pay in the Client Portal:</p>
+      <ol>
+        <li>
+          Sign in at <a
+            href="https://jtl.pike13.com/accounts/sign_in"
+            target="_blank"
+            rel="noreferrer">jtl.pike13.com</a
+          >.
+        </li>
+        <li>Open <strong>Your Stuff</strong> at the top of the page.</li>
+        <li>
+          Select <strong>Payment Methods</strong> and choose <strong
+            >Add New Card</strong
+          >.
+        </li>
+        <li>Enter your card information and click <strong>Save</strong>.</li>
+      </ol>
+    </div>
   </Section>
 
-  <Section bgcolor="#f6f6fa" class="policy-section" id="makeup-policies">
-    <div class="container policy-section">
-      <h2>Make-up Policies</h2>
-      <div class="policy-section__content">
-        <p>
-          Consistent attendance helps students build momentum, but make-up
-          visits are available when schedule conflicts happen. Cancel your
-          original class in the portal and a make-up pass will appear on your
-          account.
-        </p>
-        <p>
-          You can apply the pass to another class in the same week or on a
-          future date. Enroll in a session that matches your student's topic and
-          level, then select the pass you would like to use at checkout. All
-          make-ups are self-scheduled through the portal like any other class.
-        </p>
-        <p>
-          Visit your <a
-            href="https://jtl.pike13.com/me"
-            target="_blank"
-            rel="noreferrer">LEAGUE profile</a
-          > to review available make-up passes and schedule the next visit.
-        </p>
-      </div>
+  <Section
+    bgcolor="#f6f6fa"
+    class="policy-section"
+    id="makeup-policies"
+    data-policy-section
+    data-policy-summary="Use make-up passes to reschedule missed classes that match your student's level."
+  >
+    <h2>Make-up Policies</h2>
+    <div class="policy-section__content">
+      <p>
+        Consistent attendance helps students build momentum, but make-up
+        visits are available when schedule conflicts happen. Cancel your
+        original class in the portal and a make-up pass will appear on your
+        account.
+      </p>
+      <p>
+        You can apply the pass to another class in the same week or on a
+        future date. Enroll in a session that matches your student's topic and
+        level, then select the pass you would like to use at checkout. All
+        make-ups are self-scheduled through the portal like any other class.
+      </p>
+      <p>
+        Visit your <a
+          href="https://jtl.pike13.com/me"
+          target="_blank"
+          rel="noreferrer">LEAGUE profile</a
+        > to review available make-up passes and schedule the next visit.
+      </p>
     </div>
-  </section>
+  </Section>
 
-  <section class="section" id="refund-policies">
-    <div class="container policy-section">
-      <h2>Refunds and Late Fees</h2>
-      <div class="policy-section__content">
-        <p>
-          Tuition is non-refundable and non-transferable. Credits, rollovers, or
-          adjustments are not issued for absences or closures.
-        </p>
-        <p>
-          If tuition is received after the first of the month, a $25 late fee is
-          automatically added to the account. Families are responsible for
-          making payments on time; extensions are not offered.
-        </p>
-      </div>
+  <Section
+    class="policy-section"
+    id="refund-policies"
+    data-policy-section
+    data-policy-summary="Review refund limitations and why timely tuition payments matter."
+  >
+    <h2>Refunds and Late Fees</h2>
+    <div class="policy-section__content">
+      <p>
+        Tuition is non-refundable and non-transferable. Credits, rollovers, or
+        adjustments are not issued for absences or closures.
+      </p>
+      <p>
+        If tuition is received after the first of the month, a $25 late fee is
+        automatically added to the account. Families are responsible for
+        making payments on time; extensions are not offered.
+      </p>
     </div>
-  </section>
+  </Section>
 
-  <section class="section section--surface-alt" id="cancellation-policies">
-    <div class="container policy-section">
-      <h2>Cancellation Policies</h2>
-      <div class="policy-section__content">
-        <p>
-          Please cancel classes you cannot attend. If a cancellation is not
-          submitted, the visit will be deducted from your plan or pass.
-        </p>
-        <ol>
-          <li>Sign in to the Client Portal.</li>
-          <li>
-            Under <strong>Upcoming</strong>, choose the class you want to
-            cancel.
-          </li>
-          <li>Click <strong>Cancel Registration</strong> and confirm.</li>
-        </ol>
-        <p>
-          For more detailed instructions, visit our <a
-            href="/about/policies/enroll/">Guide to Enrollment</a
-          >.
-        </p>
-      </div>
+  <Section
+    bgcolor="#f6f6fa"
+    class="policy-section"
+    id="cancellation-policies"
+    data-policy-section
+    data-policy-summary="Cancel upcoming classes step-by-step so visits stay on your account."
+  >
+    <h2>Cancellation Policies</h2>
+    <div class="policy-section__content">
+      <p>
+        Please cancel classes you cannot attend. If a cancellation is not
+        submitted, the visit will be deducted from your plan or pass.
+      </p>
+      <ol>
+        <li>Sign in to the Client Portal.</li>
+        <li>
+          Under <strong>Upcoming</strong>, choose the class you want to
+          cancel.
+        </li>
+        <li>Click <strong>Cancel Registration</strong> and confirm.</li>
+      </ol>
+      <p>
+        For more detailed instructions, visit our <a
+          href="/about/policies/enroll/">Guide to Enrollment</a
+        >.
+      </p>
     </div>
-  </section>
+  </Section>
 
-  <section class="section" id="enrolling-in-classes">
-    <div class="container policy-section">
-      <h2>Enrolling in Classes</h2>
-      <div class="policy-section__content">
-        <p>
-          The Parent Portal is the best way to manage ongoing enrollment. Create
-          profiles for each student, purchase the appropriate plan or pass, and
-          register for your first class directly from the schedule.
-        </p>
-        <p>
-          After the first class is booked, let us know if you would like to stay
-          in the same weekly class slot so we can confirm the recurring
-          enrollment.
-        </p>
-        <ul>
-          <li>Create parent and student accounts in the portal.</li>
-          <li>
-            Purchase a tuition or membership plan that fits your schedule.
-          </li>
-          <li>Enroll in your first class from the online schedule.</li>
-          <li>
-            Share ongoing scheduling preferences with our staff or your
-            instructor.
-          </li>
-        </ul>
-        <p></p>
-      </div>step-by-step walkthrough is available in our <a
-        href="/about/policies/enroll/">Guide to Enrollment</a
-      >.
+  <Section
+    class="policy-section"
+    id="enrolling-in-classes"
+    data-policy-section
+    data-policy-summary="Enroll students, secure recurring spots, and manage schedules in the Parent Portal."
+  >
+    <h2>Enrolling in Classes</h2>
+    <div class="policy-section__content">
+      <p>
+        The Parent Portal is the best way to manage ongoing enrollment. Create
+        profiles for each student, purchase the appropriate plan or pass, and
+        register for your first class directly from the schedule.
+      </p>
+      <p>
+        After the first class is booked, let us know if you would like to stay
+        in the same weekly class slot so we can confirm the recurring
+        enrollment.
+      </p>
+      <ul>
+        <li>Create parent and student accounts in the portal.</li>
+        <li>
+          Purchase a tuition or membership plan that fits your schedule.
+        </li>
+        <li>Enroll in your first class from the online schedule.</li>
+        <li>
+          Share ongoing scheduling preferences with our staff or your
+          instructor.
+        </li>
+      </ul>
+      <p>
+        A step-by-step walkthrough is available in our <a
+          href="/about/policies/enroll/">Guide to Enrollment</a
+        >.
+      </p>
     </div>
-  </section>
+  </Section>
 </BaseLayout>
