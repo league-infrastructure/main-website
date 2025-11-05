@@ -7,11 +7,13 @@ interface Props extends HTMLAttributes<'article'> {
 }
 
 const { class: className, img, alt, ...rest } = Astro.props as Props & { class?: string };
+const hasCardDirectory = img.includes('/cards/');
+const fallbackStyle = hasCardDirectory ? undefined : 'height: 190px; padding-top: 15px;';
 ---
 
 <article class:list={['card', 'program-card', className]} {...rest}>
   <figure class="card__media">
-    <img src={img} alt={alt} loading="lazy" />
+    <img src={img} alt={alt} loading="lazy" style={fallbackStyle} />
   </figure>
   <slot />
 </article>
