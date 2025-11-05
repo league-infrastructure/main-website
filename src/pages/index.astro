@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import CardBody from "../components/CardBody.astro";
 import CardFooter from "../components/CardFooter.astro";
+import CardGrid from "../components/CardGrid.astro";
 import CalloutCard from "../components/CalloutCard.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Section from "../components/Section.astro";
@@ -48,7 +49,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
         online – you choose.
       </p>
     </SectionHeader>
-    <div class="program-grid">
+    <CardGrid min-width={320}>
       <ProgramCard img="/images/python_header.png" alt="Illustration representing Python coding">
         <CardBody eyebrow="BEGINNER">
           <h2 slot="title">Python Coding Classes</h2>
@@ -130,7 +131,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
           >
         </CardFooter>
       </ProgramCard>
-    </div>
+    </CardGrid>
   </Section>
 
   <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
@@ -143,7 +144,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
         classes in professional programming technologies and techniques.
       </p>
     </SectionHeader>
-    <div class="program-grid">
+    <CardGrid min-width={320}>
       <ProgramCard img="/images/current_students.png" alt="Students attending Tech Club workshop">
         <CardBody eyebrow="BEGINNER TO INTERMEDIATE">
           <h2 slot="title">Free Tech Club</h2>
@@ -212,7 +213,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
           >
         </CardFooter>
       </ProgramCard>
-    </div>
+    </CardGrid>
   </Section>
 
   <Section startBgcolor="#fcdac5" endBgcolor="white">
@@ -223,7 +224,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
         students building between weekly classes.
       </p>
     </SectionHeader>
-    <div class="support-grid">
+    <CardGrid>
       <CalloutCard class="support-card" title="League Labs">
         <p>
           Intern with the LEAGUE; get job experience while creating new classes
@@ -264,7 +265,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
           href="/programs/tech-club/robot-garage/#first">Learn more</a
         >
       </CalloutCard>
-    </div>
+    </CardGrid>
   </Section>
 
   <Section_40_60 startBgcolor="white" endBgcolor="white">
@@ -454,25 +455,8 @@ import Section_40_60 from "../components/Section_40_60.astro";
 </BaseLayout>
 
 <style>
-  /* Custom Hero to match original site */
-  .custom-hero {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 0%,
-      #fcdac5 100%
-    );
-    padding: 2rem 0;
-  }
 
-  .custom-hero__content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
+
 
   .custom-hero__logo {
     width: 350px;
@@ -480,42 +464,6 @@ import Section_40_60 from "../components/Section_40_60.astro";
     margin-bottom: 1rem;
   }
 
-  .custom-hero__tagline {
-    color: #f37121;
-    font-size: 1.8rem;
-    font-weight: 400;
-    margin: 1rem 0;
-    line-height: 1.2;
-  }
-
-  .custom-hero__description {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .custom-hero__description strong {
-    font-weight: 700;
-  }
-
-  .custom-hero__right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .custom-hero__image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-
-  .custom-hero__badge {
-    width: 120px;
-    height: auto;
-  }
 
   @media (max-width: 768px) {
     .custom-hero__content {
@@ -559,52 +507,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
     text-decoration: underline;
   }
 
-  .home-hero {
-    position: relative;
-    background: var(--color-hero-gradient);
-    padding: var(--space-4xl) 0 var(--space-3xl);
-  }
 
-  .home-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(93, 95, 239, 0.18),
-      transparent 55%
-    );
-    pointer-events: none;
-  }
-
-  .home-hero .hero-section__container {
-    position: relative;
-  }
-
-  .home-hero__media {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .home-hero__blob {
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(
-      circle at 30% 30%,
-      rgba(243, 113, 33, 0.35),
-      transparent 60%
-    );
-    transform: translateY(8%);
-    border-radius: 50%;
-    z-index: -1;
-  }
-
-  .home-hero__media img {
-    width: min(100%, 460px);
-  }
 
   .career__image {
     width: 100%;
@@ -692,7 +595,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
   }
 
   .recognition {
-    display: grid;
+    display: grid;  
     gap: var(--space-2xl);
     justify-items: center;
   }
@@ -705,85 +608,9 @@ import Section_40_60 from "../components/Section_40_60.astro";
     justify-content: center;
   }
 
-  .recognition__logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-sm) var(--space-lg);
-    background: #ffffff;
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-card);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
 
-  .recognition__logo:hover,
-  .recognition__logo:focus {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card-hover, var(--shadow-card));
-  }
 
-  .recognition__logo img {
-    max-height: 72px;
-    width: auto;
-  }
-
-  .newsletter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-lg);
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .newsletter__copy h2 {
-    margin: 0 0 var(--space-sm) 0;
-  }
-
-  .newsletter__copy p {
-    margin: 0;
-    max-width: 540px;
-  }
-
-  .cta {
-    color: #ffffff;
-    min-height: 400px;
-  }
-
-  .cta__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2xl);
-    text-align: center;
-    min-height: 300px;
-  }
-
-  .cta__title {
-    margin: 0;
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: bold;
-  }
-
-  .cta__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    align-items: center;
-  }
-
-  .cta .button--secondary {
-    background: transparent;
-    color: #ffffff;
-    border-color: #ffffff;
-  }
-
-  .cta .button--secondary:hover,
-  .cta .button--secondary:focus {
-    background: rgba(255, 255, 255, 0.18);
-  }
+ 
 
   @media (max-width: 768px) {
     .home-hero {

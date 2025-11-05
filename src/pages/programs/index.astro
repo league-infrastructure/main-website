@@ -391,76 +391,6 @@ const yamlContent = {
 
 
 
-  /* Programs page specific styles - only classes used on this page */
-  .section--support {
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 242, 232, 0.78) 100%);
-  }
-
-  .section--cta {
-    background: var(--color-surface-subtle);
-  }
-
-  .support-grid {
-    display: grid;
-    gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
-  .support-card {
-    display: grid;
-    gap: var(--space-md);
-    background: var(--color-surface-alt);
-    border: 1px solid var(--color-border);
-  }
-
-
-  .program-grid {
-    display: grid;
-    gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-
-
-  .section--programs-main .program-card {
-    gap: 0;
-  }
-
-  .section--programs-main .card__media {
-    margin: 0;
-    width: 100%;
-
-    overflow: hidden;
-  }
-
-  .section--programs-main .card__media img {
-    width: 100%;
-    max-height: 160px;
-    object-fit: cover;
-    display: block;
-  }
-
-
-
-
-  .program-card .card__footer {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .program-card .enrollment-buttons {
-    justify-content: space-between;
-  }
-
-  .program-card .learn-more-button {
-    justify-content: center;
-  }
-
-  .program-card--center {
-    text-align: center;
-  }
-
 
 
 
@@ -476,19 +406,5 @@ const yamlContent = {
     color: var(--color-primary);
   }
 
-  .comparison-table thead {
-    background: #ffffff !important;
-    .section--programs-main .program-card {
-      /* Removed page-level overrides now handled inside ProgramCard component */
-    }
-  
-    .section--programs-main .card__media {
-      /* Removed page-level overrides now handled inside ProgramCard component */
-    }
-  
-    .section--programs-main .card__media img {
-      /* Removed page-level overrides now handled inside ProgramCard component */
-    }
-    }
-  }
+
 </style>

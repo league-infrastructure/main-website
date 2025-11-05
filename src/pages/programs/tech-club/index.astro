@@ -4,13 +4,14 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import UpcomingEvents from '../../../components/UpcomingEvents.astro';
 import CalloutCard from '../../../components/CalloutCard.astro';
 import HeroSection from '../../../components/HeroSection.astro';
+import Section from '../../../components/Section.astro';
+import CardGrid from '../../../components/CardGrid.astro';
+import ProgramCard from '../../../components/ProgramCard.astro';
+import CardBody from '../../../components/CardBody.astro';
 
 const donationScript =
   'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=100&suggested_donation_amounts[]=50';
 const phoneHref = '6198897571';
-
-
-
 const techClubPrograms = [
   {
     title: 'Introduction to Python Programming',
@@ -110,140 +111,127 @@ const techClubTopics = [
     }}
   />
 
-  <section class="section">
-    <div class="container">
-      <SectionHeader>
-        <h2>Hands-On Workshops</h2>
-        <p>Every Tech Club session focuses on a single topic so students can experiment, ask questions, and ship something new in under an hour.</p>
+  <Section startBgcolor="#fff2e8" endBgcolor="#fff2e8">
+    <SectionHeader>
+      <h2>Hands-On Workshops</h2>
+      <p>Every Tech Club session focuses on a single topic so students can experiment, ask questions, and ship something new in under an hour.</p>
+    </SectionHeader>
+    <CardGrid min-width={280}>
+      {techClubPrograms.map((program) => (
+        <ProgramCard img={program.image.src} alt={program.image.alt}>
+          <CardBody>
+            <h3 slot="title">{program.title}</h3>
+            <description>{program.description}</description>
+          </CardBody>
+        </ProgramCard>
+      ))}
+    </CardGrid>
+  </Section>
+
+  <Section startBgcolor="#fff2e8" endBgcolor="#ffffff" containerClass="two-column">
+    <div class="two-column__copy">
+      <SectionHeader align="left">
+        <h2>Start Coding in 60 Minutes</h2>
+        <p>Each Tech Club class runs about an hour and introduces core programming concepts through mini projects.</p>
       </SectionHeader>
-      <div class="program-grid">
-        {techClubPrograms.map((program) => (
-          <CalloutCard class="program-card program-card--center" title={program.title}>
-            <figure slot="media" class="program-card__media">
-              <img src={program.image.src} alt={program.image.alt} loading="lazy" />
-            </figure>
-            <p class="card__body">{program.description}</p>
-          </CalloutCard>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--surface-alt">
-    <div class="container">
-      <div class="two-column">
-        <div class="two-column__copy">
-          <SectionHeader align="left">
-            <h2>Start Coding in 60 Minutes</h2>
-            <p>Each Tech Club class runs about an hour and introduces core programming concepts through mini projects.</p>
-          </SectionHeader>
-          <p>
-            Sessions are hosted across San Diego County in partnership with schools, libraries, recreation centers, and
-            community organizations. Volunteer mentors from the League guide learners through projects, debug code side by
-            side, and share next steps for students who want to keep going.
-          </p>
-          <p>
-            New families can drop into a single meetup while returning members weave Tech Club events into their weekly
-            schedule. All classes are free with optional donations supporting hardware, classroom space, and instructor
-            training.
-          </p>
-        </div>
-        <CalloutCard
-          class="two-column__list"
-          title="Topics We Cover"
-          cta={{ label: 'Join the Tech Club Meetup', href: 'https://www.meetup.com/the-league-tech-club/', variant: 'primary' }}
-        >
-          <ul>
-            {techClubTopics.map((topic) => (
-              <li>
-                <strong>{topic.title}:</strong> {topic.body}
-              </li>
-            ))}
-          </ul>
-        </CalloutCard>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="upcoming-events">
-    <div class="container">
-      <SectionHeader>
-        <h2>Upcoming Events</h2>
-        <p>Check the live Tech Club calendar to RSVP for classes near you or join an online session.</p>
-      </SectionHeader>
-      <UpcomingEvents meetupGroup="the-league-tech-club" />
-    </div>
-  </section>
-
-  <section class="section section--surface-alt" id="host-tech-club">
-    <div class="container">
-      <div class="two-column">
-        <div class="two-column__copy">
-          <SectionHeader align="left">
-            <h2>Host the Tech Club</h2>
-            <p>Bring free programming workshops to your school, company, or library.</p>
-          </SectionHeader>
-          <p>
-            The League offers Tech Club sessions anywhere in San Diego County to fulfill our mission of giving every
-            student an introduction to coding. We supply instructors, curriculum, and equipment. You help us recruit
-            students and provide space.
-          </p>
-          <p>
-            Ready to partner? Reach out to our Executive Director, Eric Busboom, to plan a series tailored to your
-            community.
-          </p>
-        </div>
-        <CalloutCard
-          class="two-column__list contact-card"
-          title="Contact"
-          cta={{ label: 'Contact Form', href: '/about/contact/', variant: 'secondary' }}
-        >
-          <ul>
-            <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
-            <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
-          </ul>
-        </CalloutCard>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="support-tech-club">
-    <div class="container donation">
-      <SectionHeader>
-        <h2>Support Free Community Classes</h2>
-        <p>A $250 gift funds a full Tech Club session in a neighborhood library, school, or community center.</p>
-      </SectionHeader>
-      <div id="give-lively-widget" class="donation__widget" />
-      <p class="donation__note">
-        Prefer a direct link? Visit
-        <a href="https://secure.givelively.org/donate/the-league-of-amazing-programmers" target="_blank" rel="noopener">
-          our Give Lively page
-        </a>
-        to contribute.
+      <p>
+        Sessions are hosted across San Diego County in partnership with schools, libraries, recreation centers, and
+        community organizations. Volunteer mentors from the League guide learners through projects, debug code side by
+        side, and share next steps for students who want to keep going.
+      </p>
+      <p>
+        New families can drop into a single meetup while returning members weave Tech Club events into their weekly
+        schedule. All classes are free with optional donations supporting hardware, classroom space, and instructor
+        training.
       </p>
     </div>
-    <script is:inline data-src={donationScript}>
-      if (typeof window !== 'undefined') {
-        const current = document.currentScript;
-        const donationSrc = current?.dataset.src;
-        const existing = document.querySelector('script[data-givelively="tech-club"]');
-        const loadWidget = () => {
-          if (typeof window.GiveLively !== 'undefined') {
-            window.GiveLively.setup();
-          }
-        };
+    <CalloutCard
+      class="two-column__list"
+      title="Topics We Cover"
+      cta={{ label: 'Join the Tech Club Meetup', href: 'https://www.meetup.com/the-league-tech-club/', variant: 'primary' }}
+    >
+      <ul>
+        {techClubTopics.map((topic) => (
+          <li>
+            <strong>{topic.title}:</strong> {topic.body}
+          </li>
+        ))}
+      </ul>
+    </CalloutCard>
+  </Section>
 
-        if (!existing && donationSrc) {
-          const script = document.createElement('script');
-          script.src = donationSrc;
-          script.dataset.givelively = 'tech-club';
-          script.addEventListener('load', loadWidget, { once: true });
-          document.head.append(script);
-        } else if (typeof window.GiveLively !== 'undefined') {
-          loadWidget();
+  <Section id="upcoming-events" startBgcolor="#ffffff" endBgcolor="#f6f6fa">
+    <SectionHeader>
+      <h2>Upcoming Events</h2>
+      <p>Check the live Tech Club calendar to RSVP for classes near you or join an online session.</p>
+    </SectionHeader>
+    <UpcomingEvents meetupGroup="the-league-tech-club" />
+  </Section>
+
+  <Section id="host-tech-club" startBgcolor="#f6f6fa" endBgcolor="#fff2e8" containerClass="two-column">
+    <div class="two-column__copy">
+      <SectionHeader align="left">
+        <h2>Host the Tech Club</h2>
+        <p>Bring free programming workshops to your school, company, or library.</p>
+      </SectionHeader>
+      <p>
+        The League offers Tech Club sessions anywhere in San Diego County to fulfill our mission of giving every
+        student an introduction to coding. We supply instructors, curriculum, and equipment. You help us recruit
+        students and provide space.
+      </p>
+      <p>
+        Ready to partner? Reach out to our Executive Director, Eric Busboom, to plan a series tailored to your
+        community.
+      </p>
+    </div>
+    <CalloutCard
+      class="two-column__list contact-card"
+      title="Contact"
+      cta={{ label: 'Contact Form', href: '/about/contact/', variant: 'secondary' }}
+    >
+      <ul>
+        <li><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>619-889-7571</a></li>
+        <li><strong>Email:</strong> <a href="mailto:eric.busboom@jointheleague.org">eric.busboom@jointheleague.org</a></li>
+      </ul>
+    </CalloutCard>
+  </Section>
+
+  <Section id="support-tech-club" startBgcolor="#fff2e8" endBgcolor="#fff2e8" containerClass="donation">
+    <SectionHeader>
+      <h2>Support Free Community Classes</h2>
+      <p>A $250 gift funds a full Tech Club session in a neighborhood library, school, or community center.</p>
+    </SectionHeader>
+    <div id="give-lively-widget" class="donation__widget" />
+    <p class="donation__note">
+      Prefer a direct link? Visit
+      <a href="https://secure.givelively.org/donate/the-league-of-amazing-programmers" target="_blank" rel="noopener">
+        our Give Lively page
+      </a>
+      to contribute.
+    </p>
+  </Section>
+
+  <script is:inline data-src={donationScript}>
+    if (typeof window !== 'undefined') {
+      const current = document.currentScript;
+      const donationSrc = current?.dataset.src;
+      const existing = document.querySelector('script[data-givelively="tech-club"]');
+      const loadWidget = () => {
+        if (typeof window.GiveLively !== 'undefined') {
+          window.GiveLively.setup();
         }
+      };
+
+      if (!existing && donationSrc) {
+        const script = document.createElement('script');
+        script.src = donationSrc;
+        script.dataset.givelively = 'tech-club';
+        script.addEventListener('load', loadWidget, { once: true });
+        document.head.append(script);
+      } else if (typeof window.GiveLively !== 'undefined') {
+        loadWidget();
       }
-    </script>
-  </section>
+    }
+  </script>
 
 </BaseLayout>
