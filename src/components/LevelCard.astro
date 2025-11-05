@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import CardBody from './CardBody.astro';
 
 interface Props extends HTMLAttributes<'article'> {
   level: number | string;
@@ -8,10 +9,63 @@ interface Props extends HTMLAttributes<'article'> {
 }
 
 const { level, title, description, class: className, ...rest } = Astro.props as Props & { class?: string };
+
+const classes = ['card', 'level-card'];
+if (className) {
+  classes.push(className);
+}
 ---
 
-<article class:list={['card', className]} {...rest}>
-  <div class="level-card__badge">{level}</div>
-  <h3 class="card__title">{title}</h3>
-  <p class="card__body">{description}</p>
+<article class:list={classes} {...rest}>
+  <CardBody class="level-card__body">
+    <div slot="title" class="level-card__header">
+      <span class="level-card__badge" aria-label={`Level ${level}`}>{level}</span>
+      <h3 class="card__title">{title}</h3>
+    </div>
+    <p class="level-card__description">{description}</p>
+  </CardBody>
 </article>
+
+<style>
+  .level-card {
+    position: relative;
+  }
+
+  .level-card__body {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .level-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .level-card__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    min-height: 3rem;
+    padding: 0 var(--space-sm);
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .level-card__description {
+    margin: 0;
+    color: var(--color-body);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .level-card__body {
+      gap: var(--space-sm);
+      padding: var(--space-lg);
+    }
+  }
+</style>
