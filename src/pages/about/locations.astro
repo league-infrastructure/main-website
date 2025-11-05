@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Locations"
+  description="Explore The League of Amazing Programmers classroom locations and partner sites across San Diego."
+>
+  <section class="section hero">
+    <div class="container locations__feature">
+      <h1>Class Locations</h1>
+      <p>
+        The League teaches across San Diego County with a mix of in-person and online classes. Our Carmel Valley campus is the main hub for weekly programming classes, while Tech Club and special events take place across libraries, recreation centers, and partner organizations.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--surface-alt">
+    <div class="container locations__grid">
+      <article class="card">
+        <h2>The League Headquarters</h2>
+        <p>
+          12625 High Bluff Drive #113<br />
+          San Diego, CA 92130
+        </p>
+        <p class="locations__note">
+          Weekly Python and Java classes meet at our Carmel Valley classroom.
+        </p>
+        <div class="locations__links">
+          <a class="button" href="https://goo.gl/maps/GUdss2BayCqGmDCLA" target="_blank" rel="noreferrer">Get Directions</a>
+          <a class="button button--secondary" href="mailto:info@jointheleague.org">Email Us</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Online Classes</h2>
+        <p>
+          Live online Python and Java classes offered weekly via Zoom.
+        </p>
+        <p class="locations__note">
+          All virtual sessions use video conferencing and collaborative coding platforms.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Tech Club Sites</h2>
+        <p>
+          The League partners with libraries, schools, and community centers to host free Tech Club workshops.
+        </p>
+        <p class="locations__note">
+          Stay up to date about upcoming Tech Club events through our Meetup page.
+        </p>
+        <div class="locations__links">
+          <a class="button" href="https://www.meetup.com/the-league-tech-club" target="_blank" rel="noreferrer">Join Tech Club</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

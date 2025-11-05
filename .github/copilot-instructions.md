@@ -1,10 +1,8 @@
 
-Add python modules with uv add. 
 
-Use `uv run` to run programs. 
+NEVER CHANGE THIS FILE. DO NOT EDIT, DO NOT GIT RESTORE. 
 
-Do not create test programs in Here Docs on the terminal. Create a separate .py
-file instead.
+# Tech Stack
 
 This project uses Astro. For mor information on astro, get an LLM overview at
 https://docs.astro.build/llms-full.txt
@@ -14,6 +12,17 @@ components as they are, but if you can create extensions of them, or custom
 components if required. However, custom components should start by copying or
 extending existing fulldev-ui components. 
 
+# Executing programs
+
+Add python modules with uv add. 
+
+Never execute complex code with a heredoc or bash script on the terminal. Always
+write a program in `test/dev` and execute it. 
+
+Use `uv run` to run python programs. 
+
+Do not require the user to chmod programs for you to run them; just call the
+program by passing it as an argument ot the interperter program. 
 
 # Updates
 
