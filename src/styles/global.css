@@ -163,6 +163,7 @@ main {
 
 .card__footer {
   padding: var(--space-xl);
+  margin-top: auto;
 }
 
 .card__price {
