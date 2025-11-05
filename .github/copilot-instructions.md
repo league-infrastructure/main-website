@@ -24,6 +24,23 @@ Use `uv run` to run python programs.
 Do not require the user to chmod programs for you to run them; just call the
 program by passing it as an argument ot the interperter program. 
 
+# Development process
+
+Always use `npm run astro check` to check that your work is free of syntax
+errors after you finish a task. 
+
+Form may types of changes, you should check that the server is producing correct
+resuilts. Do not start your own astro dev server or astro preview without checking that
+the user has one already running. To check if it is running, use: 
+
+```
+lsof -nP -i :4321 | grep -i listen | grep node
+```
+
+If it is not running, you may use `npm run preview` to run a preview server. You
+can connect to the server using the browsermcp MCP server, or puppeteer.
+
+
 # Updates
 
 In the files in docs/updates, you will find notes about changes you should make.
