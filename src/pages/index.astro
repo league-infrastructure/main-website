@@ -49,8 +49,11 @@ import Section_40_60 from "../components/Section_40_60.astro";
         online – you choose.
       </p>
     </SectionHeader>
-    <CardGrid min-width={320}>
-      <ProgramCard img="/images/cards/python.png" alt="Illustration representing Python coding">
+    <CardGrid min-width={360}>
+      <ProgramCard
+        img="/images/cards/python.png"
+        alt="Illustration representing Python coding"
+      >
         <CardBody eyebrow="BEGINNER TO INTERMEDIATE">
           <h2 slot="title">Python Coding Classes</h2>
           <description
@@ -85,12 +88,17 @@ import Section_40_60 from "../components/Section_40_60.astro";
             target="_blank"
             rel="noreferrer">Enroll Online</a
           >
-          <a slot="learn-more" class="program-learn-more-link" href="/programs/classes/python/"
-            >Learn More</a
+          <a
+            slot="learn-more"
+            class="program-learn-more-link"
+            href="/programs/classes/python/">Learn More</a
           >
         </CardFooter>
       </ProgramCard>
-      <ProgramCard img="/images/cards/java.png" alt="Illustration representing Java development">
+      <ProgramCard
+        img="/images/cards/java.png"
+        alt="Illustration representing Java development"
+      >
         <CardBody eyebrow="BEGINNER TO ADVANCED">
           <h2 slot="title">Java Coding Classes</h2>
           <description
@@ -126,11 +134,14 @@ import Section_40_60 from "../components/Section_40_60.astro";
             target="_blank"
             rel="noreferrer">Enroll Online</a
           >
-          <a slot="learn-more" class="program-learn-more-link" href="/programs/classes/java/"
-            >Learn More</a
+          <a
+            slot="learn-more"
+            class="program-learn-more-link"
+            href="/programs/classes/java/">Learn More</a
           >
         </CardFooter>
       </ProgramCard>
+
     </CardGrid>
   </Section>
 
@@ -174,8 +185,10 @@ import Section_40_60 from "../components/Section_40_60.astro";
             target="_blank"
             rel="noreferrer">Join Tech Club</a
           >
-          <a slot="learn-more" class="program-learn-more-link" href="/programs/tech-club/"
-            >Learn More</a
+          <a
+            slot="learn-more"
+            class="program-learn-more-link"
+            href="/programs/tech-club/">Learn More</a
           >
         </CardFooter>
       </ProgramCard>
@@ -208,8 +221,10 @@ import Section_40_60 from "../components/Section_40_60.astro";
             href="https://www.jointheleague.org/programs/tech-club/code-clinic/"
             >Join Code Clinic</a
           >
-          <a slot="learn-more" class="program-learn-more-link" href="/programs/tech-club/code-clinic/"
-            >Learn More</a
+          <a
+            slot="learn-more"
+            class="program-learn-more-link"
+            href="/programs/tech-club/code-clinic/">Learn More</a
           >
         </CardFooter>
       </ProgramCard>
@@ -455,15 +470,11 @@ import Section_40_60 from "../components/Section_40_60.astro";
 </BaseLayout>
 
 <style>
-
-
-
   .custom-hero__logo {
     width: 350px;
     height: auto;
     margin-bottom: 1rem;
   }
-
 
   @media (max-width: 768px) {
     .custom-hero__content {
@@ -506,8 +517,6 @@ import Section_40_60 from "../components/Section_40_60.astro";
     color: #c35512;
     text-decoration: underline;
   }
-
-
 
   .career__image {
     width: 100%;
@@ -595,7 +604,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
   }
 
   .recognition {
-    display: grid;  
+    display: grid;
     gap: var(--space-2xl);
     justify-items: center;
   }
@@ -607,10 +616,6 @@ import Section_40_60 from "../components/Section_40_60.astro";
     align-items: center;
     justify-content: center;
   }
-
-
-
- 
 
   @media (max-width: 768px) {
     .home-hero {

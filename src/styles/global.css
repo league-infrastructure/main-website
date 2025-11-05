@@ -38,7 +38,7 @@
 body {
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--color-body);
   background: #ffffff;
@@ -90,32 +90,6 @@ main {
   background: var(--color-surface-alt);
 }
 
-.section__header {
-  margin-bottom: var(--space-2xl);
-  text-align: center;
-}
-
-.section__eyebrow {
-  color: var(--color-primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 14px;
-  margin-bottom: var(--space-xs);
-}
-
-.section__title {
-  margin: 0 0 var(--space-md) 0;
-  color: var(--color-text);
-  font-size: clamp(28px, 4vw, 36px);
-  line-height: 1.25;
-}
-
-.section__description {
-  margin: 0;
-  max-width: 720px;
-  margin-inline: auto;
-}
 
 .grid {
   display: grid;
@@ -128,50 +102,6 @@ main {
 
 .grid--three {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.card__eyebrow {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.card__title {
-  margin: 0;
-  color: var(--color-text);
-  font-size: 24px;
-  line-height: 1.35;
-}
-
-.card__body {
-  margin: 0;
-  color: var(--color-body);
-  padding: var(--space-xl);
-}
-
-.card__footer {
-  padding: var(--space-xl);
-  margin-top: auto;
-}
-
-.card__price {
-  text-align: center;
-  margin-bottom: var(--space-md);
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: var(--color-primary);
 }
 
 .button-group {

@@ -657,15 +657,6 @@
 	}
 }
 
-/* SectionHeader component */
-.section__header--left {
-	text-align: left;
-}
-
-.section__header--left .section__description {
-	margin-inline: 0;
-}
-
 /* HeroSection component */
 .hero-section__container {
 	position: relative;
