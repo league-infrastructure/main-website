@@ -71,6 +71,36 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
         the rollover limit, so place a hold on the membership if you expect to
         miss several classes.
       </p>
+      <div class="plan-grid">
+        <div class="card card--grid card--compact">
+          <h3>Monthly Membership</h3>
+          <p>$280 per month for up to five visits. Available for Python and Java classes, online or in person.</p>
+        </div>
+        <div class="card card--grid card--compact">
+          <h3>Tech Club Membership</h3>
+          <p>Free plan that unlocks access to Tech Club sessions.</p>
+        </div>
+        <div class="card card--grid card--compact">
+          <h3>Monthly Tuition</h3>
+          <p>$280 per month for one weekly visit. Legacy plan available for existing families.</p>
+        </div>
+        <div class="card card--grid card--compact">
+          <h3>Class Pass</h3>
+          <p>$70 per class. Purchase individual visits as needed.</p>
+        </div>
+        <div class="card card--grid card--compact">
+          <h3>Beta Test Pass</h3>
+          <p>Complimentary pass to try out a class.</p>
+        </div>
+      </div>
+      <p>
+        Purchase plans and passes from the <a
+          href="https://jtl.pike13.com/people/me/shop"
+          target="_blank"
+          rel="noreferrer"
+          >Plans and Passes</a
+        > page (requires login).
+      </p>
       <div class="policy-section__actions">
         <a
           class="button button--ghost"
@@ -218,27 +248,48 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
         profiles for each student, purchase the appropriate plan or pass, and
         register for your first class directly from the schedule.
       </p>
-      <p>
-        After the first class is booked, let us know if you would like to stay
-        in the same weekly class slot so we can confirm the recurring
-        enrollment.
-      </p>
-      <ul>
-        <li>Create parent and student accounts in the portal.</li>
-        <li>
-          Purchase a tuition or membership plan that fits your schedule.
-        </li>
-        <li>Enroll in your first class from the online schedule.</li>
-        <li>
-          Share ongoing scheduling preferences with our staff or your
-          instructor.
-        </li>
-      </ul>
-      <p>
-        A step-by-step walkthrough is available in our <a
-          href="/about/policies/enroll/">Guide to Enrollment</a
-        >.
-      </p>
+      <div class="enrollment-subsection">
+        <h3>Find a Weekly Class</h3>
+        <p>
+          Visit the <a
+            href="https://jtl.pike13.com/categories/93504"
+            target="_blank"
+            rel="noreferrer"
+            >Classes page</a
+          > to browse the monthly schedule. Choose the day, time, and format
+          that works best for your student.
+        </p>
+      </div>
+      <div class="enrollment-subsection">
+        <h3>Bulk Enrollment</h3>
+        <p>
+          Python and Java classes meet weekly. After the first session, let the
+          instructor know if you would like to be automatically enrolled in the
+          same day and time each week. You can also <a
+            href="mailto:info@jointheleague.org?subject=Bulk%20Enrollment&amp;body=Hi%2C%20I%20would%20like%20to%20bulk%20enroll%20in%20weekly%20classes."
+            rel="noreferrer"
+            >email us</a
+          > to confirm recurring enrollment.
+        </p>
+      </div>
+      <div class="enrollment-subsection">
+        <h3>Cancel a Class</h3>
+        <ol>
+          <li>Sign in to the Client Portal.</li>
+          <li>Select the appointment under <strong>Upcoming</strong>.</li>
+          <li>Choose <strong>Cancel Registration</strong> and confirm.</li>
+        </ol>
+        <p>A visit is deducted from your plan or pass if a class is not cancelled.</p>
+      </div>
+      <div class="enrollment-subsection">
+        <h3>Schedule a Make-up</h3>
+        <p>
+          Cancelling a class issues a make-up pass. Return to the class
+          schedule, pick another session, and select the pass you want to use at
+          checkout. Make-ups can be scheduled within the same week or on a future
+          date.
+        </p>
+      </div>
     </div>
   </Section>
 </BaseLayout>
@@ -271,5 +322,22 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
 
   .policy-note {
     font-weight: 600;
+  }
+
+  .plan-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .enrollment-subsection {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .enrollment-subsection ol {
+    display: grid;
+    gap: var(--space-xs);
+    padding-left: var(--space-lg);
   }
 </style>
