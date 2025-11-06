@@ -5,6 +5,25 @@ import CardGrid from '../../components/CardGrid.astro';
 import LocationCard from '../../components/LocationCard.astro';
 import { locations, type Location } from '../../data/locations';
 
+const contactQuickLinks = [
+  { label: 'About', href: '/about/' },
+  { label: 'Programs', href: '/programs/' },
+  { label: 'Curriculum', href: 'https://curriculum.jointheleague.org/', external: true },
+  { label: 'News', href: '/news/' },
+  { label: 'Policies', href: '/about/policies/' },
+  { label: 'Supporters', href: '/donate/supporters/' },
+  { label: 'Volunteer with The League', href: '/donate/volunteer/' },
+  { label: 'Create a fundraiser', href: '/donate/create-a-fundraiser/' }
+];
+
+const contactSocialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/LeagueOfAmazingProgrammers' },
+  { label: 'Twitter', href: 'https://twitter.com/LEAGUEofAmazing' },
+  { label: 'Instagram', href: 'https://www.instagram.com/theleagueofamazingprogrammers/' },
+  { label: 'YouTube', href: 'https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/the-league-of-amazing-programmers' }
+];
+
 const cleanLocationName = (name: string) =>
   name
     .replace(/\s*\([^)]*\)\s*$/u, '')
@@ -64,9 +83,69 @@ const otherLocations = locations.filter((location) => !location.type).sort(sortB
   title="Locations"
   description="Explore The League of Amazing Programmers classroom locations and partner sites across San Diego."
 >
+  <Section
+    id="contact"
+    class="locations-contact"
+    containerClass="locations-contact__container"
+  >
+    <div class="locations-contact__intro">
+      <span class="tag">Get in Touch</span>
+      <h1>Contact The League</h1>
+      <p>
+        Reach out with questions about classes, donations, or partnerships and our team will connect you to the right person. We typically respond within two business days.
+      </p>
+    </div>
+    <CardGrid class="locations-contact__grid" min-width={260}>
+      <article class="card">
+        <h2>Visit &amp; Call</h2>
+        <p>
+          12625 High Bluff Drive #113<br />
+          San Diego, CA 92130
+        </p>
+        <p>
+          <strong>Phone:</strong> <a href="tel:18582840481">(858) 284-0481</a><br />
+          <strong>Email:</strong> <a href="mailto:info@jointheleague.org">info@jointheleague.org</a>
+        </p>
+        <a class="button" href="https://goo.gl/maps/GUdss2BayCqGmDCLA" target="_blank" rel="noreferrer">Get Directions</a>
+      </article>
+      <article class="card">
+        <h2>Quick Links</h2>
+        <ul class="list-reset locations-contact__links">
+          {contactQuickLinks.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noreferrer' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Follow The League</h2>
+        <ul class="list-reset locations-contact__links">
+          {contactSocialLinks.map((item) => (
+            <li>
+              <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </CardGrid>
+    <article class="card locations-contact__message">
+      <h2>Send Us a Message</h2>
+      <p>
+        Email <a href="mailto:info@jointheleague.org">info@jointheleague.org</a> with your name, the best way to reach you, and how we can help.
+      </p>
+    </article>
+  </Section>
+
   <section class="section hero">
     <div class="container locations__feature">
-      <h1>Class Locations</h1>
+  <h2>Class Locations</h2>
       <p>
         The League teaches across San Diego County with a mix of in-person and online classes. Our Carmel Valley campus is the main hub for weekly programming classes, while Tech Club and special events take place across libraries, recreation centers, and partner organizations.
       </p>
@@ -185,6 +264,34 @@ const otherLocations = locations.filter((location) => !location.type).sort(sortB
 </BaseLayout>
 
 <style>
+  .locations-contact {
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-4xl);
+    background: var(--color-surface-alt);
+  }
+
+  .locations-contact__container {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  .locations-contact__intro {
+    max-width: 720px;
+  }
+
+  .locations-contact__grid {
+    width: 100%;
+  }
+
+  .locations-contact__links {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .locations-contact__message {
+    max-width: 720px;
+  }
+
   .locations__feature {
     max-width: 600px;
   }
