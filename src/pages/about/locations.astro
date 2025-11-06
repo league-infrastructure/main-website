@@ -1,5 +1,63 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import LocationCard from '../../components/LocationCard.astro';
+import { locations, type Location } from '../../data/locations';
+
+const cleanLocationName = (name: string) =>
+  name
+    .replace(/\s*\([^)]*\)\s*$/u, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+
+const sortByName = (a: Location, b: Location) =>
+  cleanLocationName(a.name).localeCompare(cleanLocationName(b.name));
+
+const formatAddress = (location: Location): string => {
+  const formattedAddress = location.formatted_address ?? '';
+  const primaryAddress = location.address ?? '';
+
+  if (formattedAddress.trim().length > 0) {
+    return formattedAddress;
+  }
+
+  if (primaryAddress.trim().length > 0) {
+    return primaryAddress;
+  }
+
+  const cityLine = [location.city, location.state_code, location.postal_code]
+    .filter(Boolean)
+    .join(', ');
+
+  if (cityLine.length > 0) {
+    return cityLine;
+  }
+
+  if (location.latitude === null && location.longitude === null) {
+    return 'Online';
+  }
+
+  return 'Details coming soon';
+};
+
+const labelType = (type: Location['type'] | null | undefined, fallback = 'Other Location') => {
+  switch (type) {
+    case 'league':
+      return 'League Site';
+    case 'school':
+      return 'School';
+    case 'library':
+      return 'Library';
+    default:
+      return fallback;
+  }
+};
+
+const leagueLocations = locations.filter((location) => location.type === 'league').sort(sortByName);
+const schoolLocations = locations.filter((location) => location.type === 'school').sort(sortByName);
+const libraryLocations = locations.filter((location) => location.type === 'library').sort(sortByName);
+const otherLocations = locations.filter((location) => !location.type).sort(sortByName);
 ---
 
 <BaseLayout
@@ -56,6 +114,74 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </article>
     </div>
   </section>
+
+  <Section class="locations-section">
+    <div class="locations-section__header">
+      <h2>League Sites</h2>
+      <p>League-operated classrooms and online offerings.</p>
+    </div>
+    <CardGrid class="locations__cards" min-width={260}>
+      {leagueLocations.map((location) => (
+        <LocationCard
+          name={cleanLocationName(location.name)}
+          address={formatAddress(location)}
+          type={labelType(location.type)}
+          showType={false}
+        />
+      ))}
+    </CardGrid>
+  </Section>
+
+  <Section class="locations-section">
+    <div class="locations-section__header">
+      <h2>School Partners</h2>
+      <p>School campuses hosting League instruction.</p>
+    </div>
+    <CardGrid class="locations__cards" min-width={260}>
+      {schoolLocations.map((location) => (
+        <LocationCard
+          name={cleanLocationName(location.name)}
+          address={formatAddress(location)}
+          type={labelType(location.type)}
+          showType={false}
+        />
+      ))}
+    </CardGrid>
+  </Section>
+
+  <Section class="locations-section">
+    <div class="locations-section__header">
+      <h2>Library Partners</h2>
+      <p>Public libraries partnering with Tech Club programs.</p>
+    </div>
+    <CardGrid class="locations__cards" min-width={260}>
+      {libraryLocations.map((location) => (
+        <LocationCard
+          name={cleanLocationName(location.name)}
+          address={formatAddress(location)}
+          type={labelType(location.type)}
+          showType={false}
+        />
+      ))}
+    </CardGrid>
+  </Section>
+
+  <Section class="locations-section">
+    <div class="locations-section__header">
+      <h2>Other Community Sites</h2>
+      <p>Additional partners supporting League workshops across San Diego.</p>
+    </div>
+    <CardGrid class="locations__cards" min-width={260}>
+      {otherLocations.map((location) => (
+        <LocationCard
+          name={cleanLocationName(location.name)}
+          address={formatAddress(location)}
+          type={labelType(location.type, 'Other Location')}
+          showType={false}
+        />
+      ))}
+    </CardGrid>
+  </Section>
 </BaseLayout>
 
 <style>
@@ -79,5 +205,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
+  }
+
+  .locations-section {
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-4xl);
+  }
+
+  .locations-section:nth-of-type(odd) {
+    background: var(--color-surface-alt);
+  }
+
+  .locations-section__header {
+    max-width: 640px;
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+  }
+
+  .locations-section__header h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .locations-section__header p {
+    margin: 0;
+    color: var(--color-body);
+  }
+
+  .locations__cards {
+    margin-top: var(--space-xl);
   }
 </style>

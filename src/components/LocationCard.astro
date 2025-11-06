@@ -1,0 +1,62 @@
+---
+interface Props {
+  name: string;
+  address?: string | null;
+  type?: string | null;
+  showType?: boolean;
+  class?: string;
+}
+
+const { name, address, type, showType = true, class: className } = Astro.props;
+
+const typeLabel = showType && type ? type : null;
+const displayAddress = address && address.trim().length > 0 ? address : null;
+---
+
+<div class:list={["location-card", className].filter(Boolean)}>
+  <h3 class="location-card__name">{name}</h3>
+  {typeLabel && <span class="location-card__type">{typeLabel}</span>}
+  {displayAddress && <p class="location-card__address">{displayAddress}</p>}
+  <slot />
+</div>
+
+<style>
+  .location-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    height: 100%;
+  }
+
+  .location-card__name {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+
+  .location-card__type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(243, 113, 33, 0.12);
+    border-radius: 999px;
+    padding: 4px 12px;
+    text-transform: capitalize;
+  }
+
+  .location-card__address {
+    margin: 0;
+    color: var(--color-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+</style>
