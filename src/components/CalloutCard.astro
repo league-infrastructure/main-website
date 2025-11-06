@@ -1,16 +1,16 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import Button from './Button.astro';
+import type { HTMLAttributes } from "astro/types";
+import Button from "./Button.astro";
 
 interface CTA {
   label: string;
   href: string;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   target?: string;
   rel?: string;
 }
 
-interface Props extends HTMLAttributes<'article'> {
+interface Props extends HTMLAttributes<"article"> {
   title?: string;
   eyebrow?: string;
   headingLevel?: 2 | 3 | 4 | 5 | 6;
@@ -31,41 +31,63 @@ const {
 } = Astro.props as Props & { class?: string };
 
 const safeHeadingLevel = Math.min(Math.max(headingLevel, 2), 6);
-const hasMedia = Astro.slots.has('media');
+const hasMedia = Astro.slots.has("media");
+const hasFooter = Astro.slots.has("footer");
 ---
 
-<article class:list={['card', className]} {...rest}>
-  {hasMedia && <slot name="media" />}
-  <div class="card__body">
+<article class:list={["card", "callout-card", className]} {...rest}>
+  {
+    hasMedia && (
+      <div class="callout-card__media">
+        <slot name="media" />
+      </div>
+    )
+  }
+  <div class="card__body callout-card__body">
     {eyebrow && <p class="card__eyebrow">{eyebrow}</p>}
     {title && safeHeadingLevel === 2 && <h2 class="card__title">{title}</h2>}
     {title && safeHeadingLevel === 3 && <h3 class="card__title">{title}</h3>}
     {title && safeHeadingLevel === 4 && <h4 class="card__title">{title}</h4>}
     {title && safeHeadingLevel === 5 && <h5 class="card__title">{title}</h5>}
     {title && safeHeadingLevel === 6 && <h6 class="card__title">{title}</h6>}
-    {items && items.length > 0 && (
-      <ul class:list={[ 'card__list', itemsClass ]}>
-        {items.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    )}
+    {
+      items && items.length > 0 && (
+        <ul class:list={["card__list", itemsClass]}>
+          {items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      )
+    }
     <slot />
   </div>
-  {(cta || Astro.slots.has('footer')) && (
-    <div class="card__footer">
-      {cta && (
-        <Button
-          class="card__cta"
-          href={cta.href}
-          variant={cta.variant ?? 'primary'}
-          target={cta.target}
-          rel={cta.rel}
-        >
-          {cta.label}
-        </Button>
-      )}
-      <slot name="footer" />
-    </div>
-  )}
+  {
+    (cta || hasFooter) && (
+      <div class="card__footer callout-card__footer">
+        {cta && (
+          <Button
+            class="card__cta"
+            href={cta.href}
+            variant={cta.variant ?? "primary"}
+            target={cta.target}
+            rel={cta.rel}
+          >
+            {cta.label}
+          </Button>
+        )}
+        {hasFooter && (
+          <div class="callout-card__footer-slot">
+            <slot name="footer" />
+          </div>
+        )}
+      </div>
+    )
+  }
 </article>
+
+<style>
+  .callout-card :global(.link) {
+    text-align: center;
+    display: block;
+  }
+</style>

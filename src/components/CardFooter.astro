@@ -56,4 +56,16 @@ const hasPrice = Astro.slots.has("price");
   .card__footer .button-group {
     justify-content: center;
   }
+
+  .card__footer .learn-more-button {
+    width: 100%;
+    align-self: center;
+  }
+
+  .card__footer .learn-more-button :global(*) {
+    display: inline-flex;
+    justify-content: center;
+    margin-inline: auto;
+    text-align: center;
+  }
 </style>

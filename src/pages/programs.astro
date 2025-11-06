@@ -85,7 +85,7 @@ const yamlContent = {
       cta: "Join Tech Club",
       highlights: [
         "Multiple weekly meetups",
-        "Hands-on demos and mini-projects"
+        "Hands-on demos and mini-projects",
       ],
       image: {
         src: "/images/cards/cpp.png",
@@ -216,7 +216,11 @@ const yamlContent = {
     </figure>
   </HeroSection>
 
-  <Section startBgcolor="#fff2e8" endBgcolor="#ffffff" class="section--programs-main">
+  <Section
+    startBgcolor="#fff2e8"
+    endBgcolor="#ffffff"
+    class="section--programs-main"
+  >
     <SectionHeader>
       <h2>Main Programs</h2>
       <p>
@@ -238,10 +242,9 @@ const yamlContent = {
                     <li>{highlight}</li>
                   ))}
                 </ul>
-               
               </CardBody>
               <CardFooter>
-                 <p slot="price">{program.price}</p>
+                <p slot="price">{program.price}</p>
                 <a
                   slot="primary"
                   class="button button--primary"
@@ -291,21 +294,19 @@ const yamlContent = {
             ].map((row: any) => (
               <tr>
                 <th scope="row">{row.label}</th>
-                {
-                  yamlContent.main_programs
-                    .filter((program: any) => program.display_in.includes("table"))
-                    .map((program: any) => (
-                      <td>{program.table_data[row.key]}</td>
-                    ))
-                }
+                {yamlContent.main_programs
+                  .filter((program: any) =>
+                    program.display_in.includes("table"),
+                  )
+                  .map((program: any) => (
+                    <td>{program.table_data[row.key]}</td>
+                  ))}
               </tr>
             ))
           }
         </tbody>
       </table>
     </div>
-
-
   </Section>
 
   <Section class="section--support">
@@ -329,8 +330,6 @@ const yamlContent = {
       }
     </CardGrid>
   </Section>
-
-
 </BaseLayout>
 
 <style>
@@ -391,12 +390,6 @@ const yamlContent = {
     overflow-x: auto;
   }
 
-
-
-
-
-
-
   /* Program comparison table styling */
   .section--program-comparison table th:nth-child(even),
   .section--program-comparison table td:nth-child(even) {
@@ -409,8 +402,5 @@ const yamlContent = {
     color: var(--color-primary);
   }
 
-  .support-card .link {
-    text-align: center;
-    display: block;
-  }
+
 </style>
