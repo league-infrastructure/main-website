@@ -6,7 +6,7 @@ export interface Props {
 }
 
 const { src, title, class: className } = Astro.props;
-const elementId = `embed-${Math.random().toString(36).substr(2, 9)}`;
+const elementId = `embed-${Math.random().toString(36).slice(2, 11)}`;
 ---
 
 <div 

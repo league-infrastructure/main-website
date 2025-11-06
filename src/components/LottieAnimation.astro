@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 
 // Generate a unique ID for this animation instance
-const animationId = `lottie-${Math.random().toString(36).substr(2, 9)}`;
+const animationId = `lottie-${Math.random().toString(36).slice(2, 11)}`;
 ---
 
 <!-- Load lottie-web from CDN -->

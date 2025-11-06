@@ -5,8 +5,12 @@
   --color-primary-dark: #c35512;
   --color-secondary: #5d5fef;
   --color-peach: #fff2e8;
+  --color-peach-strong: #fcdac5;
+  --color-primary-soft: rgba(243, 113, 33, 0.14);
+  --color-secondary-soft: rgba(93, 95, 239, 0.22);
+  --color-secondary-tint: rgba(93, 95, 239, 0.2);
   --color-table-alt: #f2f2ff;
-  --color-hero-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fcdac5 100%);
+  --color-hero-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-peach-strong) 100%);
   --color-surface: #ffffff;
   --color-surface-alt: #f6f6fa;
   --color-surface-subtle: #fdf4ec;

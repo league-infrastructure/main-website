@@ -31,7 +31,7 @@ const widgetConfig = {
 ---
 
 <div id={elementId} class="pike-widget"></div>
-<script define:vars={{ config: widgetConfig }}>
+<script is:inline define:vars={{ config: widgetConfig }}>
     (() => {
         if (typeof window === "undefined") {
             return;

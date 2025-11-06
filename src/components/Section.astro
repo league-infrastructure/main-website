@@ -6,6 +6,7 @@ interface Props extends HTMLAttributes<'section'> {
   startBgcolor?: string;
   endBgcolor?: string;
   containerClass?: string;
+  sectionClass?: string;
 }
 
 const { 
@@ -13,6 +14,7 @@ const {
   startBgcolor, 
   endBgcolor, 
   containerClass,
+  sectionClass,
   class: className, 
   ...rest 
 } = Astro.props as Props & { class?: string };
@@ -23,6 +25,13 @@ const classes = ['section'];
 // Add tint class if bgcolor is specified or if it's a fade
 if (bgcolor || (startBgcolor && endBgcolor)) {
   classes.push('section--tint');
+}
+
+if (sectionClass) {
+  sectionClass
+    .split(/\s+/)
+    .filter(Boolean)
+    .forEach((cls) => classes.push(cls));
 }
 
 // Generate gradient or solid background style

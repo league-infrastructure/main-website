@@ -9,6 +9,45 @@ import CalloutCard from "../components/CalloutCard.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Section from "../components/Section.astro";
 import Section_40_60 from "../components/Section_40_60.astro";
+
+const moreWaysToLearn = [
+  {
+    title: "Code Clinic",
+    description:
+      "Online deep dives into emerging technologies for advanced students.",
+    href: "/programs/tech-club/code-clinic/",
+  },
+  {
+    title: "Project Clinic",
+    description:
+      "Personalized consulting sessions to ship your independent project.",
+    href: "/programs/project-clinic/",
+  },
+  {
+    title: "FIRST Robot Programming",
+    description:
+      "Free skills classes supporting FIRST FTC and FRC robotics teams.",
+    href: "/programs/tech-club/robot-garage/#first",
+  },
+  {
+    title: "League Labs",
+    description:
+      "Intern with the League to design future curriculum and earn job experience.",
+    href: "/programs/league-labs/",
+  },
+  {
+    title: "Summer Research",
+    description:
+      "Collaborate on research projects in computational science and AI.",
+    href: "/camps/summer-2025/summer-projects/#research",
+  },
+  {
+    title: "League at Work",
+    description:
+      "Bring League instruction to your company as an employee benefit.",
+    href: "/donate/the-league-at-work/",
+  },
+];
 ---
 
 <BaseLayout
@@ -38,7 +77,10 @@ import Section_40_60 from "../components/Section_40_60.astro";
     />
   </HeroSection>
 
-  <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
+  <Section
+    startBgcolor="var(--color-peach-strong)"
+    endBgcolor="var(--color-peach-strong)"
+  >
     <SectionHeader>
       <h2 class="section__title">Weekly Programming Classes</h2>
       <p class="section__description">
@@ -143,7 +185,10 @@ import Section_40_60 from "../components/Section_40_60.astro";
     </CardGrid>
   </Section>
 
-  <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
+  <Section
+    startBgcolor="var(--color-peach-strong)"
+    endBgcolor="var(--color-peach-strong)"
+  >
     <SectionHeader>
       <h2>Free Classes</h2>
       <p>
@@ -228,59 +273,32 @@ import Section_40_60 from "../components/Section_40_60.astro";
     </CardGrid>
   </Section>
 
-  <Section startBgcolor="#fcdac5" endBgcolor="white">
+  <Section class="section--support" sectionClass="home-more-ways">
     <SectionHeader>
-      <h2>Other Programs</h2>
+      <h2>More Ways to Learn</h2>
       <p>
-        Dive deeper with specialty clinics, internships, and badges that keep
-        students building between weekly classes.
+        Extend your skills with specialty workshops, internships, and robotics
+        programs.
       </p>
     </SectionHeader>
-    <CardGrid>
-      <CalloutCard class="support-card" title="League Labs">
-        <p>
-          Intern with the LEAGUE; get job experience while creating new classes
-          for future students.
-        </p>
-        <a slot="footer" class="link" href="/programs/league-labs/"
-          >Learn more</a
-        >
-      </CalloutCard>
-      <CalloutCard class="support-card" title="Project Clinic">
-        <p>
-          Partner with our mentors to ship independent programming, robotics, or
-          electronics projects.
-        </p>
-        <a slot="footer" class="link" href="/programs/project-clinic/"
-          >Learn more</a
-        >
-      </CalloutCard>
-      <CalloutCard class="support-card" title="Programming Merit Badge">
-        <p>
-          Complete Programming Merit Badge requirement 5 in a free 90-minute
-          workshop.
-        </p>
-        <a
-          slot="footer"
-          class="link"
-          href="/programs/tech-club/programming-merit-badge/">Learn more</a
-        >
-      </CalloutCard>
-      <CalloutCard class="support-card" title="FIRST Robot Programming">
-        <p>
-          Free skills classes supporting FIRST FTC and FRC robotics teams
-          throughout the season.
-        </p>
-        <a
-          slot="footer"
-          class="link"
-          href="/programs/tech-club/robot-garage/#first">Learn more</a
-        >
-      </CalloutCard>
+    <CardGrid min-width={300}>
+      {
+        moreWaysToLearn.map((program) => (
+          <CalloutCard class="support-card" title={program.title}>
+            <p>{program.description}</p>
+            <a slot="footer" class="link" href={program.href}>
+              Learn more
+            </a>
+          </CalloutCard>
+        ))
+      }
     </CardGrid>
   </Section>
 
-  <Section_40_60 startBgcolor="white" endBgcolor="white">
+  <Section_40_60
+    startBgcolor="var(--color-secondary-soft)"
+    endBgcolor="var(--color-surface)"
+  >
     <div slot="slot1" class="career__image">
       <img
         src="/images/girl-scouts-2020-03.png"
@@ -326,7 +344,10 @@ import Section_40_60 from "../components/Section_40_60.astro";
     </div>
   </Section_40_60>
 
-  <Section startBgcolor="#fcdac5" endBgcolor="#fcdac5">
+  <Section
+    startBgcolor="var(--color-peach-strong)"
+    endBgcolor="var(--color-peach-strong)"
+  >
     <div style="text-align: center;">
       <h1>Hear From Our Community</h1>
       <div style="margin: 2rem 0;">
@@ -447,7 +468,11 @@ import Section_40_60 from "../components/Section_40_60.astro";
     </div>
   </Section>
 
-  <Section startBgcolor="#f37121" endBgcolor="#f37121" class="cta">
+  <Section
+    startBgcolor="var(--color-primary)"
+    endBgcolor="var(--color-primary)"
+    class="cta"
+  >
     <div class="cta__content">
       <h2 class="cta__title">Get Started</h2>
       <div class="cta__buttons">
@@ -467,6 +492,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
 </BaseLayout>
 
 <style>
+
   .custom-hero__logo {
     width: 350px;
     height: auto;
@@ -494,7 +520,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0) 0%,
-      #fcdac5 100%
+      var(--color-peach-strong) 100%
     );
     margin-bottom: 0;
   }
@@ -503,15 +529,24 @@ import Section_40_60 from "../components/Section_40_60.astro";
     margin-top: 0;
   }
 
+  .home-more-ways {
+    background: linear-gradient(
+      180deg,
+      var(--color-peach-strong) 0%,
+      var(--color-primary-soft) 45%,
+      var(--color-secondary-soft) 100%
+  );
+  }
+
   .program-learn-more-link {
-    color: #f37121;
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
   }
 
   .program-learn-more-link:hover {
-    color: #c35512;
+    color: var(--color-primary-dark);
     text-decoration: underline;
   }
 
@@ -535,7 +570,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
   .career__logo {
     margin: 0;
     padding: var(--space-md);
-    background: #ffffff;
+    background: var(--color-surface);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-card);
     display: flex;
@@ -568,7 +603,7 @@ import Section_40_60 from "../components/Section_40_60.astro";
     top: var(--space-xs);
     left: var(--space-xs);
     font-size: 48px;
-    color: rgba(93, 95, 239, 0.2);
+    color: var(--color-secondary-tint);
   }
 
   blockquote p {
@@ -617,6 +652,9 @@ import Section_40_60 from "../components/Section_40_60.astro";
   .support-card .link {
     text-align: center;
     display: block;
+  }
+
+
   }
 
   @media (max-width: 768px) {

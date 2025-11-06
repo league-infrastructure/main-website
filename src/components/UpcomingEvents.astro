@@ -5,7 +5,7 @@ export interface Props {
 }
 
 const { meetupGroup = 'the-league-tech-club', class: className } = Astro.props;
-const elementId = `upcoming-events-${Math.random().toString(36).substr(2, 9)}`;
+const elementId = `upcoming-events-${Math.random().toString(36).slice(2, 11)}`;
 ---
 
 <div 
