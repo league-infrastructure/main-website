@@ -1,40 +1,51 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<'footer'> {}
+interface Props extends HTMLAttributes<"footer"> {}
 
 const { class: className, ...rest } = Astro.props as Props & { class?: string };
 
 // Check if we have slots
-const hasPrimary = Astro.slots.has('primary');
-const hasSecondary = Astro.slots.has('secondary');
-const hasLearnMore = Astro.slots.has('learn-more');
-const hasPrice = Astro.slots.has('price');
+const hasPrimary = Astro.slots.has("primary");
+const hasSecondary = Astro.slots.has("secondary");
+const hasLearnMore = Astro.slots.has("learn-more");
+const hasPrice = Astro.slots.has("price");
 ---
 
-<footer class:list={['card__footer', className]} {...rest}>
-  {hasPrice && (
-    <div class="card__price">
-      <slot name="price" />
-    </div>
-  )}
-  {(hasPrimary || hasSecondary) && (
-    <div class:list={[
-      'button-group', 
-      (hasPrimary && hasSecondary) ? 'enrollment-buttons' : 'learn-more-button'
-    ]}>
-      <slot name="primary" />
-      <slot name="secondary" />
-    </div>
-  )}
-  {hasLearnMore && (
-    <div class="button-group learn-more-button">
-      <slot name="learn-more" />
-    </div>
-  )}
+<footer class:list={["card__footer", className]} {...rest}>
+  {
+    hasPrice && (
+      <div class="card__price">
+        <slot name="price" />
+      </div>
+    )
+  }
+  {
+    (hasPrimary || hasSecondary) && (
+      <div
+        class:list={[
+          "button-group",
+          hasPrimary && hasSecondary
+            ? "enrollment-buttons"
+            : "learn-more-button",
+        ]}
+      >
+        <slot name="primary" />
+        <slot name="secondary" />
+      </div>
+    )
+  }
+  {
+    hasLearnMore && (
+      <div class="button-group learn-more-button">
+        <slot name="learn-more" />
+      </div>
+    )
+  }
 </footer>
 
 <style>
+
   .card__footer {
     display: flex;
     flex-direction: column;

@@ -57,3 +57,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .locations__feature {
+    max-width: 600px;
+  }
+
+  .locations__note {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 14px;
+  }
+
+  .locations__grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .locations__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+</style>

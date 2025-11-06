@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PolicyDetailStyles from '../../../components/PolicyDetailStyles.astro';
 
 const sections = [
   {
@@ -225,6 +226,7 @@ const toc = sections.map(({ id, title }) => ({ id, title }));
   title="Privacy Policy"
   description="Learn how The League of Amazing Programmers collects, uses, and protects personal information across our sites and services."
 >
+  <PolicyDetailStyles />
   <section class="section hero">
     <div class="container policy-hero__content">
       <span class="tag">Policy Center</span>

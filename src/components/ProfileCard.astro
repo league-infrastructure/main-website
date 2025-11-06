@@ -37,3 +37,71 @@ const { person, variant = 'peach' } = Astro.props as Props;
     )}
   </div>
 </article>
+
+<style>
+  .profile {
+    display: grid;
+    gap: var(--space-md);
+    padding: var(--space-xl);
+    background: var(--color-peach);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .profile--surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .profile__image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .profile__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profile__body {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .profile h3 {
+    margin: 0;
+    font-size: 20px;
+    color: var(--color-text);
+  }
+
+  .profile p {
+    margin: 0;
+    color: var(--color-body);
+  }
+
+  .profile__meta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .profile__meta a {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .profile {
+      padding: var(--space-lg);
+      text-align: center;
+      justify-items: center;
+    }
+
+    .profile__body {
+      justify-items: center;
+    }
+  }
+</style>

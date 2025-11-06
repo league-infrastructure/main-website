@@ -104,3 +104,37 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .content {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 760px;
+  }
+
+  .plan-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .subsection {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .subsection ol {
+    display: grid;
+    gap: var(--space-xs);
+    padding-left: var(--space-lg);
+  }
+
+  .content a {
+    color: var(--color-primary);
+  }
+
+  .content a:hover,
+  .content a:focus {
+    text-decoration: underline;
+  }
+</style>

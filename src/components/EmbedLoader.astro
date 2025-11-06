@@ -68,3 +68,48 @@ const elementId = `embed-${Math.random().toString(36).substr(2, 9)}`;
     }
   });
 </script>
+
+<style>
+  .embed-loader {
+    width: 100%;
+    min-height: 520px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .embed-loader__loading,
+  .embed-loader__error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 520px;
+    padding: var(--space-xl);
+    text-align: center;
+  }
+
+  .embed-loader__loading p {
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .embed-loader__error {
+    background: var(--color-surface-alt);
+  }
+
+  .embed-loader__error p {
+    color: var(--color-danger);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .embed-loader {
+      min-height: 420px;
+    }
+
+    .embed-loader__loading,
+    .embed-loader__error {
+      min-height: 420px;
+    }
+  }
+</style>

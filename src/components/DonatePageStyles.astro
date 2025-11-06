@@ -1,0 +1,112 @@
+<style is:global>
+  .donation-widget {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  .donation-widget__grid {
+    display: grid;
+    gap: var(--space-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .donation-widget__embed {
+    width: 100%;
+    min-height: 560px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .donation-widget__note {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+
+  .donation-impact__grid,
+  .donation-methods__grid,
+  .gratitude-grid,
+  .volunteer-grid,
+  .supporter-grid,
+  .fundraiser-grid,
+  .fundraiser-support {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .donation-impact__card p,
+  .gratitude-grid p,
+  .fundraiser-grid p,
+  .fundraiser-support p {
+    margin: 0;
+  }
+
+  .donation-methods__grid .card {
+    height: 100%;
+  }
+
+  .donation-methods__grid .card__cta {
+    margin-top: auto;
+  }
+
+  .steps-list {
+    counter-reset: step-counter;
+    display: grid;
+    gap: var(--space-lg);
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .steps-list li {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .steps-list li::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .process-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .process-grid__item {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .process-grid__step {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .volunteer-cta {
+    margin-top: var(--space-lg);
+  }
+
+  @media (max-width: 600px) {
+    .donation-widget__embed {
+      min-height: 460px;
+    }
+  }
+</style>

@@ -242,3 +242,34 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
     </div>
   </Section>
 </BaseLayout>
+
+<style>
+  .policy-links {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .policy-section {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .policy-section h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2rem);
+  }
+
+  .policy-section__content {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .policy-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .policy-note {
+    font-weight: 600;
+  }
+</style>
