@@ -86,6 +86,63 @@ const hasFooter = Astro.slots.has("footer");
 </article>
 
 <style>
+  .callout-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
+  }
+
+  .callout-card__media {
+    display: block;
+    overflow: hidden;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+  }
+
+  .callout-card__media :global(*) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .callout-card__body {
+    display: grid;
+    gap: var(--space-md);
+    padding: var(--space-xl);
+    flex: 1;
+  }
+
+  .callout-card__body > :where(p,
+      ul,
+      ol,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6) {
+    margin: 0;
+  }
+
+  .callout-card__footer {
+    display: grid;
+    gap: var(--space-sm);
+    padding: 0 var(--space-xl) var(--space-xl);
+    margin-top: auto;
+  }
+
+  .callout-card__footer-slot {
+    width: 100%;
+  }
+
+  .callout-card__footer-slot :global(*) {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
   .callout-card :global(.link) {
     text-align: center;
     display: block;

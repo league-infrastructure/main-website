@@ -56,10 +56,16 @@ const styleValue = styleParts.join("; ");
     display: grid;
     gap: var(--space-xl);
     width: 100%;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
     grid-template-columns: var(
       --card-grid-template,
       repeat(auto-fit, minmax(var(--card-grid-min-width, 300px), 1fr))
     );
+  }
+
+  .card-grid :global(.card) {
+    height: 100%;
   }
 
   @media (max-width: 600px) {
