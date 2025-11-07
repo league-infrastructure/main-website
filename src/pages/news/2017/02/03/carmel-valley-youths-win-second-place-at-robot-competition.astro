@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import Post from '../../../../../components/Post.astro';
+
+const post = {
+  title: "Carmel Valley youths win second place at robot competition",
+  author: "ericbusboom",
+  date: "2017-02-03",
+  description: "Del Mar Times Newspaper, July 12, 2012",
+  featuredImage: {
+    src: "https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-scaled.jpeg",
+    srcset: "https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-200x112.jpeg 200w, https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-400x225.jpeg 400w, https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-600x337.jpeg 600w, https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-800x450.jpeg 800w, https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-1200x675.jpeg 1200w, https://www.jointheleague.org/wp-content/uploads/2017/02/AdobeStock_187522353-scaled.jpeg 2560w",
+    sizes: "(max-width: 780px) 100vw, 1200px",
+  },
+};
+---
+<BaseLayout title={post.title} description={post.description ?? undefined}>
+  <Post title={post.title} author={post.author} date={post.date} featuredImage={post.featuredImage}>
+    <p>Del Mar Times Newspaper, July 12, 2012</p>
+    <p>“Wintriss Technical School hosted the 2012 International Autonomous Robot Competition (IARoC) at the Reuben H Fleet Science Center last weekend.  Competitors in this two- day event programmed their robots to race, navigate a maze, and avoid obstacles to seek a beacon.”</p>
+    <p><a href="http://www.delmartimes.net/sddmt-carmel-valley-youths-win-second-place-at-robot-2012jul12-story.html">…read more</a></p>
+    <p><a href="https://www.delmartimes.net/sddmt-carmel-valley-youths-win-second-place-at-robot-2012jul12-story.html"><img alt="" height="426" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-1024x426.png" srcset="https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-200x83.png 200w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-300x125.png 300w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-400x166.png 400w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-600x250.png 600w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-610x254.png 610w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-768x320.png 768w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-800x333.png 800w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-1024x426.png 1024w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-1200x499.png 1200w, https://www.jointheleague.org/wp-content/uploads/2017/02/Screenshot-2023-04-18-at-4.43.35-PM-1536x639.png 1536w" width="1024"/></a></p>
+  </Post>
+</BaseLayout>

@@ -435,11 +435,19 @@ def render_astro_page(article: ArticleRecord) -> str:
     )
 
 
-def write_outputs(article: ArticleRecord, raw_html: str) -> None:
+def raw_article_path(article: ArticleRecord) -> tuple[Path, bool]:
     raw_dir = RAW_OUTPUT_DIR / article.year / article.month / article.day
     raw_dir.mkdir(parents=True, exist_ok=True)
     raw_path = raw_dir / f"{article.slug}.html"
-    raw_path.write_text(raw_html, encoding="utf-8")
+    return raw_path, raw_path.exists()
+
+
+def write_outputs(article: ArticleRecord, raw_html: str) -> None:
+    raw_path, exists = raw_article_path(article)
+    if exists:
+        print(f"Skipping existing raw HTML: {raw_path.relative_to(ROOT)}")
+    else:
+        raw_path.write_text(raw_html, encoding="utf-8")
 
     astro_dir = ASTRO_OUTPUT_DIR / article.year / article.month / article.day
     astro_dir.mkdir(parents=True, exist_ok=True)

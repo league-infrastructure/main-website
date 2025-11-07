@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup, Comment
 
@@ -21,8 +22,17 @@ ALLOWED_ATTRIBUTES = {
     "height",
     "srcset",
     "sizes",
+    "loading",
 }
-KEEP_CLASSES = {"aligncenter", "wp-caption", "wp-caption-text", "wp-block-image"}
+KEEP_CLASSES = {
+    "aligncenter",
+    "alignleft",
+    "alignright",
+    "wp-caption",
+    "wp-caption-text",
+    "wp-block-image",
+}
+SKIP_PATHS = {"news.html", "listing"}
 
 
 def clean_html(html: str) -> str:
@@ -62,15 +72,36 @@ def clean_html(html: str) -> str:
             if attribute not in ALLOWED_ATTRIBUTES:
                 del tag[attribute]
 
+        if tag.name == "img":
+            if tag.get("src"):
+                tag["src"] = absolutize_url(tag["src"])
+            if tag.get("srcset"):
+                tag["srcset"] = normalize_srcset(tag["srcset"])
+            tag.attrs.setdefault("loading", "lazy")
+
+        if tag.name == "a":
+            href = tag.get("href")
+            if href and not href.startswith("#") and not href.startswith("mailto:"):
+                tag["href"] = absolutize_url(href)
+
     for section in working.find_all(["section", "div"]):
         heading = section.find(["h1", "h2", "h3"])
         if heading and "related" in heading.get_text(strip=True).lower():
             section.decompose()
 
+    for cls in ("related-posts", "single-related-posts", "fusion-sharing", "share-box"):
+        for tag in working.select(f".{cls}"):
+            tag.decompose()
+
+    for link in working.find_all("a"):
+        label = normalize_whitespace(link.get_text()).lower()
+        if label in {"view larger image", "gallery"}:
+            link.decompose()
+
     for tag in list(working.find_all(True)):
         if tag.name in {"div", "span", "p"}:
             has_media = tag.find(["img", "video", "audio", "iframe", "picture", "figure", "blockquote", "ul", "ol", "table"]) is not None
-            if not has_media and not tag.get_text(strip=True):
+            if not has_media and not normalize_whitespace(tag.get_text()):
                 tag.decompose()
 
     title_tag = working.find("h1") or working.find("h2")
@@ -92,13 +123,37 @@ def clean_html(html: str) -> str:
 
 
 def clean_directory(directory: Path) -> None:
-    for html_file in sorted(directory.glob("*.html")):
-        if html_file.name == "news.html":
+    for html_file in sorted(directory.rglob("*.html")):
+        relative_parts = html_file.relative_to(directory).parts
+        if any(part in SKIP_PATHS for part in relative_parts):
             continue
         original_html = html_file.read_text(encoding="utf-8", errors="ignore")
         cleaned_html = clean_html(original_html)
         html_file.write_text(cleaned_html, encoding="utf-8")
-        print(f"Cleaned {html_file.name}")
+        print(f"Cleaned {html_file.relative_to(directory)}")
+
+
+def normalize_whitespace(value: str) -> str:
+    return " ".join(value.split()).strip()
+
+
+def absolutize_url(url: str) -> str:
+    if url.startswith(("http://", "https://", "mailto:")):
+        return url
+    return urljoin("https://www.jointheleague.org/", url.lstrip("/"))
+
+
+def normalize_srcset(srcset: str) -> str:
+    entries = []
+    for part in srcset.split(","):
+        trimmed = part.strip()
+        if not trimmed:
+            continue
+        tokens = trimmed.split()
+        url = absolutize_url(tokens[0])
+        descriptor = " ".join(tokens[1:])
+        entries.append(" ".join(filter(None, [url, descriptor])))
+    return ", ".join(entries)
 
 
 if __name__ == "__main__":

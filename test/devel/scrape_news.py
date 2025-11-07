@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, List, Dict
 from urllib.parse import urljoin
 
 import requests
@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[2]
 NEWS_URL = "https://www.jointheleague.org/news/"
 OUTPUT_JSON_PATH = ROOT / "data" / "news.json"
-SCRAPED_HTML_PATH = ROOT / "scrape" / "news" / "news.html"
+SCRAPED_LISTING_DIR = ROOT / "scrape" / "news" / "listing"
 
 
 def fetch_html(url: str) -> str:
@@ -22,9 +22,9 @@ def fetch_html(url: str) -> str:
     return response.text
 
 
-def extract_articles(html: str) -> list[dict[str, str]]:
+def extract_articles(html: str) -> List[Dict[str, str]]:
     soup = BeautifulSoup(html, "html.parser")
-    articles: list[dict[str, str]] = []
+    articles: List[Dict[str, str]] = []
 
     for article in soup.find_all("article"):
         title_tag = article.find(["h2", "h3"])
@@ -77,11 +77,41 @@ def save_html(html: str, destination: Path) -> None:
 
 
 def main() -> None:
-    html = fetch_html(NEWS_URL)
-    save_html(html, SCRAPED_HTML_PATH)
-    articles = extract_articles(html)
-    save_json(articles, OUTPUT_JSON_PATH)
-    print(f"Saved {len(articles)} articles to {OUTPUT_JSON_PATH}")
+    all_articles: List[Dict[str, str]] = []
+    seen_urls: set[str] = set()
+    page_number = 1
+
+    while True:
+        page_url = NEWS_URL if page_number == 1 else urljoin(NEWS_URL, f"page/{page_number}/")
+        try:
+            html = fetch_html(page_url)
+        except requests.HTTPError as exc:  # type: ignore[attr-defined]
+            if exc.response is not None and exc.response.status_code == 404:
+                break
+            raise
+
+        listing_path = SCRAPED_LISTING_DIR / (
+            "news-page-1.html" if page_number == 1 else f"news-page-{page_number}.html"
+        )
+        save_html(html, listing_path)
+
+        page_articles = extract_articles(html)
+        new_articles = 0
+        for article in page_articles:
+            url = article.get("url")
+            if not url or url in seen_urls:
+                continue
+            seen_urls.add(url)
+            all_articles.append(article)
+            new_articles += 1
+
+        if new_articles == 0:
+            break
+
+        page_number += 1
+
+    save_json(all_articles, OUTPUT_JSON_PATH)
+    print(f"Saved {len(all_articles)} articles from {page_number} page(s) to {OUTPUT_JSON_PATH}")
 
 
 if __name__ == "__main__":
