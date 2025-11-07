@@ -1,0 +1,1384 @@
+{
+    "plugin": {
+        "version": "5.5.2",
+        "date": "Fri, 07 Nov 2025 18:57:59 +0000"
+    },
+    "groups": [
+        {
+            "id": 1,
+            "name": "Redirections",
+            "redirects": 32,
+            "module_id": 1,
+            "moduleName": "WordPress",
+            "enabled": true
+        },
+        {
+            "id": 2,
+            "name": "Modified Posts",
+            "redirects": 0,
+            "module_id": 1,
+            "moduleName": "WordPress",
+            "enabled": true
+        },
+        {
+            "id": 3,
+            "name": "landing",
+            "redirects": 5,
+            "module_id": 1,
+            "moduleName": "WordPress",
+            "enabled": true
+        },
+        {
+            "id": 4,
+            "name": "events",
+            "redirects": 5,
+            "module_id": 1,
+            "moduleName": "WordPress",
+            "enabled": true
+        },
+        {
+            "id": 5,
+            "name": "qr",
+            "redirects": 8,
+            "module_id": 1,
+            "moduleName": "WordPress",
+            "enabled": true
+        },
+        {
+            "id": 6,
+            "name": "tc",
+            "redirects": 1,
+            "module_id": 1,
+            "moduleName": "WordPress",
+            "enabled": true
+        }
+    ],
+    "redirects": [
+        {
+            "id": 1,
+            "url": "/programs/",
+            "match_url": "/programs",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 2618,
+            "regex": false,
+            "group_id": 1,
+            "position": 0,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 2,
+            "url": "/summer-camps/",
+            "match_url": "/summer-camps",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/summer-camp/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 491,
+            "regex": false,
+            "group_id": 1,
+            "position": 1,
+            "last_access": "November 6, 2025",
+            "enabled": true
+        },
+        {
+            "id": 3,
+            "url": "/intropy",
+            "match_url": "/intropy",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://trinket.io/courses/join/4ELy3V"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 22,
+            "regex": false,
+            "group_id": 1,
+            "position": 2,
+            "last_access": "July 24, 2024",
+            "enabled": true
+        },
+        {
+            "id": 4,
+            "url": "/contact/",
+            "match_url": "/contact",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/contact/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 13597,
+            "regex": false,
+            "group_id": 1,
+            "position": 3,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 6,
+            "url": "/nondiscrimination-policy/",
+            "match_url": "/nondiscrimination-policy",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/nondiscrimination-policy/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 5005,
+            "regex": false,
+            "group_id": 1,
+            "position": 5,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 7,
+            "url": "/policies/",
+            "match_url": "/policies",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/policies/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 498,
+            "regex": false,
+            "group_id": 1,
+            "position": 6,
+            "last_access": "November 4, 2025",
+            "enabled": true
+        },
+        {
+            "id": 8,
+            "url": "/privacy-policy/",
+            "match_url": "/privacy-policy",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/privacy-policy/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 5236,
+            "regex": false,
+            "group_id": 1,
+            "position": 7,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 11,
+            "url": "/locations/",
+            "match_url": "/locations",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/locations/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 7884,
+            "regex": false,
+            "group_id": 1,
+            "position": 10,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 12,
+            "url": "/java/",
+            "match_url": "/java",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/java/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 4667,
+            "regex": false,
+            "group_id": 1,
+            "position": 11,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 13,
+            "url": "/python/",
+            "match_url": "/python",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/classes/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 4541,
+            "regex": false,
+            "group_id": 1,
+            "position": 10,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 14,
+            "url": "/summer-camp/",
+            "match_url": "/summer-camp",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/summer-camp/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 1213,
+            "regex": false,
+            "group_id": 1,
+            "position": 11,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 17,
+            "url": "/volunteer/",
+            "match_url": "/volunteer",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/donate/volunteer/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 3492,
+            "regex": false,
+            "group_id": 1,
+            "position": 13,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 19,
+            "url": "/techclub",
+            "match_url": "/techclub",
+            "match_data": {
+                "source": {
+                    "flag_query": "ignore",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.meetup.com/the-league-tech-club/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 16757,
+            "regex": false,
+            "group_id": 4,
+            "position": 15,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 20,
+            "url": "/coding-programs/introduction-to-programming-workshop/",
+            "match_url": "/coding-programs/introduction-to-programming-workshop",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/workshop/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 499,
+            "regex": false,
+            "group_id": 1,
+            "position": 16,
+            "last_access": "November 5, 2025",
+            "enabled": true
+        },
+        {
+            "id": 22,
+            "url": "/lessons",
+            "match_url": "/lessons",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://curriculum.jointheleague.org/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 2,
+            "regex": false,
+            "group_id": 1,
+            "position": 18,
+            "last_access": "March 5, 2024",
+            "enabled": true
+        },
+        {
+            "id": 23,
+            "url": "/coding-camps/",
+            "match_url": "/coding-camps",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/coding-camps/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 712,
+            "regex": false,
+            "group_id": 1,
+            "position": 19,
+            "last_access": "November 5, 2025",
+            "enabled": true
+        },
+        {
+            "id": 24,
+            "url": "/sdcs-league-volunteers/",
+            "match_url": "/sdcs-league-volunteers",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/donate/sdcs-league-volunteers/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 102,
+            "regex": false,
+            "group_id": 1,
+            "position": 20,
+            "last_access": "October 27, 2025",
+            "enabled": true
+        },
+        {
+            "id": 25,
+            "url": "/tuition-assistance/",
+            "match_url": "/tuition-assistance",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/tuition-assistance/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 254,
+            "regex": false,
+            "group_id": 1,
+            "position": 21,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 26,
+            "url": "/coding-programs/java/",
+            "match_url": "/coding-programs/java",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/classes/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 5231,
+            "regex": false,
+            "group_id": 1,
+            "position": 22,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 27,
+            "url": "/coding-programs/python/",
+            "match_url": "/coding-programs/python",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/classes/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 231,
+            "regex": false,
+            "group_id": 1,
+            "position": 23,
+            "last_access": "November 3, 2025",
+            "enabled": true
+        },
+        {
+            "id": 31,
+            "url": "/microbit",
+            "match_url": "/microbit",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://league-curriculum.github.io/HourofMicrobit/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 12,
+            "regex": false,
+            "group_id": 4,
+            "position": 27,
+            "last_access": "March 26, 2024",
+            "enabled": true
+        },
+        {
+            "id": 32,
+            "url": "/poster/jac",
+            "match_url": "/poster/jac",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/classes/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 26,
+            "regex": false,
+            "group_id": 1,
+            "position": 28,
+            "last_access": "October 16, 2025",
+            "enabled": true
+        },
+        {
+            "id": 33,
+            "url": "/internship",
+            "match_url": "/internship",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://docs.google.com/forms/d/e/1FAIpQLSdZwC56EVgj3qrLUTRqVdLtiT8MD8RyTOm7Z35g06Pd52ttKw/viewform?usp=sf_link"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 14,
+            "regex": false,
+            "group_id": 1,
+            "position": 29,
+            "last_access": "April 22, 2024",
+            "enabled": true
+        },
+        {
+            "id": 34,
+            "url": "/merit-badge",
+            "match_url": "/merit-badge",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.jointheleague.org/coding-programs/tech-club/programming-merit-badge/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 4,
+            "regex": false,
+            "group_id": 3,
+            "position": 30,
+            "last_access": "April 28, 2025",
+            "enabled": true
+        },
+        {
+            "id": 35,
+            "url": "/signin",
+            "match_url": "/signin",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://docs.google.com/forms/d/e/1FAIpQLSfre4t7goEFmAYPfKndZ4foD38ynxzUoNat9pR3llHw1evQPg/viewform?usp=sf_link"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 20,
+            "regex": false,
+            "group_id": 1,
+            "position": 27,
+            "last_access": "August 17, 2025",
+            "enabled": true
+        },
+        {
+            "id": 36,
+            "url": "/qr/volunteer",
+            "match_url": "/qr/volunteer",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/donate/volunteer/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 4,
+            "regex": false,
+            "group_id": 5,
+            "position": 0,
+            "last_access": "July 24, 2024",
+            "enabled": true
+        },
+        {
+            "id": 37,
+            "url": "/qr/tech-club",
+            "match_url": "/qr/tech-club",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/tech-club/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 13,
+            "regex": false,
+            "group_id": 5,
+            "position": 22,
+            "last_access": "June 21, 2025",
+            "enabled": true
+        },
+        {
+            "id": 38,
+            "url": "/qr/jtl",
+            "match_url": "/qr/jtl",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 59,
+            "regex": false,
+            "group_id": 5,
+            "position": 2,
+            "last_access": "November 4, 2025",
+            "enabled": true
+        },
+        {
+            "id": 39,
+            "url": "/qr/donate/",
+            "match_url": "/qr/donate",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/donate/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 0,
+            "regex": false,
+            "group_id": 5,
+            "position": 3,
+            "last_access": "-",
+            "enabled": true
+        },
+        {
+            "id": 40,
+            "url": "/qr/python",
+            "match_url": "/qr/python",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.jointheleague.org/coding-programs/classes/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 14,
+            "regex": false,
+            "group_id": 5,
+            "position": 4,
+            "last_access": "June 3, 2025",
+            "enabled": true
+        },
+        {
+            "id": 41,
+            "url": "/tuesday-tech",
+            "match_url": "/tuesday-tech",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.meetup.com/the-league-tech-club/events/303588718/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 11,
+            "regex": false,
+            "group_id": 4,
+            "position": 3,
+            "last_access": "September 4, 2025",
+            "enabled": true
+        },
+        {
+            "id": 42,
+            "url": "/sunday-code",
+            "match_url": "/sunday-code",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.meetup.com/the-league-tech-club/events/303588663/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 3,
+            "regex": false,
+            "group_id": 4,
+            "position": 4,
+            "last_access": "September 4, 2025",
+            "enabled": true
+        },
+        {
+            "id": 43,
+            "url": "/qr/meetup",
+            "match_url": "/qr/meetup",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.meetup.com/the-league-tech-club/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 2,
+            "regex": false,
+            "group_id": 5,
+            "position": 5,
+            "last_access": "September 22, 2024",
+            "enabled": true
+        },
+        {
+            "id": 45,
+            "url": "/about/nondiscrimination-policy/",
+            "match_url": "/about/nondiscrimination-policy",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/policies/nondiscrimination-policy/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 3069,
+            "regex": false,
+            "group_id": 1,
+            "position": 23,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 46,
+            "url": "/about/privacy-policy/",
+            "match_url": "/about/privacy-policy",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/policies/privacy-policy/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 3137,
+            "regex": false,
+            "group_id": 1,
+            "position": 24,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 47,
+            "url": "/about/covid-policy/",
+            "match_url": "/about/covid-policy",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/policies/covid-policy/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 85,
+            "regex": false,
+            "group_id": 1,
+            "position": 25,
+            "last_access": "November 5, 2025",
+            "enabled": true
+        },
+        {
+            "id": 49,
+            "url": "/coding-programs/summer-camp/",
+            "match_url": "/coding-programs/summer-camp",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/coding-camps/summer-camp/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 708,
+            "regex": false,
+            "group_id": 1,
+            "position": 27,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 50,
+            "url": "/coding-programs/summer-camps-2024/",
+            "match_url": "/coding-programs/summer-camps-2024",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/coding-camps/summer-camps-2024/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 75,
+            "regex": false,
+            "group_id": 1,
+            "position": 28,
+            "last_access": "November 4, 2025",
+            "enabled": true
+        },
+        {
+            "id": 51,
+            "url": "/coding-programs/robot-garage/",
+            "match_url": "/coding-programs/robot-garage",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/tech-club/robot-garage/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 110,
+            "regex": false,
+            "group_id": 1,
+            "position": 29,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 52,
+            "url": "/modal-camp-description/",
+            "match_url": "/modal-camp-description",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/modals/modal-camp-description/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 120,
+            "regex": false,
+            "group_id": 1,
+            "position": 30,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 53,
+            "url": "/modal-creation/",
+            "match_url": "/modal-creation",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/modals/modal-creation/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 54,
+            "regex": false,
+            "group_id": 1,
+            "position": 31,
+            "last_access": "November 5, 2025",
+            "enabled": true
+        },
+        {
+            "id": 54,
+            "url": "/about/enroll/",
+            "match_url": "/about/enroll",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/about/policies/enroll/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 1159,
+            "regex": false,
+            "group_id": 1,
+            "position": 32,
+            "last_access": "November 6, 2025",
+            "enabled": true
+        },
+        {
+            "id": 55,
+            "url": "/qr/banner",
+            "match_url": "/qr/banner",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 6,
+            "regex": false,
+            "group_id": 5,
+            "position": 33,
+            "last_access": "February 21, 2025",
+            "enabled": true
+        },
+        {
+            "id": 56,
+            "url": "/qr/summer25",
+            "match_url": "/qr/summer25",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/coding-camps/summer-2025/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 12,
+            "regex": false,
+            "group_id": 5,
+            "position": 7,
+            "last_access": "June 24, 2025",
+            "enabled": true
+        },
+        {
+            "id": 57,
+            "url": "/summer25",
+            "match_url": "/summer25",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/coding-camps/summer-2025/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 135,
+            "regex": false,
+            "group_id": 3,
+            "position": 0,
+            "last_access": "August 17, 2025",
+            "enabled": true
+        },
+        {
+            "id": 58,
+            "url": "/tc/portfolio",
+            "match_url": "/tc/portfolio",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.meetup.com/the-league-tech-club/events/305979654/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 5,
+            "regex": false,
+            "group_id": 6,
+            "position": 0,
+            "last_access": "April 7, 2025",
+            "enabled": true
+        },
+        {
+            "id": 59,
+            "url": "/projects25",
+            "match_url": "/projects25",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.jointheleague.org/coding-programs/coding-camps/summer-2025/summer-projects/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 2,
+            "regex": false,
+            "group_id": 4,
+            "position": 5,
+            "last_access": "April 13, 2025",
+            "enabled": true
+        },
+        {
+            "id": 60,
+            "url": "/land/charter",
+            "match_url": "/land/charter",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 3,
+            "regex": false,
+            "group_id": 3,
+            "position": 1,
+            "last_access": "June 21, 2025",
+            "enabled": true
+        },
+        {
+            "id": 61,
+            "url": "/coding-programs/programming-merit-badge/",
+            "match_url": "/coding-programs/programming-merit-badge",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/tech-club/programming-merit-badge/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 103,
+            "regex": false,
+            "group_id": 1,
+            "position": 33,
+            "last_access": "November 6, 2025",
+            "enabled": true
+        },
+        {
+            "id": 62,
+            "url": "/league-labs",
+            "match_url": "/league-labs",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "https://www.jointheleague.org/coding-programs/league-labs"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 2773,
+            "regex": false,
+            "group_id": 3,
+            "position": 3,
+            "last_access": "November 6, 2025",
+            "enabled": true
+        },
+        {
+            "id": 63,
+            "url": "/l/tech-club",
+            "match_url": "/l/tech-club",
+            "match_data": {
+                "source": {
+                    "flag_query": "exact",
+                    "flag_case": true,
+                    "flag_trailing": true,
+                    "flag_regex": false
+                }
+            },
+            "action_code": 301,
+            "action_type": "url",
+            "action_data": {
+                "url": "/coding-programs/tech-club/"
+            },
+            "match_type": "url",
+            "title": "",
+            "hits": 2497,
+            "regex": false,
+            "group_id": 3,
+            "position": 4,
+            "last_access": "November 7, 2025",
+            "enabled": true
+        }
+    ]
+}

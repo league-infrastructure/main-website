@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { redirects } from '../data/redirects';
+---
+
+<BaseLayout title="Page Not Found">
+  <section class="not-found">
+    <div class="container">
+      <h1>Page Not Found</h1>
+      <p>
+        We couldn't find the page you were looking for.
+        {Object.keys(redirects).length > 0 && ' We are checking for a possible redirect.'}
+  If you are not redirected automatically,
+        you can use the navigation links above or return to the <a href="/">home page</a>.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/json" id="redirect-data" is:inline>{JSON.stringify(Object.entries(redirects))}</script>
+
+  <script type="module" is:inline>
+    const redirectEntries = JSON.parse(document.getElementById('redirect-data')?.textContent ?? '[]');
+
+    const redirectTo = (destination) => {
+      if (/^(?:https?:)?\/\//i.test(destination) || destination.startsWith('mailto:')) {
+        window.location.replace(destination);
+      } else {
+        window.location.replace(destination.startsWith('/') ? destination : `/${destination}`);
+      }
+    };
+
+    const run = () => {
+      const path = window.location.pathname;
+      const search = window.location.search || '';
+      const pathAndSearch = `${path}${search}`;
+      const lowerPath = path.toLowerCase();
+
+      for (const [pattern, destination] of redirectEntries) {
+        const regex = new RegExp(pattern);
+        if (regex.test(pathAndSearch)) {
+          redirectTo(destination);
+          return;
+        }
+      }
+
+      if (/^\/(\d{4})\/(\d{2})\/(\d{2})(?:\/.*)?$/.test(path) && !path.startsWith('/news/')) {
+        redirectTo(`/news${path}`);
+        return;
+      }
+
+      if (path.startsWith('/donate/') && path !== '/donate/') {
+        redirectTo('/donate/');
+        return;
+      }
+
+      if (path.startsWith('/about/') && path !== '/about/' && path !== '/about') {
+        redirectTo('/about/');
+        return;
+      }
+
+      if (lowerPath.includes('policy')) {
+        redirectTo('/about/policies/');
+        return;
+      }
+
+      if (lowerPath.includes('coding-programs')) {
+        redirectTo('/programs/');
+        return;
+      }
+
+      if (lowerPath.includes('client') && lowerPath.includes('portal')) {
+        redirectTo('https://jtl.pike13.com/accounts/sign_in');
+      }
+    };
+
+    run();
+  </script>
+
+  <style is:inline>
+    .not-found {
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .not-found a {
+      color: var(--color-primary, #1d4ed8);
+    }
+  </style>
+</BaseLayout>

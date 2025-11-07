@@ -1,8 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://devel.jointheleague.org'
-	
+  site: 'https://devel.jointheleague.org',
+  integrations: [sitemap()]
 });
