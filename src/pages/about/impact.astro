@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
+import Section from '../../components/Section.astro';
 ---
 
 <BaseLayout
@@ -13,28 +14,46 @@ import HeroSection from '../../components/HeroSection.astro';
     description="We are committed to transparency in how we serve students and how we steward every donation. Explore our annual impact report, audited statements, and IRS filings below."
   />
 
-
-
-  <section class="section">
-    <div class="container impact-links">
-      <div class="impact-links__column card">
-        <h3>Form 990 Filings</h3>
-        <ul class="list-reset impact-links__list">
-            <li><a href="/images/2023/12/2022_WTS_990_pg1.pdf" target="_blank" rel="noreferrer">2022 WTS 990</a></li>
-            <li><a href="/images/2023/12/2021_WTS_990_pg1.pdf" target="_blank" rel="noreferrer">2021 WTS 990</a></li>
-            <li><a href="/images/2023/12/2020_WTS_990.pdf" target="_blank" rel="noreferrer">2020 WTS 990</a></li>
-            <li><a href="/images/2023/12/2019_WTS_990_pg1.pdf" target="_blank" rel="noreferrer">2019 WTS 990</a></li>
-        </ul>
-      </div>
-      <div class="impact-links__column card">
-        <h3>Audited Financial Statements</h3>
-        <ul class="list-reset impact-links__list">
-            <li><a href="/images/2023/12/2019-2020-WTS-Audited-Financial-Statements.pdf" target="_blank" rel="noreferrer">2019–2020 Audited Financials</a></li>
-            <li><a href="/images/2023/12/2017-2018-WTS-Audited-Financial-Statements.pdf" target="_blank" rel="noreferrer">2017–2018 Audited Financials</a></li>
-        </ul>
-      </div>
+  <Section sectionClass="section--surface-alt" class="impact-report">
+    <div class="impact-report__header">
+      <h2>The League of Amazing Programmers Impact Report 2022–23</h2>
+      <a
+        class="impact-report__button"
+        href="/images/2023/12/The-League-of-Amazing-Programmers-Impact-Report-2022-23.pdf"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Download the Impact Report
+      </a>
     </div>
-  </section>
+    <div class="impact-report__embed">
+      <iframe
+        title="The League Impact Report 2022–23"
+        src="https://e.issuu.com/embed.html?backgroundColor=%23f5f5ef&d=the_league_of_amazing_programmers_impact_report_20&u=jointheleague"
+        loading="lazy"
+        allowfullscreen
+      />
+    </div>
+  </Section>
+
+  <Section class="impact-links">
+    <div class="impact-links__column card">
+      <h3>Form 990 Filings</h3>
+      <ul class="list-reset impact-links__list">
+        <li><a href="/images/2023/12/2022_WTS_990_pg1.pdf" target="_blank" rel="noreferrer">2022 WTS 990</a></li>
+        <li><a href="/images/2023/12/2021_WTS_990_pg1.pdf" target="_blank" rel="noreferrer">2021 WTS 990</a></li>
+        <li><a href="/images/2023/12/2020_WTS_990.pdf" target="_blank" rel="noreferrer">2020 WTS 990</a></li>
+        <li><a href="/images/2023/12/2019_WTS_990_pg1.pdf" target="_blank" rel="noreferrer">2019 WTS 990</a></li>
+      </ul>
+    </div>
+    <div class="impact-links__column card">
+      <h3>Audited Financial Statements</h3>
+      <ul class="list-reset impact-links__list">
+        <li><a href="/images/2023/12/2019-2020-WTS-Audited-Financial-Statements.pdf" target="_blank" rel="noreferrer">2019–2020 Audited Financials</a></li>
+        <li><a href="/images/2023/12/2017-2018-WTS-Audited-Financial-Statements.pdf" target="_blank" rel="noreferrer">2017–2018 Audited Financials</a></li>
+      </ul>
+    </div>
+  </Section>
 </BaseLayout>
 
 <style>
