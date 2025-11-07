@@ -1,207 +1,87 @@
-------
-
-import BaseLayout from '../../../layouts/BaseLayout.astro';import BaseLayout from '../../../layouts/BaseLayout.astro';
-
----import PolicyDetailStyles from '../../../components/PolicyDetailStyles.astro';
-
-
-
-<BaseLayoutconst sections = [
-
-  title="Non-discrimination Policy"  {
-
-  description="How The LEAGUE of Amazing Programmers maintains a respectful, bias-free environment for students, families, and staff."    id: 'objective',
-
->    title: 'Objective',
-
-  <section class="section">    body: `
-
-    <div class="container content"><p>The LEAGUE of Amazing Programmers ("The LEAGUE") is committed to an environment where everyone is treated with dignity and respect. Each individual has the right to work or study in a professional community that promotes equal opportunities and prohibits unlawful discrimination and harassment.</p>
-
-      <h1>Non-discrimination Policy</h1><p>This policy ensures that all members can work or study free from unlawful harassment, discrimination, and retaliation. The LEAGUE will make every reasonable effort to ensure the community understands these expectations and that complaints are investigated and resolved appropriately.</p>
-
-<p>Employees, students, and members with questions about these policies should contact the Executive Director or a member of the Board of Directors. These policies cannot be used as a reason to exclude or separate individuals based on gender or any protected characteristic. The LEAGUE prohibits disparate treatment related to terms, conditions, privileges, or benefits of employment or membership.</p>
-
-      <h2>Objective</h2>`,
-
-      <p>The LEAGUE of Amazing Programmers ("The LEAGUE") is committed to an environment in which all individuals are treated with respect and dignity. Each person has the right to work or study in a professional atmosphere that promotes equal employment opportunities and prohibits unlawful discriminatory practices, including harassment. The LEAGUE expects that all relationships among people in the organization remain respectful and free of explicit bias, prejudice, and harassment.</p>  },
-
-      <p>The LEAGUE developed this policy so every member can work or study in an environment free from unlawful harassment, discrimination, and retaliation. The organization will make every reasonable effort to ensure the community understands these expectations and that complaints are investigated and resolved appropriately.</p>  {
-
-      <p>Any employee, student, or member who has questions or concerns about these policies should speak with the Executive Director or a member of the Board of Directors.</p>    id: 'equal-employment-opportunity',
-
-      <p>These policies may not be used as a basis for excluding or separating individuals of a particular gender, or any other protected characteristic, from participating in study or work-related social activities or discussions. The law and the policies of The LEAGUE prohibit disparate treatment on the basis of sex or any other protected characteristic with regard to terms, conditions, privileges, and benefits of employment or membership. The prohibitions against harassment, discrimination, and retaliation complement and reinforce these policies.</p>    title: 'Equal Employment Opportunity',
-
-    body: `
-
-      <h2>Equal Employment Opportunity</h2><p>The LEAGUE ensures equal employment opportunity without discrimination or harassment on the basis of race (including hairstyle and texture), color, religion, sex, sexual orientation, gender identity or expression, age, disability, marital status, citizenship, national origin, genetic information, or any other characteristic protected by law.</p>
-
-      <p>The LEAGUE ensures equal employment opportunity without discrimination or harassment on the basis of race (including hairstyle or texture), color, religion, sex, sexual orientation, gender identity or expression, age, disability, marital status, citizenship, national origin, genetic information, or any other characteristic protected by law.</p>`,
-
-  },
-
-      <h2>Retaliation</h2>  {
-
-      <p>The LEAGUE encourages reporting of all perceived incidents of discrimination or harassment. Reports are investigated promptly and thoroughly. Retaliation against any individual who reports discrimination or harassment or who participates in an investigation is prohibited.</p>    id: 'retaliation',
-
-    title: 'Retaliation',
-
-      <h2>Sexual Harassment</h2>    body: `
-
-      <p>Sexual harassment is discrimination and is illegal under federal, state, and local laws. The Equal Employment Opportunity Commission defines sexual harassment as unwelcome sexual advances, requests for sexual favors, and other verbal or physical conduct of a sexual nature when:</p><p>The LEAGUE encourages reporting of any perceived discrimination or harassment. Reports are investigated promptly and thoroughly. Retaliation against any individual who reports or participates in an investigation is prohibited.</p>
-
-      <ul>`,
-
-        <li>Submission to the conduct is made explicitly or implicitly a term or condition of employment;</li>  },
-
-        <li>Submission to or rejection of the conduct is used as the basis for employment decisions; or</li>  {
-
-        <li>The conduct unreasonably interferes with work performance or creates an intimidating, hostile, or offensive environment for staff or students.</li>    id: 'sexual-harassment',
-
-      </ul>    title: 'Sexual Harassment',
-
-      <p>Title VII of the Civil Rights Act of 1964 recognizes two types of sexual harassment: quid pro quo and hostile work environment. Sexual harassment can involve subtle or overt behavior and may occur between individuals of any gender. Examples include unwanted advances, requests for favors, sexual jokes, comments about someone’s body, leering, unwanted touching, or displaying sexually suggestive objects or images.</p>    body: `
-
-<p>Sexual harassment is discrimination and is illegal under federal, state, and local laws. As defined by Equal Employment Opportunity Commission guidelines, sexual harassment includes unwelcome sexual advances, requests for sexual favors, and other verbal or physical conduct of a sexual nature when:</p>
-
-      <h2>Harassment</h2><ul>
-
-      <p>Harassment based on any protected characteristic is prohibited. Harassment includes verbal, written, or physical conduct that denigrates or shows hostility toward an individual because of a protected characteristic or that of their relatives, friends, or associates, and that:</p>  <li>Submission to the conduct is made explicitly or implicitly a term or condition of employment;</li>
-
-      <ul>  <li>Submission to or rejection of the conduct is used as the basis for employment decisions; or</li>
-
-        <li>Creates an intimidating, hostile, or offensive environment;</li>  <li>The conduct unreasonably interferes with work performance or creates an intimidating, hostile, or offensive environment for staff or students.</li>
-
-        <li>Unreasonably interferes with work performance; or</li></ul>
-
-        <li>Adversely affects employment opportunities.</li><p>Title VII of the Civil Rights Act of 1964 recognizes two categories of sexual harassment: quid pro quo and hostile work environment. Sexual harassment can involve subtle or overt behavior and may occur between individuals of any gender. Examples include unwanted advances, sexual jokes, comments about someone's body, leering, unwanted touching, or displaying sexually suggestive objects or images.</p>
-
-      </ul>`,
-
-      <p>Harassing conduct includes epithets, slurs, negative stereotyping, threatening or hostile acts, denigrating jokes, and written or graphic material that shows hostility toward an individual or group, whether posted physically or shared electronically.</p>  },
-
-  {
-
-      <h2>Individuals and Conduct Covered</h2>    id: 'harassment',
-
-      <p>These policies apply to all applicants and employees, whether the conduct is by fellow employees or by individuals not directly connected to The LEAGUE, such as vendors or customers. The policies cover conduct in the workplace and any work-related setting outside the workplace.</p>    title: 'Harassment',
-
-    body: `
-
-      <h2>Reporting an Incident of Harassment, Discrimination, or Retaliation</h2><p>Harassment based on any protected characteristic is prohibited. Harassment includes verbal, written, or physical conduct that denigrates or shows hostility toward an individual because of a protected characteristic or that of their relatives, friends, or associates, and that:</p>
-
-      <p>The LEAGUE encourages reporting of all perceived incidents of discrimination, harassment, or retaliation, regardless of the offender’s identity or position. Individuals who believe they have been the victim of such conduct should contact their teacher, the operations team, the Executive Director, or a member of the Board of Directors. Individuals are also encouraged to advise the offender directly that the behavior is unwelcome when possible.</p><ul>
-
-  <li>Creates an intimidating, hostile, or offensive environment;</li>
-
-      <h2>Complaint Procedure</h2>  <li>Unreasonably interferes with work performance; or</li>
-
-      <p>Those who believe they have experienced or witnessed prohibited conduct should discuss their concerns with the Executive Director or a member of the Board of Directors. Prompt reporting allows for timely, constructive action.</p>  <li>Adversely affects employment opportunities.</li>
-
-      <p>Reported allegations will be investigated promptly. The process may include individual interviews with the parties involved and witnesses. The LEAGUE maintains confidentiality during the investigation as much as possible while allowing a thorough review.</p></ul>
-
-      <p>Retaliation against anyone reporting or participating in an investigation is prohibited and will result in disciplinary action. Responsive actions may include training, counseling, warnings, removal from classes, reassignment, suspension, or termination, depending on the circumstances.</p><p>Examples include epithets, slurs, negative stereotyping, threatening or hostile acts, denigrating jokes, and written or graphic material that shows hostility or aversion toward an individual or group.</p>
-
-      <p>If a party disagrees with the resolution, they may appeal to the Executive Director or the chair of the Board of Directors. False and malicious complaints, as opposed to good-faith concerns, may result in disciplinary action.</p>`,
-
-  },
-
-      <h2>Additional Resources</h2>  {
-
-      <p>Download the <a href="https://www.jointheleague.org/wp-content/uploads/2023/11/Student-Code-of-Conduct-09-2023.pdf" target="_blank" rel="noreferrer">Student Code of Conduct</a>.</p>    id: 'coverage',
-
-      <p>Visit the <a href="https://www.cde.ca.gov/re/di/eo/" target="_blank" rel="noreferrer">California Department of Education Equal Opportunity &amp; Access</a> page for more information.</p>    title: 'Individuals and Conduct Covered',
-
-    </div>    body: `
-
-  </section><p>These policies apply to all applicants and employees, whether the conduct is by fellow employees or by individuals not directly connected to The LEAGUE, such as vendors or customers. The policies cover conduct in the workplace and in any work-related setting outside the workplace.</p>
-
-</BaseLayout>`,
-
-  },
-
-<style>  {
-
-  .content {    id: 'reporting',
-
-    display: grid;    title: 'Reporting an Incident of Harassment, Discrimination, or Retaliation',
-
-    gap: var(--space-md);    body: `
-
-    max-width: 820px;<p>The LEAGUE encourages reporting of all perceived incidents, regardless of the offender's role. Individuals who believe they are experiencing prohibited conduct should contact their teacher, the operations team, the Executive Director, or a Board member.</p>
-
-  }<p>Individuals are also encouraged to advise the offender directly that the behavior is unwelcome. If the situation persists or if direct communication is not possible, the formal complaint procedure is available.</p>
-
-`,
-
-  .content ul {  },
-
-    display: grid;  {
-
-    gap: var(--space-xs);    id: 'complaint-procedure',
-
-    padding-left: var(--space-lg);    title: 'Complaint Procedure',
-
-  }    body: `
-
-<p>Those who believe they have experienced or witnessed prohibited conduct should discuss concerns with the Executive Director or a Board member. Prompt reporting allows for timely, constructive action.</p>
-
-  .content a {<p>Reported allegations will be investigated promptly. The process may include individual interviews with involved parties and witnesses. The LEAGUE maintains confidentiality during the investigation as much as possible while allowing a thorough review.</p>
-
-    color: var(--color-primary);<p>Retaliation against anyone reporting or participating in an investigation is prohibited and will result in disciplinary action. Responsive actions may include training, counseling, warnings, removal from classes, reassignment, suspension, or termination, depending on the circumstances.</p>
-
-  }<p>If a party disagrees with the resolution, they may appeal to the Executive Director or the Board chair. False and malicious complaints, as opposed to good-faith concerns, may result in disciplinary action.</p>
-
-`,
-
-  .content a:hover,  },
-
-  .content a:focus {  {
-
-    text-decoration: underline;    id: 'resources',
-
-  }    title: 'Additional Resources',
-
-</style>    body: `
-
-<p>Download the <a href="/images/2023/11/Student-Code-of-Conduct-09-2023.pdf" target="_blank" rel="noreferrer">Student Code of Conduct</a>.</p>
-<p>Visit the <a href="https://www.cde.ca.gov/re/di/eo/" target="_blank" rel="noreferrer">California Department of Education Equal Opportunity and Access</a> page for more information.</p>
-`,
-  },
-];
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
   title="Non-discrimination Policy"
-  description="How The League of Amazing Programmers maintains a respectful, bias-free environment for students, families, and staff."
+  description="How The LEAGUE of Amazing Programmers maintains a respectful, bias-free environment for students, families, and staff."
 >
-  <PolicyDetailStyles />
-  <section class="section hero">
-    <div class="container policy-hero__content">
-      <h1>Non-discrimination Policy</h1>
-      <p>
-        The LEAGUE expects all relationships within the organization to remain respectful, free from bias, prejudice, and harassment. These guidelines describe how we uphold equal opportunity for our community.
-      </p>
-    </div>
-  </section>
-
   <section class="section">
-    <div class="container policy-toc">
-      <h2>On this page</h2>
-      <ul class="policy-toc__list">
-        {sections.map((section) => (
-          <li><a href={`#${section.id}`}>{section.title}</a></li>
-        ))}
+    <div class="container content">
+      <h1>Non-discrimination Policy</h1>
+      <p>The LEAGUE of Amazing Programmers ("The LEAGUE") is committed to an environment in which all individuals are treated with respect and dignity. Each person has the right to work or study in a professional atmosphere that promotes equal employment opportunities and prohibits unlawful discriminatory practices, including harassment.</p>
+      <p>The LEAGUE has developed this policy to ensure that all members can work or study in an environment free from unlawful harassment, discrimination, and retaliation. The organization will make every reasonable effort to ensure that the community is familiar with these policies and understands that any complaints will be investigated and resolved appropriately.</p>
+      <p>Any employee, student, or member who has questions or concerns about these policies should speak with the Executive Director or a member of the Board of Directors.</p>
+      <p>These policies should not, and may not, be used as a basis for excluding or separating individuals of a particular gender, or any other protected characteristic, from participating in study or work-related social activities or discussions. The law and policies of The LEAGUE prohibit disparate treatment on the basis of sex or any other protected characteristic with respect to the terms, conditions, privileges, and benefits of employment or membership.</p>
+
+      <h2>Equal Employment Opportunity</h2>
+      <p>It is the policy of The LEAGUE to ensure equal employment opportunity without discrimination or harassment on the basis of race (including hairstyle and texture), color, religion, sex, sexual orientation, gender identity or expression, age, disability, marital status, citizenship, national origin, genetic information, or any other characteristic protected by law. The LEAGUE prohibits any such discrimination or harassment.</p>
+
+      <h2>Retaliation</h2>
+      <p>The LEAGUE encourages reporting of all perceived incidents of discrimination or harassment. Reports are investigated promptly and thoroughly, and retaliation against any individual who reports discrimination or harassment or participates in an investigation is prohibited.</p>
+
+      <h2>Sexual Harassment</h2>
+      <p>Sexual harassment constitutes discrimination and is illegal under federal, state, and local laws. For the purposes of this policy, sexual harassment is defined, consistent with Equal Employment Opportunity Commission guidelines, as unwelcome sexual advances, requests for sexual favors, and other verbal or physical conduct of a sexual nature when:</p>
+      <ul>
+  <li>Submission to such conduct is made either explicitly or implicitly a term or condition of an individual's employment;</li>
+  <li>Submission to or rejection of such conduct by an individual is used as the basis for employment decisions affecting that individual; or</li>
+  <li>Such conduct has the purpose or effect of unreasonably interfering with an individual's work performance or creating an intimidating, hostile, or offensive working environment for staff and students.</li>
       </ul>
+  <p>Title VII of the Civil Rights Act of 1964 recognizes two types of sexual harassment: quid pro quo and hostile work environment. Sexual harassment may involve a range of subtle or overt behaviors and may occur between individuals of the same or different gender. Examples include unwanted sexual advances, requests for favors, sexual jokes or innuendo, verbal abuse of a sexual nature, commentary about an individual's body, leering, whistling, touching, insulting or obscene comments or gestures, or displaying sexually suggestive objects or pictures.</p>
+
+      <h2>Harassment</h2>
+  <p>Harassment on the basis of any protected characteristic is strictly prohibited. Under this policy, harassment includes verbal, written, or physical conduct that denigrates or shows hostility or aversion toward an individual because of their race, color, religion, sex, sexual orientation, gender identity or expression, national origin, age, disability, marital status, citizenship, genetic information, or any other characteristic protected by law, or because of the protected status of their relatives, friends, or associates, and that:</p>
+      <ul>
+        <li>Has the purpose or effect of creating an intimidating, hostile, or offensive work environment;</li>
+  <li>Has the purpose or effect of unreasonably interfering with an individual's work performance; or</li>
+  <li>Otherwise adversely affects an individual's employment opportunities.</li>
+      </ul>
+      <p>Harassing conduct includes epithets, slurs, negative stereotyping, threatening or hostile acts, denigrating jokes, and written or graphic material that denigrates or shows hostility or aversion toward an individual or group, whether posted physically or circulated electronically.</p>
+
+      <h2>Individuals and Conduct Covered</h2>
+      <p>These policies apply to all applicants and employees, whether related to conduct engaged in by fellow employees or by someone not directly connected to The LEAGUE, such as an outside vendor, consultant, or customer.</p>
+      <p>Conduct prohibited by these policies is unacceptable in the workplace and in any work-related setting outside the workplace, including business trips, meetings, and business-related social events.</p>
+
+      <h2>Reporting an Incident of Harassment, Discrimination, or Retaliation</h2>
+  <p>The LEAGUE encourages reporting of all perceived incidents of discrimination, harassment, or retaliation, regardless of the offender's identity or position. Individuals who believe they have experienced such conduct should discuss their concerns with their teacher, the operations team, the Executive Director, or a member of the Board of Directors.</p>
+      <p>Individuals are also encouraged to advise the offender directly that the behavior is unwelcome and to request that it be discontinued. If the situation persists or direct communication is not possible, the formal complaint procedure remains available.</p>
+
+      <h2>Complaint Procedure</h2>
+      <p>Individuals who believe they have been the victims of conduct prohibited by this policy, or who believe they have witnessed such conduct, should discuss their concerns with the Executive Director or a member of the Board of Directors.</p>
+      <p>The LEAGUE encourages prompt reporting of complaints or concerns so that rapid and constructive action can be taken before relationships become irreparably strained. While no fixed reporting period has been established, early reporting and intervention are the most effective means of resolving actual or perceived incidents of harassment.</p>
+      <p>Any reported allegations of harassment, discrimination, or retaliation will be investigated promptly. The investigation may include individual interviews with the parties involved and, when necessary, with individuals who may have observed the alleged conduct or may have relevant knowledge.</p>
+      <p>The LEAGUE will maintain confidentiality throughout the investigatory process to the extent consistent with an adequate investigation and appropriate corrective action.</p>
+  <p>Retaliation against an individual for reporting harassment or discrimination, or for participating in an investigation, is a serious violation of this policy and will result in disciplinary action. Acts of retaliation should be reported immediately and will be promptly investigated and addressed.</p>
+      <p>Misconduct constituting harassment, discrimination, or retaliation will be addressed appropriately. Responsive action may include training, counseling, warnings, removal from classes, reassignment, suspension, or termination, as The LEAGUE deems appropriate under the circumstances.</p>
+  <p>If a party to a complaint does not agree with its resolution, that party may appeal to The LEAGUE's Executive Director or the chair of the Board of Directors.</p>
+      <p>False and malicious complaints of harassment, discrimination, or retaliation—as opposed to complaints made in good faith, even if erroneous—may be the subject of disciplinary action.</p>
+
+      <h2>Additional Resources</h2>
+      <p>Download the <a href="https://www.jointheleague.org/wp-content/uploads/2023/11/Student-Code-of-Conduct-09-2023.pdf" target="_blank" rel="noreferrer">Student Code of Conduct</a>.</p>
+      <p>For additional guidance, visit the <a href="https://www.cde.ca.gov/re/di/eo/" target="_blank" rel="noreferrer">California Department of Education Equal Opportunity &amp; Access</a> page.</p>
     </div>
   </section>
-
-  {sections.map((section) => (
-    <section class="section policy-detail" id={section.id}>
-      <div class="container policy-detail__inner">
-        <h2>{section.title}</h2>
-        <div class="policy-detail__content" set:html={section.body} />
-      </div>
-    </section>
-  ))}
 </BaseLayout>
+
+<style>
+  .content {
+    display: grid;
+    gap: var(--space-md);
+    max-width: 820px;
+  }
+
+  .content ul {
+    display: grid;
+    gap: var(--space-xs);
+    padding-left: var(--space-lg);
+  }
+
+  .content a {
+    color: var(--color-primary);
+  }
+
+  .content a:hover,
+  .content a:focus {
+    text-decoration: underline;
+  }
+</style>

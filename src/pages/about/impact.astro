@@ -1,38 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <BaseLayout
   title="Impact & Financials"
   description="View The League of Amazing Programmers impact highlights, annual report, audited financial statements, and IRS Form 990 filings."
 >
-  <section class="section hero">
-    <div class="container impact-hero__inner">
-      <div>
-        <h1>Impact &amp; Financials</h1>
-        <p>
-          We are committed to transparency in how we serve students and how we steward every donation. Explore our annual impact report, audited statements, and IRS filings below.
-        </p>
-      </div>
-    </div>
-  </section>
+  <HeroSection
+    class="section impact-hero"
+    title="Impact &amp; Financials"
+    description="We are committed to transparency in how we serve students and how we steward every donation. Explore our annual impact report, audited statements, and IRS filings below."
+  />
 
-  <section class="section section--surface-alt">
-    <div class="container impact-report">
-      <div class="impact-report__header">
-        <h2>The League of Amazing Programmers Impact Report 2022–23</h2>
-          <a class="impact-report__button" href="/images/2023/12/The-League-of-Amazing-Programmers-Impact-Report-2022-23.pdf" target="_blank" rel="noreferrer">Download the Impact Report</a>
-      </div>
-      <div class="impact-report__embed">
-        <iframe
-          title="The League Impact Report 2022–23"
-          src="https://e.issuu.com/embed.html?backgroundColor=%23f5f5ef&d=the_league_of_amazing_programmers_impact_report_20&u=jointheleague"
-          loading="lazy"
-          allowfullscreen
-        />
-      </div>
-    </div>
-  </section>
+
 
   <section class="section">
     <div class="container impact-links">
@@ -57,6 +38,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
+  .impact-hero {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      rgba(93, 95, 239, 0.22) 0%,
+      rgba(243, 113, 33, 0.14) 45%,
+      var(--color-peach) 100%
+    );
+    padding: var(--space-4xl) 0 var(--space-3xl);
+  }
+
+  .impact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 12% 18%,
+        rgba(93, 95, 239, 0.28),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 88% 12%,
+        rgba(243, 113, 33, 0.18),
+        transparent 35%
+      );
+    pointer-events: none;
+  }
+
   .impact-report {
     display: grid;
     gap: var(--space-xl);
