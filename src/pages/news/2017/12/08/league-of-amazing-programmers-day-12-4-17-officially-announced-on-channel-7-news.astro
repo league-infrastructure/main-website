@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import Post from '../../../../../components/Post.astro';
+
+const post = {
+  title: "League of Amazing Programmers Day 12/4/17 officially announced on Channel 7 News!",
+  author: "ericbusboom",
+  date: "2017-12-08",
+  description: "Channel 7 news announces that San Diego City Council is declaring December 4, 2017 officially \u201cThe League of Amazing Programmers Day\u201d. The League is...",
+  featuredImage: {
+    src: "https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM.png",
+    srcset: "https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM-200x109.png 200w, https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM-400x217.png 400w, https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM-600x326.png 600w, https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM-800x435.png 800w, https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM-1200x652.png 1200w, https://www.jointheleague.org/wp-content/uploads/2017/12/Screenshot-2023-04-03-at-5.40.43-PM.png 3476w",
+    sizes: "(max-width: 780px) 100vw, 1200px",
+  },
+};
+---
+<BaseLayout title={post.title} description={post.description ?? undefined}>
+  <Post title={post.title} author={post.author} date={post.date} featuredImage={post.featuredImage}>
+    <p>Channel 7 news announces that San Diego City Council is declaring December 4, 2017 officially “The League of Amazing Programmers Day”. The League is recognized for its after-school program dedicated to teaching professional-level computer programming to a wide range of young San Diegans and for the achievement of teams competing in winning the 2017 D4SD challenge.  <a href="https://youtu.be/1qG6hMfeGNc">Watch this great story!</a></p>
+  </Post>
+</BaseLayout>

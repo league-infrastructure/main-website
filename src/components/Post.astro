@@ -1,0 +1,117 @@
+---
+import '../styles/post.css';
+
+interface FeaturedImage {
+  src: string;
+  alt?: string;
+  caption?: string;
+  srcset?: string;
+  sizes?: string;
+}
+
+interface Props {
+  title: string;
+  author?: string | null;
+  date?: string | null;
+  featuredImage?: FeaturedImage | null;
+}
+
+const {
+  title,
+  author = null,
+  date = null,
+  featuredImage = null,
+} = Astro.props as Props;
+
+const hasFeaturedSlot = Astro.slots.has('featured');
+const hasAuthorSlot = Astro.slots.has('author');
+const hasDateSlot = Astro.slots.has('date');
+const hasTitleSlot = Astro.slots.has('title');
+
+let isoDate: string | undefined;
+let displayDate: string | undefined;
+
+if (date) {
+  const parsed = new Date(date);
+  if (!Number.isNaN(parsed.getTime())) {
+    isoDate = parsed.toISOString();
+    displayDate = parsed.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  } else {
+    displayDate = date;
+  }
+}
+---
+<article class="post">
+  <div class="container post__inner">
+    <header class="post__header">
+      {hasTitleSlot ? (
+        <slot name="title" />
+      ) : (
+        title && <h1 class="post__title">{title}</h1>
+      )}
+      {(hasAuthorSlot || author || hasDateSlot || displayDate) && (
+        <div class="post__meta">
+          {hasAuthorSlot ? (
+            <slot name="author" />
+          ) : (
+            author && <span class="post__author">{author}</span>
+          )}
+          {hasDateSlot ? (
+            <slot name="date" />
+          ) : (
+            displayDate && (
+              <time class="post__date" datetime={isoDate ?? undefined}>
+                {displayDate}
+              </time>
+            )
+          )}
+        </div>
+      )}
+      {hasFeaturedSlot ? (
+        <slot name="featured" />
+      ) : (
+        featuredImage?.src && (
+          <figure class="post__media">
+            <img
+              src={featuredImage.src}
+              alt={featuredImage.alt ?? title}
+              loading="lazy"
+              srcset={featuredImage.srcset}
+              sizes={featuredImage.sizes}
+            />
+            {featuredImage.caption && (
+              <figcaption class="post__caption">{featuredImage.caption}</figcaption>
+            )}
+          </figure>
+        )
+      )}
+    </header>
+    <div class="post__content">
+      <slot />
+    </div>
+  </div>
+</article>
+
+<style>
+.post__meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  flex-wrap: wrap;
+}
+
+.post__author {
+  font-weight: 600;
+}
+
+.post__caption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+</style>

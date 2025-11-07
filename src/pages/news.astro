@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import newsPosts from '../data/newsPosts.json';
+
+interface NewsPostSummary {
+  title: string;
+  author: string | null;
+  date: string | null;
+  description: string | null;
+  path: string;
+  featuredImage?: {
+    src: string;
+    alt?: string;
+  } | null;
+}
+
+const posts = (newsPosts as NewsPostSummary[]).map((post) => {
+  const iso = post.date ?? null;
+  const displayDate = iso
+    ? new Date(iso).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : null;
+
+  return {
+    ...post,
+    isoDate: iso,
+    displayDate,
+  };
+});
+---
+<BaseLayout title="News & Updates" description="Latest news and stories from The League of Amazing Programmers.">
+  <section class="news-index">
+    <div class="container">
+      <header class="news-index__header">
+        <h1>News &amp; Updates</h1>
+        <p>Stories, announcements, and program highlights from The League of Amazing Programmers.</p>
+      </header>
+      <ol class="news-index__list">
+        {posts.map((post) => (
+          <li class="news-index__item">
+            <article>
+              <header class="news-index__item-header">
+                <h2>
+                  <a href={post.path}>{post.title}</a>
+                </h2>
+                {(post.displayDate || post.author) && (
+                  <div class="news-index__meta">
+                    {post.displayDate && (
+                      <time datetime={post.isoDate ?? undefined}>{post.displayDate}</time>
+                    )}
+                    {post.author && <span class="news-index__author">{post.author}</span>}
+                  </div>
+                )}
+              </header>
+              {post.description && <p class="news-index__description">{post.description}</p>}
+              <footer class="news-index__footer">
+                <a class="news-index__link" href={post.path}>Read more</a>
+              </footer>
+            </article>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.news-index {
+  padding: var(--space-4xl) 0;
+}
+
+.news-index__header {
+  max-width: 720px;
+  margin-bottom: var(--space-2xl);
+}
+
+.news-index__header h1 {
+  margin-bottom: var(--space-md);
+  font-size: clamp(32px, 6vw, 48px);
+}
+
+.news-index__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.news-index__item {
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-xl);
+}
+
+.news-index__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.news-index__item-header h2 {
+  margin: 0 0 var(--space-sm);
+  font-size: clamp(24px, 4vw, 32px);
+}
+
+.news-index__meta {
+  display: flex;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  flex-wrap: wrap;
+}
+
+.news-index__meta time {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.news-index__description {
+  margin: var(--space-md) 0;
+  max-width: 800px;
+  color: var(--color-text-muted, var(--color-muted));
+}
+
+.news-index__link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.news-index__link:hover,
+.news-index__link:focus {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .news-index {
+    padding: var(--space-3xl) 0;
+  }
+
+  .news-index__list {
+    gap: var(--space-lg);
+  }
+}
+</style>

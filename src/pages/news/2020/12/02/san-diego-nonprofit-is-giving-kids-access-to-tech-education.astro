@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import Post from '../../../../../components/Post.astro';
+
+const post = {
+  title: "San Diego nonprofit is giving kids access to tech education",
+  author: "ericbusboom",
+  date: "2020-12-02",
+  description: "Executive Director of The League of Amazing Programmers, Sarah Tuakli along with student, Isis talked about the program and how they are helping kids.",
+  featuredImage: {
+    src: "https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-scaled.jpeg",
+    srcset: "https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-200x133.jpeg 200w, https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-400x267.jpeg 400w, https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-600x400.jpeg 600w, https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-800x533.jpeg 800w, https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-1200x800.jpeg 1200w, https://www.jointheleague.org/wp-content/uploads/2020/12/AdobeStock_158071825-scaled.jpeg 2560w",
+    sizes: "(max-width: 780px) 100vw, 1200px",
+  },
+};
+---
+<BaseLayout title={post.title} description={post.description ?? undefined}>
+  <Post title={post.title} author={post.author} date={post.date} featuredImage={post.featuredImage}>
+    <figure class="wp-block-image"><a href="https://www.cbs8.com/embeds/video/509-e1c59867-e13c-430e-9149-0a288e9f5812/iframe?jwsource=cl"><img alt="" loading="lazy" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2020/12/Screen-Shot-2020-12-02-at-1.45.36-PM-1024x574.png"/></a></figure>
+    <p><strong>Executive Director of The League of Amazing Programmers, Sarah Tuakli along with student, Isis talked about the program and how they are helping kids.</strong></p>
+    <p>Author: cbs8.com<br/>Published: December 1, 2020</p>
+    <p><a href="https://www.cbs8.com/video/news/local/morning-extra/the-league-of-amazing-programmers/509-e1c59867-e13c-430e-9149-0a288e9f5812" rel="noopener noreferrer" target="_blank">Link to Original Post</a></p>
+  </Post>
+</BaseLayout>
