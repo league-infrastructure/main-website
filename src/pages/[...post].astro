@@ -33,6 +33,12 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 
 const { Content, frontmatter } = Astro.props as unknown as RouteProps;
 
+try {
+  await import(`../content/posts/${frontmatter.slug}.css`);
+} catch {
+  // Optional CSS not present for this post
+}
+
 ---
 
 <PostLayout frontmatter={frontmatter}>
