@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CalloutCard from '../components/CalloutCard.astro';
+
+const supportTopics = [
+  {
+    title: 'Donate',
+    description: 'Make a one-time or recurring gift that keeps tuition affordable, funds scholarships, and equips League classrooms with laptops and robotics gear.',
+    highlights: ['Give securely online through Give Lively', 'Explore matching gifts, stock, and planned giving options'],
+    href: '/support/donate/'
+  },
+  {
+    title: 'Volunteer',
+    description: 'Coach students in class, host Tech Club pop-ups, or mentor project teams. We provide the curriculum, training, and ongoing staff support.',
+    highlights: ['Flexible commitments from single events to weekly sessions', 'Background checks and onboarding covered by The League'],
+    href: '/support/volunteer/'
+  },
+  {
+    title: 'Create a Fundraiser',
+    description: 'Launch a peer-to-peer campaign, company challenge, or streaming event. Access ready-to-use toolkits, messaging, and League staff coaching.',
+    highlights: ['Set up your Give Lively page in minutes', 'Download templates for emails, social posts, and milestones'],
+    href: '/support/create-a-fundraiser/'
+  },
+  {
+    title: 'League at Work',
+    description: 'Invite League instructors to your workplace for family coding nights, employee upskilling, or community impact days aligned with your CSR goals.',
+    highlights: ['Customized experiences with curriculum and equipment provided', 'Great for employee resource groups and corporate volunteer teams'],
+    href: '/support/at-work/'
+  },
+  {
+    title: 'Supporters',
+    description: 'Meet the donors, partners, and volunteers who power equitable access to computer science—and discover how you can join their ranks.',
+    highlights: ['Learn about giving circles and sponsorship opportunities', 'Review impact reports and recognition programs'],
+    href: '/support/supporters/'
+  }
+];
+---
+
+<BaseLayout
+  title="Support The League"
+  description="Explore every way to champion The League of Amazing Programmers—from donations and fundraisers to volunteering and corporate partnerships."
+>
+  <HeroSection
+    surface="alt"
+    tag="Get Involved"
+    title="Support San Diego's Future Coders"
+    description="Whether you want to donate, mentor, host a fundraiser, or partner through your company, these resources make it easy to amplify student impact."
+    actions={[
+      { label: 'Donate Now', href: '/support/donate/', variant: 'primary' },
+      { label: 'Volunteer with Us', href: '/support/volunteer/', variant: 'secondary' }
+    ]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader align="left">
+        <eyebrow>Ways to Help</eyebrow>
+        <h2>Choose the Path that Fits You</h2>
+        <p>Every option below links to a dedicated page with details, resources, and next steps.</p>
+      </SectionHeader>
+      <div class="support-grid">
+        {supportTopics.map((topic) => (
+          <CalloutCard
+            title={topic.title}
+            cta={{ label: `Explore ${topic.title}`, href: topic.href, variant: 'secondary' }}
+          >
+            <p>{topic.description}</p>
+            {topic.highlights && (
+              <ul class="card__list">
+                {topic.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            )}
+          </CalloutCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style is:inline>
+    .support-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+  </style>
+</BaseLayout>

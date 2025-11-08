@@ -7,13 +7,13 @@ export const utilityLinks = [
 export const mainNavigation = [
   { label: 'About', href: '/about/' },
   { label: 'Impact', href: '/about/impact/' },
-  { label: 'Curriculum', href: 'https://curriculum.jointheleague.org/', external: true },
   { label: 'News', href: '/news/' },
   { label: 'Policies', href: '/about/policies/' },
-  { label: 'Supporters', href: '/donate/supporters/' }
+  { label: 'Support', href: '/support/' },
+  { label: 'Curriculum', href: 'https://curriculum.jointheleague.org/', external: true }
 ];
 
 export const navCtas = [
-  { label: 'Donate', href: '/donate/' },
-  { label: 'Volunteer', href: '/donate/volunteer/' }
+  { label: 'Donate', href: '/support/donate/' },
+  { label: 'Volunteer', href: '/support/volunteer/' }
 ];
