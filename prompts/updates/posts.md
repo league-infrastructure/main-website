@@ -33,5 +33,6 @@ We need to scrape https://www.jointheleague.org/news/ to get new versions of the
 - [DONE] Create a page for the /news/ section that lists all of the news articles in
   reverse chron order and links to the page for each article. Verify that it works with the devel server on prot :4321 and browsermcp or puppeter. 
 
-- I've moved all of the posts from /src/pages/news to /src/content/posts.
-  Convert all of them to .md files in the form expects by the Astro collections system. 
+- [DONE] I've moved all of the posts from /src/pages/news to /src/content/posts.
+  Convert all of them to .md files in the form expects by the Astro collections
+  system. Move the current `post` data to the md frontmatter. 

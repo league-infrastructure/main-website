@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import newsPosts from '../data/newsPosts.json';
+import { getCollection } from 'astro:content';
 
 interface NewsPostSummary {
   title: string;
@@ -8,28 +8,51 @@ interface NewsPostSummary {
   date: string | null;
   description: string | null;
   path: string;
-  featuredImage?: {
-    src: string;
-    alt?: string;
-  } | null;
+  isoDate: string | null;
+  displayDate: string | null;
 }
 
-const posts = (newsPosts as NewsPostSummary[]).map((post) => {
-  const iso = post.date ?? null;
-  const displayDate = iso
-    ? new Date(iso).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    : null;
+const posts = (await getCollection('posts'))
+  .map((entry) => {
+    const data = entry.data as Record<string, any>;
+    const title = (data.title as string) ?? 'Untitled Post';
+    const author = (data.author as string | null | undefined) ?? null;
+    const date = (data.date as string | null | undefined) ?? null;
+    const description = (data.description as string | null | undefined) ?? null;
 
-  return {
-    ...post,
-    isoDate: iso,
-    displayDate,
-  };
-});
+    let isoDate: string | null = null;
+    let displayDate: string | null = null;
+    let sortValue = Number.MIN_SAFE_INTEGER;
+
+    if (date) {
+      const parsed = new Date(date);
+      if (!Number.isNaN(parsed.valueOf())) {
+        isoDate = parsed.toISOString();
+        displayDate = parsed.toLocaleDateString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        });
+        sortValue = parsed.valueOf();
+      } else {
+        displayDate = date;
+      }
+    }
+
+    return {
+      title,
+      author,
+      date,
+      description,
+      path: `/news/${entry.slug}/`,
+      isoDate,
+      displayDate,
+      sortValue,
+    };
+  })
+  .sort((a, b) => b.sortValue - a.sortValue)
+  .map(({ sortValue, ...post }) => post as NewsPostSummary);
+
 ---
 <BaseLayout title="News & Updates" description="Latest news and stories from The League of Amazing Programmers.">
   <section class="news-index">

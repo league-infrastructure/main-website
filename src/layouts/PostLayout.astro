@@ -1,13 +1,22 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import '../styles/post.css';
+import Post from '../components/Post.astro';
+
+interface FeaturedImage {
+  src: string;
+  alt?: string | null;
+  caption?: string | null;
+  srcset?: string | null;
+  sizes?: string | null;
+}
 
 interface Frontmatter {
-  title?: string;
-  date?: string;
-  description?: string;
-  featuredImage?: string | null;
-  featuredImageAlt?: string;
+  title?: string | null;
+  author?: string | null;
+  date?: string | null;
+  description?: string | null;
+  featuredImage?: FeaturedImage | string | null;
+  featuredImageAlt?: string | null;
 }
 
 interface Props {
@@ -15,37 +24,44 @@ interface Props {
 }
 
 const { frontmatter } = Astro.props as Props;
-const { title, date, description, featuredImage, featuredImageAlt } = frontmatter;
+const {
+  title,
+  author = null,
+  date = null,
+  description = null,
+  featuredImage = null,
+  featuredImageAlt = null,
+} = frontmatter;
+
 const pageTitle = title ?? 'League Update';
-const isoDate = date ? new Date(date).toISOString().split('T')[0] : undefined;
-const displayDate = date
-  ? new Date(date).toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    })
-  : undefined;
+
+const normalizedFeaturedImage = (() => {
+  if (!featuredImage) {
+    return null;
+  }
+
+  if (typeof featuredImage === 'string') {
+    return { src: featuredImage, alt: featuredImageAlt ?? pageTitle } satisfies FeaturedImage;
+  }
+
+  return {
+    src: featuredImage.src,
+    alt: featuredImage.alt ?? featuredImageAlt ?? pageTitle,
+    caption: featuredImage.caption ?? undefined,
+    srcset: featuredImage.srcset ?? undefined,
+    sizes: featuredImage.sizes ?? undefined,
+  } satisfies FeaturedImage;
+})();
+
 ---
 
-<BaseLayout title={pageTitle} description={description}>
-  <article class="post">
-    <div class="container post__inner">
-      <header class="post__header">
-        {title && <h1 class="post__title">{title}</h1>}
-        {date && isoDate && (
-          <time class="post__date" datetime={isoDate}>
-            {displayDate}
-          </time>
-        )}
-        {featuredImage && (
-          <figure class="post__media">
-            <img src={featuredImage} alt={featuredImageAlt ?? pageTitle} loading="lazy" />
-          </figure>
-        )}
-      </header>
-      <div class="post__content">
-        <slot />
-      </div>
-    </div>
-  </article>
+<BaseLayout title={pageTitle} description={description ?? undefined}>
+  <Post
+    title={pageTitle}
+    author={author ?? undefined}
+    date={date ?? undefined}
+    featuredImage={normalizedFeaturedImage ?? undefined}
+  >
+    <slot />
+  </Post>
 </BaseLayout>

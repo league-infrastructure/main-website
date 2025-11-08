@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPathsResult } from 'astro';
+import { getCollection } from 'astro:content';
 import PostLayout from '../layouts/PostLayout.astro';
 
 interface RouteProps {
@@ -8,33 +9,30 @@ interface RouteProps {
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const modules = import.meta.glob('../posts/**/*.md', { eager: true }) as Record<
-    string,
-    { default: any; frontmatter: Record<string, any> }
-  >;
+  const posts = await getCollection('posts');
 
-  const routes = Object.entries(modules).map(([file, mod]) => {
-    const relativePath = file
-      .replace(/^\.\.\/posts\//, '')
-      .replace(/\.md$/, '');
+  const routes = await Promise.all(
+    posts.map(async (entry) => {
+      const { Content } = await entry.render();
 
-    if (!relativePath || relativePath === file) {
-      throw new Error(`Unable to determine path for post: ${file}`);
-    }
-
-    return {
-      params: { post: relativePath },
-      props: {
-        Content: mod.default,
-        frontmatter: mod.frontmatter,
-      },
-    };
-  });
+      return {
+        params: { post: `news/${entry.slug}` },
+        props: {
+          Content,
+          frontmatter: {
+            ...entry.data,
+            slug: entry.slug,
+          },
+        },
+      };
+    })
+  );
 
   return routes as unknown as GetStaticPathsResult;
 }
 
 const { Content, frontmatter } = Astro.props as unknown as RouteProps;
+
 ---
 
 <PostLayout frontmatter={frontmatter}>

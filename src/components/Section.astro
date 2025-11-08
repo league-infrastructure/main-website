@@ -9,15 +9,18 @@ interface Props extends HTMLAttributes<'section'> {
   sectionClass?: string;
 }
 
-const { 
-  bgcolor, 
-  startBgcolor, 
-  endBgcolor, 
+const props = Astro.props as Props & { class?: string; style?: string };
+
+const {
+  bgcolor,
+  startBgcolor,
+  endBgcolor,
   containerClass,
   sectionClass,
-  class: className, 
-  ...rest 
-} = Astro.props as Props & { class?: string };
+  class: className,
+  style: inlineStyle,
+  ...rest
+} = props;
 
 // Determine the CSS classes and inline styles
 const classes = ['section'];
@@ -42,6 +45,18 @@ if (startBgcolor && endBgcolor) {
   backgroundStyle = `background-color: ${bgcolor};`;
 }
 
+const styleParts: string[] = [];
+
+if (backgroundStyle) {
+  styleParts.push(backgroundStyle.trim().replace(/;$/u, ''));
+}
+
+if (inlineStyle && inlineStyle.trim().length > 0) {
+  styleParts.push(inlineStyle.trim().replace(/;$/u, ''));
+}
+
+const styleValue = styleParts.length > 0 ? `${styleParts.join('; ')};` : undefined;
+
 // Container classes - pass through className to container if provided
 const containerClasses = ['container'];
 if (className) {
@@ -52,7 +67,7 @@ if (containerClass) {
 }
 ---
 
-<section class:list={classes} style={backgroundStyle} {...rest}>
+<section class:list={classes} style={styleValue} {...rest}>
   <div class:list={containerClasses}>
     <slot />
   </div>

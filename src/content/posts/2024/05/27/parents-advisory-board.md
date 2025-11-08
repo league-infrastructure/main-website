@@ -1,0 +1,16 @@
+---
+title: Parents Advisory Board
+author: ericbusboom
+date: '2024-05-27T10:11:23-07:00'
+description: To better ensure that The LEAGUE is best serving our students, we are
+  starting a parent’s advisory board. The core purpose of the board will be to get...
+featuredImage:
+  src: https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-500x383.png
+  alt: 'Wanted: Intern Robot Builders & 3D Designers'
+  srcset: https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-500x383.png
+    1x, https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-500x383@2x.png
+    2x
+---
+
+<p>To better ensure that The LEAGUE is best serving our students, we are starting a parent’s advisory board. The core purpose of the board will be to get feedback from parents regarding operations, schedules and classes and to evaluate new ideas for the future of The LEAGUE.  The commitment for this board will be a one hour online meeting every other month.</p>
+<p>As a nonprofit, it is particularly important for The LEAGUE to be attentive to it’s community, so if you are interested in guiding the future of The LEAGUE, please fill out the form below. After about a week, I email everyone to set up a first meeting. </p>

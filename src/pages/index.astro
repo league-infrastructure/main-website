@@ -282,6 +282,7 @@ const moreWaysToLearn = [
     id="more-ways-to-learn"
     class="section--support"
     sectionClass="home-more-ways"
+    style="background: linear-gradient(180deg, var(--color-peach-strong) 0%, var(--color-primary-soft) 45%, var(--color-secondary-soft) 100%);"
   >
     <SectionHeader>
       <h2>More Ways to Learn</h2>
@@ -306,7 +307,7 @@ const moreWaysToLearn = [
 
   <Section_40_60
     startBgcolor="var(--color-secondary-soft)"
-    endBgcolor="var(--color-surface)"
+    endBgcolor="var(--color-secondary-soft)"
   >
     <div slot="slot1" class="career__image">
       <img
@@ -354,7 +355,7 @@ const moreWaysToLearn = [
   </Section_40_60>
 
   <Section
-    startBgcolor="var(--color-peach-strong)"
+    startBgcolor="var(--color-secondary-soft)"
     endBgcolor="var(--color-peach-strong)"
   >
     <div style="text-align: center;">
@@ -406,7 +407,10 @@ const moreWaysToLearn = [
     </div>
   </Section>
 
-  <Section>
+  <Section
+    startBgcolor="var(--color-peach-strong)"
+    endBgcolor="var(--color-surface-alt)"
+  >
     <SectionHeader>
       <h2>Take a Peek Inside Our Classroom</h2>
     </SectionHeader>
@@ -435,7 +439,10 @@ const moreWaysToLearn = [
     </div>
   </Section>
 
-  <Section class="recognition">
+  <Section 
+      startBgcolor="var(--color-surface-alt)"
+    endBgcolor="var(--color-surface-alt)"
+  class="recognition">
     <SectionHeader>
       <h2>Community Recognition</h2>
       <p>
@@ -459,45 +466,6 @@ const moreWaysToLearn = [
     </div>
   </Section>
 
-  <Section bgcolor="var(--color-surface-alt)">
-    <div class="newsletter">
-      <div class="newsletter__copy">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>
-          Get League news, upcoming classes, and student highlights delivered
-          monthly.
-        </p>
-      </div>
-      <a
-        class="button button--primary"
-        href="mailto:info@jointheleague.org?subject=Newsletter%20Signup"
-      >
-        Sign Up
-      </a>
-    </div>
-  </Section>
-
-  <Section
-    startBgcolor="var(--color-primary)"
-    endBgcolor="var(--color-primary)"
-    class="cta"
-  >
-    <div class="cta__content">
-      <h2 class="cta__title">Get Started</h2>
-      <div class="cta__buttons">
-        <a class="button button--primary" href="/programs/">View Our Programs</a
-        >
-        <a
-          class="button button--secondary"
-          href="https://jtl.pike13.com/pages/welcome"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Join Now
-        </a>
-      </div>
-    </div>
-  </Section>
 </BaseLayout>
 
 <style>
@@ -536,15 +504,6 @@ const moreWaysToLearn = [
 
   .hero-gradient + .section {
     margin-top: 0;
-  }
-
-  .home-more-ways {
-    background: linear-gradient(
-      180deg,
-      var(--color-peach-strong) 0%,
-      var(--color-primary-soft) 45%,
-      var(--color-secondary-soft) 100%
-  );
   }
 
   .program-learn-more-link {

@@ -21,6 +21,7 @@ const fallbackStyle = hasCardDirectory ? undefined : 'height: 190px; padding-top
 <style>
   .program-card {
     gap: 0;
+    height: 100%;
   }
 
   .card__media {
@@ -41,5 +42,22 @@ const fallbackStyle = hasCardDirectory ? undefined : 'height: 190px; padding-top
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+
+  :global(.card-grid) .program-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(.card-grid) .program-card :global(.card__body) {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  :global(.card-grid) .program-card :global(.card__footer) {
+    margin-top: auto;
+    width: 100%;
   }
 </style>
