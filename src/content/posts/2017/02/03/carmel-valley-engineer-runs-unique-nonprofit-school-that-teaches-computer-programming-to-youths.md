@@ -5,15 +5,7 @@ author: ericbusboom
 date: '2017-02-03'
 description: Del Mar Times Newspaper, November 14, 2011
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-200x133.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-400x267.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-600x400.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-800x534.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-1200x801.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2017/04/AdobeStock_266323959-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_266323959-scaled.jpeg
 ---
 
 <p>Del Mar Times Newspaper, November 14, 2011</p>

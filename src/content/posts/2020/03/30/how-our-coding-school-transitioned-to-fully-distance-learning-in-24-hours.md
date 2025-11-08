@@ -5,11 +5,8 @@ date: '2020-03-30'
 description: Understandably, the sudden urgency and severity of the COVID-19 outbreak
   has been a total shock for us all. Prior to the crisis, The League had 11...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2.png
+  src: ./logo2.png
   alt: A Message from our Executive Director
-  srcset: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383@2x.png
-    2x
 ---
 
 <p>Understandably, the sudden urgency and severity of the COVID-19 outbreak has been a total shock for us all. Prior to the crisis, The League had 11 locations, dozens of staff and volunteer teachers, and around 500 students all throughout San Diego county. Our students were taking in-person programming classes 7 days a week and we were faced with a huge question: How can we fully and rapidly transition to online classes and maintain the same caliber of instruction as our in-person classes that all of our students have come to expect? </p>

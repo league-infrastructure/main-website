@@ -4,14 +4,11 @@ author: ericbusboom
 date: '2021-01-15'
 description: Whew! 2020 is done – congratulations and Happy New Year!
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2.png
+  src: ./logo2.png
   alt: A Message from the LEAGUE of Amazing Programmers
-  srcset: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383@2x.png
-    2x
 ---
 
-<p><img alt="Executive Director Sarah Tuakli Cooper" loading="lazy" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2018/01/SarahCooper.png"/></p>
+![Executive Director Sarah Tuakli Cooper](./SarahCooper.png)
 <p>Whew! 2020 is done – congratulations and Happy New Year! </p>
 <p>We made it through the strangest year in our lifetimes and The League not only survived but, in retrospect, we actually had some big wins. Of course, the first thing to be grateful for was that among our immediate staff and volunteer base, no-one suffered long lasting COVID effects and we are all still glued to our Zoom screens plugging away. Being forced into an online classroom model, which we did in a record 48 hours, gave us an opportunity to rethink several aspects of the course delivery. Online access, curriculum development, scheduling, and parent communication got a much needed injection of energy, setting a new standard for our models of continuous improvement. Student progress was amazing, with many students tearing through the curriculum and swelling the ranks of our upper levels.</p>
 <p>Our online platforming also made it possible for teachers, volunteers and students to join and contribute to the school from any physical location. We already have a great deal of San Diego covered, from Logan Heights up to San Marcos; but this opens the doors to a much wider potential community of students coding across the land!</p>

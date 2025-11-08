@@ -4,15 +4,7 @@ author: ericbusboom
 date: '2016-06-08'
 description: Del Mar Times, June 2016
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-200x133.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-400x267.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-600x400.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-800x533.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-1200x800.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2018/07/AdobeStock_196875700-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_196875700-scaled.jpeg
 ---
 
 <p>Del Mar Times, June 2016</p>

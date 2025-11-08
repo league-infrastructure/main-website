@@ -5,15 +5,7 @@ author: ericbusboom
 date: '2015-07-01'
 description: Rancho Santa Fe Review, July 2015
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-200x134.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-400x267.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-600x401.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-800x534.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-1200x801.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2015/07/AdobeStock_135053351-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_135053351-scaled.jpeg
 ---
 
 <p>Rancho Santa Fe Review, July 2015</p>

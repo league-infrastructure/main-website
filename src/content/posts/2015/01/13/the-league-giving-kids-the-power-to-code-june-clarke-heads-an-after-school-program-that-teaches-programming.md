@@ -5,14 +5,11 @@ author: ericbusboom
 date: '2015-01-13'
 description: The San Diego Union-Tribune, January 2015
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2.png
+  src: ./logo2.png
   alt: A Message from our Executive Director
-  srcset: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383@2x.png
-    2x
 ---
 
-<p><img alt="" class="alignleft" height="169" loading="lazy" src="https://www.eryary.sautebrandpartners.com/wp-content/uploads/2017/04/The-League-giving-kids-the-power-to-code-June-Clarke-heads-an-after-school-program-that-teaches-programming.jpg" width="300"/></p>
+![](./The-League-giving-kids-the-power-to-code-June-Clarke-heads-an-after-school-program-that-teaches-programming.jpg)
 <p class="wp-caption-text">The San Diego Union-Tribune, January 2015</p>
 <p>“<a href="https://www.eryary.sautebrandpartners.com/">The League of Amazing Programmers</a> is a nonprofit after school program that teaches kids the skill of computer programming.</p>
 <p>Students from grades 5 to 12 go to the Carmel Valley-based campus and work with professional programmers on everything from creating games to making mobile phone apps.</p>

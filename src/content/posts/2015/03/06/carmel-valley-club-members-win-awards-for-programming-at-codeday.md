@@ -4,15 +4,7 @@ author: ericbusboom
 date: '2015-03-06'
 description: Del Mar Times, March 2015
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-200x133.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-400x267.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-600x400.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-800x533.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-1200x800.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2017/12/AdobeStock_136583030-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_136583030-scaled.jpeg
 ---
 
 <p>Del Mar Times, March 2015</p>

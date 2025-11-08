@@ -6,15 +6,7 @@ description: Lead Teacher Keith Groves along with students Yashwin Madakamutil, 
   Howell and Evan Wright represented The League. The students are pictured talking
   to...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-200x134.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-400x267.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-600x401.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-800x534.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-1200x801.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2016/08/AdobeStock_232421247-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_232421247-scaled.jpeg
 ---
 
 <p>Lead Teacher Keith Groves along with students Yashwin Madakamutil, Alec Howell and Evan Wright represented The League.  The students are pictured talking to The Honorable Janine A. Davidson, Under Secretary of the Navy who is the 2nd highest ranking civilian official in the Department of the Navy.</p>

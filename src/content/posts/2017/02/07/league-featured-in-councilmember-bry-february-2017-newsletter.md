@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2017-02-07'
 description: February 2017
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2017/02/League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png
+  src: ./League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png
 ---
 
 <p>February 2017</p>

@@ -5,11 +5,8 @@ date: '2016-06-29'
 description: This year we embarked upon a unique partnership with E3 Civic High School
   to offer Java programming classes as an elective class. It has been a great...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2.png
+  src: ./logo2.png
   alt: A Message from our Executive Director
-  srcset: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383@2x.png
-    2x
 ---
 
 <p>This year we embarked upon a unique partnership with E3 Civic High School to offer Java programming classes as an elective class. It has been a great success and we hope the students have enjoyed it as much as we have! We are hoping that the students have gained a love for programming and will continue their programming education.</p>

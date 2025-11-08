@@ -1,6 +1,9 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Post from '../components/Post.astro';
+const assetModules = import.meta.glob('../content/posts/**/*.{png,jpg,jpeg,gif,webp,avif,svg}', {
+  eager: true,
+}) as Record<string, { default: string }>;
 
 interface FeaturedImage {
   src: string;
@@ -17,6 +20,7 @@ interface Frontmatter {
   description?: string | null;
   featuredImage?: FeaturedImage | string | null;
   featuredImageAlt?: string | null;
+  slug?: string | null;
 }
 
 interface Props {
@@ -31,9 +35,31 @@ const {
   description = null,
   featuredImage = null,
   featuredImageAlt = null,
+  slug = null,
 } = frontmatter;
 
 const pageTitle = title ?? 'League Update';
+const resolveImageSource = (value: string | undefined | null) => {
+  if (!value) {
+    return null;
+  }
+
+  if (value.startsWith('http')) {
+    return value;
+  }
+
+  if (value.startsWith('./') && slug) {
+    const cleaned = value.replace(/^\.\//, '');
+    const key = `../content/posts/${slug}/${cleaned}`;
+    const asset = assetModules[key];
+    if (asset && asset.default) {
+      return asset.default;
+    }
+    return null;
+  }
+
+  return value;
+};
 
 const normalizedFeaturedImage = (() => {
   if (!featuredImage) {
@@ -41,15 +67,22 @@ const normalizedFeaturedImage = (() => {
   }
 
   if (typeof featuredImage === 'string') {
-    return { src: featuredImage, alt: featuredImageAlt ?? pageTitle } satisfies FeaturedImage;
+    const resolved = resolveImageSource(featuredImage);
+    if (!resolved) {
+      return null;
+    }
+    return { src: resolved, alt: featuredImageAlt ?? pageTitle } satisfies FeaturedImage;
+  }
+
+  const resolved = resolveImageSource(featuredImage.src);
+  if (!resolved) {
+    return null;
   }
 
   return {
-    src: featuredImage.src,
+    src: resolved,
     alt: featuredImage.alt ?? featuredImageAlt ?? pageTitle,
     caption: featuredImage.caption ?? undefined,
-    srcset: featuredImage.srcset ?? undefined,
-    sizes: featuredImage.sizes ?? undefined,
   } satisfies FeaturedImage;
 })();
 

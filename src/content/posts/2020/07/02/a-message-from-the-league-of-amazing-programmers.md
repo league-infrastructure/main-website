@@ -5,11 +5,8 @@ date: '2020-07-02'
 description: The traumatic events of recent weeks have challenged us all, often in
   unexpected ways. As an organization, we acknowledge that racism exists in today’s...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2.png
+  src: ./logo2.png
   alt: A Message from our Executive Director
-  srcset: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383@2x.png
-    2x
 ---
 
 <p>The traumatic events of recent weeks have challenged us all, often in unexpected ways. As an organization, we acknowledge that racism exists in today’s society and that we have students, families, and staff among us who are hurting. We know that hoping for change is not enough. Together, we have the responsibility to create a better future. We stand against racism and social injustice, and we are committed to fostering diversity, equity and inclusion in the work that we do.</p>

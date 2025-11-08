@@ -4,15 +4,7 @@ author: ericbusboom
 date: '2017-02-03'
 description: Del Mar Times July, 2013
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-200x133.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-400x267.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-600x400.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-800x533.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-1200x800.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2018/06/AdobeStock_158071825-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_158071825-scaled.jpeg
 ---
 
 <p>Del Mar Times July, 2013</p>

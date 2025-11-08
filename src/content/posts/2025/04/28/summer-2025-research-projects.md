@@ -5,11 +5,8 @@ date: '2025-04-28T21:46:09-07:00'
 description: For older students, level 5 and above, our summer presearch projects
   will focus on various applications of neural networks. We will start with an...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-500x383.png
+  src: ./mobile_robots-1-500x383.png
   alt: 'Wanted: Intern Robot Builders & 3D Designers'
-  srcset: https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-500x383@2x.png
-    2x
 ---
 
 <p>For older students, level 5 and above, our summer presearch projects will focus on various applications of neural networks. We will start with an introduction to neural networks and learn how to build and train basic networks with Keras, Pytorch and Tensor Flow. Then students will focus on studying specific kinds of neural networks for image recognition, classification, physics and time series analysis. Finally, students will complete individual projects in one of three areas:</p>

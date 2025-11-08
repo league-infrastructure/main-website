@@ -39,9 +39,12 @@ We need to scrape https://www.jointheleague.org/news/ to get new versions of the
   system. Move the current `post` data to the md frontmatter. 
 
 
-- Now we have to copy over the images. Write a program to visit all of the posts
+- [DONE] Now we have to copy over the images. Write a program to visit all of the posts
   and extract the image urls. Download the image and put it into the same
   directory as the post, then change the url to reference the image correctly.
   Get rid of the srcsets and just use the primary size images, scaled with css
   appropriately. Remove all unecessary attributes for the img tags, and conver to
-  markdownformat images where you can do so safely. If you need to apply styles, 
+  markdownformat images where you can do so safely. 
+
+  - Add the featured image to the Post component, and display it in the news list, max width 100px. 
+  - 

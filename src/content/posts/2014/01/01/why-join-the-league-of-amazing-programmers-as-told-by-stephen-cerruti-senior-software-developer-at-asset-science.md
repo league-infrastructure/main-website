@@ -5,11 +5,8 @@ author: ericbusboom
 date: '2014-11-29'
 description: Assets Science, November 2014
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2.png
+  src: ./logo2.png
   alt: A Message from our Executive Director
-  srcset: https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383.png
-    1x, https://www.jointheleague.org/wp-content/uploads/2022/01/logo2-500x383@2x.png
-    2x
 ---
 
 <p>Assets Science, November 2014</p>

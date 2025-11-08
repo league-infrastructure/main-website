@@ -6,15 +6,7 @@ description: 12 Wilson Middle School students attended an intensive Introduction
   Java Programming workshop the first week of their 2018 Spring Break. Graduates of
   the...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-scaled.jpeg
-  srcset: https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-200x113.jpeg
-    200w, https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-400x225.jpeg
-    400w, https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-600x338.jpeg
-    600w, https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-800x450.jpeg
-    800w, https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-1200x675.jpeg
-    1200w, https://www.jointheleague.org/wp-content/uploads/2018/04/AdobeStock_505390776-scaled.jpeg
-    2560w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./AdobeStock_505390776-scaled.jpeg
 ---
 
 <p>12 Wilson Middle School students attended an intensive Introduction to Java Programming workshop the first week of their 2018 Spring Break. Graduates of the workshop will continue on with regular weekly classes when they return from their break. The students started with the basic principals of programming and were writing their own code on the first day! Big thanks to the ResMed Foundation for their sponsorship of this workshop!</p>

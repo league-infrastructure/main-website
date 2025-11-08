@@ -5,14 +5,7 @@ date: '2025-06-20T10:25:55-07:00'
 description: The LEAGUE is developing new robotics classes for younger students, but
   we currently have more robot parts than we have robot classes. We need some young...
 featuredImage:
-  src: https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1.png
-  srcset: https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-200x200.png
-    200w, https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-400x400.png
-    400w, https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-600x600.png
-    600w, https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1-800x800.png
-    800w, https://www.jointheleague.org/wp-content/uploads/2025/06/mobile_robots-1.png
-    1200w
-  sizes: '(max-width: 780px) 100vw, 1200px'
+  src: ./mobile_robots-1.png
 ---
 
 <p>The LEAGUE is developing new robotics classes for younger students, but we currently have more robot parts than we have robot classes. We need some young builders to help, by building robots and creating new classes.</p>
@@ -26,7 +19,7 @@ featuredImage:
 </ul>
 <p>We especially need 3D designers to design attachments for the robots that we can 3D print, for instance a part that connect a servo to the front of our robots. Most of these attachment will involve re-mixing existing designs, but the design will require a lot of creativity.</p>
 <p>Attach Legos and 3D printed grippers to these mobile robots and create competitive games for students.</p>
-<img alt="" height="800" loading="lazy" sizes="(max-width: 780px) 100vw, 600px" src="https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms-800x800.png" srcset="https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms-200x200.png 200w, https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms-400x400.png 400w, https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms-600x600.png 600w, https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms-800x800.png 800w, https://www.jointheleague.org/wp-content/uploads/2025/06/robot_arms.png 1200w" title="robot_arms" width="800"/>
+![](./robot_arms-800x800.png "robot_arms")
 <p>These robot arms need something to do. What tasks can you find for them?</p>
 <h2>How to Apply</h2>
 <p>This unpaid internship is suitable for self-directed builders who are good at tackling projects and sticking with them. We’re looking for students who  have a passion for making things and can demonstrate some of the things they’ve built  Experience with Lego Technics, Arduino, programming, or general tinkering and hacking is preferred.  We will prefer LEAGUE students, but the opportunity is open to anyone. We will prefer students 12 to 14, but students 10 and older can apply.</p>
