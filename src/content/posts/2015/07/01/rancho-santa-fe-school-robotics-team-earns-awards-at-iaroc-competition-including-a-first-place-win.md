@@ -5,7 +5,7 @@ author: ericbusboom
 date: '2015-07-01'
 description: Rancho Santa Fe Review, July 2015
 featuredImage:
-  src: ./AdobeStock_135053351-scaled.jpeg
+  src: /images/posts/2015-07-01-AdobeStock_135053351-scaled.jpeg
 ---
 
 <p>Rancho Santa Fe Review, July 2015</p>

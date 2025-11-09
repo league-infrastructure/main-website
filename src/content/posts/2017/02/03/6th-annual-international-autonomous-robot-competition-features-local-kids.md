@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2017-02-03'
 description: Del Mar Times July, 2013
 featuredImage:
-  src: ./AdobeStock_158071825-scaled.jpeg
+  src: /images/posts/2017-02-03-AdobeStock_158071825-scaled.jpeg
 ---
 
 <p>Del Mar Times July, 2013</p>

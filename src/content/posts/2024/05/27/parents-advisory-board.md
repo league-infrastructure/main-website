@@ -5,7 +5,7 @@ date: '2024-05-27T10:11:23-07:00'
 description: To better ensure that The LEAGUE is best serving our students, we are
   starting a parent’s advisory board. The core purpose of the board will be to get...
 featuredImage:
-  src: ./mobile_robots-1-500x383.png
+  src: /images/posts/2024-05-27-mobile_robots-1-500x383.png
   alt: 'Wanted: Intern Robot Builders & 3D Designers'
 ---
 

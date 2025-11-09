@@ -5,7 +5,7 @@ date: '2024-05-11T20:50:48-07:00'
 description: Although we have not run our iAROC robot competition for a few years,
   we still have all of the robots, and there are few things sadder than an robot that...
 featuredImage:
-  src: ./mobile_robots-1-500x383.png
+  src: /images/posts/2024-05-11-mobile_robots-1-500x383.png
   alt: 'Wanted: Intern Robot Builders & 3D Designers'
 ---
 

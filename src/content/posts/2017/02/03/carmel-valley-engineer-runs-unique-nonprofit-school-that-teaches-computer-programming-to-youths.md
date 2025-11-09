@@ -5,7 +5,7 @@ author: ericbusboom
 date: '2017-02-03'
 description: Del Mar Times Newspaper, November 14, 2011
 featuredImage:
-  src: ./AdobeStock_266323959-scaled.jpeg
+  src: /images/posts/2017-02-03-AdobeStock_266323959-scaled.jpeg
 ---
 
 <p>Del Mar Times Newspaper, November 14, 2011</p>

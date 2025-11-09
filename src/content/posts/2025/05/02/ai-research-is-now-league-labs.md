@@ -6,7 +6,7 @@ description: We’ve been recruiting students for a summer AI Research program, 
   the initial response has been excellent. However, the League Labs program has many
   more...
 featuredImage:
-  src: ./mobile_robots-1-500x383.png
+  src: /images/posts/2025-05-02-mobile_robots-1-500x383.png
   alt: 'Wanted: Intern Robot Builders & 3D Designers'
 ---
 

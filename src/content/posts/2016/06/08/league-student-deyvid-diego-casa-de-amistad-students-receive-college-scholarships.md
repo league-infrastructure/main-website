@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2016-06-08'
 description: Del Mar Times, June 2016
 featuredImage:
-  src: ./AdobeStock_196875700-scaled.jpeg
+  src: /images/posts/2016-06-08-AdobeStock_196875700-scaled.jpeg
 ---
 
 <p>Del Mar Times, June 2016</p>

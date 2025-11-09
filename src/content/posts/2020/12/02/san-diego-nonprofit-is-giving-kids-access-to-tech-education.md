@@ -5,7 +5,7 @@ date: '2020-12-02'
 description: Executive Director of The League of Amazing Programmers, Sarah Tuakli
   along with student, Isis talked about the program and how they are helping kids.
 featuredImage:
-  src: ./AdobeStock_158071825-scaled.jpeg
+  src: /images/posts/2020-12-02-AdobeStock_158071825-scaled.jpeg
 ---
 
 ![](./Screen-Shot-2020-12-02-at-1.45.36-PM-1024x574.png)

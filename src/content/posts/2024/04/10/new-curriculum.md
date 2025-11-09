@@ -5,7 +5,7 @@ date: '2024-04-10T16:36:53-07:00'
 description: 'For 2024, the Moisés Itzkowich Foundation has provided funding for a
   range of very important, but less glamorous needs of running a school: managing...'
 featuredImage:
-  src: ./Screenshot-2024-04-10-at-4.17.05-PM-e1712791799408.png
+  src: /images/posts/2024-04-10-Screenshot-2024-04-10-at-4.17.05-PM-e1712791799408.png
 ---
 
 <p>For 2024, the Moisés Itzkowich Foundation has provided funding for a range of very important, but less glamorous needs of running a school: managing curriculum and promoting classes. One of the major results of this funding is that we have managed to improve our curriculum in really important ways.</p>

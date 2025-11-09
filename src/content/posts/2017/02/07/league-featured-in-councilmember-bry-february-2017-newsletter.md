@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2017-02-07'
 description: February 2017
 featuredImage:
-  src: ./League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png
+  src: /images/posts/2017-02-07-League-Featured-in-Councilmember-Bry-February-2017-Newsletter.png
 ---
 
 <p>February 2017</p>

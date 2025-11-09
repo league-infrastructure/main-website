@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2015-06-29'
 description: Del Mar Times Newspaper, June 2015
 featuredImage:
-  src: ./AdobeStock_121661213-scaled.jpeg
+  src: /images/posts/2015-06-29-AdobeStock_121661213-scaled.jpeg
 ---
 
 <p>![](./Local-school-teams-taking-part-in-8th-annual-robot-competition-at-Balboa-Park.jpg)Del Mar Times Newspaper, June 2015</p>

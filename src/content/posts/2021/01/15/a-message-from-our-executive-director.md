@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2021-01-15'
 description: Whew! 2020 is done – congratulations and Happy New Year!
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2021-01-15-logo2.png
   alt: A Message from the LEAGUE of Amazing Programmers
 ---
 

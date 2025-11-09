@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2017-02-03'
 description: Del Mar Times Newspaper, July 12, 2012
 featuredImage:
-  src: ./AdobeStock_187522353-scaled.jpeg
+  src: /images/posts/2017-02-03-AdobeStock_187522353-scaled.jpeg
 ---
 
 <p>Del Mar Times Newspaper, July 12, 2012</p>

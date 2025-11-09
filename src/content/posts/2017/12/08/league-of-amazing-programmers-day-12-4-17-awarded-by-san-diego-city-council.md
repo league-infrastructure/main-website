@@ -5,7 +5,7 @@ date: '2017-12-08'
 description: The LEAGUE was officially recognized by the City Council of San Diego
   for its achievements in teaching java programming to kids and for winning the D4SD...
 featuredImage:
-  src: ./AdobeStock_136583030-scaled.jpeg
+  src: /images/posts/2017-12-08-AdobeStock_136583030-scaled.jpeg
 ---
 
 <h4><strong>IT’S OFFICIAL!</strong><br/>

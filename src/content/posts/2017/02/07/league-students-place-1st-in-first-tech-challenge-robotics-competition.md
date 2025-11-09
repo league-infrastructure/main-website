@@ -5,7 +5,7 @@ date: '2017-02-07'
 description: 'FTC Winning Alliance Team Members holding trophy (L to R): JT Young,
   Dylan Powell, Jake Malter, Jack Pollin, Carlee Weber, Kanvar Soin, Brandon Powell'
 featuredImage:
-  src: ./AdobeStock_121661213-scaled.jpeg
+  src: /images/posts/2017-02-07-AdobeStock_121661213-scaled.jpeg
 ---
 
 ![](./League-Students-Place-1st-in-First-Tech-Challenge-Robotics-Competition.jpeg)

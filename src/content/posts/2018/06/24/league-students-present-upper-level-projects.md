@@ -6,7 +6,7 @@ description: In May, upper-level students working on special projects had a chan
   to present their work at The LEAGUE’s annual Parents’ Night. The projects ranged
   in...
 featuredImage:
-  src: ./AdobeStock_158071825-scaled.jpeg
+  src: /images/posts/2018-06-24-AdobeStock_158071825-scaled.jpeg
 ---
 
 <p>In May, upper-level students working on special projects had a chance to present their work at The LEAGUE’s annual Parents’ Night.  The projects ranged in topic from a website for the Del Mar Garden Club to a program to help aid in the scientific study of mice.  Check out the posters below and see what some of our most advanced students have been up to!</p>

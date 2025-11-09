@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2015-06-24'
 description: La Jolla Patch, 2015
 featuredImage:
-  src: ./AdobeStock_121661213-scaled.jpeg
+  src: /images/posts/2015-06-24-AdobeStock_121661213-scaled.jpeg
 ---
 
 <p>![](./Self-driving-robot-competition-at-the-Reuben-H.-Fleet-Science-Center.png)La Jolla Patch, 2015</p>

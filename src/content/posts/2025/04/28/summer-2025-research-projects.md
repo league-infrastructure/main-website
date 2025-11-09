@@ -5,7 +5,7 @@ date: '2025-04-28T21:46:09-07:00'
 description: For older students, level 5 and above, our summer presearch projects
   will focus on various applications of neural networks. We will start with an...
 featuredImage:
-  src: ./mobile_robots-1-500x383.png
+  src: /images/posts/2025-04-28-mobile_robots-1-500x383.png
   alt: 'Wanted: Intern Robot Builders & 3D Designers'
 ---
 

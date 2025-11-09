@@ -5,7 +5,7 @@ author: ericbusboom
 date: '2015-01-13'
 description: The San Diego Union-Tribune, January 2015
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2015-01-13-logo2.png
   alt: A Message from our Executive Director
 ---
 

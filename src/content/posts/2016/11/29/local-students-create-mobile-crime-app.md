@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2016-11-29'
 description: Del Mar Times, November 2016
 featuredImage:
-  src: ./AdobeStock_197308139-scaled.jpeg
+  src: /images/posts/2016-11-29-AdobeStock_197308139-scaled.jpeg
 ---
 
 <p>Del Mar Times, November 2016</p>

@@ -5,7 +5,7 @@ date: '2025-06-20T10:25:55-07:00'
 description: The LEAGUE is developing new robotics classes for younger students, but
   we currently have more robot parts than we have robot classes. We need some young...
 featuredImage:
-  src: ./mobile_robots-1.png
+  src: /images/posts/2025-06-20-mobile_robots-1.png
 ---
 
 <p>The LEAGUE is developing new robotics classes for younger students, but we currently have more robot parts than we have robot classes. We need some young builders to help, by building robots and creating new classes.</p>

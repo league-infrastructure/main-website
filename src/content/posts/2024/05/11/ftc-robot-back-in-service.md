@@ -5,7 +5,7 @@ date: '2024-05-11T20:43:23-07:00'
 description: The LEAGUE had competed in the FIRST Tech Challenge a few years ago,
   but as with many traditions, it ended with COVID. However, we’ve now got the robots...
 featuredImage:
-  src: ./ftc_reactivated.png
+  src: /images/posts/2024-05-11-ftc_reactivated.png
 ---
 
 <p>The LEAGUE had competed in the FIRST Tech Challenge a few  years ago, but as with many traditions, it ended with COVID. However, we’ve now got the robots from the  last competition running again, in preparation for restarting the LEAGUE FTC Team.</p>

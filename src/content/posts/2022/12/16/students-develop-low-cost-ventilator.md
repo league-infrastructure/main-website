@@ -5,7 +5,7 @@ date: '2022-12-16'
 description: When the first cases of COVID-19 began to appear in early 2020, hospitals
   were overloaded and emergency rooms did not have enough life-saving ventilators....
 featuredImage:
-  src: ./League-Ventilator-Team-1.png
+  src: /images/posts/2022-12-16-League-Ventilator-Team-1.png
   alt: Ventilator team
 ---
 

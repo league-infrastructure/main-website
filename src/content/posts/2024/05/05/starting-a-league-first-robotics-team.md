@@ -5,7 +5,7 @@ date: '2024-05-05T08:32:36-07:00'
 description: For several years before the pandemic, the LEAGUE had a FIRST Tech Challenge
   Robotics (FTC) Team, but we have not run it in recent years. FTC is the second...
 featuredImage:
-  src: ./FTC-Logo-e1714922409548.jpeg
+  src: /images/posts/2024-05-05-FTC-Logo-e1714922409548.jpeg
 ---
 
 <p>For several years before the pandemic, the LEAGUE had a FIRST Tech Challenge Robotics (FTC) Team, but we have not run it in recent years. FTC is the second tier of the FIRST robotics program, easier and less expensive than the top-tier FRC program. Regardless, the challenges are the same and the programming is similar. Here is our fleet of three robots from the last competition we entered in 2022:</p>

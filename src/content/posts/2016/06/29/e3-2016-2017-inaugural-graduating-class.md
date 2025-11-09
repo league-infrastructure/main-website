@@ -5,7 +5,7 @@ date: '2016-06-29'
 description: This year we embarked upon a unique partnership with E3 Civic High School
   to offer Java programming classes as an elective class. It has been a great...
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2016-06-29-logo2.png
   alt: A Message from our Executive Director
 ---
 

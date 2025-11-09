@@ -5,7 +5,7 @@ date: '2020-03-30'
 description: Understandably, the sudden urgency and severity of the COVID-19 outbreak
   has been a total shock for us all. Prior to the crisis, The League had 11...
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2020-03-30-logo2.png
   alt: A Message from our Executive Director
 ---
 

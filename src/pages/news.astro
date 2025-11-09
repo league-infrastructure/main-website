@@ -2,6 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
+interface FeaturedImage {
+  src: string;
+  alt?: string;
+  caption?: string;
+  srcset?: string;
+  sizes?: string;
+}
+
 interface NewsPostSummary {
   title: string;
   author: string | null;
@@ -10,6 +18,7 @@ interface NewsPostSummary {
   path: string;
   isoDate: string | null;
   displayDate: string | null;
+  featuredImage: FeaturedImage | null;
 }
 
 const posts = (await getCollection('posts'))
@@ -19,6 +28,7 @@ const posts = (await getCollection('posts'))
     const author = (data.author as string | null | undefined) ?? null;
     const date = (data.date as string | null | undefined) ?? null;
     const description = (data.description as string | null | undefined) ?? null;
+    const featuredImage = (data.featuredImage as FeaturedImage | null | undefined) ?? null;
 
     let isoDate: string | null = null;
     let displayDate: string | null = null;
@@ -48,6 +58,7 @@ const posts = (await getCollection('posts'))
       isoDate,
       displayDate,
       sortValue,
+      featuredImage,
     };
   })
   .sort((a, b) => b.sortValue - a.sortValue)
@@ -64,24 +75,35 @@ const posts = (await getCollection('posts'))
       <ol class="news-index__list">
         {posts.map((post) => (
           <li class="news-index__item">
-            <article>
-              <header class="news-index__item-header">
-                <h2>
-                  <a href={post.path}>{post.title}</a>
-                </h2>
-                {(post.displayDate || post.author) && (
-                  <div class="news-index__meta">
-                    {post.displayDate && (
-                      <time datetime={post.isoDate ?? undefined}>{post.displayDate}</time>
-                    )}
-                    {post.author && <span class="news-index__author">{post.author}</span>}
-                  </div>
-                )}
-              </header>
-              {post.description && <p class="news-index__description">{post.description}</p>}
-              <footer class="news-index__footer">
-                <a class="news-index__link" href={post.path}>Read more</a>
-              </footer>
+            <article class="news-index__article">
+              {post.featuredImage?.src && (
+                <div class="news-index__image">
+                  <img
+                    src={post.featuredImage.src}
+                    alt={post.featuredImage.alt ?? post.title}
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div class="news-index__content">
+                <header class="news-index__item-header">
+                  <h2>
+                    <a href={post.path}>{post.title}</a>
+                  </h2>
+                  {(post.displayDate || post.author) && (
+                    <div class="news-index__meta">
+                      {post.displayDate && (
+                        <time datetime={post.isoDate ?? undefined}>{post.displayDate}</time>
+                      )}
+                      {post.author && <span class="news-index__author">{post.author}</span>}
+                    </div>
+                  )}
+                </header>
+                {post.description && <p class="news-index__description">{post.description}</p>}
+                <footer class="news-index__footer">
+                  <a class="news-index__link" href={post.path}>Read more</a>
+                </footer>
+              </div>
             </article>
           </li>
         ))}
@@ -121,6 +143,26 @@ const posts = (await getCollection('posts'))
 .news-index__item:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.news-index__article {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.news-index__image {
+  flex-shrink: 0;
+}
+
+.news-index__image img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.news-index__content {
+  flex: 1;
 }
 
 .news-index__item-header h2 {
@@ -166,6 +208,14 @@ const posts = (await getCollection('posts'))
 
   .news-index__list {
     gap: var(--space-lg);
+  }
+
+  .news-index__article {
+    flex-direction: column;
+  }
+
+  .news-index__image img {
+    max-width: 80px;
   }
 }
 </style>

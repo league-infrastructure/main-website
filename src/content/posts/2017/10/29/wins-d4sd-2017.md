@@ -5,7 +5,7 @@ date: '2017-10-29'
 description: High School-Aged Students’ Solution for Solving a Complex City Problem
   Outmatches Those of Professional and College-Level Designers to Claim Civic Design...
 featuredImage:
-  src: ./MG_5502-scaled.jpg
+  src: /images/posts/2017-10-29-MG_5502-scaled.jpg
 ---
 
 <p>High School-Aged Students’ Solution for Solving a Complex City Problem Outmatches Those of Professional and College-Level Designers to Claim Civic Design Challenge’s $5000 Grand Prize</p>

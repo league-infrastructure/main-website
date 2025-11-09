@@ -5,7 +5,7 @@ date: '2023-02-27'
 description: On February 14th, we received a donation of the $1000 from San Diego
   Self Storage. The company’s facility manager, Chris Wood, handed the check to our...
 featuredImage:
-  src: ./My-project-1-scaled.jpg
+  src: /images/posts/2023-02-27-My-project-1-scaled.jpg
   alt: People holding a large check
 ---
 

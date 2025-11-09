@@ -5,7 +5,7 @@ author: ericbusboom
 date: '2014-11-29'
 description: Assets Science, November 2014
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2014-01-01-logo2.png
   alt: A Message from our Executive Director
 ---
 

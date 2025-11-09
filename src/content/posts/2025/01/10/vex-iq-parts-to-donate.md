@@ -5,7 +5,7 @@ date: '2025-01-10T15:39:33-08:00'
 description: We’ve got a large cache of VEX IQ parts, but no VEX IQ program, so I’d
   like to donate it to someone who can use it.
 featuredImage:
-  src: ./IMG_3272.png
+  src: /images/posts/2025-01-10-IMG_3272.png
 ---
 
 <p>We’ve got a large cache of VEX IQ parts, but no VEX IQ program, so I’d like to donate it to someone who can use it.</p>

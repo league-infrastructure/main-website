@@ -4,7 +4,7 @@ author: ericbusboom
 date: '2016-12-05'
 description: 'By: Sherry Booth Freeman, Ph.D.'
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2016-12-05-logo2.png
   alt: A Message from our Executive Director
 ---
 

@@ -5,7 +5,7 @@ date: '2020-07-02'
 description: The traumatic events of recent weeks have challenged us all, often in
   unexpected ways. As an organization, we acknowledge that racism exists in today’s...
 featuredImage:
-  src: ./logo2.png
+  src: /images/posts/2020-07-02-logo2.png
   alt: A Message from our Executive Director
 ---
 

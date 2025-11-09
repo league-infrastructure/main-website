@@ -46,5 +46,5 @@ We need to scrape https://www.jointheleague.org/news/ to get new versions of the
   appropriately. Remove all unecessary attributes for the img tags, and conver to
   markdownformat images where you can do so safely. 
 
-  - Add the featured image to the Post component, and display it in the news list, max width 100px. 
-  - 
+- [DONE] Add the featured image to the Post component, and display it in the news list, max width 100px. 
+  
