@@ -1,0 +1,382 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Import fulldev-ui components
+import Button from 'fulldev-ui/components/Button.astro';
+import Heading from 'fulldev-ui/components/Heading.astro';
+import Image from 'fulldev-ui/components/Image.astro';
+import Paragraph from 'fulldev-ui/components/Paragraph.astro';
+import Badge from 'fulldev-ui/components/Badge.astro';
+
+// Structures
+import Card from 'fulldev-ui/structures/Card.astro';
+import Container from 'fulldev-ui/structures/Container.astro';
+import Section from 'fulldev-ui/structures/Section.astro';
+
+// Blocks
+import Hero1 from 'fulldev-ui/blocks/Hero1.astro';
+
+// Sample business data
+const pricingPlans = [
+  {
+    name: "Individual Wisdom",
+    price: "Free",
+    description: "Perfect for personal growth and self-learning",
+    features: [
+      "Access to 25 classic fables",
+      "Basic moral lesson summaries", 
+      "Community forum access",
+      "Monthly wisdom newsletter"
+    ],
+    popular: false,
+    cta: "Start Free"
+  },
+  {
+    name: "Professional Development",
+    price: "$29/month",
+    description: "Advanced learning for career advancement",
+    features: [
+      "Unlimited fable library access",
+      "Leadership-focused interpretations",
+      "Interactive scenario planning",
+      "Progress tracking & analytics",
+      "1-on-1 mentor sessions (monthly)",
+      "Certificate of completion"
+    ],
+    popular: true,
+    cta: "Start Free Trial"
+  },
+  {
+    name: "Enterprise Training",
+    price: "$99/month",
+    description: "Comprehensive program for teams and organizations",
+    features: [
+      "Everything in Professional",
+      "Team management dashboard",
+      "Custom learning paths",
+      "Bulk user management",
+      "Advanced reporting & insights",
+      "Dedicated account manager",
+      "Custom workshop sessions"
+    ],
+    popular: false,
+    cta: "Contact Sales"
+  }
+];
+
+---
+
+<BaseLayout title="Fulldev-UI Component Demo" description="Demonstration of fulldev-ui pricing cards and success story components">
+  
+  <!-- Hero Section -->
+  <Hero1
+    badge={{ text: 'Component Demo' }}
+    heading="Fulldev-UI Components"
+    paragraph="Explore pricing cards and client success story components from the fulldev-ui library."
+    buttons={[
+      { text: 'View Pricing', href: '#pricing' },
+      { text: 'Success Stories', href: '#success-stories' }
+    ]}
+    image={{ src: '/images/demo/forest-landscape.jpg', alt: 'Component Demo' }}
+  />
+
+  <Container>
+    <!-- Navigation back to main demo -->
+    <Section>
+      <Button text="← Back to Demo Index" variant="outline" href="/demo" />
+    </Section>
+
+    <!-- Pricing Section -->
+    <Section id="pricing">
+      <div class="pricing-header">
+        <Badge text="Pricing Cards" variant="outline" />
+        <Heading depth={1} text="Pricing Card Components" />
+        <Paragraph text="Flexible pricing card layouts with popular plan highlighting and feature lists." />
+      </div>
+      
+      <div class="pricing-grid">
+        {pricingPlans.map(plan => (
+          <Card class={plan.popular ? 'pricing-card popular' : 'pricing-card'}>
+            {plan.popular && <Badge text="Most Popular" variant="primary" class="popular-badge" />}
+            <div class="plan-header">
+              <Heading depth={3} text={plan.name} />
+              <div class="plan-price">{plan.price}</div>
+              <Paragraph text={plan.description} />
+            </div>
+            <div class="plan-features">
+              <ul>
+                {plan.features.map(feature => (
+                  <li>✓ {feature}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="plan-cta">
+              <Button text={plan.cta} variant={plan.popular ? "primary" : "outline"} />
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Success Stories -->
+    <Section id="success-stories">
+      <Heading depth={2} text="Client Success Stories" />
+      <Paragraph text="Success story cards with testimonials, author information, and key metrics." />
+      
+      <div class="success-stories">
+        <Card>
+          <div class="story-content">
+            <div class="quote-section">
+              <blockquote>
+                "Implementing Aesop's Leadership Program increased our team's decision-making confidence by 40% and reduced workplace conflicts significantly."
+              </blockquote>
+              <div class="story-author">
+                <Image src="/images/demo/lion-avatar.jpg" alt="Sarah Chen" width={48} height={48} />
+                <div class="author-info">
+                  <strong>Sarah Chen</strong>
+                  <p>VP of People Operations, TechCorp</p>
+                </div>
+              </div>
+            </div>
+            <div class="story-metrics">
+              <div class="metric">
+                <span class="metric-value">40%</span>
+                <span class="metric-label">Improved Decision Making</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">60%</span>
+                <span class="metric-label">Reduced Conflicts</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <Card>
+          <div class="story-content">
+            <div class="quote-section">
+              <blockquote>
+                "The Ant's Preparation methodology revolutionized our project planning. We're now 3x more effective at anticipating and mitigating risks."
+              </blockquote>
+              <div class="story-author">
+                <Image src="/images/demo/ant-avatar.jpg" alt="Marcus Rodriguez" width={48} height={48} />
+                <div class="author-info">
+                  <strong>Marcus Rodriguez</strong>
+                  <p>Project Manager, BuildRight Construction</p>
+                </div>
+              </div>
+            </div>
+            <div class="story-metrics">
+              <div class="metric">
+                <span class="metric-value">3x</span>
+                <span class="metric-label">Better Risk Planning</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">25%</span>
+                <span class="metric-label">Faster Delivery</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </Section>
+
+    <!-- Component Documentation -->
+    <Section>
+      <Heading depth={2} text="Components Used" />
+      
+      <div class="components-grid">
+        <Card>
+          <Heading depth={3} text="Pricing Cards" />
+          <ul>
+            <li><strong>Card</strong> - Content containers with styling</li>
+            <li><strong>Badge</strong> - Popular plan indicators</li>
+            <li><strong>Button</strong> - Call-to-action buttons</li>
+            <li><strong>Heading</strong> - Plan titles and pricing</li>
+          </ul>
+        </Card>
+        
+        <Card>
+          <Heading depth={3} text="Success Story Cards" />
+          <ul>
+            <li><strong>Image</strong> - Client avatar images</li>
+            <li><strong>Paragraph</strong> - Testimonial text</li>
+            <li><strong>Blockquote</strong> - Styled quote formatting</li>
+            <li><strong>Metrics</strong> - Key performance indicators</li>
+          </ul>
+        </Card>
+        
+        <Card>
+          <Heading depth={3} text="Layout Components" />
+          <ul>
+            <li><strong>Section</strong> - Page section organization</li>
+            <li><strong>Container</strong> - Content width control</li>
+            <li><strong>Hero1</strong> - Page header section</li>
+            <li><strong>Grid</strong> - Responsive card layouts</li>
+          </ul>
+        </Card>
+      </div>
+    </Section>
+  </Container>
+</BaseLayout>
+
+<style>
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .pricing-card {
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .pricing-card.popular {
+    border: 2px solid var(--color-blue-500, #3b82f6);
+    transform: scale(1.05);
+  }
+  
+  .popular-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .plan-header {
+    margin-bottom: 2rem;
+  }
+  
+  .plan-price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-blue-600, #2563eb);
+    margin: 1rem 0;
+  }
+  
+  .plan-features {
+    margin: 2rem 0;
+    text-align: left;
+  }
+  
+  .plan-features ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .plan-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-neutral-100, #f3f4f6);
+  }
+  
+  .plan-features li:last-child {
+    border-bottom: none;
+  }
+  
+  .plan-cta {
+    margin-top: 2rem;
+  }
+  
+  .success-stories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .story-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .quote-section blockquote {
+    margin: 0 0 1rem 0;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-neutral-700, #374151);
+  }
+  
+  .story-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .story-author img {
+    border-radius: 50%;
+  }
+  
+  .author-info p {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.875rem;
+    color: var(--color-neutral-600, #4b5563);
+  }
+  
+  .story-metrics {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    background: var(--color-blue-50, #eff6ff);
+    border-radius: 0.5rem;
+  }
+  
+  .metric {
+    text-align: center;
+  }
+  
+  .metric-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-blue-600, #2563eb);
+  }
+  
+  .metric-label {
+    font-size: 0.875rem;
+    color: var(--color-neutral-600, #4b5563);
+  }
+  
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .components-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .components-grid li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-neutral-100, #f3f4f6);
+  }
+  
+  .components-grid li:last-child {
+    border-bottom: none;
+  }
+  
+  @media (max-width: 768px) {
+    .success-stories {
+      grid-template-columns: 1fr;
+    }
+    
+    .story-metrics {
+      gap: 1rem;
+    }
+    
+    .pricing-card.popular {
+      transform: none;
+    }
+  }
+</style>

@@ -14,25 +14,64 @@ import Section from '../../components/Section.astro';
     description="We are committed to transparency in how we serve students and how we steward every donation. Explore our annual impact report, audited statements, and IRS filings below."
   />
 
-  <Section sectionClass="section--surface-alt" class="impact-report">
-    <div class="impact-report__header">
-      <h2>The League of Amazing Programmers Impact Report 2022–23</h2>
-      <a
-        class="impact-report__button"
-        href="/images/2023/12/The-League-of-Amazing-Programmers-Impact-Report-2022-23.pdf"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Download the Impact Report
-      </a>
+  <Section sectionClass="section--surface-alt" class="impact-reports">
+    <div class="impact-report-latest">
+      <div class="impact-report__header">
+        <h2>The League of Amazing Programmers Impact Report 2024–25</h2>
+        <div class="impact-report__buttons">
+          <a
+            class="impact-report__button impact-report__button--primary"
+            href="/about/impact/impact24"
+          >
+            View 2024-25 Impact Report
+          </a>
+        </div>
+      </div>
+      <div class="impact-report__summary">
+        <div class="impact-highlights">
+          <div class="highlight-stat">
+            <span class="stat-number">1,236</span>
+            <span class="stat-label">Student attendances</span>
+          </div>
+          <div class="highlight-stat">
+            <span class="stat-number">40.7%</span>
+            <span class="stat-label">Female participation</span>
+          </div>
+          <div class="highlight-stat">
+            <span class="stat-number">117</span>
+            <span class="stat-label">Free Tech Club events</span>
+          </div>
+          <div class="highlight-stat">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Program sites</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="impact-report__embed">
-      <iframe
-        title="The League Impact Report 2022–23"
-        src="https://e.issuu.com/embed.html?backgroundColor=%23f5f5ef&d=the_league_of_amazing_programmers_impact_report_20&u=jointheleague"
-        loading="lazy"
-        allowfullscreen
-      />
+
+    <div class="impact-report-archive">
+      <div class="impact-report__header">
+        <h3>Previous Impact Reports</h3>
+      </div>
+      <div class="archive-item">
+        <h4>2022–23 Impact Report</h4>
+        <a
+          class="impact-report__button impact-report__button--secondary"
+          href="/images/2023/12/The-League-of-Amazing-Programmers-Impact-Report-2022-23.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Download PDF
+        </a>
+      </div>
+      <div class="archive-embed">
+        <iframe
+          title="The League Impact Report 2022–23"
+          src="https://e.issuu.com/embed.html?backgroundColor=%23f5f5ef&d=the_league_of_amazing_programmers_impact_report_20&u=jointheleague"
+          loading="lazy"
+          allowfullscreen
+        />
+      </div>
     </div>
   </Section>
 
@@ -85,9 +124,22 @@ import Section from '../../components/Section.astro';
     pointer-events: none;
   }
 
-  .impact-report {
+  .impact-reports {
     display: grid;
-    gap: var(--space-xl);
+    gap: var(--space-2xl);
+  }
+
+  .impact-report-latest {
+    background: var(--color-surface);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .impact-report-archive {
+    background: var(--color-surface-alt);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
   }
 
   .impact-report__header {
@@ -96,18 +148,104 @@ import Section from '../../components/Section.astro';
     gap: var(--space-lg);
     align-items: center;
     justify-content: space-between;
+    margin-bottom: var(--space-lg);
   }
 
-  .impact-report__embed {
+  .impact-report__buttons {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .impact-report__button {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .impact-report__button--primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .impact-report__button--primary:hover {
+    background: var(--color-primary-dark);
+  }
+
+  .impact-report__button--secondary {
+    background: var(--color-secondary);
+    color: white;
+  }
+
+  .impact-report__button--secondary:hover {
+    background: var(--color-secondary);
+    opacity: 0.9;
+  }
+
+  .impact-report__summary {
+    margin-top: var(--space-lg);
+  }
+
+  .impact-highlights {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .highlight-stat {
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-sm);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-body);
+    margin-top: var(--space-xs);
+  }
+
+  .archive-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .archive-item h4 {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .archive-embed {
     position: relative;
     padding-top: min(65%, 560px);
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-card);
     background: #f5f5ef;
+    margin-top: var(--space-lg);
   }
 
-  .impact-report__embed iframe {
+  .archive-embed iframe {
     position: absolute;
     inset: 0;
     width: 100%;

@@ -1,0 +1,586 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Import working fulldev-ui components
+import Avatar from 'fulldev-ui/components/Avatar.astro';
+import Badge from 'fulldev-ui/components/Badge.astro';
+import Button from 'fulldev-ui/components/Button.astro';
+import Checkbox from 'fulldev-ui/components/Checkbox.astro';
+import Heading from 'fulldev-ui/components/Heading.astro';
+import Icon from 'fulldev-ui/components/Icon.astro';
+import Input from 'fulldev-ui/components/Input.astro';
+import Label from 'fulldev-ui/components/Label.astro';
+import Menu from 'fulldev-ui/components/Menu.astro';
+import Paragraph from 'fulldev-ui/components/Paragraph.astro';
+import Rating from 'fulldev-ui/components/Rating.astro';
+import Switch from 'fulldev-ui/components/Switch.astro';
+import Textarea from 'fulldev-ui/components/Textarea.astro';
+
+// Structures
+import Card from 'fulldev-ui/structures/Card.astro';
+import Code from 'fulldev-ui/structures/Code.astro';
+import Container from 'fulldev-ui/structures/Container.astro';
+import Panel from 'fulldev-ui/structures/Panel.astro';
+import Prose from 'fulldev-ui/structures/Prose.astro';
+import Section from 'fulldev-ui/structures/Section.astro';
+
+// Blocks  
+import Banner from 'fulldev-ui/blocks/Banner.astro';
+import Hero1 from 'fulldev-ui/blocks/Hero1.astro';
+
+// Aesop's Fables characters data
+const fableCharacters = [
+  {
+    name: "The Tortoise",
+    role: "Chief Executive Officer",
+    avatar: "/images/demo/tortoise-avatar.jpg",
+    achievements: ["Completed the Great Forest Marathon", "Launched 'Slow & Steady' Leadership Program"],
+    rating: 5
+  },
+  {
+    name: "The Hare",
+    role: "Head of Innovation",
+    avatar: "/images/demo/hare-avatar.jpg", 
+    achievements: ["Developed Quick-Start Initiative", "Reduced project timelines by 40%"],
+    rating: 4
+  },
+  {
+    name: "The Ant",
+    role: "Chief Financial Officer",
+    avatar: "/images/demo/ant-avatar.jpg",
+    achievements: ["Increased organizational savings by 200%", "Implemented Winter Preparedness Fund"],
+    rating: 5
+  },
+  {
+    name: "The Lion",
+    role: "Head of Strategic Partnerships",
+    avatar: "/images/demo/lion-avatar.jpg",
+    achievements: ["Maintained 100% safety record", "Established Pride Protection Protocol"],
+    rating: 5
+  }
+];
+---
+
+<BaseLayout title="Fulldev-UI Component Showcase" description="Comprehensive showcase of fulldev-ui components using Aesop's Fables Quarterly Newsletter theme">
+  
+  <!-- Hero Section -->
+      buttons={[
+      { text: 'Subscribe Now', href: '#newsletter' },
+      { text: 'Read Archive', href: '#articles' }
+    ]}
+    image={{ src: '/images/demo/forest-landscape.jpg', alt: 'Forest community gathering' }}
+  />
+
+  <!-- Banner with Announcement -->
+  <Banner
+    heading="Annual Wisdom Summit 2026"
+    paragraph="Join us next spring for our biggest gathering yet! Registration opens January 1st."
+    button={{ text: 'Learn More', href: '#events' }}
+  />
+
+  <!-- Demo Navigation -->
+  <Container>
+    <Section>
+      <Heading depth={2} text="Component Demos" />
+      <Paragraph text="Explore different collections of fulldev-ui components organized by use case and functionality." />
+      
+      <div class="demo-grid">
+        <Card>
+          <Heading depth={3} text="🎨 Fulldev-UI Components" />
+          <Paragraph text="Pricing cards and client success story components from the fulldev-ui library." />
+          <Button text="View Components" variant="primary" href="/demo/fulldevui" />
+        </Card>
+        
+        <Card class="coming-soon">
+          <Heading depth={3} text="🛒 E-commerce Demo" />
+          <Paragraph text="Shopping components, product galleries, and commerce-focused elements." />
+          <Button text="Coming Soon" variant="outline" disabled />
+        </Card>
+        
+        <Card class="coming-soon">
+          <Heading depth={3} text="📋 Forms & Data" />
+          <Paragraph text="Form components, tables, search functionality, and data input elements." />
+          <Button text="Coming Soon" variant="outline" disabled />
+        </Card>
+        
+        <Card class="coming-soon">
+          <Heading depth={3} text="🎨 Layouts & Structure" />
+          <Paragraph text="Advanced layout components, grids, and structural elements." />
+          <Button text="Coming Soon" variant="outline" disabled />
+        </Card>
+        
+        <Card class="coming-soon">
+          <Heading depth={3} text="💼 Business Components" />
+          <Paragraph text="Professional components for landing pages and business applications." />
+          <Button text="Coming Soon" variant="outline" disabled />
+        </Card>
+        
+        <Card class="coming-soon">
+          <Heading depth={3} text="🔧 Utilities & Tools" />
+          <Paragraph text="Developer utilities, navigation aids, and helper components." />
+          <Button text="Coming Soon" variant="outline" disabled />
+        </Card>
+      </div>
+    </Section>
+  </Container>
+
+  <Container>
+    <!-- Introduction Section -->
+    <Section>
+      <Heading depth={1} text="A Letter from Our CEO" />
+      
+      <Prose>
+        <Paragraph text="Dear Fellow Creatures," />
+        
+        <Paragraph text="As we reflect on another remarkable quarter, I'm reminded of the timeless lesson that slow and steady wins the race. Our organization has continued to thrive through patient planning, consistent effort, and unwavering dedication to our core values." />
+        
+        <Paragraph text="This quarter has been marked by exceptional achievements across all departments. From our Financial Operations team's record-breaking savings initiatives to our Innovation Lab's groundbreaking quick-start programs, every member of our community has contributed to our success." />
+        
+        <Paragraph text="I'm particularly proud of our Emergency Response Coordinator's heroic actions this quarter, proving once again that no act of kindness, however small, is ever wasted." />
+      </Prose>
+
+      <!-- CEO Signature -->
+      <div class="signature-section">
+        <Avatar src="/images/demo/tortoise-avatar.jpg" size="md" />
+        <div class="signature-text">
+          <Heading depth={4} text="The Tortoise" />
+          <Paragraph text="Chief Executive Officer" />
+        </div>
+      </div>
+    </Section>
+
+    <!-- Leadership Team Cards -->
+    <Section>
+      <Heading depth={2} text="Leadership Spotlight" />
+      <Paragraph text="Meet the remarkable individuals leading our organization forward." />
+      
+      <div class="leadership-grid">
+        {fableCharacters.map(character => (
+          <Card>
+            <div class="character-card">
+              <div class="character-header">
+                <Avatar src={character.avatar} size="lg" />
+                <div class="character-info">
+                  <Heading depth={3} text={character.name} />
+                  <Paragraph text={character.role} />
+                  <Badge text={`${character.rating} Stars`} variant="primary" />
+                </div>
+              </div>
+              <div class="character-achievements">
+                <Heading depth={4} text="Key Achievements" />
+                {character.achievements.map(achievement => (
+                  <div class="achievement-item">
+                    <Icon name="check-circle" />
+                    <Paragraph text={achievement} />
+                  </div>
+                ))}
+                <Rating score={character.rating} size="sm" />
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Interactive Elements Demo -->
+    <Section>
+      <Heading depth={2} text="Interactive Elements Demo" />
+      <Paragraph text="Explore various interactive components and form elements." />
+      
+      <div class="demo-grid">
+        <!-- Newsletter Signup Form -->
+        <Card>
+          <Heading depth={3} text="Newsletter Signup" />
+          <div class="form-section">
+            <div class="form-field">
+              <Label text="Your Name" />
+              <Input type="text" placeholder="Enter your name" />
+            </div>
+            
+            <div class="form-field">
+              <Label text="Email Address" />
+              <Input type="email" placeholder="your.email@forest.com" />
+            </div>
+            
+            <div class="form-field">
+              <Label text="Message" />
+              <Textarea placeholder="Share your wisdom..." />
+            </div>
+            
+            <div class="checkbox-field">
+              <Checkbox id="newsletter" />
+              <Label text="Send me weekly wisdom updates" />
+            </div>
+            
+            <div class="switch-field">
+              <Switch id="notifications" />
+              <Label text="Enable notifications" />
+            </div>
+            
+            <Button text="Subscribe to Wisdom" variant="primary" />
+          </div>
+        </Card>
+        
+        <!-- Navigation Demo -->
+        <Card>
+          <Heading depth={3} text="Navigation Menu" />
+          <Menu
+            links={[
+              { text: 'About Our Organization', href: '#about' },
+              { text: 'Leadership Team', href: '#leadership' },
+              { text: 'Quarterly Reports', href: '#reports' },
+              { text: 'Upcoming Events', href: '#events' },
+              { text: 'Join Our Community', href: '#join' }
+            ]}
+          />
+          
+          <Heading depth={4} text="Button Variants" />
+          <div class="button-showcase">
+            <Button text="Primary" variant="primary" />
+            <Button text="Secondary" variant="secondary" />
+            <Button text="Outline" variant="outline" />
+            <Button text="Ghost" variant="ghost" />
+          </div>
+        </Card>
+      </div>
+    </Section>
+
+    <!-- Code Example -->
+    <Section>
+      <Heading depth={2} text="Our Digital Transformation" />
+      <Paragraph text="We've embraced technology to better serve our community. Here's our wisdom-sharing algorithm:" />
+      
+      <Code
+        lang="javascript"
+        code={`// Wisdom Sharing Algorithm v2.0
+function shareWisdom(situation, audience) {
+  const morals = {
+    'slow-and-steady': 'Consistency beats speed in the long run',
+    'preparation': 'It is best to prepare for days of necessity',
+    'kindness': 'No act of kindness, however small, is ever wasted',
+    'unity': 'United we stand, divided we fall'
+  };
+  
+  const applicableMoral = findBestMoral(situation);
+  return morals[applicableMoral] || 'Every situation teaches us something valuable';
+}`}
+      />
+    </Section>
+
+    <!-- Badge Showcase -->
+    <Section>
+      <Heading depth={2} text="Our Values" />
+      <div class="badges-section">
+        <Badge text="Wisdom" variant="primary" />
+        <Badge text="Leadership" variant="secondary" />
+        <Badge text="Community" variant="outline" />
+        <Badge text="Growth" />
+        <Badge text="Collaboration" variant="primary" />
+        <Badge text="Perseverance" variant="secondary" />
+      </div>
+    </Section>
+
+    <!-- Final Newsletter Section -->
+    <Section id="newsletter">
+      <Panel>
+        <div class="newsletter-content">
+          <Heading depth={2} text="Stay Connected" />
+          <Paragraph text="Subscribe to our quarterly newsletter for the latest wisdom, updates, and community news." />
+          
+          <div class="newsletter-form">
+            <Input type="email" placeholder="Enter your email" />
+            <Button text="Subscribe" variant="primary" />
+          </div>
+          
+          <Paragraph text="Join 10,000+ creatures who receive our wisdom updates" />
+        </div>
+      </Panel>
+    </Section>
+
+    <!-- Component Documentation -->
+    <Section>
+      <Heading depth={2} text="Component Showcase Documentation" />
+      
+      <Prose>
+        <Paragraph text="This page demonstrates various fulldev-ui components integrated into a fictional quarterly newsletter for an organization of Aesop's fable characters." />
+        
+        <Heading depth={3} text="Components Showcased" />
+        <ul>
+          <li><strong>Avatar</strong> - Character profile images</li>
+          <li><strong>Badge</strong> - Status indicators and labels</li>
+          <li><strong>Button</strong> - Interactive elements with multiple variants</li>
+          <li><strong>Card</strong> - Content containers</li>
+          <li><strong>Checkbox & Switch</strong> - Form input controls</li>
+          <li><strong>Code</strong> - Syntax-highlighted code blocks</li>
+          <li><strong>Heading</strong> - Various heading levels</li>
+          <li><strong>Icon</strong> - Visual symbols</li>
+          <li><strong>Input & Textarea</strong> - Text input fields</li>
+          <li><strong>Label</strong> - Form field labels</li>
+          <li><strong>Menu</strong> - Navigation lists</li>
+          <li><strong>Paragraph</strong> - Text content</li>
+          <li><strong>Rating</strong> - Star rating displays</li>
+        </ul>
+        
+        <Heading depth={3} text="Structures Used" />
+        <ul>
+          <li><strong>Card</strong> - Content containers with styling</li>
+          <li><strong>Code</strong> - Code block formatting</li>
+          <li><strong>Container</strong> - Main content wrapper</li>
+          <li><strong>Panel</strong> - Highlighted content sections</li>
+          <li><strong>Prose</strong> - Typography-optimized content</li>
+          <li><strong>Section</strong> - Page section organization</li>
+        </ul>
+        
+        <Heading depth={3} text="Blocks Used" />
+        <ul>
+          <li><strong>Banner</strong> - Important announcements</li>
+          <li><strong>Hero1</strong> - Main page header with call-to-action</li>
+        </ul>
+      </Prose>
+    </Section>
+  </Container>
+</BaseLayout>
+
+<style>
+  /* Custom styles for the showcase page */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .demo-grid .card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .demo-grid .card:not(.coming-soon):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .demo-grid h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--color-primary-600, #2563eb);
+  }
+  
+  .demo-grid p {
+    margin-bottom: 1.5rem;
+    color: var(--color-neutral-600, #6b7280);
+  }
+  
+  .demo-grid .coming-soon {
+    opacity: 0.6;
+  }
+  
+  .demo-grid .coming-soon h3 {
+    color: var(--color-neutral-500, #6b7280);
+  }
+  
+  .signature-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .signature-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  /* Ensure cards have proper overflow handling */
+  .leadership-grid .card {
+    overflow: hidden;
+    height: fit-content;
+  }
+  
+  .character-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .character-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .character-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  
+  .character-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    clear: both;
+    margin-top: 1rem;
+  }
+  
+  .achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Control rating star size - make them smaller */
+  .character-achievements .rating {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  
+  .character-achievements .rating svg,
+  .character-achievements .rating .icon {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+  }
+  
+  /* Global rating component size control */
+  :global(.rating) {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+  
+  :global(.rating svg),
+  :global(.rating .icon) {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+  }
+  
+  /* Override any fulldev-ui default star sizes */
+  :global(.rating.sm svg),
+  :global(.rating.sm .icon) {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .checkbox-field,
+  .switch-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .button-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .badges-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .newsletter-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Ensure proper text wrapping and spacing */
+  .character-achievements h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .achievement-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .leadership-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .demo-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .character-header {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    
+    .character-info {
+      text-align: center;
+    }
+    
+    .newsletter-form {
+      flex-direction: column;
+    }
+  }
+  
+  /* Enhance the newsletter theme */
+  section {
+    margin-bottom: 4rem;
+  }
+  
+  #newsletter {
+    background: linear-gradient(rgba(249, 250, 251, 0.95), rgba(249, 250, 251, 0.95)), url('/images/demo/nature-community.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+  }
+</style>

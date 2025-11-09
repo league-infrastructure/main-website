@@ -1,0 +1,796 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/HeroSection.astro';
+import Section from '../../../components/Section.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import LocationsMap from '../../../components/LocationsMap.astro';
+---
+
+<BaseLayout
+  title="2024-2025 Impact Report"
+  description="The League of Amazing Programmers 2024-2025 Impact Report: Building a Foundation for Growth. See how we reached 1,236 students with 40.7% female participation."
+>
+  <HeroSection class="impact24-hero">
+    <h1 slot="tagline" class="impact24-hero__title">
+      The League of Amazing Programmers
+    </h1>
+    <h2 slot="subtitle" class="impact24-hero__subtitle">
+      2024-2025 Impact Report
+    </h2>
+    <p slot="description" class="impact24-hero__tagline">
+      Building a Foundation for Growth
+    </p>
+  </HeroSection>
+
+  <!-- Mission and Vision -->
+  <Section 
+    startBgcolor="var(--color-peach-strong)" 
+    endBgcolor="var(--color-surface)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Our Mission and Vision</h2>
+    </SectionHeader>
+    <div class="mission-vision">
+      <div class="mission-card">
+        <h3>Mission</h3>
+        <p>The League of Amazing Programmers exists to ensure that every student in San Diego County has an opportunity to discover a passion for STEM careers. We believe that all children should have the opportunity to learn computer programming regardless of their family's financial status.</p>
+      </div>
+      <div class="vision-card">
+        <h3>Vision</h3>
+        <p>We envision a future where the tech landscape is characterized by inclusivity and fairness, where students from all backgrounds see themselves as capable creators of technology, not just consumers.</p>
+      </div>
+    </div>
+    <div class="values">
+      <h3>Core Values</h3>
+      <div class="values-grid">
+        <div class="value-item">
+          <h4>Accessible</h4>
+          <p>Removing barriers to quality STEM education</p>
+        </div>
+        <div class="value-item">
+          <h4>Excellent</h4>
+          <p>Maintaining high standards in curriculum and instruction</p>
+        </div>
+        <div class="value-item">
+          <h4>Inclusive</h4>
+          <p>Actively welcoming students of all backgrounds</p>
+        </div>
+        <div class="value-item">
+          <h4>Innovative</h4>
+          <p>Continuously evolving our programs and methods</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Impact By Numbers -->
+  <Section 
+    startBgcolor="var(--color-surface)" 
+    endBgcolor="var(--color-secondary-soft)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Impact at a Glance: 2024-2025 By the Numbers</h2>
+    </SectionHeader>
+    <div class="stats-grid">
+      <div class="stat-category">
+        <h3>Students Reached</h3>
+        <div class="stat-item">
+          <div class="stat-number">1,236</div>
+          <div class="stat-label">Total student attendances through Tech Club events</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">503</div>
+          <div class="stat-label">Girls participated in our programs (40.7% female participation)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">25</div>
+          <div class="stat-label">High school students in League Labs summer internship program</div>
+        </div>
+      </div>
+      
+      <div class="stat-category">
+        <h3>Program Delivery</h3>
+        <div class="stat-item">
+          <div class="stat-number">117</div>
+          <div class="stat-label">Free Tech Club events hosted across San Diego County</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Total sites where we deliver programming</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15</div>
+          <div class="stat-label">School partnerships bringing coding directly to students</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10</div>
+          <div class="stat-label">Library locations providing free community access</div>
+        </div>
+      </div>
+
+      <div class="stat-category">
+        <h3>Community Engagement</h3>
+        <div class="stat-item">
+          <div class="stat-number">417</div>
+          <div class="stat-label">Members in The League Tech Club Meetup community</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.8 ★</div>
+          <div class="stat-label">Average rating from 37 community reviews</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">139</div>
+          <div class="stat-label">Total events in our Meetup history</div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Programs -->
+  <Section 
+    startBgcolor="var(--color-secondary-soft)" 
+    endBgcolor="var(--color-peach)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Our Programs</h2>
+    </SectionHeader>
+    
+    <div class="program-section">
+      <h3>Tech Club: Free Community Coding</h3>
+      <p>Tech Club is our flagship program, providing free introductory technology classes at schools, libraries, and community centers across San Diego County. Each session is approximately one hour and introduces students in grades 4-12 to programming concepts.</p>
+      
+      <div class="program-highlights">
+        <div class="highlight-box">
+          <h4>2024-2025 Tech Club Impact</h4>
+          <ul>
+            <li>117 events hosted</li>
+            <li>1,236 student attendances</li>
+            <li>40.7% female participation</li>
+            <li>Programs at 10 libraries and 15 schools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="program-section">
+      <h3>League Labs: Summer Internship Program</h3>
+      <p>League Labs provides high school students with hands-on experience in technology education and curriculum development. The 2025 summer program ran from June through September.</p>
+      
+      <div class="program-highlights">
+        <div class="highlight-box">
+          <h4>2025 League Labs</h4>
+          <ul>
+            <li>25 high school student interns</li>
+            <li>Focus areas: AI, robotics, independent research</li>
+            <li>Tools training: GitHub, Codespaces, Visual Studio Code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Program Locations Map -->
+  <Section 
+    startBgcolor="var(--color-peach)" 
+    endBgcolor="var(--color-peach-strong)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Where We Serve: Program Locations Across San Diego County</h2>
+      <p class="section__description">
+        Our programs reach students where they are - in schools, libraries, and community centers throughout San Diego County. Each location represents our commitment to making technology education accessible to all.
+      </p>
+    </SectionHeader>
+    
+    <LocationsMap />
+    
+    <div class="locations-note">
+      <p><strong>30+ Active Sites:</strong> We partner with schools, libraries, and community organizations to bring coding education directly to students in their neighborhoods. From Carmel Valley to Chula Vista, our programs ensure that geography is never a barrier to learning.</p>
+    </div>
+  </Section>
+
+  <!-- Curriculum Transformation -->
+  <Section 
+    startBgcolor="var(--color-peach-strong)" 
+    endBgcolor="var(--color-primary-soft)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Major Achievement: Curriculum Transformation</h2>
+      <p class="section__description">
+        One of the most significant developments this year was the complete rebuild and expansion of our curriculum. We evolved from a single-track Java program to a comprehensive, multi-pathway technical education program.
+      </p>
+    </SectionHeader>
+    
+    <div class="curriculum-grid">
+      <div class="curriculum-item">
+        <h4>Robot Rally</h4>
+        <p>A complete technical education project combining programming, 3D printing, CAD design, electronics, and mechanical assembly.</p>
+      </div>
+      <div class="curriculum-item">
+        <h4>Python Education</h4>
+        <p>Python Apprentice, Python Games, and Python for Data Analysis curriculum tracks.</p>
+      </div>
+      <div class="curriculum-item">
+        <h4>Microcontroller Programming</h4>
+        <p>Micro:bit fundamentals, robot control systems, and mobile robotics programming.</p>
+      </div>
+      <div class="curriculum-item">
+        <h4>Maker Skills</h4>
+        <p>Soldering and electronics, 3D printing design and fabrication, and CAD fundamentals.</p>
+      </div>
+    </div>
+    
+    <div class="curriculum-note">
+      <p><strong>All curriculum is openly available at <a href="https://curriculum.jointheleague.org" target="_blank">curriculum.jointheleague.org</a></strong></p>
+    </div>
+  </Section>
+
+  <!-- Diversity and Inclusion -->
+  <Section 
+    startBgcolor="var(--color-primary-soft)" 
+    endBgcolor="var(--color-secondary-tint)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Diversity and Inclusion: Making STEM Accessible</h2>
+    </SectionHeader>
+    
+    <div class="diversity-highlight">
+      <div class="diversity-stat">
+        <div class="big-stat">40.7%</div>
+        <div class="big-stat-label">Female Participation</div>
+        <p>503 girls participated in our Tech Club programs in 2024-2025, far exceeding typical computer science education demographics.</p>
+      </div>
+    </div>
+    
+    <div class="diversity-approach">
+      <h3>Our Approach to Inclusivity</h3>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <h4>Free Programming</h4>
+          <p>Removing financial barriers that disproportionately affect underrepresented groups</p>
+        </div>
+        <div class="approach-item">
+          <h4>Community-Based Delivery</h4>
+          <p>Meeting students where they are - in schools, libraries, and neighborhoods</p>
+        </div>
+        <div class="approach-item">
+          <h4>Diverse Curriculum</h4>
+          <p>Multiple entry points appeal to varied interests and learning styles</p>
+        </div>
+        <div class="approach-item">
+          <h4>Welcoming Environment</h4>
+          <p>Supportive learning where questions are encouraged and mistakes are opportunities</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Strategic Direction -->
+  <Section 
+    startBgcolor="var(--color-secondary-tint)" 
+    endBgcolor="var(--color-peach-strong)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Strategic Direction: Positioned for Growth</h2>
+    </SectionHeader>
+    
+    <div class="strategic-content">
+      <div class="strategic-section">
+        <h3>What We've Accomplished</h3>
+        <div class="accomplishment-grid">
+          <div class="accomplishment-item">
+            <h4>Proven Model</h4>
+            <p>117 events reaching 1,236 students with 40.7% female participation demonstrates our model works and scales.</p>
+          </div>
+          <div class="accomplishment-item">
+            <h4>Comprehensive Curriculum</h4>
+            <p>Transformation to integrated technical education makes us more relevant to today's students.</p>
+          </div>
+          <div class="accomplishment-item">
+            <h4>Strong Partnerships</h4>
+            <p>Relationships with 15 schools, 10 libraries, and multiple community organizations.</p>
+          </div>
+          <div class="accomplishment-item">
+            <h4>Refined Operations</h4>
+            <p>Understanding what it takes to launch and sustain programs across 30+ sites.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vision-2026">
+        <h3>Vision for 2025-2026</h3>
+        <p>We envision reaching <strong>2,000+ student attendances</strong> through expanded Tech Club programming, launching in <strong>10-15 new sites</strong>, and continuing to maintain our commitment to gender diversity and accessibility.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Financial Stewardship -->
+  <Section 
+    startBgcolor="var(--color-peach-strong)" 
+    endBgcolor="var(--color-surface)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">Financial Stewardship</h2>
+      <p class="section__description">Calendar Year 2024 Financial Summary</p>
+    </SectionHeader>
+    
+    <div class="financial-grid">
+      <div class="financial-section">
+        <h3>Revenue: $641,598</h3>
+        <div class="financial-breakdown">
+          <div class="financial-item">
+            <span class="amount">$397,320 (62%)</span>
+            <span class="description">Program service revenue</span>
+          </div>
+          <div class="financial-item">
+            <span class="amount">$243,546 (38%)</span>
+            <span class="description">Contributions and grants</span>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="financial-section">
+        <h3>Expenses: $487,044</h3>
+        <div class="financial-breakdown">
+          <div class="financial-item">
+            <span class="amount">$329,847 (68%)</span>
+            <span class="description">Personnel (salaries, benefits)</span>
+          </div>
+          <div class="financial-item">
+            <span class="amount">$157,197 (32%)</span>
+            <span class="description">Programs and operations</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="financial-section">
+        <h3>Financial Position (End of 2024)</h3>
+        <div class="financial-breakdown">
+          <div class="financial-item">
+            <span class="amount">$213,120</span>
+            <span class="description">Total assets</span>
+          </div>
+          <div class="financial-item">
+            <span class="amount">$32,091</span>
+            <span class="description">Total liabilities</span>
+          </div>
+          <div class="financial-item">
+            <span class="amount">$181,029</span>
+            <span class="description">Net assets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Support Our Mission -->
+  <Section 
+    startBgcolor="var(--color-surface)" 
+    endBgcolor="var(--color-secondary-soft)"
+  >
+    <SectionHeader>
+      <h2 class="section__title">How to Support Our Mission</h2>
+    </SectionHeader>
+    
+    <div class="support-grid">
+      <div class="support-item">
+        <h3>Donate</h3>
+        <p>Your financial support directly enables free Tech Club programming for San Diego students.</p>
+        <ul>
+          <li>$250 sponsors one Tech Club event</li>
+          <li>$1,000 supports a month at one library</li>
+          <li>$5,000 sponsors a school for a semester</li>
+          <li>$10,000 provides robotics equipment</li>
+        </ul>
+        <a href="/support/donate" class="cta-button">Donate Now</a>
+      </div>
+      
+      <div class="support-item">
+        <h3>Volunteer</h3>
+        <p>Share your knowledge and passion for technology with students.</p>
+        <ul>
+          <li>Tech Club instructors</li>
+          <li>League Labs mentors</li>
+          <li>Administrative support</li>
+          <li>Technical expertise</li>
+        </ul>
+        <a href="/support/volunteer" class="cta-button">Volunteer</a>
+      </div>
+      
+      <div class="support-item">
+        <h3>Partner With Us</h3>
+        <p>Bring Tech Club to your community.</p>
+        <ul>
+          <li>Schools and libraries</li>
+          <li>Companies and organizations</li>
+          <li>Community partnerships</li>
+          <li>Sponsorship opportunities</li>
+        </ul>
+        <a href="/about/contact" class="cta-button">Partner</a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .impact24-hero {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary-soft) 0%,
+      var(--color-primary-soft) 50%,
+      var(--color-peach-strong) 100%
+    );
+    padding: var(--space-4xl) 0;
+    text-align: center;
+  }
+
+  .impact24-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 25% 25%,
+        rgba(93, 95, 239, 0.15),
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(243, 113, 33, 0.15),
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  .impact24-hero__title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  .impact24-hero__subtitle {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .impact24-hero__tagline {
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--color-body);
+    font-style: italic;
+  }
+
+  .mission-vision {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom: var(--space-2xl);
+  }
+
+  .mission-card, .vision-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .mission-card h3, .vision-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+  }
+
+  .values h3 {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: 1.5rem;
+  }
+
+  .values-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .value-item {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .value-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+    font-size: 1.2rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .stat-category {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-category h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .stat-item {
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--color-secondary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--color-body);
+    margin-top: var(--space-xs);
+  }
+
+  .program-section {
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-xl);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .program-section h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+  }
+
+  .highlight-box {
+    background: var(--color-surface-alt);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .highlight-box h4 {
+    color: var(--color-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .curriculum-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: var(--space-xl);
+  }
+
+  .curriculum-item {
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .curriculum-item h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .curriculum-note {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .diversity-highlight {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .diversity-stat {
+    background: var(--color-surface);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .big-stat {
+    font-size: clamp(48px, 8vw, 72px);
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .big-stat-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .approach-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .approach-item {
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .approach-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .accomplishment-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: var(--space-xl);
+  }
+
+  .accomplishment-item {
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .accomplishment-item h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .vision-2026 {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .vision-2026 h3 {
+    color: var(--color-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .financial-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .financial-section {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .financial-section h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+
+  .financial-breakdown {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .financial-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-sm);
+  }
+
+  .financial-item .amount {
+    font-weight: 600;
+    color: var(--color-secondary);
+  }
+
+  .financial-item .description {
+    color: var(--color-body);
+  }
+
+  .support-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .support-item {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .support-item h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .support-item ul {
+    text-align: left;
+    margin: var(--space-lg) 0;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .locations-note {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-primary);
+    box-shadow: var(--shadow-card);
+  }
+
+  .locations-note p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  .locations-note strong {
+    color: var(--color-primary);
+  }
+
+  .cta-button:hover {
+    background: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .mission-vision,
+    .stats-grid,
+    .curriculum-grid,
+    .approach-grid,
+    .accomplishment-grid,
+    .financial-grid,
+    .support-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .values-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+</style>

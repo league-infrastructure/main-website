@@ -1,0 +1,194 @@
+---
+import { locations } from '../data/locations.ts';
+
+// Filter locations that have coordinates
+const locationsWithCoords = locations.filter(
+  location => location.latitude && location.longitude
+);
+
+// Pass the location data to the client-side script
+const locationData = JSON.stringify(locationsWithCoords.map(location => ({
+  name: location.name,
+  lat: location.latitude,
+  lng: location.longitude,
+  address: location.formatted_address || location.address,
+  type: location.type || 'other'
+})));
+---
+
+<div class="locations-map-container">
+  <div id="locations-map" class="locations-map"></div>
+  <div class="map-legend">
+    <div class="legend-item">
+      <div class="legend-marker league"></div>
+      <span>League Campus</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-marker school"></div>
+      <span>School Partnership</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-marker library"></div>
+      <span>Library Location</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-marker other"></div>
+      <span>Other Location</span>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ locationData }}>
+  // Initialize the map once the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    const locations = JSON.parse(locationData);
+    
+    // Initialize Leaflet map centered on San Diego
+    const map = L.map('locations-map').setView([32.7157, -117.1611], 10);
+    
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Define marker colors for different location types
+    const markerColors = {
+      league: '#f37121', // Orange
+      school: '#4a90e2', // Blue  
+      library: '#7ed321', // Green
+      other: '#bd10e0'    // Purple
+    };
+    
+    // Add markers for each location
+    locations.forEach(location => {
+      const color = markerColors[location.type] || markerColors.other;
+      
+      // Create a custom marker
+      const marker = L.circleMarker([location.lat, location.lng], {
+        color: '#fff',
+        fillColor: color,
+        fillOpacity: 0.8,
+        radius: 8,
+        weight: 2
+      }).addTo(map);
+      
+      // Add popup with location info
+      const popupContent = `
+        <div class="location-popup">
+          <h4>${location.name}</h4>
+          ${location.address ? `<p>${location.address}</p>` : ''}
+        </div>
+      `;
+      
+      marker.bindPopup(popupContent);
+    });
+    
+    // Fit map bounds to show all markers
+    if (locations.length > 0) {
+      const group = new L.featureGroup(
+        locations.map(loc => L.marker([loc.lat, loc.lng]))
+      );
+      map.fitBounds(group.getBounds().pad(0.1));
+    }
+  });
+</script>
+
+<style>
+  .locations-map-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+  }
+  
+  .locations-map {
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border-light);
+  }
+  
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-surface);
+    border-radius: 8px;
+    border: 1px solid var(--color-border-light);
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+  
+  .legend-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .legend-marker.league {
+    background-color: #f37121;
+  }
+  
+  .legend-marker.school {
+    background-color: #4a90e2;
+  }
+  
+  .legend-marker.library {
+    background-color: #7ed321;
+  }
+  
+  .legend-marker.other {
+    background-color: #bd10e0;
+  }
+  
+  /* Popup styling */
+  :global(.leaflet-popup-content-wrapper) {
+    border-radius: 8px;
+    padding: 0;
+  }
+  
+  :global(.location-popup) {
+    padding: 1rem;
+  }
+  
+  :global(.location-popup h4) {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-primary);
+    font-size: 1rem;
+  }
+  
+  :global(.location-popup p) {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+  
+  @media (max-width: 768px) {
+    .locations-map {
+      height: 400px;
+    }
+    
+    .map-legend {
+      padding: 0.75rem;
+    }
+    
+    .legend-item {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<!-- Load Leaflet CSS and JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
