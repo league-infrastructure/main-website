@@ -1,0 +1,339 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CalloutCard from "../components/CalloutCard.astro";
+import CardGrid from "../components/CardGrid.astro";
+import ProgramCard from "../components/ProgramCard.astro";
+import CardBody from "../components/CardBody.astro";
+import CardFooter from "../components/CardFooter.astro";
+---
+
+<BaseLayout
+  title="Our Programs"
+  description="Explore The League of Amazing Programmers' comprehensive coding, robotics, and engineering programs designed for students from elementary through high school."
+>
+  <HeroSection class="programs-hero">
+    <h1 slot="tagline">Our Programs</h1>
+    <p slot="description">
+      From beginner coding classes to advanced robotics and engineering, we provide comprehensive STEM education pathways for students of all skill levels.
+    </p>
+    <div slot="media" class="programs-hero__media">
+      <img
+        src="/images/programs.png"
+        alt="Students learning programming and robotics"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <!-- General Programming -->
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-primary-soft)">
+    <SectionHeader>
+      <h2>General Programming</h2>
+      <p>Foundational programming education from beginner to advanced levels. Build essential coding skills with industry-standard languages and practices.</p>
+    </SectionHeader>
+    
+    <CardGrid>
+      <ProgramCard img="/images/cards/java.png" alt="Java programming logo">
+        <CardBody>
+          <h3>Java Programming</h3>
+          <p>Master Java with our comprehensive weekly classes. Perfect preparation for AP Computer Science and college coursework.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/java" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+      
+      <ProgramCard img="/images/cards/python.png" alt="Python programming logo">
+        <CardBody>
+          <h3>Python Programming</h3>
+          <p>Learn the world's most popular programming language. From basics to advanced applications in data science and automation.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/python" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+      
+      <ProgramCard img="/images/cards/python.png" alt="Python apprentice programming">
+        <CardBody>
+          <h3>Python Apprentice</h3>
+          <p>Begin your coding journey with Python fundamentals. Perfect for beginners learning programming concepts and logic.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/python-apprentice" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+      
+      <ProgramCard img="/images/cards/code-clinic.png" alt="Code clinic support session">
+        <CardBody>
+          <h3>Code Clinic</h3>
+          <p>Get personalized help with your programming projects. One-on-one support for debugging, problem-solving, and skill development.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/code-clinic" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+      
+      <ProgramCard img="/images/cards/tech-club.png" alt="Tech club community session">
+        <CardBody>
+          <h3>Tech Club</h3>
+          <p>Free community coding sessions for all skill levels. Drop-in format with peer support and project collaboration.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/tech-club" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+      
+      <ProgramCard img="/images/cards/tech-club.png" alt="Tech arcade coding session">
+        <CardBody>
+          <h3>Tech Arcade</h3>
+          <p>Casual, game-inspired coding environment where learning is fun and stress-free. Open to all ages and skill levels.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/tech-arcade" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+    </CardGrid>
+  </Section>
+
+  <!-- Games -->
+  <Section startBgcolor="var(--color-primary-soft)" endBgcolor="var(--color-secondary-soft)">
+    <SectionHeader>
+      <h2>Games</h2>
+      <p>Learn programming through game development. Create engaging projects while mastering coding concepts and design principles.</p>
+    </SectionHeader>
+    
+    <CardGrid>
+      <ProgramCard img="/images/cards/python-games.png" alt="Python game development">
+        <CardBody>
+          <h3>Python Games</h3>
+          <p>Advanced Python programming through game development. Build interactive games using Pygame and learn software design patterns.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/python-games" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+      
+      <ProgramCard img="/images/cards/makecode.png" alt="MakeCode Arcade game development">
+        <CardBody>
+          <h3>MakeCode Arcade</h3>
+          <p>Visual programming and game design with block-based coding. Perfect introduction to game development concepts and logic.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/makecode-games" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
+    </CardGrid>
+  </Section>
+
+  <!-- Robotics -->
+  <Section startBgcolor="var(--color-secondary-soft)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Robotics</h2>
+      <p>Complete robotics education combining programming, mechanical design, and engineering principles. Build and program competition-ready robots.</p>
+    </SectionHeader>
+    
+    <CardGrid>
+      <CalloutCard
+        title="Robot Riot"
+        description="Comprehensive robotics program combining programming, 3D printing, CAD design, and mechanical assembly for competition-ready robots."
+        href="/programs/robot-riot"
+        imageUrl="/images/cards/robotics.png"
+        imageAlt="Robot Riot advanced robotics"
+      />
+      
+      <CalloutCard
+        title="Robot Garage"
+        description="Hands-on robotics with micro:bit controllers. Build and program mobile robots while learning electronics and sensor integration."
+        href="/programs/robot-garage"
+        imageUrl="/images/cards/microbit.png"
+        imageAlt="Robot Garage micro:bit robotics"
+      />
+    </CardGrid>
+  </Section>
+
+  <!-- Engineering -->
+  <Section startBgcolor="var(--color-peach)" endBgcolor="var(--color-surface)">
+    <SectionHeader>
+      <h2>Engineering</h2>
+      <p>Practical engineering skills and maker education. Learn essential technical skills for building, prototyping, and problem-solving.</p>
+    </SectionHeader>
+    
+    <CardGrid>
+      <CalloutCard
+        title="Project Clinic"
+        description="Individual project support and mentoring. Get help with motors, circuits, mechanical design, and troubleshooting your builds."
+        href="/programs/code-clinic"
+        imageUrl="/images/cards/engineering.png"
+        imageAlt="Engineering project clinic"
+      />
+      
+      <CalloutCard
+        title="Soldering & Electronics"
+        description="Master essential electronics skills including soldering, circuit design, and component integration for robotics and maker projects."
+        href="/programs/robot-garage"
+        imageUrl="/images/cards/electronics.png"
+        imageAlt="Soldering and electronics training"
+      />
+    </CardGrid>
+  </Section>
+
+  <!-- Program Information -->
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-surface-alt)">
+    <SectionHeader>
+      <h2>Program Information</h2>
+    </SectionHeader>
+    
+    <div class="program-info-grid">
+      <div class="info-card">
+        <h3>🎯 All Skill Levels</h3>
+        <p>From complete beginners to advanced students, we have programs designed for every skill level and learning pace.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>🏫 Multiple Locations</h3>
+        <p>Programs available at 30+ sites across San Diego County including schools, libraries, and community centers.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>💻 Industry Tools</h3>
+        <p>Learn with professional development tools and industry-standard programming languages used by real software developers.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>👥 Small Class Sizes</h3>
+        <p>Personalized attention with small class sizes ensuring every student gets the support they need to succeed.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>🎓 Portfolio Development</h3>
+        <p>Build a comprehensive portfolio of projects that showcases your skills to colleges and future employers.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>🤝 Community Focus</h3>
+        <p>Join a supportive community of learners, mentors, and technology enthusiasts committed to inclusive STEM education.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Call to Action -->
+  <Section startBgcolor="var(--color-surface-alt)" endBgcolor="var(--color-primary-soft)">
+    <SectionHeader>
+      <h2>Ready to Start Learning?</h2>
+      <p>Explore our programs and find the perfect fit for your interests and skill level.</p>
+    </SectionHeader>
+    
+    <div class="cta-grid">
+      <div class="cta-card">
+        <h3>Browse All Classes</h3>
+        <p>See our complete schedule of weekly classes and ongoing programs.</p>
+        <a href="/programs/classes" class="cta-button">View Classes</a>
+      </div>
+      
+      <div class="cta-card">
+        <h3>Join Tech Club</h3>
+        <p>Start with our free community coding sessions. No experience required!</p>
+        <a href="/programs/tech-club" class="cta-button">Join Tech Club</a>
+      </div>
+      
+      <div class="cta-card">
+        <h3>Get Help Now</h3>
+        <p>Need immediate support with a project? Our Code Clinic is here to help.</p>
+        <a href="/programs/code-clinic" class="cta-button">Get Support</a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .programs-hero {
+    background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-surface) 100%);
+  }
+
+  .programs-hero__media img {
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .program-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .info-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .info-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+  }
+
+  .info-card p {
+    color: var(--color-body);
+    line-height: 1.6;
+  }
+
+  .cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .cta-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.3rem;
+  }
+
+  .cta-card p {
+    color: var(--color-body);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .program-info-grid,
+    .cta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .programs-hero__media img {
+      max-width: 100%;
+    }
+  }
+</style>
