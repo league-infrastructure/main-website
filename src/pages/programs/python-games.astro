@@ -1,0 +1,160 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+---
+
+<BaseLayout
+  title="Python Games Program"
+  description="Create engaging games while learning advanced Python concepts. Build arcade games, puzzles, and interactive applications using Python and Pygame."
+>
+  <HeroSection class="program-hero">
+    <h1 slot="tagline">Python Games</h1>
+    <p slot="description">
+      Create engaging games while learning advanced Python concepts. Build arcade games, puzzles, and interactive applications using Python and Pygame.
+    </p>
+    <div slot="media" class="program-hero__media">
+      <img
+        src="/images/cards/python.png"
+        alt="Python game development illustration"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Program Overview</h2>
+    </SectionHeader>
+    
+    <div class="program-content">
+      <div class="program-description">
+        <p>Python Games takes your Python knowledge to the next level by creating interactive games and applications. Students learn advanced programming concepts while building projects they're excited to share.</p>
+        
+        <h3>What You'll Learn</h3>
+        <ul>
+          <li>Game development with Pygame library</li>
+          <li>Object-oriented programming with classes</li>
+          <li>Event handling and user interaction</li>
+          <li>Collision detection and physics</li>
+          <li>Sprite animation and graphics</li>
+          <li>Sound effects and music integration</li>
+          <li>Game loops and state management</li>
+          <li>Advanced Python data structures</li>
+        </ul>
+        
+        <h3>Games You'll Build</h3>
+        <ul>
+          <li>Snake and classic arcade games</li>
+          <li>Platform adventure games</li>
+          <li>Puzzle games like Tetris</li>
+          <li>Space shooter games</li>
+          <li>Racing and maze games</li>
+          <li>Custom game of your choice</li>
+        </ul>
+      </div>
+      
+      <CalloutCard title="Program Details">
+        <ul>
+          <li><strong>Age Range:</strong> 12-18 years old</li>
+          <li><strong>Duration:</strong> 16-20 weeks</li>
+          <li><strong>Prerequisites:</strong> Python Apprentice or equivalent</li>
+          <li><strong>Class Size:</strong> Maximum 8 students</li>
+          <li><strong>Format:</strong> In-person and online options</li>
+        </ul>
+        <a slot="footer" class="button button--primary" href="/programs/classes">
+          View All Classes
+        </a>
+      </CalloutCard>
+    </div>
+  </Section>
+
+  <Section startBgcolor="var(--color-peach)" endBgcolor="var(--color-secondary-soft)">
+    <SectionHeader>
+      <h2>Why Python Games?</h2>
+    </SectionHeader>
+    
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <h3>Learn Through Play</h3>
+        <p>Game development makes programming concepts tangible and fun. See your code come to life with interactive graphics and sound.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Advanced Programming</h3>
+        <p>Master object-oriented programming, event-driven architecture, and complex data structures through practical game projects.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Creative Expression</h3>
+        <p>Design your own characters, create unique game mechanics, and build the games you've always wanted to play.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Portfolio Building</h3>
+        <p>Complete the course with several polished games to showcase your programming skills to colleges and employers.</p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .program-hero {
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-surface) 100%);
+  }
+
+  .program-hero__media img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .program-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .program-description h3 {
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .program-description ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .program-description li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .benefit-item {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .benefit-item h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .program-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

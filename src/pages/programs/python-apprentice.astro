@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+---
+
+<BaseLayout
+  title="Python Apprentice Program"
+  description="Master Python fundamentals with hands-on projects. Learn variables, loops, functions, and basic programming concepts in the world's most popular language."
+>
+  <HeroSection class="program-hero">
+    <h1 slot="tagline">Python Apprentice</h1>
+    <p slot="description">
+      Master Python fundamentals with hands-on projects. Learn variables, loops, functions, and basic programming concepts in the world's most popular language.
+    </p>
+    <div slot="media" class="program-hero__media">
+      <img
+        src="/images/cards/python.png"
+        alt="Python programming illustration"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Program Overview</h2>
+    </SectionHeader>
+    
+    <div class="program-content">
+      <div class="program-description">
+        <p>Python Apprentice is our foundational Python programming course designed for beginners. Students learn core programming concepts through engaging, hands-on projects that make learning to code fun and accessible.</p>
+        
+        <h3>What You'll Learn</h3>
+        <ul>
+          <li>Python syntax and basic programming concepts</li>
+          <li>Variables, data types, and user input</li>
+          <li>Conditional statements and logical operators</li>
+          <li>Loops and iteration patterns</li>
+          <li>Functions and code organization</li>
+          <li>Lists, dictionaries, and data structures</li>
+          <li>File handling and text processing</li>
+          <li>Basic object-oriented programming</li>
+        </ul>
+        
+        <h3>Projects Include</h3>
+        <ul>
+          <li>Interactive story games</li>
+          <li>Number guessing games</li>
+          <li>Basic calculator applications</li>
+          <li>Text-based adventure games</li>
+          <li>Simple data analysis projects</li>
+        </ul>
+      </div>
+      
+      <CalloutCard title="Program Details">
+        <ul>
+          <li><strong>Age Range:</strong> 10-18 years old</li>
+          <li><strong>Duration:</strong> 12-16 weeks</li>
+          <li><strong>Prerequisites:</strong> None - perfect for beginners</li>
+          <li><strong>Class Size:</strong> Maximum 8 students</li>
+          <li><strong>Format:</strong> In-person and online options</li>
+        </ul>
+        <a slot="footer" class="button button--primary" href="/programs/classes">
+          View All Classes
+        </a>
+      </CalloutCard>
+    </div>
+  </Section>
+
+  <Section startBgcolor="var(--color-peach)" endBgcolor="var(--color-secondary-soft)">
+    <SectionHeader>
+      <h2>Why Python Apprentice?</h2>
+    </SectionHeader>
+    
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <h3>Beginner-Friendly</h3>
+        <p>Designed specifically for students with no prior programming experience. Clear explanations and step-by-step guidance.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Hands-On Learning</h3>
+        <p>Every concept is reinforced with practical projects that students can be proud of and share with friends and family.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Industry-Relevant</h3>
+        <p>Python is used by Google, Netflix, Instagram, and countless other companies. Start your journey with the right language.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Pathway to Advanced Topics</h3>
+        <p>Perfect foundation for our Python Games course, data science projects, and advanced programming concepts.</p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .program-hero {
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-surface) 100%);
+  }
+
+  .program-hero__media img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .program-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .program-description h3 {
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .program-description ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .program-description li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .benefit-item {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .benefit-item h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .program-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

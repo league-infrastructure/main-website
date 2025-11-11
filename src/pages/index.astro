@@ -74,7 +74,7 @@ const moreWaysToLearn = [
     </p>
     <img
       slot="media"
-      src="/images/computer-robot-1.png"
+      src="/images/cards/computer-robot.png"
       alt="Student-built robot with laptop"
       loading="lazy"
     />
@@ -305,9 +305,79 @@ const moreWaysToLearn = [
     </CardGrid>
   </Section>
 
-  <Section_40_60
+  <Section
+    id="class-curriculum"
     startBgcolor="var(--color-secondary-soft)"
-    endBgcolor="var(--color-secondary-soft)"
+    endBgcolor="var(--color-surface-alt)"
+  >
+    <SectionHeader>
+      <h2>Our Class Curriculum</h2>
+      <p>
+        Explore our comprehensive curriculum designed to take students from beginners to professional programmers. All of our curriculum is openly available at <a href="https://curriculum.jointheleague.org" target="_blank" rel="noopener">curriculum.jointheleague.org</a>.
+      </p>
+    </SectionHeader>
+    <CardGrid min-width={300}>
+      <CalloutCard class="curriculum-card" title="Java Weekly Classes">
+        <p>Industry-standard Java programming from basics to advanced object-oriented concepts. Perfect preparation for Oracle certification and professional development.</p>
+        <a slot="footer" class="link" href="/programs/java">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="Python Apprentice">
+        <p>Master Python fundamentals with hands-on projects. Learn variables, loops, functions, and basic programming concepts in the world's most popular language.</p>
+        <a slot="footer" class="link" href="/programs/python-apprentice">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="Python Games">
+        <p>Create engaging games while learning advanced Python concepts. Build arcade games, puzzles, and interactive applications using Python and Pygame.</p>
+        <a slot="footer" class="link" href="/programs/python-games">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="MakeCode Games">
+        <p>Develop retro-style games using Microsoft MakeCode Arcade. Perfect introduction to game development with block-based and JavaScript programming.</p>
+        <a slot="footer" class="link" href="/programs/makecode-games">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="Robot Riot">
+        <p>Complete robotics education combining programming, 3D printing, CAD design, and mechanical assembly. Build and program competition-ready robots.</p>
+        <a slot="footer" class="link" href="/programs/robot-riot">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="Robot Garage">
+        <p>Hands-on robotics programming with micro:bit controllers. Learn sensors, motors, and autonomous robot behaviors through exciting challenges.</p>
+        <a slot="footer" class="link" href="/programs/robot-garage">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="League Labs">
+        <p>Advanced internship program for high school students. Gain real-world experience in curriculum development and technology education.</p>
+        <a slot="footer" class="link" href="/programs/league-labs">
+          Learn More
+        </a>
+      </CalloutCard>
+      
+      <CalloutCard class="curriculum-card" title="Tech Arcade">
+        <p>Free community coding sessions introducing students to programming through games, interactive projects, and creative technology challenges.</p>
+        <a slot="footer" class="link" href="/programs/tech-arcade">
+          Learn More
+        </a>
+      </CalloutCard>
+    </CardGrid>
+  </Section>
+
+  <Section_40_60
+    startBgcolor="var(--color-surface-alt)"
+    endBgcolor="var(--color-surface-alt)"
   >
     <div slot="slot1" class="career__image">
       <img
@@ -329,23 +399,23 @@ const moreWaysToLearn = [
       </SectionHeader>
       <div class="career__logos">
         <figure class="career__logo">
-          <img src="/images/google.png" alt="Google" loading="lazy" />
+          <img src="/logos/google.png" alt="Google" loading="lazy" />
         </figure>
         <figure class="career__logo">
-          <img src="/images/amazon.png" alt="Amazon" loading="lazy" />
+          <img src="/logos/amazon.png" alt="Amazon" loading="lazy" />
         </figure>
         <figure class="career__logo">
-          <img src="/images/microsoft.png" alt="Microsoft" loading="lazy" />
+          <img src="/logos/microsoft.png" alt="Microsoft" loading="lazy" />
         </figure>
         <figure class="career__logo">
-          <img src="/images/sony.png" alt="Sony" loading="lazy" />
+          <img src="/logos/sony.png" alt="Sony" loading="lazy" />
         </figure>
         <figure class="career__logo">
-          <img src="/images/intuit.png" alt="Intuit" loading="lazy" />
+          <img src="/logos/intuit.png" alt="Intuit" loading="lazy" />
         </figure>
         <figure class="career__logo">
           <img
-            src="/images/playstation-e1633381878724.png"
+            src="/logos/playstation.png"
             alt="PlayStation"
             loading="lazy"
           />
@@ -458,7 +528,7 @@ const moreWaysToLearn = [
         rel="noreferrer"
       >
         <img
-          src="/images/toprated.png"
+          src="/logos/toprated.png"
           alt="GreatNonprofits Top-Rated"
           loading="lazy"
         />

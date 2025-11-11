@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+---
+
+<BaseLayout
+  title="Robot Riot Program"
+  description="Complete robotics education combining programming, 3D printing, CAD design, and mechanical assembly. Build and program competition-ready robots."
+>
+  <HeroSection class="program-hero">
+    <h1 slot="tagline">Robot Riot</h1>
+    <p slot="description">
+      Complete robotics education combining programming, 3D printing, CAD design, and mechanical assembly. Build and program competition-ready robots.
+    </p>
+    <div slot="media" class="program-hero__media">
+      <img
+        src="/images/cards/robotics.png"
+        alt="Robot Riot robotics illustration"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Program Overview</h2>
+    </SectionHeader>
+    
+    <div class="program-content">
+      <div class="program-description">
+        <p>Robot Riot is our most comprehensive technical education program, combining programming, engineering, and design. Students build competition-ready robots while mastering multiple STEM disciplines.</p>
+        
+        <h3>What You'll Learn</h3>
+        <ul>
+          <li>Robot programming with Java and Python</li>
+          <li>CAD design with Fusion 360</li>
+          <li>3D printing and manufacturing</li>
+          <li>Electronics and circuit design</li>
+          <li>Mechanical assembly and troubleshooting</li>
+          <li>Sensor integration and automation</li>
+          <li>Competition strategy and teamwork</li>
+          <li>Project management and documentation</li>
+        </ul>
+        
+        <h3>Skills You'll Develop</h3>
+        <ul>
+          <li>Advanced programming and algorithms</li>
+          <li>Computer-aided design (CAD)</li>
+          <li>3D printing and prototyping</li>
+          <li>Soldering and electronics</li>
+          <li>Problem-solving and debugging</li>
+          <li>Team collaboration and leadership</li>
+        </ul>
+      </div>
+      
+      <CalloutCard title="Program Details">
+        <ul>
+          <li><strong>Age Range:</strong> 13-18 years old</li>
+          <li><strong>Duration:</strong> Full academic year</li>
+          <li><strong>Prerequisites:</strong> Basic programming knowledge</li>
+          <li><strong>Class Size:</strong> Maximum 12 students</li>
+          <li><strong>Format:</strong> In-person required for hands-on work</li>
+          <li><strong>Equipment:</strong> All tools and materials provided</li>
+        </ul>
+        <a slot="footer" class="button button--primary" href="/programs/classes">
+          View All Classes
+        </a>
+      </CalloutCard>
+    </div>
+  </Section>
+
+  <Section startBgcolor="var(--color-peach)" endBgcolor="var(--color-secondary-soft)">
+    <SectionHeader>
+      <h2>Why Robot Riot?</h2>
+    </SectionHeader>
+    
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <h3>Complete STEM Education</h3>
+        <p>Integrate programming, engineering, mathematics, and design in one comprehensive project-based program.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Real-World Skills</h3>
+        <p>Learn industry-standard tools and practices used by professional engineers and developers in robotics companies.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Competition Ready</h3>
+        <p>Build robots capable of competing in FIRST Robotics, VEX, and other national robotics competitions.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h3>Portfolio Development</h3>
+        <p>Create a comprehensive portfolio of technical projects that showcases your abilities to colleges and employers.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section startBgcolor="var(--color-secondary-soft)" endBgcolor="var(--color-surface)">
+    <SectionHeader>
+      <h2>Program Highlights</h2>
+    </SectionHeader>
+    
+    <div class="highlights-content">
+      <div class="highlight-feature">
+        <h3>🤖 Build Competition Robots</h3>
+        <p>Design and construct robots capable of autonomous navigation, object manipulation, and complex task completion.</p>
+      </div>
+      
+      <div class="highlight-feature">
+        <h3>🔧 Master Professional Tools</h3>
+        <p>Learn Fusion 360 CAD software, 3D printing techniques, and industry-standard programming environments.</p>
+      </div>
+      
+      <div class="highlight-feature">
+        <h3>👥 Team Collaboration</h3>
+        <p>Work in teams to tackle complex challenges, mirroring real-world engineering and development environments.</p>
+      </div>
+      
+      <div class="highlight-feature">
+        <h3>🏆 Competition Participation</h3>
+        <p>Opportunities to compete in local and national robotics competitions with your completed projects.</p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .program-hero {
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-surface) 100%);
+  }
+
+  .program-hero__media img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .program-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .program-description h3 {
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .program-description ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .program-description li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .benefits-grid, .highlights-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .benefit-item, .highlight-feature {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .benefit-item h3, .highlight-feature h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .program-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
