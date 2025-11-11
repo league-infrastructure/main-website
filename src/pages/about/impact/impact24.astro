@@ -1,9 +1,10 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import HeroSection from '../../../components/HeroSection.astro';
-import Section from '../../../components/Section.astro';
-import SectionHeader from '../../../components/SectionHeader.astro';
-import LocationsMap from '../../../components/LocationsMap.astro';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import HeroSection from "../../../components/HeroSection.astro";
+import Section from "../../../components/Section.astro";
+import SectionHeader from "../../../components/SectionHeader.astro";
+import LocationsMap from "../../../components/LocationsMap.astro";
+import SpotlightCard from "../../../components/SpotlightCard.astro";
 ---
 
 <BaseLayout
@@ -18,26 +19,32 @@ import LocationsMap from '../../../components/LocationsMap.astro';
       2024-2025 Impact Report
     </h2>
     <p slot="description" class="impact24-hero__tagline">
-      Building a Foundation for Growth
+      Igniting Young Minds Through Coding
     </p>
   </HeroSection>
 
   <!-- Mission and Vision -->
-  <Section 
-    startBgcolor="var(--color-peach-strong)" 
-    endBgcolor="var(--color-surface)"
-  >
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
     <SectionHeader>
       <h2 class="section__title">Our Mission and Vision</h2>
     </SectionHeader>
     <div class="mission-vision">
       <div class="mission-card">
-        <h3>Mission</h3>
-        <p>The League of Amazing Programmers exists to ensure that every student in San Diego County has an opportunity to discover a passion for STEM careers. We believe that all children should have the opportunity to learn computer programming regardless of their family's financial status.</p>
+        <h3>Vision</h3>
+        <p>
+          The League of Amazing Programmers works for a future where every
+          student in San Diego County has an opportunity to discover a passion
+          for STEM careers.
+        </p>
       </div>
       <div class="vision-card">
-        <h3>Vision</h3>
-        <p>We envision a future where the tech landscape is characterized by inclusivity and fairness, where students from all backgrounds see themselves as capable creators of technology, not just consumers.</p>
+        <h3>Mission</h3>
+        <p>
+          The League of Amazing Programmers runs free and accessible coding and
+          robotics classes at libraries and schools across San Diego County for
+          3rd through 12th grade students, providing students with training from
+          experienced programmers at every level of skill.
+        </p>
       </div>
     </div>
     <div class="values">
@@ -52,47 +59,54 @@ import LocationsMap from '../../../components/LocationsMap.astro';
           <p>Maintaining high standards in curriculum and instruction</p>
         </div>
         <div class="value-item">
-          <h4>Inclusive</h4>
+          <h4>Professional</h4>
           <p>Actively welcoming students of all backgrounds</p>
         </div>
-        <div class="value-item">
-          <h4>Innovative</h4>
-          <p>Continuously evolving our programs and methods</p>
-        </div>
+
       </div>
     </div>
   </Section>
 
   <!-- Impact By Numbers -->
-  <Section 
-    startBgcolor="var(--color-surface)" 
-    endBgcolor="var(--color-secondary-soft)"
+  <Section
+    startBgcolor="var(--color-peach)"
+    endBgcolor="var(--color-peach-strong)"
   >
     <SectionHeader>
-      <h2 class="section__title">Impact at a Glance: 2024-2025 By the Numbers</h2>
+      <h2 class="section__title">
+        Impact at a Glance: 2024-2025 By the Numbers
+      </h2>
     </SectionHeader>
     <div class="stats-grid">
       <div class="stat-category">
         <h3>Students Reached</h3>
         <div class="stat-item">
           <div class="stat-number">1,236</div>
-          <div class="stat-label">Total student attendances through Tech Club events</div>
+          <div class="stat-label">
+            Total student attendances through Tech Club events
+          </div>
         </div>
         <div class="stat-item">
           <div class="stat-number">503</div>
-          <div class="stat-label">Girls participated in our programs (40.7% female participation)</div>
+          <div class="stat-label">
+            Girls participated in our programs (40.7% female participation)
+          </div>
         </div>
         <div class="stat-item">
           <div class="stat-number">25</div>
-          <div class="stat-label">High school students in League Labs summer internship program</div>
+          <div class="stat-label">
+            High school students in League Labs summer internship program
+          </div>
         </div>
       </div>
-      
+
       <div class="stat-category">
         <h3>Program Delivery</h3>
         <div class="stat-item">
           <div class="stat-number">117</div>
-          <div class="stat-label">Free Tech Club events hosted across San Diego County</div>
+          <div class="stat-label">
+            Free Tech Club events hosted across San Diego County
+          </div>
         </div>
         <div class="stat-item">
           <div class="stat-number">30+</div>
@@ -100,11 +114,15 @@ import LocationsMap from '../../../components/LocationsMap.astro';
         </div>
         <div class="stat-item">
           <div class="stat-number">15</div>
-          <div class="stat-label">School partnerships bringing coding directly to students</div>
+          <div class="stat-label">
+            School partnerships bringing coding directly to students
+          </div>
         </div>
         <div class="stat-item">
           <div class="stat-number">10</div>
-          <div class="stat-label">Library locations providing free community access</div>
+          <div class="stat-label">
+            Library locations providing free community access
+          </div>
         </div>
       </div>
 
@@ -112,7 +130,9 @@ import LocationsMap from '../../../components/LocationsMap.astro';
         <h3>Community Engagement</h3>
         <div class="stat-item">
           <div class="stat-number">417</div>
-          <div class="stat-label">Members in The League Tech Club Meetup community</div>
+          <div class="stat-label">
+            Members in The League Tech Club Meetup community
+          </div>
         </div>
         <div class="stat-item">
           <div class="stat-number">4.8 ★</div>
@@ -127,18 +147,23 @@ import LocationsMap from '../../../components/LocationsMap.astro';
   </Section>
 
   <!-- Programs -->
-  <Section 
-    startBgcolor="var(--color-secondary-soft)" 
-    endBgcolor="var(--color-peach)"
+  <Section
+    startBgcolor="var(--color-peach-strong)"
+    endBgcolor="var(--color-secondary-soft)"
   >
     <SectionHeader>
       <h2 class="section__title">Our Programs</h2>
     </SectionHeader>
-    
+
     <div class="program-section">
       <h3>Tech Club: Free Community Coding</h3>
-      <p>Tech Club is our flagship program, providing free introductory technology classes at schools, libraries, and community centers across San Diego County. Each session is approximately one hour and introduces students in grades 4-12 to programming concepts.</p>
-      
+      <p>
+        Tech Club is our flagship program, providing free introductory
+        technology classes at schools, libraries, and community centers across
+        San Diego County. Each session is approximately one hour and introduces
+        students in grades 4-12 to programming concepts.
+      </p>
+
       <div class="program-highlights">
         <div class="highlight-box">
           <h4>2024-2025 Tech Club Impact</h4>
@@ -154,8 +179,12 @@ import LocationsMap from '../../../components/LocationsMap.astro';
 
     <div class="program-section">
       <h3>League Labs: Summer Internship Program</h3>
-      <p>League Labs provides high school students with hands-on experience in technology education and curriculum development. The 2025 summer program ran from June through September.</p>
-      
+      <p>
+        League Labs provides high school students with hands-on experience in
+        technology education and curriculum development. The 2025 summer program
+        ran from June through September.
+      </p>
+
       <div class="program-highlights">
         <div class="highlight-box">
           <h4>2025 League Labs</h4>
@@ -166,153 +195,322 @@ import LocationsMap from '../../../components/LocationsMap.astro';
           </ul>
         </div>
       </div>
+      
+      <SpotlightCard 
+        title="League Labs Spotlight: Finn's Bubble Sort Algorithm"
+        position="left"
+        mediaType="video"
+        videoUrl="https://youtu.be/euWQy9_EO_k"
+      >
+        <p>In this video, Finn demonstrates how to perform a bubble sort algorithm. Finn was a student in the League Labs internship at High Tech High, showcasing the advanced programming concepts and teaching skills our interns develop.</p>
+        <p>League Labs interns don't just learn to code—they learn to teach and explain complex programming concepts to others, building both technical and communication skills essential for professional development.</p>
+      </SpotlightCard>
+    </div>
+
+    <div class="program-section">
+      <h3>Weekly Classes: Professional Programming Preparation</h3>
+      <p>
+        Our comprehensive weekly classes provide long-term, structured
+        programming education designed to prepare students for professional
+        software development careers. These multi-semester courses build deep
+        technical skills through project-based learning and industry-standard
+        practices.
+      </p>
+
+      <div class="program-highlights">
+        <div class="highlight-box">
+          <h4>Weekly Classes Features</h4>
+          <ul>
+            <li>Long-term curriculum spanning multiple semesters</li>
+            <li>Professional development methodologies and tools</li>
+            <li>Industry-standard programming languages and frameworks</li>
+            <li>Portfolio development and career preparation</li>
+          </ul>
+        </div>
+      </div>
+      
+      <SpotlightCard 
+        title="Weekly Classes Spotlight: Joshua Explains Java Strings"
+        position="right"
+        mediaType="video"
+        videoUrl="https://youtu.be/ZdOY4TYJ_yQ"
+      >
+        <p>In this video, Joshua, age 13, explains how to use Strings in Java. Joshua is a student in our weekly Java classes, demonstrating the clear understanding and communication skills our students develop through structured, long-term programming education.</p>
+        <p>Our weekly classes don't just teach coding syntax—they build deep comprehension that enables students to articulate complex programming concepts with confidence and clarity.</p>
+      </SpotlightCard>
     </div>
   </Section>
 
   <!-- Program Locations Map -->
-  <Section 
-    startBgcolor="var(--color-peach)" 
-    endBgcolor="var(--color-peach-strong)"
+  <Section
+    startBgcolor="var(--color-secondary-soft)"
+    endBgcolor="var(--color-secondary-tint)"
   >
     <SectionHeader>
-      <h2 class="section__title">Where We Serve: Program Locations Across San Diego County</h2>
+      <h2 class="section__title">
+        Where We Serve: Program Locations Across San Diego County
+      </h2>
       <p class="section__description">
-        Our programs reach students where they are - in schools, libraries, and community centers throughout San Diego County. Each location represents our commitment to making technology education accessible to all.
+        Our programs reach students where they are - in schools, libraries, and
+        community centers throughout San Diego County. Each location represents
+        our commitment to making technology education accessible to all.
       </p>
     </SectionHeader>
-    
-    <LocationsMap />
-    
-    <div class="locations-note">
-      <p><strong>30+ Active Sites:</strong> We partner with schools, libraries, and community organizations to bring coding education directly to students in their neighborhoods. From Carmel Valley to Chula Vista, our programs ensure that geography is never a barrier to learning.</p>
+
+    <div class="locations-grid">
+      <div class="locations-content">
+        <div class="locations-stats">
+          <div class="stat-highlight">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Active Program Sites</span>
+          </div>
+          <div class="stat-highlight">
+            <span class="stat-number">15</span>
+            <span class="stat-label">School Partnerships</span>
+          </div>
+          <div class="stat-highlight">
+            <span class="stat-number">10</span>
+            <span class="stat-label">Library Locations</span>
+          </div>
+        </div>
+
+        <div class="locations-description">
+          <h3>Bringing Code to Every Community</h3>
+          <p>
+            We partner with schools, libraries, and community organizations to
+            bring coding education directly to students in their neighborhoods.
+            From Carmel Valley to Chula Vista, our programs ensure that
+            geography is never a barrier to learning.
+          </p>
+
+          <div class="community-reach">
+            <h4>Our Reach Includes:</h4>
+            <ul>
+              <li>
+                <strong>North County:</strong> Carmel Valley, Del Mar, Encinitas
+              </li>
+              <li>
+                <strong>Central San Diego:</strong> University City, Mission Valley,
+                Hillcrest
+              </li>
+              <li><strong>East County:</strong> La Mesa, El Cajon, Santee</li>
+              <li>
+                <strong>South Bay:</strong> Chula Vista, National City, Imperial
+                Beach
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="locations-map-column">
+        <LocationsMap />
+      </div>
     </div>
   </Section>
 
   <!-- Curriculum Transformation -->
-  <Section 
-    startBgcolor="var(--color-peach-strong)" 
-    endBgcolor="var(--color-primary-soft)"
+  <Section
+    startBgcolor="var(--color-secondary-tint)"
+    endBgcolor="var(--color-secondary-soft)"
   >
     <SectionHeader>
-      <h2 class="section__title">Major Achievement: Curriculum Transformation</h2>
+      <h2 class="section__title">
+        Major Achievement: Curriculum Transformation
+      </h2>
       <p class="section__description">
-        One of the most significant developments this year was the complete rebuild and expansion of our curriculum. We evolved from a single-track Java program to a comprehensive, multi-pathway technical education program.
+        One of the most significant developments this year was the complete
+        rebuild and expansion of our curriculum. We evolved from a single-track
+        Java program to a comprehensive, multi-pathway technical education
+        program.
       </p>
     </SectionHeader>
-    
+
     <div class="curriculum-grid">
       <div class="curriculum-item">
-        <h4>Robot Rally</h4>
-        <p>A complete technical education project combining programming, 3D printing, CAD design, electronics, and mechanical assembly.</p>
+        <h4>Robot Riot</h4>
+        <p>
+          A complete technical education project combining programming, 3D
+          printing, CAD design, electronics, and mechanical assembly.
+        </p>
       </div>
       <div class="curriculum-item">
         <h4>Python Education</h4>
-        <p>Python Apprentice, Python Games, and Python for Data Analysis curriculum tracks.</p>
+        <p>
+          Python Apprentice, Python Games, and Python for Data Analysis
+          curriculum tracks.
+        </p>
       </div>
       <div class="curriculum-item">
         <h4>Microcontroller Programming</h4>
-        <p>Micro:bit fundamentals, robot control systems, and mobile robotics programming.</p>
+        <p>
+          Micro:bit fundamentals, robot control systems, and mobile robotics
+          programming.
+        </p>
       </div>
       <div class="curriculum-item">
         <h4>Maker Skills</h4>
-        <p>Soldering and electronics, 3D printing design and fabrication, and CAD fundamentals.</p>
+        <p>
+          Soldering and electronics, 3D printing design and fabrication, and CAD
+          fundamentals.
+        </p>
       </div>
     </div>
-    
+
+    <SpotlightCard 
+      title="Curriculum Spotlight: Orbit Lab Space Simulation"
+      position="left"
+      mediaType="image"
+      imageUrl="/images/impact24/orbitlab.gif"
+      imageAlt="Orbit Lab space simulation animation showing orbital mechanics"
+    >
+      <p>Orbit Lab is our innovative space simulation class that teaches students orbital mechanics, physics, and programming through interactive simulations. Students learn to calculate trajectories, understand gravitational forces, and program spacecraft navigation systems.</p>
+      <p>This hands-on approach to learning combines STEM concepts with real-world applications, giving students a deeper understanding of both programming and space science while building critical thinking and problem-solving skills.</p>
+    </SpotlightCard>
+
     <div class="curriculum-note">
-      <p><strong>All curriculum is openly available at <a href="https://curriculum.jointheleague.org" target="_blank">curriculum.jointheleague.org</a></strong></p>
+      <p>
+        <strong
+          >All curriculum is openly available at <a
+            href="https://curriculum.jointheleague.org"
+            target="_blank">curriculum.jointheleague.org</a
+          ></strong
+        >
+      </p>
     </div>
   </Section>
 
   <!-- Diversity and Inclusion -->
-  <Section 
-    startBgcolor="var(--color-primary-soft)" 
+  <Section
+    startBgcolor="var(--color-secondary-soft)"
     endBgcolor="var(--color-secondary-tint)"
   >
     <SectionHeader>
-      <h2 class="section__title">Diversity and Inclusion: Making STEM Accessible</h2>
+      <h2 class="section__title">
+        Diversity and Inclusion: Making STEM Accessible
+      </h2>
     </SectionHeader>
-    
+
     <div class="diversity-highlight">
       <div class="diversity-stat">
         <div class="big-stat">40.7%</div>
         <div class="big-stat-label">Female Participation</div>
-        <p>503 girls participated in our Tech Club programs in 2024-2025, far exceeding typical computer science education demographics.</p>
+        <p>
+          503 girls participated in our Tech Club programs in 2024-2025, far
+          exceeding typical computer science education demographics.
+        </p>
       </div>
     </div>
-    
+
     <div class="diversity-approach">
       <h3>Our Approach to Inclusivity</h3>
       <div class="approach-grid">
         <div class="approach-item">
           <h4>Free Programming</h4>
-          <p>Removing financial barriers that disproportionately affect underrepresented groups</p>
+          <p>
+            Removing financial barriers that disproportionately affect
+            underrepresented groups
+          </p>
         </div>
         <div class="approach-item">
           <h4>Community-Based Delivery</h4>
-          <p>Meeting students where they are - in schools, libraries, and neighborhoods</p>
+          <p>
+            Meeting students where they are - in schools, libraries, and
+            neighborhoods
+          </p>
         </div>
         <div class="approach-item">
           <h4>Diverse Curriculum</h4>
-          <p>Multiple entry points appeal to varied interests and learning styles</p>
+          <p>
+            Multiple entry points appeal to varied interests and learning styles
+          </p>
         </div>
         <div class="approach-item">
           <h4>Welcoming Environment</h4>
-          <p>Supportive learning where questions are encouraged and mistakes are opportunities</p>
+          <p>
+            Supportive learning where questions are encouraged and mistakes are
+            opportunities
+          </p>
         </div>
       </div>
     </div>
   </Section>
 
   <!-- Strategic Direction -->
-  <Section 
-    startBgcolor="var(--color-secondary-tint)" 
-    endBgcolor="var(--color-peach-strong)"
+  <Section
+    startBgcolor="var(--color-secondary-tint)"
+    endBgcolor="var(--color-surface-alt)"
   >
     <SectionHeader>
       <h2 class="section__title">Strategic Direction: Positioned for Growth</h2>
     </SectionHeader>
-    
+
     <div class="strategic-content">
       <div class="strategic-section">
         <h3>What We've Accomplished</h3>
         <div class="accomplishment-grid">
           <div class="accomplishment-item">
             <h4>Proven Model</h4>
-            <p>117 events reaching 1,236 students with 40.7% female participation demonstrates our model works and scales.</p>
+            <p>
+              117 events reaching 1,236 students with 40.7% female participation
+              demonstrates our model works and scales.
+            </p>
           </div>
           <div class="accomplishment-item">
             <h4>Comprehensive Curriculum</h4>
-            <p>Transformation to integrated technical education makes us more relevant to today's students.</p>
+            <p>
+              Transformation to integrated technical education makes us more
+              relevant to today's students.
+            </p>
           </div>
           <div class="accomplishment-item">
             <h4>Strong Partnerships</h4>
-            <p>Relationships with 15 schools, 10 libraries, and multiple community organizations.</p>
+            <p>
+              Relationships with 15 schools, 10 libraries, and multiple
+              community organizations.
+            </p>
           </div>
           <div class="accomplishment-item">
             <h4>Refined Operations</h4>
-            <p>Understanding what it takes to launch and sustain programs across 30+ sites.</p>
+            <p>
+              Understanding what it takes to launch and sustain programs across
+              30+ sites.
+            </p>
+          </div>
+          <div class="accomplishment-item">
+            <h4>International Teacher Training</h4>
+            <p>
+              Several successful teacher training sessions at L garage hub in
+              Tijuana, teaching educators how to use micro:bits in their
+              classrooms and expanding our cross-border educational impact.
+            </p>
           </div>
         </div>
       </div>
-      
+
       <div class="vision-2026">
         <h3>Vision for 2025-2026</h3>
-        <p>We envision reaching <strong>2,000+ student attendances</strong> through expanded Tech Club programming, launching in <strong>10-15 new sites</strong>, and continuing to maintain our commitment to gender diversity and accessibility.</p>
+        <p>
+          We envision reaching <strong>2,000+ student attendances</strong> through
+          expanded Tech Club programming, launching in <strong
+            >10-15 new sites</strong
+          >, and continuing to maintain our commitment to gender diversity and
+          accessibility.
+        </p>
       </div>
     </div>
   </Section>
 
   <!-- Financial Stewardship -->
-  <Section 
-    startBgcolor="var(--color-peach-strong)" 
+  <Section
+    startBgcolor="var(--color-surface-alt)"
     endBgcolor="var(--color-surface)"
   >
     <SectionHeader>
       <h2 class="section__title">Financial Stewardship</h2>
       <p class="section__description">Calendar Year 2024 Financial Summary</p>
     </SectionHeader>
-    
+
     <div class="financial-grid">
       <div class="financial-section">
         <h3>Revenue: $641,598</h3>
@@ -325,10 +523,9 @@ import LocationsMap from '../../../components/LocationsMap.astro';
             <span class="amount">$243,546 (38%)</span>
             <span class="description">Contributions and grants</span>
           </div>
-
         </div>
       </div>
-      
+
       <div class="financial-section">
         <h3>Expenses: $487,044</h3>
         <div class="financial-breakdown">
@@ -342,7 +539,7 @@ import LocationsMap from '../../../components/LocationsMap.astro';
           </div>
         </div>
       </div>
-      
+
       <div class="financial-section">
         <h3>Financial Position (End of 2024)</h3>
         <div class="financial-breakdown">
@@ -364,18 +561,21 @@ import LocationsMap from '../../../components/LocationsMap.astro';
   </Section>
 
   <!-- Support Our Mission -->
-  <Section 
-    startBgcolor="var(--color-surface)" 
-    endBgcolor="var(--color-secondary-soft)"
+  <Section
+    startBgcolor="var(--color-surface)"
+    endBgcolor="var(--color-surface-alt)"
   >
     <SectionHeader>
       <h2 class="section__title">How to Support Our Mission</h2>
     </SectionHeader>
-    
+
     <div class="support-grid">
       <div class="support-item">
         <h3>Donate</h3>
-        <p>Your financial support directly enables free Tech Club programming for San Diego students.</p>
+        <p>
+          Your financial support directly enables free Tech Club programming for
+          San Diego students.
+        </p>
         <ul>
           <li>$250 sponsors one Tech Club event</li>
           <li>$1,000 supports a month at one library</li>
@@ -384,7 +584,7 @@ import LocationsMap from '../../../components/LocationsMap.astro';
         </ul>
         <a href="/support/donate" class="cta-button">Donate Now</a>
       </div>
-      
+
       <div class="support-item">
         <h3>Volunteer</h3>
         <p>Share your knowledge and passion for technology with students.</p>
@@ -396,7 +596,7 @@ import LocationsMap from '../../../components/LocationsMap.astro';
         </ul>
         <a href="/support/volunteer" class="cta-button">Volunteer</a>
       </div>
-      
+
       <div class="support-item">
         <h3>Partner With Us</h3>
         <p>Bring Tech Club to your community.</p>
@@ -469,14 +669,16 @@ import LocationsMap from '../../../components/LocationsMap.astro';
     margin-bottom: var(--space-2xl);
   }
 
-  .mission-card, .vision-card {
+  .mission-card,
+  .vision-card {
     background: var(--color-surface);
     padding: var(--space-xl);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-card);
   }
 
-  .mission-card h3, .vision-card h3 {
+  .mission-card h3,
+  .vision-card h3 {
     color: var(--color-primary);
     margin-bottom: var(--space-md);
     font-size: 1.5rem;
@@ -754,24 +956,133 @@ import LocationsMap from '../../../components/LocationsMap.astro';
     transition: background-color 0.2s ease;
   }
 
-  .locations-note {
-    margin-top: var(--space-xl);
-    padding: var(--space-lg);
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .locations-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .locations-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stat-highlight {
+    text-align: center;
+    padding: 1.5rem 1rem;
     background: var(--color-surface);
     border-radius: var(--radius-md);
-    border-left: 4px solid var(--color-primary);
     box-shadow: var(--shadow-card);
   }
 
-  .locations-note p {
-    margin: 0;
-    font-size: 1.1rem;
+  .stat-highlight .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-highlight .stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .locations-description {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .locations-description h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .locations-description p {
+    margin-bottom: 1.5rem;
     line-height: 1.6;
     color: var(--color-body);
   }
 
-  .locations-note strong {
+  .community-reach h4 {
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .community-reach ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .community-reach li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    color: var(--color-body);
+  }
+
+  .community-reach li:last-child {
+    border-bottom: none;
+  }
+
+  .community-reach strong {
     color: var(--color-primary);
+  }
+
+  .locations-map-column {
+    position: sticky;
+    top: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .locations-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .locations-map-column {
+      position: static;
+    }
+
+    .locations-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .locations-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-highlight {
+      padding: 1rem;
+    }
+
+    .stat-highlight .stat-number {
+      font-size: 2rem;
+    }
+
+    .locations-description {
+      padding: 1.5rem;
+    }
   }
 
   .cta-button:hover {
@@ -788,7 +1099,7 @@ import LocationsMap from '../../../components/LocationsMap.astro';
     .support-grid {
       grid-template-columns: 1fr;
     }
-    
+
     .values-grid {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }

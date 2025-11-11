@@ -1,0 +1,194 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  title: string;
+  position?: "left" | "right";
+  mediaType?: "video" | "image";
+  videoUrl?: string;
+  videoThumbnail?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  position = "right",
+  mediaType = "video",
+  videoUrl,
+  videoThumbnail,
+  imageUrl,
+  imageAlt,
+  class: className,
+  ...rest
+} = Astro.props as Props & { class?: string };
+
+// Extract YouTube video ID from URL
+const getYouTubeId = (url: string) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url?.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
+const youtubeId = videoUrl ? getYouTubeId(videoUrl) : null;
+const embedUrl = youtubeId ? `https://www.youtube.com/embed/${youtubeId}` : null;
+const thumbnailUrl = videoThumbnail || (youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : null);
+---
+
+<div 
+  class:list={["spotlight-card", `spotlight-card--${position}`, className]} 
+  {...rest}
+>
+  <div class="spotlight-card__content">
+    <div class="spotlight-card__text">
+      <h3 class="spotlight-card__title">{title}</h3>
+      <div class="spotlight-card__description">
+        <slot />
+      </div>
+    </div>
+    
+    <div class="spotlight-card__media">
+      {mediaType === "video" && embedUrl && (
+        <div class="spotlight-card__video">
+          <iframe
+            src={embedUrl}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      )}
+      
+      {mediaType === "image" && imageUrl && (
+        <div class="spotlight-card__image">
+          <img 
+            src={imageUrl} 
+            alt={imageAlt || title}
+            loading="lazy"
+          />
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .spotlight-card {
+    margin: 2rem 0;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  .spotlight-card__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .spotlight-card--left .spotlight-card__content {
+    grid-template-areas: "media text";
+  }
+
+  .spotlight-card--left .spotlight-card__media {
+    grid-area: media;
+  }
+
+  .spotlight-card--left .spotlight-card__text {
+    grid-area: text;
+  }
+
+  .spotlight-card--right .spotlight-card__content {
+    grid-template-areas: "text media";
+  }
+
+  .spotlight-card--right .spotlight-card__media {
+    grid-area: media;
+  }
+
+  .spotlight-card--right .spotlight-card__text {
+    grid-area: text;
+  }
+
+  .spotlight-card__title {
+    margin: 0 0 1rem 0;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .spotlight-card__description {
+    color: var(--color-body);
+    line-height: 1.6;
+  }
+
+  .spotlight-card__description > :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .spotlight-card__description > :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .spotlight-card__media {
+    position: relative;
+  }
+
+  .spotlight-card__video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .spotlight-card__video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .spotlight-card__image {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .spotlight-card__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .spotlight-card__content {
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "media"
+        "text" !important;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .spotlight-card__title {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Tablet responsiveness */
+  @media (max-width: 1024px) {
+    .spotlight-card__content {
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+  }
+</style>

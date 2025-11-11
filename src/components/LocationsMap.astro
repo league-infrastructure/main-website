@@ -18,23 +18,24 @@ const locationData = JSON.stringify(locationsWithCoords.map(location => ({
 
 <div class="locations-map-container">
   <div id="locations-map" class="locations-map"></div>
-  <div class="map-legend">
-    <div class="legend-item">
-      <div class="legend-marker league"></div>
-      <span>League Campus</span>
-    </div>
-    <div class="legend-item">
-      <div class="legend-marker school"></div>
-      <span>School Partnership</span>
-    </div>
-    <div class="legend-item">
-      <div class="legend-marker library"></div>
-      <span>Library Location</span>
-    </div>
-    <div class="legend-item">
-      <div class="legend-marker other"></div>
-      <span>Other Location</span>
-    </div>
+</div>
+
+<div class="map-legend">
+  <div class="legend-item">
+    <div class="legend-marker league"></div>
+    <span>League Campus</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-marker school"></div>
+    <span>School Partnership</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-marker library"></div>
+    <span>Library Location</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-marker other"></div>
+    <span>Other Location</span>
   </div>
 </div>
 
@@ -98,26 +99,26 @@ const locationData = JSON.stringify(locationsWithCoords.map(location => ({
     position: relative;
     width: 100%;
     max-width: 100%;
-    margin: 2rem 0;
   }
   
   .locations-map {
     width: 100%;
-    height: 500px;
+    height: 600px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--color-border-light);
   }
   
   .map-legend {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
     background: var(--color-surface);
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid var(--color-border-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
   .legend-item {
@@ -176,15 +177,16 @@ const locationData = JSON.stringify(locationsWithCoords.map(location => ({
   
   @media (max-width: 768px) {
     .locations-map {
-      height: 400px;
+      height: 450px;
     }
     
     .map-legend {
-      padding: 0.75rem;
+      grid-template-columns: 1fr;
+      padding: 1rem;
     }
     
     .legend-item {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
   }
 </style>
