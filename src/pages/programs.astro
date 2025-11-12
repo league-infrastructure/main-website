@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import Section from "../components/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import CalloutCard from "../components/CalloutCard.astro";
 import CardGrid from "../components/CardGrid.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import CardBody from "../components/CardBody.astro";
@@ -66,7 +65,7 @@ import CardFooter from "../components/CardFooter.astro";
         </CardFooter>
       </ProgramCard>
       
-      <ProgramCard img="/images/cards/code-clinic.png" alt="Code clinic support session">
+      <ProgramCard img="/images/cards/computer-robot.png" alt="Code clinic support session">
         <CardBody>
           <h3>Code Clinic</h3>
           <p>Get personalized help with your programming projects. One-on-one support for debugging, problem-solving, and skill development.</p>
@@ -76,7 +75,7 @@ import CardFooter from "../components/CardFooter.astro";
         </CardFooter>
       </ProgramCard>
       
-      <ProgramCard img="/images/cards/tech-club.png" alt="Tech club community session">
+      <ProgramCard img="/images/cards/league_code.png" alt="Tech club community session">
         <CardBody>
           <h3>Tech Club</h3>
           <p>Free community coding sessions for all skill levels. Drop-in format with peer support and project collaboration.</p>
@@ -86,7 +85,7 @@ import CardFooter from "../components/CardFooter.astro";
         </CardFooter>
       </ProgramCard>
       
-      <ProgramCard img="/images/cards/tech-club.png" alt="Tech arcade coding session">
+      <ProgramCard img="/images/cards/league_code.png" alt="Tech arcade coding session">
         <CardBody>
           <h3>Tech Arcade</h3>
           <p>Casual, game-inspired coding environment where learning is fun and stress-free. Open to all ages and skill levels.</p>
@@ -106,7 +105,7 @@ import CardFooter from "../components/CardFooter.astro";
     </SectionHeader>
     
     <CardGrid>
-      <ProgramCard img="/images/cards/python-games.png" alt="Python game development">
+      <ProgramCard img="/images/cards/python.png" alt="Python game development">
         <CardBody>
           <h3>Python Games</h3>
           <p>Advanced Python programming through game development. Build interactive games using Pygame and learn software design patterns.</p>
@@ -116,7 +115,7 @@ import CardFooter from "../components/CardFooter.astro";
         </CardFooter>
       </ProgramCard>
       
-      <ProgramCard img="/images/cards/makecode.png" alt="MakeCode Arcade game development">
+      <ProgramCard img="/images/cards/league_code.png" alt="MakeCode Arcade game development">
         <CardBody>
           <h3>MakeCode Arcade</h3>
           <p>Visual programming and game design with block-based coding. Perfect introduction to game development concepts and logic.</p>
@@ -136,21 +135,25 @@ import CardFooter from "../components/CardFooter.astro";
     </SectionHeader>
     
     <CardGrid>
-      <CalloutCard
-        title="Robot Riot"
-        description="Comprehensive robotics program combining programming, 3D printing, CAD design, and mechanical assembly for competition-ready robots."
-        href="/programs/robot-riot"
-        imageUrl="/images/cards/robotics.png"
-        imageAlt="Robot Riot advanced robotics"
-      />
+      <ProgramCard img="/images/cards/computer-robot.png" alt="Robot Riot advanced robotics">
+        <CardBody>
+          <h3>Robot Riot</h3>
+          <p>Comprehensive robotics program combining programming, 3D printing, CAD design, and mechanical assembly for competition-ready robots.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/robot-riot" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
       
-      <CalloutCard
-        title="Robot Garage"
-        description="Hands-on robotics with micro:bit controllers. Build and program mobile robots while learning electronics and sensor integration."
-        href="/programs/robot-garage"
-        imageUrl="/images/cards/microbit.png"
-        imageAlt="Robot Garage micro:bit robotics"
-      />
+      <ProgramCard img="/images/cards/computer-robot.png" alt="Robot Garage micro:bit robotics">
+        <CardBody>
+          <h3>Robot Garage</h3>
+          <p>Hands-on robotics with micro:bit controllers. Build and program mobile robots while learning electronics and sensor integration.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/robot-garage" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
     </CardGrid>
   </Section>
 
@@ -162,21 +165,25 @@ import CardFooter from "../components/CardFooter.astro";
     </SectionHeader>
     
     <CardGrid>
-      <CalloutCard
-        title="Project Clinic"
-        description="Individual project support and mentoring. Get help with motors, circuits, mechanical design, and troubleshooting your builds."
-        href="/programs/code-clinic"
-        imageUrl="/images/cards/engineering.png"
-        imageAlt="Engineering project clinic"
-      />
+      <ProgramCard img="/images/cards/computer-robot.png" alt="Engineering project clinic">
+        <CardBody>
+          <h3>Project Clinic</h3>
+          <p>Individual project support and mentoring. Get help with motors, circuits, mechanical design, and troubleshooting your builds.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/code-clinic" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
       
-      <CalloutCard
-        title="Soldering & Electronics"
-        description="Master essential electronics skills including soldering, circuit design, and component integration for robotics and maker projects."
-        href="/programs/robot-garage"
-        imageUrl="/images/cards/electronics.png"
-        imageAlt="Soldering and electronics training"
-      />
+      <ProgramCard img="/images/cards/computer-robot.png" alt="Soldering and electronics training">
+        <CardBody>
+          <h3>Soldering & Electronics</h3>
+          <p>Master essential electronics skills including soldering, circuit design, and component integration for robotics and maker projects.</p>
+        </CardBody>
+        <CardFooter>
+          <a href="/programs/robot-garage" class="button button--primary">Learn More</a>
+        </CardFooter>
+      </ProgramCard>
     </CardGrid>
   </Section>
 
@@ -230,7 +237,7 @@ import CardFooter from "../components/CardFooter.astro";
       <div class="cta-card">
         <h3>Browse All Classes</h3>
         <p>See our complete schedule of weekly classes and ongoing programs.</p>
-        <a href="/programs/classes" class="cta-button">View Classes</a>
+        <a href="/programs/java" class="cta-button">View Classes</a>
       </div>
       
       <div class="cta-card">

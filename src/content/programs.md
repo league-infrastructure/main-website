@@ -1,0 +1,94 @@
+# Programs
+
+[ LLM Instructions: Use these entries to generate content for Programs, which are
+series of classes, courses or sessions around specific topics or format]
+
+
+## Java and Python Weekly Classes
+
+Comprehensive Java and Python programming from beginner to advanced levels,
+preparing students for AP Computer Science and professional careers.
+
+Our Java program offers a complete pathway from introduction through advanced
+programming, with curriculum aligned to AP Computer Science standards. Java is
+the dominant language in corporate computing, particularly in finance, and
+powers cutting-edge technologies including cloud computing, NASA space
+exploration, and self-driving cars. Students learn fundamental programming
+concepts, object-oriented design, data structures, and algorithms through
+hands-on projects. Our experienced instructors guide students toward
+professional Java certification, which opens doors to job opportunities at
+companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
+hours with a 5:1 student-to-teacher ratio, available both in-person and online.
+
+topics: programming
+
+## Robot Garage
+
+Advanced robotics course building on Robot Riot fundamentals.
+
+In the Robot Garage students of any level can pursue projects in electronics,
+robotics and programming.  Students learn the detailed functioning of motor
+signals and power systems, basic electrical circuits, how servos and stepper
+motors work at a technical level, 3D printing for custom robot parts, and
+soldering electronics. Special projects might include the beginnings of robotic
+navigation, working with sensors like sonar, infrared distance sensors, and
+April tags for robot awareness and positioning. Projects become more ambitious
+and student-directed, allowing learners to pursue their specific interests
+whether that's competition robotics, practical automation, or creative robotic
+art. The course prepares students for participation in robotics competitions and
+provides skills directly applicable to careers in robotics engineering,
+automation, and mechatronics.
+
+topics: programming, robotics, electronics
+
+## Tech Club 
+
+Free introductory classes in Python, Java, robotics, and electronics offered at
+schools and libraries.
+
+Tech Club brings coding education to students who might not otherwise have
+access, offering free introductory courses at schools and libraries throughout
+San Diego County. These 60-90 minute sessions introduce students in grades 3-12
+to programming through hands-on projects in Python, Java, robotics, and
+electronics. With a less than 10:1 student-to-teacher ratio and no cost to
+families, Tech Club removes barriers to computer science education. Many
+students who start in Tech Club later transition to our paid weekly classes as
+they advance, but Tech Club provides valuable programming experience regardless
+of whether students continue. Classes run year-round at various locations.
+
+topics: programming, robotics, electronics, games
+
+## Code Clinic
+
+Free online classes teaching professional programming technologies and advanced
+techniques.
+
+Code Clinic offers free online instruction in professional-level programming
+tools and techniques for more advanced students. These classes cover topics like
+version control systems, professional development environments, software
+testing, debugging strategies, and industry-standard practices that professional
+programmers use daily. Code Clinic helps bridge the gap between learning syntax
+and working like a professional developer, preparing students for internships,
+jobs, and university-level computer science. These classes are offered free as
+part of our mission to prepare youth for technology careers.
+
+topics: programming, robotics, electronics
+
+## League Lab 
+
+Advanced program where students work as apprentices on research projects and
+learn sophisticated programming.ß
+
+League Lab provides an advanced learning environment for students who have
+progressed beyond our standard curriculum and are ready for professional-level
+work. Students in League Lab function as apprentices, working on substantial
+research projects, contributing to open-source software, or developing their own
+ambitious applications. With guidance from professional developers and computer
+scientists, students learn advanced topics like machine learning, systems
+programming, algorithm design, or specialized domains they're passionate about.
+League Lab students often present their work at conferences, publish papers, or
+launch real products. This program develops the independent learning and
+problem-solving skills essential for success in computer science careers and
+research.
+
+topics: programming, robotics, electronics, career
