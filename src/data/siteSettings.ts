@@ -10,9 +10,9 @@ export const siteSettings = {
 };
 
 export const socialLinks = [
-  { label: 'Facebook', href: 'https://www.facebook.com/LeagueOfAmazingProgrammers' },
-  { label: 'Twitter', href: 'https://twitter.com/LEAGUEofAmazing' },
-  { label: 'Instagram', href: 'https://www.instagram.com/theleagueofamazingprogrammers/' },
-  { label: 'YouTube', href: 'https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/the-league-of-amazing-programmers' }
+  { label: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/LeagueOfAmazingProgrammers' },
+  { label: 'Twitter', icon: 'twitter', href: 'https://twitter.com/LEAGUEofAmazing' },
+  { label: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/theleagueofamazingprogrammers/' },
+  { label: 'YouTube', icon: 'youtube', href: 'https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A' },
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/the-league-of-amazing-programmers' }
 ];

@@ -222,7 +222,7 @@
     "description": "In this web development course, students create their own professional portfolio\nwebsite to showcase their programming projects and accomplishments. Using GitHub\nPages and the Jekyll static site generator, students learn HTML, CSS, and modern\nweb development workflows including version control with Git. The resulting\nportfolio site serves as both a learning project and a practical tool for\ncollege applications and future job searches. Students learn how professional\ndevelopers deploy websites, manage code versions, and create responsive designs\nthat work on all devices. Every student leaves with a live website they can\ncontinue to update throughout their programming journey.",
     "metadata": {
       "slug": "github_pages_portfolio",
-      "image": "about_flag.png",
+      "image": "portfolio.png",
       "level": "intermediate",
       "topics": [
         "web development",

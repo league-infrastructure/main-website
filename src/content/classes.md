@@ -274,6 +274,6 @@ that work on all devices. Every student leaves with a live website they can
 continue to update throughout their programming journey.
 
 slug: github_pages_portfolio
-image: about_flag.png
+image: portfolio.png
 level: intermediate
 topics: web development, html, css, git, portfolio
