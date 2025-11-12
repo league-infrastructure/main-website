@@ -4,6 +4,14 @@ import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
+import { getClassBySlug } from "../../utils/markdown.js";
+
+const classSlug = "robot_riot";
+const classData = getClassBySlug(classSlug);
+const heroImage = classData?.metadata?.image
+  ? `/images/cards/${classData.metadata.image}`
+  : "/images/cards/robot_riot.png";
+const heroAlt = classData?.title ?? "Robot Riot";
 ---
 
 <BaseLayout
@@ -16,11 +24,7 @@ import CalloutCard from "../../components/CalloutCard.astro";
       Complete robotics education combining programming, 3D printing, CAD design, and mechanical assembly. Build and program competition-ready robots.
     </p>
     <div slot="media" class="program-hero__media">
-      <img
-        src="/images/cards/robotics.png"
-        alt="Robot Riot robotics illustration"
-        loading="eager"
-      />
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
 

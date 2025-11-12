@@ -8,6 +8,14 @@ import Section from '../../components/Section.astro';
 import CardGrid from '../../components/CardGrid.astro';
 import ProgramCard from '../../components/ProgramCard.astro';
 import CardBody from '../../components/CardBody.astro';
+import { getProgramBySlug } from '../../utils/markdown.js';
+
+const programSlug = 'tech_club';
+const programData = getProgramBySlug(programSlug);
+const heroImage = programData?.metadata?.image
+  ? `/images/cards/${programData.metadata.image}`
+  : '/images/cards/current_students.png';
+const heroAlt = programData?.title ?? 'League Tech Club';
 
 const donationScript =
   'https://secure.givelively.org/widgets/simple_donation/the-league-of-amazing-programmers.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=250&suggested_donation_amounts[]=125&suggested_donation_amounts[]=100&suggested_donation_amounts[]=50';
@@ -109,7 +117,11 @@ const techClubTopics = [
         variant: "secondary"
       }
     }}
-  />
+  >
+    <div slot="media" class="program-hero__media">
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
+    </div>
+  </HeroSection>
 
   <Section startBgcolor="#fff2e8" endBgcolor="#fff2e8">
     <SectionHeader>

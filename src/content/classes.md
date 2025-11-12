@@ -1,8 +1,8 @@
 ## Introduction to Python
 
-Beginning students' first experience with Python programming.
+blurb: Beginning students' first experience with Python programming.
 
-This foundational course introduces students in grades 4-12 to the Python
+description: This foundational course introduces students in grades 4-12 to the Python
 programming language for the first time. Students learn basic programming
 concepts through engaging, hands-on projects that make coding fun and
 accessible. This course serves as the gateway to our comprehensive Python
@@ -16,10 +16,10 @@ topics: python, programming
 
 ## Python Apprentice
 
-First comprehensive Python course covering language basics and preparing
+blurb: First comprehensive Python course covering language basics and preparing
 students for professional certification.
 
-Python Apprentice is the core beginner-to-intermediate Python course that covers
+description: Python Apprentice is the core beginner-to-intermediate Python course that covers
 the fundamentals of the language in depth. Students learn essential programming
 concepts including variables, functions, loops, conditionals, and
 object-oriented programming. The curriculum is designed to prepare students for
@@ -36,9 +36,9 @@ topics: python, programming, certification
 
 ## Python Games
 
-Build larger, object-oriented programs by creating engaging games in Python.
+blurb: Build larger, object-oriented programs by creating engaging games in Python.
 
-Python Games takes students beyond basic syntax to develop substantial
+description: Python Games takes students beyond basic syntax to develop substantial
 programming skills through game development. Students learn object-oriented
 programming principles, event handling, game physics, and software architecture
 by building complete, playable games. Projects help students understand how to
@@ -55,9 +55,9 @@ topics: python, programming, games, oop
 
 ## Python Web Games
 
-Deploy your Python games to run in any web browser.
+blurb: Deploy your Python games to run in any web browser.
 
-This specialized course extends Python game development by teaching students how
+description: This specialized course extends Python game development by teaching students how
 to port their Python games to run directly in web browsers. Students learn web
 technologies and how Python can be used in web contexts, making their games
 instantly shareable with anyone who has an internet connection. This course
@@ -72,10 +72,10 @@ topics: python, web development, games
 
 ## Python OrbitLab
 
-Build solar system simulations to learn orbital mechanics and scientific
+blurb: Build solar system simulations to learn orbital mechanics and scientific
 computing.
 
-Python OrbitLab introduces students to computational science through the
+description: Python OrbitLab introduces students to computational science through the
 fascinating topic of orbital mechanics. Students program simulations of planets,
 moons, and satellites, learning how gravity shapes the motion of celestial
 bodies. The course teaches numerical integration, vector mathematics, and
@@ -93,10 +93,10 @@ topics: python, science
 
 ## Java Weekly Classes
 
-Comprehensive Java programming from beginner to advanced levels, preparing
+blurb: Comprehensive Java programming from beginner to advanced levels, preparing
 students for AP Computer Science and professional careers.
 
-Our Java program offers a complete pathway from introduction through advanced
+description: Our Java program offers a complete pathway from introduction through advanced
 programming, with curriculum aligned to AP Computer Science standards. Java is
 the dominant language in corporate computing, particularly in finance, and
 powers cutting-edge technologies including cloud computing, NASA space
@@ -114,10 +114,10 @@ topics: java, programming
 
 ## Private Tutoring
 
-One-on-one virtual classes for personalized instruction in Java or Python at all
+blurb: One-on-one virtual classes for personalized instruction in Java or Python at all
 skill levels.
 
-For students who benefit from individualized attention or need flexible
+description: For students who benefit from individualized attention or need flexible
 scheduling, we offer private tutoring in both Java and Python. These 1:1 virtual
 sessions allow instructors to customize the pace and content to each student's
 specific needs, learning style, and goals. Whether a student needs help catching
@@ -133,10 +133,10 @@ topics: java, python, programming
 
 ## MakeCode Arcade Games
 
-Build games in block code or JavaScript and deploy them to your own handheld
+blurb: Build games in block code or JavaScript and deploy them to your own handheld
 Game Boy-style console.
 
-MakeCode Arcade Games offers an exciting entry point into game development using
+description: MakeCode Arcade Games offers an exciting entry point into game development using
 Microsoft's visual programming platform. Students can program using
 drag-and-drop blocks, JavaScript, or a combination of both, making it accessible
 to beginners while offering depth for more advanced students. The real magic
@@ -155,9 +155,9 @@ topics: programming, games, javascript
 
 ## Motors Clinic
 
-Two-hour class on programming brush motors, stepper motors, and hobby servos.
+blurb: Two-hour class on programming brush motors, stepper motors, and hobby servos.
 
-The Motors Clinic is a focused two-hour workshop teaching students how to
+description: The Motors Clinic is a focused two-hour workshop teaching students how to
 control different types of motors through programming. Students learn the
 electrical and software principles behind motor control, including PWM
 (pulse-width modulation) for controlling motor speed and direction. The class
@@ -174,9 +174,9 @@ topics: programming, robotics
 
 ## Soldering Clinic
 
-Learn basic soldering skills, safety, and techniques through hands-on practice.
+blurb: Learn basic soldering skills, safety, and techniques through hands-on practice.
 
-The Soldering Clinic teaches students essential soldering skills through
+description: The Soldering Clinic teaches students essential soldering skills through
 practical, hands-on experience. Students learn safety procedures and proper
 soldering techniques that enable them to construct soldering kits. As part of
 the class, students receive a small soldering kit to practice with, and are
@@ -193,9 +193,9 @@ topics: electronics, robotics
 
 ## Hour of Micro:bit
 
-Short introductory class to the Micro:bit microcontroller platform.
+blurb: Short introductory class to the Micro:bit microcontroller platform.
 
-Hour of Micro:bit is a gentle  introduction to physical computing using the BBC
+description: Hour of Micro:bit is a gentle  introduction to physical computing using the BBC
 Micro:bit, a pocket-sized programmable computer. In this short workshop,
 students write programs to control the Micro:bit's LED display, buttons,
 sensors, and radio communication capabilities. The Micro:bit's approachable
@@ -212,9 +212,9 @@ topics: programming
 
 ## Robot Riot
 
-Introduction to robotics programming and mechanical construction.
+blurb: Introduction to robotics programming and mechanical construction.
 
-Robot Riot combines programming and  robotics in an exciting
+description: Robot Riot combines programming and  robotics in an exciting
 competitive format. Students learn the basics of controlling motors on a robot,
 starting with existing robot platforms that they modify to make more
 competitive. Students add grippers, pushers, flippers, and other attachments to
@@ -233,9 +233,9 @@ topics: programming, robotics
 
 ## GitHub Pages Portfolio
 
-Build a professional portfolio website using GitHub Pages and Jekyll.
+blurb: Build a professional portfolio website using GitHub Pages and Jekyll.
 
-In this web development course, students create their own professional portfolio
+description: In this web development course, students create their own professional portfolio
 website to showcase their programming projects and accomplishments. Using GitHub
 Pages and the Jekyll static site generator, students learn HTML, CSS, and modern
 web development workflows including version control with Git. The resulting

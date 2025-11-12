@@ -10,9 +10,17 @@ const hasPrimary = Astro.slots.has("primary");
 const hasSecondary = Astro.slots.has("secondary");
 const hasLearnMore = Astro.slots.has("learn-more");
 const hasPrice = Astro.slots.has("price");
+const hasDefault = Astro.slots.has("default");
 ---
 
 <footer class:list={["card__footer", className]} {...rest}>
+  {
+    hasDefault && (
+      <div class="card__content">
+        <slot />
+      </div>
+    )
+  }
   {
     hasPrice && (
       <div class="card__price">
@@ -51,6 +59,10 @@ const hasPrice = Astro.slots.has("price");
     flex-direction: column;
     gap: var(--space-sm);
     align-items: center;
+  }
+
+  .card__footer .card__content {
+    width: 100%;
   }
 
   .card__footer .button-group {

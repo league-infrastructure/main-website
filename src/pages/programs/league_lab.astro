@@ -3,6 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import EmbedLoader from '../../components/EmbedLoader.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
+import { getProgramBySlug } from '../../utils/markdown.js';
+
+const programSlug = 'league_lab';
+const programData = getProgramBySlug(programSlug);
+const heroImage = programData?.metadata?.image
+  ? `/images/cards/${programData.metadata.image}`
+  : '/images/cards/league_code.png';
+const heroAlt = programData?.title ?? 'League Labs Internship';
 
 // Data that has iteration - moved as structures
 const leagueLabsTopics = [
@@ -143,7 +151,11 @@ const phoneHref = '6198897571';
         title="Why Join League Labs?"
         items={heroHighlights}
         itemsClass="hero__list"
-      />
+      >
+        <figure slot="media" class="hero__media">
+          <img src={heroImage} alt={`${heroAlt} illustration`} loading="lazy" />
+        </figure>
+      </CalloutCard>
     </div>
   </section>
 

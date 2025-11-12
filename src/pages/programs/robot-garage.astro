@@ -2,8 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
+import { getProgramBySlug } from '../../utils/markdown.js';
 
-
+const programSlug = 'robot_garage';
+const programData = getProgramBySlug(programSlug);
+const heroImage = programData?.metadata?.image
+  ? `/images/cards/${programData.metadata.image}`
+  : '/images/cards/robot_garage.png';
+const heroAlt = programData?.title ?? 'Robot Garage';
 ---
 
 <BaseLayout
@@ -39,11 +45,7 @@ import CalloutCard from '../../components/CalloutCard.astro';
           <li>Included with League membership</li>
         </ul>
         <figure class="hero__media">
-          <img
-            src="/images/IMG_4216.png"
-            alt="Student programming a robot in the League Robot Garage"
-            loading="lazy"
-          />
+          <img src={heroImage} alt={`${heroAlt} illustration`} loading="lazy" />
         </figure>
       </CalloutCard>
     </div>

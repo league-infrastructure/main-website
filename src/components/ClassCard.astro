@@ -11,7 +11,7 @@ export interface Props {
 const { img, alt, slug, title, level, description } = Astro.props;
 ---
 
-<div class="class-card">
+<div class="class-card" id={`class-${slug}`}>
   <div class="class-card__image">
     <img src={img} alt={alt} />
   </div>
@@ -42,6 +42,7 @@ const { img, alt, slug, title, level, description } = Astro.props;
     overflow: hidden;
     transition: all 0.3s ease;
     margin-bottom: 1.5rem;
+    height: 200px;
   }
 
   .class-card:hover {
@@ -51,8 +52,8 @@ const { img, alt, slug, title, level, description } = Astro.props;
 
   .class-card__image {
     flex-shrink: 0;
-    width: 280px;
-    height: 160px;
+    width: 350px;
+    height: 200px;
     overflow: hidden;
   }
 
@@ -64,10 +65,12 @@ const { img, alt, slug, title, level, description } = Astro.props;
 
   .class-card__content {
     flex: 1;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 0.75rem;
+    height: 100%;
+    container-type: inline-size;
   }
 
   .class-card__header {
@@ -110,10 +113,11 @@ const { img, alt, slug, title, level, description } = Astro.props;
   }
 
   .class-card__description {
-    margin: 0 0 1rem 0;
+    margin: 0;
     color: var(--color-text-muted, #6b7280);
-    line-height: 1.6;
-    flex: 1;
+    line-height: 1.5;
+    font-size: clamp(0.75rem, 0.7rem + 0.45cqw, 0.95rem);
+    overflow: hidden;
   }
 
   .class-card__learn-more {
@@ -133,6 +137,7 @@ const { img, alt, slug, title, level, description } = Astro.props;
   @media (max-width: 768px) {
     .class-card {
       flex-direction: column;
+      height: auto;
     }
 
     .class-card__image {
@@ -148,6 +153,12 @@ const { img, alt, slug, title, level, description } = Astro.props;
 
     .class-card__level {
       align-self: flex-start;
+    }
+  }
+
+  @container (max-width: 420px) {
+    .class-card__description {
+      font-size: clamp(0.7rem, 0.65rem + 0.6cqw, 0.9rem);
     }
   }
 </style>

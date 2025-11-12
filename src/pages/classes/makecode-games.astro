@@ -4,6 +4,14 @@ import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
+import { getClassBySlug } from "../../utils/markdown.js";
+
+const classSlug = "makecode_arcade";
+const classData = getClassBySlug(classSlug);
+const heroImage = classData?.metadata?.image
+  ? `/images/cards/${classData.metadata.image}`
+  : "/images/cards/microbit-arcade.png";
+const heroAlt = classData?.title ?? "MakeCode Arcade";
 ---
 
 <BaseLayout
@@ -16,11 +24,7 @@ import CalloutCard from "../../components/CalloutCard.astro";
       Develop retro-style games using Microsoft MakeCode Arcade. Perfect introduction to game development with block-based and JavaScript programming.
     </p>
     <div slot="media" class="program-hero__media">
-      <img
-        src="/images/cards/makecode.png"
-        alt="MakeCode game development illustration"
-        loading="eager"
-      />
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
 

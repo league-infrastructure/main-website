@@ -9,8 +9,6 @@ const CARDS_DIR = path.join(process.cwd(), 'public/images/cards');
 const TARGET_WIDTH = 700;
 const TARGET_HEIGHT = 400;
 const TARGET_ASPECT_RATIO = TARGET_WIDTH / TARGET_HEIGHT; // 1.75 (7:4)
-const BORDER_PADDING = 25;
-const CLOSE_THRESHOLD = 0.1; // 10% tolerance for "close" aspect ratios
 
 async function processImage(inputPath, outputPath) {
   console.log(`Processing: ${path.basename(inputPath)}`);
@@ -23,61 +21,15 @@ async function processImage(inputPath, outputPath) {
     
     console.log(`  Original size: ${width}x${height} (aspect ratio: ${aspectRatio.toFixed(2)})`);
     
-    // Check if aspect ratio is close to target
-    const aspectRatioDiff = Math.abs(aspectRatio - TARGET_ASPECT_RATIO);
-    const isCloseAspectRatio = aspectRatioDiff / TARGET_ASPECT_RATIO < CLOSE_THRESHOLD;
-    
-    if (isCloseAspectRatio) {
-      // Just scale to target size
-      console.log(`  Close aspect ratio - scaling directly to ${TARGET_WIDTH}x${TARGET_HEIGHT}`);
-      await sharp(inputPath)
-        .resize(TARGET_WIDTH, TARGET_HEIGHT, { fit: 'fill' })
-        .png()
-        .toFile(outputPath);
-    } else {
-      // Need to add transparent background and center
-      console.log(`  Different aspect ratio - adding transparent background`);
-      
-      // First, scale the image to fit within a smaller area to leave room for padding
-      let scaledWidth, scaledHeight;
-      const maxWidth = TARGET_WIDTH - (BORDER_PADDING * 2);
-      const maxHeight = TARGET_HEIGHT - (BORDER_PADDING * 2);
-      
-      if (width / height > maxWidth / maxHeight) {
-        // Image is wider relative to available space - scale by width
-        scaledWidth = maxWidth;
-        scaledHeight = Math.round(height * (maxWidth / width));
-      } else {
-        // Image is taller relative to available space - scale by height
-        scaledHeight = maxHeight;
-        scaledWidth = Math.round(width * (maxHeight / height));
-      }
-      
-      console.log(`  Scaled size: ${scaledWidth}x${scaledHeight}`);
-      
-      // Calculate centering position within target dimensions
-      const left = Math.round((TARGET_WIDTH - scaledWidth) / 2);
-      const top = Math.round((TARGET_HEIGHT - scaledHeight) / 2);
-      
-      console.log(`  Centering at: ${left}, ${top}`);
-      
-      // Create transparent background and composite the scaled image
-      await sharp({
-        create: {
-          width: TARGET_WIDTH,
-          height: TARGET_HEIGHT,
-          channels: 4,
-          background: { r: 0, g: 0, b: 0, alpha: 0 }
-        }
+    // Resize to fill the entire frame by cropping, avoiding transparent borders.
+    console.log(`  Resizing with cover fit to ${TARGET_WIDTH}x${TARGET_HEIGHT}`);
+    await sharp(inputPath)
+      .resize(TARGET_WIDTH, TARGET_HEIGHT, {
+        fit: sharp.fit.cover,
+        position: sharp.strategy.attention
       })
-      .composite([{
-        input: await sharp(inputPath).resize(scaledWidth, scaledHeight).toBuffer(),
-        left: left,
-        top: top
-      }])
       .png()
       .toFile(outputPath);
-    }
     
     console.log(`  ✓ Saved to: ${path.basename(outputPath)}`);
     

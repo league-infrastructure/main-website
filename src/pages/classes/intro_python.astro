@@ -3,6 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import { getClassBySlug } from "../../utils/markdown.js";
+
+const classSlug = "intro_python";
+const classData = getClassBySlug(classSlug);
+const heroImage = classData?.metadata?.image
+  ? `/images/cards/${classData.metadata.image}`
+  : "/images/cards/python.png";
+const heroAlt = classData?.title ?? "Introduction to Python";
 ---
 
 <BaseLayout
@@ -15,11 +23,7 @@ import SectionHeader from "../../components/SectionHeader.astro";
       Beginning students' first experience with Python programming.
     </p>
     <div slot="media" class="program-hero__media">
-      <img
-        src="/images/cards/python.png"
-        alt="Python programming illustration"
-        loading="eager"
-      />
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
 

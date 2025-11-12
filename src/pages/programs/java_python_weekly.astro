@@ -3,6 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import { getProgramBySlug } from "../../utils/markdown.js";
+
+const programSlug = "java_python_weekly";
+const programData = getProgramBySlug(programSlug);
+const heroImage = programData?.metadata?.image
+  ? `/images/cards/${programData.metadata.image}`
+  : "/images/cards/league_code.png";
+const heroAlt = programData?.title ?? "Java and Python Weekly Classes";
 ---
 
 <BaseLayout
@@ -15,11 +23,7 @@ import SectionHeader from "../../components/SectionHeader.astro";
       Comprehensive Java and Python programming from beginner to advanced levels, preparing students for AP Computer Science and professional careers.
     </p>
     <div slot="media" class="program-hero__media">
-      <img
-        src="/images/cards/league_code.png"
-        alt="Java and Python programming illustration"
-        loading="eager"
-      />
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
 

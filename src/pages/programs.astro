@@ -86,6 +86,8 @@ function getClassesForProgram(program: any) {
               <CardBody>
                 <h3>{program.title}</h3>
                 <p>{program.shortDescription}</p>
+              </CardBody>
+              <CardFooter>
                 {programClasses.length > 0 && (
                   <div class="class-lozenges">
                     <p class="lozenges-label">Classes in this program:</p>
@@ -95,7 +97,7 @@ function getClassesForProgram(program: any) {
                         if (classItem) {
                           return (
                             <a
-                              href={`/classes/${classSlug}`}
+                              href={`#class-${classSlug}`}
                               class="class-lozenge"
                               style={`background-color: ${getTopicColor(classItem.metadata.topics)}`}
                             >
@@ -108,14 +110,6 @@ function getClassesForProgram(program: any) {
                     </div>
                   </div>
                 )}
-              </CardBody>
-              <CardFooter>
-                <a
-                  href={`/programs/${program.metadata.slug}`}
-                  class="button button--primary"
-                >
-                  Learn More
-                </a>
               </CardFooter>
             </ProgramCard>
           );
@@ -280,7 +274,12 @@ function getClassesForProgram(program: any) {
 
   /* Program card class lozenges */
   .class-lozenges {
-    margin-top: 1rem;
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+
+  .card__footer .class-lozenges {
+    align-self: stretch;
   }
 
   .lozenges-label {
@@ -294,6 +293,7 @@ function getClassesForProgram(program: any) {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: flex-start;
   }
 
   .class-lozenge {

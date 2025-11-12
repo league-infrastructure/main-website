@@ -1,11 +1,5 @@
 # Update Programs and Classes
 
-## ⚠️ MAJOR CHANGE: Short vs Long Descriptions
-
-**The major change is that the programs page uses SHORT descriptions, while LONG descriptions are used only on individual class or program pages.**
-
-- **Programs Page**: Uses the first line after the title (short description) for both ProgramCards and ClassCards
-- **Individual Pages**: Uses the full detailed paragraphs (long description) for comprehensive content
 
 To generate the programs page, you will need to use the content in two files:
 
@@ -22,10 +16,8 @@ Each class entry follows this structure:
 ```markdown
 ## Class Title
 
-Brief description line.
-
-Full detailed description paragraph(s).
-
+blurb: Brief description line.
+description: Full detailed description paragraph(s).
 slug: class_slug
 image: image_filename.png
 level: beginner|intermediate|advanced|all levels
@@ -37,8 +29,8 @@ Each program entry follows this structure:
 ```markdown
 ## Program Title ( Link to program page )
 
-Brief description line.
-
+blurb: Brief description line.
+description: Full detailed description paragraph(s).
 slug: program_slug
 image: image_filename.png
 topics: topic1, topic2, topic3
@@ -70,8 +62,8 @@ The `parseMarkdownSections` function returns objects with this structure:
 ```javascript
 {
   title: "Class/Program Title",
-  shortDescription: "Brief description line (used on programs page)",
-  fullDescription: "Full detailed description (used on individual pages)",
+  shortDescription: "Value from the `blurb` field",
+  fullDescription: "Value from the `description` field",
   metadata: {
     slug: "url-friendly-slug",
     image: "image-filename.png",
@@ -83,15 +75,15 @@ The `parseMarkdownSections` function returns objects with this structure:
 ```
 
 ### Content Usage
-- **Programs Page**: Uses `shortDescription` for both ProgramCards and ClassCards
-- **Individual Pages**: Uses `fullDescription` for detailed content on single class/program pages 
+- **Programs Page**: Uses `shortDescription` (from `blurb`) for both ProgramCards and ClassCards
+- **Individual Pages**: Uses `fullDescription` (from `description`) for detailed content on single class/program pages 
 
 ## Program Cards
 
 Program cards use ProgramCard components with three sections:
 - **Header**: Program image from `image` metadata
 - **Body**: Program title and **short description** (not full description)
-- **Footer**: Colored lozenges for each class with links
+- **Footer**: Colored lozenges for each class with links; lozenges render before the primary call-to-action button and link to the on-page anchors (`#class-{slug}`) generated for each ClassCard
 
 ### Lozenge Generation
 Class lozenges are generated using the `getTopicColor()` utility function:
@@ -129,7 +121,7 @@ const color = getTopicColor(classItem.metadata.topics);
 ## Class Cards
 
 Classes are displayed using ClassCard components - horizontal, full-width cards with:
-- **Left Side**: 700x400 card image from `image` metadata (280px wide in display)
+- **Left Side**: 700x400 card image from `image` metadata (350px wide in display)
 - **Right Side**: Class content including title, level badge, **short description**, and learn more link
 - **Responsive**: Stacks vertically on mobile devices
 

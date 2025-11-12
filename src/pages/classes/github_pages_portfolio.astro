@@ -3,6 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import { getClassBySlug } from "../../utils/markdown.js";
+
+const classSlug = "github_pages_portfolio";
+const classData = getClassBySlug(classSlug);
+const heroImage = classData?.metadata?.image
+  ? `/images/cards/${classData.metadata.image}`
+  : "/images/cards/about_flag.png";
+const heroAlt = classData?.title ?? "GitHub Pages Portfolio";
 ---
 
 <BaseLayout
@@ -15,11 +23,7 @@ import SectionHeader from "../../components/SectionHeader.astro";
       Build a professional portfolio website using GitHub Pages and Jekyll.
     </p>
     <div slot="media" class="program-hero__media">
-      <img
-        src="/images/cards/league_code.png"
-        alt="GitHub Pages Portfolio illustration"
-        loading="eager"
-      />
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
 

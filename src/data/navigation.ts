@@ -6,6 +6,7 @@ export const utilityLinks = [
 
 export const mainNavigation = [
   { label: 'About', href: '/about/' },
+  { label: 'Programs & Classes', href: '/programs/' },
   { label: 'Impact', href: '/about/impact/' },
   { label: 'News', href: '/news/' },
   { label: 'Policies', href: '/about/policies/' },

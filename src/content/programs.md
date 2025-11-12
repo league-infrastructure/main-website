@@ -1,13 +1,9 @@
-
-[ LLM Instructions: Use these entries to generate content for Programs, which are
-series of classes, courses or sessions around specific topics or format]
-
 ## Java and Python Weekly Classes
 
-Comprehensive Java and Python programming from beginner to advanced levels,
+blurb: Comprehensive Java and Python programming from beginner to advanced levels,
 preparing students for AP Computer Science and professional careers.
 
-Our Java program offers a complete pathway from introduction through advanced
+description: Our Java program offers a complete pathway from introduction through advanced
 programming, with curriculum aligned to AP Computer Science standards. Java is
 the dominant language in corporate computing, particularly in finance, and
 powers cutting-edge technologies including cloud computing, NASA space
@@ -25,9 +21,9 @@ classes: java_weekly, intro_python, python_apprentice, python_games, python_web_
 
 ## Robot Garage
 
-Advanced robotics course building on Robot Riot fundamentals.
+blurb: Advanced robotics course building on Robot Riot fundamentals.
 
-In the Robot Garage students of any level can pursue projects in electronics,
+description: In the Robot Garage students of any level can pursue projects in electronics,
 robotics and programming.  Students learn the detailed functioning of motor
 signals and power systems, basic electrical circuits, how servos and stepper
 motors work at a technical level, 3D printing for custom robot parts, and
@@ -47,10 +43,10 @@ classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit, robot_ri
 
 ## Tech Club 
 
-Free introductory classes in Python, Java, robotics, and electronics offered at
+blurb: Free introductory classes in Python, Java, robotics, and electronics offered at
 schools and libraries.
 
-Tech Club brings coding education to students who might not otherwise have
+description: Tech Club brings coding education to students who might not otherwise have
 access, offering free introductory courses at schools and libraries throughout
 San Diego County. These 60-90 minute sessions introduce students in grades 3-12
 to programming through hands-on projects in Python, Java, robotics, and
@@ -67,10 +63,10 @@ classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arc
 
 ## Code Clinic
 
-Free online classes teaching professional programming technologies and advanced
+blurb: Free online classes teaching professional programming technologies and advanced
 techniques.
 
-Code Clinic offers free online instruction in professional-level programming
+description: Code Clinic offers free online instruction in professional-level programming
 tools and techniques for more advanced students. These classes cover topics like
 version control systems, professional development environments, software
 testing, debugging strategies, and industry-standard practices that professional
@@ -86,10 +82,10 @@ topics: programming, robotics, electronics
 
 ## League Lab 
 
-Advanced program where students work as apprentices on research projects and
+blurb: Advanced program where students work as apprentices on research projects and
 learn sophisticated programming.
 
-League Lab provides an advanced learning environment for students who have
+description: League Lab provides an advanced learning environment for students who have
 progressed beyond our standard curriculum and are ready for professional-level
 work. Students in League Lab function as apprentices, working on substantial
 research projects, contributing to open-source software, or developing their own

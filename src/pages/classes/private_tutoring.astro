@@ -3,6 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import { getClassBySlug } from "../../utils/markdown.js";
+
+const classSlug = "private_tutoring";
+const classData = getClassBySlug(classSlug);
+const heroImage = classData?.metadata?.image
+  ? `/images/cards/${classData.metadata.image}`
+  : "/images/cards/league_code.png";
+const heroAlt = classData?.title ?? "Private Tutoring";
 ---
 
 <BaseLayout
@@ -15,11 +23,7 @@ import SectionHeader from "../../components/SectionHeader.astro";
       One-on-one virtual classes for personalized instruction in Java or Python at all skill levels.
     </p>
     <div slot="media" class="program-hero__media">
-      <img
-        src="/images/cards/league_code.png"
-        alt="Private tutoring illustration"
-        loading="eager"
-      />
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
 
