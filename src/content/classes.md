@@ -13,6 +13,7 @@ curriculum and prepares students for more advanced study. Classes meet once per
 week for 1.5 hours with a 5:1 student-to-teacher ratio.
 
 slug: intro_python
+image: python.png
 level: beginner
 topics: python, programming
 
@@ -32,6 +33,7 @@ weekly with experienced instructors from universities like Brown, UCSD, and
 Cornell.
 
 slug: python_apprentice
+image: python.png
 level: intermediate
 topics: python, programming, certification
 
@@ -50,6 +52,7 @@ deploy their Python games to run on the web, making them shareable with friends
 and family.
 
 slug: python_games
+image: python_games.png
 level: intermediate
 topics: python, programming, games, oop
 
@@ -66,6 +69,7 @@ teaching valuable skills about cross-platform deployment and web technologies
 while keeping the focus on fun, engaging game projects.
 
 slug: python_web_games
+image: python_games.png
 level: advanced
 topics: python, web development, games
 
@@ -86,6 +90,7 @@ space exploration, connecting coding skills to STEM education in a highly
 engaging way.
 
 slug: python_orbitlab
+image: python.png
 level: advanced
 topics: python, science
 
@@ -106,6 +111,7 @@ companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
 hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 
 slug: java_weekly
+image: java.png
 level: beginner to advanced
 topics: java, programming
 
@@ -124,6 +130,7 @@ experience. Tutoring is available for all levels from complete beginner to
 advanced, with monthly tuition of $430.
 
 slug: private_tutoring
+image: computer-robot.png
 level: all levels
 topics: java, python, programming
 
@@ -143,6 +150,7 @@ tangible, playable results. It's perfect for students who love gaming and want
 to understand how their favorite games work.
 
 slug: makecode_arcade
+image: meowbit.png
 level: beginner
 topics: programming, games, javascript
 
@@ -163,6 +171,7 @@ in electronics and automation. This hands-on class gives students practical
 skills for any project involving mechanical motion.
 
 slug: motors_clinic
+image: cutebot.png
 level: intermediate
 topics: programming, robotics
 
@@ -181,6 +190,7 @@ any electronics project. This clinic may be offered as part of the robotics
 robotics program or as a standalone workshop.
 
 slug: soldering_clinic
+image: cpp.png
 level: beginner
 topics: electronics, robotics
 
@@ -199,6 +209,7 @@ robotics courses. Students leave with a concrete understanding of how
 programming translates to real-world actions.
 
 slug: hour_of_microbit
+image: microbit.png
 level: beginner
 topics: programming
 
@@ -218,6 +229,7 @@ development and represents an innovative approach to teaching robotics through
 competitive gameplay.
 
 slug: robot_riot
+image: robot_garage_kids.png
 level: beginner
 topics: programming, robotics
 
@@ -237,5 +249,6 @@ that work on all devices. Every student leaves with a live website they can
 continue to update throughout their programming journey.
 
 slug: github_pages_portfolio
+image: about_flag.png
 level: intermediate
 topics: web development, html, css, git, portfolio

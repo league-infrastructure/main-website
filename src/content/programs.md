@@ -21,6 +21,7 @@ companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
 hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 
 slug: java_python_weekly
+image: java.png
 topics: programming
 classes: java_weekly, intro_python, python_apprentice, python_games, python_web_games, python_orbitlab, private_tutoring
 
@@ -42,6 +43,7 @@ provides skills directly applicable to careers in robotics engineering,
 automation, and mechatronics.
 
 slug: robot_garage
+image: robot_garage.png
 topics: programming, robotics, electronics
 classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit, robot_riot
 
@@ -61,6 +63,7 @@ they advance, but Tech Club provides valuable programming experience regardless
 of whether students continue. Classes run year-round at various locations.
 
 slug: tech_club
+image: current_students.png
 topics: programming, robotics, electronics, games
 classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arcade
 
@@ -79,6 +82,7 @@ jobs, and university-level computer science. These classes are offered free as
 free as part of our mission to prepare youth for technology careers.
 
 slug: code_clinic
+image: computer-robot.png
 topics: programming, robotics, electronics
 
 
@@ -100,5 +104,6 @@ problem-solving skills essential for success in computer science careers and
 research.
 
 slug: league_lab
+image: league_code.png
 topics: programming, robotics, electronics, career
 
