@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClassLayout from '../../layouts/ClassLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
 import { siteConfig } from '../../config/site';
@@ -7,11 +7,11 @@ import { siteConfig } from '../../config/site';
 const address = siteConfig.cv_classroom_address;
 ---
 
-<BaseLayout
+<ClassLayout
   title="Python or Java"
   description="Understand whether Python or Java is the best starting point for your student and see how to try a free class."
 >
-  <section class="section section--surface-alt hero">
+  <section slot="hero" class="section section--surface-alt hero">
     <div class="container hero__grid">
       <div class="hero__copy">
         <p class="tag">Choosing a language</p>
@@ -91,4 +91,4 @@ const address = siteConfig.cv_classroom_address;
     </div>
   </section>
 
-</BaseLayout>
+</ClassLayout>

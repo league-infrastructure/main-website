@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClassLayout from '../../layouts/ClassLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
 
@@ -62,11 +62,11 @@ const resources = [
 const phoneHref = '6198897571';
 ---
 
-<BaseLayout
+<ClassLayout
   title="Programming Merit Badge"
   description="Free Tech Club classes help Scouts complete the BSA Programming Merit Badge requirements."
 >
-  <section class="section section--surface-alt hero">
+  <section slot="hero" class="section section--surface-alt hero">
     <div class="container hero__grid">
       <div class="hero__copy">
         <p class="tag">BSA programming merit badge</p>
@@ -179,5 +179,5 @@ const phoneHref = '6198897571';
       </CalloutCard>
     </div>
   </section>
-</BaseLayout>
+</ClassLayout>
 

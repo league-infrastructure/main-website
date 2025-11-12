@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
@@ -13,11 +13,11 @@ const heroImage = classData?.metadata?.image
 const heroAlt = classData?.title ?? "GitHub Pages Portfolio";
 ---
 
-<BaseLayout
+<ClassLayout
   title="GitHub Pages Portfolio"
   description="Build a professional portfolio website using GitHub Pages and Jekyll."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">GitHub Pages Portfolio</h1>
     <p slot="description">
       Build a professional portfolio website using GitHub Pages and Jekyll.
@@ -45,4 +45,4 @@ const heroAlt = classData?.title ?? "GitHub Pages Portfolio";
       </p>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>

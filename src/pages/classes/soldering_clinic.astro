@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
@@ -13,11 +13,11 @@ const heroImage = classData?.metadata?.image
 const heroAlt = classData?.title ?? "Soldering Clinic";
 ---
 
-<BaseLayout
+<ClassLayout
   title="Soldering Clinic"
   description="Learn basic soldering skills, safety, and techniques through hands-on practice."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">Soldering Clinic</h1>
     <p slot="description">
       Learn basic soldering skills, safety, and techniques through hands-on practice.
@@ -45,4 +45,4 @@ const heroAlt = classData?.title ?? "Soldering Clinic";
       </p>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>

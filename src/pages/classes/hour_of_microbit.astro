@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
@@ -13,11 +13,11 @@ const heroImage = classData?.metadata?.image
 const heroAlt = classData?.title ?? "Hour of Micro:bit";
 ---
 
-<BaseLayout
+<ClassLayout
   title="Hour of Micro:bit"
   description="Short introductory class to the Micro:bit microcontroller platform."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">Hour of Micro:bit</h1>
     <p slot="description">
       Short introductory class to the Micro:bit microcontroller platform.
@@ -45,4 +45,4 @@ const heroAlt = classData?.title ?? "Hour of Micro:bit";
       </p>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>

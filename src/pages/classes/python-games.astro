@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
@@ -14,11 +14,11 @@ const heroImage = classData?.metadata?.image
 const heroAlt = classData?.title ?? "Python Games";
 ---
 
-<BaseLayout
+<ClassLayout
   title="Python Games Program"
   description="Create engaging games while learning advanced Python concepts. Build arcade games, puzzles, and interactive applications using Python and Pygame."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">Python Games</h1>
     <p slot="description">
       Create engaging games while learning advanced Python concepts. Build arcade games, puzzles, and interactive applications using Python and Pygame.
@@ -102,7 +102,7 @@ const heroAlt = classData?.title ?? "Python Games";
       </div>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>
 
 <style>
   .program-hero {

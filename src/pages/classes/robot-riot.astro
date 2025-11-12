@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
@@ -14,11 +14,11 @@ const heroImage = classData?.metadata?.image
 const heroAlt = classData?.title ?? "Robot Riot";
 ---
 
-<BaseLayout
+<ClassLayout
   title="Robot Riot Program"
   description="Complete robotics education combining programming, 3D printing, CAD design, and mechanical assembly. Build and program competition-ready robots."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">Robot Riot</h1>
     <p slot="description">
       Complete robotics education combining programming, 3D printing, CAD design, and mechanical assembly. Build and program competition-ready robots.
@@ -131,7 +131,7 @@ const heroAlt = classData?.title ?? "Robot Riot";
       </div>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>
 
 <style>
   .program-hero {

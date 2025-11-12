@@ -1,0 +1,45 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="program-layout">
+    <header class="program-layout__hero">
+      <slot name="hero" />
+    </header>
+    <section class="program-layout__overview">
+      <slot name="overview" />
+    </section>
+    <div class="program-layout__content">
+      <slot />
+    </div>
+    <footer class="program-layout__footer">
+      <slot name="footer" />
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .program-layout {
+    display: grid;
+    gap: var(--space-xxl, 4rem);
+  }
+
+  .program-layout__hero:empty,
+  .program-layout__overview:empty,
+  .program-layout__footer:empty {
+    display: none;
+  }
+
+  .program-layout__content {
+    display: grid;
+    gap: var(--space-xl, 3rem);
+  }
+</style>

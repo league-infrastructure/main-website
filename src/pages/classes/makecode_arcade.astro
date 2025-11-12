@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
@@ -13,11 +13,11 @@ const heroImage = classData?.metadata?.image
 const heroAlt = classData?.title ?? "MakeCode Arcade Games";
 ---
 
-<BaseLayout
+<ClassLayout
   title="MakeCode Arcade Games"
   description="Build games in block code or JavaScript and deploy them to your own handheld Game Boy-style console."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">MakeCode Arcade Games</h1>
     <p slot="description">
       Build games in block code or JavaScript and deploy them to your own handheld Game Boy-style console.
@@ -45,4 +45,4 @@ const heroAlt = classData?.title ?? "MakeCode Arcade Games";
       </p>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>

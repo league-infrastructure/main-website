@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClassLayout from '../../layouts/ClassLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import PikeWidget from '../../components/PikeWidget.astro';
 import CalloutCard from '../../components/CalloutCard.astro';
@@ -15,11 +15,11 @@ const heroHighlights = [
 const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
 ---
 
-<BaseLayout
+<ClassLayout
   title="Java Programming"
   description="Weekly Java classes in Carmel Valley and online that prepare students for AP Computer Science and Oracle certification."
 >
-  <section class="section section--surface-alt hero">
+  <section slot="hero" class="section section--surface-alt hero">
     <div class="container hero__grid">
       <div class="hero__copy">
         <p class="tag">Java programming</p>
@@ -93,4 +93,4 @@ const address = '12625 High Bluff Dr #113, San Diego, CA 92130';
       </aside>
     </div>
   </section>
-</BaseLayout>
+</ClassLayout>

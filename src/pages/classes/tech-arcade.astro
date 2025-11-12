@@ -1,16 +1,16 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 ---
 
-<BaseLayout
+<ClassLayout
   title="Tech Arcade Program"
   description="Free community coding sessions for all skill levels. Drop-in coding, project work, peer collaboration and tech exploration in a supportive environment."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">Tech Arcade</h1>
     <p slot="description">
       Free community coding sessions for all skill levels. Drop-in coding, project work, peer collaboration and tech exploration in a supportive environment.
@@ -152,7 +152,7 @@ import CalloutCard from "../../components/CalloutCard.astro";
       </div>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>
 
 <style>
   .program-hero {

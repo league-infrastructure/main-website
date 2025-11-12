@@ -1,15 +1,15 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 ---
 
-<BaseLayout
+<ClassLayout
   title="Microbit Robot Rally"
   description="Multiplayer competitive games using Micro:bit-based robots."
 >
-  <HeroSection class="program-hero">
+  <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">Microbit Robot Rally</h1>
     <p slot="description">
       Multiplayer competitive games using Micro:bit-based robots.
@@ -42,4 +42,4 @@ import SectionHeader from "../../components/SectionHeader.astro";
       </p>
     </div>
   </Section>
-</BaseLayout>
+</ClassLayout>
