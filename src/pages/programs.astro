@@ -35,7 +35,8 @@ function parseMarkdownSections(content: string) {
         description: '',
         slug: '',
         level: '',
-        topics: ''
+        topics: '',
+        classes: ''
       };
     } else if (currentSection) {
       if (line.startsWith('slug: ')) {
@@ -44,9 +45,11 @@ function parseMarkdownSections(content: string) {
         currentSection.level = line.substring(7).trim();
       } else if (line.startsWith('topics: ')) {
         currentSection.topics = line.substring(8).trim();
-      } else if (!currentSection.subtitle && line.trim() && !line.startsWith('#') && !line.startsWith('slug:') && !line.startsWith('level:') && !line.startsWith('topics:')) {
+      } else if (line.startsWith('classes: ')) {
+        currentSection.classes = line.substring(9).trim();
+      } else if (!currentSection.subtitle && line.trim() && !line.startsWith('#') && !line.startsWith('slug:') && !line.startsWith('level:') && !line.startsWith('topics:') && !line.startsWith('classes:') && !line.startsWith('[')) {
         currentSection.subtitle = line.trim();
-      } else if (!line.startsWith('slug:') && !line.startsWith('level:') && !line.startsWith('topics:') && line.trim()) {
+      } else if (!line.startsWith('slug:') && !line.startsWith('level:') && !line.startsWith('topics:') && !line.startsWith('classes:') && line.trim()) {
         if (currentSection.description) {
           currentSection.description += ' ' + line.trim();
         } else {
@@ -77,14 +80,38 @@ function getImageForItem(title: string, topics: string) {
   if (titleLower.includes('makecode') || titleLower.includes('arcade')) return '/images/cards/league_code.png';
   return '/images/cards/league_code.png';
 }
+
+// Function to get color for topic-based lozenges
+function getTopicColor(topics: string) {
+  const topicsLower = topics.toLowerCase();
+  
+  if (topicsLower.includes('python')) return 'var(--color-python, #306998)';
+  if (topicsLower.includes('java')) return 'var(--color-java, #f89820)';
+  if (topicsLower.includes('robotics')) return 'var(--color-robotics, #e74c3c)';
+  if (topicsLower.includes('electronics')) return 'var(--color-electronics, #9b59b6)';
+  if (topicsLower.includes('games')) return 'var(--color-games, #2ecc71)';
+  if (topicsLower.includes('web')) return 'var(--color-web, #3498db)';
+  return 'var(--color-default, #95a5a6)';
+}
+
+// Function to get class details by slug
+function getClassBySlug(slug: string) {
+  return classes.find(c => c.slug === slug);
+}
+
+// Function to parse class list from program
+function getClassesForProgram(program: any) {
+  if (!program.classes) return [];
+  return program.classes.split(',').map((slug: string) => slug.trim());
+}
 ---
 
 <BaseLayout
-  title="Our Programs"
-  description="Explore The League of Amazing Programmers' comprehensive coding, robotics, and engineering programs designed for students from elementary through high school."
+  title="Our Programs & Classes"
+  description="Explore The League of Amazing Programmers' comprehensive coding, robotics, and engineering programs and classes designed for students from elementary through high school."
 >
   <HeroSection class="programs-hero">
-    <h1 slot="tagline">Our Programs</h1>
+    <h1 slot="tagline">Our Programs & Classes</h1>
     <p slot="description">
       From beginner coding classes to advanced robotics and engineering, we provide comprehensive STEM education pathways for students of all skill levels.
     </p>
@@ -97,165 +124,79 @@ function getImageForItem(title: string, topics: string) {
     </div>
   </HeroSection>
 
-  <!-- General Programming -->
+  <!-- Programs Section -->
   <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-primary-soft)">
     <SectionHeader>
-      <h2>General Programming</h2>
-      <p>Foundational programming education from beginner to advanced levels. Build essential coding skills with industry-standard languages and practices.</p>
+      <h2>Programs</h2>
+      <p>Comprehensive learning pathways and specialized program offerings that guide students through structured educational experiences.</p>
     </SectionHeader>
     
     <CardGrid>
-      <ProgramCard img="/images/cards/java.png" alt="Java programming logo">
-        <CardBody>
-          <h3>Java Programming</h3>
-          <p>Master Java with our comprehensive weekly classes. Perfect preparation for AP Computer Science and college coursework.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/java" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/python.png" alt="Python programming logo">
-        <CardBody>
-          <h3>Python Programming</h3>
-          <p>Learn the world's most popular programming language. From basics to advanced applications in data science and automation.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/python" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/python.png" alt="Python apprentice programming">
-        <CardBody>
-          <h3>Python Apprentice</h3>
-          <p>Begin your coding journey with Python fundamentals. Perfect for beginners learning programming concepts and logic.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/python-apprentice" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/computer-robot.png" alt="Code clinic support session">
-        <CardBody>
-          <h3>Code Clinic</h3>
-          <p>Get personalized help with your programming projects. One-on-one support for debugging, problem-solving, and skill development.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/code-clinic" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/league_code.png" alt="Tech club community session">
-        <CardBody>
-          <h3>Tech Club</h3>
-          <p>Free community coding sessions for all skill levels. Drop-in format with peer support and project collaboration.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/tech-club" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/league_code.png" alt="Tech arcade coding session">
-        <CardBody>
-          <h3>Tech Arcade</h3>
-          <p>Casual, game-inspired coding environment where learning is fun and stress-free. Open to all ages and skill levels.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/tech-arcade" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
+      {programs.map((program) => {
+        const programClasses = getClassesForProgram(program);
+        return (
+          <ProgramCard img={getImageForItem(program.title, program.topics)} alt={program.title}>
+            <CardBody>
+              <h3>{program.title}</h3>
+              <p>{program.subtitle}</p>
+              {programClasses.length > 0 && (
+                <div class="class-lozenges">
+                  <p class="lozenges-label">Classes in this program:</p>
+                  <div class="lozenges-container">
+                    {programClasses.map((classSlug: string) => {
+                      const classItem = getClassBySlug(classSlug);
+                      if (classItem) {
+                        return (
+                          <a 
+                            href={`/classes/${classSlug}`} 
+                            class="class-lozenge"
+                            style={`background-color: ${getTopicColor(classItem.topics)}`}
+                          >
+                            {classItem.title}
+                          </a>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                </div>
+              )}
+            </CardBody>
+            <CardFooter>
+              <a href={`/programs/${program.slug}`} class="button button--primary">Learn More</a>
+            </CardFooter>
+          </ProgramCard>
+        );
+      })}
     </CardGrid>
   </Section>
 
-  <!-- Games -->
+  <!-- Classes Section -->
   <Section startBgcolor="var(--color-primary-soft)" endBgcolor="var(--color-secondary-soft)">
     <SectionHeader>
-      <h2>Games</h2>
-      <p>Learn programming through game development. Create engaging projects while mastering coding concepts and design principles.</p>
+      <h2>Classes</h2>
+      <p>Individual classes and workshops focused on specific programming languages, technologies, and skills.</p>
     </SectionHeader>
     
-    <CardGrid>
-      <ProgramCard img="/images/cards/python.png" alt="Python game development">
-        <CardBody>
-          <h3>Python Games</h3>
-          <p>Advanced Python programming through game development. Build interactive games using Pygame and learn software design patterns.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/python-games" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/league_code.png" alt="MakeCode Arcade game development">
-        <CardBody>
-          <h3>MakeCode Arcade</h3>
-          <p>Visual programming and game design with block-based coding. Perfect introduction to game development concepts and logic.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/makecode-games" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-    </CardGrid>
+    <div class="classes-list">
+      {classes.map((classItem) => (
+        <div class="class-item">
+          <h3 class="class-title">
+            <a href={`/classes/${classItem.slug}`} class="class-title-link">
+              {classItem.title}
+            </a>
+          </h3>
+          <p class="class-subtitle">{classItem.subtitle}</p>
+          {classItem.level && (
+            <p class="class-level-info"><strong>Level:</strong> {classItem.level}</p>
+          )}
+          <p class="class-description">{classItem.description}</p>
+        </div>
+      ))}
+    </div>
   </Section>
 
-  <!-- Robotics -->
-  <Section startBgcolor="var(--color-secondary-soft)" endBgcolor="var(--color-peach)">
-    <SectionHeader>
-      <h2>Robotics</h2>
-      <p>Complete robotics education combining programming, mechanical design, and engineering principles. Build and program competition-ready robots.</p>
-    </SectionHeader>
-    
-    <CardGrid>
-      <ProgramCard img="/images/cards/computer-robot.png" alt="Robot Riot advanced robotics">
-        <CardBody>
-          <h3>Robot Riot</h3>
-          <p>Comprehensive robotics program combining programming, 3D printing, CAD design, and mechanical assembly for competition-ready robots.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/robot-riot" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/computer-robot.png" alt="Robot Garage micro:bit robotics">
-        <CardBody>
-          <h3>Robot Garage</h3>
-          <p>Hands-on robotics with micro:bit controllers. Build and program mobile robots while learning electronics and sensor integration.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/robot-garage" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-    </CardGrid>
-  </Section>
 
-  <!-- Engineering -->
-  <Section startBgcolor="var(--color-peach)" endBgcolor="var(--color-surface)">
-    <SectionHeader>
-      <h2>Engineering</h2>
-      <p>Practical engineering skills and maker education. Learn essential technical skills for building, prototyping, and problem-solving.</p>
-    </SectionHeader>
-    
-    <CardGrid>
-      <ProgramCard img="/images/cards/computer-robot.png" alt="Engineering project clinic">
-        <CardBody>
-          <h3>Project Clinic</h3>
-          <p>Individual project support and mentoring. Get help with motors, circuits, mechanical design, and troubleshooting your builds.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/code-clinic" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-      
-      <ProgramCard img="/images/cards/computer-robot.png" alt="Soldering and electronics training">
-        <CardBody>
-          <h3>Soldering & Electronics</h3>
-          <p>Master essential electronics skills including soldering, circuit design, and component integration for robotics and maker projects.</p>
-        </CardBody>
-        <CardFooter>
-          <a href="/programs/robot-garage" class="button button--primary">Learn More</a>
-        </CardFooter>
-      </ProgramCard>
-    </CardGrid>
-  </Section>
 
   <!-- Program Information -->
   <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-surface-alt)">
@@ -326,6 +267,105 @@ function getImageForItem(title: string, topics: string) {
 </BaseLayout>
 
 <style>
+  :root {
+    --color-python: #306998;
+    --color-java: #f89820;
+    --color-robotics: #e74c3c;
+    --color-electronics: #9b59b6;
+    --color-games: #2ecc71;
+    --color-web: #3498db;
+    --color-default: #95a5a6;
+  }
+
+  .class-level {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+  }
+
+  /* Program card class lozenges */
+  .class-lozenges {
+    margin-top: 1rem;
+  }
+
+  .lozenges-label {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .lozenges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .class-lozenge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .class-lozenge:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+
+  /* Classes list styles */
+  .classes-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .class-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .class-item:last-child {
+    border-bottom: none;
+  }
+
+  .class-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .class-title-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .class-title-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .class-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .class-level-info {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .class-description {
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
   .programs-hero {
     background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-surface) 100%);
   }

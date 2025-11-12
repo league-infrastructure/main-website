@@ -22,6 +22,7 @@ hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 
 slug: java_python_weekly
 topics: programming
+classes: java_weekly, intro_python, python_apprentice, python_games, python_web_games, python_orbitlab, private_tutoring
 
 ## Robot Garage
 
@@ -42,6 +43,7 @@ automation, and mechatronics.
 
 slug: robot_garage
 topics: programming, robotics, electronics
+classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit, robot_riot
 
 ## Tech Club 
 
@@ -60,6 +62,7 @@ of whether students continue. Classes run year-round at various locations.
 
 slug: tech_club
 topics: programming, robotics, electronics, games
+classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arcade
 
 ## Code Clinic
 
@@ -78,10 +81,11 @@ free as part of our mission to prepare youth for technology careers.
 slug: code_clinic
 topics: programming, robotics, electronics
 
+
 ## League Lab 
 
 Advanced program where students work as apprentices on research projects and
-learn sophisticated programming.ß
+learn sophisticated programming.
 
 League Lab provides an advanced learning environment for students who have
 progressed beyond our standard curriculum and are ready for professional-level
@@ -97,3 +101,4 @@ research.
 
 slug: league_lab
 topics: programming, robotics, electronics, career
+

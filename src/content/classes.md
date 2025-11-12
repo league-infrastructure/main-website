@@ -146,22 +146,7 @@ slug: makecode_arcade
 level: beginner
 topics: programming, games, javascript
 
-## Robot Riot
 
-Introduction to robotics programming and mechanical construction.
-
-Robot Riot serves as the entry point to our robotics program, where students
-learn both the programming and mechanical engineering aspects of robotics.
-Students build and program their own robots, learning about motors, sensors,
-microcontrollers, and basic mechanical design. The course emphasizes hands-on
-learning with real hardware, teaching students how software controls physical
-systems. Projects progress from simple motor control to more complex autonomous
-behaviors, giving students a foundation in robotics that can lead to competitive
-robotics teams and advanced engineering studies.
-
-slug: robot_riot
-level: beginner
-topics: programming, robotics
 
 ## Motors Clinic
 
@@ -217,13 +202,13 @@ slug: hour_of_microbit
 level: beginner
 topics: programming
 
-## Microbit Robot Rally
+## Robot Riot
 
-Multiplayer competitive games using Micro:bit-based robots.
+Introduction to robotics programming and mechanical construction.
 
-Microbit Robot Rally combines programming, robotics, and game design in an
-exciting competitive format. Students learn the basics of controlling motors on
-a robot, starting with existing robot platforms that they modify to make more
+Robot Riot combines programming and  robotics in an exciting
+competitive format. Students learn the basics of controlling motors on a robot,
+starting with existing robot platforms that they modify to make more
 competitive. Students add grippers, pushers, flippers, and other attachments to
 their robots, then learn how to reprogram them to activate electronics like
 turbos and lights. The course teaches how to send messages back and forth
@@ -232,9 +217,10 @@ experience with how robots respond to commands. This course is currently in
 development and represents an innovative approach to teaching robotics through
 competitive gameplay.
 
-slug: microbit_robot_rally
-level: intermediate
-topics: programming, robotics, games
+slug: robot_riot
+level: beginner
+topics: programming, robotics
+
 
 ## GitHub Pages Portfolio
 
