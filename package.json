@@ -4,10 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run process-cards && npm run export-content && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "process-cards": "node scripts/process-cards.js"
+    "process-cards": "node scripts/process-cards.js",
+    "export-content": "node scripts/export-content.js"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",

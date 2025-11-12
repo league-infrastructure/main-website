@@ -8,24 +8,14 @@ import ProgramCard from "../components/ProgramCard.astro";
 import CardBody from "../components/CardBody.astro";
 import CardFooter from "../components/CardFooter.astro";
 import ClassCard from "../components/ClassCard.astro";
-import fs from "fs";
-import path from "path";
-import { parseMarkdownSections, getTopicColor } from "../utils/markdown.js";
+import {
+  getClassesData,
+  getProgramsData,
+  getTopicColor,
+} from "../utils/markdown.js";
 
-// Read and parse the content files
-const contentDir = path.resolve("./src/content");
-const classesContent = fs.readFileSync(
-  path.join(contentDir, "classes.md"),
-  "utf-8",
-);
-const programsContent = fs.readFileSync(
-  path.join(contentDir, "programs.md"),
-  "utf-8",
-);
-
-// Parse content using utility functions
-const classes = parseMarkdownSections(classesContent);
-const programs = parseMarkdownSections(programsContent);
+const classes = getClassesData();
+const programs = getProgramsData();
 
 // Topic color function is imported from utils
 
@@ -414,3 +404,88 @@ function getClassesForProgram(program: any) {
     }
   }
 </style>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    const cards = Array.from(
+      document.querySelectorAll(
+        ".card-grid .program-card",
+      ),
+    );
+
+    if (cards.length > 0) {
+      const getRowKey = (element) =>
+        Math.round(element.getBoundingClientRect().top);
+
+      const applyHeights = () => {
+        const rowCardHeights = new Map();
+        const rowFooterHeights = new Map();
+
+        cards.forEach((card) => {
+          card.style.minHeight = "";
+          const footer = card.querySelector(".card__footer");
+          if (footer) {
+            footer.style.minHeight = "";
+          }
+        });
+
+        cards.forEach((card) => {
+          const rowKey = getRowKey(card);
+          const currentCardTallest = rowCardHeights.get(rowKey) || 0;
+          rowCardHeights.set(rowKey, Math.max(currentCardTallest, card.offsetHeight));
+
+          const footer = card.querySelector(".card__footer");
+          if (!footer) return;
+          const currentFooterTallest = rowFooterHeights.get(rowKey) || 0;
+          rowFooterHeights.set(
+            rowKey,
+            Math.max(currentFooterTallest, footer.offsetHeight),
+          );
+        });
+
+        cards.forEach((card) => {
+          const rowKey = getRowKey(card);
+          const targetCardHeight = rowCardHeights.get(rowKey);
+          if (targetCardHeight) {
+            card.style.minHeight = `${targetCardHeight}px`;
+          }
+
+          const footer = card.querySelector(".card__footer");
+          if (!footer) return;
+          const targetFooterHeight = rowFooterHeights.get(rowKey);
+          if (targetFooterHeight) {
+            footer.style.minHeight = `${targetFooterHeight}px`;
+          }
+        });
+      };
+
+      const footerObserver = new ResizeObserver(() => applyHeights());
+      const cardObserver = new ResizeObserver(() => applyHeights());
+
+      cards.forEach((card) => {
+        const footer = card.querySelector(".card__footer");
+        if (footer) footerObserver.observe(footer);
+        cardObserver.observe(card);
+      });
+
+      const handleResize = () => {
+        window.requestAnimationFrame(applyHeights);
+      };
+
+      window.addEventListener("load", applyHeights);
+      window.addEventListener("resize", handleResize);
+      applyHeights();
+
+      window.addEventListener(
+        "pagehide",
+        () => {
+          footerObserver.disconnect();
+          cardObserver.disconnect();
+          window.removeEventListener("resize", handleResize);
+          window.removeEventListener("load", applyHeights);
+        },
+        { once: true },
+      );
+    }
+  }
+</script>

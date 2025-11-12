@@ -9,6 +9,9 @@ To generate the programs page, you will need to use the content in two files:
 Before you generate the pages, make sure the images are built with:
 `npm run process-cards`
 
+Export the latest structured data snapshots for programs and classes with:
+`npm run export-content`
+
 ## Content File Structure
 
 ### Classes.md Format

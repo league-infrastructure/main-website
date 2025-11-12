@@ -6,6 +6,21 @@ import path from 'path';
  */
 
 const contentRoot = path.resolve('./src/content');
+const dataRoot = path.resolve('./src/data');
+
+function readJsonData(baseName) {
+  try {
+    const filePath = path.join(dataRoot, `${baseName}.json`);
+    if (!fs.existsSync(filePath)) {
+      return undefined;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(raw);
+  } catch (error) {
+    console.error(`Error reading ${baseName}.json:`, error);
+    return undefined;
+  }
+}
 
 function readContentFile(filename) {
   const filePath = path.join(contentRoot, filename);
@@ -111,9 +126,41 @@ export async function readAndParseMarkdown(filePath) {
   }
 }
 
+/**
+ * @returns {Array}
+ */
+export function getProgramsData() {
+  const jsonData = readJsonData('programs');
+  if (Array.isArray(jsonData)) {
+    return jsonData;
+  }
+  try {
+    return parseMarkdownSections(readContentFile('programs.md'));
+  } catch (error) {
+    console.error('Error loading programs content:', error);
+    return [];
+  }
+}
+
+/**
+ * @returns {Array}
+ */
+export function getClassesData() {
+  const jsonData = readJsonData('classes');
+  if (Array.isArray(jsonData)) {
+    return jsonData;
+  }
+  try {
+    return parseMarkdownSections(readContentFile('classes.md'));
+  } catch (error) {
+    console.error('Error loading classes content:', error);
+    return [];
+  }
+}
+
 export function getProgramBySlug(slug) {
   try {
-    const programs = parseMarkdownSections(readContentFile('programs.md'));
+    const programs = getProgramsData();
     return programs.find((program) => program.metadata?.slug === slug);
   } catch (error) {
     console.error(`Error retrieving program with slug "${slug}":`, error);
@@ -123,7 +170,7 @@ export function getProgramBySlug(slug) {
 
 export function getClassBySlug(slug) {
   try {
-    const classes = parseMarkdownSections(readContentFile('classes.md'));
+    const classes = getClassesData();
     return classes.find((classItem) => classItem.metadata?.slug === slug);
   } catch (error) {
     console.error(`Error retrieving class with slug "${slug}":`, error);

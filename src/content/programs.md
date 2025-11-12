@@ -1,4 +1,4 @@
-## Java and Python Weekly Classes
+##  Programming Classes
 
 blurb: Comprehensive Java and Python programming from beginner to advanced levels,
 preparing students for AP Computer Science and professional careers.
@@ -18,6 +18,38 @@ slug: java_python_weekly
 image: java.png
 topics: programming
 classes: java_weekly, intro_python, python_apprentice, python_games, python_web_games, python_orbitlab, private_tutoring
+
+## Robotics, AI and Technology Classes
+
+blurb: Learn and have fun with robotics and electronics in Robot Riot and Tech
+Arcade classes. 
+
+description: [Update long description]
+
+slug: technology
+image: robot_garage_kids.png
+topics: technology
+classes: robot_riot, tech_arcade, ai_agents
+
+## Tech Club 
+
+blurb: Free introductory classes in Python, Java, robotics, and electronics offered at
+schools and libraries.
+
+description: Tech Club brings coding education to students who might not otherwise have
+access, offering free introductory courses at schools and libraries throughout
+San Diego County. These 60-90 minute sessions introduce students in grades 3-12
+to programming through hands-on projects in Python, Java, robotics, and
+electronics. With a less than 10:1 student-to-teacher ratio and no cost to
+families, Tech Club removes barriers to computer science education. Many
+students who start in Tech Club later transition to our paid weekly classes as
+they advance, but Tech Club provides valuable programming experience regardless
+of whether students continue. Classes run year-round at various locations.
+
+slug: tech_club
+image: current_students.png
+topics: programming, robotics, electronics, games
+classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arcade
 
 ## Robot Garage
 
@@ -41,25 +73,7 @@ image: robot_garage.png
 topics: programming, robotics, electronics
 classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit, robot_riot
 
-## Tech Club 
 
-blurb: Free introductory classes in Python, Java, robotics, and electronics offered at
-schools and libraries.
-
-description: Tech Club brings coding education to students who might not otherwise have
-access, offering free introductory courses at schools and libraries throughout
-San Diego County. These 60-90 minute sessions introduce students in grades 3-12
-to programming through hands-on projects in Python, Java, robotics, and
-electronics. With a less than 10:1 student-to-teacher ratio and no cost to
-families, Tech Club removes barriers to computer science education. Many
-students who start in Tech Club later transition to our paid weekly classes as
-they advance, but Tech Club provides valuable programming experience regardless
-of whether students continue. Classes run year-round at various locations.
-
-slug: tech_club
-image: current_students.png
-topics: programming, robotics, electronics, games
-classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arcade
 
 ## Code Clinic
 

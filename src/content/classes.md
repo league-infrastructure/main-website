@@ -230,6 +230,34 @@ image: robot_riot.png
 level: beginner
 topics: programming, robotics
 
+## Tech Arcade
+
+blurb: A technology choose-your-own-adventure, wioth daily variety of projects
+in programming, games, and robotics. 
+
+description: Tech Arcade explores topics from all of our other courses, so students can program in Python or Java, make games in Javascript, program robotics or build an AI chatbot. The Arcade is project-based and self-paced, so students can fully explore their interests. 
+
+slug: tech_arcade
+image: tech-arcade.png
+level: beginner
+topics: programming, robotics
+
+## AI Agents
+
+blurb: Discover AI by building chatbots and exploring computer vision and
+machine learning. 
+
+description: Unlock Your Child’s Potential with AI! Discover the magic behind
+artificial intelligence in our hands-on, creative AI course. From building
+chatbots to generating images and exploring ethical AI, kids dive into machine
+learning, computer vision, and more—all guided by expert instructors. Turn
+curiosity into real-world skills today.
+
+slug: ai_agents
+image: ai-agents.png
+level: beginner
+topics: programming, ai
+
 
 ## GitHub Pages Portfolio
 
