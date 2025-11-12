@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Private Tutoring"
+  description="One-on-one virtual classes for personalized instruction in Java or Python at all skill levels."
+>
+  <HeroSection class="program-hero">
+    <h1 slot="tagline">Private Tutoring</h1>
+    <p slot="description">
+      One-on-one virtual classes for personalized instruction in Java or Python at all skill levels.
+    </p>
+    <div slot="media" class="program-hero__media">
+      <img
+        src="/images/cards/league_code.png"
+        alt="Private tutoring illustration"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Program Overview</h2>
+    </SectionHeader>
+    <div class="container">
+      <p>
+        For students who benefit from individualized attention or need flexible
+        scheduling, we offer private tutoring in both Java and Python. These 1:1 virtual
+        sessions allow instructors to customize the pace and content to each student's
+        specific needs, learning style, and goals. Whether a student needs help catching
+        up, wants to advance more quickly, or requires accommodation for learning
+        differences, private tutoring provides the most personalized learning
+        experience. Tutoring is available for all levels from complete beginner to
+        advanced, with monthly tuition of $430.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>

@@ -20,6 +20,7 @@ professional Java certification, which opens doors to job opportunities at
 companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
 hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 
+slug: java_python_weekly
 topics: programming
 
 ## Robot Garage
@@ -39,6 +40,7 @@ art. The course prepares students for participation in robotics competitions and
 provides skills directly applicable to careers in robotics engineering,
 automation, and mechatronics.
 
+slug: robot_garage
 topics: programming, robotics, electronics
 
 ## Tech Club 
@@ -56,6 +58,7 @@ students who start in Tech Club later transition to our paid weekly classes as
 they advance, but Tech Club provides valuable programming experience regardless
 of whether students continue. Classes run year-round at various locations.
 
+slug: tech_club
 topics: programming, robotics, electronics, games
 
 ## Code Clinic
@@ -70,8 +73,9 @@ testing, debugging strategies, and industry-standard practices that professional
 programmers use daily. Code Clinic helps bridge the gap between learning syntax
 and working like a professional developer, preparing students for internships,
 jobs, and university-level computer science. These classes are offered free as
-part of our mission to prepare youth for technology careers.
+free as part of our mission to prepare youth for technology careers.
 
+slug: code_clinic
 topics: programming, robotics, electronics
 
 ## League Lab 
@@ -91,4 +95,5 @@ launch real products. This program develops the independent learning and
 problem-solving skills essential for success in computer science careers and
 research.
 
+slug: league_lab
 topics: programming, robotics, electronics, career

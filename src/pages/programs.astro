@@ -7,6 +7,76 @@ import CardGrid from "../components/CardGrid.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import CardBody from "../components/CardBody.astro";
 import CardFooter from "../components/CardFooter.astro";
+import fs from 'fs';
+import path from 'path';
+
+// Read and parse the content files
+const contentDir = path.resolve('./src/content');
+const classesContent = fs.readFileSync(path.join(contentDir, 'classes.md'), 'utf-8');
+const programsContent = fs.readFileSync(path.join(contentDir, 'programs.md'), 'utf-8');
+
+// Function to parse markdown sections
+function parseMarkdownSections(content: string) {
+  const sections = [];
+  const lines = content.split('\n');
+  let currentSection = null;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    
+    // Check for h2 headers (## Title)
+    if (line.startsWith('## ')) {
+      if (currentSection) {
+        sections.push(currentSection);
+      }
+      currentSection = {
+        title: line.substring(3).trim(),
+        subtitle: '',
+        description: '',
+        slug: '',
+        level: '',
+        topics: ''
+      };
+    } else if (currentSection) {
+      if (line.startsWith('slug: ')) {
+        currentSection.slug = line.substring(6).trim();
+      } else if (line.startsWith('level: ')) {
+        currentSection.level = line.substring(7).trim();
+      } else if (line.startsWith('topics: ')) {
+        currentSection.topics = line.substring(8).trim();
+      } else if (!currentSection.subtitle && line.trim() && !line.startsWith('#') && !line.startsWith('slug:') && !line.startsWith('level:') && !line.startsWith('topics:')) {
+        currentSection.subtitle = line.trim();
+      } else if (!line.startsWith('slug:') && !line.startsWith('level:') && !line.startsWith('topics:') && line.trim()) {
+        if (currentSection.description) {
+          currentSection.description += ' ' + line.trim();
+        } else {
+          currentSection.description = line.trim();
+        }
+      }
+    }
+  }
+  
+  if (currentSection) {
+    sections.push(currentSection);
+  }
+  
+  return sections;
+}
+
+const classes = parseMarkdownSections(classesContent);
+const programs = parseMarkdownSections(programsContent);
+
+// Function to get appropriate image for each item
+function getImageForItem(title: string, topics: string) {
+  const titleLower = title.toLowerCase();
+  const topicsLower = topics.toLowerCase();
+  
+  if (titleLower.includes('java')) return '/images/cards/java.png';
+  if (titleLower.includes('python')) return '/images/cards/python.png';
+  if (titleLower.includes('robot') || topicsLower.includes('robotics')) return '/images/cards/computer-robot.png';
+  if (titleLower.includes('makecode') || titleLower.includes('arcade')) return '/images/cards/league_code.png';
+  return '/images/cards/league_code.png';
+}
 ---
 
 <BaseLayout

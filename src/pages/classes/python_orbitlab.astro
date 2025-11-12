@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Python OrbitLab"
+  description="Build solar system simulations to learn orbital mechanics and scientific computing."
+>
+  <HeroSection class="program-hero">
+    <h1 slot="tagline">Python OrbitLab</h1>
+    <p slot="description">
+      Build solar system simulations to learn orbital mechanics and scientific computing.
+    </p>
+    <div slot="media" class="program-hero__media">
+      <img
+        src="/images/cards/python.png"
+        alt="Python OrbitLab illustration"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Course Overview</h2>
+    </SectionHeader>
+    <div class="container">
+      <p>
+        Python OrbitLab introduces students to computational science through the
+        fascinating topic of orbital mechanics. Students program simulations of planets,
+        moons, and satellites, learning how gravity shapes the motion of celestial
+        bodies. The course teaches numerical integration, vector mathematics, and
+        physics simulation while developing a deep understanding of how our solar system
+        works. Students create visualizations of their simulations and explore what-if
+        scenarios, like adding extra planets or changing gravitational constants. This
+        course demonstrates how programming is used in real scientific research and
+        space exploration, connecting coding skills to STEM education in a highly
+        engaging way.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>

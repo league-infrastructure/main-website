@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Introduction to Python"
+  description="Beginning students' first experience with Python programming."
+>
+  <HeroSection class="program-hero">
+    <h1 slot="tagline">Introduction to Python</h1>
+    <p slot="description">
+      Beginning students' first experience with Python programming.
+    </p>
+    <div slot="media" class="program-hero__media">
+      <img
+        src="/images/cards/python.png"
+        alt="Python programming illustration"
+        loading="eager"
+      />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Course Overview</h2>
+    </SectionHeader>
+    <div class="container">
+      <p>
+        This foundational course introduces students in grades 4-12 to the Python
+        programming language for the first time. Students learn basic programming
+        concepts through engaging, hands-on projects that make coding fun and
+        accessible. This course serves as the gateway to our comprehensive Python
+        curriculum and prepares students for more advanced study. Classes meet once per
+        week for 1.5 hours with a 5:1 student-to-teacher ratio.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>
