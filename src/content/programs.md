@@ -1,8 +1,6 @@
-# Programs
 
 [ LLM Instructions: Use these entries to generate content for Programs, which are
 series of classes, courses or sessions around specific topics or format]
-
 
 ## Java and Python Weekly Classes
 

@@ -1,6 +1,3 @@
-# Classes
-
-
 ## Introduction to Python
 
 Beginning students' first experience with Python programming.
@@ -90,7 +87,7 @@ space exploration, connecting coding skills to STEM education in a highly
 engaging way.
 
 slug: python_orbitlab
-image: python.png
+image: orbit-lab.png
 level: advanced
 topics: python, science
 
@@ -150,7 +147,7 @@ tangible, playable results. It's perfect for students who love gaming and want
 to understand how their favorite games work.
 
 slug: makecode_arcade
-image: meowbit.png
+image: microbit-arcade.png
 level: beginner
 topics: programming, games, javascript
 
@@ -171,7 +168,7 @@ in electronics and automation. This hands-on class gives students practical
 skills for any project involving mechanical motion.
 
 slug: motors_clinic
-image: cutebot.png
+image: motors_clinic.png
 level: intermediate
 topics: programming, robotics
 
@@ -190,7 +187,7 @@ any electronics project. This clinic may be offered as part of the robotics
 robotics program or as a standalone workshop.
 
 slug: soldering_clinic
-image: cpp.png
+image: boy_soldering.png
 level: beginner
 topics: electronics, robotics
 
@@ -229,7 +226,7 @@ development and represents an innovative approach to teaching robotics through
 competitive gameplay.
 
 slug: robot_riot
-image: robot_garage_kids.png
+image: robot_riot.png
 level: beginner
 topics: programming, robotics
 

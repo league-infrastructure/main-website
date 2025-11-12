@@ -7,8 +7,10 @@ import CardGrid from "../components/CardGrid.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import CardBody from "../components/CardBody.astro";
 import CardFooter from "../components/CardFooter.astro";
+import ClassCard from "../components/ClassCard.astro";
 import fs from "fs";
 import path from "path";
+import { parseMarkdownSections, getTopicColor } from "../utils/markdown.js";
 
 // Read and parse the content files
 const contentDir = path.resolve("./src/content");
@@ -21,112 +23,21 @@ const programsContent = fs.readFileSync(
   "utf-8",
 );
 
-// Function to parse markdown sections
-function parseMarkdownSections(content: string) {
-  const sections = [];
-  const lines = content.split("\n");
-  let currentSection = null;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-
-    // Check for h2 headers (## Title)
-    if (line.startsWith("## ")) {
-      if (currentSection) {
-        sections.push(currentSection);
-      }
-      currentSection = {
-        title: line.substring(3).trim(),
-        subtitle: "",
-        description: "",
-        slug: "",
-        level: "",
-        topics: "",
-        classes: "",
-      };
-    } else if (currentSection) {
-      if (line.startsWith("slug: ")) {
-        currentSection.slug = line.substring(6).trim();
-      } else if (line.startsWith("level: ")) {
-        currentSection.level = line.substring(7).trim();
-      } else if (line.startsWith("topics: ")) {
-        currentSection.topics = line.substring(8).trim();
-      } else if (line.startsWith("classes: ")) {
-        currentSection.classes = line.substring(9).trim();
-      } else if (
-        !currentSection.subtitle &&
-        line.trim() &&
-        !line.startsWith("#") &&
-        !line.startsWith("slug:") &&
-        !line.startsWith("level:") &&
-        !line.startsWith("topics:") &&
-        !line.startsWith("classes:") &&
-        !line.startsWith("[")
-      ) {
-        currentSection.subtitle = line.trim();
-      } else if (
-        !line.startsWith("slug:") &&
-        !line.startsWith("level:") &&
-        !line.startsWith("topics:") &&
-        !line.startsWith("classes:") &&
-        line.trim()
-      ) {
-        if (currentSection.description) {
-          currentSection.description += " " + line.trim();
-        } else {
-          currentSection.description = line.trim();
-        }
-      }
-    }
-  }
-
-  if (currentSection) {
-    sections.push(currentSection);
-  }
-
-  return sections;
-}
-
+// Parse content using utility functions
 const classes = parseMarkdownSections(classesContent);
 const programs = parseMarkdownSections(programsContent);
 
-// Function to get appropriate image for each item
-function getImageForItem(title: string, topics: string) {
-  const titleLower = title.toLowerCase();
-  const topicsLower = topics.toLowerCase();
-
-  if (titleLower.includes("java")) return "/images/cards/java.png";
-  if (titleLower.includes("python")) return "/images/cards/python.png";
-  if (titleLower.includes("robot") || topicsLower.includes("robotics"))
-    return "/images/cards/computer-robot.png";
-  if (titleLower.includes("makecode") || titleLower.includes("arcade"))
-    return "/images/cards/league_code.png";
-  return "/images/cards/league_code.png";
-}
-
-// Function to get color for topic-based lozenges
-function getTopicColor(topics: string) {
-  const topicsLower = topics.toLowerCase();
-
-  if (topicsLower.includes("python")) return "var(--color-python, #306998)";
-  if (topicsLower.includes("java")) return "var(--color-java, #f89820)";
-  if (topicsLower.includes("robotics")) return "var(--color-robotics, #e74c3c)";
-  if (topicsLower.includes("electronics"))
-    return "var(--color-electronics, #9b59b6)";
-  if (topicsLower.includes("games")) return "var(--color-games, #2ecc71)";
-  if (topicsLower.includes("web")) return "var(--color-web, #3498db)";
-  return "var(--color-default, #95a5a6)";
-}
+// Topic color function is imported from utils
 
 // Function to get class details by slug
 function getClassBySlug(slug: string) {
-  return classes.find((c) => c.slug === slug);
+  return classes.find((c) => c.metadata.slug === slug);
 }
 
 // Function to parse class list from program
 function getClassesForProgram(program: any) {
-  if (!program.classes) return [];
-  return program.classes.split(",").map((slug: string) => slug.trim());
+  if (!program.metadata?.classes) return [];
+  return program.metadata.classes;
 }
 ---
 
@@ -169,12 +80,12 @@ function getClassesForProgram(program: any) {
           const programClasses = getClassesForProgram(program);
           return (
             <ProgramCard
-              img={getImageForItem(program.title, program.topics)}
+              img={`/images/cards/${program.metadata.image}`}
               alt={program.title}
             >
               <CardBody>
                 <h3>{program.title}</h3>
-                <p>{program.subtitle}</p>
+                <p>{program.shortDescription}</p>
                 {programClasses.length > 0 && (
                   <div class="class-lozenges">
                     <p class="lozenges-label">Classes in this program:</p>
@@ -186,7 +97,7 @@ function getClassesForProgram(program: any) {
                             <a
                               href={`/classes/${classSlug}`}
                               class="class-lozenge"
-                              style={`background-color: ${getTopicColor(classItem.topics)}`}
+                              style={`background-color: ${getTopicColor(classItem.metadata.topics)}`}
                             >
                               {classItem.title}
                             </a>
@@ -200,7 +111,7 @@ function getClassesForProgram(program: any) {
               </CardBody>
               <CardFooter>
                 <a
-                  href={`/programs/${program.slug}`}
+                  href={`/programs/${program.metadata.slug}`}
                   class="button button--primary"
                 >
                   Learn More
@@ -229,20 +140,14 @@ function getClassesForProgram(program: any) {
     <div class="classes-list">
       {
         classes.map((classItem) => (
-          <div class="class-item">
-            <h3 class="class-title">
-              <a href={`/classes/${classItem.slug}`} class="class-title-link">
-                {classItem.title}
-              </a>
-            </h3>
-            <p class="class-subtitle">{classItem.subtitle}</p>
-            {classItem.level && (
-              <p class="class-level-info">
-                <strong>Level:</strong> {classItem.level}
-              </p>
-            )}
-            <p class="class-description">{classItem.description}</p>
-          </div>
+          <ClassCard
+            img={`/images/cards/${classItem.metadata.image}`}
+            alt={classItem.title}
+            slug={classItem.metadata.slug}
+            title={classItem.title}
+            level={classItem.metadata.level}
+            description={classItem.shortDescription}
+          />
         ))
       }
     </div>
@@ -415,48 +320,7 @@ function getClassesForProgram(program: any) {
     margin: 0 auto;
   }
 
-  .class-item {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .class-item:last-child {
-    border-bottom: none;
-  }
-
-  .class-title {
-    margin-bottom: 0.5rem;
-  }
-
-  .class-title-link {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .class-title-link:hover {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
-  }
-
-  .class-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-
-  .class-level-info {
-    font-size: 0.9em;
-    color: var(--color-text-muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .class-description {
-    line-height: 1.6;
-    color: var(--color-body);
-  }
+  /* Class cards are now self-contained components */
 
   .programs-hero {
     background: linear-gradient(
