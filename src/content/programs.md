@@ -24,7 +24,7 @@ classes: java_weekly, intro_python, python_apprentice, python_games, python_web_
 blurb: Learn and have fun with robotics and electronics in Robot Riot and Tech
 Arcade classes. 
 
-description: [Update long description]
+description: The Robotics, AI and Technology program gives students a hands-on tour of modern intelligent systems, blending mechanical design, physical computing, and software thinking. Through Robot Riot and Tech Arcade labs learners prototype and program robots, wire sensors and actuators, and iterate on real-world engineering challenges in an energetic studio environment. AI Agents workshops introduce fundamental artificial intelligence concepts like perception, decision making, and responsible automation using approachable tools and experiments. The program emphasizes creativity, teamwork, and problem-solving while showing how robotics, machine learning, and emerging technologies intersect across industries—from manufacturing and healthcare to art and entertainment.
 
 slug: technology
 image: robot_garage_kids.png

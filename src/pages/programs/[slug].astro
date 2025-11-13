@@ -4,7 +4,6 @@ import ProgramLayout from "../../layouts/ProgramLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
-import ClassCard from "../../components/ClassCard.astro";
 import { getProgramsData, getClassesData } from "../../utils/markdown.js";
 
 interface ProgramEntry {
@@ -56,6 +55,7 @@ const heroImage = programData.metadata.image
   ? `/images/cards/${programData.metadata.image}`
   : "/images/cards/programs.png";
 const heroAlt = programData.title ?? "Program hero";
+const heroDescription = programData.blurb ?? programData.shortDescription;
 const descriptionText =
   programData.description || programData.blurb || programData.shortDescription || "";
 const descriptionParagraphs = descriptionText
@@ -67,31 +67,26 @@ const topics = programData.metadata.topics ?? [];
 
 <ProgramLayout
   title={programData.title}
-  description={programData.blurb ?? programData.description}
+  description={heroDescription ?? programData.description}
 >
   <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">{programData.title}</h1>
-    {(programData.blurb ?? programData.shortDescription) && (
-      <p slot="description">{programData.blurb ?? programData.shortDescription}</p>
+    {(heroDescription || topics.length > 0) && (
+      <div slot="description" class="program-hero__description">
+        {heroDescription && <p class="program-hero__lead">{heroDescription}</p>}
+        {topics.length > 0 && (
+          <div class="program-hero__topics">
+            {topics.map((topic) => (
+              <span class="topic-pill">{topic}</span>
+            ))}
+          </div>
+        )}
+      </div>
     )}
     <div slot="media" class="program-hero__media">
       <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
   </HeroSection>
-
-  <div slot="overview" class="program-overview">
-    {topics.length > 0 && (
-      <div class="topic-list">
-        {topics.map((topic) => (
-          <span class="topic-pill">{topic}</span>
-        ))}
-      </div>
-    )}
-
-    {(programData.blurb ?? programData.shortDescription) && (
-      <p>{programData.blurb ?? programData.shortDescription}</p>
-    )}
-  </div>
 
   <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-surface-alt)">
     <SectionHeader>
@@ -114,33 +109,37 @@ const topics = programData.metadata.topics ?? [];
         <p>Explore the classes that are part of this program pathway.</p>
       </SectionHeader>
 
-      <div class="related-classes">
-        {relatedClasses.map((classItem) => (
-          <ClassCard
-            img={`/images/cards/${classItem.metadata?.image ?? "programs.png"}`}
-            alt={classItem.title}
-            slug={classItem.metadata?.slug ?? ""}
-            title={classItem.title}
-            level={classItem.metadata?.level}
-            description={classItem.blurb ?? classItem.description ?? ""}
-          />
-        ))}
+      <div class="class-gallery">
+        {relatedClasses.map((classItem) => {
+          const classSlug = classItem.metadata?.slug ?? "";
+          const classHref = classSlug ? `/classes/${classSlug.replace(/_/g, "-")}` : undefined;
+          return (
+            <a href={classHref ?? "#"} class="class-gallery__item">
+              <img
+                src={`/images/cards/${classItem.metadata?.image ?? "programs.png"}`}
+                alt={classItem.title}
+                loading="lazy"
+              />
+              <span class="class-gallery__title">{classItem.title}</span>
+            </a>
+          );
+        })}
       </div>
     </Section>
   )}
 </ProgramLayout>
 
 <style>
-  .program-overview {
+  .program-hero__description {
     display: grid;
     gap: var(--space-md);
-    background: var(--color-surface);
-    padding: var(--space-xl);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
   }
 
-  .topic-list {
+  .program-hero__lead {
+    margin: 0;
+  }
+
+  .program-hero__topics {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
@@ -162,14 +161,40 @@ const topics = programData.metadata.topics ?? [];
     gap: var(--space-md);
   }
 
-  .related-classes {
+  .class-gallery {
     display: grid;
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
-  @media (min-width: 960px) {
-    .related-classes {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    }
+  .class-gallery__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
+
+  .class-gallery__item:hover,
+  .class-gallery__item:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 30, 73, 0.12);
+  }
+
+  .class-gallery__item img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 16px rgba(15, 30, 73, 0.1);
+  }
+
+  .class-gallery__title {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
 </style>
