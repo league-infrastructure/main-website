@@ -42,3 +42,5 @@
   category for the class ( in the class, this is the `group` slug. ) If there is
   enrollment information in the category, display a "How to Enroll" section on
   the class page with the enrollment text and enrollment buttons. 
+
+- In `classes.md` add an "<enroll>...</enroll>" content section to each of the class entries, right after 

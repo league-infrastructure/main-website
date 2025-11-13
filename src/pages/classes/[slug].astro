@@ -145,7 +145,11 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
   </Section>
 
   {hasEnrollSection && (
-    <Section startBgcolor="var(--color-surface-alt)" endBgcolor="var(--color-primary-soft)">
+    <Section
+      startBgcolor="var(--color-surface-alt)"
+      endBgcolor="var(--color-primary-soft)"
+      class="class-enroll-section"
+    >
       <SectionHeader>
         <h2>How to Enroll</h2>
       </SectionHeader>
@@ -257,5 +261,9 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
 
   .class-enroll__buttons {
     justify-content: center;
+  }
+
+  :global(.class-enroll-section .section__content) {
+    padding-top: 0;
   }
 </style>

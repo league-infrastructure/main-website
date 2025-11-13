@@ -239,6 +239,13 @@ import SpotlightCard from "../../components/SpotlightCard.astro";
           <p>Our weekly classes don't just teach coding syntax—they build deep comprehension that enables students to articulate complex programming concepts with confidence and clarity.</p>
         </SpotlightCard>
       </div>
+
+      <div class="student-quote">
+        <blockquote>
+          <p>“That was more fun than Disneyland”</p>
+        </blockquote>
+        <cite>— Nolan, after a Robot Garage session</cite>
+      </div>
     </Section>
 
     <!-- Program Locations Map -->
@@ -985,6 +992,35 @@ import SpotlightCard from "../../components/SpotlightCard.astro";
 
   .curriculum-item h4 {
     color: var(--color-primary);
+
+  .student-quote {
+    margin: var(--space-2xl) auto 0;
+    padding: var(--space-xl);
+    max-width: 720px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .student-quote blockquote {
+    margin: 0;
+    font-size: clamp(1.4rem, 1.2rem + 0.8vw, 2rem);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .student-quote blockquote p {
+    margin: 0;
+  }
+
+  .student-quote cite {
+    display: block;
+    margin-top: var(--space-md);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
     margin-bottom: var(--space-sm);
   }
 
