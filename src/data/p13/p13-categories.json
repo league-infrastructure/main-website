@@ -1,0 +1,49 @@
+{
+  "categories": [
+    {
+      "id": null,
+      "name": null,
+      "slug": "uncategorized"
+    },
+    {
+      "id": 94399,
+      "name": "After School Programs",
+      "slug": "after-school-programs"
+    },
+    {
+      "id": 93521,
+      "name": "Camps",
+      "slug": "camps"
+    },
+    {
+      "id": 94044,
+      "name": "Community Tech",
+      "slug": "community-tech"
+    },
+    {
+      "id": 93519,
+      "name": "Exam Preparation",
+      "slug": "exam-preparation"
+    },
+    {
+      "id": 93504,
+      "name": "Group Classes",
+      "slug": "group-classes"
+    },
+    {
+      "id": 93518,
+      "name": "Project Clinic",
+      "slug": "project-clinic"
+    },
+    {
+      "id": 78358,
+      "name": "Slams",
+      "slug": "slams"
+    },
+    {
+      "id": 93594,
+      "name": "Workshops",
+      "slug": "workshops"
+    }
+  ]
+}

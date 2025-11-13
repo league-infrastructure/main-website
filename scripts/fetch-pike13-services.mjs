@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CONFIG_PATH = path.resolve(__dirname, "../src/content/config.ts");
-const DATA_DIR = path.resolve(__dirname, "../src/data");
+const DATA_DIR = path.resolve(__dirname, "../src/data/p13");
 const ENV_PATH = path.resolve(__dirname, "../.env");
 const FRONT_ENDPOINTS = [
 	"/api/v2/front/services.json",
@@ -182,6 +182,7 @@ async function writeServices(data) {
 
 	const simplified = simplifyServices(data);
 	const grouped = new Map();
+	const categoriesById = new Map();
 
 	for (const service of simplified) {
 		const slug = service.category_slug ?? "uncategorized";
@@ -189,6 +190,16 @@ async function writeServices(data) {
 			grouped.set(slug, []);
 		}
 		grouped.get(slug).push(service);
+
+		const categoryId = service.category_id ?? null;
+		const categoryKey = categoryId ?? `slug:${slug}`;
+		if (!categoriesById.has(categoryKey)) {
+			categoriesById.set(categoryKey, {
+				id: categoryId,
+				name: service.category_name ?? null,
+				slug,
+			});
+		}
 	}
 
 	const targetFiles = new Set();
@@ -214,7 +225,21 @@ async function writeServices(data) {
 			.map((name) => rm(path.join(DATA_DIR, name), { force: true }))
 	);
 
-	return Array.from(targetFiles).sort((a, b) => a.localeCompare(b));
+	const categories = Array.from(categoriesById.values()).sort((a, b) => {
+		const nameA = a.name ?? "";
+		const nameB = b.name ?? "";
+		return nameA.localeCompare(nameB);
+	});
+
+	const categoriesFileName = "p13-categories.json";
+	const categoriesPath = path.join(DATA_DIR, categoriesFileName);
+	const categoriesPayload = JSON.stringify({ categories }, null, 2);
+	await writeFile(categoriesPath, `${categoriesPayload}\n`, "utf8");
+
+	return {
+		serviceFiles: Array.from(targetFiles).sort((a, b) => a.localeCompare(b)),
+		categoriesFile: categoriesFileName,
+	};
 }
 
 async function main() {
@@ -229,10 +254,12 @@ async function main() {
 		}
 
 		const services = await fetchServices(baseUrl, clientId);
-		const files = await writeServices(services);
+		const { serviceFiles, categoriesFile } = await writeServices(services);
+		const relativeDir = path.relative(process.cwd(), DATA_DIR);
 		console.log(
-			`Saved Pike13 services to ${files.length} files in ${path.relative(process.cwd(), DATA_DIR)}: ${files.join(", ")}`
+			`Saved Pike13 services to ${serviceFiles.length} files in ${relativeDir}: ${serviceFiles.join(", ")}`
 		);
+		console.log(`Saved Pike13 categories to ${path.join(relativeDir, categoriesFile)}`);
 	} catch (error) {
 		console.error(error instanceof Error ? error.message : error);
 		process.exitCode = 1;

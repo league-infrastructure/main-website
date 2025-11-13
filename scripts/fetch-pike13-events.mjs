@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CONFIG_PATH = path.resolve(__dirname, "../src/content/config.ts");
-const DATA_DIR = path.resolve(__dirname, "../src/data");
+const DATA_DIR = path.resolve(__dirname, "../src/data/p13");
 const OUTPUT_PATH = path.join(DATA_DIR, "p13e-events.json");
 const ENV_PATH = path.resolve(__dirname, "../.env");
 
@@ -35,6 +35,17 @@ const FRONT_RANGE_PARAM_VARIANTS = [
   { start: "start", end: "end" },
   { start: "from", end: "to" },
 ];
+
+const OMITTED_EVENT_FIELDS = new Set([
+  "capacity_remaining",
+  "show_capacity_to_clients",
+  "show_capacity_with_spaces_remain",
+  "show_capacity_threshold",
+  "timezone",
+]);
+
+const PER_PAGE = 200;
+const MAX_PAGES = 50;
 
 const USER_AGENT = "LeagueWebsite/1.0 (+https://www.jointheleague.org)";
 let envLoaded = false;
@@ -122,7 +133,7 @@ async function fetchEvents(baseUrl, clientId, range) {
   for (const suffix of DESK_ENDPOINT_SUFFIXES) {
     for (const variant of DESK_RANGE_PARAM_VARIANTS) {
       const endpointUrl = new URL(suffix, baseUrl);
-      endpointUrl.searchParams.set("per_page", "200");
+      endpointUrl.searchParams.set("per_page", String(PER_PAGE));
       endpointUrl.searchParams.set(variant.start, range.start);
       endpointUrl.searchParams.set(variant.end, range.end);
       if (clientId) {
@@ -148,7 +159,23 @@ async function fetchEvents(baseUrl, clientId, range) {
         const bodyText = await response.text();
         try {
           const payload = JSON.parse(bodyText);
-          return { payload, endpoint: endpointUrl.toString(), params: variant, source: "desk" };
+          const events = extractEventsArray(payload);
+          const totalEntries = readTotalEntries(payload);
+          const totalPages = readTotalPages(payload);
+          return {
+            events,
+            params: variant,
+            source: "desk",
+            requests: [
+              {
+                endpoint: endpointUrl.toString(),
+                page: 1,
+                received: events.length,
+                total_entries: totalEntries,
+                total_pages: totalPages,
+              },
+            ],
+          };
         } catch (parseError) {
           throw new Error("Unexpected response payload while parsing JSON");
         }
@@ -184,36 +211,73 @@ async function fetchFrontEvents(baseUrl, clientId, range, previousFailures = [])
 
   for (const suffix of FRONT_ENDPOINT_SUFFIXES) {
     for (const variant of FRONT_RANGE_PARAM_VARIANTS) {
-      const endpointUrl = new URL(suffix, baseUrl);
-      endpointUrl.searchParams.set("per_page", "200");
-      endpointUrl.searchParams.set(variant.start, range.start);
-      endpointUrl.searchParams.set(variant.end, range.end);
-      if (clientId) {
-        endpointUrl.searchParams.set("client_id", clientId);
-      }
+      const requests = [];
+      const collectedEvents = [];
 
       try {
-        const response = await fetch(endpointUrl, {
-          headers: {
-            Accept: "application/json",
-            "User-Agent": USER_AGENT,
-            "Client-Id": clientId ?? "",
-          },
-        });
+        for (let page = 1; page <= MAX_PAGES; page++) {
+          const endpointUrl = new URL(suffix, baseUrl);
+          endpointUrl.searchParams.set("per_page", String(PER_PAGE));
+          endpointUrl.searchParams.set(variant.start, range.start);
+          endpointUrl.searchParams.set(variant.end, range.end);
+          endpointUrl.searchParams.set("page", String(page));
+          if (clientId) {
+            endpointUrl.searchParams.set("client_id", clientId);
+          }
 
-        if (!response.ok) {
-          const errorBody = await response.text();
-          throw new Error(
-            `${response.status} ${response.statusText}${errorBody ? ` - ${errorBody}` : ""}`
-          );
+          const response = await fetch(endpointUrl, {
+            headers: {
+              Accept: "application/json",
+              "User-Agent": USER_AGENT,
+              "Client-Id": clientId ?? "",
+            },
+          });
+
+          if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(
+              `${response.status} ${response.statusText}${errorBody ? ` - ${errorBody}` : ""}`
+            );
+          }
+
+          const bodyText = await response.text();
+          let payload;
+          try {
+            payload = JSON.parse(bodyText);
+          } catch (parseError) {
+            throw new Error("Unexpected response payload while parsing JSON");
+          }
+
+          const pageEvents = extractEventsArray(payload);
+          collectedEvents.push(...pageEvents);
+          const totalEntries = readTotalEntries(payload);
+          const totalPages = readTotalPages(payload);
+          requests.push({
+            endpoint: endpointUrl.toString(),
+            page,
+            received: pageEvents.length,
+            total_entries: totalEntries,
+            total_pages: totalPages,
+          });
+
+          const hasMore = shouldRequestNextPage({
+            payload,
+            currentPage: page,
+            received: pageEvents.length,
+          });
+
+          if (!hasMore) {
+            break;
+          }
         }
 
-        const bodyText = await response.text();
-        try {
-          const payload = JSON.parse(bodyText);
-          return { payload, endpoint: endpointUrl.toString(), params: variant, source: "front" };
-        } catch (parseError) {
-          throw new Error("Unexpected response payload while parsing JSON");
+        if (requests.length > 0) {
+          return {
+            events: collectedEvents,
+            params: variant,
+            source: "front",
+            requests,
+          };
         }
       } catch (error) {
         failures.push({
@@ -252,23 +316,44 @@ async function main() {
       );
     }
 
-    const { payload, endpoint, params, source } = await fetchEvents(baseUrl, clientId, range);
-    const eventsArray = Array.isArray(payload?.events)
-      ? payload.events
-      : Array.isArray(payload?.event_occurrences)
-      ? payload.event_occurrences
-      : [];
+    const { events: eventsArray, params, source, requests } = await fetchEvents(
+      baseUrl,
+      clientId,
+      range
+    );
 
     const metadata = {
       fetched_at: new Date().toISOString(),
-      endpoint,
+      endpoint: requests?.[0]?.endpoint ?? null,
+      endpoints: Array.isArray(requests)
+        ? requests.map((entry) => entry.endpoint)
+        : undefined,
       source,
       range,
       params,
       item_count: eventsArray.length,
+      per_page: PER_PAGE,
+      pages_fetched: requests?.length ?? 0,
+      total_entries: requests?.[0]?.total_entries ?? null,
+      total_pages: requests?.[0]?.total_pages ?? null,
     };
 
-    await writeEvents({ metadata, events: eventsArray });
+    const sanitizedEvents = eventsArray.map((event) => {
+      if (!event || typeof event !== "object" || Array.isArray(event)) {
+        return event;
+      }
+
+      const trimmed = {};
+      for (const [key, value] of Object.entries(event)) {
+        if (!OMITTED_EVENT_FIELDS.has(key)) {
+          trimmed[key] = value;
+        }
+      }
+
+      return trimmed;
+    });
+
+    await writeEvents({ metadata, events: sanitizedEvents });
     console.log(`Saved ${metadata.item_count} Pike13 events to ${path.relative(process.cwd(), OUTPUT_PATH)}`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);
@@ -277,3 +362,69 @@ async function main() {
 }
 
 void main();
+
+function extractEventsArray(payload) {
+  if (!payload) {
+    return [];
+  }
+
+  if (Array.isArray(payload.events)) {
+    return payload.events;
+  }
+
+  if (Array.isArray(payload.event_occurrences)) {
+    return payload.event_occurrences;
+  }
+
+  if (Array.isArray(payload.data)) {
+    return payload.data;
+  }
+
+  return [];
+}
+
+function readTotalEntries(payload) {
+  const meta = payload?.meta ?? payload?.pagination ?? payload?.pager ?? null;
+  if (meta && typeof meta.total_entries === "number") {
+    return meta.total_entries;
+  }
+
+  if (meta && typeof meta.total === "number") {
+    return meta.total;
+  }
+
+  return null;
+}
+
+function readTotalPages(payload) {
+  const meta = payload?.meta ?? payload?.pagination ?? payload?.pager ?? null;
+  if (meta && typeof meta.total_pages === "number") {
+    return meta.total_pages;
+  }
+
+  if (meta && typeof meta.pages === "number") {
+    return meta.pages;
+  }
+
+  return null;
+}
+
+function shouldRequestNextPage({ payload, currentPage, received }) {
+  const meta = payload?.meta ?? payload?.pagination ?? payload?.pager ?? null;
+
+  if (meta) {
+    if (typeof meta.current_page === "number" && typeof meta.total_pages === "number") {
+      return meta.current_page < meta.total_pages;
+    }
+
+    if (typeof meta.next_page === "number") {
+      return meta.next_page > currentPage;
+    }
+
+    if (meta.next || meta.next_url || meta.links?.next) {
+      return true;
+    }
+  }
+
+  return received === PER_PAGE && currentPage < MAX_PAGES;
+}

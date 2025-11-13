@@ -16,3 +16,10 @@ export const socialLinks = [
   { label: 'YouTube', icon: 'youtube', href: 'https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A' },
   { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/the-league-of-amazing-programmers' }
 ];
+
+
+export const meetupGroups = [
+  { label: 'LEAGUE Tech Club', href: 'https://www.meetup.com/the-league-tech-club/' },
+  { label: 'Code Clinic', href: 'https://www.meetup.com/the-league-code-clinic' }
+
+]

@@ -18,18 +18,30 @@ slug: java_python_weekly
 image: java.png
 topics: programming
 classes: java_weekly, intro_python, python_apprentice, python_games, python_web_games, python_orbitlab, private_tutoring
+category: group-classes
 
-## Robotics, AI and Technology Classes
+## Robotics, AI and Technology 
 
 blurb: Learn and have fun with robotics and electronics in Robot Riot and Tech
 Arcade classes. 
 
-description: The Robotics, AI and Technology program gives students a hands-on tour of modern intelligent systems, blending mechanical design, physical computing, and software thinking. Through Robot Riot and Tech Arcade labs learners prototype and program robots, wire sensors and actuators, and iterate on real-world engineering challenges in an energetic studio environment. AI Agents workshops introduce fundamental artificial intelligence concepts like perception, decision making, and responsible automation using approachable tools and experiments. The program emphasizes creativity, teamwork, and problem-solving while showing how robotics, machine learning, and emerging technologies intersect across industries—from manufacturing and healthcare to art and entertainment.
+description: The Robotics, AI and Technology program gives students a hands-on
+tour of modern intelligent systems, blending mechanical design, physical
+computing, and software thinking. Through Robot Riot and Tech Arcade labs
+learners prototype and program robots, wire sensors and actuators, and iterate
+on real-world engineering challenges in an energetic studio environment. AI
+Agents workshops introduce fundamental artificial intelligence concepts like
+perception, decision making, and responsible automation using approachable tools
+and experiments. The program emphasizes creativity, teamwork, and
+problem-solving while showing how robotics, machine learning, and emerging
+technologies intersect across industries—from manufacturing and healthcare to
+art and entertainment.
 
 slug: technology
 image: robot_garage_kids.png
 topics: technology
 classes: robot_riot, tech_arcade, ai_agents
+category: group-classes
 
 ## Tech Club 
 
@@ -50,7 +62,7 @@ slug: tech_club
 image: current_students.png
 topics: programming, robotics, electronics, games
 classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arcade
-
+meetup: 
 ## Robot Garage
 
 blurb: Advanced robotics course building on Robot Riot fundamentals.

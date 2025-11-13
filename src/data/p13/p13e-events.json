@@ -1,17 +1,24 @@
 {
   "metadata": {
-    "fetched_at": "2025-11-13T06:10:07.709Z",
-    "endpoint": "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-12T06%3A10%3A03.183Z&starts_before=2026-03-03T06%3A10%3A03.183Z&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M",
+    "fetched_at": "2025-11-13T06:43:56.638Z",
+    "endpoint": "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-12T06%3A43%3A55.428Z&starts_before=2026-03-03T06%3A43%3A55.428Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M",
+    "endpoints": [
+      "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-12T06%3A43%3A55.428Z&starts_before=2026-03-03T06%3A43%3A55.428Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M"
+    ],
     "source": "front",
     "range": {
-      "start": "2025-11-12T06:10:03.183Z",
-      "end": "2026-03-03T06:10:03.183Z"
+      "start": "2025-11-12T06:43:55.428Z",
+      "end": "2026-03-03T06:43:55.428Z"
     },
     "params": {
       "start": "starts_after",
       "end": "starts_before"
     },
-    "item_count": 9
+    "item_count": 9,
+    "per_page": 200,
+    "pages_fetched": 1,
+    "total_entries": null,
+    "total_pages": null
   },
   "events": [
     {
@@ -24,7 +31,6 @@
       "start_at": "2025-11-13T01:00:00Z",
       "end_at": "2025-11-13T02:30:00Z",
       "url": "https://jtl.pike13.com/e/249062666",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
       "staff_members": []
@@ -39,7 +45,6 @@
       "start_at": "2025-11-13T02:30:00Z",
       "end_at": "2025-11-13T04:00:00Z",
       "url": "https://jtl.pike13.com/e/249064747",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
       "staff_members": []
@@ -54,13 +59,8 @@
       "start_at": "2025-11-13T01:00:00Z",
       "end_at": "2025-11-13T02:30:00Z",
       "url": "https://jtl.pike13.com/e/249066171",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
-      "capacity_remaining": 3,
-      "show_capacity_to_clients": true,
-      "show_capacity_with_spaces_remain": false,
-      "show_capacity_threshold": null,
       "resources": [
         {
           "id": 8100,
@@ -80,13 +80,8 @@
       "start_at": "2025-11-12T23:15:00Z",
       "end_at": "2025-11-13T00:45:00Z",
       "url": "https://jtl.pike13.com/e/249091648",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
-      "capacity_remaining": 4,
-      "show_capacity_to_clients": true,
-      "show_capacity_with_spaces_remain": false,
-      "show_capacity_threshold": null,
       "staff_members": [
         {
           "id": 9206610,
@@ -105,13 +100,8 @@
       "start_at": "2025-11-12T23:15:00Z",
       "end_at": "2025-11-13T00:45:00Z",
       "url": "https://jtl.pike13.com/e/249091649",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
-      "capacity_remaining": 4,
-      "show_capacity_to_clients": true,
-      "show_capacity_with_spaces_remain": false,
-      "show_capacity_threshold": null,
       "staff_members": [
         {
           "id": 9206610,
@@ -130,13 +120,8 @@
       "start_at": "2025-11-12T23:30:00Z",
       "end_at": "2025-11-13T01:00:00Z",
       "url": "https://jtl.pike13.com/e/251600967",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
-      "capacity_remaining": 5,
-      "show_capacity_to_clients": true,
-      "show_capacity_with_spaces_remain": false,
-      "show_capacity_threshold": null,
       "staff_members": [
         {
           "id": 10166404,
@@ -155,13 +140,8 @@
       "start_at": "2025-11-13T02:30:00Z",
       "end_at": "2025-11-13T04:00:00Z",
       "url": "https://jtl.pike13.com/e/251964957",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
-      "capacity_remaining": 4,
-      "show_capacity_to_clients": true,
-      "show_capacity_with_spaces_remain": false,
-      "show_capacity_threshold": null,
       "staff_members": [
         {
           "id": 10166404,
@@ -181,13 +161,8 @@
       "end_at": "2025-11-12T22:00:00Z",
       "course_dates": "September 3, 2025",
       "url": "https://jtl.pike13.com/events/16375288",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
-      "capacity_remaining": 9,
-      "show_capacity_to_clients": true,
-      "show_capacity_with_spaces_remain": false,
-      "show_capacity_threshold": null,
       "waitlist": {
         "full": false
       }
@@ -203,7 +178,6 @@
       "end_at": "2025-11-12T23:00:00Z",
       "course_dates": "September 24, 2025 - December 17, 2025",
       "url": "https://jtl.pike13.com/events/16769526",
-      "timezone": "America/Los_Angeles",
       "state": "active",
       "full": false,
       "staff_members": [
