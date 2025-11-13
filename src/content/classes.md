@@ -12,6 +12,8 @@ accessible. This course serves as the gateway to our comprehensive Python
 curriculum and prepares students for more advanced study. Classes meet once per
 week for 1.5 hours with a 5:1 student-to-teacher ratio. </content>
 
+
+
 ```
 slug: intro-python
 image: python.png
