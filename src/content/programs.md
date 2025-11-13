@@ -82,12 +82,20 @@ category: group-classes
 
 ## Tech Club
 
-Free introductory classes in Python, Java, robotics, and electronics offered at schools and libraries.
+Free introductory classes in Python, Java, robotics, and electronics offered at
+schools, libraries and online
 
-Tech Club brings coding education to students who might not otherwise have access, offering free introductory courses at schools and libraries throughout San Diego County.
+Tech Club brings coding education to students who might not otherwise have
+access, offering free introductory courses at schools and libraries throughout
+San Diego County.
 
-<content>
-These 60-90 minute sessions introduce students in grades 3-12 to programming through hands-on projects in Python, Java, robotics, and electronics. With a less than 10:1 student-to-teacher ratio and no cost to families, Tech Club removes barriers to computer science education. Many students who start in Tech Club later transition to our paid weekly classes as they advance, but Tech Club provides valuable programming experience regardless of whether students continue. Classes run year-round at various locations.
+<content> These 60-90 minute sessions introduce students in grades 3-12 to
+programming through hands-on projects in Python, Java, robotics, and
+electronics. With a less than 10:1 student-to-teacher ratio and no cost to
+families, Tech Club removes barriers to computer science education. Many
+students who start in Tech Club later transition to our paid weekly classes as
+they advance, but Tech Club provides valuable programming experience regardless
+of whether students continue. Classes run year-round at various locations.
 
 - Multiple weekly meetups hosted across San Diego County
 - Volunteer mentors and alumni support for personalized guidance
@@ -97,9 +105,10 @@ These 60-90 minute sessions introduce students in grades 3-12 to programming thr
 
 ```
 slug: tech-club
-image: current_students.png
+image: robot_riot.png
 topics: programming, robotics, electronics, games
 classes: intro-python, robot-riot, motors-clinic, soldering-clinic, makecode-arcade
+category: community-tech
 meetup: tech-club
 ```
 
@@ -107,10 +116,19 @@ meetup: tech-club
 
 Advanced robotics course building on Robot Riot fundamentals.
 
-In the Robot Garage students of any level can pursue projects in electronics, robotics, and programming while sharpening their engineering intuition.
+In the Robot Garage students of any level can pursue projects in electronics,
+robotics, and programming while sharpening their engineering intuition.
 
-<content>
-Students learn the detailed functioning of motor signals and power systems, basic electrical circuits, how servos and stepper motors work at a technical level, 3D printing for custom robot parts, and soldering electronics. Special projects might include the beginnings of robotic navigation, working with sensors like sonar, infrared distance sensors, and April Tags for robot awareness and positioning. Projects become more ambitious and student-directed, allowing learners to pursue their specific interests whether that's competition robotics, practical automation, or creative robotic art. The course prepares students for participation in robotics competitions and provides skills directly applicable to careers in robotics engineering, automation, and mechatronics.
+<content> Students learn the detailed functioning of motor signals and power
+systems, basic electrical circuits, how servos and stepper motors work at a
+technical level, 3D printing for custom robot parts, and soldering electronics.
+Special projects might include the beginnings of robotic navigation, working
+with sensors like sonar, infrared distance sensors, and April Tags for robot
+awareness and positioning. Projects become more ambitious and student-directed,
+allowing learners to pursue their specific interests whether that's competition
+robotics, practical automation, or creative robotic art. The course prepares
+students for participation in robotics competitions and provides skills directly
+applicable to careers in robotics engineering, automation, and mechatronics.
 
 - Deep dives into motor control, sensors, and power systems
 - Fabrication practice with 3D printing and soldering
@@ -125,14 +143,39 @@ classes: robot-riot, motors-clinic, soldering-clinic, hour-of-microbit
 meetup: tech-club
 ```
 
-## Code Clinic
 
-Free online classes teaching professional programming technologies and advanced techniques.
 
-Code Clinic offers free online instruction in professional-level programming tools and techniques for advanced students.
+## League Labs
 
-<content>
-These classes cover topics like version control systems, professional development environments, software testing, debugging strategies, and industry-standard practices that professional programmers use daily. Code Clinic helps bridge the gap between learning syntax and working like a professional developer, preparing students for internships, jobs, and university-level computer science. These classes are offered free as part of our mission to prepare youth for technology careers.
+Advanced program where students learn advanced techniques and work as
+apprentices on research projects.
+
+League Lab provides an advanced learning environment for students who have
+progressed beyond our standard curriculum and are ready for professional-level
+work, thorough in-person projects and online classes in our Code Clinic meetup. 
+
+<content> Students in League Labs function as apprentices, working on substantial
+research projects, contributing to open-source software, or developing their own
+ambitious applications. With guidance from professional developers and computer
+scientists, students learn advanced topics like machine learning, systems
+programming, algorithm design, or specialized domains they're passionate about.
+League Lab students often present their work at conferences, publish papers, or
+launch real products. This program develops the independent learning and
+problem-solving skills essential for success in computer science careers and
+research.
+
+- Apprenticeship-style mentorship with experienced engineers and researchers
+- Opportunities to contribute to open-source and real-world software projects
+- Exposure to advanced topics tailored to each student's interests and goals
+
+To prepare for projects, students can take free short classes in our Code CLinic
+meetup.  Classes cover topics like version control systems, professional
+development environments, software testing, debugging strategies, and
+industry-standard practices that professional programmers use daily. Code Clinic
+helps bridge the gap between learning syntax and working like a professional
+developer, preparing students for internships, jobs, and university-level
+computer science. These classes are offered free as part of our mission to
+prepare youth for technology careers.
 
 - Weekly online masterclasses led by professional engineers
 - Focus on emerging technologies such as machine learning and containerization
@@ -140,29 +183,9 @@ These classes cover topics like version control systems, professional developmen
 </content>
 
 ```
-slug: code-clinic
-image: computer-robot.png
-topics: programming, robotics, electronics
-meetup: code-clinic
-```
-
-## League Lab
-
-Advanced program where students work as apprentices on research projects and learn sophisticated programming.
-
-League Lab provides an advanced learning environment for students who have progressed beyond our standard curriculum and are ready for professional-level work.
-
-<content>
-Students in League Lab function as apprentices, working on substantial research projects, contributing to open-source software, or developing their own ambitious applications. With guidance from professional developers and computer scientists, students learn advanced topics like machine learning, systems programming, algorithm design, or specialized domains they're passionate about. League Lab students often present their work at conferences, publish papers, or launch real products. This program develops the independent learning and problem-solving skills essential for success in computer science careers and research.
-
-- Apprenticeship-style mentorship with experienced engineers and researchers
-- Opportunities to contribute to open-source and real-world software projects
-- Exposure to advanced topics tailored to each student's interests and goals
-</content>
-
-```
 slug: league-lab
-image: league_code.png
-topics: programming, robotics, electronics, career
+image: league_labs.png
+topics: programming, robotics, electronics, career, projects
+meetup: code-clinic
 ```
 

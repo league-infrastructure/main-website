@@ -4,6 +4,7 @@ import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import { marked } from "marked";
 import { getClassesData } from "../../utils/markdown.js";
 
 interface ClassEntry {
@@ -11,6 +12,7 @@ interface ClassEntry {
   blurb?: string;
   description?: string;
   shortDescription?: string;
+  content?: string;
   metadata?: {
     slug?: string;
     image?: string;
@@ -51,6 +53,8 @@ const descriptionParagraphs = descriptionText
   .filter((paragraph) => paragraph.length > 0);
 const topics = classData.metadata.topics ?? [];
 const level = classData.metadata.level;
+const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
+const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
 ---
 
 <ClassLayout
@@ -74,7 +78,9 @@ const level = classData.metadata.level;
 
     <div class="class-content">
       <div class="class-description">
-        {descriptionParagraphs.length > 0 ? (
+        {renderedContent ? (
+          <div class="class-description__body" set:html={renderedContent} />
+        ) : descriptionParagraphs.length > 0 ? (
           descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)
         ) : (
           <p>Course information will be available soon.</p>

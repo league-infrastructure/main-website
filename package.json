@@ -12,7 +12,6 @@
     "p13-services": "node scripts/fetch-pike13-services.mjs",
     "p13-events": "node scripts/fetch-pike13-events.mjs",
     "p13": "npm run p13-services && npm run p13-events"
-
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
@@ -20,6 +19,7 @@
     "fulldev-ui": "^0.6.5",
     "js-yaml": "^4.1.0",
     "lottie-web": "^5.13.0",
+    "marked": "^12.0.2",
     "puppeteer": "^24.27.0",
     "sharp": "^0.34.5"
   },

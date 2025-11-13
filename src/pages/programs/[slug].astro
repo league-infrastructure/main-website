@@ -4,6 +4,7 @@ import ProgramLayout from "../../layouts/ProgramLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import { marked } from "marked";
 import { getProgramsData, getClassesData } from "../../utils/markdown.js";
 
 interface ProgramEntry {
@@ -11,6 +12,7 @@ interface ProgramEntry {
   blurb?: string;
   description?: string;
   shortDescription?: string;
+  content?: string;
   metadata?: {
     slug?: string;
     image?: string;
@@ -63,6 +65,8 @@ const descriptionParagraphs = descriptionText
   .map((paragraph) => paragraph.trim())
   .filter((paragraph) => paragraph.length > 0);
 const topics = programData.metadata.topics ?? [];
+const hasContent = Boolean(programData.content && programData.content.trim().length > 0);
+const renderedContent = hasContent ? await marked.parse(programData.content ?? "") : undefined;
 ---
 
 <ProgramLayout
@@ -94,7 +98,9 @@ const topics = programData.metadata.topics ?? [];
     </SectionHeader>
 
     <div class="program-content">
-      {descriptionParagraphs.length > 0 ? (
+      {renderedContent ? (
+        <div class="program-content__body" set:html={renderedContent} />
+      ) : descriptionParagraphs.length > 0 ? (
         descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)
       ) : (
         <p>Additional program details will be published soon.</p>
