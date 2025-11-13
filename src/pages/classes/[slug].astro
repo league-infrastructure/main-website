@@ -8,9 +8,9 @@ import { getClassesData } from "../../utils/markdown.js";
 
 interface ClassEntry {
   title: string;
-  shortDescription?: string;
-  fullDescription?: string;
+  blurb?: string;
   description?: string;
+  shortDescription?: string;
   metadata?: {
     slug?: string;
     image?: string;
@@ -43,7 +43,8 @@ const heroImage = classData.metadata.image
   ? `/images/cards/${classData.metadata.image}`
   : "/images/cards/computer-robot.png";
 const heroAlt = classData.title ?? "Class hero";
-const descriptionText = classData.fullDescription || classData.description || classData.shortDescription || "";
+const descriptionText =
+  classData.description || classData.blurb || classData.shortDescription || "";
 const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
@@ -52,11 +53,14 @@ const topics = classData.metadata.topics ?? [];
 const level = classData.metadata.level;
 ---
 
-<ClassLayout title={classData.title} description={classData.shortDescription}>
+<ClassLayout
+  title={classData.title}
+  description={classData.blurb ?? classData.description}
+>
   <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">{classData.title}</h1>
-    {classData.shortDescription && (
-      <p slot="description">{classData.shortDescription}</p>
+    {(classData.blurb ?? classData.shortDescription) && (
+      <p slot="description">{classData.blurb ?? classData.shortDescription}</p>
     )}
     <div slot="media" class="program-hero__media">
       <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
@@ -105,19 +109,19 @@ const level = classData.metadata.level;
 <style>
   .class-content {
     display: grid;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     grid-template-columns: minmax(0, 1fr);
   }
 
   .class-description {
     display: grid;
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
 
   .class-sidebar {
     display: grid;
-    gap: var(--space-lg);
-    padding: var(--space-lg);
+    gap: var(--space-md);
+    padding: var(--space-md);
     background: var(--color-surface-alt);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
@@ -164,6 +168,12 @@ const level = classData.metadata.level;
   @media (min-width: 960px) {
     .class-content {
       grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .class-sidebar {
+      padding: var(--space-lg);
+      gap: var(--space-lg);
     }
   }
 </style>

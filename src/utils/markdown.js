@@ -87,10 +87,12 @@ export function parseMarkdownSections(content) {
 
     return {
       title,
-      shortDescription: blurb,
-      fullDescription: description,
+      blurb,
       description: description || blurb,
       metadata: metadataFields,
+      // Legacy fields retained for backward compatibility; consider removing once all consumers migrate.
+      shortDescription: blurb,
+      fullDescription: description,
     };
   });
 }

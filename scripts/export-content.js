@@ -26,10 +26,21 @@ function writeJsonFile(baseName, data) {
   return targetPath;
 }
 
+function normalizeEntries(entries) {
+  return entries.map((entry) => ({
+    title: entry.title,
+    blurb: entry.blurb ?? entry.shortDescription ?? "",
+    description:
+      entry.description ?? entry.fullDescription ?? entry.shortDescription ?? "",
+    metadata: entry.metadata ?? {},
+  }));
+}
+
 function exportMarkdownToJson(source, targetBaseName) {
   const markdown = readContentFile(source);
   const parsed = parseMarkdownSections(markdown);
-  const outputPath = writeJsonFile(targetBaseName, parsed);
+  const normalized = normalizeEntries(parsed);
+  const outputPath = writeJsonFile(targetBaseName, normalized);
   console.log(`Exported ${source} -> ${path.relative(process.cwd(), outputPath)}`);
 }
 

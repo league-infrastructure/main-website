@@ -9,9 +9,9 @@ import { getProgramsData, getClassesData } from "../../utils/markdown.js";
 
 interface ProgramEntry {
   title: string;
-  shortDescription?: string;
-  fullDescription?: string;
+  blurb?: string;
   description?: string;
+  shortDescription?: string;
   metadata?: {
     slug?: string;
     image?: string;
@@ -56,7 +56,8 @@ const heroImage = programData.metadata.image
   ? `/images/cards/${programData.metadata.image}`
   : "/images/cards/programs.png";
 const heroAlt = programData.title ?? "Program hero";
-const descriptionText = programData.fullDescription || programData.description || programData.shortDescription || "";
+const descriptionText =
+  programData.description || programData.blurb || programData.shortDescription || "";
 const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
@@ -64,11 +65,14 @@ const descriptionParagraphs = descriptionText
 const topics = programData.metadata.topics ?? [];
 ---
 
-<ProgramLayout title={programData.title} description={programData.shortDescription}>
+<ProgramLayout
+  title={programData.title}
+  description={programData.blurb ?? programData.description}
+>
   <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">{programData.title}</h1>
-    {programData.shortDescription && (
-      <p slot="description">{programData.shortDescription}</p>
+    {(programData.blurb ?? programData.shortDescription) && (
+      <p slot="description">{programData.blurb ?? programData.shortDescription}</p>
     )}
     <div slot="media" class="program-hero__media">
       <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
@@ -84,8 +88,8 @@ const topics = programData.metadata.topics ?? [];
       </div>
     )}
 
-    {programData.shortDescription && (
-      <p>{programData.shortDescription}</p>
+    {(programData.blurb ?? programData.shortDescription) && (
+      <p>{programData.blurb ?? programData.shortDescription}</p>
     )}
   </div>
 
@@ -118,7 +122,7 @@ const topics = programData.metadata.topics ?? [];
             slug={classItem.metadata?.slug ?? ""}
             title={classItem.title}
             level={classItem.metadata?.level}
-            description={classItem.shortDescription ?? ""}
+            description={classItem.blurb ?? classItem.description ?? ""}
           />
         ))}
       </div>

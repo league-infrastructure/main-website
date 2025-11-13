@@ -86,7 +86,7 @@ function getClassesForProgram(program: any) {
                     program.title
                   )}
                 </h3>
-                <p>{program.shortDescription}</p>
+                <p>{program.blurb ?? program.description}</p>
               </CardBody>
               <CardFooter>
                 {programClasses.length > 0 && (
@@ -150,7 +150,7 @@ function getClassesForProgram(program: any) {
             slug={classItem.metadata.slug}
             title={classItem.title}
             level={classItem.metadata.level}
-            description={classItem.shortDescription}
+            description={classItem.blurb ?? classItem.description ?? ""}
           />
         ))
       }
