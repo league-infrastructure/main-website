@@ -11,11 +11,27 @@ import ClassCard from "../components/ClassCard.astro";
 import {
   getClassesData,
   getProgramsData,
+  getCategoriesData,
   getTopicColor,
 } from "../utils/markdown.js";
 
 const classes = getClassesData();
 const programs = getProgramsData();
+const categories = getCategoriesData();
+
+const categoryLookup = new Map(
+  categories
+    .map((category) => {
+      const slug = category.slug ?? category.metadata?.slug ?? category.meta?.slug;
+      return slug ? [slug, category] : undefined;
+    })
+    .filter(Boolean) as Array<[string, typeof categories[number]]>
+);
+
+const categorySections = [
+  { slug: "group-classes", fallbackTitle: "Weekly Classes" },
+  { slug: "community-tech", fallbackTitle: "Community Programs" },
+];
 
 // Topic color function is imported from utils
 
@@ -28,6 +44,18 @@ function getClassBySlug(slug: string) {
 function getClassesForProgram(program: any) {
   if (!program.metadata?.classes) return [];
   return program.metadata.classes;
+}
+
+function getProgramsForCategory(slug: string) {
+  return programs.filter((program) => {
+    const programCategories =
+      (Array.isArray(program.category) && program.category.length > 0
+        ? program.category
+        : Array.isArray(program.metadata?.category)
+          ? program.metadata.category
+          : []) ?? [];
+    return programCategories.includes(slug);
+  });
 }
 ---
 
@@ -51,82 +79,94 @@ function getClassesForProgram(program: any) {
     </div>
   </HeroSection>
 
-  <!-- Programs Section -->
-  <Section
-    startBgcolor="var(--color-surface)"
-    endBgcolor="var(--color-primary-soft)"
-  >
-    <SectionHeader>
-      <h2>Programs</h2>
-      <p>
-        Comprehensive learning pathways and specialized program offerings that
-        guide students through structured educational experiences.
-      </p>
-    </SectionHeader>
+  {
+    categorySections.map(({ slug, fallbackTitle }, index) => {
+      const categoryData = categoryLookup.get(slug);
+      const sectionPrograms = getProgramsForCategory(slug);
 
-    <CardGrid>
-      {
-        programs.map((program) => {
-          const programClasses = getClassesForProgram(program);
-          const programSlug = program.metadata?.slug;
-          const programUrl = programSlug ? `/programs/${programSlug}` : undefined;
-          return (
-            <ProgramCard
-              img={`/images/cards/${program.metadata.image}`}
-              alt={program.title}
-              href={programUrl}
-            >
-              <CardBody>
-                <h3>
-                  {programUrl ? (
-                    <a href={programUrl} class="program-card__title-link">
-                      {program.title}
-                    </a>
-                  ) : (
-                    program.title
-                  )}
-                </h3>
-                <p>{program.blurb ?? program.description}</p>
-              </CardBody>
-              <CardFooter>
-                {programClasses.length > 0 && (
-                  <div class="class-lozenges">
-                    <p class="lozenges-label">Classes in this program:</p>
-                    <div class="lozenges-container">
-                      {programClasses.map((classSlug: string) => {
-                        const classItem = getClassBySlug(classSlug);
-                        if (classItem) {
-                          return (
-                            <a
-                              href={`#class-${classSlug}`}
-                              class="class-lozenge"
-                              style={`background-color: ${getTopicColor(classItem.metadata.topics)}`}
-                            >
-                              {classItem.title}
-                            </a>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
-                  </div>
-                )}
-                {programUrl && (
-                  <a
-                    slot="learn-more"
-                    href={programUrl}
-                    class="program-card__learn-more-link"
-                  >
-                    Learn more
-                  </a>
-                )}
-              </CardFooter>
-            </ProgramCard>
-          );
-        })
+      if (sectionPrograms.length === 0) {
+        return null;
       }
-    </CardGrid>
-  </Section>
+
+      const sectionTitle = categoryData?.title ?? fallbackTitle;
+      const sectionDescription = categoryData?.blurb ?? categoryData?.description;
+      const backgroundPresets = [
+        { start: "var(--color-surface)", end: "var(--color-primary-soft)" },
+        { start: "var(--color-primary-soft)", end: "var(--color-secondary-soft)" },
+      ];
+      const colors = backgroundPresets[index % backgroundPresets.length];
+
+      return (
+        <Section startBgcolor={colors.start} endBgcolor={colors.end} data-category={slug}>
+          <SectionHeader>
+            <h2>{sectionTitle}</h2>
+            {sectionDescription && <p>{sectionDescription}</p>}
+          </SectionHeader>
+
+          <CardGrid>
+            {sectionPrograms.map((program) => {
+              const programClasses = getClassesForProgram(program);
+              const programSlug = program.metadata?.slug;
+              const programUrl = programSlug ? `/programs/${programSlug}` : undefined;
+              return (
+                <ProgramCard
+                  img={`/images/cards/${program.metadata.image}`}
+                  alt={program.title}
+                  href={programUrl}
+                >
+                  <CardBody>
+                    <h3>
+                      {programUrl ? (
+                        <a href={programUrl} class="program-card__title-link">
+                          {program.title}
+                        </a>
+                      ) : (
+                        program.title
+                      )}
+                    </h3>
+                    <p>{program.blurb ?? program.description}</p>
+                  </CardBody>
+                  <CardFooter>
+                    {programClasses.length > 0 && (
+                      <div class="class-lozenges">
+                        <p class="lozenges-label">Classes in this program:</p>
+                        <div class="lozenges-container">
+                          {programClasses.map((classSlug: string) => {
+                            const classItem = getClassBySlug(classSlug);
+                            if (classItem) {
+                              return (
+                                <a
+                                  href={`#class-${classSlug}`}
+                                  class="class-lozenge"
+                                  style={`background-color: ${getTopicColor(classItem.metadata.topics)}`}
+                                >
+                                  {classItem.title}
+                                </a>
+                              );
+                            }
+                            return null;
+                          })}
+                        </div>
+                      </div>
+                    )}
+                    {programUrl && (
+                      <a
+                        slot="learn-more"
+                        href={programUrl}
+                        class="program-card__learn-more-link"
+                      >
+                        Learn more
+                      </a>
+                    )}
+                  </CardFooter>
+                </ProgramCard>
+              );
+            })}
+          </CardGrid>
+        </Section>
+      );
+    })
+  }
 
   <!-- Classes Section -->
   <Section

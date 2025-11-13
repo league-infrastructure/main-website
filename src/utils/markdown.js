@@ -119,8 +119,9 @@ function extractMetadataBlock(block, title) {
  * @returns {Array} Array of parsed sections with title, blurb, description, content, and metadata
  */
 export function parseMarkdownSections(content) {
+  const headingRegex = content.match(/^##\s+/m) ? /^##\s+/m : /^#\s+/m;
   const sections = content
-    .split(/^##\s+/m)
+    .split(headingRegex)
     .map((section) => section.trim())
     .filter((section) => section.length > 0);
 
@@ -221,6 +222,22 @@ export function getClassesData() {
     return parseMarkdownSections(readContentFile('classes.md'));
   } catch (error) {
     console.error('Error loading classes content:', error);
+    return [];
+  }
+}
+
+/**
+ * @returns {Array}
+ */
+export function getCategoriesData() {
+  const jsonData = readJsonData('categories');
+  if (Array.isArray(jsonData)) {
+    return jsonData;
+  }
+  try {
+    return parseMarkdownSections(readContentFile('categories.md'));
+  } catch (error) {
+    console.error('Error loading categories content:', error);
     return [];
   }
 }

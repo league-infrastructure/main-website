@@ -16,3 +16,10 @@
 - [DONE] Create an npm script that fetches `<base_url>/api/v2/front/services`.  THe
   `base_url` is pike13_base_url in config.ts. Store the services in the
   `src/data/` dir and add it to the build process. 
+
+
+- [DONE] Update the programs page to split the Programs section into two sections : "Weekly
+  Classes" which displays the programs in the `group-classes` category, and the
+  "Community Programs" which displays the programs in the `community-tech`
+  category. For each section, use the title for the category ( matched by slug )
+  from the categories data. 

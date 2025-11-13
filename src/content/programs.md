@@ -140,6 +140,7 @@ slug: robot-garage
 image: robot_garage.png
 topics: programming, robotics, electronics
 classes: robot-riot, motors-clinic, soldering-clinic, hour-of-microbit
+category: community-tech
 meetup: tech-club
 ```
 
@@ -186,6 +187,7 @@ prepare youth for technology careers.
 slug: league-lab
 image: league_labs.png
 topics: programming, robotics, electronics, career, projects
+category: community-tech
 meetup: code-clinic
 ```
 

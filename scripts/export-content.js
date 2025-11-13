@@ -55,6 +55,7 @@ try {
   ensureOutputDir();
   exportMarkdownToJson("classes.md", "classes");
   exportMarkdownToJson("programs.md", "programs");
+  exportMarkdownToJson("categories.md", "categories");
   console.log("Content export complete.");
 } catch (error) {
   console.error("Failed to export content:", error);

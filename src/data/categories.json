@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Weekly Group Classes",
+    "blurb": "Weekly groups classes in programming,  robotics and AI build lasting technical\nskills.",
+    "description": "Our weekly 90 minute classes with experienced instructors build solid technical\nskills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
+    "content": "Our weekly 90 minute classes with experienced instructors build solid technical\nskills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
+    "meta": {
+      "slug": "group-classes"
+    },
+    "metadata": {
+      "slug": "group-classes"
+    },
+    "slug": "group-classes"
+  },
+  {
+    "title": "Community Tech Classes",
+    "blurb": "Short classes, workshops, research and internship opportunities, for free at\nlibraries, schools and Rec centers.",
+    "description": "Our community programs offer free and low-cost programs",
+    "content": "skills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
+    "meta": {
+      "slug": "community-tech"
+    },
+    "metadata": {
+      "slug": "community-tech"
+    },
+    "slug": "community-tech"
+  }
+]

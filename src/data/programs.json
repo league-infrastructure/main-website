@@ -235,6 +235,9 @@
         "soldering-clinic",
         "hour-of-microbit"
       ],
+      "category": [
+        "community-tech"
+      ],
       "meetup": "tech-club"
     },
     "metadata": {
@@ -251,6 +254,9 @@
         "soldering-clinic",
         "hour-of-microbit"
       ],
+      "category": [
+        "community-tech"
+      ],
       "meetup": "tech-club"
     },
     "slug": "robot-garage",
@@ -265,6 +271,9 @@
       "motors-clinic",
       "soldering-clinic",
       "hour-of-microbit"
+    ],
+    "category": [
+      "community-tech"
     ],
     "meetup": "tech-club"
   },
@@ -283,6 +292,9 @@
         "career",
         "projects"
       ],
+      "category": [
+        "community-tech"
+      ],
       "meetup": "code-clinic"
     },
     "metadata": {
@@ -295,6 +307,9 @@
         "career",
         "projects"
       ],
+      "category": [
+        "community-tech"
+      ],
       "meetup": "code-clinic"
     },
     "slug": "league-lab",
@@ -305,6 +320,9 @@
       "electronics",
       "career",
       "projects"
+    ],
+    "category": [
+      "community-tech"
     ],
     "meetup": "code-clinic"
   }
