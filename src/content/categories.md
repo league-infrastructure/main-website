@@ -1,19 +1,17 @@
 # Weekly Group Classes
 
-Weekly groups classes in programming,  robotics and AI build lasting technical
-skills.
+Weekly groups classes in programming,  robotics and AI build lasting
+technicalskills
 
 Our weekly 90 minute classes with experienced instructors build solid technical
 skills, leading to professional certifications. Our classes,  for 4th through
 12th grade students, are available in person in Carmel Valley, online, and at
-schools througout San Diego County. 
+schools througout San Diego County.
 
-<content>
-Our weekly 90 minute classes with experienced instructors build solid technical
-skills, leading to professional certifications. Our classes,  for 4th through
-12th grade students, are available in person in Carmel Valley, online, and at
-schools througout San Diego County. 
-</content>
+ <content> Our weekly 90 minute classes with experienced instructors build solid
+technical skills, leading to professional certifications. Our classes,  for 4th
+through 12th grade students, are available in person in Carmel Valley, online,
+and at schools througout San Diego County. </content>
 
 <enroll>
 Enroll in weekly classes and get started on the path to professional programming.
@@ -180,5 +178,4 @@ enroll:
     label: Contact Us
     url: mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring
 
-
-256988
+```
