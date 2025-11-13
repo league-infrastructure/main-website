@@ -27,13 +27,23 @@ function writeJsonFile(baseName, data) {
 }
 
 function normalizeEntries(entries) {
-  return entries.map((entry) => ({
-    title: entry.title,
-    blurb: entry.blurb ?? entry.shortDescription ?? "",
-    description:
-      entry.description ?? entry.fullDescription ?? entry.shortDescription ?? "",
-    metadata: entry.metadata ?? {},
-  }));
+  return entries.map((entry) => {
+    const meta = { ...(entry.meta ?? entry.metadata ?? {}) };
+
+    return {
+      title: entry.title,
+      blurb: entry.blurb ?? entry.shortDescription ?? "",
+      description:
+        entry.description ?? entry.fullDescription ?? entry.shortDescription ?? "",
+      content: entry.content ?? "",
+      shortDescription: entry.shortDescription ?? entry.blurb ?? "",
+      fullDescription:
+        entry.fullDescription ?? entry.description ?? entry.blurb ?? "",
+      meta,
+      metadata: meta,
+      ...meta,
+    };
+  });
 }
 
 function exportMarkdownToJson(source, targetBaseName) {

@@ -3,40 +3,42 @@
 The files `programs.md` and `classes.md` are structured Markdown. Each entry describes the content for a program, class or other things. The entries have this format: 
 
 
-    ## Python Programming
+~~~
+## Python Programming
 
-    Python is the most popular programming language, perfect for beginners
-    and powerful enough for professionals.
+Python is the most popular programming language, perfect for beginners
+and powerful enough for professionals.
 
-    Students learn Python through hands-on projects that build
-    fundamental programming skills while keeping learning fun and engaging. Our
-    Python pathway helps students master variables, loops, functions, and
-    object-oriented programming, preparing them for AP Computer Science Principles
-    and real-world problem solving. Small cohorts and experienced instructors ensure
-    every student gets the support they need, whether meeting online or in person.
+Students learn Python through hands-on projects that build
+fundamental programming skills while keeping learning fun and engaging. Our
+Python pathway helps students master variables, loops, functions, and
+object-oriented programming, preparing them for AP Computer Science Principles
+and real-world problem solving. Small cohorts and experienced instructors ensure
+every student gets the support they need, whether meeting online or in person.
 
-    <content>
-    Python is the most popular programming language, and useful for every kind of
-    programming, and it's the easiest to learn! Students learn fundamental
-    programming concepts including variables, loops, conditionals, functions, and
-    object-oriented programming through hands-on projects and real-world
-    applications.
+<content>
+Python is the most popular programming language, and useful for every kind of
+programming, and it's the easiest to learn! Students learn fundamental
+programming concepts including variables, loops, conditionals, functions, and
+object-oriented programming through hands-on projects and real-world
+applications.
 
-    * Official Python certificates
-    * In-person and online cohorts
-    * Small classes with five students per teacher
-    * Interactive coding exercises and games
-    * Preparation for AP Computer Science Principles
-    </content>
+* Official Python certificates
+* In-person and online cohorts
+* Small classes with five students per teacher
+* Interactive coding exercises and games
+* Preparation for AP Computer Science Principles
+</content>
 
 
-    ```
-    slug: python-programming
-    image: python.png
-    topics: programming
-    classes: intro-python, python-apprentice, python-games, python-web-games, python-orbitlab, makecode-arcade
-    category: group-classes
-    ```
+```
+slug: python-programming
+image: python.png
+topics: programming
+classes: intro-python, python-apprentice, python-games, python-web-servers, python-orbitlab, makecode-arcade
+category: group-classes
+```
+~~~
 
 The order of the entries in record , along with the data field the entry is assigned to, are:
 

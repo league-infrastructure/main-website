@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import yaml from 'js-yaml';
 
 /**
  * Utility functions for parsing markdown content files
@@ -30,70 +31,134 @@ function readContentFile(filename) {
   return fs.readFileSync(filePath, 'utf-8');
 }
 
+const ARRAY_FIELDS = new Set(['topics', 'classes', 'category']);
+
+function normalizeListValue(value) {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => (typeof item === 'string' ? item.trim() : item))
+      .filter((item) => {
+        if (typeof item === 'string') {
+          return item.length > 0;
+        }
+        return item !== undefined && item !== null;
+      });
+  }
+
+  if (typeof value === 'string') {
+    return value
+      .split(',')
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0);
+  }
+
+  return value;
+}
+
+function normalizeMeta(meta) {
+  if (!meta || typeof meta !== 'object' || Array.isArray(meta)) {
+    return {};
+  }
+
+  const normalized = {};
+  for (const [key, rawValue] of Object.entries(meta)) {
+    if (ARRAY_FIELDS.has(key)) {
+      normalized[key] = normalizeListValue(rawValue);
+    } else {
+      normalized[key] = rawValue;
+    }
+  }
+  return normalized;
+}
+
+function extractContentBlock(sectionBody, title) {
+  const contentMatch = sectionBody.match(/<content>\s*([\s\S]*?)\s*<\/content>/m);
+  if (!contentMatch) {
+    console.warn(`Missing <content> block while parsing section "${title}".`);
+    return {
+      preContent: sectionBody.trim(),
+      contentHtml: '',
+      postContent: '',
+    };
+  }
+
+  const preContent = sectionBody.slice(0, contentMatch.index).trim();
+  const postContent = sectionBody.slice(contentMatch.index + contentMatch[0].length).trim();
+  const contentHtml = contentMatch[1].trim();
+
+  return { preContent, contentHtml, postContent };
+}
+
+function extractMetadataBlock(block, title) {
+  if (!block) {
+    return {};
+  }
+
+  const fenceMatch = block.match(/```[^\n]*\n([\s\S]*?)\n```/);
+  if (!fenceMatch) {
+    console.warn(`Missing fenced metadata block while parsing section "${title}".`);
+    return {};
+  }
+
+  try {
+    const parsedMeta = yaml.load(fenceMatch[1]) ?? {};
+    if (parsedMeta && typeof parsedMeta === 'object' && !Array.isArray(parsedMeta)) {
+      return parsedMeta;
+    }
+    console.warn(`Metadata for section "${title}" is not an object; ignoring.`);
+    return {};
+  } catch (error) {
+    console.error(`Failed to parse metadata YAML for section "${title}":`, error);
+    return {};
+  }
+}
+
 /**
  * Parse markdown sections into structured data
  * @param {string} content - Raw markdown content
- * @returns {Array} Array of parsed sections with title, shortDescription, fullDescription, and metadata
+ * @returns {Array} Array of parsed sections with title, blurb, description, content, and metadata
  */
 export function parseMarkdownSections(content) {
-  const sections = content.split(/^##\s+/m).filter(section => section.trim());
+  const sections = content
+    .split(/^##\s+/m)
+    .map((section) => section.trim())
+    .filter((section) => section.length > 0);
 
   return sections.map((section) => {
     const lines = section.split('\n');
     const title = lines.shift()?.trim() ?? '';
+    const sectionBody = lines.join('\n').trim();
 
-    const data = {};
-    let currentKey = null;
-    let buffer = [];
+    const { preContent, contentHtml, postContent } = extractContentBlock(sectionBody, title);
 
-    const flushBuffer = () => {
-      if (!currentKey) return;
-      const rawValue = buffer.join('\n').trim();
-      if (rawValue.length === 0) {
-        data[currentKey] = '';
-      } else if (currentKey === 'topics' || currentKey === 'classes') {
-        data[currentKey] = rawValue
-          .split(',')
-          .map((item) => item.trim())
-          .filter(Boolean);
-      } else {
-        data[currentKey] = rawValue;
-      }
-      currentKey = null;
-      buffer = [];
-    };
+    const paragraphs = preContent
+      .split(/\n\s*\n/)
+      .map((paragraph) => paragraph.trim())
+      .filter((paragraph) => paragraph.length > 0);
 
-    lines.forEach((line) => {
-      const trimmedLine = line.trimEnd();
+    const [blurbParagraph, ...descriptionParagraphs] = paragraphs;
+    const blurb = blurbParagraph ?? '';
+    const description = descriptionParagraphs.join('\n\n');
 
-      if (trimmedLine.trim() === '' && currentKey) {
-        buffer.push('');
-        return;
-      }
+    const rawMeta = extractMetadataBlock(postContent, title);
+    const normalizedMeta = normalizeMeta(rawMeta);
 
-      const match = trimmedLine.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-      if (match) {
-        flushBuffer();
-        currentKey = match[1].trim();
-        buffer = [match[2]];
-      } else if (currentKey) {
-        buffer.push(trimmedLine);
-      }
-    });
-
-    flushBuffer();
-
-    const { blurb = '', description = '', ...metadataFields } = data;
-
-    return {
+    const record = {
       title,
       blurb,
-      description: description || blurb,
-      metadata: metadataFields,
-      // Legacy fields retained for backward compatibility; consider removing once all consumers migrate.
+      description: description || '',
+      content: contentHtml,
+      meta: normalizedMeta,
+      metadata: normalizedMeta,
       shortDescription: blurb,
-      fullDescription: description,
+      fullDescription: description || blurb,
     };
+
+    for (const [key, value] of Object.entries(normalizedMeta)) {
+      record[key] = value;
+    }
+
+    return record;
   });
 }
 
