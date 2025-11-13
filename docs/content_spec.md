@@ -30,6 +30,11 @@ applications.
 * Preparation for AP Computer Science Principles
 </content>
 
+<enroll> Join the Tech Club Meetup group for fun tech classes, clubs and event
+for elementary and middle school students. Join the Code Clinic for older
+students for advanced classes and access to the Robot Garage and League Labs
+program.
+</enroll>
 
 ```
 slug: python-programming
@@ -37,6 +42,16 @@ image: python.png
 topics: programming
 classes: intro-python, python-apprentice, python-games, python-web-servers, python-orbitlab, makecode-arcade
 category: group-classes
+enroll: 
+    - type: meetup
+      label: Join the Tech Club
+      url: https://www.meetup.com/the-league-tech-club
+    - type: meetup
+      label: Join the Code Clinic
+      url: https://www.meetup.com/the-league-code-clinic
+    - type: page
+      label: Join League Labs
+      url: http://localhost:4321/programs/league-lab
 ```
 ~~~
 
@@ -46,7 +61,11 @@ The order of the entries in record , along with the data field the entry is assi
 2) `blurb`: A single paragraph with the short description, 
 3) `description`: A single paragraph with the short description. ( Or, more robust, read text until `<content>`)
 4) `content`: The main web page content, marked with `<content>` tags
-5) `meta`: a metadata block in a fneced code block, interpretable as the internals of a YAML dict.
+5) `enroll`: Enrollment instructions, marked with `<enroll>` tags
+6) `meta`: a metadata block in a fneced code block, interpretable as the internals of a YAML dict.
+
+The `<enroll>` section holds instructions for how to enroll, which can be
+applied to a category, program or class. 
 
 The processing for meta is: 
 
@@ -85,6 +104,7 @@ export interface ContentRecord {
     category?: string[];
     level?: string;
     meetup?: string;
+    buttons?: Record[];
 
     /** Any additional metadata fields are carried through as optional values. */
     [extra: string]: string | string[] | Record<string, unknown> | undefined;
@@ -101,3 +121,6 @@ within `meta` and as optional properties on the record. Because the YAML block
 may express nested objects or lists, both `meta` and the top-level index
 signature allow values that are strings, arrays, or arbitrary records.
 
+The `buttons` meta field can be written either as a single record or multiple
+records, which have the sub-fields `label`, `type` and `url`. If it is specified
+as a single record, it is normalized to a list of records. 

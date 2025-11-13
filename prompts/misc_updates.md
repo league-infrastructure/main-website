@@ -18,8 +18,13 @@
   `src/data/` dir and add it to the build process. 
 
 
-- [DONE] Update the programs page to split the Programs section into two sections : "Weekly
-  Classes" which displays the programs in the `group-classes` category, and the
-  "Community Programs" which displays the programs in the `community-tech`
-  category. For each section, use the title for the category ( matched by slug )
-  from the categories data. 
+-  Update the programs page to split the Programs section on the programs.astro
+  page into two sections : "Weekly Classes" which displays the programs in the
+  `group-classes` category, and the "Community Programs" which displays the
+  programs in the `community-tech` category. For each section, use the title for
+  the category ( matched by slug ) from the categories data. 
+
+- Update the programs page to include the enrollment information from the
+  categories.json data. The `<enroll>` content should be placed in the category
+  section, after the ProgramCards. After the text, generate the buttons, which
+  should be in a single row and centered horizontally. 

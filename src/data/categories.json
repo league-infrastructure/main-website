@@ -4,25 +4,99 @@
     "blurb": "Weekly groups classes in programming,  robotics and AI build lasting technical\nskills.",
     "description": "Our weekly 90 minute classes with experienced instructors build solid technical\nskills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
     "content": "Our weekly 90 minute classes with experienced instructors build solid technical\nskills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
+    "enroll": "",
     "meta": {
-      "slug": "group-classes"
+      "slug": "group-classes",
+      "buttons": [
+        {
+          "type": "pike13",
+          "label": "Enroll in Weekly Classes",
+          "url": "https://jtl.pike13.com/categories/93504"
+        }
+      ]
     },
     "metadata": {
-      "slug": "group-classes"
+      "slug": "group-classes",
+      "buttons": [
+        {
+          "type": "pike13",
+          "label": "Enroll in Weekly Classes",
+          "url": "https://jtl.pike13.com/categories/93504"
+        }
+      ]
     },
-    "slug": "group-classes"
+    "slug": "group-classes",
+    "buttons": [
+      {
+        "type": "pike13",
+        "label": "Enroll in Weekly Classes",
+        "url": "https://jtl.pike13.com/categories/93504"
+      }
+    ]
   },
   {
     "title": "Community Tech Classes",
-    "blurb": "Short classes, workshops, research and internship opportunities, for free at\nlibraries, schools and Rec centers.",
-    "description": "Our community programs offer free and low-cost programs",
-    "content": "skills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
+    "blurb": "Short classes, workshops, research and internship opportunities, for free at\nlibraries, schools and rec centers.",
+    "description": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
+    "content": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
+    "enroll": "",
     "meta": {
-      "slug": "community-tech"
+      "slug": "community-tech",
+      "buttons": [
+        {
+          "type": "meetup",
+          "label": "Join the Tech Club",
+          "url": "https://www.meetup.com/the-league-tech-club"
+        },
+        {
+          "type": "meetup",
+          "label": "Join the Code Clinic",
+          "url": "https://www.meetup.com/the-league-code-clinic"
+        },
+        {
+          "type": "page",
+          "label": "Join League Labs",
+          "url": "http://localhost:4321/programs/league-lab"
+        }
+      ]
     },
     "metadata": {
-      "slug": "community-tech"
+      "slug": "community-tech",
+      "buttons": [
+        {
+          "type": "meetup",
+          "label": "Join the Tech Club",
+          "url": "https://www.meetup.com/the-league-tech-club"
+        },
+        {
+          "type": "meetup",
+          "label": "Join the Code Clinic",
+          "url": "https://www.meetup.com/the-league-code-clinic"
+        },
+        {
+          "type": "page",
+          "label": "Join League Labs",
+          "url": "http://localhost:4321/programs/league-lab"
+        }
+      ]
     },
-    "slug": "community-tech"
+    "slug": "community-tech",
+    "buttons": [
+      {
+        "type": "meetup",
+        "label": "Join the Tech Club",
+        "url": "https://www.meetup.com/the-league-tech-club"
+      },
+      {
+        "type": "meetup",
+        "label": "Join the Code Clinic",
+        "url": "https://www.meetup.com/the-league-code-clinic"
+      },
+      {
+        "type": "page",
+        "label": "Join League Labs",
+        "url": "http://localhost:4321/programs/league-lab"
+      }
+    ]
   }
 ]

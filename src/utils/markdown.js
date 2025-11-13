@@ -32,6 +32,7 @@ function readContentFile(filename) {
 }
 
 const ARRAY_FIELDS = new Set(['topics', 'classes', 'category']);
+const RECORD_LIST_FIELDS = new Set(['buttons']);
 
 function normalizeListValue(value) {
   if (Array.isArray(value)) {
@@ -55,6 +56,36 @@ function normalizeListValue(value) {
   return value;
 }
 
+function normalizeObjectList(value, fieldName) {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => {
+        if (item && typeof item === 'object' && !Array.isArray(item)) {
+          return item;
+        }
+        if (typeof item === 'string' && item.trim().length > 0) {
+          return { label: item.trim() };
+        }
+        return undefined;
+      })
+      .filter(Boolean);
+  }
+
+  if (value && typeof value === 'object' && !Array.isArray(value)) {
+    return [value];
+  }
+
+  if (typeof value === 'string' && value.trim().length > 0) {
+    return [{ label: value.trim() }];
+  }
+
+  if (value !== undefined && value !== null) {
+    console.warn(`Expected an object or list for "${fieldName}" metadata but received`, value);
+  }
+
+  return [];
+}
+
 function normalizeMeta(meta) {
   if (!meta || typeof meta !== 'object' || Array.isArray(meta)) {
     return {};
@@ -64,9 +95,26 @@ function normalizeMeta(meta) {
   for (const [key, rawValue] of Object.entries(meta)) {
     if (ARRAY_FIELDS.has(key)) {
       normalized[key] = normalizeListValue(rawValue);
-    } else {
-      normalized[key] = rawValue;
+      continue;
     }
+
+    if (RECORD_LIST_FIELDS.has(key)) {
+      const listValue = normalizeObjectList(rawValue, key);
+      if (listValue.length > 0) {
+        normalized[key] = listValue;
+      }
+      continue;
+    }
+
+    if (key === 'enroll' && !normalized.buttons) {
+      const listValue = normalizeObjectList(rawValue, key);
+      if (listValue.length > 0) {
+        normalized.buttons = listValue;
+      }
+      continue;
+    }
+
+    normalized[key] = rawValue;
   }
   return normalized;
 }
@@ -78,15 +126,34 @@ function extractContentBlock(sectionBody, title) {
     return {
       preContent: sectionBody.trim(),
       contentHtml: '',
-      postContent: '',
+      remainder: sectionBody.trim(),
     };
   }
 
   const preContent = sectionBody.slice(0, contentMatch.index).trim();
-  const postContent = sectionBody.slice(contentMatch.index + contentMatch[0].length).trim();
+  const remainder = sectionBody.slice(contentMatch.index + contentMatch[0].length).trim();
   const contentHtml = contentMatch[1].trim();
 
-  return { preContent, contentHtml, postContent };
+  return { preContent, contentHtml, remainder };
+}
+
+function extractTaggedSection(source, tagName, title) {
+  if (!source) {
+    return { content: '', remainder: '' };
+  }
+
+  const tagPattern = new RegExp(`<${tagName}>\s*([\s\S]*?)\s*<\/${tagName}>`, 'm');
+  const match = source.match(tagPattern);
+  if (!match) {
+    return { content: '', remainder: source };
+  }
+
+  const before = source.slice(0, match.index);
+  const after = source.slice(match.index + match[0].length);
+  return {
+    content: match[1].trim(),
+    remainder: `${before}${after}`.trim(),
+  };
 }
 
 function extractMetadataBlock(block, title) {
@@ -130,7 +197,9 @@ export function parseMarkdownSections(content) {
     const title = lines.shift()?.trim() ?? '';
     const sectionBody = lines.join('\n').trim();
 
-    const { preContent, contentHtml, postContent } = extractContentBlock(sectionBody, title);
+  const { preContent, contentHtml, remainder } = extractContentBlock(sectionBody, title);
+  const { content: enrollContent, remainder: afterEnroll } = extractTaggedSection(remainder, 'enroll', title);
+  console.log('enroll debug', title, JSON.stringify(enrollContent));
 
     const paragraphs = preContent
       .split(/\n\s*\n/)
@@ -141,7 +210,7 @@ export function parseMarkdownSections(content) {
     const blurb = blurbParagraph ?? '';
     const description = descriptionParagraphs.join('\n\n');
 
-    const rawMeta = extractMetadataBlock(postContent, title);
+    const rawMeta = extractMetadataBlock(afterEnroll, title);
     const normalizedMeta = normalizeMeta(rawMeta);
 
     const record = {
@@ -149,6 +218,7 @@ export function parseMarkdownSections(content) {
       blurb,
       description: description || '',
       content: contentHtml,
+      enroll: enrollContent,
       meta: normalizedMeta,
       metadata: normalizedMeta,
       shortDescription: blurb,

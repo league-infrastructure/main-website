@@ -15,11 +15,15 @@ skills, leading to professional certifications. Our classes,  for 4th through
 schools througout San Diego County. 
 </content>
 
+<enroll>
+Enroll in weekly classes and get started on the path to professional programming.
+</enroll>
 
 ```
 slug: group-classes
 enroll: 
     type: pike13
+    label: Enroll in Weekly Classes
     url: https://jtl.pike13.com/categories/93504
 ```
 
@@ -42,10 +46,22 @@ older students can learn advanced techniques, work a summer internship or
 research a new technology in our Code Clinic, Robot Garage or League Labs
 </content>
 
+<enroll> Join the Tech Club Meetup group for fun tech classes, clubs and event
+for elementary and middle school students. Join the Code Clinic for older
+students for advanced classes and access to the Robot Garage and League Labs
+program.
+</enroll>
 
 ```
 slug: community-tech
-enroll: 
-    type: meetup
-    url: https://www.meetup.com/the-league-tech-club
+buttons: 
+    - type: meetup
+      label: Join the Tech Club
+      url: https://www.meetup.com/the-league-tech-club
+    - type: meetup
+      label: Join the Code Clinic
+      url: https://www.meetup.com/the-league-code-clinic
+    - type: page
+      label: Join League Labs
+      url: http://localhost:4321/programs/league-lab
 ```
