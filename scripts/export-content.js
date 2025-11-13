@@ -38,7 +38,6 @@ function normalizeEntries(entries) {
       content: entry.content ?? "",
       enroll: entry.enroll ?? "",
       meta,
-      metadata: meta,
       ...meta,
     };
   });

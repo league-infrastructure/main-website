@@ -14,15 +14,6 @@
         "programming"
       ]
     },
-    "metadata": {
-      "slug": "intro-python",
-      "image": "python.png",
-      "level": "beginner",
-      "topics": [
-        "python",
-        "programming"
-      ]
-    },
     "slug": "intro-python",
     "image": "python.png",
     "level": "beginner",
@@ -38,16 +29,6 @@
     "content": "Python Apprentice is the core beginner-to-intermediate Python course\nthat covers the fundamentals of the language in depth. Students learn essential\nprogramming concepts including variables, functions, loops, conditionals, and\nobject-oriented programming. The curriculum is designed to prepare students for\nprofessional Python certification exams, giving them credentials recognized by\nemployers worldwide. This course builds real-world programming skills through\npractical projects and prepares students for advanced courses. Classes meet\nweekly with experienced instructors from universities like Brown, UCSD, and\nCornell.",
     "enroll": "",
     "meta": {
-      "slug": "python-apprentice",
-      "image": "python.png",
-      "level": "intermediate",
-      "topics": [
-        "python",
-        "programming",
-        "certification"
-      ]
-    },
-    "metadata": {
       "slug": "python-apprentice",
       "image": "python.png",
       "level": "intermediate",
@@ -83,17 +64,6 @@
         "oop"
       ]
     },
-    "metadata": {
-      "slug": "python-games",
-      "image": "python_games.png",
-      "level": "intermediate",
-      "topics": [
-        "python",
-        "programming",
-        "games",
-        "oop"
-      ]
-    },
     "slug": "python-games",
     "image": "python_games.png",
     "level": "intermediate",
@@ -111,15 +81,6 @@
     "content": "Python OrbitLab introduces students to computational science through\nthe fascinating topic of orbital mechanics. Students program simulations of\nplanets, moons, and satellites, learning how gravity shapes the motion of\ncelestial bodies. The course teaches numerical integration, vector mathematics,\nand physics simulation while developing a deep understanding of how our solar\nsystem works. Students create visualizations of their simulations and explore\nwhat-if scenarios, like adding extra planets or changing gravitational\nconstants. This course demonstrates how programming is used in real scientific\nresearch and space exploration, connecting coding skills to STEM education in a\nhighly engaging way.",
     "enroll": "",
     "meta": {
-      "slug": "python-orbitlab",
-      "image": "orbit-lab.png",
-      "level": "advanced",
-      "topics": [
-        "python",
-        "science"
-      ]
-    },
-    "metadata": {
       "slug": "python-orbitlab",
       "image": "orbit-lab.png",
       "level": "advanced",
@@ -151,15 +112,6 @@
         "programming"
       ]
     },
-    "metadata": {
-      "slug": "java-weekly",
-      "image": "java.png",
-      "level": "beginner to advanced",
-      "topics": [
-        "java",
-        "programming"
-      ]
-    },
     "slug": "java-weekly",
     "image": "java.png",
     "level": "beginner to advanced",
@@ -175,16 +127,6 @@
     "content": "For students who benefit from individualized attention or need\nflexible scheduling, we offer private tutoring in both Java and Python. These\n1:1 virtual sessions allow instructors to customize the pace and content to each\nstudent's specific needs, learning style, and goals. Whether a student needs\nhelp catching up, wants to advance more quickly, or requires accommodation for\nlearning differences, private tutoring provides the most personalized learning\nexperience. Tutoring is available for all levels from complete beginner to\nadvanced, with monthly tuition of $430.",
     "enroll": "",
     "meta": {
-      "slug": "private-tutoring",
-      "image": "computer-robot.png",
-      "level": "all levels",
-      "topics": [
-        "java",
-        "python",
-        "programming"
-      ]
-    },
-    "metadata": {
       "slug": "private-tutoring",
       "image": "computer-robot.png",
       "level": "all levels",
@@ -219,16 +161,6 @@
         "javascript"
       ]
     },
-    "metadata": {
-      "slug": "makecode-arcade",
-      "image": "microbit-arcade.png",
-      "level": "beginner",
-      "topics": [
-        "games",
-        "programming",
-        "javascript"
-      ]
-    },
     "slug": "makecode-arcade",
     "image": "microbit-arcade.png",
     "level": "beginner",
@@ -245,15 +177,6 @@
     "content": "The Motors Clinic is a focused two-hour workshop teaching students how\nto control different types of motors through programming. Students learn the\nelectrical and software principles behind motor control, including PWM\n(pulse-width modulation) for controlling motor speed and direction. The class\ncovers brush DC motors, stepper motors for precise positioning, and hobby servo\nmotors commonly used in robotics. While often taken as part of the robotics\nprogram, the Motors Clinic can also be taken standalone by students interested\nin electronics and automation. This hands-on class gives students practical\nskills for any project involving mechanical motion.",
     "enroll": "",
     "meta": {
-      "slug": "motors-clinic",
-      "image": "motors_clinic.png",
-      "level": "intermediate",
-      "topics": [
-        "programming",
-        "robotics"
-      ]
-    },
-    "metadata": {
       "slug": "motors-clinic",
       "image": "motors_clinic.png",
       "level": "intermediate",
@@ -285,15 +208,6 @@
         "robotics"
       ]
     },
-    "metadata": {
-      "slug": "soldering-clinic",
-      "image": "boy_soldering.png",
-      "level": "beginner",
-      "topics": [
-        "electronics",
-        "robotics"
-      ]
-    },
     "slug": "soldering-clinic",
     "image": "boy_soldering.png",
     "level": "beginner",
@@ -316,14 +230,6 @@
         "programming"
       ]
     },
-    "metadata": {
-      "slug": "hour-of-microbit",
-      "image": "microbit.png",
-      "level": "beginner",
-      "topics": [
-        "programming"
-      ]
-    },
     "slug": "hour-of-microbit",
     "image": "microbit.png",
     "level": "beginner",
@@ -338,15 +244,6 @@
     "content": "Robot Riot combines programming and robotics in an exciting\ncompetitive format. Students learn the basics of controlling motors on a robot,\nstarting with existing robot platforms that they modify to make more\ncompetitive. Students add grippers, pushers, flippers, and other attachments to\ntheir robots, then learn how to reprogram them to activate electronics like\nturbos and lights. The course teaches how to send messages back and forth\nbetween the joystick controller and the robot, giving students hands-on\nexperience with how robots respond to commands. This course is currently in\ndevelopment and represents an innovative approach to teaching robotics through\ncompetitive gameplay.",
     "enroll": "",
     "meta": {
-      "slug": "robot-riot",
-      "image": "robot_riot.png",
-      "level": "beginner",
-      "topics": [
-        "programming",
-        "robotics"
-      ]
-    },
-    "metadata": {
       "slug": "robot-riot",
       "image": "robot_riot.png",
       "level": "beginner",
@@ -378,15 +275,6 @@
         "robotics"
       ]
     },
-    "metadata": {
-      "slug": "tech-arcade",
-      "image": "tech-arcade.png",
-      "level": "beginner",
-      "topics": [
-        "programming",
-        "robotics"
-      ]
-    },
     "slug": "tech-arcade",
     "image": "tech-arcade.png",
     "level": "beginner",
@@ -410,15 +298,6 @@
         "ai"
       ]
     },
-    "metadata": {
-      "slug": "ai-agents",
-      "image": "ai-agents.png",
-      "level": "beginner",
-      "topics": [
-        "programming",
-        "ai"
-      ]
-    },
     "slug": "ai-agents",
     "image": "ai-agents.png",
     "level": "beginner",
@@ -434,18 +313,6 @@
     "content": "In this web development course, students create their own professional\nportfolio website to showcase programming projects and accomplishments. Using\nGitHub Pages and the Jekyll static site generator, students learn HTML, CSS, and\nmodern web development workflows including version control with Git. The\nresulting portfolio site serves as both a learning project and a practical tool\nfor college applications and future job searches. Students learn how\nprofessional developers deploy websites, manage code versions, and create\nresponsive designs that work on all devices. Every student leaves with a live\nwebsite they can continue to update throughout their programming journey.",
     "enroll": "",
     "meta": {
-      "slug": "github-pages-portfolio",
-      "image": "portfolio.png",
-      "level": "intermediate",
-      "topics": [
-        "web development",
-        "html",
-        "css",
-        "git",
-        "portfolio"
-      ]
-    },
-    "metadata": {
       "slug": "github-pages-portfolio",
       "image": "portfolio.png",
       "level": "intermediate",

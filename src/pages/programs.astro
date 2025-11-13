@@ -7,6 +7,7 @@ import CardGrid from "../components/CardGrid.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import CardBody from "../components/CardBody.astro";
 import CardFooter from "../components/CardFooter.astro";
+import ButtonGroup from "../components/ButtonGroup.astro";
 import ClassCard from "../components/ClassCard.astro";
 import {
   getClassesData,
@@ -19,10 +20,12 @@ const classes = getClassesData();
 const programs = getProgramsData();
 const categories = getCategoriesData();
 
+type CategoryButton = { label?: string; url?: string; type?: string };
+
 const categoryLookup = new Map(
   categories
     .map((category) => {
-      const slug = category.slug ?? category.metadata?.slug ?? category.meta?.slug;
+      const slug = category.slug ?? category.meta?.slug;
       return slug ? [slug, category] : undefined;
     })
     .filter(Boolean) as Array<[string, typeof categories[number]]>
@@ -37,13 +40,13 @@ const categorySections = [
 
 // Function to get class details by slug
 function getClassBySlug(slug: string) {
-  return classes.find((c) => c.metadata.slug === slug);
+  return classes.find((c) => (c.slug ?? c.meta?.slug) === slug);
 }
 
 // Function to parse class list from program
 function getClassesForProgram(program: any) {
-  if (!program.metadata?.classes) return [];
-  return program.metadata.classes;
+  const classList = program.classes ?? program.meta?.classes;
+  return Array.isArray(classList) ? classList : [];
 }
 
 function getProgramsForCategory(slug: string) {
@@ -51,8 +54,8 @@ function getProgramsForCategory(slug: string) {
     const programCategories =
       (Array.isArray(program.category) && program.category.length > 0
         ? program.category
-        : Array.isArray(program.metadata?.category)
-          ? program.metadata.category
+        : Array.isArray(program.meta?.category)
+          ? program.meta.category
           : []) ?? [];
     return programCategories.includes(slug);
   });
@@ -83,6 +86,9 @@ function getProgramsForCategory(slug: string) {
     categorySections.map(({ slug, fallbackTitle }, index) => {
       const categoryData = categoryLookup.get(slug);
       const sectionPrograms = getProgramsForCategory(slug);
+      const buttons = (categoryData?.buttons ?? categoryData?.meta?.buttons ?? []) as CategoryButton[];
+      const validButtons = buttons.filter((button) => button?.label && button?.url);
+      const enrollContent = categoryData?.enroll?.trim();
 
       if (sectionPrograms.length === 0) {
         return null;
@@ -104,13 +110,19 @@ function getProgramsForCategory(slug: string) {
           </SectionHeader>
 
           <CardGrid>
-            {sectionPrograms.map((program) => {
+            {sectionPrograms
+              .map((program) => {
               const programClasses = getClassesForProgram(program);
-              const programSlug = program.metadata?.slug;
+              const programSlug = program.slug ?? program.meta?.slug;
               const programUrl = programSlug ? `/programs/${programSlug}` : undefined;
+              const programImage = program.image ?? program.meta?.image;
+              if (!programImage) {
+                console.warn(`Program "${program.title}" is missing an image.`);
+                return null;
+              }
               return (
                 <ProgramCard
-                  img={`/images/cards/${program.metadata.image}`}
+                  img={`/images/cards/${programImage}`}
                   alt={program.title}
                   href={programUrl}
                 >
@@ -134,11 +146,17 @@ function getProgramsForCategory(slug: string) {
                           {programClasses.map((classSlug: string) => {
                             const classItem = getClassBySlug(classSlug);
                             if (classItem) {
+                              const classTopics = Array.isArray(classItem.topics)
+                                ? classItem.topics
+                                : Array.isArray(classItem.meta?.topics)
+                                  ? classItem.meta.topics
+                                  : [];
+                              const targetSlug = classItem.slug ?? classItem.meta?.slug ?? classSlug;
                               return (
                                 <a
-                                  href={`#class-${classSlug}`}
+                                  href={`#class-${targetSlug}`}
                                   class="class-lozenge"
-                                  style={`background-color: ${getTopicColor(classItem.metadata.topics)}`}
+                                  style={`background-color: ${getTopicColor(classTopics)}`}
                                 >
                                   {classItem.title}
                                 </a>
@@ -161,8 +179,32 @@ function getProgramsForCategory(slug: string) {
                   </CardFooter>
                 </ProgramCard>
               );
-            })}
+              })
+              .filter(Boolean)}
           </CardGrid>
+
+          {(enrollContent || validButtons.length > 0) && (
+            <div class="category-enroll">
+              {enrollContent && (
+                <div class="category-enroll__text" set:html={enrollContent} />
+              )}
+              {validButtons.length > 0 && (
+                <ButtonGroup
+                  class="category-enroll__buttons"
+                  actions={validButtons.map((button) => {
+                    const isExternal = button.url ? /^https?:/i.test(button.url) : false;
+                    return {
+                      label: button.label ?? "Learn more",
+                      href: button.url ?? "#",
+                      variant: "primary",
+                      target: isExternal ? "_blank" : undefined,
+                      rel: isExternal ? "noopener noreferrer" : undefined,
+                    };
+                  })}
+                />
+              )}
+            </div>
+          )}
         </Section>
       );
     })
@@ -174,7 +216,7 @@ function getProgramsForCategory(slug: string) {
     endBgcolor="var(--color-secondary-soft)"
   >
     <SectionHeader>
-      <h2>Classes</h2>
+      <h2>Class Catalog</h2>
       <p>
         Individual classes and workshops focused on specific programming
         languages, technologies, and skills.
@@ -183,16 +225,27 @@ function getProgramsForCategory(slug: string) {
 
     <div class="classes-list">
       {
-        classes.map((classItem) => (
-          <ClassCard
-            img={`/images/cards/${classItem.metadata.image}`}
-            alt={classItem.title}
-            slug={classItem.metadata.slug}
-            title={classItem.title}
-            level={classItem.metadata.level}
-            description={classItem.blurb ?? classItem.description ?? ""}
-          />
-        ))
+        classes
+          .map((classItem) => {
+            const classSlug = classItem.slug ?? classItem.meta?.slug;
+            const classImage = classItem.image ?? classItem.meta?.image;
+            const classLevel = classItem.level ?? classItem.meta?.level;
+            if (!classSlug || !classImage) {
+              console.warn(`Class "${classItem.title}" is missing slug or image.`);
+              return null;
+            }
+            return (
+              <ClassCard
+                img={`/images/cards/${classImage}`}
+                alt={classItem.title}
+                slug={classSlug}
+                title={classItem.title}
+                level={classLevel}
+                description={classItem.blurb ?? classItem.description ?? ""}
+              />
+            );
+          })
+          .filter(Boolean)
       }
     </div>
   </Section>
@@ -362,6 +415,23 @@ function getProgramsForCategory(slug: string) {
   .class-lozenge:hover {
     opacity: 0.8;
     transform: translateY(-1px);
+  }
+
+  .category-enroll {
+    display: grid;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+    text-align: center;
+  }
+
+  .category-enroll__text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  .category-enroll__buttons {
+    justify-content: center;
   }
 
   .program-card__title-link {

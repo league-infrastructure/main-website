@@ -17,6 +17,7 @@ slug: intro-python
 image: python.png
 level: beginner
 topics: python, programming
+group: python
 ```
 
 ## Python Apprentice

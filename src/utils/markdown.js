@@ -137,12 +137,12 @@ function extractContentBlock(sectionBody, title) {
   return { preContent, contentHtml, remainder };
 }
 
-function extractTaggedSection(source, tagName, title) {
+function extractTaggedSection(source, tagName) {
   if (!source) {
     return { content: '', remainder: '' };
   }
 
-  const tagPattern = new RegExp(`<${tagName}>\s*([\s\S]*?)\s*<\/${tagName}>`, 'm');
+  const tagPattern = new RegExp(`<${tagName}>\\s*([\\s\\S]*?)\\s*</${tagName}>`, 'm');
   const match = source.match(tagPattern);
   if (!match) {
     return { content: '', remainder: source };
@@ -198,8 +198,10 @@ export function parseMarkdownSections(content) {
     const sectionBody = lines.join('\n').trim();
 
   const { preContent, contentHtml, remainder } = extractContentBlock(sectionBody, title);
-  const { content: enrollContent, remainder: afterEnroll } = extractTaggedSection(remainder, 'enroll', title);
-  console.log('enroll debug', title, JSON.stringify(enrollContent));
+  const { content: enrollContent, remainder: afterEnroll } = extractTaggedSection(
+    remainder,
+    'enroll',
+  );
 
     const paragraphs = preContent
       .split(/\n\s*\n/)
@@ -220,7 +222,6 @@ export function parseMarkdownSections(content) {
       content: contentHtml,
       enroll: enrollContent,
       meta: normalizedMeta,
-      metadata: normalizedMeta,
       shortDescription: blurb,
       fullDescription: description || blurb,
     };
@@ -315,7 +316,7 @@ export function getCategoriesData() {
 export function getProgramBySlug(slug) {
   try {
     const programs = getProgramsData();
-    return programs.find((program) => program.metadata?.slug === slug);
+    return programs.find((program) => program.meta?.slug === slug);
   } catch (error) {
     console.error(`Error retrieving program with slug "${slug}":`, error);
     return undefined;
@@ -325,7 +326,7 @@ export function getProgramBySlug(slug) {
 export function getClassBySlug(slug) {
   try {
     const classes = getClassesData();
-    return classes.find((classItem) => classItem.metadata?.slug === slug);
+    return classes.find((classItem) => classItem.meta?.slug === slug);
   } catch (error) {
     console.error(`Error retrieving class with slug "${slug}":`, error);
     return undefined;
