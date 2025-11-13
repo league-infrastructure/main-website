@@ -9,18 +9,19 @@ export interface Props {
 }
 
 const { img, alt, slug, title, level, description } = Astro.props;
+const urlSlug = slug.replace(/_/g, "-");
 ---
 
 <div class="class-card" id={`class-${slug}`}>
   <div class="class-card__image">
-    <a href={`/classes/${slug}`} class="class-card__image-link">
+    <a href={`/classes/${urlSlug}`} class="class-card__image-link">
       <img src={img} alt={alt} />
     </a>
   </div>
   <div class="class-card__content">
     <div class="class-card__header">
       <h3 class="class-card__title">
-        <a href={`/classes/${slug}`} class="class-card__title-link">
+  <a href={`/classes/${urlSlug}`} class="class-card__title-link">
           {title}
         </a>
       </h3>
@@ -29,7 +30,7 @@ const { img, alt, slug, title, level, description } = Astro.props;
       )}
     </div>
     <p class="class-card__description">{description}</p>
-    <a href={`/classes/${slug}`} class="class-card__learn-more">
+  <a href={`/classes/${urlSlug}`} class="class-card__learn-more">
       Learn more →
     </a>
   </div>

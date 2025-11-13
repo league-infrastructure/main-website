@@ -1,0 +1,171 @@
+---
+import type { GetStaticPathsResult } from "astro";
+import ProgramLayout from "../../layouts/ProgramLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ClassCard from "../../components/ClassCard.astro";
+import { getProgramsData, getClassesData } from "../../utils/markdown.js";
+
+interface ProgramEntry {
+  title: string;
+  shortDescription?: string;
+  fullDescription?: string;
+  description?: string;
+  metadata?: {
+    slug?: string;
+    image?: string;
+    topics?: string[];
+    classes?: string[];
+    level?: string;
+  };
+}
+
+interface RouteProps {
+  programData: ProgramEntry;
+  relatedClasses: ProgramEntry[];
+}
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const programs = getProgramsData();
+  const classes = getClassesData();
+  return programs
+    .filter((entry) => entry.metadata?.slug)
+    .map((entry) => {
+      const relatedClasses = (entry.metadata?.classes ?? [])
+        .map((classSlug: string) => classes.find((classItem) => classItem.metadata?.slug === classSlug))
+        .filter(Boolean) as ProgramEntry[];
+
+      return {
+        params: { slug: entry.metadata!.slug! },
+        props: {
+          programData: entry,
+          relatedClasses,
+        },
+      };
+    }) as GetStaticPathsResult;
+}
+
+const { programData, relatedClasses } = Astro.props as unknown as RouteProps;
+
+if (!programData || !programData.metadata?.slug) {
+  throw new Error("Program data not found for requested slug");
+}
+
+const heroImage = programData.metadata.image
+  ? `/images/cards/${programData.metadata.image}`
+  : "/images/cards/programs.png";
+const heroAlt = programData.title ?? "Program hero";
+const descriptionText = programData.fullDescription || programData.description || programData.shortDescription || "";
+const descriptionParagraphs = descriptionText
+  .split(/\n\s*\n/)
+  .map((paragraph) => paragraph.trim())
+  .filter((paragraph) => paragraph.length > 0);
+const topics = programData.metadata.topics ?? [];
+---
+
+<ProgramLayout title={programData.title} description={programData.shortDescription}>
+  <HeroSection slot="hero" class="program-hero">
+    <h1 slot="tagline">{programData.title}</h1>
+    {programData.shortDescription && (
+      <p slot="description">{programData.shortDescription}</p>
+    )}
+    <div slot="media" class="program-hero__media">
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
+    </div>
+  </HeroSection>
+
+  <div slot="overview" class="program-overview">
+    {topics.length > 0 && (
+      <div class="topic-list">
+        {topics.map((topic) => (
+          <span class="topic-pill">{topic}</span>
+        ))}
+      </div>
+    )}
+
+    {programData.shortDescription && (
+      <p>{programData.shortDescription}</p>
+    )}
+  </div>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-surface-alt)">
+    <SectionHeader>
+      <h2>Program Overview</h2>
+    </SectionHeader>
+
+    <div class="program-content">
+      {descriptionParagraphs.length > 0 ? (
+        descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)
+      ) : (
+        <p>Additional program details will be published soon.</p>
+      )}
+    </div>
+  </Section>
+
+  {relatedClasses.length > 0 && (
+    <Section startBgcolor="var(--color-surface-alt)" endBgcolor="var(--color-primary-soft)">
+      <SectionHeader>
+        <h2>Classes in this Program</h2>
+        <p>Explore the classes that are part of this program pathway.</p>
+      </SectionHeader>
+
+      <div class="related-classes">
+        {relatedClasses.map((classItem) => (
+          <ClassCard
+            img={`/images/cards/${classItem.metadata?.image ?? "programs.png"}`}
+            alt={classItem.title}
+            slug={classItem.metadata?.slug ?? ""}
+            title={classItem.title}
+            level={classItem.metadata?.level}
+            description={classItem.shortDescription ?? ""}
+          />
+        ))}
+      </div>
+    </Section>
+  )}
+</ProgramLayout>
+
+<style>
+  .program-overview {
+    display: grid;
+    gap: var(--space-md);
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .topic-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(93, 95, 239, 0.12);
+    color: var(--color-text);
+    font-size: 0.875rem;
+  }
+
+  .program-content {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .related-classes {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 960px) {
+    .related-classes {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+</style>

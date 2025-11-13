@@ -4,16 +4,23 @@ import type { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<'article'> {
   img: string;
   alt: string;
+  href?: string;
 }
 
-const { class: className, img, alt, ...rest } = Astro.props as Props & { class?: string };
+const { class: className, img, alt, href, ...rest } = Astro.props as Props & { class?: string };
 const hasCardDirectory = img.includes('/cards/');
 const fallbackStyle = hasCardDirectory ? undefined : 'height: 190px; padding-top: 15px;';
 ---
 
 <article class:list={['card', 'program-card', className]} {...rest}>
   <figure class="card__media">
-    <img src={img} alt={alt} loading="lazy" style={fallbackStyle} />
+    {href ? (
+      <a href={href} class="card__media-link">
+        <img src={img} alt={alt} loading="lazy" style={fallbackStyle} />
+      </a>
+    ) : (
+      <img src={img} alt={alt} loading="lazy" style={fallbackStyle} />
+    )}
   </figure>
   <slot />
 </article>
@@ -35,6 +42,12 @@ const fallbackStyle = hasCardDirectory ? undefined : 'height: 190px; padding-top
     overflow: hidden;
     border-top-left-radius: var(--radius-lg);
     border-top-right-radius: var(--radius-lg);
+  }
+
+  .card__media-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
   }
 
   .card__media img {

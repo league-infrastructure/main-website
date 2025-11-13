@@ -68,13 +68,24 @@ function getClassesForProgram(program: any) {
       {
         programs.map((program) => {
           const programClasses = getClassesForProgram(program);
+          const programSlug = program.metadata?.slug;
+          const programUrl = programSlug ? `/programs/${programSlug}` : undefined;
           return (
             <ProgramCard
               img={`/images/cards/${program.metadata.image}`}
               alt={program.title}
+              href={programUrl}
             >
               <CardBody>
-                <h3>{program.title}</h3>
+                <h3>
+                  {programUrl ? (
+                    <a href={programUrl} class="program-card__title-link">
+                      {program.title}
+                    </a>
+                  ) : (
+                    program.title
+                  )}
+                </h3>
                 <p>{program.shortDescription}</p>
               </CardBody>
               <CardFooter>
@@ -99,6 +110,15 @@ function getClassesForProgram(program: any) {
                       })}
                     </div>
                   </div>
+                )}
+                {programUrl && (
+                  <a
+                    slot="learn-more"
+                    href={programUrl}
+                    class="program-card__learn-more-link"
+                  >
+                    Learn more
+                  </a>
                 )}
               </CardFooter>
             </ProgramCard>
@@ -302,6 +322,33 @@ function getClassesForProgram(program: any) {
   .class-lozenge:hover {
     opacity: 0.8;
     transform: translateY(-1px);
+  }
+
+  .program-card__title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .program-card__title-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .program-card__learn-more-link {
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+    display: inline-flex;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .program-card__learn-more-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
   }
 
   /* Classes list styles */

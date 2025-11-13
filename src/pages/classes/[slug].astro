@@ -1,0 +1,169 @@
+---
+import type { GetStaticPathsResult } from "astro";
+import ClassLayout from "../../layouts/ClassLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import { getClassesData } from "../../utils/markdown.js";
+
+interface ClassEntry {
+  title: string;
+  shortDescription?: string;
+  fullDescription?: string;
+  description?: string;
+  metadata?: {
+    slug?: string;
+    image?: string;
+    level?: string;
+    topics?: string[];
+  };
+}
+
+interface RouteProps {
+  classData: ClassEntry;
+}
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const classes = getClassesData();
+  return classes
+    .filter((entry) => entry.metadata?.slug)
+    .map((entry) => ({
+      params: { slug: entry.metadata!.slug!.replace(/_/g, "-") },
+      props: { classData: entry },
+    })) as GetStaticPathsResult;
+}
+
+const { classData } = Astro.props as unknown as RouteProps;
+
+if (!classData || !classData.metadata?.slug) {
+  throw new Error("Class data not found for requested slug");
+}
+
+const heroImage = classData.metadata.image
+  ? `/images/cards/${classData.metadata.image}`
+  : "/images/cards/computer-robot.png";
+const heroAlt = classData.title ?? "Class hero";
+const descriptionText = classData.fullDescription || classData.description || classData.shortDescription || "";
+const descriptionParagraphs = descriptionText
+  .split(/\n\s*\n/)
+  .map((paragraph) => paragraph.trim())
+  .filter((paragraph) => paragraph.length > 0);
+const topics = classData.metadata.topics ?? [];
+const level = classData.metadata.level;
+---
+
+<ClassLayout title={classData.title} description={classData.shortDescription}>
+  <HeroSection slot="hero" class="program-hero">
+    <h1 slot="tagline">{classData.title}</h1>
+    {classData.shortDescription && (
+      <p slot="description">{classData.shortDescription}</p>
+    )}
+    <div slot="media" class="program-hero__media">
+      <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
+    </div>
+  </HeroSection>
+
+  <Section startBgcolor="var(--color-surface)" endBgcolor="var(--color-peach)">
+    <SectionHeader>
+      <h2>Course Overview</h2>
+    </SectionHeader>
+
+    <div class="class-content">
+      <div class="class-description">
+        {descriptionParagraphs.length > 0 ? (
+          descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)
+        ) : (
+          <p>Course information will be available soon.</p>
+        )}
+      </div>
+
+      {(level || topics.length > 0) && (
+        <aside class="class-sidebar">
+          {level && (
+            <div class="class-detail">
+              <span class="class-detail__label">Level</span>
+              <span class="class-detail__value">{level}</span>
+            </div>
+          )}
+
+          {topics.length > 0 && (
+            <div class="class-detail">
+              <span class="class-detail__label">Topics</span>
+              <ul class="class-topic-list">
+                {topics.map((topic) => (
+                  <li>{topic}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      )}
+    </div>
+  </Section>
+</ClassLayout>
+
+<style>
+  .class-content {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .class-description {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .class-sidebar {
+    display: grid;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .class-detail {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .class-detail__label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  .class-detail__value {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .class-topic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .class-topic-list li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background-color: rgba(93, 95, 239, 0.12);
+    color: var(--color-text);
+    font-size: 0.875rem;
+    width: fit-content;
+  }
+
+  @media (min-width: 960px) {
+    .class-content {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+</style>
