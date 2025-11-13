@@ -71,7 +71,7 @@ automation, and mechatronics.
 slug: robot_garage
 image: robot_garage.png
 topics: programming, robotics, electronics
-classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit, robot_riot
+classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit
 
 
 

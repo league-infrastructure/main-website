@@ -22,3 +22,6 @@ const posts = defineCollection({
 export const collections = {
   posts,
 };
+
+export const pike13_base_url = 'https://jtl.pike13.com';
+export const pike13_client_id = process.env.PIKE13_CLIENT_ID ?? '';
