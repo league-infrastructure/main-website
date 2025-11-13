@@ -36,9 +36,6 @@ function normalizeEntries(entries) {
       description:
         entry.description ?? entry.fullDescription ?? entry.shortDescription ?? "",
       content: entry.content ?? "",
-      shortDescription: entry.shortDescription ?? entry.blurb ?? "",
-      fullDescription:
-        entry.fullDescription ?? entry.description ?? entry.blurb ?? "",
       meta,
       metadata: meta,
       ...meta,

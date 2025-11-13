@@ -29,7 +29,7 @@ applications.
 slug: python-programming
 image: python.png
 topics: programming
-classes: intro-python, python-apprentice, python-games, python-web-servers, python-orbitlab, makecode-arcade
+classes: intro-python, python-apprentice, python-games,  python-orbitlab, makecode-arcade
 category: group-classes
 ```
 
