@@ -34,11 +34,11 @@
   group. For each group, display the title of the group and the group blurb, then
   list the class cards, two per row.
 
-- For the class entries in the single Program pages ( like
+- [DONE] For the class entries in the single Program pages ( like
   `/programs/java-programming`) use the ClassCards that are also on the
   programs.astro page. 
 
-- On the individual class pages, get the enrollment information from the
+- [DONE] On the individual class pages, get the enrollment information from the
   category for the class ( in the class, this is the `group` slug. ) If there is
   enrollment information in the category, display a "How to Enroll" section on
   the class page with the enrollment text and enrollment buttons. 

@@ -4,8 +4,9 @@ import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
-import { getClassesData } from "../../utils/markdown.js";
+import { getClassesData, getCategoriesData } from "../../utils/markdown.js";
 
 interface ClassEntry {
   title: string;
@@ -18,34 +19,44 @@ interface ClassEntry {
     image?: string;
     level?: string;
     topics?: string[];
+    group?: string;
   };
   slug?: string;
   image?: string;
   level?: string;
   topics?: string[];
+  group?: string;
 }
 
 interface RouteProps {
   classData: ClassEntry;
+  categoryData?: Record<string, unknown>;
 }
+
+type CategoryButton = { label?: string; url?: string; type?: string };
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
+  const categories = getCategoriesData();
   return classes
     .map((entry) => {
       const slug = entry.meta?.slug ?? entry.slug;
       if (!slug) {
         return undefined;
       }
+      const groupSlug = entry.meta?.group ?? entry.group;
+      const categoryData = groupSlug
+        ? categories.find((category) => (category.meta?.slug ?? category.slug) === groupSlug)
+        : undefined;
       return {
         params: { slug: slug.replace(/_/g, "-") },
-        props: { classData: entry },
+        props: { classData: entry, categoryData },
       };
     })
     .filter(Boolean) as GetStaticPathsResult;
 }
 
-const { classData } = Astro.props as unknown as RouteProps;
+const { classData, categoryData } = Astro.props as unknown as RouteProps;
 
 const classSlug = classData.meta?.slug ?? classData.slug;
 
@@ -66,6 +77,15 @@ const descriptionParagraphs = descriptionText
   .filter((paragraph) => paragraph.length > 0);
 const topics = classData.meta?.topics ?? classData.topics ?? [];
 const level = classData.meta?.level ?? classData.level;
+const categoryRecord = (categoryData ?? {}) as Record<string, any>;
+const enrollContent = typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
+const categoryButtons = Array.isArray(categoryRecord.buttons)
+  ? (categoryRecord.buttons as CategoryButton[])
+  : Array.isArray(categoryRecord.meta?.buttons)
+    ? (categoryRecord.meta.buttons as CategoryButton[])
+    : [];
+const validButtons = categoryButtons.filter((button) => button?.label && button?.url);
+const hasEnrollSection = Boolean(enrollContent) || validButtons.length > 0;
 const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
 ---
@@ -123,6 +143,33 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
       )}
     </div>
   </Section>
+
+  {hasEnrollSection && (
+    <Section startBgcolor="var(--color-surface-alt)" endBgcolor="var(--color-primary-soft)">
+      <SectionHeader>
+        <h2>How to Enroll</h2>
+      </SectionHeader>
+
+      <div class="class-enroll">
+        {enrollContent && <div class="class-enroll__text" set:html={enrollContent} />}
+        {validButtons.length > 0 && (
+          <ButtonGroup
+            class="class-enroll__buttons"
+            actions={validButtons.map((button) => {
+              const isExternal = button.url ? /^https?:/i.test(button.url) : false;
+              return {
+                label: button.label ?? "Enroll",
+                href: button.url ?? "#",
+                variant: "primary",
+                target: isExternal ? "_blank" : undefined,
+                rel: isExternal ? "noopener noreferrer" : undefined,
+              };
+            })}
+          />
+        )}
+      </div>
+    </Section>
+  )}
 </ClassLayout>
 
 <style>
@@ -194,5 +241,21 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
       padding: var(--space-lg);
       gap: var(--space-lg);
     }
+  }
+
+  .class-enroll {
+    display: grid;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .class-enroll__text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  .class-enroll__buttons {
+    justify-content: center;
   }
 </style>

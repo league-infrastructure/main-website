@@ -4,6 +4,7 @@ import ProgramLayout from "../../layouts/ProgramLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import ClassCard from "../../components/ClassCard.astro";
 import { marked } from "marked";
 import { getProgramsData, getClassesData } from "../../utils/markdown.js";
 
@@ -24,6 +25,7 @@ interface ProgramEntry {
   image?: string;
   topics?: string[];
   classes?: string[];
+  level?: string;
 }
 
 interface RouteProps {
@@ -130,21 +132,30 @@ const renderedContent = hasContent ? await marked.parse(programData.content ?? "
         <p>Explore the classes that are part of this program pathway.</p>
       </SectionHeader>
 
-      <div class="class-gallery">
-        {relatedClasses.map((classItem) => {
-          const classSlug = classItem.meta?.slug ?? classItem.slug ?? "";
-          const classHref = classSlug ? `/classes/${classSlug.replace(/_/g, "-")}` : undefined;
-          return (
-            <a href={classHref ?? "#"} class="class-gallery__item">
-              <img
-                src={`/images/cards/${classItem.meta?.image ?? classItem.image ?? "programs.png"}`}
+      <div class="program-classes">
+        {relatedClasses
+          .map((classItem) => {
+            const classSlug = classItem.meta?.slug ?? classItem.slug;
+            const classImage = classItem.meta?.image ?? classItem.image;
+            const classLevel = classItem.meta?.level ?? classItem.level;
+
+            if (!classSlug || !classImage) {
+              console.warn(`Related class "${classItem.title}" is missing slug or image.`);
+              return null;
+            }
+
+            return (
+              <ClassCard
+                img={`/images/cards/${classImage}`}
                 alt={classItem.title}
-                loading="lazy"
+                slug={classSlug}
+                title={classItem.title}
+                level={classLevel}
+                description={classItem.blurb ?? classItem.description ?? ""}
               />
-              <span class="class-gallery__title">{classItem.title}</span>
-            </a>
-          );
-        })}
+            );
+          })
+          .filter(Boolean)}
       </div>
     </Section>
   )}
@@ -182,40 +193,21 @@ const renderedContent = hasContent ? await marked.parse(programData.content ?? "
     gap: var(--space-md);
   }
 
-  .class-gallery {
+  .program-classes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-lg);
-    margin-bottom: var(--space-xl);
   }
 
-  .class-gallery__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: var(--space-sm);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  .program-classes :global(.class-card) {
+    margin-bottom: 0;
+    height: 100%;
   }
 
-  .class-gallery__item:hover,
-  .class-gallery__item:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(15, 30, 73, 0.12);
-  }
-
-  .class-gallery__item img {
-    width: 100%;
-    border-radius: var(--radius-md);
-    box-shadow: 0 8px 16px rgba(15, 30, 73, 0.1);
-  }
-
-  .class-gallery__title {
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.4;
+  @media (max-width: 900px) {
+    .program-classes {
+      grid-template-columns: 1fr;
+    }
   }
 
 </style>
