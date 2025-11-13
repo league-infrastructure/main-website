@@ -100,7 +100,7 @@ group: python
 
 ## Java Weekly Classes
 
-Comprehensive Java programming from beginner to advanced levels, preparing
+Java programming from beginner to advanced levels, preparing
 students for AP Computer Science and professional careers.
 
 Students progress from introductory syntax to advanced object-oriented
@@ -121,7 +121,7 @@ hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 ```
 slug: java-weekly
 image: java.png
-level: beginner to advanced
+level: beginner to adv
 topics: java, programming
 group: java
 ```

@@ -1,9 +1,9 @@
 [
   {
     "title": "Weekly Group Classes",
-    "blurb": "Weekly groups classes in programming,  robotics and AI build lasting technical\nskills.",
+    "blurb": "Weekly groups classes in programming,  robotics and AI build lasting\ntechnicalskills",
     "description": "Our weekly 90 minute classes with experienced instructors build solid technical\nskills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
-    "content": "Our weekly 90 minute classes with experienced instructors build solid technical\nskills, leading to professional certifications. Our classes,  for 4th through\n12th grade students, are available in person in Carmel Valley, online, and at\nschools througout San Diego County.",
+    "content": "Our weekly 90 minute classes with experienced instructors build solid\ntechnical skills, leading to professional certifications. Our classes,  for 4th\nthrough 12th grade students, are available in person in Carmel Valley, online,\nand at schools througout San Diego County.",
     "enroll": "Enroll in weekly classes and get started on the path to professional programming.",
     "meta": {
       "slug": "group-classes",
@@ -31,7 +31,7 @@
     "content": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
     "enroll": "Join the Tech Club Meetup group for fun tech classes, clubs and event\nfor elementary and middle school students. Join the Code Clinic for older\nstudents for advanced classes and access to the Robot Garage and League Labs\nprogram.",
     "meta": {
-      "slug": "community",
+      "slug": "community-tech",
       "buttons": [
         {
           "type": "meetup",
@@ -49,8 +49,8 @@
           "url": "http://localhost:4321/programs/league-lab"
         }
       ]
-    },
-    "slug": "community",
+  },
+  "slug": "community-tech",
     "buttons": [
       {
         "type": "meetup",
@@ -96,7 +96,7 @@
   },
   {
     "title": "Java",
-    "blurb": "Python is the best language to start with. It’s the most popular programming\nlanguage, and useful for every kind of programming.",
+    "blurb": "For students of all levels who want to learn industry-level Java programming.",
     "description": "Java is a  popular language for many fields,  which means there’s a huge variety\nof job choices for engineers who specialize in it. Java is the driving force\nbehind many cutting edge technologies, such as working in the cloud, exploring\nspace at NASA, running self driving cars, and making games. Java is the language\nused in AP Computer Science, and is the dominant language for corporate\ncomputing, particularly in the finance industry.",
     "content": "Java is a  popular language for many fields,  which means there’s a huge variety\nof job choices for engineers who specialize in it. Java is the driving force\nbehind many cutting edge technologies, such as working in the cloud, exploring\nspace at NASA, running self driving cars, and making games. Java is the language\nused in AP Computer Science, and is the dominant language for corporate\ncomputing, particularly in the finance industry.",
     "enroll": "Our weekly 90 minute classes with experienced instructors build solid\ntechnical skills, leading to professional certifications. Our classes,  for 4th\nthrough 12th grade students, are available in person in Carmel Valley, online,\nand at schools througout San Diego County.",
@@ -150,6 +150,23 @@
     "description": "Catch-up or get ahead with personal attention in our private classes and group\ntutoring for computer science tests.",
     "content": "Catch-up or get ahead with personal attention in our private classes and group\ntutoring for computer science tests.",
     "enroll": "Contact us to register for private classes or get announcements about\ngroup tutoring.",
-    "meta": {}
+    "meta": {
+      "slug": "tutoring",
+      "buttons": [
+        {
+          "type": "link",
+          "label": "Contact Us",
+          "url": "mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring"
+        }
+      ]
+    },
+    "slug": "tutoring",
+    "buttons": [
+      {
+        "type": "link",
+        "label": "Contact Us",
+        "url": "mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring"
+      }
+    ]
   }
 ]

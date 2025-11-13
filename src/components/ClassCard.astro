@@ -21,18 +21,20 @@ const urlSlug = slug.replace(/_/g, "-");
   <div class="class-card__content">
     <div class="class-card__header">
       <h3 class="class-card__title">
-  <a href={`/classes/${urlSlug}`} class="class-card__title-link">
+        <a href={`/classes/${urlSlug}`} class="class-card__title-link">
           {title}
         </a>
       </h3>
+    </div>
+    <p class="class-card__description">{description}</p>
+    <div class="class-card__footer">
+      <a href={`/classes/${urlSlug}`} class="class-card__learn-more">
+        Learn more →
+      </a>
       {level && (
         <span class="class-card__level">{level}</span>
       )}
     </div>
-    <p class="class-card__description">{description}</p>
-  <a href={`/classes/${urlSlug}`} class="class-card__learn-more">
-      Learn more →
-    </a>
   </div>
 </div>
 
@@ -45,7 +47,7 @@ const urlSlug = slug.replace(/_/g, "-");
     overflow: hidden;
     transition: all 0.3s ease;
     margin-bottom: 1.5rem;
-    height: 200px;
+    height: 170px;
   }
 
   .class-card:hover {
@@ -55,8 +57,8 @@ const urlSlug = slug.replace(/_/g, "-");
 
   .class-card__image {
     flex-shrink: 0;
-    width: 350px;
-    height: 200px;
+    width: 300px;
+    height: 170px;
     overflow: hidden;
   }
 
@@ -74,25 +76,22 @@ const urlSlug = slug.replace(/_/g, "-");
 
   .class-card__content {
     flex: 1;
-    padding: 1.25rem 1.5rem;
+    padding: 0.625rem 0.75rem;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: 0.75rem;
+    gap: 0.5rem;
     height: 100%;
     container-type: inline-size;
   }
 
   .class-card__header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    gap: 1rem;
+    display: block;
+    margin-bottom: 0.125rem;
   }
 
   .class-card__title {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
     line-height: 1.3;
     flex: 1;
@@ -108,19 +107,6 @@ const urlSlug = slug.replace(/_/g, "-");
     color: var(--color-primary, #3b82f6);
   }
 
-  .class-card__level {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: capitalize;
-    background-color: var(--color-surface-alt, #f3f4f6);
-    color: var(--color-text-muted, #6b7280);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
   .class-card__description {
     margin: 0;
     color: var(--color-text-muted, #6b7280);
@@ -129,17 +115,36 @@ const urlSlug = slug.replace(/_/g, "-");
     overflow: hidden;
   }
 
+  .class-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
   .class-card__learn-more {
     text-decoration: none;
     color: var(--color-primary, #3b82f6);
-    font-weight: 500;
-    font-size: 0.875rem;
+    font-weight: 600;
+    font-size: 0.85rem;
     transition: color 0.2s ease;
-    align-self: flex-start;
   }
 
   .class-card__learn-more:hover {
     color: var(--color-primary-dark, #2563eb);
+  }
+
+  .class-card__level {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    background-color: var(--color-surface-alt, #f3f4f6);
+    color: var(--color-text-muted, #6b7280);
+    white-space: nowrap;
+    margin-left: auto;
   }
 
   /* Responsive design */
@@ -151,7 +156,7 @@ const urlSlug = slug.replace(/_/g, "-");
 
     .class-card__image {
       width: 100%;
-      height: 200px;
+      height: 170px;
     }
 
     .class-card__header {

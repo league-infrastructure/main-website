@@ -60,6 +60,57 @@ function getProgramsForCategory(slug: string) {
     return programCategories.includes(slug);
   });
 }
+
+function toTitleCase(value: string) {
+  return value
+    .split(/[\s_-]+/)
+    .filter((segment) => segment.length > 0)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(" ");
+}
+
+const classesByGroup = new Map<string, typeof classes[number][]>();
+
+for (const classItem of classes) {
+  const rawGroup = classItem.group ?? classItem.meta?.group;
+  const groupSlug = typeof rawGroup === "string" ? rawGroup.trim() : "";
+  if (!groupSlug) {
+    continue;
+  }
+  if (!classesByGroup.has(groupSlug)) {
+    classesByGroup.set(groupSlug, []);
+  }
+  classesByGroup.get(groupSlug)?.push(classItem);
+}
+
+const orderedGroupSlugs = categories
+  .map((category) => category.slug ?? category.meta?.slug)
+  .filter((slug): slug is string => Boolean(slug));
+
+const extraGroupSlugs = Array.from(classesByGroup.keys()).filter(
+  (slug) => !orderedGroupSlugs.includes(slug),
+);
+
+const classGroupSections = [
+  ...orderedGroupSlugs.filter((slug) => classesByGroup.has(slug)),
+  ...extraGroupSlugs,
+]
+  .map((slug) => {
+    const groupClasses = classesByGroup.get(slug) ?? [];
+    const categoryData = categoryLookup.get(slug);
+    const title = categoryData?.title ?? toTitleCase(slug);
+    const blurb = categoryData?.blurb ?? categoryData?.description ?? "";
+    const sortedClasses = [...groupClasses].sort((a, b) =>
+      (a.title ?? "").localeCompare(b.title ?? ""),
+    );
+    return {
+      slug,
+      title,
+      blurb,
+      classes: sortedClasses,
+    };
+  })
+  .filter((section) => section.classes.length > 0);
 ---
 
 <BaseLayout
@@ -223,31 +274,43 @@ function getProgramsForCategory(slug: string) {
       </p>
     </SectionHeader>
 
-    <div class="classes-list">
-      {
-        classes
-          .map((classItem) => {
-            const classSlug = classItem.slug ?? classItem.meta?.slug;
-            const classImage = classItem.image ?? classItem.meta?.image;
-            const classLevel = classItem.level ?? classItem.meta?.level;
-            if (!classSlug || !classImage) {
-              console.warn(`Class "${classItem.title}" is missing slug or image.`);
-              return null;
-            }
-            return (
-              <ClassCard
-                img={`/images/cards/${classImage}`}
-                alt={classItem.title}
-                slug={classSlug}
-                title={classItem.title}
-                level={classLevel}
-                description={classItem.blurb ?? classItem.description ?? ""}
-              />
-            );
-          })
-          .filter(Boolean)
-      }
-    </div>
+    {classGroupSections.length > 0 ? (
+      <div class="class-groups">
+        {classGroupSections.map((group) => (
+          <div class="class-group" data-group={group.slug}>
+            <div class="class-group__header">
+              <h3 id={`class-group-${group.slug}`}>{group.title}</h3>
+              {group.blurb && <p>{group.blurb}</p>}
+            </div>
+            <div class="class-group__grid">
+              {group.classes
+                .map((classItem) => {
+                  const classSlug = classItem.slug ?? classItem.meta?.slug;
+                  const classImage = classItem.image ?? classItem.meta?.image;
+                  const classLevel = classItem.level ?? classItem.meta?.level;
+                  if (!classSlug || !classImage) {
+                    console.warn(`Class "${classItem.title}" is missing slug or image.`);
+                    return null;
+                  }
+                  return (
+                    <ClassCard
+                      img={`/images/cards/${classImage}`}
+                      alt={classItem.title}
+                      slug={classSlug}
+                      title={classItem.title}
+                      level={classLevel}
+                      description={classItem.blurb ?? classItem.description ?? ""}
+                    />
+                  );
+                })
+                .filter(Boolean)}
+            </div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="classes-empty">Our class catalog is being updated. Please check back soon.</p>
+    )}
   </Section>
 
   <!-- Program Information -->
@@ -461,10 +524,52 @@ function getProgramsForCategory(slug: string) {
     text-decoration: underline;
   }
 
-  /* Classes list styles */
-  .classes-list {
-    max-width: 800px;
-    margin: 0 auto;
+  /* Class catalog layout */
+  .class-groups {
+    display: grid;
+    gap: var(--space-xxl, 4rem);
+    margin-top: var(--space-xl);
+  }
+
+  .class-group {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .class-group__header {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .class-group__header h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+    color: var(--color-heading, var(--color-primary));
+  }
+
+  .class-group__header p {
+    margin: 0;
+    color: var(--color-body);
+    line-height: 1.6;
+  }
+
+  .class-group__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .class-group__grid :global(.class-card) {
+    margin-bottom: 0;
+    height: 100%;
+  }
+
+  .classes-empty {
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--color-body);
+    margin: var(--space-xl) auto 0;
+    max-width: 42rem;
   }
 
   /* Class cards are now self-contained components */
@@ -558,6 +663,12 @@ function getProgramsForCategory(slug: string) {
 
     .programs-hero__media img {
       max-width: 100%;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .class-group__grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

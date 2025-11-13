@@ -1,4 +1,4 @@
-# Weekly Group Classes
+## Weekly Group Classes
 
 Weekly groups classes in programming,  robotics and AI build lasting
 technicalskills
@@ -19,13 +19,13 @@ Enroll in weekly classes and get started on the path to professional programming
 
 ```
 slug: group-classes
-enroll: 
+buttons: 
     type: pike13
     label: Enroll in Weekly Classes
     url: https://jtl.pike13.com/categories/93504
 ```
 
-# Community Tech 
+## Community Tech 
 
 Short classes, workshops, research and internship opportunities, for free at
 libraries, schools and rec centers. 
@@ -64,7 +64,7 @@ buttons:
       url: http://localhost:4321/programs/league-lab
 ```
 
-# Python
+## Python
 
 Python is the best language to start with. It’s the most popular programming
 language, and useful for every kind of programming.
@@ -96,10 +96,9 @@ enroll:
     url: https://jtl.pike13.com/categories/93504
 ```
 
-# Java
+## Java
 
-Python is the best language to start with. It’s the most popular programming
-language, and useful for every kind of programming.
+For students of all levels who want to learn industry-level Java programming.
 
 Java is a  popular language for many fields,  which means there’s a huge variety
 of job choices for engineers who specialize in it. Java is the driving force
@@ -130,7 +129,7 @@ enroll:
     url: https://jtl.pike13.com/categories/93504
 ```
 
-# Technology
+## Technology
 
 We have many other technology classes involving AI, games, and robotics.
 
@@ -156,7 +155,7 @@ enroll:
     url: https://jtl.pike13.com/categories/93504
 ```
 
-# Tutoring
+## Tutoring
 
 We offer private classes and group tutoring for AP Computer Science. 
 
@@ -172,7 +171,7 @@ tutoring for computer science tests.
 group tutoring. </enroll>
 
 ```
-slug: tetutoringch
+slug: tutoring
 enroll: 
     type: link
     label: Contact Us

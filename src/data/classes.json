@@ -107,14 +107,14 @@
   },
   {
     "title": "Java Weekly Classes",
-    "blurb": "Comprehensive Java programming from beginner to advanced levels, preparing\nstudents for AP Computer Science and professional careers.",
+    "blurb": "Java programming from beginner to advanced levels, preparing\nstudents for AP Computer Science and professional careers.",
     "description": "Students progress from introductory syntax to advanced object-oriented\nprogramming, data structures, and algorithms using industry-standard tools.",
     "content": "Our Java program offers a complete pathway from introduction through\nadvanced programming, with curriculum aligned to AP Computer Science standards.\nJava is the dominant language in corporate computing, particularly in finance,\nand powers cutting-edge technologies including cloud computing, NASA space\nexploration, and self-driving cars. Students learn fundamental programming\nconcepts, object-oriented design, data structures, and algorithms through\nhands-on projects. Our experienced instructors guide students toward\nprofessional Java certification, which opens doors to job opportunities at\ncompanies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5\nhours with a 5:1 student-to-teacher ratio, available both in-person and online.",
     "enroll": "",
     "meta": {
       "slug": "java-weekly",
       "image": "java.png",
-      "level": "beginner to advanced",
+      "level": "beginner to adv",
       "topics": [
         "java",
         "programming"
@@ -123,7 +123,7 @@
     },
     "slug": "java-weekly",
     "image": "java.png",
-    "level": "beginner to advanced",
+    "level": "beginner to adv",
     "topics": [
       "java",
       "programming"

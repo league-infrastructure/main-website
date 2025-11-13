@@ -29,4 +29,7 @@
   section, after the ProgramCards. After the text, generate the buttons, which
   should be in a single row and centered horizontally. 
 
-- One the programs page, make the class cards be two per row. 
+- [DONE] On the programs page, make the class cards be two per row, and break them in
+  to sections by category. Use the `group` value for the class to assign it to a
+  group. For each group, display the title of the group and the group blurb, then
+  list the class cards, two per row.
