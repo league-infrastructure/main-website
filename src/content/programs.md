@@ -1,24 +1,57 @@
-##  Programming Classes
+## Python Programming
 
-blurb: Comprehensive Java and Python programming from beginner to advanced levels,
-preparing students for AP Computer Science and professional careers.
+Python is the most popular programming language, perfect for beginners
+and powerful enough for professionals.
 
-description: Our Java program offers a complete pathway from introduction through advanced
-programming, with curriculum aligned to AP Computer Science standards. Java is
-the dominant language in corporate computing, particularly in finance, and
-powers cutting-edge technologies including cloud computing, NASA space
-exploration, and self-driving cars. Students learn fundamental programming
-concepts, object-oriented design, data structures, and algorithms through
-hands-on projects. Our experienced instructors guide students toward
-professional Java certification, which opens doors to job opportunities at
-companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
-hours with a 5:1 student-to-teacher ratio, available both in-person and online.
+Students learn Python through hands-on projects that build
+fundamental programming skills while keeping learning fun and engaging. Our
+Python pathway helps students master variables, loops, functions, and
+object-oriented programming, preparing them for AP Computer Science Principles
+and real-world problem solving. Small cohorts and experienced instructors ensure
+every student gets the support they need, whether meeting online or in person.
 
-slug: java_python_weekly
+<content>
+Python is the most popular programming language, and useful for every kind of
+programming, and it's the easiest to learn! Students learn fundamental
+programming concepts including variables, loops, conditionals, functions, and
+object-oriented programming through hands-on projects and real-world
+applications.
+
+* Official Python certificates
+* In-person and online cohorts
+* Small classes with five students per teacher
+* Interactive coding exercises and games
+* Preparation for AP Computer Science Principles
+</content>
+
+
+```
+slug: python-programming
+image: python.png
+topics: programming
+classes: intro-python, python-apprentice, python-games, python-web-games, python-orbitlab, makecode-arcade
+category: group-classes
+```
+
+## Java Programming
+
+blurb: Comprehensive Java curriculum that takes students from their first
+`System.out.println` to professional certification.
+
+description: Java remains the backbone of enterprise software, finance, and
+emerging technologies. Our eight-level Java program guides students from basic
+syntax to advanced object-oriented design, data structures, and algorithms.
+Learners work in professional tools like IntelliJ and Eclipse, prepare for
+Oracle certifications, and graduate ready for college CS programs or internships
+at companies like Google, Amazon, or Microsoft.
+
+slug: java-programming
 image: java.png
 topics: programming
-classes: java_weekly, intro_python, python_apprentice, python_games, python_web_games, python_orbitlab, private_tutoring
+classes: java-weekly, private-tutoring
 category: group-classes
+
+
 
 ## Robotics, AI and Technology 
 
@@ -40,7 +73,7 @@ art and entertainment.
 slug: technology
 image: robot_garage_kids.png
 topics: technology
-classes: robot_riot, tech_arcade, ai_agents
+classes: robot-riot, tech-arcade, ai-agents
 category: group-classes
 
 ## Tech Club 
@@ -58,11 +91,12 @@ students who start in Tech Club later transition to our paid weekly classes as
 they advance, but Tech Club provides valuable programming experience regardless
 of whether students continue. Classes run year-round at various locations.
 
-slug: tech_club
+slug: tech-club
 image: current_students.png
 topics: programming, robotics, electronics, games
-classes: intro_python, robot_riot, motors_clinic, soldering_clinic, makecode_arcade
-meetup: 
+classes: intro-python, robot-riot, motors-clinic, soldering-clinic, makecode-arcade
+meetup: tech-club
+
 ## Robot Garage
 
 blurb: Advanced robotics course building on Robot Riot fundamentals.
@@ -80,11 +114,11 @@ art. The course prepares students for participation in robotics competitions and
 provides skills directly applicable to careers in robotics engineering,
 automation, and mechatronics.
 
-slug: robot_garage
+slug: robot-garage
 image: robot_garage.png
 topics: programming, robotics, electronics
-classes: robot_riot, motors_clinic, soldering_clinic, hour_of_microbit
-
+classes: robot-riot, motors-clinic, soldering-clinic, hour-of-microbit
+meetup: tech-club
 
 
 ## Code Clinic
@@ -101,10 +135,10 @@ and working like a professional developer, preparing students for internships,
 jobs, and university-level computer science. These classes are offered free as
 free as part of our mission to prepare youth for technology careers.
 
-slug: code_clinic
+slug: code-clinic
 image: computer-robot.png
 topics: programming, robotics, electronics
-
+meetup: code-clinic
 
 ## League Lab 
 
@@ -123,7 +157,7 @@ launch real products. This program develops the independent learning and
 problem-solving skills essential for success in computer science careers and
 research.
 
-slug: league_lab
+slug: league-lab
 image: league_code.png
 topics: programming, robotics, electronics, career
 

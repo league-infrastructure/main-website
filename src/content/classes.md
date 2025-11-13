@@ -9,7 +9,7 @@ accessible. This course serves as the gateway to our comprehensive Python
 curriculum and prepares students for more advanced study. Classes meet once per
 week for 1.5 hours with a 5:1 student-to-teacher ratio.
 
-slug: intro_python
+slug: intro-python
 image: python.png
 level: beginner
 topics: python, programming
@@ -29,7 +29,7 @@ practical projects and prepares students for advanced courses. Classes meet
 weekly with experienced instructors from universities like Brown, UCSD, and
 Cornell.
 
-slug: python_apprentice
+slug: python-apprentice
 image: python.png
 level: intermediate
 topics: python, programming, certification
@@ -48,7 +48,7 @@ and prepare students for professional software development. Students can also
 deploy their Python games to run on the web, making them shareable with friends
 and family.
 
-slug: python_games
+slug: python-games
 image: python_games.png
 level: intermediate
 topics: python, programming, games, oop
@@ -65,7 +65,7 @@ bridges the gap between traditional programming and modern web development,
 teaching valuable skills about cross-platform deployment and web technologies
 while keeping the focus on fun, engaging game projects.
 
-slug: python_web_games
+slug: python-web-games
 image: python_games.png
 level: advanced
 topics: python, web development, games
@@ -86,7 +86,7 @@ course demonstrates how programming is used in real scientific research and
 space exploration, connecting coding skills to STEM education in a highly
 engaging way.
 
-slug: python_orbitlab
+slug: python-orbitlab
 image: orbit-lab.png
 level: advanced
 topics: python, science
@@ -107,7 +107,7 @@ professional Java certification, which opens doors to job opportunities at
 companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
 hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 
-slug: java_weekly
+slug: java-weekly
 image: java.png
 level: beginner to advanced
 topics: java, programming
@@ -126,7 +126,7 @@ differences, private tutoring provides the most personalized learning
 experience. Tutoring is available for all levels from complete beginner to
 advanced, with monthly tuition of $430.
 
-slug: private_tutoring
+slug: private-tutoring
 image: computer-robot.png
 level: all levels
 topics: java, python, programming
@@ -146,7 +146,7 @@ programming logic, sprite animation, and collision detection while producing
 tangible, playable results. It's perfect for students who love gaming and want
 to understand how their favorite games work.
 
-slug: makecode_arcade
+slug: makecode-arcade
 image: microbit-arcade.png
 level: beginner
 topics: games, programming,  javascript
@@ -167,7 +167,7 @@ program, the Motors Clinic can also be taken standalone by students interested
 in electronics and automation. This hands-on class gives students practical
 skills for any project involving mechanical motion.
 
-slug: motors_clinic
+slug: motors-clinic
 image: motors_clinic.png
 level: intermediate
 topics: programming, robotics
@@ -186,7 +186,7 @@ to assemble and modify electronic components, but the skills learned apply to
 any electronics project. This clinic may be offered as part of the robotics
 robotics program or as a standalone workshop.
 
-slug: soldering_clinic
+slug: soldering-clinic
 image: boy_soldering.png
 level: beginner
 topics: electronics, robotics
@@ -205,7 +205,7 @@ introduction to microcontrollers and as preparation for our more advanced
 robotics courses. Students leave with a concrete understanding of how
 programming translates to real-world actions.
 
-slug: hour_of_microbit
+slug: hour-of-microbit
 image: microbit.png
 level: beginner
 topics: programming
@@ -225,7 +225,7 @@ experience with how robots respond to commands. This course is currently in
 development and represents an innovative approach to teaching robotics through
 competitive gameplay.
 
-slug: robot_riot
+slug: robot-riot
 image: robot_riot.png
 level: beginner
 topics: programming, robotics
@@ -237,7 +237,7 @@ in programming, games, and robotics.
 
 description: Tech Arcade explores topics from all of our other courses, so students can program in Python or Java, make games in Javascript, program robotics or build an AI chatbot. The Arcade is project-based and self-paced, so students can fully explore their interests. 
 
-slug: tech_arcade
+slug: tech-arcade
 image: tech-arcade.png
 level: beginner
 topics: programming, robotics
@@ -253,7 +253,7 @@ chatbots to generating images and exploring ethical AI, kids dive into machine
 learning, computer vision, and more—all guided by expert instructors. Turn
 curiosity into real-world skills today.
 
-slug: ai_agents
+slug: ai-agents
 image: ai-agents.png
 level: beginner
 topics: programming, ai
@@ -273,7 +273,7 @@ developers deploy websites, manage code versions, and create responsive designs
 that work on all devices. Every student leaves with a live website they can
 continue to update throughout their programming journey.
 
-slug: github_pages_portfolio
+slug: github-pages-portfolio
 image: portfolio.png
 level: intermediate
 topics: web development, html, css, git, portfolio

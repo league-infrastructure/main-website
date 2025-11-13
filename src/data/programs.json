@@ -1,29 +1,30 @@
 [
   {
     "title": "Programming Classes",
-    "blurb": "Comprehensive Java and Python programming from beginner to advanced levels,\npreparing students for AP Computer Science and professional careers.",
-    "description": "Our Java program offers a complete pathway from introduction through advanced\nprogramming, with curriculum aligned to AP Computer Science standards. Java is\nthe dominant language in corporate computing, particularly in finance, and\npowers cutting-edge technologies including cloud computing, NASA space\nexploration, and self-driving cars. Students learn fundamental programming\nconcepts, object-oriented design, data structures, and algorithms through\nhands-on projects. Our experienced instructors guide students toward\nprofessional Java certification, which opens doors to job opportunities at\ncompanies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5\nhours with a 5:1 student-to-teacher ratio, available both in-person and online.",
+    "blurb": "Comprehensive weekly classes in programming and robotics from beginner to\nadvanced levels, preparing students for professional careers.",
+    "description": "Our Python and Java programs offers a complete pathway from\nintroduction through advanced programming, with curriculum aligned to AP\nComputer Science standards. Java is the dominant language in corporate\ncomputing, particularly in finance, and powers cutting-edge technologies\nincluding cloud computing, NASA space exploration, and self-driving cars.\nStudents learn fundamental programming concepts, object-oriented design, data\nstructures, and algorithms through hands-on projects. Our experienced\ninstructors guide students toward professional Java certification, which opens\ndoors to job opportunities at companies like Google, Amazon, Microsoft, and\nSony. Classes meet weekly for 1.5 hours with a 5:1 student-to-teacher ratio,\navailable both in-person and online.",
     "metadata": {
-      "slug": "java_python_weekly",
+      "slug": "java-python-weekly",
       "image": "java.png",
       "topics": [
         "programming"
       ],
       "classes": [
-        "java_weekly",
-        "intro_python",
-        "python_apprentice",
-        "python_games",
-        "python_web_games",
-        "python_orbitlab",
-        "private_tutoring"
-      ]
+        "java-weekly",
+        "intro-python",
+        "python-apprentice",
+        "python-games",
+        "python-web-games",
+        "python-orbitlab",
+        "private-tutoring"
+      ],
+      "category": "group-classes"
     }
   },
   {
-    "title": "Robotics, AI and Technology Classes",
+    "title": "Robotics, AI and Technology",
     "blurb": "Learn and have fun with robotics and electronics in Robot Riot and Tech\nArcade classes.",
-    "description": "The Robotics, AI and Technology program gives students a hands-on tour of modern intelligent systems, blending mechanical design, physical computing, and software thinking. Through Robot Riot and Tech Arcade labs learners prototype and program robots, wire sensors and actuators, and iterate on real-world engineering challenges in an energetic studio environment. AI Agents workshops introduce fundamental artificial intelligence concepts like perception, decision making, and responsible automation using approachable tools and experiments. The program emphasizes creativity, teamwork, and problem-solving while showing how robotics, machine learning, and emerging technologies intersect across industries—from manufacturing and healthcare to art and entertainment.",
+    "description": "The Robotics, AI and Technology program gives students a hands-on\ntour of modern intelligent systems, blending mechanical design, physical\ncomputing, and software thinking. Through Robot Riot and Tech Arcade labs\nlearners prototype and program robots, wire sensors and actuators, and iterate\non real-world engineering challenges in an energetic studio environment. AI\nAgents workshops introduce fundamental artificial intelligence concepts like\nperception, decision making, and responsible automation using approachable tools\nand experiments. The program emphasizes creativity, teamwork, and\nproblem-solving while showing how robotics, machine learning, and emerging\ntechnologies intersect across industries—from manufacturing and healthcare to\nart and entertainment.",
     "metadata": {
       "slug": "technology",
       "image": "robot_garage_kids.png",
@@ -31,10 +32,11 @@
         "technology"
       ],
       "classes": [
-        "robot_riot",
-        "tech_arcade",
-        "ai_agents"
-      ]
+        "robot-riot",
+        "tech-arcade",
+        "ai-agents"
+      ],
+      "category": "group-classes"
     }
   },
   {
@@ -42,7 +44,7 @@
     "blurb": "Free introductory classes in Python, Java, robotics, and electronics offered at\nschools and libraries.",
     "description": "Tech Club brings coding education to students who might not otherwise have\naccess, offering free introductory courses at schools and libraries throughout\nSan Diego County. These 60-90 minute sessions introduce students in grades 3-12\nto programming through hands-on projects in Python, Java, robotics, and\nelectronics. With a less than 10:1 student-to-teacher ratio and no cost to\nfamilies, Tech Club removes barriers to computer science education. Many\nstudents who start in Tech Club later transition to our paid weekly classes as\nthey advance, but Tech Club provides valuable programming experience regardless\nof whether students continue. Classes run year-round at various locations.",
     "metadata": {
-      "slug": "tech_club",
+      "slug": "tech-club",
       "image": "current_students.png",
       "topics": [
         "programming",
@@ -51,12 +53,13 @@
         "games"
       ],
       "classes": [
-        "intro_python",
-        "robot_riot",
-        "motors_clinic",
-        "soldering_clinic",
-        "makecode_arcade"
-      ]
+        "intro-python",
+        "robot-riot",
+        "motors-clinic",
+        "soldering-clinic",
+        "makecode-arcade"
+      ],
+      "meetup": "tech-club"
     }
   },
   {
@@ -64,7 +67,7 @@
     "blurb": "Advanced robotics course building on Robot Riot fundamentals.",
     "description": "In the Robot Garage students of any level can pursue projects in electronics,\nrobotics and programming.  Students learn the detailed functioning of motor\nsignals and power systems, basic electrical circuits, how servos and stepper\nmotors work at a technical level, 3D printing for custom robot parts, and\nsoldering electronics. Special projects might include the beginnings of robotic\nnavigation, working with sensors like sonar, infrared distance sensors, and\nApril tags for robot awareness and positioning. Projects become more ambitious\nand student-directed, allowing learners to pursue their specific interests\nwhether that's competition robotics, practical automation, or creative robotic\nart. The course prepares students for participation in robotics competitions and\nprovides skills directly applicable to careers in robotics engineering,\nautomation, and mechatronics.",
     "metadata": {
-      "slug": "robot_garage",
+      "slug": "robot-garage",
       "image": "robot_garage.png",
       "topics": [
         "programming",
@@ -72,11 +75,12 @@
         "electronics"
       ],
       "classes": [
-        "robot_riot",
-        "motors_clinic",
-        "soldering_clinic",
-        "hour_of_microbit"
-      ]
+        "robot-riot",
+        "motors-clinic",
+        "soldering-clinic",
+        "hour-of-microbit"
+      ],
+      "meetup": "tech-club"
     }
   },
   {
@@ -84,13 +88,14 @@
     "blurb": "Free online classes teaching professional programming technologies and advanced\ntechniques.",
     "description": "Code Clinic offers free online instruction in professional-level programming\ntools and techniques for more advanced students. These classes cover topics like\nversion control systems, professional development environments, software\ntesting, debugging strategies, and industry-standard practices that professional\nprogrammers use daily. Code Clinic helps bridge the gap between learning syntax\nand working like a professional developer, preparing students for internships,\njobs, and university-level computer science. These classes are offered free as\nfree as part of our mission to prepare youth for technology careers.",
     "metadata": {
-      "slug": "code_clinic",
+      "slug": "code-clinic",
       "image": "computer-robot.png",
       "topics": [
         "programming",
         "robotics",
         "electronics"
-      ]
+      ],
+      "meetup": "code-clinic"
     }
   },
   {
@@ -98,7 +103,7 @@
     "blurb": "Advanced program where students work as apprentices on research projects and\nlearn sophisticated programming.",
     "description": "League Lab provides an advanced learning environment for students who have\nprogressed beyond our standard curriculum and are ready for professional-level\nwork. Students in League Lab function as apprentices, working on substantial\nresearch projects, contributing to open-source software, or developing their own\nambitious applications. With guidance from professional developers and computer\nscientists, students learn advanced topics like machine learning, systems\nprogramming, algorithm design, or specialized domains they're passionate about.\nLeague Lab students often present their work at conferences, publish papers, or\nlaunch real products. This program develops the independent learning and\nproblem-solving skills essential for success in computer science careers and\nresearch.",
     "metadata": {
-      "slug": "league_lab",
+      "slug": "league-lab",
       "image": "league_code.png",
       "topics": [
         "programming",
