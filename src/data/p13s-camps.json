@@ -1,0 +1,112 @@
+{
+  "services": [
+    {
+      "id": 320134,
+      "name": "Intro to Java",
+      "type": "Course",
+      "description": "<b><img alt=\"\" src=\"https://d1nqv8xdwxria6.cloudfront.net/uploads/rich_text_editor_photo/image/de2cc9b0-73ed-4ae1-b48d-4e06e8330763/image.png\"><br></b><br><p>Is your child interested in coding? Give them the opportunity to learn one of the most widely used programming languages in the world with our Introduction to Java Camp! Our camp is designed for beginners with little or no coding experience and taught by experienced instructors who will guide your child through the basics of coding using Java. Java is a versatile programming language that is used in everything from mobile apps to enterprise software. In addition to learning valuable coding skills, your child will also have the opportunity to participate in fun activities like game design, robotics, and more. They will make new friends, learn teamwork, and develop problem-solving skills that will benefit them for years to come. Our Beginner Java Camp is the perfect way to introduce your child to the exciting world of coding and technology. Spaces are limited, so sign up today to secure your child's spot at our Beginner Java Camp. Let's get coding!</p><b><br></b><p>LEVEL: Beginner</p><p>Grades: 5th-12th</p>",
+      "description_short": null,
+      "instructions": "<b><p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li><li><p>Upload a profile picture for your child. Their photo may be used both internally and on social media in announcements, such as when they level up. Please let us know if you do not want their photo to be used.</p></li></ul><ol><li><p>Login to the<a href=\"https://jtl.pike13.com/accounts/sign_in\" target=\"_blank\"> parent portal</a></p></li><li><p>On the right side menu under “People you manage” click on your child’s name.</p></li><li><p>On their right side menu select “Photos”</p></li><li><p>Click on “New Profile Photo” and upload your child’s photo</p></li></ol><p>We are so excited to get started...can’t wait to see you!</p></b>",
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$395"
+    },
+    {
+      "id": 320425,
+      "name": "Intro to Python",
+      "type": "Course",
+      "description": "<p><img alt=\"\" src=\"https://d1nqv8xdwxria6.cloudfront.net/uploads/rich_text_editor_photo/image/c8c90352-fb85-4e75-b324-cefdd54f4c21/image.png\"><br></p><p>Learn the basics of programming in Python with this 5-day, 10-hour course suitable for students with no prior experience, from 5th to 12th grade. Our in-person classes have 5 or fewer students per instructor, ensuring individualized attention for every student. Python is one of the most popular programming languages and is used in fields such as science, engineering, web development, artificial intelligence, and many other applications, but it is also one of the easiest languages to learn.  This course teaches students the basics of programming, including variables, lists, if/then logic, and loops—skills that can be further developed in advanced classes in either Python or Java. This course will establish a solid foundation for any technology or programming language your student wishes to pursue next.<br></p><p>LEVEL: Beginner</p><p>Grades: 5th-12th</p><br>",
+      "description_short": null,
+      "instructions": "<p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li><li><p>Upload a profile picture for your child. Their photo may be used both internally and on social media in announcements, such as when they level up. Please let us know if you do not want their photo to be used.</p></li></ul><ol><li><p>Login to the<a href=\"https://jtl.pike13.com/accounts/sign_in\" target=\"_blank\"> parent portal</a></p></li><li><p>On the right side menu under “People you manage” click on your child’s name.</p></li><li><p>On their right side menu select “Photos”</p></li><li><p>Click on “New Profile Photo” and upload your child’s photo</p></li></ol><p>We are so excited to get started...can’t wait to see you!</p><br>",
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$395"
+    },
+    {
+      "id": 322093,
+      "name": "Tech Discovery Camp (Robotics, Coding & AI) Full-Day",
+      "type": "Course",
+      "description": "<img alt=\"\" src=\"https://d1nqv8xdwxria6.cloudfront.net/uploads/rich_text_editor_photo/image/8fe3cbcd-0389-4e7a-a656-678b2d61e381/image.png\"><br><br>Tech Discovery Camp is perfect for kids that want to try out a variety of tech areas. Each day is a new &amp; exciting subject! Get ready for an exhilarating week of exploration and innovation at our Tech Discovery Camp designed for problem-solving and critical-thinking skills! This immersive camp offers a comprehensive introduction to various cutting-edge technologies, including coding, robotics, drones, and AI fundamentals.<br><br><br><b></b>Price:  $950<br>Age: incoming 5th-12th grade<br>Skill Level: Beginner-Advanced<br>Format: On-Campus<br>Duration: Weeklong, 6 hours per day<br>Time: 9am-3pm",
+      "description_short": null,
+      "instructions": "<p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li><li><p>Upload a profile picture for your child. Their photo may be used both internally and on social media in announcements, such as when they level up. Please let us know if you do not want their photo to be used.</p></li></ul><ol><li><p>Login to the<a href=\"https://jtl.pike13.com/accounts/sign_in\" target=\"_blank\"> parent portal</a></p></li><li><p>On the right side menu under “People you manage” click on your child’s name.</p></li><li><p>On their right side menu select “Photos”</p></li><li>Click on “New Profile Photo” and upload your child’s photo</li></ol><p><br><b>Below are a few important details to remember for the week of camp.</b><br></p><b><ul><li><p>Camp drop-off begins at 8:30am. Classes begin promptly at 9am. </p></li></ul><ul><li><p>Lunch is from 12-1pm. Bring a snack and lunch from home daily. </p></li></ul>Location: 12625 High Bluff Dr #113, San Diego, CA 92130<br><br></b>We are so excited to get started...can’t wait to see you!<br><br>",
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$950"
+    },
+    {
+      "id": 322094,
+      "name": "Tech Discovery Camp (Robotics & Coding) Half-Day",
+      "type": "Course",
+      "description": "<img alt=\"\" src=\"https://d1nqv8xdwxria6.cloudfront.net/uploads/rich_text_editor_photo/image/cb7eed4d-fb6e-44a4-b274-a44e7efe31ca/image.png\"><br><br>Tech Discovery Camp is perfect for kids that want to try out a variety of tech areas. Each day is a new &amp; exciting subject! Get ready for an exhilarating week of exploration and innovation at our Tech Discovery Camp designed for problem-solving and critical-thinking skills! This immersive camp offers a comprehensive introduction to various cutting-edge technologies, including coding, robotics, &amp; drones fundamentals.<br><br><br><b></b>Price: $475<br>Age: incoming 5th-12th grade<br>Skill Level: Beginner-Advanced<br>Format: On-Campus<br>Duration: Weeklong, 3 hours per day<br>Time: 9am-12pm",
+      "description_short": null,
+      "instructions": "<p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li><li><p>Upload a profile picture for your child. Their photo may be used both internally and on social media in announcements, such as when they level up. Please let us know if you do not want their photo to be used.</p></li></ul><ol><li><p>Login to the<a href=\"https://jtl.pike13.com/accounts/sign_in\" target=\"_blank\"> parent portal</a></p></li><li><p>On the right side menu under “People you manage” click on your child’s name.</p></li><li><p>On their right side menu select “Photos”</p></li><li>Click on “New Profile Photo” and upload your child’s photo</li></ol><b>Location: 12625 High Bluff Dr #113, San Diego, CA 92130<br>**Camp drop-off begins at 8:30am. Classes begin promptly at 9am.**<br><br></b>We are so excited to get started...can’t wait to see you!",
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$475"
+    },
+    {
+      "id": 339841,
+      "name": "Intro to Micro:bit",
+      "type": "Course",
+      "description": "<p><img alt=\"\" src=\"https://d1nqv8xdwxria6.cloudfront.net/uploads/rich_text_editor_photo/image/c8c90352-fb85-4e75-b324-cefdd54f4c21/image.png\"><br></p><p>Learn the basics of programming in Python with this 5-day, 10-hour course suitable for students with no prior experience, from 5th to 12th grade. Our in-person classes have 5 or fewer students per instructor, ensuring individualized attention for every student. Python is one of the most popular programming languages and is used in fields such as science, engineering, web development, artificial intelligence, and many other applications, but it is also one of the easiest languages to learn.  This course teaches students the basics of programming, including variables, lists, if/then logic, and loops—skills that can be further developed in advanced classes in either Python or Java. This course will establish a solid foundation for any technology or programming language your student wishes to pursue next.<br></p><p>LEVEL: Beginner</p><p>Grades: 5th-12th</p><br>",
+      "description_short": null,
+      "instructions": "<p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li><li><p>Upload a profile picture for your child. Their photo may be used both internally and on social media in announcements, such as when they level up. Please let us know if you do not want their photo to be used.</p></li></ul><ol><li><p>Login to the<a href=\"https://jtl.pike13.com/accounts/sign_in\" target=\"_blank\"> parent portal</a></p></li><li><p>On the right side menu under “People you manage” click on your child’s name.</p></li><li><p>On their right side menu select “Photos”</p></li><li><p>Click on “New Profile Photo” and upload your child’s photo</p></li></ol><p>We are so excited to get started...can’t wait to see you!</p><br>",
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$395"
+    },
+    {
+      "id": 339860,
+      "name": "Spring Camps",
+      "type": "Course",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$395"
+    },
+    {
+      "id": 339861,
+      "name": "Summer Camps at St. James",
+      "type": "Course",
+      "description": "<b><p>Code Camp:</p><br><p>Get ready to embark on an exciting journey into the world of Programming! </p><p>Students will Choose between Java and Python:</p><p>Whether you're a complete beginner or looking to sharpen your skills,this course is designed to take you from zero to hero in Python Programming. Dive into topics like data types, control structures,functions, and more - all while having fun and building practical projects.   This course is perfect for beginner and intermediate programmers and is aligned with the Python Institute’s Professional Certificate Program.  (Grades 4 and up)</p><p>Are you an aspiring computer scientist or really like making things with code, this course is perfect for you.  You will have fun learning object oriented programming all while building practical projects.   This course is perfect for intermediate and advanced programmers and is aligned with AP Comp Sci A Testing Standards.  If you are new to coding we suggest our Python Apprentice Course.  (Grades 5 and up)</p><br><br><p>Tech Discovery Camp:</p><p>Explore the world of Technology!</p><p>Are you curious about technology?  Our Tech Discovery Camp includes introductions from our other camps in Python and  Artificial Intelligence as well as an introduction to robotics with Micro:Bit.  Explorers will jump into new technologies, opening up the world of computer science with days of coding, learning and playing with A.I. and how robotics work with mini computers.  The Micro:Bit is a tiny computer which you can make robots with, you can program the microbit in multiple languages, including Python, Javascript, and Blocks.</p><p><br></p><p>AI Camp:</p><p>Unlock Your Child’s Potential with AI!</p><p>Discover the magic behind artificial intelligence in our hands-on, creative AI course. From building chatbots to generating images and exploring ethical AI, kids dive into machine learning, computer vision, and more—all guided by expert instructors. Turn curiosity into real-world skills today! </p></b><br><br><b>Please Note: \n\nThese Camps are available to St. James Academy Students Only.</b><br>",
+      "description_short": null,
+      "instructions": null,
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$350"
+    },
+    {
+      "id": 341456,
+      "name": "Summer Code Arcade",
+      "type": "GroupClass",
+      "description": "<b><p>Summer Code Arcade <img width=\"23\" alt=\"video_game\" src=\"https://lh7-rt.googleusercontent.com/docsz/AD_4nXd2aBrTyZWHgMGuAeo8iRe56wgkfsut9XMr3AjOFEU43hp-57zn_t7ejb5IwUCdRyg7NA-H3sRKQG6jFoXM8AIz31wDjcPf7FLaDxlxDP2zyVlUB6BegjQBrg1_UVczuiXXvux_?key=sJ2apSd985g3mooM_gDh0IYo\" height=\"23\"><img width=\"23\" alt=\"rocket\" src=\"https://lh7-rt.googleusercontent.com/docsz/AD_4nXeF_2w5oAZs9uDAVywQOvv1phnI83q8ZIGd_vBU_QJcXNIjfsDIkrZ69tvhKlj9YWLHgrJFZ2M5p36g6JHOaL9LutK_d03Exr0diQAzYmJJ137Kj1wm3SFzhwA_GNfA-qIb6-UrEw?key=sJ2apSd985g3mooM_gDh0IYo\" height=\"23\"></p><p>This summer, the choice is yours at Summer Code Arcade! Each day, campers can pick from exciting coding adventures like Game Hacking with Microsoft MakeCode, Intro to Code in Python and Java, or even work on their own special projects. Want to accelerate your skills in your current lessons plan?  Come for focused learning sessions, just like our Slams!</p><p>With flexible scheduling, you can drop in for a single-day pass (use any day!) or go all-in with a full-week pass. Learn at your own pace, explore different topics, and have fun coding all summer long!</p>Sign up today and start your coding adventure! <img width=\"23\" alt=\"rocket\" src=\"https://lh7-rt.googleusercontent.com/docsz/AD_4nXcR0Zl6sNNBITWmjxfvbU7YGPUnCYWkzefTd4BUT0GUyb-4-MdqH6TEg8nUceeY9wdc58r4NM3bmtiFIJ960j6Ji-Ke-si4QfWrky67WIxa6qbAWpiO095TsP9TtIaHSeLSAa4OHQ?key=sJ2apSd985g3mooM_gDh0IYo\" height=\"23\"><br><br><br></b>\n\n<b>Note:</b> Summer camp sessions will be confirmed/scheduled once at least two students are registered for a given day. Registration must be completed at least two weeks in advance. If you have a late registration request, please email <a href=\"mailto:info@jointheleague.org\" rel=\"noopener noreferrer\" class=\"c-link c-link--underline\" target=\"_blank\">info@jointheleague.org</a>.\n\n<br>",
+      "description_short": "<b><p>Each day, campers can pick from exciting coding adventures like Game Hacking with Microsoft MakeCode, Intro to Code in Python and Java, or even work on their own special projects. Want to accelerate your skills in your current lessons plan?  Come for focused learning sessions, just like our Slams!<br></p></b>",
+      "instructions": null,
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$79"
+    },
+    {
+      "id": 345560,
+      "name": "Code Camp",
+      "type": "Course",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": "Camps",
+      "category_id": 93521,
+      "category_slug": "camps",
+      "price_string": "$0"
+    }
+  ]
+}

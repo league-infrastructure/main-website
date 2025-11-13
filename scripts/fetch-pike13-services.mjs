@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -7,13 +7,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CONFIG_PATH = path.resolve(__dirname, "../src/content/config.ts");
-const OUTPUT_PATH = path.resolve(__dirname, "../src/data/pike13Services.json");
+const DATA_DIR = path.resolve(__dirname, "../src/data");
 const ENV_PATH = path.resolve(__dirname, "../.env");
 const FRONT_ENDPOINTS = [
 	"/api/v2/front/services.json",
 	"/api/v2/front/services",
 ];
 const USER_AGENT = "LeagueWebsite/1.0 (+https://www.jointheleague.org)";
+
+function slugifyCategoryName(name) {
+	if (!name || typeof name !== "string") {
+		return null;
+	}
+
+	const normalized = name
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-+|-+$/g, "")
+		.replace(/-{2,}/g, "-");
+
+	return normalized || null;
+}
 
 let envLoaded = false;
 
@@ -145,6 +159,9 @@ function simplifyServices(payload) {
 				service?.pricing?.price_string ??
 				null;
 
+		const categoryName = service?.category_name ?? null;
+		const categorySlug = slugifyCategoryName(categoryName) ?? "uncategorized";
+
 		return {
 			id: service?.id ?? null,
 			name: service?.name ?? null,
@@ -152,20 +169,52 @@ function simplifyServices(payload) {
 			description: service?.description ?? null,
 			description_short: service?.description_short ?? null,
 			instructions: service?.instructions ?? null,
-			category_name: service?.category_name ?? null,
+			category_name: categoryName,
 			category_id: service?.category_id ?? null,
+			category_slug: categorySlug,
 			price_string: priceString,
 		};
 	});
 }
 
 async function writeServices(data) {
-	const directory = path.dirname(OUTPUT_PATH);
-	await mkdir(directory, { recursive: true });
+	await mkdir(DATA_DIR, { recursive: true });
 
 	const simplified = simplifyServices(data);
-	const payload = JSON.stringify({ services: simplified }, null, 2);
-	await writeFile(OUTPUT_PATH, `${payload}\n`, "utf8");
+	const grouped = new Map();
+
+	for (const service of simplified) {
+		const slug = service.category_slug ?? "uncategorized";
+		if (!grouped.has(slug)) {
+			grouped.set(slug, []);
+		}
+		grouped.get(slug).push(service);
+	}
+
+	const targetFiles = new Set();
+	const sortedSlugs = Array.from(grouped.keys()).sort((a, b) => a.localeCompare(b));
+
+	for (const slug of sortedSlugs) {
+		const fileName = `p13s-${slug}.json`;
+		const filePath = path.join(DATA_DIR, fileName);
+		targetFiles.add(fileName);
+		const payload = JSON.stringify({ services: grouped.get(slug) }, null, 2);
+		await writeFile(filePath, `${payload}\n`, "utf8");
+	}
+
+	const aggregatePath = path.join(DATA_DIR, "pike13Services.json");
+	if (existsSync(aggregatePath)) {
+		await rm(aggregatePath, { force: true });
+	}
+
+	const existingEntries = await readdir(DATA_DIR);
+	await Promise.all(
+		existingEntries
+			.filter((name) => name.startsWith("p13s-") && name.endsWith(".json") && !targetFiles.has(name))
+			.map((name) => rm(path.join(DATA_DIR, name), { force: true }))
+	);
+
+	return Array.from(targetFiles).sort((a, b) => a.localeCompare(b));
 }
 
 async function main() {
@@ -180,8 +229,10 @@ async function main() {
 		}
 
 		const services = await fetchServices(baseUrl, clientId);
-		await writeServices(services);
-		console.log(`Saved Pike13 services to ${path.relative(process.cwd(), OUTPUT_PATH)}`);
+		const files = await writeServices(services);
+		console.log(
+			`Saved Pike13 services to ${files.length} files in ${path.relative(process.cwd(), DATA_DIR)}: ${files.join(", ")}`
+		);
 	} catch (error) {
 		console.error(error instanceof Error ? error.message : error);
 		process.exitCode = 1;

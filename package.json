@@ -4,12 +4,15 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-  "build": "npm run process-cards && npm run fetch-pike13-services && npm run export-content && astro build",
+    "build": "npm run process-cards && npm run export-content && astro build",
     "preview": "astro preview",
     "astro": "astro",
-  "process-cards": "node scripts/process-cards.js",
-  "export-content": "node scripts/export-content.js",
-  "fetch-pike13-services": "node scripts/fetch-pike13-services.mjs"
+    "process-cards": "node scripts/process-cards.js",
+    "export-content": "node scripts/export-content.js",
+    "p13-services": "node scripts/fetch-pike13-services.mjs",
+    "p13-events": "node scripts/fetch-pike13-events.mjs",
+    "p13": "npm run p13-services && npm run p13-events"
+
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",

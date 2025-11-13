@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "id": 133762,
+      "name": "Special session",
+      "type": "Appointment",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": "Project Clinic",
+      "category_id": 93518,
+      "category_slug": "project-clinic",
+      "price_string": "$0"
+    },
+    {
+      "id": 326658,
+      "name": "Robot Garage",
+      "type": "GroupClass",
+      "description": null,
+      "description_short": "Students build and program robots and other electronic projects using microcontrollers, motors and sensors. Students learn basic electronics, soldering, mechanical construction, communication busses, motion control and other aspects of software driven electronic devices. This class is most suitable for students 7th grade and older, and students should have some programming experience.",
+      "instructions": "This meeting is in a residential garage workshop, at 1370 Wilbur in Pacific Beach.  Park on Gresham between Loring and Wilbur and enter the shop through the alley. The entrance is on the South side of the alley, one house west of Gresham.",
+      "category_name": "Project Clinic",
+      "category_id": 93518,
+      "category_slug": "project-clinic",
+      "price_string": "$45"
+    },
+    {
+      "id": 345668,
+      "name": "Project Clinic Online",
+      "type": "Appointment",
+      "description": null,
+      "description_short": "Expert consulting on student's programming projects.",
+      "instructions": null,
+      "category_name": "Project Clinic",
+      "category_id": 93518,
+      "category_slug": "project-clinic",
+      "price_string": "$40"
+    },
+    {
+      "id": 346048,
+      "name": "Project Clinic Workshop",
+      "type": "Appointment",
+      "description": "Build almost anything at the Robot Garage. We've got all of the parts, machines and equipment, and a expert builder to teach you what to do. We're equipped for electronics, robots and 3D printing and can help you build your project in wood, plastic or metal. Bring your project, or even just an idea, and we'll help you get it working. ",
+      "description_short": "Get expert help with your microcontroller, robotics or electronics project in the Robot Garage, a stocked shop with everthing you'll need for building your gadget. ",
+      "instructions": null,
+      "category_name": "Project Clinic",
+      "category_id": 93518,
+      "category_slug": "project-clinic",
+      "price_string": "$70"
+    }
+  ]
+}

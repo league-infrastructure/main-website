@@ -1,0 +1,40 @@
+{
+  "services": [
+    {
+      "id": 325219,
+      "name": "Tech Club",
+      "type": "GroupClass",
+      "description": "The LEAGUE Tech Club offers free technology classes to student from 4th to 12th grade in programming, robots and electronics. We run Tech Club classes at libraries and schools all over San Diego.<br><br> To enroll in Tech Club classes, get a <a href=\"https://jtl.pike13.com/membership_products/919030\" target=\"_blank\">Free Tech Club Membership</a> and use it when you enroll in the class. See our page <a href=\"https://www.jointheleague.org/about/enroll/\" target=\"_blank\">How to Enroll f</a>or more details. ",
+      "description_short": "This is the Summary",
+      "instructions": null,
+      "category_name": "Community Tech",
+      "category_id": 94044,
+      "category_slug": "community-tech",
+      "price_string": "$0"
+    },
+    {
+      "id": 327121,
+      "name": "Research Project",
+      "type": "Course",
+      "description": null,
+      "description_short": "Summer research project. Student will learn how to setup, train and use neural networks in Python. ",
+      "instructions": null,
+      "category_name": "Community Tech",
+      "category_id": 94044,
+      "category_slug": "community-tech",
+      "price_string": "$0"
+    },
+    {
+      "id": 342806,
+      "name": "Code Clinic",
+      "type": "GroupClass",
+      "description": null,
+      "description_short": "Free short introductions to software topics for advanced students. ",
+      "instructions": null,
+      "category_name": "Community Tech",
+      "category_id": 94044,
+      "category_slug": "community-tech",
+      "price_string": "$0"
+    }
+  ]
+}

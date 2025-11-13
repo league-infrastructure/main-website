@@ -111,8 +111,8 @@
       "image": "microbit-arcade.png",
       "level": "beginner",
       "topics": [
-        "programming",
         "games",
+        "programming",
         "javascript"
       ]
     }

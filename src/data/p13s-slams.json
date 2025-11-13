@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "id": 334788,
+      "name": "Holiday SLAMS - 3 Day",
+      "type": "Course",
+      "description": "<b></b><h1 class=\"font-600 text-2xl font-bold\">  Holiday Coding SLAM!</h1>\n<h2 class=\"font-600 text-xl font-bold\">Accelerated Learning During Thanksgiving and Winter Break</h2>\n<h3 class=\"font-600 text-lg font-bold\">What Is It?</h3>\n<p class=\"whitespace-pre-wrap break-words\">A special 3-day intensive program for Java and Python students to advance their coding skills during the holiday season!</p>\n<h3 class=\"font-600 text-lg font-bold\">Perfect For:</h3>\n<ul class=\"-mt-1 list-disc space-y-2 pl-8\">\n<li class=\"whitespace-normal break-words\">Students currently in Levels 0-6</li>\n<li class=\"whitespace-normal break-words\">Those wanting to jump ahead in their learning</li>\n<li class=\"whitespace-normal break-words\">Students who'll miss regular classes due to holiday travel</li>\n<li class=\"whitespace-normal break-words\">Anyone wanting to keep their coding skills sharp over break</li>\n</ul>\n<h3 class=\"font-600 text-lg font-bold\">Program Features:</h3>\n<ul class=\"-mt-1 list-disc space-y-2 pl-8\">\n<li class=\"whitespace-normal break-words\">Guided learning environment</li>\n<li class=\"whitespace-normal break-words\">Expert teacher supervision</li>\n<li class=\"whitespace-normal break-words\">Personalized progress tracking</li>\n<li class=\"whitespace-normal break-words\">Flexible holiday scheduling</li>\n</ul>\n<h3 class=\"font-600 text-lg font-bold\">Details:</h3>\n<ul class=\"-mt-1 list-disc space-y-2 pl-8\">\n<li class=\"whitespace-normal break-words\"><strong>Price:</strong> $235 (includes all 3 sessions)</li>\n<li class=\"whitespace-normal break-words\"><strong>Format:</strong> In-person instruction</li>\n<li class=\"whitespace-normal break-words\"><strong>Prerequisite:</strong> Must be enrolled in regular weekly classes (Levels 0-6)</li>\n</ul>\n<h3 class=\"font-600 text-lg font-bold\">How to Join: Sign up Below!</h3>\n<p class=\"whitespace-pre-wrap break-words\">Not yet a student? Contact us at <a href=\"mailto:info@jointheleague.org\" target=\"_blank\">info@jointheleague.org</a> to enroll in regular classes first!</p><br>",
+      "description_short": null,
+      "instructions": null,
+      "category_name": "Slams",
+      "category_id": 78358,
+      "category_slug": "slams",
+      "price_string": "$235"
+    }
+  ]
+}

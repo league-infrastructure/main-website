@@ -1,0 +1,148 @@
+{
+  "services": [
+    {
+      "id": 329741,
+      "name": "Tech Arcade@SOTM",
+      "type": "Course",
+      "description": null,
+      "description_short": "<b><u></u></b><h3>After-School Tech Arcade at School of the Madeleine</h3><p><strong>Date:</strong> Tuesdays, September 9, 2025 - November 11, 2025<br><strong><br></strong><strong>Time:</strong> 2:50 PM - 4:20 PM</p><p><strong>Price:</strong> $345 (submit check to School of the Madeleine)<br><strong>Grades:</strong> 3-8; All levels welcome<br><strong></strong></p><b>Sign up below!</b>",
+      "instructions": "",
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$0"
+    },
+    {
+      "id": 329990,
+      "name": "Tech Arcade@SJA",
+      "type": "Course",
+      "description": null,
+      "description_short": "<b><u></u></b><h3>After School Tech Arcade for Grades 3 &amp; up at St. James Academy</h3><p><strong>Day:</strong> Fridays 8/29 through 11/14<br><strong>Time:</strong> 1:30 PM - 3:00 PM<br><strong>Price:</strong> $345<br><strong>Grades:</strong> 3+</p><p><strong>Sign Up Below!</strong></p><b></b>",
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$345"
+    },
+    {
+      "id": 330357,
+      "name": "Python Workshop@SMOTA",
+      "type": "Course",
+      "description": null,
+      "description_short": "<h3>Python Programming Workshop After-School at St Martin of Tours Academy</h3><p><strong>Date:</strong> Fridays, January 10, 2024 - April 4, 2025<br><strong>Time:</strong> 12:00 PM - 2:00 PM</p><hr><p><strong>Price:</strong> $390 for 10 classes<br><strong>Grades:</strong> 3-8; All levels welcome</p><p><strong>Sign Up Below!</strong></p><br>",
+      "instructions": "<div class=\"p-rich_text_section\" style=\"text-align: left;\"><p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li></ul><p>We are so excited to get started...can’t wait to see you!</p></div>",
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$390"
+    },
+    {
+      "id": 330515,
+      "name": "Coding Workshops@STME",
+      "type": "Course",
+      "description": null,
+      "description_short": "<h3>Tech Arcade at St. Mary School, Escondido</h3><p><strong>Date:</strong> Wednesdays, September 3, 2025 - November 12, 2025<br><strong>Time:</strong> 12:05 PM - 2:00 PM</p><hr><p><strong>Price:</strong> $345<br><strong>Grades:</strong> 3-8; All levels welcome</p><p><strong>Sign Up Below!</strong></p><br>",
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$345"
+    },
+    {
+      "id": 331963,
+      "name": "Python Workshop@SRS",
+      "type": "Course",
+      "description": null,
+      "description_short": "<h3>Python Programming Workshop at St. Rita's School</h3><p><strong>Date:</strong> Wednesdays, December 18, 2024 - March 5, 2025<br><strong>Time:</strong> 12:15 PM - 1:45 PM</p><hr><p><strong>Price:</strong> $390<br><strong>Grades:</strong> 4-8; All levels welcome</p><p><strong>Sign Up Below!</strong></p><br>",
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$390"
+    },
+    {
+      "id": 332776,
+      "name": "Python@SMOTA",
+      "type": "GroupClass",
+      "description": "",
+      "description_short": "<h3>Python Programming After-School at St Martin of Tours Academy</h3><p><strong>Date:</strong> Fridays, January 10, 2024 - April 4, 2025<br><strong>Time:</strong> 12:00 PM - 2:00 PM</p><hr><p><strong>Price:</strong> $42 per class<br><strong>Grades:</strong> 3-8; All levels welcome</p><p><strong>Sign Up Below!</strong></p><br>",
+      "instructions": "<p>Welcome...before your first day of class, we have some HOMEWORK for you!</p><ul><li><p>Please have your student set up an account on<a href=\"https://github.com/\" target=\"_blank\"> GitHub</a>. This is a TWO STEP PROCESS. First, on the GitHub site create a username and password which can be easily remembered by student. This account will be used to save class work on the first day (and each day thereafter). Second, after the account is created, GitHub will send you a verification email. You will need to open this email and follow the instructions for account verification. GitHub is a site which stores their code in the cloud so students can access it from home. It will enable students to build and organize their professional portfolio of work. Students will also be able to share their projects with you at home!</p></li><li><p>Email: info@jointheleague.org, and include your student’s name and their new GitHub username (you can send the password as well if you think they may forget it).</p></li></ul><p>We are so excited to get started...can’t wait to see you!</p><br>",
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$42"
+    },
+    {
+      "id": 335725,
+      "name": "Python Workshop@SFC",
+      "type": "Course",
+      "description": null,
+      "description_short": "<h3>Python Programming Workshop at Santa Fe Christian</h3><p><strong>Date:</strong> Fridays, <b>Jan 16, 23, 30; Feb 6, 13, 27; Mar 6, 13, 20</b><br><strong>Time:</strong> 1:00 PM - 2:30 PM</p><hr><p><strong>Price:</strong> $350<br><strong>Grades:</strong> 6-8; All levels welcome</p><p><strong>Sign Up Below!</strong></p><br>",
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$0"
+    },
+    {
+      "id": 339904,
+      "name": "UWSD Python@LH",
+      "type": "Course",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$0"
+    },
+    {
+      "id": 348448,
+      "name": "Tech Arcade@SM",
+      "type": "Course",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$345"
+    },
+    {
+      "id": 348833,
+      "name": "Python Elective@SJA",
+      "type": "Course",
+      "description": null,
+      "description_short": "<b><u></u></b><h3>In Class Python Elective for Grades 3 &amp; up at St. James Academy<strong><br></strong></h3><p><strong>Day of Week</strong><strong>:</strong> Friday<br><strong>Time:</strong> 10:45 AM - 12:30 PM<br><strong>Price:</strong> $410<br><strong>Grades:</strong> <b>Junior High Students</b><br><b>Dates:</b> 8/29, 9/5, 9/12, 9/19, 9/26, 10/17, 10/24, 11/7, 11/14, 11/21(10:30am-11:55am)</p><p><strong>Sign Up Below!</strong></p><b></b>",
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$410"
+    },
+    {
+      "id": 349405,
+      "name": "Tech Arcade@SFA",
+      "type": "Course",
+      "description": null,
+      "description_short": "<b><u></u></b><h3>After School Tech Arcade for Grades 3 &amp; up at St. Francis of Assisi</h3><p><strong>Day:</strong> Tuesdays 9/23 through 12/16<br><strong>Time:</strong> 2:50 PM - 4:20 PM<br><strong>Price:</strong> $345<br><strong>Grades:</strong> 3+</p><p><strong>Sign Up Below!</strong></p><b></b>",
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$345"
+    },
+    {
+      "id": 350440,
+      "name": "Coding Robotics@HTHM",
+      "type": "Course",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": "After School Programs",
+      "category_id": 94399,
+      "category_slug": "after-school-programs",
+      "price_string": "$0"
+    }
+  ]
+}

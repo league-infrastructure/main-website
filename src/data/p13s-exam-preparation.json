@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "id": 191144,
+      "name": "CSA AP Prep",
+      "type": "GroupClass",
+      "description": "AP Computer Science A Test Prep class - In this class our students will review League curriculum as well as past College Board material, including practice questions that have been posed in previous AP exams. <b>For Java students in Level 2 and above</b><br><br>Dates: Every Thursday April 3rd - May 22nd<br>Time: 7-8:30pm<br>Location: Virtual Zoom Room<br><br><ul><li>Price: $260/month; $130/month for current League students (January and May prorated)<br></li><li>Materials: Runestone Academy online textbook (free)</li><li>Classes meet one day per week for 1.5 hours</li><li>Student–teacher ratio of 8:1</li></ul><b><i>Email info@jointheleague.org with any questions.</i></b><br>",
+      "description_short": null,
+      "instructions": null,
+      "category_name": "Exam Preparation",
+      "category_id": 93519,
+      "category_slug": "exam-preparation",
+      "price_string": "$70"
+    }
+  ]
+}

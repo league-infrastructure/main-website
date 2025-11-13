@@ -149,7 +149,7 @@ to understand how their favorite games work.
 slug: makecode_arcade
 image: microbit-arcade.png
 level: beginner
-topics: programming, games, javascript
+topics: games, programming,  javascript
 
 
 

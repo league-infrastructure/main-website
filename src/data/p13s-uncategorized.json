@@ -1,0 +1,40 @@
+{
+  "services": [
+    {
+      "id": 279205,
+      "name": "subrequest",
+      "type": "Appointment",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": null,
+      "category_id": null,
+      "category_slug": "uncategorized",
+      "price_string": "$1"
+    },
+    {
+      "id": 342160,
+      "name": "Ember Coding Labs",
+      "type": "GroupClass",
+      "description": null,
+      "description_short": null,
+      "instructions": null,
+      "category_name": null,
+      "category_id": null,
+      "category_slug": "uncategorized",
+      "price_string": "$0"
+    },
+    {
+      "id": 345109,
+      "name": "League Labs",
+      "type": "GroupClass",
+      "description": null,
+      "description_short": "<p>LEAGUE Labs is our unpaid internship program for High School students to develop new LEAGUE classes. LEAGUE Labs Interns will create 90 minute classes, on a subject of their choice, and teach that class to other students in our Tech Club or Code Clinic programs. Interns will not only learn basic job skills, but can also explore a new topic, because the best way to really learn something is to try to teach it.</p><p>Interns in the program will gain important technical and soft skills with:</p><ul><li>Tools like Github, Github Codespaces and Visual Studio Code</li><li>Programming</li><li>Product development and Human Centered Design</li><li>Marketing and Promotion ( you’ll need to beta test your class</li></ul><br><br>",
+      "instructions": null,
+      "category_name": null,
+      "category_id": null,
+      "category_slug": "uncategorized",
+      "price_string": "$0"
+    }
+  ]
+}
