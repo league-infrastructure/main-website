@@ -30,6 +30,12 @@ function normalizeEntries(entries) {
   return entries.map((entry) => {
     const meta = { ...(entry.meta ?? entry.metadata ?? {}) };
 
+    if (entry.curriculum && !meta.curriculum) {
+      meta.curriculum = entry.curriculum;
+    }
+
+    const curriculum = meta.curriculum ?? entry.curriculum ?? "";
+
     return {
       title: entry.title,
       blurb: entry.blurb ?? entry.shortDescription ?? "",
@@ -37,6 +43,7 @@ function normalizeEntries(entries) {
         entry.description ?? entry.fullDescription ?? entry.shortDescription ?? "",
       content: entry.content ?? "",
       enroll: entry.enroll ?? "",
+      curriculum,
       meta,
       ...meta,
     };

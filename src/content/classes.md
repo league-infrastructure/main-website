@@ -18,6 +18,7 @@ image: python.png
 level: beginner
 topics: python, programming
 group: python
+curriculum: https://league-curriculum.github.io/Python-Introduction/
 ```
 
 ## Python Apprentice
@@ -45,6 +46,7 @@ image: python.png
 level: intermediate
 topics: python, programming, certification
 group: python
+curriculum: https://python-apprentice.jointheleague.org/
 ```
 
 ## Python Games
@@ -70,6 +72,7 @@ image: python_games.png
 level: intermediate
 topics: python, programming, games, oop
 group: python
+curriculum: https://github.com/league-curriculum/Python-Games
 ```
 
 ## Python OrbitLab
@@ -96,6 +99,8 @@ image: orbit-lab.png
 level: advanced
 topics: python, science
 group: python
+curriculum: https://github.com/league-curriculum/Python-OrbitLab
+
 ```
 
 ## Java Weekly Classes
@@ -202,6 +207,7 @@ image: motors_clinic.png
 level: intermediate
 topics: programming, robotics
 group: tech
+curriculum: https://league-curriculum.github.io/Motors/
 ```
 
 ## Soldering Clinic
@@ -252,6 +258,7 @@ image: microbit.png
 level: beginner
 topics: programming
 group: tech
+curriculum: https://league-curriculum.github.io/HourofMicrobit/
 ```
 
 ## Robot Riot
@@ -278,6 +285,7 @@ image: robot_riot.png
 level: beginner
 topics: programming, robotics
 group: tech
+curriculum: https://league-curriculum.github.io/Microbit-Robot-Rally/
 ```
 
 ## Tech Arcade
@@ -355,4 +363,5 @@ image: portfolio.png
 level: intermediate
 topics: web development, html, css, git, portfolio
 group: tech
+curriculum: https://github.com/league-curriculum/Portfolio-jekyll-barebones.git
 ```

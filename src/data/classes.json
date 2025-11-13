@@ -5,6 +5,7 @@
     "description": "This foundational course introduces students in grades 4-12 to the Python\nprogramming language for the first time.",
     "content": "This foundational course introduces students in grades 4-12 to the\nPython programming language for the first time. Students learn basic programming\nconcepts through engaging, hands-on projects that make coding fun and\naccessible. This course serves as the gateway to our comprehensive Python\ncurriculum and prepares students for more advanced study. Classes meet once per\nweek for 1.5 hours with a 5:1 student-to-teacher ratio.",
     "enroll": "",
+    "curriculum": "https://league-curriculum.github.io/Python-Introduction/",
     "meta": {
       "slug": "intro-python",
       "image": "python.png",
@@ -13,7 +14,8 @@
         "python",
         "programming"
       ],
-      "group": "python"
+      "group": "python",
+      "curriculum": "https://league-curriculum.github.io/Python-Introduction/"
     },
     "slug": "intro-python",
     "image": "python.png",
@@ -30,6 +32,7 @@
     "description": "Students solidify core programming concepts including variables, functions,\nloops, conditionals, and object-oriented design while earning globally\nrecognized credentials.",
     "content": "Python Apprentice is the core beginner-to-intermediate Python course\nthat covers the fundamentals of the language in depth. Students learn essential\nprogramming concepts including variables, functions, loops, conditionals, and\nobject-oriented programming. The curriculum is designed to prepare students for\nprofessional Python certification exams, giving them credentials recognized by\nemployers worldwide. This course builds real-world programming skills through\npractical projects and prepares students for advanced courses. Classes meet\nweekly with experienced instructors from universities like Brown, UCSD, and\nCornell.",
     "enroll": "",
+    "curriculum": "https://python-apprentice.jointheleague.org/",
     "meta": {
       "slug": "python-apprentice",
       "image": "python.png",
@@ -39,7 +42,8 @@
         "programming",
         "certification"
       ],
-      "group": "python"
+      "group": "python",
+      "curriculum": "https://python-apprentice.jointheleague.org/"
     },
     "slug": "python-apprentice",
     "image": "python.png",
@@ -57,6 +61,7 @@
     "description": "Students expand beyond syntax to learn event handling, game physics, and\nsoftware architecture by producing complete, playable games.",
     "content": "Python Games takes students beyond basic syntax to develop substantial\nprogramming skills through game development. Students learn object-oriented\nprogramming principles, event handling, game physics, and software architecture\nby building complete, playable games. Projects help students understand how to\nstructure larger programs, debug complex code, and think like professional\ndevelopers. The skills learned in this course are applicable far beyond games\nand prepare students for professional software development. Students can also\ndeploy their Python games to run on the web, making them shareable with friends\nand family.",
     "enroll": "",
+    "curriculum": "https://github.com/league-curriculum/Python-Games",
     "meta": {
       "slug": "python-games",
       "image": "python_games.png",
@@ -67,7 +72,8 @@
         "games",
         "oop"
       ],
-      "group": "python"
+      "group": "python",
+      "curriculum": "https://github.com/league-curriculum/Python-Games"
     },
     "slug": "python-games",
     "image": "python_games.png",
@@ -86,6 +92,7 @@
     "description": "Students explore computational science by modelling gravity, planetary motion,\nand physics-based scenarios in Python.",
     "content": "Python OrbitLab introduces students to computational science through\nthe fascinating topic of orbital mechanics. Students program simulations of\nplanets, moons, and satellites, learning how gravity shapes the motion of\ncelestial bodies. The course teaches numerical integration, vector mathematics,\nand physics simulation while developing a deep understanding of how our solar\nsystem works. Students create visualizations of their simulations and explore\nwhat-if scenarios, like adding extra planets or changing gravitational\nconstants. This course demonstrates how programming is used in real scientific\nresearch and space exploration, connecting coding skills to STEM education in a\nhighly engaging way.",
     "enroll": "",
+    "curriculum": "https://github.com/league-curriculum/Python-OrbitLab",
     "meta": {
       "slug": "python-orbitlab",
       "image": "orbit-lab.png",
@@ -94,7 +101,8 @@
         "python",
         "science"
       ],
-      "group": "python"
+      "group": "python",
+      "curriculum": "https://github.com/league-curriculum/Python-OrbitLab"
     },
     "slug": "python-orbitlab",
     "image": "orbit-lab.png",
@@ -111,6 +119,7 @@
     "description": "Students progress from introductory syntax to advanced object-oriented\nprogramming, data structures, and algorithms using industry-standard tools.",
     "content": "Our Java program offers a complete pathway from introduction through\nadvanced programming, with curriculum aligned to AP Computer Science standards.\nJava is the dominant language in corporate computing, particularly in finance,\nand powers cutting-edge technologies including cloud computing, NASA space\nexploration, and self-driving cars. Students learn fundamental programming\nconcepts, object-oriented design, data structures, and algorithms through\nhands-on projects. Our experienced instructors guide students toward\nprofessional Java certification, which opens doors to job opportunities at\ncompanies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5\nhours with a 5:1 student-to-teacher ratio, available both in-person and online.",
     "enroll": "",
+    "curriculum": "",
     "meta": {
       "slug": "java-weekly",
       "image": "java.png",
@@ -136,6 +145,7 @@
     "description": "Individualized sessions adapt the pace, topics, and projects to each learner,\nmaking it easy to accelerate progress or focus on specific challenges.",
     "content": "For students who benefit from individualized attention or need\nflexible scheduling, we offer private tutoring in both Java and Python. These\n1:1 virtual sessions allow instructors to customize the pace and content to each\nstudent's specific needs, learning style, and goals. Whether a student needs\nhelp catching up, wants to advance more quickly, or requires accommodation for\nlearning differences, private tutoring provides the most personalized learning\nexperience. Tutoring is available for all levels from complete beginner to\nadvanced, with monthly tuition of $430.",
     "enroll": "",
+    "curriculum": "",
     "meta": {
       "slug": "private-tutoring",
       "image": "computer-robot.png",
@@ -163,6 +173,7 @@
     "description": "Students learn game design and programming logic using Microsoft's visual\nprogramming platform with options to transition into JavaScript.",
     "content": "MakeCode Arcade Games offers an exciting entry point into game\ndevelopment using Microsoft's visual programming platform. Students can program\nusing drag-and-drop blocks, JavaScript, or a combination of both, making it\naccessible to beginners while offering depth for more advanced students. The\nreal magic happens when students deploy their games to physical handheld\nconsoles that they can play anytime, anywhere. This course teaches game design\nprinciples, programming logic, sprite animation, and collision detection while\nproducing tangible, playable results. It's perfect for students who love gaming\nand want to understand how their favorite games work.",
     "enroll": "",
+    "curriculum": "",
     "meta": {
       "slug": "makecode-arcade",
       "image": "microbit-arcade.png",
@@ -190,6 +201,7 @@
     "description": "Students dive into the electrical and software principles behind motor control,\nincluding PWM techniques for speed and direction.",
     "content": "The Motors Clinic is a focused two-hour workshop teaching students how\nto control different types of motors through programming. Students learn the\nelectrical and software principles behind motor control, including PWM\n(pulse-width modulation) for controlling motor speed and direction. The class\ncovers brush DC motors, stepper motors for precise positioning, and hobby servo\nmotors commonly used in robotics. While often taken as part of the robotics\nprogram, the Motors Clinic can also be taken standalone by students interested\nin electronics and automation. This hands-on class gives students practical\nskills for any project involving mechanical motion.",
     "enroll": "",
+    "curriculum": "https://league-curriculum.github.io/Motors/",
     "meta": {
       "slug": "motors-clinic",
       "image": "motors_clinic.png",
@@ -198,7 +210,8 @@
         "programming",
         "robotics"
       ],
-      "group": "tech"
+      "group": "tech",
+      "curriculum": "https://league-curriculum.github.io/Motors/"
     },
     "slug": "motors-clinic",
     "image": "motors_clinic.png",
@@ -215,6 +228,7 @@
     "description": "Students practice assembly techniques, tool safety, and electronics\ntroubleshooting while building take-home projects.",
     "content": "The Soldering Clinic teaches students essential soldering skills\nthrough practical, hands-on experience. Students learn safety procedures and\nproper soldering techniques that enable them to construct soldering kits. As\npart of the class, students receive a small soldering kit to practice with, and\nare encouraged to bring their own kits from home to continue developing their\nskills. This clinic supports our robotics program by giving students the ability\nto assemble and modify electronic components, but the skills learned apply to\nany electronics project. This clinic may be offered as part of the robotics\nprogram or as a standalone workshop.",
     "enroll": "",
+    "curriculum": "",
     "meta": {
       "slug": "soldering-clinic",
       "image": "boy_soldering.png",
@@ -240,6 +254,7 @@
     "description": "Students experiment with LEDs, sensors, and radio communications to see how code\ncontrols physical hardware.",
     "content": "Hour of Micro:bit is a gentle introduction to physical computing using\nthe BBC Micro:bit, a pocket-sized programmable computer. In this short workshop,\nstudents write programs to control the Micro:bit's LED display, buttons,\nsensors, and radio communication capabilities. The Micro:bit's approachable\ninterface and immediate physical feedback make it perfect for beginners to\nunderstand how code controls hardware. This course serves as both a standalone\nintroduction to microcontrollers and as preparation for our more advanced\nrobotics courses. Students leave with a concrete understanding of how\nprogramming translates to real-world actions.",
     "enroll": "",
+    "curriculum": "https://league-curriculum.github.io/HourofMicrobit/",
     "meta": {
       "slug": "hour-of-microbit",
       "image": "microbit.png",
@@ -247,7 +262,8 @@
       "topics": [
         "programming"
       ],
-      "group": "tech"
+      "group": "tech",
+      "curriculum": "https://league-curriculum.github.io/HourofMicrobit/"
     },
     "slug": "hour-of-microbit",
     "image": "microbit.png",
@@ -263,6 +279,7 @@
     "description": "Students compete in friendly challenges while learning to wire, program, and\ncustomize robots with new hardware attachments.",
     "content": "Robot Riot combines programming and robotics in an exciting\ncompetitive format. Students learn the basics of controlling motors on a robot,\nstarting with existing robot platforms that they modify to make more\ncompetitive. Students add grippers, pushers, flippers, and other attachments to\ntheir robots, then learn how to reprogram them to activate electronics like\nturbos and lights. The course teaches how to send messages back and forth\nbetween the joystick controller and the robot, giving students hands-on\nexperience with how robots respond to commands. This course is currently in\ndevelopment and represents an innovative approach to teaching robotics through\ncompetitive gameplay.",
     "enroll": "",
+    "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/",
     "meta": {
       "slug": "robot-riot",
       "image": "robot_riot.png",
@@ -271,7 +288,8 @@
         "programming",
         "robotics"
       ],
-      "group": "tech"
+      "group": "tech",
+      "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/"
     },
     "slug": "robot-riot",
     "image": "robot_riot.png",
@@ -288,6 +306,7 @@
     "description": "Students sample Python, Java, JavaScript, robotics, and AI projects at their own\npace with instructor guidance.",
     "content": "Tech Arcade explores topics from all of our other courses, letting\nstudents program in Python or Java, build games in JavaScript, experiment with\nrobotics, or create an AI chatbot. The Arcade is project-based and self-paced,\nso every student can dive deep into their interests while getting coaching from\nexperienced mentors. Daily prompts and challenges keep the experience fresh,\nwhile portfolio checkpoints track progress across code, hardware, and design\nskills. It is the perfect option for curious students who want to try everything\nbefore specializing.",
     "enroll": "",
+    "curriculum": "",
     "meta": {
       "slug": "tech-arcade",
       "image": "tech-arcade.png",
@@ -313,6 +332,7 @@
     "description": "Students prototype ethical AI experiences while training models, generating\nmedia, and deploying their own assistants.",
     "content": "AI Agents unlocks the magic behind artificial intelligence in a\nhands-on, creative environment. Students build chatbots, experiment with image\ngeneration, and explore computer vision as they learn how modern AI systems\nwork. Along the way they discuss the ethical implications of AI and learn how to\ndesign responsible experiences. Guided by expert instructors, students turn\ncuriosity into real-world skills by shipping projects that react to user input,\ninterpret data, and automate tasks. Every participant leaves with a working AI\nproject and a solid understanding of the technology shaping the future.",
     "enroll": "",
+    "curriculum": "",
     "meta": {
       "slug": "ai-agents",
       "image": "ai-agents.png",
@@ -338,6 +358,7 @@
     "description": "Students learn production workflows with HTML, CSS, Git, and static site\ngenerators while launching a live personal site.",
     "content": "In this web development course, students create their own professional\nportfolio website to showcase programming projects and accomplishments. Using\nGitHub Pages and the Jekyll static site generator, students learn HTML, CSS, and\nmodern web development workflows including version control with Git. The\nresulting portfolio site serves as both a learning project and a practical tool\nfor college applications and future job searches. Students learn how\nprofessional developers deploy websites, manage code versions, and create\nresponsive designs that work on all devices. Every student leaves with a live\nwebsite they can continue to update throughout their programming journey.",
     "enroll": "",
+    "curriculum": "https://github.com/league-curriculum/Portfolio-jekyll-barebones.git",
     "meta": {
       "slug": "github-pages-portfolio",
       "image": "portfolio.png",
@@ -349,7 +370,8 @@
         "git",
         "portfolio"
       ],
-      "group": "tech"
+      "group": "tech",
+      "curriculum": "https://github.com/league-curriculum/Portfolio-jekyll-barebones.git"
     },
     "slug": "github-pages-portfolio",
     "image": "portfolio.png",

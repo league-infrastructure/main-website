@@ -13,12 +13,16 @@ interface ClassEntry {
   description?: string;
   shortDescription?: string;
   content?: string;
-  metadata?: {
+  meta?: {
     slug?: string;
     image?: string;
     level?: string;
     topics?: string[];
   };
+  slug?: string;
+  image?: string;
+  level?: string;
+  topics?: string[];
 }
 
 interface RouteProps {
@@ -28,21 +32,30 @@ interface RouteProps {
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
   return classes
-    .filter((entry) => entry.metadata?.slug)
-    .map((entry) => ({
-      params: { slug: entry.metadata!.slug!.replace(/_/g, "-") },
-      props: { classData: entry },
-    })) as GetStaticPathsResult;
+    .map((entry) => {
+      const slug = entry.meta?.slug ?? entry.slug;
+      if (!slug) {
+        return undefined;
+      }
+      return {
+        params: { slug: slug.replace(/_/g, "-") },
+        props: { classData: entry },
+      };
+    })
+    .filter(Boolean) as GetStaticPathsResult;
 }
 
 const { classData } = Astro.props as unknown as RouteProps;
 
-if (!classData || !classData.metadata?.slug) {
+const classSlug = classData.meta?.slug ?? classData.slug;
+
+if (!classData || !classSlug) {
   throw new Error("Class data not found for requested slug");
 }
 
-const heroImage = classData.metadata.image
-  ? `/images/cards/${classData.metadata.image}`
+const heroImageSource = classData.meta?.image ?? classData.image;
+const heroImage = heroImageSource
+  ? `/images/cards/${heroImageSource}`
   : "/images/cards/computer-robot.png";
 const heroAlt = classData.title ?? "Class hero";
 const descriptionText =
@@ -51,8 +64,8 @@ const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
   .filter((paragraph) => paragraph.length > 0);
-const topics = classData.metadata.topics ?? [];
-const level = classData.metadata.level;
+const topics = classData.meta?.topics ?? classData.topics ?? [];
+const level = classData.meta?.level ?? classData.level;
 const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
 ---

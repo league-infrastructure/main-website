@@ -13,13 +13,17 @@ interface ProgramEntry {
   description?: string;
   shortDescription?: string;
   content?: string;
-  metadata?: {
+  meta?: {
     slug?: string;
     image?: string;
     topics?: string[];
     classes?: string[];
     level?: string;
   };
+  slug?: string;
+  image?: string;
+  topics?: string[];
+  classes?: string[];
 }
 
 interface RouteProps {
@@ -31,30 +35,41 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const programs = getProgramsData();
   const classes = getClassesData();
   return programs
-    .filter((entry) => entry.metadata?.slug)
     .map((entry) => {
-      const relatedClasses = (entry.metadata?.classes ?? [])
-        .map((classSlug: string) => classes.find((classItem) => classItem.metadata?.slug === classSlug))
+      const slug = entry.meta?.slug ?? entry.slug;
+      if (!slug) {
+        return undefined;
+      }
+
+      const classSlugs = entry.meta?.classes ?? entry.classes ?? [];
+      const relatedClasses = classSlugs
+        .map((classSlug: string) =>
+          classes.find((classItem) => (classItem.meta?.slug ?? classItem.slug) === classSlug),
+        )
         .filter(Boolean) as ProgramEntry[];
 
       return {
-        params: { slug: entry.metadata!.slug! },
+        params: { slug },
         props: {
           programData: entry,
           relatedClasses,
         },
       };
-    }) as GetStaticPathsResult;
+    })
+    .filter(Boolean) as GetStaticPathsResult;
 }
 
 const { programData, relatedClasses } = Astro.props as unknown as RouteProps;
 
-if (!programData || !programData.metadata?.slug) {
+const programSlug = programData.meta?.slug ?? programData.slug;
+
+if (!programData || !programSlug) {
   throw new Error("Program data not found for requested slug");
 }
 
-const heroImage = programData.metadata.image
-  ? `/images/cards/${programData.metadata.image}`
+const heroImageSource = programData.meta?.image ?? programData.image;
+const heroImage = heroImageSource
+  ? `/images/cards/${heroImageSource}`
   : "/images/cards/programs.png";
 const heroAlt = programData.title ?? "Program hero";
 const heroDescription = programData.blurb ?? programData.shortDescription;
@@ -64,7 +79,7 @@ const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
   .filter((paragraph) => paragraph.length > 0);
-const topics = programData.metadata.topics ?? [];
+const topics = programData.meta?.topics ?? programData.topics ?? [];
 const hasContent = Boolean(programData.content && programData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(programData.content ?? "") : undefined;
 ---
@@ -117,12 +132,12 @@ const renderedContent = hasContent ? await marked.parse(programData.content ?? "
 
       <div class="class-gallery">
         {relatedClasses.map((classItem) => {
-          const classSlug = classItem.metadata?.slug ?? "";
+          const classSlug = classItem.meta?.slug ?? classItem.slug ?? "";
           const classHref = classSlug ? `/classes/${classSlug.replace(/_/g, "-")}` : undefined;
           return (
             <a href={classHref ?? "#"} class="class-gallery__item">
               <img
-                src={`/images/cards/${classItem.metadata?.image ?? "programs.png"}`}
+                src={`/images/cards/${classItem.meta?.image ?? classItem.image ?? "programs.png"}`}
                 alt={classItem.title}
                 loading="lazy"
               />
