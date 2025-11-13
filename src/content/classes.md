@@ -44,6 +44,7 @@ slug: python-apprentice
 image: python.png
 level: intermediate
 topics: python, programming, certification
+group: python
 ```
 
 ## Python Games
@@ -68,6 +69,7 @@ slug: python-games
 image: python_games.png
 level: intermediate
 topics: python, programming, games, oop
+group: python
 ```
 
 ## Python OrbitLab
@@ -93,6 +95,7 @@ slug: python-orbitlab
 image: orbit-lab.png
 level: advanced
 topics: python, science
+group: python
 ```
 
 ## Java Weekly Classes
@@ -120,6 +123,7 @@ slug: java-weekly
 image: java.png
 level: beginner to advanced
 topics: java, programming
+group: java
 ```
 
 ## Private Tutoring
@@ -144,6 +148,7 @@ slug: private-tutoring
 image: computer-robot.png
 level: all levels
 topics: java, python, programming
+group: tutoring
 ```
 
 ## MakeCode Arcade Games
@@ -169,6 +174,7 @@ slug: makecode-arcade
 image: microbit-arcade.png
 level: beginner
 topics: games, programming, javascript
+group: tech
 ```
 
 
@@ -195,6 +201,7 @@ slug: motors-clinic
 image: motors_clinic.png
 level: intermediate
 topics: programming, robotics
+group: tech
 ```
 
 ## Soldering Clinic
@@ -219,6 +226,7 @@ slug: soldering-clinic
 image: boy_soldering.png
 level: beginner
 topics: electronics, robotics
+group: tech
 ```
 
 ## Hour of Micro:bit
@@ -243,6 +251,7 @@ slug: hour-of-microbit
 image: microbit.png
 level: beginner
 topics: programming
+group: tech
 ```
 
 ## Robot Riot
@@ -268,6 +277,7 @@ slug: robot-riot
 image: robot_riot.png
 level: beginner
 topics: programming, robotics
+group: tech
 ```
 
 ## Tech Arcade
@@ -291,6 +301,7 @@ slug: tech-arcade
 image: tech-arcade.png
 level: beginner
 topics: programming, robotics
+group: tech
 ```
 
 ## AI Agents
@@ -316,6 +327,7 @@ slug: ai-agents
 image: ai-agents.png
 level: beginner
 topics: programming, ai
+group: tech
 ```
 
 
@@ -342,4 +354,5 @@ slug: github-pages-portfolio
 image: portfolio.png
 level: intermediate
 topics: web development, html, css, git, portfolio
+group: tech
 ```

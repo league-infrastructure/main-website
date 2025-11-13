@@ -25,13 +25,13 @@
     ]
   },
   {
-    "title": "Community Tech Classes",
+    "title": "Community Tech",
     "blurb": "Short classes, workshops, research and internship opportunities, for free at\nlibraries, schools and rec centers.",
     "description": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
     "content": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
     "enroll": "Join the Tech Club Meetup group for fun tech classes, clubs and event\nfor elementary and middle school students. Join the Code Clinic for older\nstudents for advanced classes and access to the Robot Garage and League Labs\nprogram.",
     "meta": {
-      "slug": "community-tech",
+      "slug": "community",
       "buttons": [
         {
           "type": "meetup",
@@ -50,7 +50,7 @@
         }
       ]
     },
-    "slug": "community-tech",
+    "slug": "community",
     "buttons": [
       {
         "type": "meetup",
@@ -68,5 +68,88 @@
         "url": "http://localhost:4321/programs/league-lab"
       }
     ]
+  },
+  {
+    "title": "Python",
+    "blurb": "Python is the best language to start with. It’s the most popular programming\nlanguage, and useful for every kind of programming.",
+    "description": "The Python language is one of the most accessible programming languages\navailable because it has simplified syntax. Due to its ease of learning and\nusage, python codes can be easily written and executed much faster than other\nprogramming languages. Python is the most important language for data analysis\nand AI and is important in robotics, scientific computing, web sites, and many\nother fields.",
+    "content": "The Python language is one of the most accessible programming\nlanguages available because it has simplified syntax. Due to its ease of\nlearning and usage, python codes can be easily written and executed much faster\nthan other programming languages. Python is the most important language for data\nanalysis and AI and is important in robotics, scientific computing, web sites,\nand many other fields.",
+    "enroll": "Our weekly 90 minute classes with experienced instructors build solid\ntechnical skills, leading to professional certifications. Our classes,  for 4th\nthrough 12th grade students, are available in person in Carmel Valley, online,\nand at schools througout San Diego County.",
+    "meta": {
+      "slug": "python",
+      "buttons": [
+        {
+          "type": "pike13",
+          "label": "Enroll in Weekly Python Classes",
+          "url": "https://jtl.pike13.com/categories/93504"
+        }
+      ]
+    },
+    "slug": "python",
+    "buttons": [
+      {
+        "type": "pike13",
+        "label": "Enroll in Weekly Python Classes",
+        "url": "https://jtl.pike13.com/categories/93504"
+      }
+    ]
+  },
+  {
+    "title": "Java",
+    "blurb": "Python is the best language to start with. It’s the most popular programming\nlanguage, and useful for every kind of programming.",
+    "description": "Java is a  popular language for many fields,  which means there’s a huge variety\nof job choices for engineers who specialize in it. Java is the driving force\nbehind many cutting edge technologies, such as working in the cloud, exploring\nspace at NASA, running self driving cars, and making games. Java is the language\nused in AP Computer Science, and is the dominant language for corporate\ncomputing, particularly in the finance industry.",
+    "content": "Java is a  popular language for many fields,  which means there’s a huge variety\nof job choices for engineers who specialize in it. Java is the driving force\nbehind many cutting edge technologies, such as working in the cloud, exploring\nspace at NASA, running self driving cars, and making games. Java is the language\nused in AP Computer Science, and is the dominant language for corporate\ncomputing, particularly in the finance industry.",
+    "enroll": "Our weekly 90 minute classes with experienced instructors build solid\ntechnical skills, leading to professional certifications. Our classes,  for 4th\nthrough 12th grade students, are available in person in Carmel Valley, online,\nand at schools througout San Diego County.",
+    "meta": {
+      "slug": "java",
+      "buttons": [
+        {
+          "type": "pike13",
+          "label": "Enroll in Weekly Java Classes",
+          "url": "https://jtl.pike13.com/categories/93504"
+        }
+      ]
+    },
+    "slug": "java",
+    "buttons": [
+      {
+        "type": "pike13",
+        "label": "Enroll in Weekly Java Classes",
+        "url": "https://jtl.pike13.com/categories/93504"
+      }
+    ]
+  },
+  {
+    "title": "Technology",
+    "blurb": "We have many other technology classes involving AI, games, and robotics.",
+    "description": "Our technology classes offer a wider variety of tech experiences in one program,\nwith shorter courses covering more topics. Students can build games, program\nmicrocontrollers, race robots, or choose projects of their own.",
+    "content": "Our technology classes offer a wider variety of tech experiences in one program,\nwith shorter courses covering more topics. Students can build games, program\nmicrocontrollers, race robots, or choose projects of their own.",
+    "enroll": "While our weekly programming classes run year round, our shorter\ntechnology courses are not scheduled consistently. Check the online enrollment\nsite for current offerings.",
+    "meta": {
+      "slug": "tech",
+      "buttons": [
+        {
+          "type": "pike13",
+          "label": "Enroll in Weekly Tech Classes",
+          "url": "https://jtl.pike13.com/categories/93504"
+        }
+      ]
+    },
+    "slug": "tech",
+    "buttons": [
+      {
+        "type": "pike13",
+        "label": "Enroll in Weekly Tech Classes",
+        "url": "https://jtl.pike13.com/categories/93504"
+      }
+    ]
+  },
+  {
+    "title": "Tutoring",
+    "blurb": "We offer private classes and group tutoring for AP Computer Science.",
+    "description": "Catch-up or get ahead with personal attention in our private classes and group\ntutoring for computer science tests.",
+    "content": "Catch-up or get ahead with personal attention in our private classes and group\ntutoring for computer science tests.",
+    "enroll": "Contact us to register for private classes or get announcements about\ngroup tutoring.",
+    "meta": {}
   }
 ]

@@ -12,7 +12,8 @@
       "topics": [
         "python",
         "programming"
-      ]
+      ],
+      "group": "python"
     },
     "slug": "intro-python",
     "image": "python.png",
@@ -20,7 +21,8 @@
     "topics": [
       "python",
       "programming"
-    ]
+    ],
+    "group": "python"
   },
   {
     "title": "Python Apprentice",
@@ -36,7 +38,8 @@
         "python",
         "programming",
         "certification"
-      ]
+      ],
+      "group": "python"
     },
     "slug": "python-apprentice",
     "image": "python.png",
@@ -45,7 +48,8 @@
       "python",
       "programming",
       "certification"
-    ]
+    ],
+    "group": "python"
   },
   {
     "title": "Python Games",
@@ -62,7 +66,8 @@
         "programming",
         "games",
         "oop"
-      ]
+      ],
+      "group": "python"
     },
     "slug": "python-games",
     "image": "python_games.png",
@@ -72,7 +77,8 @@
       "programming",
       "games",
       "oop"
-    ]
+    ],
+    "group": "python"
   },
   {
     "title": "Python OrbitLab",
@@ -87,7 +93,8 @@
       "topics": [
         "python",
         "science"
-      ]
+      ],
+      "group": "python"
     },
     "slug": "python-orbitlab",
     "image": "orbit-lab.png",
@@ -95,7 +102,8 @@
     "topics": [
       "python",
       "science"
-    ]
+    ],
+    "group": "python"
   },
   {
     "title": "Java Weekly Classes",
@@ -110,7 +118,8 @@
       "topics": [
         "java",
         "programming"
-      ]
+      ],
+      "group": "java"
     },
     "slug": "java-weekly",
     "image": "java.png",
@@ -118,7 +127,8 @@
     "topics": [
       "java",
       "programming"
-    ]
+    ],
+    "group": "java"
   },
   {
     "title": "Private Tutoring",
@@ -134,7 +144,8 @@
         "java",
         "python",
         "programming"
-      ]
+      ],
+      "group": "tutoring"
     },
     "slug": "private-tutoring",
     "image": "computer-robot.png",
@@ -143,7 +154,8 @@
       "java",
       "python",
       "programming"
-    ]
+    ],
+    "group": "tutoring"
   },
   {
     "title": "MakeCode Arcade Games",
@@ -159,7 +171,8 @@
         "games",
         "programming",
         "javascript"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "makecode-arcade",
     "image": "microbit-arcade.png",
@@ -168,7 +181,8 @@
       "games",
       "programming",
       "javascript"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "Motors Clinic",
@@ -183,7 +197,8 @@
       "topics": [
         "programming",
         "robotics"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "motors-clinic",
     "image": "motors_clinic.png",
@@ -191,7 +206,8 @@
     "topics": [
       "programming",
       "robotics"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "Soldering Clinic",
@@ -206,7 +222,8 @@
       "topics": [
         "electronics",
         "robotics"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "soldering-clinic",
     "image": "boy_soldering.png",
@@ -214,7 +231,8 @@
     "topics": [
       "electronics",
       "robotics"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "Hour of Micro:bit",
@@ -228,14 +246,16 @@
       "level": "beginner",
       "topics": [
         "programming"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "hour-of-microbit",
     "image": "microbit.png",
     "level": "beginner",
     "topics": [
       "programming"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "Robot Riot",
@@ -250,7 +270,8 @@
       "topics": [
         "programming",
         "robotics"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "robot-riot",
     "image": "robot_riot.png",
@@ -258,7 +279,8 @@
     "topics": [
       "programming",
       "robotics"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "Tech Arcade",
@@ -273,7 +295,8 @@
       "topics": [
         "programming",
         "robotics"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "tech-arcade",
     "image": "tech-arcade.png",
@@ -281,7 +304,8 @@
     "topics": [
       "programming",
       "robotics"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "AI Agents",
@@ -296,7 +320,8 @@
       "topics": [
         "programming",
         "ai"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "ai-agents",
     "image": "ai-agents.png",
@@ -304,7 +329,8 @@
     "topics": [
       "programming",
       "ai"
-    ]
+    ],
+    "group": "tech"
   },
   {
     "title": "GitHub Pages Portfolio",
@@ -322,7 +348,8 @@
         "css",
         "git",
         "portfolio"
-      ]
+      ],
+      "group": "tech"
     },
     "slug": "github-pages-portfolio",
     "image": "portfolio.png",
@@ -333,6 +360,7 @@
       "css",
       "git",
       "portfolio"
-    ]
+    ],
+    "group": "tech"
   }
 ]

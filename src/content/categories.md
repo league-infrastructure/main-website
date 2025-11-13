@@ -53,7 +53,7 @@ program.
 </enroll>
 
 ```
-slug: community-tech
+slug: community
 buttons: 
     - type: meetup
       label: Join the Tech Club
@@ -158,3 +158,27 @@ enroll:
     url: https://jtl.pike13.com/categories/93504
 ```
 
+# Tutoring
+
+We offer private classes and group tutoring for AP Computer Science. 
+
+Catch-up or get ahead with personal attention in our private classes and group
+tutoring for computer science tests. 
+
+<content>
+Catch-up or get ahead with personal attention in our private classes and group
+tutoring for computer science tests. 
+</content>
+
+<enroll> Contact us to register for private classes or get announcements about
+group tutoring. </enroll>
+
+```
+slug: tetutoringch
+enroll: 
+    type: link
+    label: Contact Us
+    url: mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring
+
+
+256988
