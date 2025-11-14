@@ -7,26 +7,9 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
 import { getPoliciesData } from "../../utils/markdown.js";
+import type { StructuredContentRecord, StructuredCta } from "../../types/content";
 
-type PolicyCta = { label?: string; url?: string; type?: string; variant?: string; target?: string; rel?: string };
-
-interface PolicyRecord {
-  title?: string;
-  blurb?: string;
-  description?: string;
-  fullDescription?: string;
-  content?: string;
-  enroll?: string;
-  slug?: string;
-  cta?: PolicyCta[];
-  meta?: {
-    slug?: string;
-    cta?: PolicyCta[];
-    [key: string]: unknown;
-  };
-}
-
-const rawPolicies = getPoliciesData() as PolicyRecord[];
+const rawPolicies = getPoliciesData() as StructuredContentRecord[];
 
 const slugify = (value: string) =>
   value
@@ -72,7 +55,7 @@ const processedPolicies = await Promise.all(
         : [];
 
     const ctas = rawCtas
-      .filter((action): action is PolicyCta => Boolean(action?.label && action?.url))
+      .filter((action): action is StructuredCta => Boolean(action?.label && action?.url))
       .map((action) => ({
         ...action,
         variant: action?.variant ?? "ghost",
@@ -117,7 +100,7 @@ const hasPolicies = policies.length > 0;
     </p>
     <img
       slot="media"
-      src="/images/current_students.png"
+      src="/images/cards/current_students.png"
       alt="Students collaborating at The League"
       loading="lazy"
     />
@@ -163,7 +146,7 @@ const hasPolicies = policies.length > 0;
         {policy.ctas.length > 0 && (
           <ButtonGroup
             class="policy-section__actions"
-            actions={policy.ctas.map((action: PolicyCta) => {
+            actions={policy.ctas.map((action: StructuredCta) => {
               const isExternal = action.url ? /^https?:/i.test(action.url) : false;
               return {
                 label: action.label ?? "Learn more",

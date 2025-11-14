@@ -7,35 +7,11 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
 import { getClassesData, getCategoriesData } from "../../utils/markdown.js";
-
-type CategoryCta = { label?: string; url?: string; type?: string };
-
-interface ClassEntry {
-  title: string;
-  blurb?: string;
-  description?: string;
-  shortDescription?: string;
-  content?: string;
-  enroll?: string;
-  cta?: CategoryCta[];
-  meta?: {
-    slug?: string;
-    image?: string;
-    level?: string;
-    topics?: string[];
-    group?: string;
-    cta?: CategoryCta[];
-  };
-  slug?: string;
-  image?: string;
-  level?: string;
-  topics?: string[];
-  group?: string;
-}
+import type { StructuredContentRecord, StructuredCta } from "../../types/content";
 
 interface RouteProps {
-  classData: ClassEntry;
-  categoryData?: Record<string, unknown>;
+  classData: StructuredContentRecord;
+  categoryData?: StructuredContentRecord;
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
@@ -80,19 +56,19 @@ const descriptionParagraphs = descriptionText
   .filter((paragraph) => paragraph.length > 0);
 const topics = classData.meta?.topics ?? classData.topics ?? [];
 const level = classData.meta?.level ?? classData.level;
-const categoryRecord = (categoryData ?? {}) as Record<string, any>;
+const categoryRecord = (categoryData ?? {}) as StructuredContentRecord;
 const enrollContent = typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
 const classEnrollContent =
   typeof classData.enroll === "string" ? classData.enroll.trim() : "";
 const categoryCtas = Array.isArray(categoryRecord.cta)
-  ? (categoryRecord.cta as CategoryCta[])
+  ? (categoryRecord.cta as StructuredCta[])
   : Array.isArray(categoryRecord.meta?.cta)
-    ? (categoryRecord.meta.cta as CategoryCta[])
+    ? (categoryRecord.meta.cta as StructuredCta[])
     : [];
 const classCtas = Array.isArray(classData.cta)
-  ? (classData.cta as CategoryCta[])
+  ? (classData.cta as StructuredCta[])
   : Array.isArray(classData.meta?.cta)
-    ? (classData.meta.cta as CategoryCta[])
+    ? (classData.meta.cta as StructuredCta[])
     : [];
 const primaryCtas = classCtas.filter((action) => action?.label && action?.url);
 const fallbackCtas = categoryCtas.filter((action) => action?.label && action?.url);
@@ -186,7 +162,7 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
         {resolvedCtas.length > 0 && (
           <ButtonGroup
             class="class-enroll__buttons"
-            actions={resolvedCtas.map((action: CategoryCta) => {
+            actions={resolvedCtas.map((action: StructuredCta) => {
               const isExternal = action.url ? /^https?:/i.test(action.url) : false;
               return {
                 label: action.label ?? "Enroll",

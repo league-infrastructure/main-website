@@ -1,20 +1,20 @@
 {
   "metadata": {
-    "fetched_at": "2025-11-13T20:51:37.701Z",
-    "endpoint": "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-12T20%3A51%3A36.522Z&starts_before=2026-03-03T20%3A51%3A36.522Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M",
+    "fetched_at": "2025-11-14T18:57:47.628Z",
+    "endpoint": "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-13T18%3A57%3A46.297Z&starts_before=2026-03-04T18%3A57%3A46.297Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M",
     "endpoints": [
-      "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-12T20%3A51%3A36.522Z&starts_before=2026-03-03T20%3A51%3A36.522Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M"
+      "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-13T18%3A57%3A46.297Z&starts_before=2026-03-04T18%3A57%3A46.297Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M"
     ],
     "source": "front",
     "range": {
-      "start": "2025-11-12T20:51:36.522Z",
-      "end": "2026-03-03T20:51:36.522Z"
+      "start": "2025-11-13T18:57:46.297Z",
+      "end": "2026-03-04T18:57:46.297Z"
     },
     "params": {
       "start": "starts_after",
       "end": "starts_before"
     },
-    "item_count": 1,
+    "item_count": 8,
     "per_page": 200,
     "pages_fetched": 1,
     "total_entries": null,
@@ -22,16 +22,16 @@
   },
   "events": [
     {
-      "id": 249156399,
-      "event_id": 10722594,
-      "name": "Java@CV Skipper",
+      "id": 249231106,
+      "event_id": 8579862,
+      "name": "Java@CV Anteater",
       "description": "<div class=\"wysiwyg-text-align-left\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\">Learn to program in Java, one of the most important languages for commercial software development, and the language used in AP Computer Science.  Many students explore our extensive curriculum and stay with our program through 12th grade. </span><br><br></span><li>Classes meet one day per week for 1.5 hours</li><li>Tuition is $280/month</li><li>Student–teacher ratio of 5:1<b><br></b></li><li>Taught  by experienced programmers</li><li><strong>Grades 5-12 only</strong></li><br>Our weekly classes run every week throughout the year, so when you register, we will enroll you at the same class time every week (bulk enrollment). You can then cancel or reschedule individual classes online through the <a href=\"https://www.jointheleague.org/client-portal/\" target=\"_blank\">client portal.<br></a><b><br><br></b></div><div class=\"wysiwyg-text-align-center\"><b>To register for weekly classes<br></b></div><br><ul><li>Review the schedule below for a day and time slot. (<b> It's best to select the \"Month\" view. </b>)</li><li><a href=\"https://jtl.pike13.com/me\" target=\"_blank\">Create a client account </a>, and add your students to the account</li><li>Enroll in a first class for the day and time you want, from the list of classes below. </li><li>To enroll in all classes of the same day and time, every week, you can: <ul><li>Email Liz Groves at info@jointheleague.org (<a href=\"mailto:info@jointheleague.org?cc=eric.busboom@jointheleague.org&amp;subject=Java%20Class%20Registration&amp;body=I'd%20like%20to%20register%20for%20Java%20weekly%20classes.%20%0A%0ADay%3A%20%0ATime%3A%20%0A%0A\" target=\"_blank\"> Click to compose an email </a>) with the day and time you would like. </li><li>Call us at (858) 284-0481.</li><li>Your child's instructor can enroll your child at the beginning of class.</li></ul></li></ul>For all details on enrollment, please see our <a href=\"https://www.jointheleague.org/about/policies/enroll/\" target=\"_blank\">Enrollment Guide </a>and our <a href=\"https://www.jointheleague.org/about/policies/\" target=\"_blank\">Policies and Procedures</a>.<br><br>",
       "service_id": 263387,
       "location_id": 22675,
-      "start_at": "2025-11-13T23:30:00Z",
-      "end_at": "2025-11-14T01:00:00Z",
-      "url": "https://jtl.pike13.com/e/249156399",
-      "state": "canceled",
+      "start_at": "2025-11-15T01:00:00Z",
+      "end_at": "2025-11-15T02:30:00Z",
+      "url": "https://jtl.pike13.com/e/249231106",
+      "state": "active",
       "full": false,
       "staff_members": [
         {
@@ -40,6 +40,140 @@
           "has_profile": true
         }
       ]
+    },
+    {
+      "id": 249231661,
+      "event_id": 8324063,
+      "name": "Java@CV Dhole",
+      "description": "<div class=\"wysiwyg-text-align-left\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\">Learn to program in Java, one of the most important languages for commercial software development, and the language used in AP Computer Science.  Many students explore our extensive curriculum and stay with our program through 12th grade. </span><br><br></span><li>Classes meet one day per week for 1.5 hours</li><li>Tuition is $280/month</li><li>Student–teacher ratio of 5:1<b><br></b></li><li>Taught  by experienced programmers</li><li><strong>Grades 5-12 only</strong></li><br>Our weekly classes run every week throughout the year, so when you register, we will enroll you at the same class time every week (bulk enrollment). You can then cancel or reschedule individual classes online through the <a href=\"https://www.jointheleague.org/client-portal/\" target=\"_blank\">client portal.<br></a><b><br><br></b></div><div class=\"wysiwyg-text-align-center\"><b>To register for weekly classes<br></b></div><br><ul><li>Review the schedule below for a day and time slot. (<b> It's best to select the \"Month\" view. </b>)</li><li><a href=\"https://jtl.pike13.com/me\" target=\"_blank\">Create a client account </a>, and add your students to the account</li><li>Enroll in a first class for the day and time you want, from the list of classes below. </li><li>To enroll in all classes of the same day and time, every week, you can: <ul><li>Email Liz Groves at info@jointheleague.org (<a href=\"mailto:info@jointheleague.org?cc=eric.busboom@jointheleague.org&amp;subject=Java%20Class%20Registration&amp;body=I'd%20like%20to%20register%20for%20Java%20weekly%20classes.%20%0A%0ADay%3A%20%0ATime%3A%20%0A%0A\" target=\"_blank\"> Click to compose an email </a>) with the day and time you would like. </li><li>Call us at (858) 284-0481.</li><li>Your child's instructor can enroll your child at the beginning of class.</li></ul></li></ul>For all details on enrollment, please see our <a href=\"https://www.jointheleague.org/about/policies/enroll/\" target=\"_blank\">Enrollment Guide </a>and our <a href=\"https://www.jointheleague.org/about/policies/\" target=\"_blank\">Policies and Procedures</a>.<br><br>",
+      "service_id": 263387,
+      "location_id": 22675,
+      "start_at": "2025-11-14T23:30:00Z",
+      "end_at": "2025-11-15T01:00:00Z",
+      "url": "https://jtl.pike13.com/e/249231661",
+      "state": "active",
+      "full": false,
+      "staff_members": [
+        {
+          "id": 10166404,
+          "name": "Nick Graham",
+          "has_profile": true
+        }
+      ]
+    },
+    {
+      "id": 249244276,
+      "event_id": 10801655,
+      "name": "Python@CV Ram",
+      "description": "<div class=\"wysiwyg-text-align-left\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\">Learn to program in Python, the most popular programming language. </span> Python is used in everything from machine learning to data science. <span style=\"background-color: rgba(255, 255, 255, 0.498);\">Our online Python Classes are for kids &amp; teens who are eager to learn programming. We work closely with all students to make coding fun and engaging. Many students explore our extensive curriculum and stay with our program through 12th grade.</span><br><br></span><li>Classes meet one day per week for 1.5 hours</li><li>Tuition is $280/month</li><li>Student–teacher ratio of 5:1<b><br></b></li><li>Taught  by experienced programmers</li><li><strong>Grades 4-12 only</strong></li><br>Our weekly classes run every week throughout the year, so when you register, we will enroll you at the same class time every week (bulk enrollment). You can then cancel or reschedule individual classes online through the <a href=\"https://www.jointheleague.org/client-portal/\" target=\"_blank\">client portal.<br></a><b><br><br></b></div><div class=\"wysiwyg-text-align-center\"><b>To register for weekly classes<br></b></div><br><ul><li>Review the schedule below for a day and time slot. (<b> It's best to select the \"Month\" view. </b>)</li><li><a href=\"https://jtl.pike13.com/me\" target=\"_blank\">Create a client account </a>, and add your students to the account</li><li>Enroll in a first class for the day and time you want, from the list of classes below. </li><li>To enroll in all classes of the same day and time, every week, you can: <ul><li>Email Liz Groves at info@jointheleague.org (<a href=\"mailto:info@jointheleague.org?cc=eric.busboom@jointheleague.org&amp;subject=Python%20Class%20Registration&amp;body=I'd%20like%20to%20register%20for%20Python%20weekly%20classes.%20%0A%0ADay%3A%20%0ATime%3A%20%0A%0A\" target=\"_blank\"> Click to compose an email </a>) with the day and time you would like. </li><li>Call us at (858) 284-0481.</li><li>Your child's instructor can enroll your child at the beginning of class.</li></ul></li></ul>For all details on enrollment, please see our <a href=\"https://www.jointheleague.org/about/policies/enroll/\" target=\"_blank\">Enrollment Guide </a>and our <a href=\"https://www.jointheleague.org/about/policies/\" target=\"_blank\">Policies and Procedures</a>.<br><br><br>",
+      "service_id": 270616,
+      "location_id": 22675,
+      "start_at": "2025-11-14T23:30:00Z",
+      "end_at": "2025-11-15T01:00:00Z",
+      "url": "https://jtl.pike13.com/e/249244276",
+      "state": "active",
+      "full": false,
+      "staff_members": [
+        {
+          "id": 2653938,
+          "name": "Gavin Morris",
+          "has_profile": true
+        }
+      ]
+    },
+    {
+      "id": 249244277,
+      "event_id": 10428190,
+      "name": "Python@CV Koala",
+      "description": "<div class=\"wysiwyg-text-align-left\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\">Learn to program in Python, the most popular programming language. </span> Python is used in everything from machine learning to data science. <span style=\"background-color: rgba(255, 255, 255, 0.498);\">Our online Python Classes are for kids &amp; teens who are eager to learn programming. We work closely with all students to make coding fun and engaging. Many students explore our extensive curriculum and stay with our program through 12th grade.</span><br><br></span><li>Classes meet one day per week for 1.5 hours</li><li>Tuition is $280/month</li><li>Student–teacher ratio of 5:1<b><br></b></li><li>Taught  by experienced programmers</li><li><strong>Grades 4-12 only</strong></li><br>Our weekly classes run every week throughout the year, so when you register, we will enroll you at the same class time every week (bulk enrollment). You can then cancel or reschedule individual classes online through the <a href=\"https://www.jointheleague.org/client-portal/\" target=\"_blank\">client portal.<br></a><b><br><br></b></div><div class=\"wysiwyg-text-align-center\"><b>To register for weekly classes<br></b></div><br><ul><li>Review the schedule below for a day and time slot. (<b> It's best to select the \"Month\" view. </b>)</li><li><a href=\"https://jtl.pike13.com/me\" target=\"_blank\">Create a client account </a>, and add your students to the account</li><li>Enroll in a first class for the day and time you want, from the list of classes below. </li><li>To enroll in all classes of the same day and time, every week, you can: <ul><li>Email Liz Groves at info@jointheleague.org (<a href=\"mailto:info@jointheleague.org?cc=eric.busboom@jointheleague.org&amp;subject=Python%20Class%20Registration&amp;body=I'd%20like%20to%20register%20for%20Python%20weekly%20classes.%20%0A%0ADay%3A%20%0ATime%3A%20%0A%0A\" target=\"_blank\"> Click to compose an email </a>) with the day and time you would like. </li><li>Call us at (858) 284-0481.</li><li>Your child's instructor can enroll your child at the beginning of class.</li></ul></li></ul>For all details on enrollment, please see our <a href=\"https://www.jointheleague.org/about/policies/enroll/\" target=\"_blank\">Enrollment Guide </a>and our <a href=\"https://www.jointheleague.org/about/policies/\" target=\"_blank\">Policies and Procedures</a>.<br><br><br>",
+      "service_id": 270616,
+      "location_id": 22675,
+      "start_at": "2025-11-15T01:00:00Z",
+      "end_at": "2025-11-15T02:30:00Z",
+      "url": "https://jtl.pike13.com/e/249244277",
+      "state": "active",
+      "full": false,
+      "staff_members": [
+        {
+          "id": 2653938,
+          "name": "Gavin Morris",
+          "has_profile": true
+        }
+      ]
+    },
+    {
+      "id": 249244278,
+      "event_id": 10595712,
+      "name": "Java@CV Koala",
+      "description": "<div class=\"wysiwyg-text-align-left\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\">Learn to program in Java, one of the most important languages for commercial software development, and the language used in AP Computer Science.  Many students explore our extensive curriculum and stay with our program through 12th grade. </span><br><br></span><li>Classes meet one day per week for 1.5 hours</li><li>Tuition is $280/month</li><li>Student–teacher ratio of 5:1<b><br></b></li><li>Taught  by experienced programmers</li><li><strong>Grades 5-12 only</strong></li><br>Our weekly classes run every week throughout the year, so when you register, we will enroll you at the same class time every week (bulk enrollment). You can then cancel or reschedule individual classes online through the <a href=\"https://www.jointheleague.org/client-portal/\" target=\"_blank\">client portal.<br></a><b><br><br></b></div><div class=\"wysiwyg-text-align-center\"><b>To register for weekly classes<br></b></div><br><ul><li>Review the schedule below for a day and time slot. (<b> It's best to select the \"Month\" view. </b>)</li><li><a href=\"https://jtl.pike13.com/me\" target=\"_blank\">Create a client account </a>, and add your students to the account</li><li>Enroll in a first class for the day and time you want, from the list of classes below. </li><li>To enroll in all classes of the same day and time, every week, you can: <ul><li>Email Liz Groves at info@jointheleague.org (<a href=\"mailto:info@jointheleague.org?cc=eric.busboom@jointheleague.org&amp;subject=Java%20Class%20Registration&amp;body=I'd%20like%20to%20register%20for%20Java%20weekly%20classes.%20%0A%0ADay%3A%20%0ATime%3A%20%0A%0A\" target=\"_blank\"> Click to compose an email </a>) with the day and time you would like. </li><li>Call us at (858) 284-0481.</li><li>Your child's instructor can enroll your child at the beginning of class.</li></ul></li></ul>For all details on enrollment, please see our <a href=\"https://www.jointheleague.org/about/policies/enroll/\" target=\"_blank\">Enrollment Guide </a>and our <a href=\"https://www.jointheleague.org/about/policies/\" target=\"_blank\">Policies and Procedures</a>.<br><br>",
+      "service_id": 263387,
+      "location_id": 22675,
+      "start_at": "2025-11-15T01:00:00Z",
+      "end_at": "2025-11-15T02:30:00Z",
+      "url": "https://jtl.pike13.com/e/249244278",
+      "state": "active",
+      "full": false,
+      "staff_members": [
+        {
+          "id": 2653938,
+          "name": "Gavin Morris",
+          "has_profile": true
+        }
+      ]
+    },
+    {
+      "id": 256674380,
+      "event_id": 15528271,
+      "name": "Python@CV Mouse",
+      "description": "<div class=\"wysiwyg-text-align-left\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\"><span style=\"background-color: rgba(255, 255, 255, 0.498);\">Learn to program in Python, the most popular programming language. </span> Python is used in everything from machine learning to data science. <span style=\"background-color: rgba(255, 255, 255, 0.498);\">Our online Python Classes are for kids &amp; teens who are eager to learn programming. We work closely with all students to make coding fun and engaging. Many students explore our extensive curriculum and stay with our program through 12th grade.</span><br><br></span><li>Classes meet one day per week for 1.5 hours</li><li>Tuition is $280/month</li><li>Student–teacher ratio of 5:1<b><br></b></li><li>Taught  by experienced programmers</li><li><strong>Grades 4-12 only</strong></li><br>Our weekly classes run every week throughout the year, so when you register, we will enroll you at the same class time every week (bulk enrollment). You can then cancel or reschedule individual classes online through the <a href=\"https://www.jointheleague.org/client-portal/\" target=\"_blank\">client portal.<br></a><b><br><br></b></div><div class=\"wysiwyg-text-align-center\"><b>To register for weekly classes<br></b></div><br><ul><li>Review the schedule below for a day and time slot. (<b> It's best to select the \"Month\" view. </b>)</li><li><a href=\"https://jtl.pike13.com/me\" target=\"_blank\">Create a client account </a>, and add your students to the account</li><li>Enroll in a first class for the day and time you want, from the list of classes below. </li><li>To enroll in all classes of the same day and time, every week, you can: <ul><li>Email Liz Groves at info@jointheleague.org (<a href=\"mailto:info@jointheleague.org?cc=eric.busboom@jointheleague.org&amp;subject=Python%20Class%20Registration&amp;body=I'd%20like%20to%20register%20for%20Python%20weekly%20classes.%20%0A%0ADay%3A%20%0ATime%3A%20%0A%0A\" target=\"_blank\"> Click to compose an email </a>) with the day and time you would like. </li><li>Call us at (858) 284-0481.</li><li>Your child's instructor can enroll your child at the beginning of class.</li></ul></li></ul>For all details on enrollment, please see our <a href=\"https://www.jointheleague.org/about/policies/enroll/\" target=\"_blank\">Enrollment Guide </a>and our <a href=\"https://www.jointheleague.org/about/policies/\" target=\"_blank\">Policies and Procedures</a>.<br><br><br>",
+      "service_id": 270616,
+      "location_id": 22675,
+      "start_at": "2025-11-14T23:30:00Z",
+      "end_at": "2025-11-15T01:00:00Z",
+      "url": "https://jtl.pike13.com/e/256674380",
+      "state": "active",
+      "full": false,
+      "staff_members": [
+        {
+          "id": 10166404,
+          "name": "Nick Graham",
+          "has_profile": true
+        }
+      ]
+    },
+    {
+      "id": 268149816,
+      "event_id": 16314084,
+      "name": "Tech Arcade@SJA",
+      "description": null,
+      "service_id": 329990,
+      "location_id": 42802,
+      "start_at": "2025-11-14T21:30:00Z",
+      "end_at": "2025-11-14T23:00:00Z",
+      "course_dates": "August 29, 2025 - November 14, 2025",
+      "url": "https://jtl.pike13.com/events/16314084",
+      "state": "active",
+      "full": false,
+      "waitlist": {
+        "full": false
+      }
+    },
+    {
+      "id": 272136122,
+      "event_id": 16580915,
+      "name": "Python Elective@SJA",
+      "description": null,
+      "service_id": 348833,
+      "location_id": 42802,
+      "start_at": "2025-11-14T18:45:00Z",
+      "end_at": "2025-11-14T20:30:00Z",
+      "course_dates": "August 29, 2025 - November 21, 2025",
+      "url": "https://jtl.pike13.com/events/16580915",
+      "state": "active",
+      "full": false,
+      "waitlist": {
+        "full": false
+      }
     }
   ]
 }

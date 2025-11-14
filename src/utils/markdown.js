@@ -23,14 +23,6 @@ function readJsonData(baseName) {
   }
 }
 
-function readContentFile(filename) {
-  const filePath = path.join(contentRoot, filename);
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Content file not found: ${filePath}`);
-  }
-  return fs.readFileSync(filePath, 'utf-8');
-}
-
 const ARRAY_FIELDS = new Set(['topics', 'classes', 'category']);
 const RECORD_LIST_FIELDS = new Set(['cta']);
 
@@ -240,13 +232,13 @@ export function parseMarkdownSections(content) {
     const blurb = blurbParagraph ?? '';
     const description = descriptionParagraphs.join('\n\n');
 
-    const rawMeta = extractMetadataBlock(afterEnroll, title);
-    const normalizedMeta = normalizeMeta(rawMeta);
+  const rawMeta = extractMetadataBlock(afterEnroll, title);
+  const normalizedMeta = normalizeMeta(rawMeta);
 
-    const interpolatedBlurb = applySimpleInterpolations(blurb, { title });
-    const interpolatedDescription = applySimpleInterpolations(description || '', { title });
-    const interpolatedContent = applySimpleInterpolations(contentHtml, { title });
-    const interpolatedEnroll = applySimpleInterpolations(enrollContent, { title });
+  const interpolatedBlurb = applySimpleInterpolations(blurb, { title });
+  const interpolatedDescription = applySimpleInterpolations(description || '', { title });
+  const interpolatedContent = applySimpleInterpolations(contentHtml, { title });
+  const interpolatedEnroll = applySimpleInterpolations(enrollContent, { title });
 
     const record = {
       title,
@@ -265,6 +257,131 @@ export function parseMarkdownSections(content) {
 
     return record;
   });
+}
+
+function toActionList(value) {
+  if (!value) {
+    return [];
+  }
+
+  if (Array.isArray(value)) {
+    return value
+      .filter((item) => item && typeof item === 'object' && !Array.isArray(item))
+      .map((item) => ({ ...item }));
+  }
+
+  if (typeof value === 'object' && !Array.isArray(value)) {
+    return [{ ...value }];
+  }
+
+  return [];
+}
+
+export function normalizeContentRecords(entries) {
+  return entries.map((entry) => {
+    const meta = { ...(entry.meta ?? entry.metadata ?? {}) };
+
+    if (entry.curriculum && !meta.curriculum) {
+      meta.curriculum = entry.curriculum;
+    }
+
+    if (meta.buttons && !meta.cta) {
+      const converted = toActionList(meta.buttons);
+      if (converted.length > 0) {
+        meta.cta = converted;
+      }
+    }
+    delete meta.buttons;
+
+    const curriculum = meta.curriculum ?? entry.curriculum ?? '';
+    const cta = toActionList(entry.cta ?? meta.cta ?? entry.buttons ?? []);
+
+    if (cta.length > 0) {
+      meta.cta = cta;
+    } else {
+      delete meta.cta;
+    }
+
+    return {
+      title: entry.title,
+      blurb: entry.blurb ?? entry.shortDescription ?? '',
+      description: entry.description ?? entry.fullDescription ?? entry.shortDescription ?? '',
+      content: entry.content ?? '',
+      enroll: entry.enroll ?? '',
+      curriculum,
+      meta,
+      cta,
+      ...meta,
+    };
+  });
+}
+
+function ensureDirectoryExists(directory) {
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+}
+
+function shouldRegenerateMarkdown(markdownPath, jsonPath) {
+  if (!fs.existsSync(markdownPath)) {
+    return false;
+  }
+
+  if (!fs.existsSync(jsonPath)) {
+    return true;
+  }
+
+  try {
+    const markdownStat = fs.statSync(markdownPath);
+    const jsonStat = fs.statSync(jsonPath);
+    return markdownStat.mtimeMs > jsonStat.mtimeMs;
+  } catch {
+    return true;
+  }
+}
+
+export function getStructuredContent(name) {
+  const markdownPath = path.join(contentRoot, `${name}.md`);
+  const jsonPath = path.join(dataRoot, `${name}.json`);
+
+  const markdownExists = fs.existsSync(markdownPath);
+  const jsonExists = fs.existsSync(jsonPath);
+
+  if (!markdownExists && !jsonExists) {
+    console.warn(`No structured content found for "${name}".`);
+    return [];
+  }
+
+  if (markdownExists && shouldRegenerateMarkdown(markdownPath, jsonPath)) {
+    try {
+      const markdown = fs.readFileSync(markdownPath, 'utf-8');
+      const parsed = parseMarkdownSections(markdown);
+      const normalized = normalizeContentRecords(parsed);
+      ensureDirectoryExists(dataRoot);
+      const payload = `${JSON.stringify(normalized, null, 2)}\n`;
+      fs.writeFileSync(jsonPath, payload, 'utf-8');
+      return normalized;
+    } catch (error) {
+      console.error(`Failed to regenerate structured content for "${name}":`, error);
+    }
+  }
+
+  const jsonData = readJsonData(name);
+  if (Array.isArray(jsonData)) {
+    return jsonData;
+  }
+
+  if (markdownExists) {
+    try {
+      const markdown = fs.readFileSync(markdownPath, 'utf-8');
+      const parsed = parseMarkdownSections(markdown);
+      return normalizeContentRecords(parsed);
+    } catch (error) {
+      console.error(`Failed to parse markdown for "${name}":`, error);
+    }
+  }
+
+  return [];
 }
 
 /**
@@ -302,61 +419,25 @@ export async function readAndParseMarkdown(filePath) {
  * @returns {Array}
  */
 export function getProgramsData() {
-  const jsonData = readJsonData('programs');
-  if (Array.isArray(jsonData)) {
-    return jsonData;
-  }
-  try {
-    return parseMarkdownSections(readContentFile('programs.md'));
-  } catch (error) {
-    console.error('Error loading programs content:', error);
-    return [];
-  }
+  return getStructuredContent('programs');
 }
 
 /**
  * @returns {Array}
  */
 export function getClassesData() {
-  const jsonData = readJsonData('classes');
-  if (Array.isArray(jsonData)) {
-    return jsonData;
-  }
-  try {
-    return parseMarkdownSections(readContentFile('classes.md'));
-  } catch (error) {
-    console.error('Error loading classes content:', error);
-    return [];
-  }
+  return getStructuredContent('classes');
 }
 
 /**
  * @returns {Array}
  */
 export function getCategoriesData() {
-  const jsonData = readJsonData('categories');
-  if (Array.isArray(jsonData)) {
-    return jsonData;
-  }
-  try {
-    return parseMarkdownSections(readContentFile('categories.md'));
-  } catch (error) {
-    console.error('Error loading categories content:', error);
-    return [];
-  }
+  return getStructuredContent('categories');
 }
 
 export function getPoliciesData() {
-  const jsonData = readJsonData('policies');
-  if (Array.isArray(jsonData)) {
-    return jsonData;
-  }
-  try {
-    return parseMarkdownSections(readContentFile('policies.md'));
-  } catch (error) {
-    console.error('Error loading policies content:', error);
-    return [];
-  }
+  return getStructuredContent('policies');
 }
 
 export function getProgramBySlug(slug) {

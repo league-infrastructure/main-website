@@ -71,3 +71,14 @@
 - [DONE] The `buttons:` metadata entry in the content records has been changed to
   `cta:`. Ensure that the content_spec and the `export-content` scripts are
   updated with the new value.
+
+- [DONE] The interface for the content records is defined multiple times, independently
+  for each of policies, programs, classes, etc. It should only be defined once,
+  in a common source file. Same with the CTA interface. Also, there should not
+  be independently impemented acess functions, like `getClassesData()`. You
+  might have these be a thin wrapper on a Content Record loading function, but
+  there should not be completely seperate implementation. So, create
+  `getStructuredContent(name: string)` that will: check if
+  `src/content/<name>.md` is newer than `src/data/<name>.json`. If it is, re-gen
+  the .json file. Then, the function loads the json and returns an array of
+  records. Define one interface for all of the  content files to use. 

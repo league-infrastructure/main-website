@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { parseMarkdownSections } from "../src/utils/markdown.js";
+import { parseMarkdownSections, normalizeContentRecords } from "../src/utils/markdown.js";
 
 const contentDir = path.resolve("src/content");
 const outputDir = path.resolve("src/data");
@@ -35,64 +35,6 @@ function writeJsonFile(baseName, data) {
   const payload = `${JSON.stringify(data, null, 2)}\n`;
   fs.writeFileSync(targetPath, payload, "utf-8");
   return targetPath;
-}
-
-function toActionList(value) {
-  if (!value) {
-    return [];
-  }
-
-  if (Array.isArray(value)) {
-    return value
-      .filter((item) => item && typeof item === "object" && !Array.isArray(item))
-      .map((item) => ({ ...item }));
-  }
-
-  if (typeof value === "object" && !Array.isArray(value)) {
-    return [{ ...value }];
-  }
-
-  return [];
-}
-
-function normalizeEntries(entries) {
-  return entries.map((entry) => {
-    const meta = { ...(entry.meta ?? entry.metadata ?? {}) };
-
-    if (entry.curriculum && !meta.curriculum) {
-      meta.curriculum = entry.curriculum;
-    }
-
-    if (meta.buttons && !meta.cta) {
-      const converted = toActionList(meta.buttons);
-      if (converted.length > 0) {
-        meta.cta = converted;
-      }
-    }
-    delete meta.buttons;
-
-    const curriculum = meta.curriculum ?? entry.curriculum ?? "";
-    const cta = toActionList(entry.cta ?? meta.cta ?? entry.buttons ?? []);
-
-    if (cta.length > 0) {
-      meta.cta = cta;
-    } else {
-      delete meta.cta;
-    }
-
-    return {
-      title: entry.title,
-      blurb: entry.blurb ?? entry.shortDescription ?? "",
-      description:
-        entry.description ?? entry.fullDescription ?? entry.shortDescription ?? "",
-      content: entry.content ?? "",
-      enroll: entry.enroll ?? "",
-      curriculum,
-      meta,
-      cta,
-      ...meta,
-    };
-  });
 }
 
 function hasSelfReferentialCategory(entry) {
@@ -145,7 +87,7 @@ function exportMarkdownToJson(source, targetBaseName, transformFn) {
   const markdown = readContentFile(source);
   ensureHeadingLevel(markdown, source);
   const parsed = parseMarkdownSections(markdown);
-  const normalized = normalizeEntries(parsed);
+  const normalized = normalizeContentRecords(parsed);
   const data = typeof transformFn === "function" ? transformFn(normalized) : normalized;
   const outputPath = writeJsonFile(targetBaseName, data);
   console.log(`Exported ${source} -> ${path.relative(process.cwd(), outputPath)}`);

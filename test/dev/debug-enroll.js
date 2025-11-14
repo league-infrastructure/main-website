@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import yaml from "js-yaml";
 
 const source = fs.readFileSync(path.resolve("src/content/categories.md"), "utf-8");
 
