@@ -8,7 +8,7 @@ then bulk enroll in additional classes for that same day and time.
 
  <content> 
 
-Enrolling in weekly classes is a two step process: enroll of the first class,
+Enrolling in weekly classes is a **two step process**: enroll in the first class,
 then bulk enroll in additional classes for that same day and time. 
 
 * Review the schedule for a day and time slot. ( It's best to select the "Month" view. )

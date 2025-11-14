@@ -12,6 +12,7 @@ import {
   getCategoriesData,
   getStructuredContent,
   getForCategoryList,
+  getProgramsData,
 } from "../../utils/markdown.js";
 import type {
   StructuredContentRecord,
@@ -27,6 +28,7 @@ interface RouteProps {
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
   const categories = getCategoriesData();
+  const programs = getProgramsData();
   const contentEntries = getStructuredContent("content") as StructuredContentRecord[];
   const enrollmentGuides = contentEntries.filter(
     (entry) => entry.slug === "enrollment-instructions",
@@ -37,23 +39,64 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
       if (!slug) {
         return undefined;
       }
-      const categoryValues: string[] = Array.isArray(entry.category)
+      const normalizedSlug = slug.trim();
+
+      const directCategoryValues: string[] = Array.isArray(entry.category)
         ? entry.category.filter((value: unknown): value is string => typeof value === "string")
         : typeof entry.category === "string"
           ? [entry.category]
           : [];
-      const categorySlugs = categoryValues
+      const directCategorySlugs = directCategoryValues
         .map((value: string) => value.trim())
         .filter((value: string) => value.length > 0);
-      const categoryData = categorySlugs
+
+      const groupValue = entry.group;
+      const groupSlug = typeof groupValue === "string" ? groupValue.trim() : "";
+
+      const programCategorySlugs = programs
+        .filter((programEntry) => {
+          const programClasses: string[] = Array.isArray(programEntry.classes)
+            ? programEntry.classes.filter((value: unknown): value is string => typeof value === "string")
+            : typeof programEntry.classes === "string"
+              ? [programEntry.classes]
+              : [];
+          return programClasses.some((classSlug: string) => classSlug.trim() === normalizedSlug);
+        })
+        .flatMap((programEntry) => {
+          const values: string[] = Array.isArray(programEntry.category)
+            ? programEntry.category.filter((value: unknown): value is string => typeof value === "string")
+            : typeof programEntry.category === "string"
+              ? [programEntry.category]
+              : [];
+          return values;
+        })
+        .map((value: string) => value.trim())
+        .filter((value: string) => value.length > 0);
+
+      const orderedCategorySlugs: string[] = [];
+      if (groupSlug && !orderedCategorySlugs.includes(groupSlug)) {
+        orderedCategorySlugs.push(groupSlug);
+      }
+      for (const value of directCategorySlugs) {
+        if (!orderedCategorySlugs.includes(value)) {
+          orderedCategorySlugs.push(value);
+        }
+      }
+      for (const value of programCategorySlugs) {
+        if (!orderedCategorySlugs.includes(value)) {
+          orderedCategorySlugs.push(value);
+        }
+      }
+
+      const categoryData = orderedCategorySlugs
         .map((categorySlug: string) => categories.find((category) => category.slug === categorySlug))
         .find((match): match is StructuredContentRecord => Boolean(match));
       const enrollmentGuide = enrollmentGuides.find((guide) => {
-        if (categorySlugs.length === 0) {
+        if (orderedCategorySlugs.length === 0) {
           return false;
         }
         const guideCategories = getForCategoryList(guide);
-        return guideCategories.some((category) => categorySlugs.includes(category));
+        return guideCategories.some((category) => orderedCategorySlugs.includes(category));
       });
       return {
         params: { slug: slug.replace(/_/g, "-") },
@@ -121,8 +164,7 @@ const hasContent = Boolean(
 const renderedContent = hasContent
   ? await marked.parse(classData.content ?? "")
   : undefined;
-const enrollmentGuideTitle =
-  enrollmentGuideRecord?.title ?? "Enrollment Instructions";
+const enrollmentGuideTitle = enrollmentGuideRecord?.title;
 const enrollmentGuideHtml = enrollmentGuideRecord?.content
   ? await marked.parse(enrollmentGuideRecord.content)
   : undefined;
@@ -248,8 +290,8 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
           {showEnrollmentGuide && enrollmentGuideHtml && (
             <CalloutCard
               class="class-enroll__callout"
-              title={enrollmentGuideTitle}
-              headingLevel={3}
+              title=''
+              headingLevel={enrollmentGuideTitle ? 3 : 2}
               cta={enrollmentGuideCta}
             >
               <div
