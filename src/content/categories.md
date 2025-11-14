@@ -59,9 +59,6 @@ buttons:
     - type: meetup
       label: Join the Code Clinic
       url: https://www.meetup.com/the-league-code-clinic
-    - type: page
-      label: Join League Labs
-      url: http://localhost:4321/programs/league-lab
 ```
 
 ## Python

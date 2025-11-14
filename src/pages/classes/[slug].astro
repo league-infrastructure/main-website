@@ -14,6 +14,7 @@ interface ClassEntry {
   description?: string;
   shortDescription?: string;
   content?: string;
+  enroll?: string;
   meta?: {
     slug?: string;
     image?: string;
@@ -79,13 +80,16 @@ const topics = classData.meta?.topics ?? classData.topics ?? [];
 const level = classData.meta?.level ?? classData.level;
 const categoryRecord = (categoryData ?? {}) as Record<string, any>;
 const enrollContent = typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
+const classEnrollContent =
+  typeof classData.enroll === "string" ? classData.enroll.trim() : "";
 const categoryButtons = Array.isArray(categoryRecord.buttons)
   ? (categoryRecord.buttons as CategoryButton[])
   : Array.isArray(categoryRecord.meta?.buttons)
     ? (categoryRecord.meta.buttons as CategoryButton[])
     : [];
 const validButtons = categoryButtons.filter((button) => button?.label && button?.url);
-const hasEnrollSection = Boolean(enrollContent) || validButtons.length > 0;
+const hasEnrollSection =
+  Boolean(classEnrollContent) || Boolean(enrollContent) || validButtons.length > 0;
 const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
 ---
@@ -155,6 +159,9 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
       </SectionHeader>
 
       <div class="class-enroll">
+        {classEnrollContent && (
+          <div class="class-enroll__text class-enroll__text--class" set:html={classEnrollContent} />
+        )}
         {enrollContent && <div class="class-enroll__text" set:html={enrollContent} />}
         {validButtons.length > 0 && (
           <ButtonGroup
@@ -257,6 +264,10 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
     font-size: 1.05rem;
     line-height: 1.6;
     color: var(--color-body);
+  }
+
+  .class-enroll__text + .class-enroll__text {
+    margin-top: var(--space-md);
   }
 
   .class-enroll__buttons {

@@ -34,6 +34,18 @@ function readContentFile(filename) {
 const ARRAY_FIELDS = new Set(['topics', 'classes', 'category']);
 const RECORD_LIST_FIELDS = new Set(['buttons']);
 
+function applySimpleInterpolations(text, context) {
+  if (typeof text !== 'string' || text.length === 0) {
+    return text;
+  }
+
+  const replacements = {
+    title: context?.title ?? '',
+  };
+
+  return text.replaceAll('$title', replacements.title);
+}
+
 function normalizeListValue(value) {
   if (Array.isArray(value)) {
     return value
@@ -215,15 +227,20 @@ export function parseMarkdownSections(content) {
     const rawMeta = extractMetadataBlock(afterEnroll, title);
     const normalizedMeta = normalizeMeta(rawMeta);
 
+    const interpolatedBlurb = applySimpleInterpolations(blurb, { title });
+    const interpolatedDescription = applySimpleInterpolations(description || '', { title });
+    const interpolatedContent = applySimpleInterpolations(contentHtml, { title });
+    const interpolatedEnroll = applySimpleInterpolations(enrollContent, { title });
+
     const record = {
       title,
-      blurb,
-      description: description || '',
-      content: contentHtml,
-      enroll: enrollContent,
+      blurb: interpolatedBlurb,
+      description: interpolatedDescription,
+      content: interpolatedContent,
+      enroll: interpolatedEnroll,
       meta: normalizedMeta,
-      shortDescription: blurb,
-      fullDescription: description || blurb,
+      shortDescription: interpolatedBlurb,
+      fullDescription: interpolatedDescription || interpolatedBlurb,
     };
 
     for (const [key, value] of Object.entries(normalizedMeta)) {

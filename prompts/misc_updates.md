@@ -43,4 +43,12 @@
   enrollment information in the category, display a "How to Enroll" section on
   the class page with the enrollment text and enrollment buttons. 
 
-- In `classes.md` add an "<enroll>...</enroll>" content section to each of the class entries, right after 
+- In `classes.md` add an "<enroll>...</enroll>" content section to each of the
+  class entries, right after `<content>`. Set the message to be of the form
+  "<Class Name> is included in our Weekly Classes, so to take this class enroll
+  in weekly classes and tell your instuctor" for classes that are part of the
+  Weekly classes category. For things that are in tech club or community tech,
+  use "<Class Name> is offered through out Tech Club program, so to take this
+  class, join the Tech Club and watch for announcements. ". Then change the
+  class pages so the enrollment message for the class displays just before the
+  enrollment message for the group. 

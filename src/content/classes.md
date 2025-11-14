@@ -12,6 +12,7 @@ accessible. This course serves as the gateway to our comprehensive Python
 curriculum and prepares students for more advanced study. Classes meet once per
 week for 1.5 hours with a 5:1 student-to-teacher ratio. </content>
 
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
 
 
 ```
@@ -42,6 +43,8 @@ practical projects and prepares students for advanced courses. Classes meet
 weekly with experienced instructors from universities like Brown, UCSD, and
 Cornell. </content>
 
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
+
 ```
 slug: python-apprentice
 image: python.png
@@ -67,6 +70,8 @@ developers. The skills learned in this course are applicable far beyond games
 and prepare students for professional software development. Students can also
 deploy their Python games to run on the web, making them shareable with friends
 and family. </content>
+
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
 
 ```
 slug: python-games
@@ -94,6 +99,8 @@ what-if scenarios, like adding extra planets or changing gravitational
 constants. This course demonstrates how programming is used in real scientific
 research and space exploration, connecting coding skills to STEM education in a
 highly engaging way. </content>
+
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
 
 ```
 slug: python-orbitlab
@@ -125,6 +132,8 @@ companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
 hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 </content>
 
+<enroll></enroll>
+
 ```
 slug: java-weekly
 image: java.png
@@ -149,6 +158,8 @@ help catching up, wants to advance more quickly, or requires accommodation for
 learning differences, private tutoring provides the most personalized learning
 experience. Tutoring is available for all levels from complete beginner to
 advanced, with monthly tuition of $430. </content>
+
+<enroll>Private Tutoring is scheduled by special arrangement, so please contact us. </enroll>
 
 ```
 slug: private-tutoring
@@ -175,6 +186,8 @@ consoles that they can play anytime, anywhere. This course teaches game design
 principles, programming logic, sprite animation, and collision detection while
 producing tangible, playable results. It's perfect for students who love gaming
 and want to understand how their favorite games work. </content>
+
+<enroll>$title is offered through our Tech Club program, so to take this class, join the Tech Club and watch for announcements.</enroll>
 
 ```
 slug: makecode-arcade
@@ -203,12 +216,14 @@ program, the Motors Clinic can also be taken standalone by students interested
 in electronics and automation. This hands-on class gives students practical
 skills for any project involving mechanical motion. </content>
 
+<enroll>$title is offered through our Tech Club program, so to take this class, join the Tech Club and watch for announcements.</enroll>
+
 ```
 slug: motors-clinic
 image: motors_clinic.png
 level: intermediate
 topics: programming, robotics
-group: tech
+group: community
 curriculum: https://league-curriculum.github.io/Motors/
 ```
 
@@ -229,12 +244,14 @@ to assemble and modify electronic components, but the skills learned apply to
 any electronics project. This clinic may be offered as part of the robotics
 program or as a standalone workshop. </content>
 
+<enroll>$title is offered through our Tech Club program, so to take this class, join the Tech Club and watch for announcements.</enroll>
+
 ```
 slug: soldering-clinic
 image: boy_soldering.png
 level: beginner
 topics: electronics, robotics
-group: tech
+group: community
 ```
 
 ## Hour of Micro:bit
@@ -254,12 +271,14 @@ introduction to microcontrollers and as preparation for our more advanced
 robotics courses. Students leave with a concrete understanding of how
 programming translates to real-world actions. </content>
 
+<enroll>$title is offered through our Tech Club program, so to take this class, join the Tech Club and watch for announcements.</enroll>
+
 ```
 slug: hour-of-microbit
 image: microbit.png
 level: beginner
 topics: programming
-group: tech
+group: communitycommunity
 curriculum: https://league-curriculum.github.io/HourofMicrobit/
 ```
 
@@ -281,6 +300,9 @@ experience with how robots respond to commands. This course is currently in
 development and represents an innovative approach to teaching robotics through
 competitive gameplay. </content>
 
+<enroll>$title is offered through our Tech Club program, so to take this class,
+join the Tech Club and watch for announcements.</enroll>
+
 ```
 slug: robot-riot
 image: robot_riot.png
@@ -292,7 +314,8 @@ curriculum: https://league-curriculum.github.io/Microbit-Robot-Rally/
 
 ## Tech Arcade
 
-A technology choose-your-own-adventure featuring daily projects in programming, games, and robotics.
+A technology choose-your-own-adventure featuring daily projects in programming,
+games, and robotics.
 
 Students sample Python, Java, JavaScript, robotics, and AI projects at their own
 pace with instructor guidance.
@@ -305,6 +328,9 @@ experienced mentors. Daily prompts and challenges keep the experience fresh,
 while portfolio checkpoints track progress across code, hardware, and design
 skills. It is the perfect option for curious students who want to try everything
 before specializing. </content>
+
+<enroll>$title is offered through our Tech Club program, so to take this class,
+join the Tech Club and watch for announcements.</enroll>
 
 ```
 slug: tech-arcade
@@ -331,6 +357,9 @@ curiosity into real-world skills by shipping projects that react to user input,
 interpret data, and automate tasks. Every participant leaves with a working AI
 project and a solid understanding of the technology shaping the future.
 </content>
+
+<enroll>$title is offered through our Tech Club program, so to take this class,
+join the Tech Club and watch for announcements.</enroll>
 
 ```
 slug: ai-agents
@@ -359,11 +388,14 @@ responsive designs that work on all devices. Every student leaves with a live
 website they can continue to update throughout their programming journey.
 </content>
 
+<enroll>$title is offered through our Tech Club program, so to take this class,
+join the Tech Club and watch for announcements.</enroll>
+
 ```
 slug: github-pages-portfolio
 image: portfolio.png
 level: intermediate
 topics: web development, html, css, git, portfolio
-group: tech
+group: community
 curriculum: https://github.com/league-curriculum/Portfolio-jekyll-barebones.git
 ```
