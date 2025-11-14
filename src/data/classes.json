@@ -17,6 +17,7 @@
       "group": "python",
       "curriculum": "https://league-curriculum.github.io/Python-Introduction/"
     },
+    "buttons": [],
     "slug": "intro-python",
     "image": "python.png",
     "level": "beginner",
@@ -45,6 +46,7 @@
       "group": "python",
       "curriculum": "https://python-apprentice.jointheleague.org/"
     },
+    "buttons": [],
     "slug": "python-apprentice",
     "image": "python.png",
     "level": "intermediate",
@@ -75,6 +77,7 @@
       "group": "python",
       "curriculum": "https://github.com/league-curriculum/Python-Games"
     },
+    "buttons": [],
     "slug": "python-games",
     "image": "python_games.png",
     "level": "intermediate",
@@ -104,6 +107,7 @@
       "group": "python",
       "curriculum": "https://github.com/league-curriculum/Python-OrbitLab"
     },
+    "buttons": [],
     "slug": "python-orbitlab",
     "image": "orbit-lab.png",
     "level": "advanced",
@@ -130,6 +134,7 @@
       ],
       "group": "java"
     },
+    "buttons": [],
     "slug": "java-weekly",
     "image": "java.png",
     "level": "beginner to adv",
@@ -157,6 +162,7 @@
       ],
       "group": "tutoring"
     },
+    "buttons": [],
     "slug": "private-tutoring",
     "image": "computer-robot.png",
     "level": "all levels",
@@ -185,6 +191,7 @@
       ],
       "group": "tech-club"
     },
+    "buttons": [],
     "slug": "makecode-arcade",
     "image": "microbit-arcade.png",
     "level": "beginner",
@@ -213,6 +220,7 @@
       "group": "tech-club",
       "curriculum": "https://league-curriculum.github.io/Motors/"
     },
+    "buttons": [],
     "slug": "motors-clinic",
     "image": "motors_clinic.png",
     "level": "intermediate",
@@ -239,6 +247,7 @@
       ],
       "group": "tech-club"
     },
+    "buttons": [],
     "slug": "soldering-clinic",
     "image": "boy_soldering.png",
     "level": "beginner",
@@ -265,6 +274,7 @@
       "group": "tech-club",
       "curriculum": "https://league-curriculum.github.io/HourofMicrobit/"
     },
+    "buttons": [],
     "slug": "hour-of-microbit",
     "image": "microbit.png",
     "level": "beginner",
@@ -278,7 +288,7 @@
     "blurb": "Introduction to robotics programming and mechanical construction.",
     "description": "Students compete in friendly challenges while learning to wire, program, and\ncustomize robots with new hardware attachments.",
     "content": "Robot Riot combines programming and robotics in an exciting\ncompetitive format. Students learn the basics of controlling motors on a robot,\nstarting with existing robot platforms that they modify to make more\ncompetitive. Students add grippers, pushers, flippers, and other attachments to\ntheir robots, then learn how to reprogram them to activate electronics like\nturbos and lights. The course teaches how to send messages back and forth\nbetween the joystick controller and the robot, giving students hands-on\nexperience with how robots respond to commands. This course is currently in\ndevelopment and represents an innovative approach to teaching robotics through\ncompetitive gameplay.",
-    "enroll": "Robot Riot is offered through our Tech Club program, so to take this class,\njoin the Tech Club and watch for announcements.",
+    "enroll": "Robot Riot is offered on a trial basis through our Tech Club program, and as\na regular weekly class.",
     "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/",
     "meta": {
       "slug": "robot-riot",
@@ -289,8 +299,32 @@
         "robotics"
       ],
       "group": "tech",
-      "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/"
+      "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/",
+      "buttons": [
+        {
+          "type": "pike13",
+          "label": "Enroll in Weekly Python Classes",
+          "url": "https://jtl.pike13.com/categories/93504"
+        },
+        {
+          "type": "meetup",
+          "label": "Join the Tech Club",
+          "url": "https://www.meetup.com/the-league-tech-club"
+        }
+      ]
     },
+    "buttons": [
+      {
+        "type": "pike13",
+        "label": "Enroll in Weekly Python Classes",
+        "url": "https://jtl.pike13.com/categories/93504"
+      },
+      {
+        "type": "meetup",
+        "label": "Join the Tech Club",
+        "url": "https://www.meetup.com/the-league-tech-club"
+      }
+    ],
     "slug": "robot-riot",
     "image": "robot_riot.png",
     "level": "beginner",
@@ -317,6 +351,7 @@
       ],
       "group": "tech"
     },
+    "buttons": [],
     "slug": "tech-arcade",
     "image": "tech-arcade.png",
     "level": "beginner",
@@ -343,6 +378,7 @@
       ],
       "group": "tech"
     },
+    "buttons": [],
     "slug": "ai-agents",
     "image": "ai-agents.png",
     "level": "beginner",
@@ -373,6 +409,7 @@
       "group": "tech-club",
       "curriculum": "https://github.com/league-curriculum/Portfolio-jekyll-barebones.git"
     },
+    "buttons": [],
     "slug": "github-pages-portfolio",
     "image": "portfolio.png",
     "level": "intermediate",

@@ -35,6 +35,7 @@ function normalizeEntries(entries) {
     }
 
     const curriculum = meta.curriculum ?? entry.curriculum ?? "";
+    const buttons = Array.isArray(meta.buttons) ? meta.buttons : [];
 
     return {
       title: entry.title,
@@ -45,6 +46,7 @@ function normalizeEntries(entries) {
       enroll: entry.enroll ?? "",
       curriculum,
       meta,
+      buttons,
       ...meta,
     };
   });

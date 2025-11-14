@@ -8,6 +8,8 @@ import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
 import { getClassesData, getCategoriesData } from "../../utils/markdown.js";
 
+type CategoryButton = { label?: string; url?: string; type?: string };
+
 interface ClassEntry {
   title: string;
   blurb?: string;
@@ -15,12 +17,14 @@ interface ClassEntry {
   shortDescription?: string;
   content?: string;
   enroll?: string;
+  buttons?: CategoryButton[];
   meta?: {
     slug?: string;
     image?: string;
     level?: string;
     topics?: string[];
     group?: string;
+    buttons?: CategoryButton[];
   };
   slug?: string;
   image?: string;
@@ -33,8 +37,6 @@ interface RouteProps {
   classData: ClassEntry;
   categoryData?: Record<string, unknown>;
 }
-
-type CategoryButton = { label?: string; url?: string; type?: string };
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
@@ -87,9 +89,16 @@ const categoryButtons = Array.isArray(categoryRecord.buttons)
   : Array.isArray(categoryRecord.meta?.buttons)
     ? (categoryRecord.meta.buttons as CategoryButton[])
     : [];
-const validButtons = categoryButtons.filter((button) => button?.label && button?.url);
-const hasEnrollSection =
-  Boolean(classEnrollContent) || Boolean(enrollContent) || validButtons.length > 0;
+const classButtons = Array.isArray(classData.buttons)
+  ? (classData.buttons as CategoryButton[])
+  : Array.isArray(classData.meta?.buttons)
+    ? (classData.meta.buttons as CategoryButton[])
+    : [];
+const primaryButtons = classButtons.filter((button) => button?.label && button?.url);
+const fallbackButtons = categoryButtons.filter((button) => button?.label && button?.url);
+const resolvedButtons = primaryButtons.length > 0 ? primaryButtons : fallbackButtons;
+const effectiveEnrollContent = classEnrollContent || enrollContent;
+const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedButtons.length > 0;
 const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
 ---
@@ -159,14 +168,16 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
       </SectionHeader>
 
       <div class="class-enroll">
-        {classEnrollContent && (
-          <div class="class-enroll__text class-enroll__text--class" set:html={classEnrollContent} />
+        {effectiveEnrollContent && (
+          <div
+            class="class-enroll__text class-enroll__text--class"
+            set:html={effectiveEnrollContent}
+          />
         )}
-        {enrollContent && <div class="class-enroll__text" set:html={enrollContent} />}
-        {validButtons.length > 0 && (
+        {resolvedButtons.length > 0 && (
           <ButtonGroup
             class="class-enroll__buttons"
-            actions={validButtons.map((button) => {
+            actions={resolvedButtons.map((button: CategoryButton) => {
               const isExternal = button.url ? /^https?:/i.test(button.url) : false;
               return {
                 label: button.label ?? "Enroll",

@@ -300,7 +300,8 @@ experience with how robots respond to commands. This course is currently in
 development and represents an innovative approach to teaching robotics through
 competitive gameplay. </content>
 
-<enroll>$title is offered on a trial basis through our Tech Club program, and as a regular weekly class.</enroll>
+<enroll>$title is offered on a trial basis through our Tech Club program, and as
+a regular weekly class. For the one hour introduction, you can join the Tech Club. For the multi-class expanded course, see our online enrollment for weekly classes. </enroll>
 
 ```
 slug: robot-riot
@@ -309,6 +310,14 @@ level: beginner
 topics: programming, robotics
 group: tech
 curriculum: https://league-curriculum.github.io/Microbit-Robot-Rally/
+buttons:
+    - type: pike13
+      label: Enroll in Weekly Python Classes
+      url: https://jtl.pike13.com/categories/93504
+    - type: meetup
+      label: Join the Tech Club
+      url: https://www.meetup.com/the-league-tech-club
+    
 ```
 
 ## Tech Arcade

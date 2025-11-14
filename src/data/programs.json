@@ -23,6 +23,7 @@
         "group-classes"
       ]
     },
+    "buttons": [],
     "slug": "python-programming",
     "image": "python.png",
     "topics": [
@@ -60,6 +61,7 @@
         "group-classes"
       ]
     },
+    "buttons": [],
     "slug": "java-programming",
     "image": "java.png",
     "topics": [
@@ -95,6 +97,7 @@
         "group-classes"
       ]
     },
+    "buttons": [],
     "slug": "technology",
     "image": "robot_garage_kids.png",
     "topics": [
@@ -144,6 +147,13 @@
         }
       ]
     },
+    "buttons": [
+      {
+        "type": "meetup",
+        "label": "Join the Tech Club",
+        "url": "https://www.meetup.com/the-league-tech-club"
+      }
+    ],
     "slug": "tech-club",
     "image": "robot_riot.png",
     "topics": [
@@ -162,14 +172,7 @@
     "category": [
       "tech-club"
     ],
-    "meetup": "tech-club",
-    "buttons": [
-      {
-        "type": "meetup",
-        "label": "Join the Tech Club",
-        "url": "https://www.meetup.com/the-league-tech-club"
-      }
-    ]
+    "meetup": "tech-club"
   },
   {
     "title": "League Labs",
@@ -200,6 +203,13 @@
         }
       ]
     },
+    "buttons": [
+      {
+        "type": "page",
+        "label": "Register Interest in League Labs",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform"
+      }
+    ],
     "slug": "league-labs",
     "image": "league_labs.png",
     "topics": [
@@ -212,14 +222,7 @@
     "category": [
       "league-labs"
     ],
-    "meetup": "league-labs",
-    "buttons": [
-      {
-        "type": "page",
-        "label": "Register Interest in League Labs",
-        "url": "https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform"
-      }
-    ]
+    "meetup": "league-labs"
   },
   {
     "title": "Robot Garage",
@@ -247,6 +250,7 @@
       ],
       "meetup": "tech-club"
     },
+    "buttons": [],
     "slug": "robot-garage",
     "image": "robot_garage.png",
     "topics": [

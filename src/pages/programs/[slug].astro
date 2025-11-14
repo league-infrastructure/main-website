@@ -9,6 +9,8 @@ import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
 import { getProgramsData, getClassesData, getCategoriesData } from "../../utils/markdown.js";
 
+type CategoryButton = { label?: string; url?: string; type?: string };
+
 interface ProgramEntry {
   title: string;
   blurb?: string;
@@ -16,6 +18,7 @@ interface ProgramEntry {
   shortDescription?: string;
   content?: string;
   enroll?: string;
+  buttons?: CategoryButton[];
   meta?: {
     slug?: string;
     image?: string;
@@ -24,6 +27,7 @@ interface ProgramEntry {
     level?: string;
     category?: string[] | string;
     enroll?: string;
+    buttons?: CategoryButton[];
   };
   slug?: string;
   image?: string;
@@ -32,8 +36,6 @@ interface ProgramEntry {
   level?: string;
   category?: string[] | string;
 }
-
-type CategoryButton = { label?: string; url?: string; type?: string };
 
 interface CategoryEntry {
   enroll?: string;
@@ -129,7 +131,7 @@ const categoryEntries = Array.isArray(categoryData) ? categoryData : [];
 const categoryEnrollSections = categoryEntries
   .map((entry) => (typeof entry.enroll === "string" ? entry.enroll.trim() : ""))
   .filter((content) => content.length > 0);
-const rawCategoryButtons = categoryEntries.flatMap((entry) => {
+const categoryButtons = categoryEntries.flatMap((entry) => {
   if (Array.isArray(entry.buttons)) {
     return entry.buttons;
   }
@@ -138,16 +140,22 @@ const rawCategoryButtons = categoryEntries.flatMap((entry) => {
   }
   return [];
 });
-const validButtons = rawCategoryButtons
-  .filter((button): button is CategoryButton => Boolean(button?.label && button?.url))
-  .filter((button, index, array) => {
-    const key = `${button.url}|${button.label}`;
-    return (
-      array.findIndex((candidate) => `${candidate?.url}|${candidate?.label}` === key) === index
-    );
-  });
-const hasEnrollSection =
-  Boolean(programEnrollContent) || categoryEnrollSections.length > 0 || validButtons.length > 0;
+const sanitizedCategoryButtons = categoryButtons.filter(
+  (button): button is CategoryButton => Boolean(button?.label && button?.url),
+);
+const programButtons = Array.isArray(programData.buttons)
+  ? (programData.buttons as CategoryButton[])
+  : Array.isArray(programData.meta?.buttons)
+    ? (programData.meta.buttons as CategoryButton[])
+    : [];
+const sanitizedProgramButtons = programButtons.filter(
+  (button): button is CategoryButton => Boolean(button?.label && button?.url),
+);
+const resolvedButtons =
+  sanitizedProgramButtons.length > 0 ? sanitizedProgramButtons : sanitizedCategoryButtons;
+const effectiveEnrollContent =
+  programEnrollContent || categoryEnrollSections.find((content) => content.length > 0) || "";
+const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedButtons.length > 0;
 ---
 
 <ProgramLayout
@@ -235,21 +243,17 @@ const hasEnrollSection =
       </SectionHeader>
 
       <div class="program-enroll">
-        {programEnrollContent && (
+        {effectiveEnrollContent && (
           <div
             class="program-enroll__text program-enroll__text--program"
-            set:html={programEnrollContent}
+            set:html={effectiveEnrollContent}
           />
         )}
 
-        {categoryEnrollSections.map((content) => (
-          <div class="program-enroll__text" set:html={content} />
-        ))}
-
-        {validButtons.length > 0 && (
+        {resolvedButtons.length > 0 && (
           <ButtonGroup
             class="program-enroll__buttons"
-            actions={validButtons.map((button) => {
+            actions={resolvedButtons.map((button: CategoryButton) => {
               const isExternal = button.url ? /^https?:/i.test(button.url) : false;
               return {
                 label: button.label ?? "Enroll",
