@@ -103,13 +103,84 @@ of whether students continue. Classes run year-round at various locations.
 - Accessible entry point that feeds into our full course pathway
 </content>
 
+<enroll> Join the Tech Club Meetup group to RSVP for upcoming workshops and get
+location updates. Older students can also join the Code Clinic meetup for
+advanced topics and pathways into Robot Garage and League Labs.
+</enroll>
+
 ```
 slug: tech-club
 image: robot_riot.png
 topics: programming, robotics, electronics, games
 classes: intro-python, robot-riot, motors-clinic, soldering-clinic, makecode-arcade
-category: community-tech
+category: tech-club
 meetup: tech-club
+buttons: 
+    - type: meetup
+      label: Join the Tech Club
+      url: https://www.meetup.com/the-league-tech-club
+```
+
+
+## League Labs
+
+Advanced program where students learn advanced techniques and work as
+apprentices on research projects.
+
+League Labs provides an advanced learning environment for students who have
+progressed beyond our standard curriculum and are ready for professional-level
+work, thorough in-person projects and online classes in our Code Clinic meetup. 
+
+<content> Students in League Labs function as apprentices, working on substantial
+research projects, contributing to open-source software, or developing their own
+ambitious applications. With guidance from professional developers and computer
+scientists, students learn advanced topics like machine learning, systems
+programming, algorithm design, or specialized domains they're passionate about.
+League Lab students often present their work at conferences, publish papers, or
+launch real products. This program develops the independent learning and
+problem-solving skills essential for success in computer science careers and
+research.
+
+- Apprenticeship-style mentorship with experienced engineers and researchers
+- Opportunities to contribute to open-source and real-world software projects
+- Exposure to advanced topics tailored to each student's interests and goals
+
+To prepare for projects, students can take free short classes in our Code CLinic
+meetup.  Classes cover topics like version control systems, professional
+development environments, software testing, debugging strategies, and
+industry-standard practices that professional programmers use daily. Code Clinic
+helps bridge the gap between learning syntax and working like a professional
+developer, preparing students for internships, jobs, and university-level
+computer science. These classes are offered free as part of our mission to
+prepare youth for technology careers.
+
+- Weekly online masterclasses led by professional engineers
+- Focus on emerging technologies such as machine learning and containerization
+- Applied practice with testing, deployment, and collaborative workflows
+
+League Labs operates like a studio: students apply, select a specialty team,
+and commit to weekly standups, sprint demos, and collaborative build sessions.
+Mentors guide apprentices through research design, version control, testing,
+and technical writing so they graduate ready for internships, college labs, or
+open-source contributions. League Labs projects often feed into our Code Clinic
+classes and public workshops, giving students a platform to teach what they
+build.
+</content>
+
+<enroll> League Labs runs by semester an over the summer, with an application process that is open a few times a year. Follow the linkk below to be added to the interest list for the next cohort. 
+</enroll>
+
+
+```
+slug: league-labs
+image: league_labs.png
+topics: programming, robotics, electronics, career, projects
+category: league-labs
+meetup: league-labs
+buttons: 
+    - type: page
+      label: Register Interest in League Labs
+      url: https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform
 ```
 
 ## Robot Garage
@@ -140,54 +211,7 @@ slug: robot-garage
 image: robot_garage.png
 topics: programming, robotics, electronics
 classes: robot-riot, motors-clinic, soldering-clinic, hour-of-microbit
-category: community-tech
+category: league-labs
 meetup: tech-club
-```
-
-
-
-## League Labs
-
-Advanced program where students learn advanced techniques and work as
-apprentices on research projects.
-
-League Lab provides an advanced learning environment for students who have
-progressed beyond our standard curriculum and are ready for professional-level
-work, thorough in-person projects and online classes in our Code Clinic meetup. 
-
-<content> Students in League Labs function as apprentices, working on substantial
-research projects, contributing to open-source software, or developing their own
-ambitious applications. With guidance from professional developers and computer
-scientists, students learn advanced topics like machine learning, systems
-programming, algorithm design, or specialized domains they're passionate about.
-League Lab students often present their work at conferences, publish papers, or
-launch real products. This program develops the independent learning and
-problem-solving skills essential for success in computer science careers and
-research.
-
-- Apprenticeship-style mentorship with experienced engineers and researchers
-- Opportunities to contribute to open-source and real-world software projects
-- Exposure to advanced topics tailored to each student's interests and goals
-
-To prepare for projects, students can take free short classes in our Code CLinic
-meetup.  Classes cover topics like version control systems, professional
-development environments, software testing, debugging strategies, and
-industry-standard practices that professional programmers use daily. Code Clinic
-helps bridge the gap between learning syntax and working like a professional
-developer, preparing students for internships, jobs, and university-level
-computer science. These classes are offered free as part of our mission to
-prepare youth for technology careers.
-
-- Weekly online masterclasses led by professional engineers
-- Focus on emerging technologies such as machine learning and containerization
-- Applied practice with testing, deployment, and collaborative workflows
-</content>
-
-```
-slug: league-lab
-image: league_labs.png
-topics: programming, robotics, electronics, career, projects
-category: community-tech
-meetup: code-clinic
 ```
 

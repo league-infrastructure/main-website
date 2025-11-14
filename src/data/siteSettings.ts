@@ -20,6 +20,6 @@ export const socialLinks = [
 
 export const meetupGroups = [
   { label: 'LEAGUE Tech Club', slug: 'tech-club', href: 'https://www.meetup.com/the-league-tech-club/' },
-  { label: 'Code Clinic', slug: 'code-clinic', href: 'https://www.meetup.com/the-league-code-clinic' }
+  { label: 'LEAGUE Labs', slug: 'league-labs', href: 'https://www.meetup.com/league-labs' }
 
 ]

@@ -32,7 +32,10 @@ const { title, description } = Astro.props as Props;
     flex-direction: column;
   }
 
-  .program-layout__hero:not(:empty),
+  .program-layout__hero:not(:empty) {
+    margin-bottom: var(--space-lg, 2rem);
+  }
+
   .program-layout__overview:not(:empty) {
     margin-bottom: var(--space-xxl, 4rem);
   }

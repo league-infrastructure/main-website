@@ -50,19 +50,69 @@ function normalizeEntries(entries) {
   });
 }
 
-function exportMarkdownToJson(source, targetBaseName) {
+function hasSelfReferentialCategory(entry) {
+  const slug = entry.slug ?? entry.meta?.slug;
+  if (!slug) {
+    return false;
+  }
+
+  const categories = entry.category ?? entry.categories ?? entry.meta?.category;
+  if (!categories) {
+    return false;
+  }
+
+  const categoryList = Array.isArray(categories) ? categories : [categories];
+  return categoryList.some((value) => typeof value === "string" && value.trim() === slug);
+}
+
+function deepClone(record) {
+  return JSON.parse(JSON.stringify(record));
+}
+
+function mergeCategoryRecords(baseCategories, programEntries) {
+  const merged = new Map();
+
+  for (const entry of baseCategories) {
+    const slug = entry.slug ?? entry.meta?.slug;
+    if (!slug) {
+      continue;
+    }
+    merged.set(slug, entry);
+  }
+
+  for (const program of programEntries) {
+    if (!hasSelfReferentialCategory(program)) {
+      continue;
+    }
+
+    const slug = program.slug ?? program.meta?.slug;
+    if (!slug || merged.has(slug)) {
+      continue;
+    }
+
+    merged.set(slug, deepClone(program));
+  }
+
+  return Array.from(merged.values());
+}
+
+function exportMarkdownToJson(source, targetBaseName, transformFn) {
   const markdown = readContentFile(source);
   const parsed = parseMarkdownSections(markdown);
   const normalized = normalizeEntries(parsed);
-  const outputPath = writeJsonFile(targetBaseName, normalized);
+  const data = typeof transformFn === "function" ? transformFn(normalized) : normalized;
+  const outputPath = writeJsonFile(targetBaseName, data);
   console.log(`Exported ${source} -> ${path.relative(process.cwd(), outputPath)}`);
+  return data;
 }
 
 try {
   ensureOutputDir();
   exportMarkdownToJson("classes.md", "classes");
-  exportMarkdownToJson("programs.md", "programs");
-  exportMarkdownToJson("categories.md", "categories");
+  const programs = exportMarkdownToJson("programs.md", "programs");
+  exportMarkdownToJson("categories.md", "categories", (categories) =>
+    mergeCategoryRecords(categories, programs),
+  );
   console.log("Content export complete.");
 } catch (error) {
   console.error("Failed to export content:", error);

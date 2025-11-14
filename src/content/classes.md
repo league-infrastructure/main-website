@@ -12,7 +12,7 @@ accessible. This course serves as the gateway to our comprehensive Python
 curriculum and prepares students for more advanced study. Classes meet once per
 week for 1.5 hours with a 5:1 student-to-teacher ratio. </content>
 
-<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title.</enroll>
 
 
 ```
@@ -43,7 +43,7 @@ practical projects and prepares students for advanced courses. Classes meet
 weekly with experienced instructors from universities like Brown, UCSD, and
 Cornell. </content>
 
-<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title.</enroll>
 
 ```
 slug: python-apprentice
@@ -71,7 +71,7 @@ and prepare students for professional software development. Students can also
 deploy their Python games to run on the web, making them shareable with friends
 and family. </content>
 
-<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title.</enroll>
 
 ```
 slug: python-games
@@ -100,7 +100,7 @@ constants. This course demonstrates how programming is used in real scientific
 research and space exploration, connecting coding skills to STEM education in a
 highly engaging way. </content>
 
-<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor.</enroll>
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title</enroll>
 
 ```
 slug: python-orbitlab
@@ -194,7 +194,7 @@ slug: makecode-arcade
 image: microbit-arcade.png
 level: beginner
 topics: games, programming, javascript
-group: tech
+group: tech-club
 ```
 
 
@@ -223,7 +223,7 @@ slug: motors-clinic
 image: motors_clinic.png
 level: intermediate
 topics: programming, robotics
-group: community
+group: tech-club
 curriculum: https://league-curriculum.github.io/Motors/
 ```
 
@@ -251,7 +251,7 @@ slug: soldering-clinic
 image: boy_soldering.png
 level: beginner
 topics: electronics, robotics
-group: community
+group: tech-club
 ```
 
 ## Hour of Micro:bit
@@ -278,7 +278,7 @@ slug: hour-of-microbit
 image: microbit.png
 level: beginner
 topics: programming
-group: communitycommunity
+group: tech-club
 curriculum: https://league-curriculum.github.io/HourofMicrobit/
 ```
 
@@ -396,6 +396,6 @@ slug: github-pages-portfolio
 image: portfolio.png
 level: intermediate
 topics: web development, html, css, git, portfolio
-group: community
+group: tech-club
 curriculum: https://github.com/league-curriculum/Portfolio-jekyll-barebones.git
 ```

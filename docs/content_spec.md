@@ -124,3 +124,7 @@ signature allow values that are strings, arrays, or arbitrary records.
 The `buttons` meta field can be written either as a single record or multiple
 records, which have the sub-fields `label`, `type` and `url`. If it is specified
 as a single record, it is normalized to a list of records. 
+
+Special handling for categories. There is some overlap between programs and
+categories: for the programs where  the `category:` is a reference to self (
+category == slug ) the program entry should be copied into the categories data. 

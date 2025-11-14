@@ -32,8 +32,16 @@ const categoryLookup = new Map(
 );
 
 const categorySections = [
-  { slug: "group-classes", fallbackTitle: "Weekly Classes" },
-  { slug: "community-tech", fallbackTitle: "Community Programs" },
+  {
+    id: "group-classes",
+    fallbackTitle: "Weekly Group Classes",
+    categorySlugs: ["group-classes"],
+  },
+  {
+    id: "community-programs",
+    fallbackTitle: "Community Programs",
+    categorySlugs: ["tech-club", "league-labs"],
+  },
 ];
 
 // Topic color function is imported from utils
@@ -49,16 +57,40 @@ function getClassesForProgram(program: any) {
   return Array.isArray(classList) ? classList : [];
 }
 
-function getProgramsForCategory(slug: string) {
-  return programs.filter((program) => {
+function getProgramsForCategories(slugs: string[]) {
+  const lookup = new Set(slugs.map((value) => value.trim()).filter(Boolean));
+  if (lookup.size === 0) {
+    return [];
+  }
+
+  const results: typeof programs = [];
+  const seen = new Set<string>();
+
+  for (const program of programs) {
     const programCategories =
       (Array.isArray(program.category) && program.category.length > 0
         ? program.category
         : Array.isArray(program.meta?.category)
           ? program.meta.category
           : []) ?? [];
-    return programCategories.includes(slug);
-  });
+
+  const matches = programCategories.some((categorySlug: string) => lookup.has(categorySlug));
+    if (!matches) {
+      continue;
+    }
+
+    const programSlug = program.slug ?? program.meta?.slug;
+    if (programSlug && seen.has(programSlug)) {
+      continue;
+    }
+
+    if (programSlug) {
+      seen.add(programSlug);
+    }
+    results.push(program);
+  }
+
+  return results;
 }
 
 function toTitleCase(value: string) {
@@ -134,9 +166,10 @@ const classGroupSections = [
   </HeroSection>
 
   {
-    categorySections.map(({ slug, fallbackTitle }, index) => {
-      const categoryData = categoryLookup.get(slug);
-      const sectionPrograms = getProgramsForCategory(slug);
+    categorySections.map(({ id, fallbackTitle, categorySlugs }, index) => {
+      const primaryCategorySlug = categorySlugs[0];
+      const categoryData = primaryCategorySlug ? categoryLookup.get(primaryCategorySlug) : undefined;
+      const sectionPrograms = getProgramsForCategories(categorySlugs);
       const buttons = (categoryData?.buttons ?? categoryData?.meta?.buttons ?? []) as CategoryButton[];
       const validButtons = buttons.filter((button) => button?.label && button?.url);
       const enrollContent = categoryData?.enroll?.trim();
@@ -145,7 +178,7 @@ const classGroupSections = [
         return null;
       }
 
-      const sectionTitle = categoryData?.title ?? fallbackTitle;
+      const sectionTitle = fallbackTitle ?? categoryData?.title;
       const sectionDescription = categoryData?.blurb ?? categoryData?.description;
       const backgroundPresets = [
         { start: "var(--color-surface)", end: "var(--color-primary-soft)" },
@@ -154,7 +187,7 @@ const classGroupSections = [
       const colors = backgroundPresets[index % backgroundPresets.length];
 
       return (
-        <Section startBgcolor={colors.start} endBgcolor={colors.end} data-category={slug}>
+        <Section startBgcolor={colors.start} endBgcolor={colors.end} data-category={id}>
           <SectionHeader>
             <h2>{sectionTitle}</h2>
             {sectionDescription && <p>{sectionDescription}</p>}

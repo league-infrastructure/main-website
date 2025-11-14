@@ -26,42 +26,6 @@
     ]
   },
   {
-    "title": "Community Tech",
-    "blurb": "Short classes, workshops, research and internship opportunities, for free at\nlibraries, schools and rec centers.",
-    "description": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
-    "content": "Our community programs offer free and low-cost classes at libraries, schools\nand recreation centers at sites all over San Diego. For younger students, we\noffer fun introductions to programming, AI and robotics in the Tech Club, and\nolder students can learn advanced techniques, work a summer internship or\nresearch a new technology in our Code Clinic, Robot Garage or League Labs",
-    "enroll": "Join the Tech Club Meetup group for fun tech classes, clubs and event\nfor elementary and middle school students. Join the Code Clinic for older\nstudents for advanced classes and access to the Robot Garage and League Labs\nprogram.",
-    "curriculum": "",
-    "meta": {
-      "slug": "community",
-      "buttons": [
-        {
-          "type": "meetup",
-          "label": "Join the Tech Club",
-          "url": "https://www.meetup.com/the-league-tech-club"
-        },
-        {
-          "type": "meetup",
-          "label": "Join the Code Clinic",
-          "url": "https://www.meetup.com/the-league-code-clinic"
-        }
-      ]
-    },
-    "slug": "community",
-    "buttons": [
-      {
-        "type": "meetup",
-        "label": "Join the Tech Club",
-        "url": "https://www.meetup.com/the-league-tech-club"
-      },
-      {
-        "type": "meetup",
-        "label": "Join the Code Clinic",
-        "url": "https://www.meetup.com/the-league-code-clinic"
-      }
-    ]
-  },
-  {
     "title": "Python",
     "blurb": "Python is the best language to start with. It’s the most popular programming\nlanguage, and useful for every kind of programming.",
     "description": "The Python language is one of the most accessible programming languages\navailable because it has simplified syntax. Due to its ease of learning and\nusage, python codes can be easily written and executed much faster than other\nprogramming languages. Python is the most important language for data analysis\nand AI and is important in robotics, scientific computing, web sites, and many\nother fields.",
@@ -162,6 +126,118 @@
         "type": "link",
         "label": "Contact Us",
         "url": "mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring"
+      }
+    ]
+  },
+  {
+    "title": "Tech Club",
+    "blurb": "Free introductory classes in Python, Java, robotics, and electronics offered at\nschools, libraries and online",
+    "description": "Tech Club brings coding education to students who might not otherwise have\naccess, offering free introductory courses at schools and libraries throughout\nSan Diego County.",
+    "content": "These 60-90 minute sessions introduce students in grades 3-12 to\nprogramming through hands-on projects in Python, Java, robotics, and\nelectronics. With a less than 10:1 student-to-teacher ratio and no cost to\nfamilies, Tech Club removes barriers to computer science education. Many\nstudents who start in Tech Club later transition to our paid weekly classes as\nthey advance, but Tech Club provides valuable programming experience regardless\nof whether students continue. Classes run year-round at various locations.\n\n- Multiple weekly meetups hosted across San Diego County\n- Volunteer mentors and alumni support for personalized guidance\n- Hands-on explorations in Python, Java, robotics, and electronics\n- Accessible entry point that feeds into our full course pathway",
+    "enroll": "Join the Tech Club Meetup group to RSVP for upcoming workshops and get\nlocation updates. Older students can also join the Code Clinic meetup for\nadvanced topics and pathways into Robot Garage and League Labs.",
+    "curriculum": "",
+    "meta": {
+      "slug": "tech-club",
+      "image": "robot_riot.png",
+      "topics": [
+        "programming",
+        "robotics",
+        "electronics",
+        "games"
+      ],
+      "classes": [
+        "intro-python",
+        "robot-riot",
+        "motors-clinic",
+        "soldering-clinic",
+        "makecode-arcade"
+      ],
+      "category": [
+        "tech-club"
+      ],
+      "meetup": "tech-club",
+      "buttons": [
+        {
+          "type": "meetup",
+          "label": "Join the Tech Club",
+          "url": "https://www.meetup.com/the-league-tech-club"
+        }
+      ]
+    },
+    "slug": "tech-club",
+    "image": "robot_riot.png",
+    "topics": [
+      "programming",
+      "robotics",
+      "electronics",
+      "games"
+    ],
+    "classes": [
+      "intro-python",
+      "robot-riot",
+      "motors-clinic",
+      "soldering-clinic",
+      "makecode-arcade"
+    ],
+    "category": [
+      "tech-club"
+    ],
+    "meetup": "tech-club",
+    "buttons": [
+      {
+        "type": "meetup",
+        "label": "Join the Tech Club",
+        "url": "https://www.meetup.com/the-league-tech-club"
+      }
+    ]
+  },
+  {
+    "title": "League Labs",
+    "blurb": "Advanced program where students learn advanced techniques and work as\napprentices on research projects.",
+    "description": "League Labs provides an advanced learning environment for students who have\nprogressed beyond our standard curriculum and are ready for professional-level\nwork, thorough in-person projects and online classes in our Code Clinic meetup.",
+    "content": "Students in League Labs function as apprentices, working on substantial\nresearch projects, contributing to open-source software, or developing their own\nambitious applications. With guidance from professional developers and computer\nscientists, students learn advanced topics like machine learning, systems\nprogramming, algorithm design, or specialized domains they're passionate about.\nLeague Lab students often present their work at conferences, publish papers, or\nlaunch real products. This program develops the independent learning and\nproblem-solving skills essential for success in computer science careers and\nresearch.\n\n- Apprenticeship-style mentorship with experienced engineers and researchers\n- Opportunities to contribute to open-source and real-world software projects\n- Exposure to advanced topics tailored to each student's interests and goals\n\nTo prepare for projects, students can take free short classes in our Code CLinic\nmeetup.  Classes cover topics like version control systems, professional\ndevelopment environments, software testing, debugging strategies, and\nindustry-standard practices that professional programmers use daily. Code Clinic\nhelps bridge the gap between learning syntax and working like a professional\ndeveloper, preparing students for internships, jobs, and university-level\ncomputer science. These classes are offered free as part of our mission to\nprepare youth for technology careers.\n\n- Weekly online masterclasses led by professional engineers\n- Focus on emerging technologies such as machine learning and containerization\n- Applied practice with testing, deployment, and collaborative workflows\n\nLeague Labs operates like a studio: students apply, select a specialty team,\nand commit to weekly standups, sprint demos, and collaborative build sessions.\nMentors guide apprentices through research design, version control, testing,\nand technical writing so they graduate ready for internships, college labs, or\nopen-source contributions. League Labs projects often feed into our Code Clinic\nclasses and public workshops, giving students a platform to teach what they\nbuild.",
+    "enroll": "League Labs runs by semester an over the summer, with an application process that is open a few times a year. Follow the linkk below to be added to the interest list for the next cohort.",
+    "curriculum": "",
+    "meta": {
+      "slug": "league-labs",
+      "image": "league_labs.png",
+      "topics": [
+        "programming",
+        "robotics",
+        "electronics",
+        "career",
+        "projects"
+      ],
+      "category": [
+        "league-labs"
+      ],
+      "meetup": "league-labs",
+      "buttons": [
+        {
+          "type": "page",
+          "label": "Register Interest in League Labs",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform"
+        }
+      ]
+    },
+    "slug": "league-labs",
+    "image": "league_labs.png",
+    "topics": [
+      "programming",
+      "robotics",
+      "electronics",
+      "career",
+      "projects"
+    ],
+    "category": [
+      "league-labs"
+    ],
+    "meetup": "league-labs",
+    "buttons": [
+      {
+        "type": "page",
+        "label": "Register Interest in League Labs",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform"
       }
     ]
   }

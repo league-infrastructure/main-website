@@ -5,8 +5,9 @@ import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import ClassCard from "../../components/ClassCard.astro";
+import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
-import { getProgramsData, getClassesData } from "../../utils/markdown.js";
+import { getProgramsData, getClassesData, getCategoriesData } from "../../utils/markdown.js";
 
 interface ProgramEntry {
   title: string;
@@ -14,28 +15,48 @@ interface ProgramEntry {
   description?: string;
   shortDescription?: string;
   content?: string;
+  enroll?: string;
   meta?: {
     slug?: string;
     image?: string;
     topics?: string[];
     classes?: string[];
     level?: string;
+    category?: string[] | string;
+    enroll?: string;
   };
   slug?: string;
   image?: string;
   topics?: string[];
   classes?: string[];
   level?: string;
+  category?: string[] | string;
+}
+
+type CategoryButton = { label?: string; url?: string; type?: string };
+
+interface CategoryEntry {
+  enroll?: string;
+  buttons?: CategoryButton[];
+  meta?: {
+    buttons?: CategoryButton[];
+    slug?: string;
+    [key: string]: unknown;
+  };
+  slug?: string;
+  [key: string]: unknown;
 }
 
 interface RouteProps {
   programData: ProgramEntry;
   relatedClasses: ProgramEntry[];
+  categoryData: CategoryEntry[];
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const programs = getProgramsData();
   const classes = getClassesData();
+  const categories = getCategoriesData();
   return programs
     .map((entry) => {
       const slug = entry.meta?.slug ?? entry.slug;
@@ -50,18 +71,36 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
         )
         .filter(Boolean) as ProgramEntry[];
 
+      const categorySlugs =
+        (Array.isArray(entry.meta?.category) && entry.meta?.category?.length
+          ? entry.meta?.category
+          : Array.isArray(entry.category)
+            ? entry.category
+            : entry.category
+              ? [entry.category]
+              : []) ?? [];
+
+      const matchedCategories = categorySlugs
+        .map((categorySlug: string) =>
+          categories.find(
+            (categoryEntry) => (categoryEntry.meta?.slug ?? categoryEntry.slug) === categorySlug,
+          ),
+        )
+        .filter(Boolean) as CategoryEntry[];
+
       return {
         params: { slug },
         props: {
           programData: entry,
           relatedClasses,
+          categoryData: matchedCategories,
         },
       };
     })
     .filter(Boolean) as GetStaticPathsResult;
 }
 
-const { programData, relatedClasses } = Astro.props as unknown as RouteProps;
+const { programData, relatedClasses, categoryData } = Astro.props as unknown as RouteProps;
 
 const programSlug = programData.meta?.slug ?? programData.slug;
 
@@ -84,6 +123,31 @@ const descriptionParagraphs = descriptionText
 const topics = programData.meta?.topics ?? programData.topics ?? [];
 const hasContent = Boolean(programData.content && programData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(programData.content ?? "") : undefined;
+const programEnrollContent =
+  typeof programData.enroll === "string" ? programData.enroll.trim() : "";
+const categoryEntries = Array.isArray(categoryData) ? categoryData : [];
+const categoryEnrollSections = categoryEntries
+  .map((entry) => (typeof entry.enroll === "string" ? entry.enroll.trim() : ""))
+  .filter((content) => content.length > 0);
+const rawCategoryButtons = categoryEntries.flatMap((entry) => {
+  if (Array.isArray(entry.buttons)) {
+    return entry.buttons;
+  }
+  if (Array.isArray(entry.meta?.buttons)) {
+    return entry.meta?.buttons as CategoryButton[];
+  }
+  return [];
+});
+const validButtons = rawCategoryButtons
+  .filter((button): button is CategoryButton => Boolean(button?.label && button?.url))
+  .filter((button, index, array) => {
+    const key = `${button.url}|${button.label}`;
+    return (
+      array.findIndex((candidate) => `${candidate?.url}|${candidate?.label}` === key) === index
+    );
+  });
+const hasEnrollSection =
+  Boolean(programEnrollContent) || categoryEnrollSections.length > 0 || validButtons.length > 0;
 ---
 
 <ProgramLayout
@@ -159,6 +223,47 @@ const renderedContent = hasContent ? await marked.parse(programData.content ?? "
       </div>
     </Section>
   )}
+
+  {hasEnrollSection && (
+    <Section
+      startBgcolor="var(--color-surface-alt)"
+      endBgcolor="var(--color-primary-soft)"
+      class="program-enroll-section"
+    >
+      <SectionHeader>
+        <h2>How to Enroll</h2>
+      </SectionHeader>
+
+      <div class="program-enroll">
+        {programEnrollContent && (
+          <div
+            class="program-enroll__text program-enroll__text--program"
+            set:html={programEnrollContent}
+          />
+        )}
+
+        {categoryEnrollSections.map((content) => (
+          <div class="program-enroll__text" set:html={content} />
+        ))}
+
+        {validButtons.length > 0 && (
+          <ButtonGroup
+            class="program-enroll__buttons"
+            actions={validButtons.map((button) => {
+              const isExternal = button.url ? /^https?:/i.test(button.url) : false;
+              return {
+                label: button.label ?? "Enroll",
+                href: button.url ?? "#",
+                variant: "primary",
+                target: isExternal ? "_blank" : undefined,
+                rel: isExternal ? "noopener noreferrer" : undefined,
+              };
+            })}
+          />
+        )}
+      </div>
+    </Section>
+  )}
 </ProgramLayout>
 
 <style>
@@ -202,6 +307,25 @@ const renderedContent = hasContent ? await marked.parse(programData.content ?? "
   .program-classes :global(.class-card) {
     margin-bottom: 0;
     height: 100%;
+  }
+
+  .program-enroll {
+    display: grid;
+    gap: var(--space-lg);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .program-enroll__text {
+    display: grid;
+    gap: var(--space-sm);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: clamp(30ch, 70%, 65ch);
+  }
+
+  .program-enroll__buttons {
+    justify-content: center;
   }
 
   @media (max-width: 900px) {
