@@ -5,21 +5,62 @@ import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import ClassCard from "../../components/ClassCard.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
-import { getProgramsData, getClassesData, getCategoriesData } from "../../utils/markdown.js";
+import {
+  getProgramsData,
+  getClassesData,
+  getCategoriesData,
+  getStructuredContent,
+} from "../../utils/markdown.js";
 import type { StructuredContentRecord, StructuredCta } from "../../types/content";
 
 interface RouteProps {
   programData: StructuredContentRecord;
   relatedClasses: StructuredContentRecord[];
   categoryData: StructuredContentRecord[];
+  enrollmentGuide?: StructuredContentRecord;
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const programs = getProgramsData();
   const classes = getClassesData();
   const categories = getCategoriesData();
+  const contentEntries = getStructuredContent("content") as StructuredContentRecord[];
+  const extractGuideCategories = (record?: StructuredContentRecord): string[] => {
+    if (!record) {
+      return [];
+    }
+
+    const rawValue =
+      (record.meta?.["for_category"] as unknown) ??
+      (record["for_category"] as unknown) ??
+      (record.meta?.["_for_category"] as unknown) ??
+      (record["_for_category"] as unknown);
+
+    if (!rawValue) {
+      return [];
+    }
+
+    if (Array.isArray(rawValue)) {
+      return rawValue
+        .map((item) => (typeof item === "string" ? item.trim() : String(item).trim()))
+        .filter((item) => item.length > 0);
+    }
+
+    if (typeof rawValue === "string") {
+      return rawValue
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0);
+    }
+
+    return [];
+  };
+  const enrollmentGuides = contentEntries.filter(
+    (entry) => (entry.meta?.slug ?? entry.slug) === "enrollment-instructions",
+  );
   return programs
     .map((entry) => {
       const slug = entry.meta?.slug ?? entry.slug;
@@ -47,6 +88,13 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
           ),
         )
         .filter(Boolean) as StructuredContentRecord[];
+      const enrollmentGuide = enrollmentGuides.find((guide) => {
+        if (categorySlugs.length === 0) {
+          return false;
+        }
+        const guideCategories = extractGuideCategories(guide);
+        return guideCategories.some((category) => categorySlugs.includes(category));
+      });
 
       return {
         params: { slug },
@@ -54,13 +102,15 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
           programData: entry,
           relatedClasses,
           categoryData: matchedCategories,
+          enrollmentGuide,
         },
       };
     })
     .filter(Boolean) as GetStaticPathsResult;
 }
 
-const { programData, relatedClasses, categoryData } = Astro.props as unknown as RouteProps;
+const { programData, relatedClasses, categoryData, enrollmentGuide: enrollmentGuideRecord } =
+  Astro.props as unknown as RouteProps;
 
 const programSlug = programData.meta?.slug ?? programData.slug;
 
@@ -114,6 +164,26 @@ const resolvedCtas =
 const effectiveEnrollContent =
   programEnrollContent || categoryEnrollSections.find((content) => content.length > 0) || "";
 const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedCtas.length > 0;
+const enrollmentGuideTitle = enrollmentGuideRecord?.title ?? "Enrollment Instructions";
+const enrollmentGuideHtml = enrollmentGuideRecord?.content
+  ? await marked.parse(enrollmentGuideRecord.content)
+  : undefined;
+const enrollmentGuidePrimaryCta = Array.isArray(enrollmentGuideRecord?.cta)
+  ? (enrollmentGuideRecord?.cta.find((action) => action?.label && action?.url) as
+      | StructuredCta
+      | undefined)
+  : undefined;
+const enrollmentGuideCta = enrollmentGuidePrimaryCta
+  ? {
+      label: enrollmentGuidePrimaryCta.label ?? "Learn more",
+      href: enrollmentGuidePrimaryCta.url ?? "#",
+      variant: (enrollmentGuidePrimaryCta.variant as "primary" | "secondary" | "outline" | "ghost")
+        ?? "secondary",
+      target: enrollmentGuidePrimaryCta.target,
+      rel: enrollmentGuidePrimaryCta.rel,
+    }
+  : undefined;
+const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
 ---
 
 <ProgramLayout
@@ -201,27 +271,39 @@ const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedCtas.length 
       </SectionHeader>
 
       <div class="program-enroll">
-        {effectiveEnrollContent && (
-          <div
-            class="program-enroll__text program-enroll__text--program"
-            set:html={effectiveEnrollContent}
-          />
-        )}
+        <div class="program-enroll__primary">
+          {effectiveEnrollContent && (
+            <div
+              class="program-enroll__text program-enroll__text--program"
+              set:html={effectiveEnrollContent}
+            />
+          )}
 
-        {resolvedCtas.length > 0 && (
-          <ButtonGroup
-            class="program-enroll__buttons"
-            actions={resolvedCtas.map((action: StructuredCta) => {
-              const isExternal = action.url ? /^https?:/i.test(action.url) : false;
-              return {
-                label: action.label ?? "Enroll",
-                href: action.url ?? "#",
-                variant: "primary",
-                target: isExternal ? "_blank" : undefined,
-                rel: isExternal ? "noopener noreferrer" : undefined,
-              };
-            })}
-          />
+          {resolvedCtas.length > 0 && (
+            <ButtonGroup
+              class="program-enroll__buttons"
+              actions={resolvedCtas.map((action: StructuredCta) => {
+                const isExternal = action.url ? /^https?:/i.test(action.url) : false;
+                return {
+                  label: action.label ?? "Enroll",
+                  href: action.url ?? "#",
+                  variant: "primary",
+                  target: isExternal ? "_blank" : undefined,
+                  rel: isExternal ? "noopener noreferrer" : undefined,
+                };
+              })}
+            />
+          )}
+        </div>
+        {showEnrollmentGuide && enrollmentGuideHtml && (
+          <CalloutCard
+            class="program-enroll__callout"
+            title={enrollmentGuideTitle}
+            headingLevel={3}
+            cta={enrollmentGuideCta}
+          >
+            <div class="program-enroll__callout-content" set:html={enrollmentGuideHtml} />
+          </CalloutCard>
         )}
       </div>
     </Section>
@@ -273,9 +355,16 @@ const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedCtas.length 
 
   .program-enroll {
     display: grid;
+    gap: var(--space-xl);
+    justify-items: start;
+    text-align: left;
+    align-items: start;
+  }
+
+  .program-enroll__primary {
+    display: grid;
     gap: var(--space-lg);
-    justify-items: center;
-    text-align: center;
+    justify-items: start;
   }
 
   .program-enroll__text {
@@ -283,16 +372,33 @@ const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedCtas.length 
     gap: var(--space-sm);
     font-size: 1.05rem;
     line-height: 1.6;
-    max-width: clamp(30ch, 70%, 65ch);
+    max-width: clamp(30ch, 100%, 65ch);
   }
 
   .program-enroll__buttons {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  .program-enroll__callout {
+    align-self: stretch;
+  }
+
+  .program-enroll__callout-content {
+    display: grid;
+    gap: var(--space-sm);
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   @media (max-width: 900px) {
     .program-classes {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .program-enroll {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 

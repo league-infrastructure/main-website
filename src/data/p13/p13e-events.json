@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "fetched_at": "2025-11-14T18:57:47.628Z",
-    "endpoint": "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-13T18%3A57%3A46.297Z&starts_before=2026-03-04T18%3A57%3A46.297Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M",
+    "fetched_at": "2025-11-14T20:56:34.616Z",
+    "endpoint": "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-13T20%3A56%3A33.334Z&starts_before=2026-03-04T20%3A56%3A33.334Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M",
     "endpoints": [
-      "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-13T18%3A57%3A46.297Z&starts_before=2026-03-04T18%3A57%3A46.297Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M"
+      "https://jtl.pike13.com/api/v2/front/event_occurrences.json?per_page=200&starts_after=2025-11-13T20%3A56%3A33.334Z&starts_before=2026-03-04T20%3A56%3A33.334Z&page=1&client_id=2VdWNEhc5uxVxQshMAbNh3ShzwOUoXfFnGEapl5M"
     ],
     "source": "front",
     "range": {
-      "start": "2025-11-13T18:57:46.297Z",
-      "end": "2026-03-04T18:57:46.297Z"
+      "start": "2025-11-13T20:56:33.334Z",
+      "end": "2026-03-04T20:56:33.334Z"
     },
     "params": {
       "start": "starts_after",

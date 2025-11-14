@@ -1,4 +1,4 @@
-# Enrollment Instructions
+# Enrollment Process
 
 Enrolling in weekly classes is a two step process: enroll of the first class,
 then bulk enroll in additional classes for that same day and time. 
@@ -8,7 +8,9 @@ then bulk enroll in additional classes for that same day and time.
 
  <content> 
 
-If you'd like to 
+Enrolling in weekly classes is a two step process: enroll of the first class,
+then bulk enroll in additional classes for that same day and time. 
+
 * Review the schedule for a day and time slot. ( It's best to select the "Month" view. )
 * Create a client account, and add your students to the account
 * Enroll in a first class for the day and time you want, from the list of classes below.
@@ -16,11 +18,12 @@ If you'd like to
   * Email Liz Groves at info@jointheleague.org (Click to compose an email) with the day and time you would like.
   * Call us at (858) 284-0481.
 * Your child's instructor can enroll your child at the beginning of class.
-* For all details on enrollment, please see our Enrollment Guide and our Policies and Procedures.
+
 </content>
 
 
 ```
 slug: enrollment-instructions
+for_category: group-classes
 ```
 

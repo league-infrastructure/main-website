@@ -4,19 +4,62 @@ import ClassLayout from "../../layouts/ClassLayout.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
-import { getClassesData, getCategoriesData } from "../../utils/markdown.js";
-import type { StructuredContentRecord, StructuredCta } from "../../types/content";
+import { getClassesData, getCategoriesData, getStructuredContent } from "../../utils/markdown.js";
+import type {
+  StructuredContentRecord,
+  StructuredCta,
+} from "../../types/content";
 
 interface RouteProps {
   classData: StructuredContentRecord;
   categoryData?: StructuredContentRecord;
+  enrollmentGuide?: StructuredContentRecord;
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
   const categories = getCategoriesData();
+  const contentEntries = getStructuredContent(
+    "content",
+  ) as StructuredContentRecord[];
+  const extractGuideCategories = (record?: StructuredContentRecord): string[] => {
+    if (!record) {
+      return [];
+    }
+
+    const rawValue =
+      (record.meta?.["for_category"] as unknown) ??
+      (record["for_category"] as unknown) ??
+      (record.meta?.["_for_category"] as unknown) ??
+      (record["_for_category"] as unknown);
+
+    if (!rawValue) {
+      return [];
+    }
+
+    if (Array.isArray(rawValue)) {
+      return rawValue
+        .map((item) =>
+          typeof item === "string" ? item.trim() : String(item).trim(),
+        )
+        .filter((item) => item.length > 0);
+    }
+
+    if (typeof rawValue === "string") {
+      return rawValue
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0);
+    }
+
+    return [];
+  };
+  const enrollmentGuides = contentEntries.filter(
+    (entry) => (entry.meta?.slug ?? entry.slug) === "enrollment-instructions",
+  );
   return classes
     .map((entry) => {
       const slug = entry.meta?.slug ?? entry.slug;
@@ -25,17 +68,30 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
       }
       const groupSlug = entry.meta?.group ?? entry.group;
       const categoryData = groupSlug
-        ? categories.find((category) => (category.meta?.slug ?? category.slug) === groupSlug)
+        ? categories.find(
+            (category) => (category.meta?.slug ?? category.slug) === groupSlug,
+          )
         : undefined;
+      const enrollmentGuide = enrollmentGuides.find((guide) => {
+        if (!groupSlug) {
+          return false;
+        }
+        const guideCategories = extractGuideCategories(guide);
+        return guideCategories.includes(String(groupSlug));
+      });
       return {
         params: { slug: slug.replace(/_/g, "-") },
-        props: { classData: entry, categoryData },
+        props: { classData: entry, categoryData, enrollmentGuide },
       };
     })
     .filter(Boolean) as GetStaticPathsResult;
 }
 
-const { classData, categoryData } = Astro.props as unknown as RouteProps;
+const {
+  classData,
+  categoryData,
+  enrollmentGuide: enrollmentGuideRecord,
+} = Astro.props as unknown as RouteProps;
 
 const classSlug = classData.meta?.slug ?? classData.slug;
 
@@ -56,7 +112,8 @@ const descriptionParagraphs = descriptionText
 const topics = classData.meta?.topics ?? classData.topics ?? [];
 const level = classData.meta?.level ?? classData.level;
 const categoryRecord = (categoryData ?? {}) as StructuredContentRecord;
-const enrollContent = typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
+const enrollContent =
+  typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
 const classEnrollContent =
   typeof classData.enroll === "string" ? classData.enroll.trim() : "";
 const categoryCtas = Array.isArray(categoryRecord.cta)
@@ -70,9 +127,12 @@ const classCtas = Array.isArray(classData.cta)
     ? (classData.meta.cta as StructuredCta[])
     : [];
 const primaryCtas = classCtas.filter((action) => action?.label && action?.url);
-const fallbackCtas = categoryCtas.filter((action) => action?.label && action?.url);
+const fallbackCtas = categoryCtas.filter(
+  (action) => action?.label && action?.url,
+);
 const resolvedCtas = primaryCtas.length > 0 ? primaryCtas : fallbackCtas;
-const enrollMessages: Array<{ content: string; source: "class" | "category" }> = [];
+const enrollMessages: Array<{ content: string; source: "class" | "category" }> =
+  [];
 
 if (classEnrollContent) {
   enrollMessages.push({ content: classEnrollContent, source: "class" });
@@ -83,8 +143,37 @@ if (enrollContent && enrollContent !== classEnrollContent) {
 }
 
 const hasEnrollSection = enrollMessages.length > 0 || resolvedCtas.length > 0;
-const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
-const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
+const hasContent = Boolean(
+  classData.content && classData.content.trim().length > 0,
+);
+const renderedContent = hasContent
+  ? await marked.parse(classData.content ?? "")
+  : undefined;
+const enrollmentGuideTitle =
+  enrollmentGuideRecord?.title ?? "Enrollment Instructions";
+const enrollmentGuideHtml = enrollmentGuideRecord?.content
+  ? await marked.parse(enrollmentGuideRecord.content)
+  : undefined;
+const enrollmentGuidePrimaryCta = Array.isArray(enrollmentGuideRecord?.cta)
+  ? (enrollmentGuideRecord?.cta.find(
+      (action) => action?.label && action?.url,
+    ) as StructuredCta | undefined)
+  : undefined;
+const enrollmentGuideCta = enrollmentGuidePrimaryCta
+  ? {
+      label: enrollmentGuidePrimaryCta.label ?? "Learn more",
+      href: enrollmentGuidePrimaryCta.url ?? "#",
+      variant:
+        (enrollmentGuidePrimaryCta.variant as
+          | "primary"
+          | "secondary"
+          | "outline"
+          | "ghost") ?? "secondary",
+      target: enrollmentGuidePrimaryCta.target,
+      rel: enrollmentGuidePrimaryCta.rel,
+    }
+  : undefined;
+const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
 ---
 
 <ClassLayout
@@ -93,9 +182,11 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
 >
   <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">{classData.title}</h1>
-    {(classData.blurb ?? classData.description) && (
-      <p slot="description">{classData.blurb ?? classData.description}</p>
-    )}
+    {
+      (classData.blurb ?? classData.description) && (
+        <p slot="description">{classData.blurb ?? classData.description}</p>
+      )
+    }
     <div slot="media" class="program-hero__media">
       <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />
     </div>
@@ -108,74 +199,97 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
 
     <div class="class-content">
       <div class="class-description">
-        {renderedContent ? (
-          <div class="class-description__body" set:html={renderedContent} />
-        ) : descriptionParagraphs.length > 0 ? (
-          descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)
-        ) : (
-          <p>Course information will be available soon.</p>
-        )}
+        {
+          renderedContent ? (
+            <div class="class-description__body" set:html={renderedContent} />
+          ) : descriptionParagraphs.length > 0 ? (
+            descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)
+          ) : (
+            <p>Course information will be available soon.</p>
+          )
+        }
       </div>
 
-      {(level || topics.length > 0) && (
-        <aside class="class-sidebar">
-          {level && (
-            <div class="class-detail">
-              <span class="class-detail__label">Level</span>
-              <span class="class-detail__value">{level}</span>
-            </div>
-          )}
+      {
+        (level || topics.length > 0) && (
+          <aside class="class-sidebar">
+            {level && (
+              <div class="class-detail">
+                <span class="class-detail__label">Level</span>
+                <span class="class-detail__value">{level}</span>
+              </div>
+            )}
 
-          {topics.length > 0 && (
-            <div class="class-detail">
-              <span class="class-detail__label">Topics</span>
-              <ul class="class-topic-list">
-                {topics.map((topic) => (
-                  <li>{topic}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </aside>
-      )}
+            {topics.length > 0 && (
+              <div class="class-detail">
+                <span class="class-detail__label">Topics</span>
+                <ul class="class-topic-list">
+                  {topics.map((topic) => (
+                    <li>{topic}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </aside>
+        )
+      }
     </div>
   </Section>
 
-  {hasEnrollSection && (
-    <Section
-      startBgcolor="var(--color-surface-alt)"
-      endBgcolor="var(--color-primary-soft)"
-      class="class-enroll-section"
-    >
-      <SectionHeader>
-        <h2>How to Enroll</h2>
-      </SectionHeader>
+  {
+    hasEnrollSection && (
+      <Section
+        startBgcolor="var(--color-surface-alt)"
+        endBgcolor="var(--color-primary-soft)"
+        class="class-enroll-section"
+      >
+        <SectionHeader>
+          <h2>How to Enroll</h2>
+        </SectionHeader>
 
-      <div class="class-enroll">
-        {enrollMessages.map(({ content, source }) => (
-          <div
-            class={`class-enroll__text${source === "class" ? " class-enroll__text--class" : ""}`}
-            set:html={content}
-          />
-        ))}
-        {resolvedCtas.length > 0 && (
-          <ButtonGroup
-            class="class-enroll__buttons"
-            actions={resolvedCtas.map((action: StructuredCta) => {
-              const isExternal = action.url ? /^https?:/i.test(action.url) : false;
-              return {
-                label: action.label ?? "Enroll",
-                href: action.url ?? "#",
-                variant: "primary",
-                target: isExternal ? "_blank" : undefined,
-                rel: isExternal ? "noopener noreferrer" : undefined,
-              };
-            })}
-          />
-        )}
-      </div>
-    </Section>
-  )}
+        <div class="class-enroll">
+          <div class="class-enroll__primary">
+            {enrollMessages.map(({ content, source }) => (
+              <div
+                class={`class-enroll__text${source === "class" ? " class-enroll__text--class" : ""}`}
+                set:html={content}
+              />
+            ))}
+            {resolvedCtas.length > 0 && (
+              <ButtonGroup
+                class="class-enroll__buttons"
+                actions={resolvedCtas.map((action: StructuredCta) => {
+                  const isExternal = action.url
+                    ? /^https?:/i.test(action.url)
+                    : false;
+                  return {
+                    label: action.label ?? "Enroll",
+                    href: action.url ?? "#",
+                    variant: "primary",
+                    target: isExternal ? "_blank" : undefined,
+                    rel: isExternal ? "noopener noreferrer" : undefined,
+                  };
+                })}
+              />
+            )}
+          </div>
+          {showEnrollmentGuide && enrollmentGuideHtml && (
+            <CalloutCard
+              class="class-enroll__callout"
+              title={enrollmentGuideTitle}
+              headingLevel={3}
+              cta={enrollmentGuideCta}
+            >
+              <div
+                class="class-enroll__callout-content"
+                set:html={enrollmentGuideHtml}
+              />
+            </CalloutCard>
+          )}
+        </div>
+      </Section>
+    )
+  }
 </ClassLayout>
 
 <style>
@@ -251,8 +365,15 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
 
   .class-enroll {
     display: grid;
+    gap: var(--space-xl);
+    text-align: left;
+    align-items: start;
+  }
+
+  .class-enroll__primary {
+    display: grid;
     gap: var(--space-lg);
-    text-align: center;
+    justify-items: start;
   }
 
   .class-enroll__text {
@@ -266,7 +387,24 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
   }
 
   .class-enroll__buttons {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  .class-enroll__callout {
+    align-self: stretch;
+  }
+
+  .class-enroll__callout-content {
+    display: grid;
+    gap: var(--space-sm);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 960px) {
+    .class-enroll {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   :global(.class-enroll-section .section__content) {
