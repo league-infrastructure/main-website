@@ -300,8 +300,7 @@ experience with how robots respond to commands. This course is currently in
 development and represents an innovative approach to teaching robotics through
 competitive gameplay. </content>
 
-<enroll>$title is offered through our Tech Club program, so to take this class,
-join the Tech Club and watch for announcements.</enroll>
+<enroll>$title is offered on a trial basis through our Tech Club program, and as a regular weekly class.</enroll>
 
 ```
 slug: robot-riot

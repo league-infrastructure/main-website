@@ -53,7 +53,7 @@ and at schools througout San Diego County. </enroll>
 
 ```
 slug: python
-enroll: 
+buttons: 
     type: pike13
     label: Enroll in Weekly Python Classes
     url: https://jtl.pike13.com/categories/93504
@@ -86,7 +86,7 @@ and at schools througout San Diego County. </enroll>
 
 ```
 slug: java
-enroll: 
+buttons: 
     type: pike13
     label: Enroll in Weekly Java Classes
     url: https://jtl.pike13.com/categories/93504
@@ -112,7 +112,7 @@ site for current offerings. </enroll>
 
 ```
 slug: tech
-enroll: 
+buttons: 
     type: pike13
     label: Enroll in Weekly Tech Classes
     url: https://jtl.pike13.com/categories/93504
@@ -135,7 +135,7 @@ group tutoring. </enroll>
 
 ```
 slug: tutoring
-enroll: 
+buttons: 
     type: link
     label: Contact Us
     url: mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring

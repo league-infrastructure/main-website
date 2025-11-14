@@ -42,7 +42,7 @@ image: python.png
 topics: programming
 classes: intro-python, python-apprentice, python-games, python-web-servers, python-orbitlab, makecode-arcade
 category: group-classes
-enroll: 
+buttons: 
     - type: meetup
       label: Join the Tech Club
       url: https://www.meetup.com/the-league-tech-club
@@ -128,3 +128,20 @@ as a single record, it is normalized to a list of records.
 Special handling for categories. There is some overlap between programs and
 categories: for the programs where  the `category:` is a reference to self (
 category == slug ) the program entry should be copied into the categories data. 
+
+# Enrollment
+
+Enrollment information consists of:
+
+* The `<enroll>` content
+* The `buttons`  list for specifying enrollment buttons. 
+
+The enrollment information can be placed on:
+
+* A Cålass
+* A Program
+* A Category
+
+To display the enrollment block on a page or class, first look in the program or
+class record for the `enroll` and `button` fields. If either down not exist in
+the program or class records, look in the associated category record. 
