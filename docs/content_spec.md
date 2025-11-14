@@ -158,14 +158,15 @@ export interface ContentRecord {
     meta: Record<string, string | string[] | Record<string, unknown> | undefined>;
 
     // Metadata copied from the fenced YAML block in source order
-    slug: string;
+    slug: string; // name for this entry
     image: string;
+    icon: string; // a font-awesome icon name. 
     topics: string[];
     classes?: string[];
     category?: string[];
     level?: string;
-  meetup?: string;
-  cta?: Record[];
+    meetup?: string;
+    cta?: Record[]; // call-to-action buttons and links
 
     /** Any additional metadata fields are carried through as optional values. */
     [extra: string]: string | string[] | Record<string, unknown> | undefined;

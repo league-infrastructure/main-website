@@ -247,8 +247,6 @@ export function parseMarkdownSections(content) {
       content: interpolatedContent,
       enroll: interpolatedEnroll,
       meta: normalizedMeta,
-      shortDescription: interpolatedBlurb,
-      fullDescription: interpolatedDescription || interpolatedBlurb,
     };
 
     for (const [key, value] of Object.entries(normalizedMeta)) {
@@ -302,13 +300,22 @@ export function normalizeContentRecords(entries) {
       delete meta.cta;
     }
 
+    const icon = entry.icon ?? meta.icon ?? '';
+
+    if (icon) {
+      meta.icon = icon;
+    } else {
+      delete meta.icon;
+    }
+
     return {
       title: entry.title,
-      blurb: entry.blurb ?? entry.shortDescription ?? '',
-      description: entry.description ?? entry.fullDescription ?? entry.shortDescription ?? '',
+      blurb: entry.blurb ?? '',
+      description: entry.description ?? entry.blurb ?? '',
       content: entry.content ?? '',
       enroll: entry.enroll ?? '',
       curriculum,
+      icon: icon || undefined,
       meta,
       cta,
       ...meta,

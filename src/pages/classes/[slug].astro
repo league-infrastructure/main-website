@@ -48,8 +48,7 @@ const heroImage = heroImageSource
   ? `/images/cards/${heroImageSource}`
   : "/images/cards/computer-robot.png";
 const heroAlt = classData.title ?? "Class hero";
-const descriptionText =
-  classData.description || classData.blurb || classData.shortDescription || "";
+const descriptionText = classData.description || classData.blurb || "";
 const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
@@ -94,8 +93,8 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
 >
   <HeroSection slot="hero" class="program-hero">
     <h1 slot="tagline">{classData.title}</h1>
-    {(classData.blurb ?? classData.shortDescription) && (
-      <p slot="description">{classData.blurb ?? classData.shortDescription}</p>
+    {(classData.blurb ?? classData.description) && (
+      <p slot="description">{classData.blurb ?? classData.description}</p>
     )}
     <div slot="media" class="program-hero__media">
       <img src={heroImage} alt={`${heroAlt} illustration`} loading="eager" />

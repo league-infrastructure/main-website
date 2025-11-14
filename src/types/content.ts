@@ -13,11 +13,10 @@ export interface StructuredContentRecord {
   description?: string;
   content?: string;
   enroll?: string;
-  shortDescription?: string;
-  fullDescription?: string;
   curriculum?: string;
   slug?: string;
   image?: string;
+  icon?: string;
   level?: string;
   topics?: string[];
   classes?: string[];
@@ -26,6 +25,7 @@ export interface StructuredContentRecord {
   meta?: Record<string, unknown> & {
     slug?: string;
     image?: string;
+    icon?: string;
     topics?: string[];
     classes?: string[];
     category?: string[];

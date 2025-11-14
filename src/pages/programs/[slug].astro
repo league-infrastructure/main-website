@@ -73,9 +73,9 @@ const heroImage = heroImageSource
   ? `/images/cards/${heroImageSource}`
   : "/images/cards/programs.png";
 const heroAlt = programData.title ?? "Program hero";
-const heroDescription = programData.blurb ?? programData.shortDescription;
+const heroDescription = programData.blurb ?? programData.description;
 const descriptionText =
-  programData.description || programData.blurb || programData.shortDescription || "";
+  programData.description || programData.blurb || "";
 const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())

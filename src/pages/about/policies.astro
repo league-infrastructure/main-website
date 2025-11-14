@@ -44,7 +44,7 @@ const processedPolicies = await Promise.all(
     const fallbackId = `policy-${index + 1}`;
     const id = (baseSlug ? slugify(baseSlug) : slugify(policy.title ?? "")) || fallbackId;
 
-    const descriptionParagraphs = splitParagraphs(policy.description ?? policy.fullDescription);
+    const descriptionParagraphs = splitParagraphs(policy.description ?? policy.blurb);
     const contentHtml = policy.content ? await marked.parse(policy.content) : "";
     const summaryText = (policy.blurb ?? descriptionParagraphs[0] ?? "").trim();
 
