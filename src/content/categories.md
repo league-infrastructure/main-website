@@ -25,7 +25,43 @@ buttons:
     url: https://jtl.pike13.com/categories/93504
 ```
 
-## Community Tech 
+## Tech Club
+
+Short classes, workshops, research and internship opportunities, for free at
+libraries, schools and rec centers. 
+
+Our community programs offer free and low-cost classes at libraries, schools
+and recreation centers at sites all over San Diego. For younger students, we
+offer fun introductions to programming, AI and robotics in the Tech Club, and
+older students can learn advanced techniques, work a summer internship or
+research a new technology in our Code Clinic, Robot Garage or League Labs
+
+<content>
+Our community programs offer free and low-cost classes at libraries, schools
+and recreation centers at sites all over San Diego. For younger students, we
+offer fun introductions to programming, AI and robotics in the Tech Club, and
+older students can learn advanced techniques, work a summer internship or
+research a new technology in our Code Clinic, Robot Garage or League Labs
+</content>
+
+<enroll> Join the Tech Club Meetup group for fun tech classes, clubs and event
+for elementary and middle school students. Join the Code Clinic for older
+students for advanced classes and access to the Robot Garage and League Labs
+program.
+</enroll>
+
+```
+slug: community
+buttons: 
+    - type: meetup
+      label: Join the Tech Club
+      url: https://www.meetup.com/the-league-tech-club
+    - type: meetup
+      label: Join the Code Clinic
+      url: https://www.meetup.com/the-league-code-clinic
+```
+
+## League Labs
 
 Short classes, workshops, research and internship opportunities, for free at
 libraries, schools and rec centers. 
