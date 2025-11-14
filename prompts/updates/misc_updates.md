@@ -18,21 +18,21 @@
   `src/data/` dir and add it to the build process. 
 
 
-- [DONE] Update the programs page to split the Programs section on the programs.astro
-  page into two sections : "Weekly Classes" which displays the programs in the
-  `group-classes` category, and the "Community Programs" which displays the
-  programs in the `community-tech` category. For each section, use the title for
-  the category ( matched by slug ) from the categories data. 
+- [DONE] Update the programs page to split the Programs section on the
+  programs.astro page into two sections : "Weekly Classes" which displays the
+  programs in the `group-classes` category, and the "Community Programs" which
+  displays the programs in the `community-tech` category. For each section, use
+  the title for the category ( matched by slug ) from the categories data. 
 
 - [DONE] Update the programs page to include the enrollment information from the
   categories.json data. The `<enroll>` content should be placed in the category
   section, after the ProgramCards. After the text, generate the buttons, which
   should be in a single row and centered horizontally. 
 
-- [DONE] On the programs page, make the class cards be two per row, and break them in
-  to sections by category. Use the `group` value for the class to assign it to a
-  group. For each group, display the title of the group and the group blurb, then
-  list the class cards, two per row.
+- [DONE] On the programs page, make the class cards be two per row, and break
+  them in to sections by category. Use the `group` value for the class to assign
+  it to a group. For each group, display the title of the group and the group
+  blurb, then list the class cards, two per row.
 
 - [DONE] For the class entries in the single Program pages ( like
   `/programs/java-programming`) use the ClassCards that are also on the
@@ -43,7 +43,7 @@
   enrollment information in the category, display a "How to Enroll" section on
   the class page with the enrollment text and enrollment buttons. 
 
-- In `classes.md` add an "<enroll>...</enroll>" content section to each of the
+- [DONE] In `classes.md` add an "<enroll>...</enroll>" content section to each of the
   class entries, right after `<content>`. Set the message to be of the form
   "<Class Name> is included in our Weekly Classes, so to take this class enroll
   in weekly classes and tell your instuctor" for classes that are part of the
@@ -52,3 +52,22 @@
   class, join the Tech Club and watch for announcements. ". Then change the
   class pages so the enrollment message for the class displays just before the
   enrollment message for the group. 
+
+- [DONE] Lets convert the policy.astro file to use the content file
+  src/content/policies.md. Remove all of the policy entries from the
+  policies.astro file and create content record entries in policies.md. Be sure
+  to refer to docs/content_spec.md for a guide to creating these records.  The
+  body of the policy section becomes the `<content>` entry. You should summarize
+  the content to create the description and th blurb. the <h2> heading for the
+  policy becomes the title of the block. 
+
+- [DONE] After converting the policy enries to `policies.md`, update the export-content
+  script to read `policies.md`, and also `faqs.md`, if it exists, and
+  `content.md` if it exists. Run the `export-content` to generate the json files. 
+
+- [DONE] After updating the JSON files, update the `policy.astro` page to use the
+  policies.json data to generate the page. 
+
+- [DONE] The `buttons:` metadata entry in the content records has been changed to
+  `cta:`. Ensure that the content_spec and the `export-content` scripts are
+  updated with the new value.

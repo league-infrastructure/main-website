@@ -23,7 +23,7 @@
         "group-classes"
       ]
     },
-    "buttons": [],
+    "cta": [],
     "slug": "python-programming",
     "image": "python.png",
     "topics": [
@@ -61,7 +61,7 @@
         "group-classes"
       ]
     },
-    "buttons": [],
+    "cta": [],
     "slug": "java-programming",
     "image": "java.png",
     "topics": [
@@ -97,7 +97,7 @@
         "group-classes"
       ]
     },
-    "buttons": [],
+    "cta": [],
     "slug": "technology",
     "image": "robot_garage_kids.png",
     "topics": [
@@ -139,7 +139,7 @@
         "tech-club"
       ],
       "meetup": "tech-club",
-      "buttons": [
+      "cta": [
         {
           "type": "meetup",
           "label": "Join the Tech Club",
@@ -147,7 +147,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "meetup",
         "label": "Join the Tech Club",
@@ -195,7 +195,7 @@
         "league-labs"
       ],
       "meetup": "league-labs",
-      "buttons": [
+      "cta": [
         {
           "type": "page",
           "label": "Register Interest in League Labs",
@@ -203,7 +203,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "page",
         "label": "Register Interest in League Labs",
@@ -250,7 +250,7 @@
       ],
       "meetup": "tech-club"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "robot-garage",
     "image": "robot_garage.png",
     "topics": [

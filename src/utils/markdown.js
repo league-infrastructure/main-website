@@ -32,7 +32,7 @@ function readContentFile(filename) {
 }
 
 const ARRAY_FIELDS = new Set(['topics', 'classes', 'category']);
-const RECORD_LIST_FIELDS = new Set(['buttons']);
+const RECORD_LIST_FIELDS = new Set(['cta']);
 
 function applySimpleInterpolations(text, context) {
   if (typeof text !== 'string' || text.length === 0) {
@@ -118,10 +118,18 @@ function normalizeMeta(meta) {
       continue;
     }
 
-    if (key === 'enroll' && !normalized.buttons) {
+    if (key === 'buttons') {
       const listValue = normalizeObjectList(rawValue, key);
       if (listValue.length > 0) {
-        normalized.buttons = listValue;
+        normalized.cta = listValue;
+      }
+      continue;
+    }
+
+    if (key === 'enroll' && !normalized.cta) {
+      const listValue = normalizeObjectList(rawValue, key);
+      if (listValue.length > 0) {
+        normalized.cta = listValue;
       }
       continue;
     }
@@ -198,7 +206,15 @@ function extractMetadataBlock(block, title) {
  * @returns {Array} Array of parsed sections with title, blurb, description, content, and metadata
  */
 export function parseMarkdownSections(content) {
-  const headingRegex = content.match(/^##\s+/m) ? /^##\s+/m : /^#\s+/m;
+  const headingRegex = /^#\s+/m;
+
+  if (!headingRegex.test(content)) {
+    const legacyHeadingsDetected = /^##\s+/m.test(content);
+    const guidance = legacyHeadingsDetected
+      ? 'Found level-2 headings (##). Update content records to use level-1 headings beginning with "#".'
+      : 'No level-1 headings ("#") detected.';
+    throw new Error(`Unable to parse markdown sections. ${guidance}`);
+  }
   const sections = content
     .split(headingRegex)
     .map((section) => section.trim())
@@ -326,6 +342,19 @@ export function getCategoriesData() {
     return parseMarkdownSections(readContentFile('categories.md'));
   } catch (error) {
     console.error('Error loading categories content:', error);
+    return [];
+  }
+}
+
+export function getPoliciesData() {
+  const jsonData = readJsonData('policies');
+  if (Array.isArray(jsonData)) {
+    return jsonData;
+  }
+  try {
+    return parseMarkdownSections(readContentFile('policies.md'));
+  } catch (error) {
+    console.error('Error loading policies content:', error);
     return [];
   }
 }

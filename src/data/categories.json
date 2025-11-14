@@ -8,7 +8,7 @@
     "curriculum": "",
     "meta": {
       "slug": "group-classes",
-      "buttons": [
+      "cta": [
         {
           "type": "pike13",
           "label": "Enroll in Weekly Classes",
@@ -16,7 +16,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "pike13",
         "label": "Enroll in Weekly Classes",
@@ -34,7 +34,7 @@
     "curriculum": "",
     "meta": {
       "slug": "python",
-      "buttons": [
+      "cta": [
         {
           "type": "pike13",
           "label": "Enroll in Weekly Python Classes",
@@ -42,7 +42,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "pike13",
         "label": "Enroll in Weekly Python Classes",
@@ -60,7 +60,7 @@
     "curriculum": "",
     "meta": {
       "slug": "java",
-      "buttons": [
+      "cta": [
         {
           "type": "pike13",
           "label": "Enroll in Weekly Java Classes",
@@ -68,7 +68,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "pike13",
         "label": "Enroll in Weekly Java Classes",
@@ -86,7 +86,7 @@
     "curriculum": "",
     "meta": {
       "slug": "tech",
-      "buttons": [
+      "cta": [
         {
           "type": "pike13",
           "label": "Enroll in Weekly Tech Classes",
@@ -94,7 +94,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "pike13",
         "label": "Enroll in Weekly Tech Classes",
@@ -112,7 +112,7 @@
     "curriculum": "",
     "meta": {
       "slug": "tutoring",
-      "buttons": [
+      "cta": [
         {
           "type": "link",
           "label": "Contact Us",
@@ -120,7 +120,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "link",
         "label": "Contact Us",
@@ -156,7 +156,7 @@
         "tech-club"
       ],
       "meetup": "tech-club",
-      "buttons": [
+      "cta": [
         {
           "type": "meetup",
           "label": "Join the Tech Club",
@@ -164,7 +164,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "meetup",
         "label": "Join the Tech Club",
@@ -212,7 +212,7 @@
         "league-labs"
       ],
       "meetup": "league-labs",
-      "buttons": [
+      "cta": [
         {
           "type": "page",
           "label": "Register Interest in League Labs",
@@ -220,7 +220,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "page",
         "label": "Register Interest in League Labs",

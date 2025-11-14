@@ -1,9 +1,97 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
 import Section from "../../components/Section.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
+import ButtonGroup from "../../components/ButtonGroup.astro";
+import { marked } from "marked";
+import { getPoliciesData } from "../../utils/markdown.js";
+
+type PolicyCta = { label?: string; url?: string; type?: string; variant?: string; target?: string; rel?: string };
+
+interface PolicyRecord {
+  title?: string;
+  blurb?: string;
+  description?: string;
+  fullDescription?: string;
+  content?: string;
+  enroll?: string;
+  slug?: string;
+  cta?: PolicyCta[];
+  meta?: {
+    slug?: string;
+    cta?: PolicyCta[];
+    [key: string]: unknown;
+  };
+}
+
+const rawPolicies = getPoliciesData() as PolicyRecord[];
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .trim();
+
+const splitParagraphs = (text?: string | null) =>
+  typeof text === "string"
+    ? text
+        .split(/\n\s*\n/)
+        .map((paragraph) => paragraph.trim())
+        .filter((paragraph) => paragraph.length > 0)
+    : [];
+
+const toButtonVariant = (value?: string): "primary" | "secondary" | "outline" | "ghost" => {
+  switch (value) {
+    case "primary":
+    case "secondary":
+    case "outline":
+    case "ghost":
+      return value;
+    default:
+      return "ghost";
+  }
+};
+
+const processedPolicies = await Promise.all(
+  rawPolicies.map(async (policy, index) => {
+    const baseSlug = policy.slug ?? policy.meta?.slug ?? slugify(policy.title ?? "");
+    const fallbackId = `policy-${index + 1}`;
+    const id = (baseSlug ? slugify(baseSlug) : slugify(policy.title ?? "")) || fallbackId;
+
+    const descriptionParagraphs = splitParagraphs(policy.description ?? policy.fullDescription);
+    const contentHtml = policy.content ? await marked.parse(policy.content) : "";
+    const summaryText = (policy.blurb ?? descriptionParagraphs[0] ?? "").trim();
+
+    const rawCtas = Array.isArray(policy.cta)
+      ? policy.cta
+      : Array.isArray(policy.meta?.cta)
+        ? policy.meta.cta
+        : [];
+
+    const ctas = rawCtas
+      .filter((action): action is PolicyCta => Boolean(action?.label && action?.url))
+      .map((action) => ({
+        ...action,
+        variant: action?.variant ?? "ghost",
+      }));
+
+    return {
+      id,
+      title: policy.title ?? `Policy ${index + 1}`,
+      summary: summaryText,
+      descriptionParagraphs,
+      contentHtml,
+      ctas,
+      background: index % 2 === 1 ? "var(--color-surface-alt)" : undefined,
+    };
+  }),
+);
+
+const policies = processedPolicies.filter((policy) => policy.title && (policy.contentHtml || policy.descriptionParagraphs.length > 0));
+const hasPolicies = policies.length > 0;
 ---
 
 <BaseLayout
@@ -24,9 +112,8 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
   >
     <h1 slot="title">Policies &amp; Procedures</h1>
     <p slot="description">
-      LEAGUE policies outline how tuition, memberships, attendance, and
-      communication work across our programs. Most tasks can be completed
-      through the Client Portal using the button below.
+      LEAGUE policies outline how tuition, memberships, attendance, and communication work across
+      our programs. Most tasks can be completed through the Client Portal using the button below.
     </p>
     <img
       slot="media"
@@ -40,294 +127,64 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
     <SectionHeader align="left">
       <h2>Explore Policy Topics</h2>
       <p>
-        Jump to common tuition and enrollment questions or review our detailed
-        policy guides.
+        Jump to common tuition and enrollment questions or review our detailed policy guides.
       </p>
     </SectionHeader>
     <PolicyTopicCards />
   </Section>
 
-  <Section
-    class="policy-section"
-    id="privacy-policy"
-    data-policy-section
-    data-policy-summary="See how we handle personal data and protect student information."
-  >
-    <h2>Privacy Policy</h2>
-    <div class="policy-docs__single">
-      <p>
-        Explore how The LEAGUE collects, uses, and safeguards personal information across
-        our programs and digital services, including parental controls for students.
-      </p>
-      <a class="button button--ghost" href="/about/policies/privacy/">
-        Read the Privacy Policy
-      </a>
-    </div>
-  </Section>
-
-  <Section
-    class="policy-section"
-    id="non-discrimination-policy"
-    data-policy-section
-    data-policy-summary="Learn how we maintain an inclusive, bias-free community."
-  >
-    <h2>Non-discrimination Policy</h2>
-    <div class="policy-docs__single">
-      <p>
-        Understand the expectations that keep our learning spaces free from bias, harassment,
-        and retaliation for students, families, and staff members.
-      </p>
-      <a class="button button--ghost" href="/about/policies/nondescrim/">
-        Read the Non-discrimination Policy
-      </a>
-    </div>
-  </Section>
-
-  <Section
-    bgcolor="#f6f6fa"
-    class="policy-section"
-    id="membership-plans"
-    data-policy-section
-    data-policy-summary="Compare tuition plans, membership passes, and billing essentials."
-  >
-    <h2>Membership Plans and Passes</h2>
-    <div class="policy-section__content">
-      <p>
-        Tuition plans cover one class per week and post on the first of each
-        month. Monthly tuition stays the same regardless of how many weeks fall
-        in the billing cycle or whether a student is absent. Holidays are built
-        into the tuition rate, so separate make-up classes are not provided for
-        them.
-      </p>
-      <p>
-        Membership plans provide six visits per month, and up to two unused
-        visits roll into the following month. Families manage scheduling through
-        the portal by enrolling in classes and cancelling as needed. No-shows
-        will deduct a visit. There are no refunds for unused visits that exceed
-        the rollover limit, so place a hold on the membership if you expect to
-        miss several classes.
-      </p>
-      <div class="plan-grid">
-        <div class="card card--grid card--compact">
-          <h3>Monthly Membership</h3>
-          <p>$280 per month for up to five visits. Available for Python and Java classes, online or in person.</p>
+  {hasPolicies ? (
+  policies.map((policy) => (
+      <Section
+        class="policy-section"
+        data-policy-section
+        data-policy-title={policy.title}
+        data-policy-summary={policy.summary}
+        id={policy.id}
+        {...(policy.background ? { bgcolor: policy.background } : {})}
+      >
+        <div class="policy-section__header">
+          <h2>{policy.title}</h2>
+          {policy.summary && <p class="policy-section__summary">{policy.summary}</p>}
         </div>
-        <div class="card card--grid card--compact">
-          <h3>Tech Club Membership</h3>
-          <p>Free plan that unlocks access to Tech Club sessions.</p>
-        </div>
-        <div class="card card--grid card--compact">
-          <h3>Monthly Tuition</h3>
-          <p>$280 per month for one weekly visit. Legacy plan available for existing families.</p>
-        </div>
-        <div class="card card--grid card--compact">
-          <h3>Class Pass</h3>
-          <p>$70 per class. Purchase individual visits as needed.</p>
-        </div>
-        <div class="card card--grid card--compact">
-          <h3>Beta Test Pass</h3>
-          <p>Complimentary pass to try out a class.</p>
-        </div>
-      </div>
-      <p>
-        Purchase plans and passes from the <a
-          href="https://jtl.pike13.com/people/me/shop"
-          target="_blank"
-          rel="noreferrer"
-          >Plans and Passes</a
-        > page (requires login).
-      </p>
-      <div class="policy-section__actions">
-        <a
-          class="button button--ghost"
-          href="https://jtl.pike13.com/membership_products/615316"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Tuition Plans
-        </a>
-        <a
-          class="button button--ghost"
-          href="https://jtl.pike13.com/membership_products/590552"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Membership Plans
-        </a>
-      </div>
-    </div>
-  </Section>
 
-  <Section
-    class="policy-section"
-    id="payment-options"
-    data-policy-section
-    data-policy-summary="Set up auto-pay and manage stored payment methods in the Client Portal."
-  >
-    <h2>Payment Options</h2>
-    <div class="policy-section__content">
-      <p>
-        Tuition payments are processed through our auto-pay program. A valid
-        credit card must be added to your Parent Portal account when you
-        enroll so that charges can draft automatically each month.
-      </p>
-      <p class="policy-note">Set up auto-pay in the Client Portal:</p>
-      <ol>
-        <li>
-          Sign in at <a
-            href="https://jtl.pike13.com/accounts/sign_in"
-            target="_blank"
-            rel="noreferrer">jtl.pike13.com</a
-          >.
-        </li>
-        <li>Open <strong>Your Stuff</strong> at the top of the page.</li>
-        <li>
-          Select <strong>Payment Methods</strong> and choose <strong
-            >Add New Card</strong
-          >.
-        </li>
-        <li>Enter your card information and click <strong>Save</strong>.</li>
-      </ol>
-    </div>
-  </Section>
+        {policy.descriptionParagraphs.length > 0 && (
+          <div class="policy-section__description">
+            {policy.descriptionParagraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        )}
 
-  <Section
-    bgcolor="#f6f6fa"
-    class="policy-section"
-    id="makeup-policies"
-    data-policy-section
-    data-policy-summary="Use make-up passes to reschedule missed classes that match your student's level."
-  >
-    <h2>Make-up Policies</h2>
-    <div class="policy-section__content">
-      <p>
-        Consistent attendance helps students build momentum, but make-up
-        visits are available when schedule conflicts happen. Cancel your
-        original class in the portal and a make-up pass will appear on your
-        account.
-      </p>
-      <p>
-        You can apply the pass to another class in the same week or on a
-        future date. Enroll in a session that matches your student's topic and
-        level, then select the pass you would like to use at checkout. All
-        make-ups are self-scheduled through the portal like any other class.
-      </p>
-      <p>
-        Visit your <a
-          href="https://jtl.pike13.com/me"
-          target="_blank"
-          rel="noreferrer">LEAGUE profile</a
-        > to review available make-up passes and schedule the next visit.
-      </p>
-    </div>
-  </Section>
+        {policy.contentHtml && (
+          <div class="policy-section__content" set:html={policy.contentHtml} />
+        )}
 
-  <Section
-    class="policy-section"
-    id="refund-policies"
-    data-policy-section
-    data-policy-summary="Review refund limitations and why timely tuition payments matter."
-  >
-    <h2>Refunds and Late Fees</h2>
-    <div class="policy-section__content">
-      <p>
-        Tuition is non-refundable and non-transferable. Credits, rollovers, or
-        adjustments are not issued for absences or closures.
-      </p>
-      <p>
-        If tuition is received after the first of the month, a $25 late fee is
-        automatically added to the account. Families are responsible for
-        making payments on time; extensions are not offered.
-      </p>
-    </div>
-  </Section>
-
-  <Section
-    bgcolor="#f6f6fa"
-    class="policy-section"
-    id="cancellation-policies"
-    data-policy-section
-    data-policy-summary="Cancel upcoming classes step-by-step so visits stay on your account."
-  >
-    <h2>Cancellation Policies</h2>
-    <div class="policy-section__content">
-      <p>
-        Please cancel classes you cannot attend. If a cancellation is not
-        submitted, the visit will be deducted from your plan or pass.
-      </p>
-      <ol>
-        <li>Sign in to the Client Portal.</li>
-        <li>
-          Under <strong>Upcoming</strong>, choose the class you want to
-          cancel.
-        </li>
-        <li>Click <strong>Cancel Registration</strong> and confirm.</li>
-      </ol>
-      <p>
-        For more detailed instructions, visit our <a
-          href="/about/policies/enroll/">Guide to Enrollment</a
-        >.
-      </p>
-    </div>
-  </Section>
-
-  <Section
-    class="policy-section"
-    id="enrolling-in-classes"
-    data-policy-section
-    data-policy-summary="Enroll students, secure recurring spots, and manage schedules in the Parent Portal."
-  >
-    <h2>Enrolling in Classes</h2>
-    <div class="policy-section__content">
-      <p>
-        The Parent Portal is the best way to manage ongoing enrollment. Create
-        profiles for each student, purchase the appropriate plan or pass, and
-        register for your first class directly from the schedule.
-      </p>
-      <div class="enrollment-subsection">
-        <h3>Find a Weekly Class</h3>
-        <p>
-          Visit the <a
-            href="https://jtl.pike13.com/categories/93504"
-            target="_blank"
-            rel="noreferrer"
-            >Classes page</a
-          > to browse the monthly schedule. Choose the day, time, and format
-          that works best for your student.
-        </p>
-      </div>
-      <div class="enrollment-subsection">
-        <h3>Bulk Enrollment</h3>
-        <p>
-          Python and Java classes meet weekly. After the first session, let the
-          instructor know if you would like to be automatically enrolled in the
-          same day and time each week. You can also <a
-            href="mailto:info@jointheleague.org?subject=Bulk%20Enrollment&amp;body=Hi%2C%20I%20would%20like%20to%20bulk%20enroll%20in%20weekly%20classes."
-            rel="noreferrer"
-            >email us</a
-          > to confirm recurring enrollment.
-        </p>
-      </div>
-      <div class="enrollment-subsection">
-        <h3>Cancel a Class</h3>
-        <ol>
-          <li>Sign in to the Client Portal.</li>
-          <li>Select the appointment under <strong>Upcoming</strong>.</li>
-          <li>Choose <strong>Cancel Registration</strong> and confirm.</li>
-        </ol>
-        <p>A visit is deducted from your plan or pass if a class is not cancelled.</p>
-      </div>
-      <div class="enrollment-subsection">
-        <h3>Schedule a Make-up</h3>
-        <p>
-          Cancelling a class issues a make-up pass. Return to the class
-          schedule, pick another session, and select the pass you want to use at
-          checkout. Make-ups can be scheduled within the same week or on a future
-          date.
-        </p>
-      </div>
-    </div>
-  </Section>
+        {policy.ctas.length > 0 && (
+          <ButtonGroup
+            class="policy-section__actions"
+            actions={policy.ctas.map((action: PolicyCta) => {
+              const isExternal = action.url ? /^https?:/i.test(action.url) : false;
+              return {
+                label: action.label ?? "Learn more",
+                href: action.url ?? "#",
+                variant: toButtonVariant(action.variant),
+                target: isExternal ? "_blank" : action.target,
+                rel: isExternal ? "noopener noreferrer" : action.rel,
+              };
+            })}
+          />
+        )}
+      </Section>
+    ))
+  ) : (
+    <Section class="policy-section policy-section--empty">
+      <SectionHeader>
+        <h2>Policy updates are on the way</h2>
+        <p>Check back soon for the latest policies and procedures.</p>
+      </SectionHeader>
+    </Section>
+  )}
 </BaseLayout>
 
 <style>
@@ -341,8 +198,19 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
     gap: var(--space-lg);
   }
 
-  .policy-section h2 {
-    font-size: clamp(1.75rem, 2.5vw, 2rem);
+  .policy-section__header {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .policy-section__summary {
+    margin: 0;
+    color: var(--color-body-muted, #475467);
+  }
+
+  .policy-section__description {
+    display: grid;
+    gap: var(--space-md);
   }
 
   .policy-section__content {
@@ -350,39 +218,28 @@ import PolicyTopicCards from "../../components/PolicyTopicCards.astro";
     gap: var(--space-md);
   }
 
+  .policy-section__content ul,
+  .policy-section__content ol {
+    padding-left: var(--space-lg);
+  }
+
   .policy-section__actions {
-    display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: var(--space-md);
   }
 
-  .policy-docs__single {
-    display: grid;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    border: 1px solid var(--color-border, #dcdce7);
-    border-radius: var(--radius-lg, 16px);
-    background: var(--color-surface, #ffffff);
+  .policy-section--empty {
+    text-align: center;
   }
 
-  .policy-note {
-    font-weight: 600;
+  .policy-section__actions :global(a) {
+    min-width: 190px;
   }
 
-  .plan-grid {
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
-  .enrollment-subsection {
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .enrollment-subsection ol {
-    display: grid;
-    gap: var(--space-xs);
-    padding-left: var(--space-lg);
+  @media (max-width: 720px) {
+    .policy-section__actions {
+      justify-content: center;
+    }
   }
 </style>

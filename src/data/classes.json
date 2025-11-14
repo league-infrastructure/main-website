@@ -17,7 +17,7 @@
       "group": "python",
       "curriculum": "https://league-curriculum.github.io/Python-Introduction/"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "intro-python",
     "image": "python.png",
     "level": "beginner",
@@ -46,7 +46,7 @@
       "group": "python",
       "curriculum": "https://python-apprentice.jointheleague.org/"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "python-apprentice",
     "image": "python.png",
     "level": "intermediate",
@@ -77,7 +77,7 @@
       "group": "python",
       "curriculum": "https://github.com/league-curriculum/Python-Games"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "python-games",
     "image": "python_games.png",
     "level": "intermediate",
@@ -94,7 +94,7 @@
     "blurb": "Build solar system simulations to learn orbital mechanics and scientific computing.",
     "description": "Students explore computational science by modelling gravity, planetary motion,\nand physics-based scenarios in Python.",
     "content": "Python OrbitLab introduces students to computational science through\nthe fascinating topic of orbital mechanics. Students program simulations of\nplanets, moons, and satellites, learning how gravity shapes the motion of\ncelestial bodies. The course teaches numerical integration, vector mathematics,\nand physics simulation while developing a deep understanding of how our solar\nsystem works. Students create visualizations of their simulations and explore\nwhat-if scenarios, like adding extra planets or changing gravitational\nconstants. This course demonstrates how programming is used in real scientific\nresearch and space exploration, connecting coding skills to STEM education in a\nhighly engaging way.",
-    "enroll": "Python OrbitLab is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study Python OrbitLab",
+    "enroll": "Python OrbitLab is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study Python OrbitLab.",
     "curriculum": "https://github.com/league-curriculum/Python-OrbitLab",
     "meta": {
       "slug": "python-orbitlab",
@@ -107,7 +107,7 @@
       "group": "python",
       "curriculum": "https://github.com/league-curriculum/Python-OrbitLab"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "python-orbitlab",
     "image": "orbit-lab.png",
     "level": "advanced",
@@ -122,7 +122,7 @@
     "blurb": "Java programming from beginner to advanced levels, preparing\nstudents for AP Computer Science and professional careers.",
     "description": "Students progress from introductory syntax to advanced object-oriented\nprogramming, data structures, and algorithms using industry-standard tools.",
     "content": "Our Java program offers a complete pathway from introduction through\nadvanced programming, with curriculum aligned to AP Computer Science standards.\nJava is the dominant language in corporate computing, particularly in finance,\nand powers cutting-edge technologies including cloud computing, NASA space\nexploration, and self-driving cars. Students learn fundamental programming\nconcepts, object-oriented design, data structures, and algorithms through\nhands-on projects. Our experienced instructors guide students toward\nprofessional Java certification, which opens doors to job opportunities at\ncompanies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5\nhours with a 5:1 student-to-teacher ratio, available both in-person and online.",
-    "enroll": "",
+    "enroll": "Java Weekly Classes is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study Java Weekly Classes.",
     "curriculum": "",
     "meta": {
       "slug": "java-weekly",
@@ -134,7 +134,7 @@
       ],
       "group": "java"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "java-weekly",
     "image": "java.png",
     "level": "beginner to adv",
@@ -162,7 +162,7 @@
       ],
       "group": "tutoring"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "private-tutoring",
     "image": "computer-robot.png",
     "level": "all levels",
@@ -191,7 +191,7 @@
       ],
       "group": "tech-club"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "makecode-arcade",
     "image": "microbit-arcade.png",
     "level": "beginner",
@@ -220,7 +220,7 @@
       "group": "tech-club",
       "curriculum": "https://league-curriculum.github.io/Motors/"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "motors-clinic",
     "image": "motors_clinic.png",
     "level": "intermediate",
@@ -247,7 +247,7 @@
       ],
       "group": "tech-club"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "soldering-clinic",
     "image": "boy_soldering.png",
     "level": "beginner",
@@ -274,7 +274,7 @@
       "group": "tech-club",
       "curriculum": "https://league-curriculum.github.io/HourofMicrobit/"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "hour-of-microbit",
     "image": "microbit.png",
     "level": "beginner",
@@ -288,7 +288,7 @@
     "blurb": "Introduction to robotics programming and mechanical construction.",
     "description": "Students compete in friendly challenges while learning to wire, program, and\ncustomize robots with new hardware attachments.",
     "content": "Robot Riot combines programming and robotics in an exciting\ncompetitive format. Students learn the basics of controlling motors on a robot,\nstarting with existing robot platforms that they modify to make more\ncompetitive. Students add grippers, pushers, flippers, and other attachments to\ntheir robots, then learn how to reprogram them to activate electronics like\nturbos and lights. The course teaches how to send messages back and forth\nbetween the joystick controller and the robot, giving students hands-on\nexperience with how robots respond to commands. This course is currently in\ndevelopment and represents an innovative approach to teaching robotics through\ncompetitive gameplay.",
-    "enroll": "Robot Riot is offered on a trial basis through our Tech Club program, and as\na regular weekly class.",
+    "enroll": "Robot Riot is offered on a trial basis through our Tech Club program, and as\na regular weekly class. For the one hour introduction, you can join the Tech Club. For the multi-class expanded course, see our online enrollment for weekly classes.",
     "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/",
     "meta": {
       "slug": "robot-riot",
@@ -300,7 +300,7 @@
       ],
       "group": "tech",
       "curriculum": "https://league-curriculum.github.io/Microbit-Robot-Rally/",
-      "buttons": [
+      "cta": [
         {
           "type": "pike13",
           "label": "Enroll in Weekly Python Classes",
@@ -313,7 +313,7 @@
         }
       ]
     },
-    "buttons": [
+    "cta": [
       {
         "type": "pike13",
         "label": "Enroll in Weekly Python Classes",
@@ -351,7 +351,7 @@
       ],
       "group": "tech"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "tech-arcade",
     "image": "tech-arcade.png",
     "level": "beginner",
@@ -378,7 +378,7 @@
       ],
       "group": "tech"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "ai-agents",
     "image": "ai-agents.png",
     "level": "beginner",
@@ -409,7 +409,7 @@
       "group": "tech-club",
       "curriculum": "https://github.com/league-curriculum/Portfolio-jekyll-barebones.git"
     },
-    "buttons": [],
+    "cta": [],
     "slug": "github-pages-portfolio",
     "image": "portfolio.png",
     "level": "intermediate",

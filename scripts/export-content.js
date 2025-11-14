@@ -19,11 +19,40 @@ function readContentFile(filename) {
   return fs.readFileSync(filePath, "utf-8");
 }
 
+function ensureHeadingLevel(markdown, source) {
+  const hasH1Headings = /^#\s+/m.test(markdown);
+  if (!hasH1Headings) {
+    const legacyDetected = /^##\s+/m.test(markdown);
+    const guidance = legacyDetected
+      ? "Found level-2 headings (##). Update the file to use '# ' for record headings."
+      : "No level-1 headings ('# ') found.";
+    throw new Error(`Invalid heading structure in ${source}: ${guidance}`);
+  }
+}
+
 function writeJsonFile(baseName, data) {
   const targetPath = path.join(outputDir, `${baseName}.json`);
   const payload = `${JSON.stringify(data, null, 2)}\n`;
   fs.writeFileSync(targetPath, payload, "utf-8");
   return targetPath;
+}
+
+function toActionList(value) {
+  if (!value) {
+    return [];
+  }
+
+  if (Array.isArray(value)) {
+    return value
+      .filter((item) => item && typeof item === "object" && !Array.isArray(item))
+      .map((item) => ({ ...item }));
+  }
+
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return [{ ...value }];
+  }
+
+  return [];
 }
 
 function normalizeEntries(entries) {
@@ -34,8 +63,22 @@ function normalizeEntries(entries) {
       meta.curriculum = entry.curriculum;
     }
 
+    if (meta.buttons && !meta.cta) {
+      const converted = toActionList(meta.buttons);
+      if (converted.length > 0) {
+        meta.cta = converted;
+      }
+    }
+    delete meta.buttons;
+
     const curriculum = meta.curriculum ?? entry.curriculum ?? "";
-    const buttons = Array.isArray(meta.buttons) ? meta.buttons : [];
+    const cta = toActionList(entry.cta ?? meta.cta ?? entry.buttons ?? []);
+
+    if (cta.length > 0) {
+      meta.cta = cta;
+    } else {
+      delete meta.cta;
+    }
 
     return {
       title: entry.title,
@@ -46,7 +89,7 @@ function normalizeEntries(entries) {
       enroll: entry.enroll ?? "",
       curriculum,
       meta,
-      buttons,
+      cta,
       ...meta,
     };
   });
@@ -100,6 +143,7 @@ function mergeCategoryRecords(baseCategories, programEntries) {
 
 function exportMarkdownToJson(source, targetBaseName, transformFn) {
   const markdown = readContentFile(source);
+  ensureHeadingLevel(markdown, source);
   const parsed = parseMarkdownSections(markdown);
   const normalized = normalizeEntries(parsed);
   const data = typeof transformFn === "function" ? transformFn(normalized) : normalized;
@@ -115,6 +159,15 @@ try {
   exportMarkdownToJson("categories.md", "categories", (categories) =>
     mergeCategoryRecords(categories, programs),
   );
+  if (fs.existsSync(path.join(contentDir, "policies.md"))) {
+    exportMarkdownToJson("policies.md", "policies");
+  }
+  if (fs.existsSync(path.join(contentDir, "faqs.md"))) {
+    exportMarkdownToJson("faqs.md", "faqs");
+  }
+  if (fs.existsSync(path.join(contentDir, "content.md"))) {
+    exportMarkdownToJson("content.md", "content");
+  }
   console.log("Content export complete.");
 } catch (error) {
   console.error("Failed to export content:", error);

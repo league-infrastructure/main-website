@@ -9,7 +9,7 @@ import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
 import { getProgramsData, getClassesData, getCategoriesData } from "../../utils/markdown.js";
 
-type CategoryButton = { label?: string; url?: string; type?: string };
+type CategoryCta = { label?: string; url?: string; type?: string };
 
 interface ProgramEntry {
   title: string;
@@ -18,7 +18,7 @@ interface ProgramEntry {
   shortDescription?: string;
   content?: string;
   enroll?: string;
-  buttons?: CategoryButton[];
+  cta?: CategoryCta[];
   meta?: {
     slug?: string;
     image?: string;
@@ -27,7 +27,7 @@ interface ProgramEntry {
     level?: string;
     category?: string[] | string;
     enroll?: string;
-    buttons?: CategoryButton[];
+    cta?: CategoryCta[];
   };
   slug?: string;
   image?: string;
@@ -39,9 +39,9 @@ interface ProgramEntry {
 
 interface CategoryEntry {
   enroll?: string;
-  buttons?: CategoryButton[];
+  cta?: CategoryCta[];
   meta?: {
-    buttons?: CategoryButton[];
+    cta?: CategoryCta[];
     slug?: string;
     [key: string]: unknown;
   };
@@ -131,31 +131,31 @@ const categoryEntries = Array.isArray(categoryData) ? categoryData : [];
 const categoryEnrollSections = categoryEntries
   .map((entry) => (typeof entry.enroll === "string" ? entry.enroll.trim() : ""))
   .filter((content) => content.length > 0);
-const categoryButtons = categoryEntries.flatMap((entry) => {
-  if (Array.isArray(entry.buttons)) {
-    return entry.buttons;
+const categoryCtas = categoryEntries.flatMap((entry) => {
+  if (Array.isArray(entry.cta)) {
+    return entry.cta;
   }
-  if (Array.isArray(entry.meta?.buttons)) {
-    return entry.meta?.buttons as CategoryButton[];
+  if (Array.isArray(entry.meta?.cta)) {
+    return entry.meta?.cta as CategoryCta[];
   }
   return [];
 });
-const sanitizedCategoryButtons = categoryButtons.filter(
-  (button): button is CategoryButton => Boolean(button?.label && button?.url),
+const sanitizedCategoryCtas = categoryCtas.filter(
+  (action): action is CategoryCta => Boolean(action?.label && action?.url),
 );
-const programButtons = Array.isArray(programData.buttons)
-  ? (programData.buttons as CategoryButton[])
-  : Array.isArray(programData.meta?.buttons)
-    ? (programData.meta.buttons as CategoryButton[])
+const programCtas = Array.isArray(programData.cta)
+  ? (programData.cta as CategoryCta[])
+  : Array.isArray(programData.meta?.cta)
+    ? (programData.meta.cta as CategoryCta[])
     : [];
-const sanitizedProgramButtons = programButtons.filter(
-  (button): button is CategoryButton => Boolean(button?.label && button?.url),
+const sanitizedProgramCtas = programCtas.filter(
+  (action): action is CategoryCta => Boolean(action?.label && action?.url),
 );
-const resolvedButtons =
-  sanitizedProgramButtons.length > 0 ? sanitizedProgramButtons : sanitizedCategoryButtons;
+const resolvedCtas =
+  sanitizedProgramCtas.length > 0 ? sanitizedProgramCtas : sanitizedCategoryCtas;
 const effectiveEnrollContent =
   programEnrollContent || categoryEnrollSections.find((content) => content.length > 0) || "";
-const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedButtons.length > 0;
+const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedCtas.length > 0;
 ---
 
 <ProgramLayout
@@ -250,14 +250,14 @@ const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedButtons.leng
           />
         )}
 
-        {resolvedButtons.length > 0 && (
+        {resolvedCtas.length > 0 && (
           <ButtonGroup
             class="program-enroll__buttons"
-            actions={resolvedButtons.map((button: CategoryButton) => {
-              const isExternal = button.url ? /^https?:/i.test(button.url) : false;
+            actions={resolvedCtas.map((action: CategoryCta) => {
+              const isExternal = action.url ? /^https?:/i.test(action.url) : false;
               return {
-                label: button.label ?? "Enroll",
-                href: button.url ?? "#",
+                label: action.label ?? "Enroll",
+                href: action.url ?? "#",
                 variant: "primary",
                 target: isExternal ? "_blank" : undefined,
                 rel: isExternal ? "noopener noreferrer" : undefined,

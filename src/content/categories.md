@@ -1,4 +1,4 @@
-## Weekly Group Classes
+# Weekly Group Classes
 
 Weekly groups classes in programming,  robotics and AI build lasting
 technicalskills
@@ -19,7 +19,7 @@ Enroll in weekly classes and get started on the path to professional programming
 
 ```
 slug: group-classes
-buttons: 
+cta: 
     type: pike13
     label: Enroll in Weekly Classes
     url: https://jtl.pike13.com/categories/93504
@@ -27,7 +27,7 @@ buttons:
 
 
 
-## Python
+# Python
 
 Python is the best language to start with. It’s the most popular programming
 language, and useful for every kind of programming.
@@ -53,13 +53,13 @@ and at schools througout San Diego County. </enroll>
 
 ```
 slug: python
-buttons: 
+cta: 
     type: pike13
     label: Enroll in Weekly Python Classes
     url: https://jtl.pike13.com/categories/93504
 ```
 
-## Java
+# Java
 
 For students of all levels who want to learn industry-level Java programming.
 
@@ -86,13 +86,13 @@ and at schools througout San Diego County. </enroll>
 
 ```
 slug: java
-buttons: 
+cta: 
     type: pike13
     label: Enroll in Weekly Java Classes
     url: https://jtl.pike13.com/categories/93504
 ```
 
-## Technology
+# Technology
 
 We have many other technology classes involving AI, games, and robotics.
 
@@ -112,13 +112,13 @@ site for current offerings. </enroll>
 
 ```
 slug: tech
-buttons: 
+cta: 
     type: pike13
     label: Enroll in Weekly Tech Classes
     url: https://jtl.pike13.com/categories/93504
 ```
 
-## Tutoring
+# Tutoring
 
 We offer private classes and group tutoring for AP Computer Science. 
 
@@ -135,7 +135,7 @@ group tutoring. </enroll>
 
 ```
 slug: tutoring
-buttons: 
+cta: 
     type: link
     label: Contact Us
     url: mailto:info@jointheleague.org?subject=Private%20Classes%20%2F%20Tutoring

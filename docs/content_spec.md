@@ -3,61 +3,53 @@
 The files `programs.md` and `classes.md` are structured Markdown. Each entry describes the content for a program, class or other things. The entries have this format: 
 
 
-~~~
-## Python Programming
+~~~Markdown
+# Tech Club
 
-Python is the most popular programming language, perfect for beginners
-and powerful enough for professionals.
+Free introductory classes in Python, Java, robotics, and electronics offered at
+schools, libraries and online
 
-Students learn Python through hands-on projects that build
-fundamental programming skills while keeping learning fun and engaging. Our
-Python pathway helps students master variables, loops, functions, and
-object-oriented programming, preparing them for AP Computer Science Principles
-and real-world problem solving. Small cohorts and experienced instructors ensure
-every student gets the support they need, whether meeting online or in person.
+Tech Club brings coding education to students who might not otherwise have
+access, offering free introductory courses at schools and libraries throughout
+San Diego County.
 
-<content>
-Python is the most popular programming language, and useful for every kind of
-programming, and it's the easiest to learn! Students learn fundamental
-programming concepts including variables, loops, conditionals, functions, and
-object-oriented programming through hands-on projects and real-world
-applications.
+<content> These 60-90 minute sessions introduce students in grades 3-12 to
+programming through hands-on projects in Python, Java, robotics, and
+electronics. With a less than 10:1 student-to-teacher ratio and no cost to
+families, Tech Club removes barriers to computer science education. Many
+students who start in Tech Club later transition to our paid weekly classes as
+they advance, but Tech Club provides valuable programming experience regardless
+of whether students continue. Classes run year-round at various locations.
 
-* Official Python certificates
-* In-person and online cohorts
-* Small classes with five students per teacher
-* Interactive coding exercises and games
-* Preparation for AP Computer Science Principles
+- Multiple weekly meetups hosted across San Diego County
+- Volunteer mentors and alumni support for personalized guidance
+- Hands-on explorations in Python, Java, robotics, and electronics
+- Accessible entry point that feeds into our full course pathway
 </content>
 
-<enroll> Join the Tech Club Meetup group for fun tech classes, clubs and event
-for elementary and middle school students. Join the Code Clinic for older
-students for advanced classes and access to the Robot Garage and League Labs
-program.
+<enroll> Join the Tech Club Meetup group to RSVP for upcoming workshops and get
+location updates. Older students can also join the Code Clinic meetup for
+advanced topics and pathways into Robot Garage and League Labs.
 </enroll>
 
 ```
-slug: python-programming
-image: python.png
-topics: programming
-classes: intro-python, python-apprentice, python-games, python-web-servers, python-orbitlab, makecode-arcade
-category: group-classes
-buttons: 
+slug: tech-club
+image: robot_riot.png
+topics: programming, robotics, electronics, games
+classes: intro-python, robot-riot, motors-clinic, soldering-clinic, makecode-arcade
+category: tech-club
+meetup: tech-club
+cta: 
     - type: meetup
       label: Join the Tech Club
       url: https://www.meetup.com/the-league-tech-club
-    - type: meetup
-      label: Join the Code Clinic
-      url: https://www.meetup.com/the-league-code-clinic
-    - type: page
-      label: Join League Labs
-      url: http://localhost:4321/programs/league-lab
 ```
+
 ~~~
 
 The order of the entries in record , along with the data field the entry is assigned to, are:
 
-1) `title`: The start of the record, and title of the record, marked with `##`
+1) `title`: The start of the record, and title of the record, marked with `#`
 2) `blurb`: A single paragraph with the short description, 
 3) `description`: A single paragraph with the short description. ( Or, more robust, read text until `<content>`)
 4) `content`: The main web page content, marked with `<content>` tags
@@ -74,6 +66,75 @@ The processing for meta is:
    to a list by splitting on ',' and stripping spaces
 3) Copy all of the values into the top level record. 
 
+
+The converted JSON for the example record above would be: 
+
+```JSON
+  {
+    "title": "Tech Club",
+    "blurb": "Free introductory classes in Python, Java, robotics, and electronics offered at\nschools, libraries and online",
+    "description": "Tech Club brings coding education to students who might not otherwise have\naccess, offering free introductory courses at schools and libraries throughout\nSan Diego County.",
+    "content": "These 60-90 minute sessions introduce students in grades 3-12 to\nprogramming through hands-on projects in Python, Java, robotics, and\nelectronics. With a less than 10:1 student-to-teacher ratio and no cost to\nfamilies, Tech Club removes barriers to computer science education. Many\nstudents who start in Tech Club later transition to our paid weekly classes as\nthey advance, but Tech Club provides valuable programming experience regardless\nof whether students continue. Classes run year-round at various locations.\n\n- Multiple weekly meetups hosted across San Diego County\n- Volunteer mentors and alumni support for personalized guidance\n- Hands-on explorations in Python, Java, robotics, and electronics\n- Accessible entry point that feeds into our full course pathway",
+    "enroll": "Join the Tech Club Meetup group to RSVP for upcoming workshops and get\nlocation updates. Older students can also join the Code Clinic meetup for\nadvanced topics and pathways into Robot Garage and League Labs.",
+    "curriculum": "",
+    "meta": {
+      "slug": "tech-club",
+      "image": "robot_riot.png",
+      "topics": [
+        "programming",
+        "robotics",
+        "electronics",
+        "games"
+      ],
+      "classes": [
+        "intro-python",
+        "robot-riot",
+        "motors-clinic",
+        "soldering-clinic",
+        "makecode-arcade"
+      ],
+      "category": [
+        "tech-club"
+      ],
+      "meetup": "tech-club",
+      "cta": [
+        {
+          "type": "meetup",
+          "label": "Join the Tech Club",
+          "url": "https://www.meetup.com/the-league-tech-club"
+        }
+      ]
+    },
+    "cta": [
+      {
+        "type": "meetup",
+        "label": "Join the Tech Club",
+        "url": "https://www.meetup.com/the-league-tech-club"
+      }
+    ],
+    "slug": "tech-club",
+    "image": "robot_riot.png",
+    "topics": [
+      "programming",
+      "robotics",
+      "electronics",
+      "games"
+    ],
+    "classes": [
+      "intro-python",
+      "robot-riot",
+      "motors-clinic",
+      "soldering-clinic",
+      "makecode-arcade"
+    ],
+    "category": [
+      "tech-club"
+    ],
+    "meetup": "tech-club"
+  },
+  ```
+
+
 ## Typescript Record
 
 
@@ -84,7 +145,7 @@ lifted out of the fenced YAML block. The shape is:
 
 ```ts
 export interface ContentRecord {
-    /** Title from the `##` heading. */
+  /** Title from the `#` heading. */
     title: string;
     /** One-paragraph summary immediately following the heading. */
     blurb: string;
@@ -103,8 +164,8 @@ export interface ContentRecord {
     classes?: string[];
     category?: string[];
     level?: string;
-    meetup?: string;
-    buttons?: Record[];
+  meetup?: string;
+  cta?: Record[];
 
     /** Any additional metadata fields are carried through as optional values. */
     [extra: string]: string | string[] | Record<string, unknown> | undefined;
@@ -121,7 +182,7 @@ within `meta` and as optional properties on the record. Because the YAML block
 may express nested objects or lists, both `meta` and the top-level index
 signature allow values that are strings, arrays, or arbitrary records.
 
-The `buttons` meta field can be written either as a single record or multiple
+The `cta` meta field can be written either as a single record or multiple
 records, which have the sub-fields `label`, `type` and `url`. If it is specified
 as a single record, it is normalized to a list of records. 
 
@@ -134,14 +195,14 @@ category == slug ) the program entry should be copied into the categories data.
 Enrollment information consists of:
 
 * The `<enroll>` content
-* The `buttons`  list for specifying enrollment buttons. 
+* The `cta` list for specifying enrollment actions. 
 
 The enrollment information can be placed on:
 
-* A Cålass
+* A Class
 * A Program
 * A Category
 
 To display the enrollment block on a page or class, first look in the program or
-class record for the `enroll` and `button` fields. If either down not exist in
-the program or class records, look in the associated category record. 
+class record for the `enroll` and `cta` fields. If either do not exist in the
+program or class records, look in the associated category record.

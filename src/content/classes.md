@@ -1,4 +1,4 @@
-## Introduction to Python
+# Introduction to Python
 
 Beginning students' first experience with Python programming.
 
@@ -24,7 +24,7 @@ group: python
 curriculum: https://league-curriculum.github.io/Python-Introduction/
 ```
 
-## Python Apprentice
+# Python Apprentice
 
 First comprehensive Python course covering language basics and preparing
 students for professional certification.
@@ -54,7 +54,7 @@ group: python
 curriculum: https://python-apprentice.jointheleague.org/
 ```
 
-## Python Games
+# Python Games
 
 Build larger, object-oriented programs by creating engaging games in Python.
 
@@ -82,7 +82,7 @@ group: python
 curriculum: https://github.com/league-curriculum/Python-Games
 ```
 
-## Python OrbitLab
+# Python OrbitLab
 
 Build solar system simulations to learn orbital mechanics and scientific computing.
 
@@ -100,7 +100,7 @@ constants. This course demonstrates how programming is used in real scientific
 research and space exploration, connecting coding skills to STEM education in a
 highly engaging way. </content>
 
-<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title</enroll>
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title.</enroll>
 
 ```
 slug: python-orbitlab
@@ -112,7 +112,7 @@ curriculum: https://github.com/league-curriculum/Python-OrbitLab
 
 ```
 
-## Java Weekly Classes
+# Java Weekly Classes
 
 Java programming from beginner to advanced levels, preparing
 students for AP Computer Science and professional careers.
@@ -132,7 +132,7 @@ companies like Google, Amazon, Microsoft, and Sony. Classes meet weekly for 1.5
 hours with a 5:1 student-to-teacher ratio, available both in-person and online.
 </content>
 
-<enroll></enroll>
+<enroll>$title is included in our Weekly Classes, so to take this class enroll in weekly classes and tell your instructor you want to study $title.</enroll>
 
 ```
 slug: java-weekly
@@ -142,7 +142,7 @@ topics: java, programming
 group: java
 ```
 
-## Private Tutoring
+# Private Tutoring
 
 One-on-one virtual classes for personalized instruction in Java or Python at all
 skill levels.
@@ -169,7 +169,7 @@ topics: java, python, programming
 group: tutoring
 ```
 
-## MakeCode Arcade Games
+# MakeCode Arcade Games
 
 Build games in block code or JavaScript and deploy them to your own handheld
 Game Boy-style console.
@@ -199,7 +199,7 @@ group: tech-club
 
 
 
-## Motors Clinic
+# Motors Clinic
 
 Two-hour class on programming brush motors, stepper motors, and hobby servos.
 
@@ -227,7 +227,7 @@ group: tech-club
 curriculum: https://league-curriculum.github.io/Motors/
 ```
 
-## Soldering Clinic
+# Soldering Clinic
 
 Learn basic soldering skills, safety, and techniques through hands-on practice.
 
@@ -254,7 +254,7 @@ topics: electronics, robotics
 group: tech-club
 ```
 
-## Hour of Micro:bit
+# Hour of Micro:bit
 
 Short introductory class to the Micro:bit microcontroller platform.
 
@@ -282,7 +282,7 @@ group: tech-club
 curriculum: https://league-curriculum.github.io/HourofMicrobit/
 ```
 
-## Robot Riot
+# Robot Riot
 
 Introduction to robotics programming and mechanical construction.
 
@@ -310,7 +310,7 @@ level: beginner
 topics: programming, robotics
 group: tech
 curriculum: https://league-curriculum.github.io/Microbit-Robot-Rally/
-buttons:
+cta:
     - type: pike13
       label: Enroll in Weekly Python Classes
       url: https://jtl.pike13.com/categories/93504
@@ -320,7 +320,7 @@ buttons:
     
 ```
 
-## Tech Arcade
+# Tech Arcade
 
 A technology choose-your-own-adventure featuring daily projects in programming,
 games, and robotics.
@@ -348,7 +348,7 @@ topics: programming, robotics
 group: tech
 ```
 
-## AI Agents
+# AI Agents
 
 Discover AI by building chatbots and exploring computer vision and machine
 learning.
@@ -378,7 +378,7 @@ group: tech
 ```
 
 
-## GitHub Pages Portfolio
+# GitHub Pages Portfolio
 
 Build a professional portfolio website using GitHub Pages and Jekyll.
 

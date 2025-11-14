@@ -1,4 +1,4 @@
-## Python Programming
+# Python Programming
 
 Python is the most popular programming language, perfect for beginners
 and powerful enough for professionals.
@@ -33,7 +33,7 @@ classes: intro-python, python-apprentice, python-games,  python-orbitlab, makeco
 category: group-classes
 ```
 
-## Java Programming
+# Java Programming
 
 Comprehensive Java curriculum that takes students from their first `System.out.println` to professional certification.
 
@@ -58,7 +58,7 @@ classes: java-weekly, private-tutoring
 category: group-classes
 ```
 
-## Robotics, AI and Technology
+# Robotics, AI and Technology
 
 Learn and have fun with robotics and electronics in Robot Riot and Tech Arcade classes.
 
@@ -80,7 +80,7 @@ classes: robot-riot, tech-arcade, ai-agents
 category: group-classes
 ```
 
-## Tech Club
+# Tech Club
 
 Free introductory classes in Python, Java, robotics, and electronics offered at
 schools, libraries and online
@@ -115,14 +115,14 @@ topics: programming, robotics, electronics, games
 classes: intro-python, robot-riot, motors-clinic, soldering-clinic, makecode-arcade
 category: tech-club
 meetup: tech-club
-buttons: 
+cta: 
     - type: meetup
       label: Join the Tech Club
       url: https://www.meetup.com/the-league-tech-club
 ```
 
 
-## League Labs
+# League Labs
 
 Advanced program where students learn advanced techniques and work as
 apprentices on research projects.
@@ -177,13 +177,13 @@ image: league_labs.png
 topics: programming, robotics, electronics, career, projects
 category: league-labs
 meetup: league-labs
-buttons: 
+cta: 
     - type: page
       label: Register Interest in League Labs
       url: https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform
 ```
 
-## Robot Garage
+# Robot Garage
 
 Advanced robotics course building on Robot Riot fundamentals.
 

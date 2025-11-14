@@ -8,7 +8,7 @@ import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
 import { getClassesData, getCategoriesData } from "../../utils/markdown.js";
 
-type CategoryButton = { label?: string; url?: string; type?: string };
+type CategoryCta = { label?: string; url?: string; type?: string };
 
 interface ClassEntry {
   title: string;
@@ -17,14 +17,14 @@ interface ClassEntry {
   shortDescription?: string;
   content?: string;
   enroll?: string;
-  buttons?: CategoryButton[];
+  cta?: CategoryCta[];
   meta?: {
     slug?: string;
     image?: string;
     level?: string;
     topics?: string[];
     group?: string;
-    buttons?: CategoryButton[];
+    cta?: CategoryCta[];
   };
   slug?: string;
   image?: string;
@@ -84,21 +84,30 @@ const categoryRecord = (categoryData ?? {}) as Record<string, any>;
 const enrollContent = typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
 const classEnrollContent =
   typeof classData.enroll === "string" ? classData.enroll.trim() : "";
-const categoryButtons = Array.isArray(categoryRecord.buttons)
-  ? (categoryRecord.buttons as CategoryButton[])
-  : Array.isArray(categoryRecord.meta?.buttons)
-    ? (categoryRecord.meta.buttons as CategoryButton[])
+const categoryCtas = Array.isArray(categoryRecord.cta)
+  ? (categoryRecord.cta as CategoryCta[])
+  : Array.isArray(categoryRecord.meta?.cta)
+    ? (categoryRecord.meta.cta as CategoryCta[])
     : [];
-const classButtons = Array.isArray(classData.buttons)
-  ? (classData.buttons as CategoryButton[])
-  : Array.isArray(classData.meta?.buttons)
-    ? (classData.meta.buttons as CategoryButton[])
+const classCtas = Array.isArray(classData.cta)
+  ? (classData.cta as CategoryCta[])
+  : Array.isArray(classData.meta?.cta)
+    ? (classData.meta.cta as CategoryCta[])
     : [];
-const primaryButtons = classButtons.filter((button) => button?.label && button?.url);
-const fallbackButtons = categoryButtons.filter((button) => button?.label && button?.url);
-const resolvedButtons = primaryButtons.length > 0 ? primaryButtons : fallbackButtons;
-const effectiveEnrollContent = classEnrollContent || enrollContent;
-const hasEnrollSection = Boolean(effectiveEnrollContent) || resolvedButtons.length > 0;
+const primaryCtas = classCtas.filter((action) => action?.label && action?.url);
+const fallbackCtas = categoryCtas.filter((action) => action?.label && action?.url);
+const resolvedCtas = primaryCtas.length > 0 ? primaryCtas : fallbackCtas;
+const enrollMessages: Array<{ content: string; source: "class" | "category" }> = [];
+
+if (classEnrollContent) {
+  enrollMessages.push({ content: classEnrollContent, source: "class" });
+}
+
+if (enrollContent && enrollContent !== classEnrollContent) {
+  enrollMessages.push({ content: enrollContent, source: "category" });
+}
+
+const hasEnrollSection = enrollMessages.length > 0 || resolvedCtas.length > 0;
 const hasContent = Boolean(classData.content && classData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(classData.content ?? "") : undefined;
 ---
@@ -168,20 +177,20 @@ const renderedContent = hasContent ? await marked.parse(classData.content ?? "")
       </SectionHeader>
 
       <div class="class-enroll">
-        {effectiveEnrollContent && (
+        {enrollMessages.map(({ content, source }) => (
           <div
-            class="class-enroll__text class-enroll__text--class"
-            set:html={effectiveEnrollContent}
+            class={`class-enroll__text${source === "class" ? " class-enroll__text--class" : ""}`}
+            set:html={content}
           />
-        )}
-        {resolvedButtons.length > 0 && (
+        ))}
+        {resolvedCtas.length > 0 && (
           <ButtonGroup
             class="class-enroll__buttons"
-            actions={resolvedButtons.map((button: CategoryButton) => {
-              const isExternal = button.url ? /^https?:/i.test(button.url) : false;
+            actions={resolvedCtas.map((action: CategoryCta) => {
+              const isExternal = action.url ? /^https?:/i.test(action.url) : false;
               return {
-                label: button.label ?? "Enroll",
-                href: button.url ?? "#",
+                label: action.label ?? "Enroll",
+                href: action.url ?? "#",
                 variant: "primary",
                 target: isExternal ? "_blank" : undefined,
                 rel: isExternal ? "noopener noreferrer" : undefined,

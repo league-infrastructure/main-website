@@ -20,7 +20,7 @@ const classes = getClassesData();
 const programs = getProgramsData();
 const categories = getCategoriesData();
 
-type CategoryButton = { label?: string; url?: string; type?: string };
+type CategoryCta = { label?: string; url?: string; type?: string };
 
 const categoryLookup = new Map(
   categories
@@ -170,8 +170,8 @@ const classGroupSections = [
       const primaryCategorySlug = categorySlugs[0];
       const categoryData = primaryCategorySlug ? categoryLookup.get(primaryCategorySlug) : undefined;
       const sectionPrograms = getProgramsForCategories(categorySlugs);
-      const buttons = (categoryData?.buttons ?? categoryData?.meta?.buttons ?? []) as CategoryButton[];
-      const validButtons = buttons.filter((button) => button?.label && button?.url);
+    const ctas = (categoryData?.cta ?? categoryData?.meta?.cta ?? []) as CategoryCta[];
+    const validCtas = ctas.filter((action) => action?.label && action?.url);
       const enrollContent = categoryData?.enroll?.trim();
 
       if (sectionPrograms.length === 0) {
@@ -267,19 +267,19 @@ const classGroupSections = [
               .filter(Boolean)}
           </CardGrid>
 
-          {(enrollContent || validButtons.length > 0) && (
+          {(enrollContent || validCtas.length > 0) && (
             <div class="category-enroll">
               {enrollContent && (
                 <div class="category-enroll__text" set:html={enrollContent} />
               )}
-              {validButtons.length > 0 && (
+              {validCtas.length > 0 && (
                 <ButtonGroup
                   class="category-enroll__buttons"
-                  actions={validButtons.map((button) => {
-                    const isExternal = button.url ? /^https?:/i.test(button.url) : false;
+                  actions={validCtas.map((action: CategoryCta) => {
+                    const isExternal = action.url ? /^https?:/i.test(action.url) : false;
                     return {
-                      label: button.label ?? "Learn more",
-                      href: button.url ?? "#",
+                      label: action.label ?? "Enroll",
+                      href: action.url ?? "#",
                       variant: "primary",
                       target: isExternal ? "_blank" : undefined,
                       rel: isExternal ? "noopener noreferrer" : undefined,
