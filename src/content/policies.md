@@ -1,3 +1,122 @@
+
+# Membership Plans and Passes
+
+<blurb_placeholder>
+
+<description_placeholder>
+
+<content>
+
+
+## TUITION
+
+<a href="https://jtl.pike13.com/membership_products/615316">Tuition plans</a> offer one class per week. Tuition is due on the 1st of each month. Monthly tuition remains the same whether it is a long (5-week) or short (3-week) month and regardless of absences, vacations, or holidays. There are no make-up classes for holidays, as they are built into the cost of tuition.
+
+## MEMBERSHIP
+
+<a href="https://jtl.pike13.com/membership_products/590552">Membership plans</a> offer 6 visits per month, and up to 2 unused visits in one month will roll over to the next month. You are responsible for enrolling and cancelling your students; no-shows will be charged a visit. If you expect to miss a class, cancel your attendance in the class and enroll in another one. You can enroll in any class that is allowed for the Membership plan, even in multiple classes per week.  There are no refunds issued for missed classes that do not roll over; you are responsible for putting a hold on your membership if you expect to miss many classes.
+</content>
+
+```
+slug: <slug_placeholder>
+```
+# Payment Options
+
+<blurb_placeholder>
+
+<description_placeholder>
+
+<content>
+<strong>PAYMENT OPTIONS</strong>
+Tuition is only accepted through our Auto-pay program. A valid credit card must be connected at the time of enrollment to auto-draft. You must set up auto-pay by adding your credit card to the Parent Portal, which will be charged on the 1st of each month. To add your card to the Parent Portal, login to https://jtl.pike13.com/accounts/sign_in and follow the steps below:
+1. At the top of the page, tap ​Your Stuff​.
+2. In the right menu, tap ​Payment Methods​.
+3. Tap ​Add New Card​.
+4. Enter payment information, and then tap ​Save​.
+</content>
+
+```
+slug: <slug_placeholder>
+```
+# Makeup Classes
+
+<blurb_placeholder>
+
+<description_placeholder>
+
+<content>
+While makeups are not mandatory, they are highly encouraged. At The League, we strongly encourage all students to attend their classes consistently, in order to develop their programming skills.
+
+After you cancel a class, you will be issued a <strong>Make-up Pass, </strong> which you can use on another visit. Return to the scheduling page for the class you want to enroll in, and enroll in the class. For "Which pass or plan do you want to use for this?" select the pass you wish to use.
+
+We no longer offer Make Up classes as separate labs. Instead, you can simply enroll your student in another class, during the same week, or a different week. You can schedule makeup classes in the same way as any other class. Just enroll your student in a class that offers the same topic and similar level as the class your student normally attends.
+
+Visit your <a href="https://jtl.pike13.com/me">LEAGUE profile </a>to find and schedule your classes.
+</content>
+
+```
+slug: <slug_placeholder>
+```
+# Refund Policies
+
+<blurb_placeholder>
+
+<description_placeholder>
+
+<content>
+<strong>REFUNDS</strong>
+Tuition is non-refundable and non-transferable. There are no credits, refunds, roll overs or adjustments for absences or school closure.
+
+<strong>LATE FEE</strong>
+If tuition is received after the 1st of each month, a $25 late fee will be automatically charged to your account. It is the client’s responsibility to pay No Exceptions.
+</content>
+
+```
+slug: <slug_placeholder>
+```
+# Cancellation
+
+<blurb_placeholder>
+
+<description_placeholder>
+
+<content>
+Please cancel classes if your student can make them. If you do not cancel, a visit will be deducted from your plan or pass.
+<ol>
+ 	<li>Sign in to the Client Portal.</li>
+ 	<li>Under <strong>Upcoming</strong>, click the name of the appointment you wish to cancel your registration for.</li>
+ 	<li>Click <strong>Cancel Registration</strong>, and then choose <strong>OK</strong>.</li>
+</ol>
+See our <a href="https://www.jointheleague.org/about/policies/enroll/">Guide to Enrollment</a> for more details.
+</content>
+
+```
+slug: <slug_placeholder>
+```
+# Enrolling in Classes
+
+<blurb_placeholder>
+
+<description_placeholder>
+
+<content>
+You can enroll in classes from your <a href="https://jtl.pike13.com/me">LEAGUE Parent Portal. </a>
+
+To enroll you will need to:
+<ul>
+ 	<li>Create an account, for both you and your children</li>
+ 	<li>Purchase a plan or passes</li>
+ 	<li>Enroll in the first class from the website.</li>
+ 	<li>Let us or an instructor know you'd like to enroll in all classes of the same date and time.</li>
+</ul>
+See our <a href="https://www.jointheleague.org/about/policies/enroll/">Guide to Enrollment</a> for more details.
+</content>
+
+```
+slug: <slug_placeholder>
+```
+
+
 # Privacy Policy
 
 Understand how The League collects, stores, and uses personal information across our programs.
@@ -36,132 +155,4 @@ cta:
   - type: page
     label: Read the Non-discrimination Policy
     url: /about/policies/nondescrim/
-```
-
-# Membership Plans and Passes
-
-Compare monthly tuition, memberships, and class passes to find the right fit for your student.
-
-This guide details pricing for recurring classes, how rollovers work, and which plans unlock Tech Club sessions or drop-in visits.
-
-<content>
-Tuition plans cover one weekly class and bill on the first of the month. The monthly total stays the same regardless of holidays or absences, so families do not need to track schedule changes. Membership plans provide six visits per month and allow up to two unused visits to roll into the next billing cycle.
-
-Popular options include:
-
-- **Monthly Membership** - $280 for up to five visits each month across Python and Java classes.
-- **Tech Club Membership** - Free access to Tech Club sessions and workshops.
-- **Monthly Tuition** - $280 for one weekly class; legacy plan for existing families.
-- **Class Pass** - $70 per single visit scheduled as needed.
-- **Beta Test Pass** - Complimentary single visit to try a class.
-
-Manage plans and passes through the [Pike13 portal](https://jtl.pike13.com/people/me/shop) after signing in.
-</content>
-
-```
-slug: membership-plans
-cta:
-  - type: link
-    label: Tuition Plans
-    url: https://jtl.pike13.com/membership_products/615316
-  - type: link
-    label: Membership Plans
-    url: https://jtl.pike13.com/membership_products/590552
-```
-
-# Payment Options
-
-Set up auto-pay and manage stored payment methods in the Client Portal.
-
-Learn how to add or update credit cards so monthly tuition drafts automatically.
-
-<content>
-All tuition payments are processed through the Parent Portal. Add a valid credit card when you enroll so charges can draft on the first of each month. To update payment information:
-
-1. Sign in at [jtl.pike13.com](https://jtl.pike13.com/accounts/sign_in).
-2. Open **Your Stuff** from the top navigation.
-3. Select **Payment Methods**, then choose **Add New Card**.
-4. Enter the card details and click **Save**.
-
-If you need assistance, contact the front desk for support.
-</content>
-
-```
-slug: payment-options
-```
-
-# Make-up Policies
-
-Use make-up passes to reschedule missed classes that match your student's level.
-
-Understand how to cancel a session and apply the make-up pass to another class.
-
-<content>
-When you cancel a weekly class in advance, the system issues a make-up pass to your account. Use the pass to enroll in another class of the same topic and level within the same week or at a later date. All make-ups are self-scheduled through the portal just like regular classes.
-
-Visit your [League profile](https://jtl.pike13.com/me) to see available passes, check expiration dates, and secure the next session.
-</content>
-
-```
-slug: makeup-policies
-```
-
-# Refunds and Late Fees
-
-Review refund limitations and why timely tuition payments matter.
-
-This policy explains when credits are issued, how late fees work, and why on-time payments keep classes running smoothly.
-
-<content>
-Tuition is non-refundable and non-transferable. Credits or adjustments are not offered for absences, closures, or unused visits. Accounts that pay after the first of the month incur an automatic $25 late fee.
-
-Families are responsible for maintaining an active payment method and submitting payments on time to avoid disruptions.
-</content>
-
-```
-slug: refund-policies
-```
-
-# Cancellation Policies
-
-Cancel upcoming classes step-by-step so visits stay on your account.
-
-Follow this checklist to avoid losing a visit when schedules change.
-
-<content>
-Please cancel classes you cannot attend so the visit stays on your plan. To cancel:
-
-1. Sign in to the Client Portal.
-2. Under **Upcoming**, choose the class you want to cancel.
-3. Click **Cancel Registration** and confirm.
-
-If a cancellation is not submitted, the visit is deducted from your plan or pass.
-</content>
-
-```
-slug: cancellation-policies
-cta:
-  - type: page
-    label: Guide to Enrollment
-    url: /about/policies/enroll/
-```
-
-# Enrolling in Classes
-
-Learn how to enroll, secure recurring spots, and manage schedules in the Parent Portal.
-
-This overview is ideal for new families setting up profiles, purchasing plans, and choosing weekly classes.
-
-<content>
-Create a Parent Portal profile for each student, purchase the appropriate plan or pass, and register directly from the class schedule. After your first session, let the instructor know if you would like to reserve the same day and time each week, or email [info@jointheleague.org](mailto:info@jointheleague.org?subject=Bulk%20Enrollment&body=Hi%2C%20I%20would%20like%20to%20bulk%20enroll%20in%20weekly%20classes.).
-
-Additional tips:
-
-- Browse the [Classes page](https://jtl.pike13.com/categories/93504) to find the best day, time, and format.
-- Cancel a class from the **Upcoming** section of the portal to avoid losing a visit.
-- Make-up passes issued after cancellations can be applied to future sessions through the same schedule view.
-</content>
-
-```
-slug: enrolling-in-classes
 ```
