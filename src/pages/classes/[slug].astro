@@ -7,7 +7,12 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
 import { marked } from "marked";
-import { getClassesData, getCategoriesData, getStructuredContent } from "../../utils/markdown.js";
+import {
+  getClassesData,
+  getCategoriesData,
+  getStructuredContent,
+  getForCategoryList,
+} from "../../utils/markdown.js";
 import type {
   StructuredContentRecord,
   StructuredCta,
@@ -22,62 +27,33 @@ interface RouteProps {
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
   const categories = getCategoriesData();
-  const contentEntries = getStructuredContent(
-    "content",
-  ) as StructuredContentRecord[];
-  const extractGuideCategories = (record?: StructuredContentRecord): string[] => {
-    if (!record) {
-      return [];
-    }
-
-    const rawValue =
-      (record.meta?.["for_category"] as unknown) ??
-      (record["for_category"] as unknown) ??
-      (record.meta?.["_for_category"] as unknown) ??
-      (record["_for_category"] as unknown);
-
-    if (!rawValue) {
-      return [];
-    }
-
-    if (Array.isArray(rawValue)) {
-      return rawValue
-        .map((item) =>
-          typeof item === "string" ? item.trim() : String(item).trim(),
-        )
-        .filter((item) => item.length > 0);
-    }
-
-    if (typeof rawValue === "string") {
-      return rawValue
-        .split(",")
-        .map((item) => item.trim())
-        .filter((item) => item.length > 0);
-    }
-
-    return [];
-  };
+  const contentEntries = getStructuredContent("content") as StructuredContentRecord[];
   const enrollmentGuides = contentEntries.filter(
-    (entry) => (entry.meta?.slug ?? entry.slug) === "enrollment-instructions",
+    (entry) => entry.slug === "enrollment-instructions",
   );
   return classes
     .map((entry) => {
-      const slug = entry.meta?.slug ?? entry.slug;
+      const slug = entry.slug;
       if (!slug) {
         return undefined;
       }
-      const groupSlug = entry.meta?.group ?? entry.group;
-      const categoryData = groupSlug
-        ? categories.find(
-            (category) => (category.meta?.slug ?? category.slug) === groupSlug,
-          )
-        : undefined;
+      const categoryValues: string[] = Array.isArray(entry.category)
+        ? entry.category.filter((value: unknown): value is string => typeof value === "string")
+        : typeof entry.category === "string"
+          ? [entry.category]
+          : [];
+      const categorySlugs = categoryValues
+        .map((value: string) => value.trim())
+        .filter((value: string) => value.length > 0);
+      const categoryData = categorySlugs
+        .map((categorySlug: string) => categories.find((category) => category.slug === categorySlug))
+        .find((match): match is StructuredContentRecord => Boolean(match));
       const enrollmentGuide = enrollmentGuides.find((guide) => {
-        if (!groupSlug) {
+        if (categorySlugs.length === 0) {
           return false;
         }
-        const guideCategories = extractGuideCategories(guide);
-        return guideCategories.includes(String(groupSlug));
+        const guideCategories = getForCategoryList(guide);
+        return guideCategories.some((category) => categorySlugs.includes(category));
       });
       return {
         params: { slug: slug.replace(/_/g, "-") },
@@ -93,13 +69,13 @@ const {
   enrollmentGuide: enrollmentGuideRecord,
 } = Astro.props as unknown as RouteProps;
 
-const classSlug = classData.meta?.slug ?? classData.slug;
+const classSlug = classData.slug;
 
 if (!classData || !classSlug) {
   throw new Error("Class data not found for requested slug");
 }
 
-const heroImageSource = classData.meta?.image ?? classData.image;
+const heroImageSource = classData.image;
 const heroImage = heroImageSource
   ? `/images/cards/${heroImageSource}`
   : "/images/cards/computer-robot.png";
@@ -109,8 +85,8 @@ const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
   .filter((paragraph) => paragraph.length > 0);
-const topics = classData.meta?.topics ?? classData.topics ?? [];
-const level = classData.meta?.level ?? classData.level;
+const topics = classData.topics ?? [];
+const level = classData.level;
 const categoryRecord = (categoryData ?? {}) as StructuredContentRecord;
 const enrollContent =
   typeof categoryRecord.enroll === "string" ? categoryRecord.enroll.trim() : "";
@@ -118,14 +94,10 @@ const classEnrollContent =
   typeof classData.enroll === "string" ? classData.enroll.trim() : "";
 const categoryCtas = Array.isArray(categoryRecord.cta)
   ? (categoryRecord.cta as StructuredCta[])
-  : Array.isArray(categoryRecord.meta?.cta)
-    ? (categoryRecord.meta.cta as StructuredCta[])
-    : [];
+  : [];
 const classCtas = Array.isArray(classData.cta)
   ? (classData.cta as StructuredCta[])
-  : Array.isArray(classData.meta?.cta)
-    ? (classData.meta.cta as StructuredCta[])
-    : [];
+  : [];
 const primaryCtas = classCtas.filter((action) => action?.label && action?.url);
 const fallbackCtas = categoryCtas.filter(
   (action) => action?.label && action?.url,
@@ -224,7 +196,7 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
               <div class="class-detail">
                 <span class="class-detail__label">Topics</span>
                 <ul class="class-topic-list">
-                  {topics.map((topic) => (
+                  {topics.map((topic: string) => (
                     <li>{topic}</li>
                   ))}
                 </ul>
@@ -247,7 +219,7 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
           <h2>How to Enroll</h2>
         </SectionHeader>
 
-        <div class="class-enroll">
+        <div class={`class-enroll${showEnrollmentGuide && enrollmentGuideHtml ? " class-enroll--with-guide" : ""}`}>
           <div class="class-enroll__primary">
             {enrollMessages.map(({ content, source }) => (
               <div
@@ -402,7 +374,7 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
   }
 
   @media (min-width: 960px) {
-    .class-enroll {
+    .class-enroll--with-guide {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }

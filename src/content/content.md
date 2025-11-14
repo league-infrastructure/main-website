@@ -24,6 +24,6 @@ then bulk enroll in additional classes for that same day and time.
 
 ```
 slug: enrollment-instructions
-for_category: group-classes
+forCategory: group-classes
 ```
 

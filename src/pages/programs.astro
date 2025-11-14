@@ -25,7 +25,7 @@ type CategoryCta = { label?: string; url?: string; type?: string };
 const categoryLookup = new Map(
   categories
     .map((category) => {
-      const slug = category.slug ?? category.meta?.slug;
+      const slug = category.slug;
       return slug ? [slug, category] : undefined;
     })
     .filter(Boolean) as Array<[string, typeof categories[number]]>
@@ -48,12 +48,12 @@ const categorySections = [
 
 // Function to get class details by slug
 function getClassBySlug(slug: string) {
-  return classes.find((c) => (c.slug ?? c.meta?.slug) === slug);
+  return classes.find((c) => c.slug === slug);
 }
 
 // Function to parse class list from program
 function getClassesForProgram(program: any) {
-  const classList = program.classes ?? program.meta?.classes;
+  const classList = program.classes;
   return Array.isArray(classList) ? classList : [];
 }
 
@@ -67,19 +67,14 @@ function getProgramsForCategories(slugs: string[]) {
   const seen = new Set<string>();
 
   for (const program of programs) {
-    const programCategories =
-      (Array.isArray(program.category) && program.category.length > 0
-        ? program.category
-        : Array.isArray(program.meta?.category)
-          ? program.meta.category
-          : []) ?? [];
+    const programCategories = Array.isArray(program.category) ? program.category : [];
 
   const matches = programCategories.some((categorySlug: string) => lookup.has(categorySlug));
     if (!matches) {
       continue;
     }
 
-    const programSlug = program.slug ?? program.meta?.slug;
+    const programSlug = program.slug;
     if (programSlug && seen.has(programSlug)) {
       continue;
     }
@@ -104,7 +99,7 @@ function toTitleCase(value: string) {
 const classesByGroup = new Map<string, typeof classes[number][]>();
 
 for (const classItem of classes) {
-  const rawGroup = classItem.group ?? classItem.meta?.group;
+  const rawGroup = classItem.group;
   const groupSlug = typeof rawGroup === "string" ? rawGroup.trim() : "";
   if (!groupSlug) {
     continue;
@@ -116,7 +111,7 @@ for (const classItem of classes) {
 }
 
 const orderedGroupSlugs = categories
-  .map((category) => category.slug ?? category.meta?.slug)
+  .map((category) => category.slug)
   .filter((slug): slug is string => Boolean(slug));
 
 const extraGroupSlugs = Array.from(classesByGroup.keys()).filter(
@@ -170,7 +165,7 @@ const classGroupSections = [
       const primaryCategorySlug = categorySlugs[0];
       const categoryData = primaryCategorySlug ? categoryLookup.get(primaryCategorySlug) : undefined;
       const sectionPrograms = getProgramsForCategories(categorySlugs);
-    const ctas = (categoryData?.cta ?? categoryData?.meta?.cta ?? []) as CategoryCta[];
+    const ctas = (categoryData?.cta ?? []) as CategoryCta[];
     const validCtas = ctas.filter((action) => action?.label && action?.url);
       const enrollContent = categoryData?.enroll?.trim();
 
@@ -197,9 +192,9 @@ const classGroupSections = [
             {sectionPrograms
               .map((program) => {
               const programClasses = getClassesForProgram(program);
-              const programSlug = program.slug ?? program.meta?.slug;
+              const programSlug = program.slug;
               const programUrl = programSlug ? `/programs/${programSlug}` : undefined;
-              const programImage = program.image ?? program.meta?.image;
+              const programImage = program.image;
               if (!programImage) {
                 console.warn(`Program "${program.title}" is missing an image.`);
                 return null;
@@ -232,10 +227,8 @@ const classGroupSections = [
                             if (classItem) {
                               const classTopics = Array.isArray(classItem.topics)
                                 ? classItem.topics
-                                : Array.isArray(classItem.meta?.topics)
-                                  ? classItem.meta.topics
-                                  : [];
-                              const targetSlug = classItem.slug ?? classItem.meta?.slug ?? classSlug;
+                                : [];
+                              const targetSlug = classItem.slug ?? classSlug;
                               return (
                                 <a
                                   href={`/classes/${targetSlug}`}
@@ -318,9 +311,9 @@ const classGroupSections = [
             <div class="class-group__grid">
               {group.classes
                 .map((classItem) => {
-                  const classSlug = classItem.slug ?? classItem.meta?.slug;
-                  const classImage = classItem.image ?? classItem.meta?.image;
-                  const classLevel = classItem.level ?? classItem.meta?.level;
+                  const classSlug = classItem.slug;
+                  const classImage = classItem.image;
+                  const classLevel = classItem.level;
                   if (!classSlug || !classImage) {
                     console.warn(`Class "${classItem.title}" is missing slug or image.`);
                     return null;

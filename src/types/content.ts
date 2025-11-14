@@ -21,17 +21,7 @@ export interface StructuredContentRecord {
   topics?: string[];
   classes?: string[];
   category?: string[];
+  forCategory?: string[];
   cta?: StructuredCta[];
-  meta?: Record<string, unknown> & {
-    slug?: string;
-    image?: string;
-    icon?: string;
-    topics?: string[];
-    classes?: string[];
-    category?: string[];
-    level?: string;
-    curriculum?: string;
-    cta?: StructuredCta[];
-  };
   [key: string]: unknown;
 }

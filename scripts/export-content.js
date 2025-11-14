@@ -38,12 +38,12 @@ function writeJsonFile(baseName, data) {
 }
 
 function hasSelfReferentialCategory(entry) {
-  const slug = entry.slug ?? entry.meta?.slug;
+  const slug = typeof entry.slug === "string" ? entry.slug.trim() : "";
   if (!slug) {
     return false;
   }
 
-  const categories = entry.category ?? entry.categories ?? entry.meta?.category;
+  const categories = entry.category ?? entry.categories;
   if (!categories) {
     return false;
   }
@@ -60,7 +60,7 @@ function mergeCategoryRecords(baseCategories, programEntries) {
   const merged = new Map();
 
   for (const entry of baseCategories) {
-    const slug = entry.slug ?? entry.meta?.slug;
+    const slug = typeof entry.slug === "string" ? entry.slug.trim() : "";
     if (!slug) {
       continue;
     }
@@ -72,7 +72,7 @@ function mergeCategoryRecords(baseCategories, programEntries) {
       continue;
     }
 
-    const slug = program.slug ?? program.meta?.slug;
+    const slug = typeof program.slug === "string" ? program.slug.trim() : "";
     if (!slug || merged.has(slug)) {
       continue;
     }

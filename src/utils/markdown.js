@@ -23,7 +23,7 @@ function readJsonData(baseName) {
   }
 }
 
-const ARRAY_FIELDS = new Set(['topics', 'classes', 'category']);
+const ARRAY_FIELDS = new Set(['topics', 'classes', 'category', 'forCategory', 'for_category']);
 const RECORD_LIST_FIELDS = new Set(['cta']);
 
 function applySimpleInterpolations(text, context) {
@@ -97,28 +97,22 @@ function normalizeMeta(meta) {
 
   const normalized = {};
   for (const [key, rawValue] of Object.entries(meta)) {
-    if (ARRAY_FIELDS.has(key)) {
-      normalized[key] = normalizeListValue(rawValue);
+    const normalizedKey = key === 'for_category' ? 'forCategory' : key;
+
+    if (ARRAY_FIELDS.has(normalizedKey)) {
+      normalized[normalizedKey] = normalizeListValue(rawValue);
       continue;
     }
 
-    if (RECORD_LIST_FIELDS.has(key)) {
-      const listValue = normalizeObjectList(rawValue, key);
+    if (RECORD_LIST_FIELDS.has(normalizedKey)) {
+      const listValue = normalizeObjectList(rawValue, normalizedKey);
       if (listValue.length > 0) {
-        normalized[key] = listValue;
+        normalized[normalizedKey] = listValue;
       }
       continue;
     }
 
-    if (key === 'buttons') {
-      const listValue = normalizeObjectList(rawValue, key);
-      if (listValue.length > 0) {
-        normalized.cta = listValue;
-      }
-      continue;
-    }
-
-    if (key === 'enroll' && !normalized.cta) {
+    if (normalizedKey === 'buttons') {
       const listValue = normalizeObjectList(rawValue, key);
       if (listValue.length > 0) {
         normalized.cta = listValue;
@@ -126,7 +120,15 @@ function normalizeMeta(meta) {
       continue;
     }
 
-    normalized[key] = rawValue;
+    if (normalizedKey === 'enroll' && !normalized.cta) {
+      const listValue = normalizeObjectList(rawValue, key);
+      if (listValue.length > 0) {
+        normalized.cta = listValue;
+      }
+      continue;
+    }
+
+    normalized[normalizedKey] = rawValue;
   }
   return normalized;
 }
@@ -217,11 +219,11 @@ export function parseMarkdownSections(content) {
     const title = lines.shift()?.trim() ?? '';
     const sectionBody = lines.join('\n').trim();
 
-  const { preContent, contentHtml, remainder } = extractContentBlock(sectionBody, title);
-  const { content: enrollContent, remainder: afterEnroll } = extractTaggedSection(
-    remainder,
-    'enroll',
-  );
+    const { preContent, contentHtml, remainder } = extractContentBlock(sectionBody, title);
+    const { content: enrollContent, remainder: afterEnroll } = extractTaggedSection(
+      remainder,
+      'enroll',
+    );
 
     const paragraphs = preContent
       .split(/\n\s*\n/)
@@ -232,13 +234,13 @@ export function parseMarkdownSections(content) {
     const blurb = blurbParagraph ?? '';
     const description = descriptionParagraphs.join('\n\n');
 
-  const rawMeta = extractMetadataBlock(afterEnroll, title);
-  const normalizedMeta = normalizeMeta(rawMeta);
+    const rawMeta = extractMetadataBlock(afterEnroll, title);
+    const normalizedMeta = normalizeMeta(rawMeta);
 
-  const interpolatedBlurb = applySimpleInterpolations(blurb, { title });
-  const interpolatedDescription = applySimpleInterpolations(description || '', { title });
-  const interpolatedContent = applySimpleInterpolations(contentHtml, { title });
-  const interpolatedEnroll = applySimpleInterpolations(enrollContent, { title });
+    const interpolatedBlurb = applySimpleInterpolations(blurb, { title });
+    const interpolatedDescription = applySimpleInterpolations(description || '', { title });
+    const interpolatedContent = applySimpleInterpolations(contentHtml, { title });
+    const interpolatedEnroll = applySimpleInterpolations(enrollContent, { title });
 
     const record = {
       title,
@@ -246,7 +248,6 @@ export function parseMarkdownSections(content) {
       description: interpolatedDescription,
       content: interpolatedContent,
       enroll: interpolatedEnroll,
-      meta: normalizedMeta,
     };
 
     for (const [key, value] of Object.entries(normalizedMeta)) {
@@ -277,50 +278,64 @@ function toActionList(value) {
 
 export function normalizeContentRecords(entries) {
   return entries.map((entry) => {
-    const meta = { ...(entry.meta ?? entry.metadata ?? {}) };
-
-    if (entry.curriculum && !meta.curriculum) {
-      meta.curriculum = entry.curriculum;
-    }
-
-    if (meta.buttons && !meta.cta) {
-      const converted = toActionList(meta.buttons);
-      if (converted.length > 0) {
-        meta.cta = converted;
-      }
-    }
-    delete meta.buttons;
-
-    const curriculum = meta.curriculum ?? entry.curriculum ?? '';
-    const cta = toActionList(entry.cta ?? meta.cta ?? entry.buttons ?? []);
-
-    if (cta.length > 0) {
-      meta.cta = cta;
-    } else {
-      delete meta.cta;
-    }
-
-    const icon = entry.icon ?? meta.icon ?? '';
-
-    if (icon) {
-      meta.icon = icon;
-    } else {
-      delete meta.icon;
-    }
-
-    return {
-      title: entry.title,
-      blurb: entry.blurb ?? '',
-      description: entry.description ?? entry.blurb ?? '',
-      content: entry.content ?? '',
-      enroll: entry.enroll ?? '',
-      curriculum,
-      icon: icon || undefined,
+    const {
+      title,
+      blurb,
+      description,
+      content,
+      enroll,
+      curriculum: rawCurriculum,
+      slug: rawSlug,
+      image: rawImage,
+      icon: rawIcon,
+      forCategory: rawForCategoryCamel,
+      for_category: rawForCategorySnake,
+      cta: rawCta,
+      buttons,
       meta,
+      metadata,
+      ...rest
+    } = entry ?? {};
+
+    const curriculum = typeof rawCurriculum === 'string' ? rawCurriculum : rawCurriculum ?? '';
+    const cta = toActionList(rawCta ?? buttons ?? []);
+    const icon = typeof rawIcon === 'string' ? rawIcon : rawIcon ?? '';
+    const forCategory = normalizeListValue(rawForCategoryCamel ?? rawForCategorySnake ?? []);
+    const slug = typeof rawSlug === 'string' ? rawSlug : undefined;
+    const image = typeof rawImage === 'string' ? rawImage : undefined;
+
+    const normalizedRecord = {
+      title,
+      blurb: blurb ?? '',
+      description: description ?? blurb ?? '',
+      content: content ?? '',
+      enroll: enroll ?? '',
+      curriculum,
+      slug,
+      image,
+      icon: icon || undefined,
+      forCategory: Array.isArray(forCategory) && forCategory.length > 0 ? forCategory : undefined,
       cta,
-      ...meta,
+      ...rest,
     };
+
+    return normalizedRecord;
   });
+}
+
+export function getForCategoryList(record) {
+  if (!record || typeof record !== 'object') {
+    return [];
+  }
+
+  const normalized = normalizeListValue(record.forCategory ?? record.for_category ?? []);
+  if (!Array.isArray(normalized)) {
+    return [];
+  }
+
+  return normalized
+    .map((item) => (typeof item === 'string' ? item.trim() : String(item).trim()))
+    .filter((item) => item.length > 0);
 }
 
 function ensureDirectoryExists(directory) {
@@ -450,7 +465,7 @@ export function getPoliciesData() {
 export function getProgramBySlug(slug) {
   try {
     const programs = getProgramsData();
-    return programs.find((program) => program.meta?.slug === slug);
+    return programs.find((program) => program.slug === slug);
   } catch (error) {
     console.error(`Error retrieving program with slug "${slug}":`, error);
     return undefined;
@@ -460,7 +475,7 @@ export function getProgramBySlug(slug) {
 export function getClassBySlug(slug) {
   try {
     const classes = getClassesData();
-    return classes.find((classItem) => classItem.meta?.slug === slug);
+    return classes.find((classItem) => classItem.slug === slug);
   } catch (error) {
     console.error(`Error retrieving class with slug "${slug}":`, error);
     return undefined;

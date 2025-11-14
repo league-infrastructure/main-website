@@ -6,26 +6,9 @@
     "content": "Python is the most popular programming language, and useful for every kind of\nprogramming, and it's the easiest to learn! Students learn fundamental\nprogramming concepts including variables, loops, conditionals, functions, and\nobject-oriented programming through hands-on projects and real-world\napplications.\n\n* Official Python certificates\n* In-person and online cohorts\n* Small classes with five students per teacher\n* Interactive coding exercises and games\n* Preparation for AP Computer Science Principles",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "python-programming",
-      "image": "python.png",
-      "topics": [
-        "programming"
-      ],
-      "classes": [
-        "intro-python",
-        "python-apprentice",
-        "python-games",
-        "python-orbitlab",
-        "makecode-arcade"
-      ],
-      "category": [
-        "group-classes"
-      ]
-    },
-    "cta": [],
     "slug": "python-programming",
     "image": "python.png",
+    "cta": [],
     "topics": [
       "programming"
     ],
@@ -47,23 +30,9 @@
     "content": "Java remains the backbone of enterprise software, finance, and emerging technologies. Our eight-level Java program guides students from basic syntax to advanced object-oriented design, data structures, and algorithms. Learners work in professional tools like IntelliJ and Eclipse, prepare for Oracle certifications, and graduate ready for college computer science programs or industry internships.\n\n- Oracle-aligned curriculum across eight levels\n- Hybrid and online class schedules for added flexibility\n- Project-based learning with real-world programming challenges\n- Industry-standard development tools (IntelliJ IDEA, Eclipse)\n- Professional certification preparation and capstone assessments\n- Advanced topics covering design patterns, data structures, and algorithms",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "java-programming",
-      "image": "java.png",
-      "topics": [
-        "programming"
-      ],
-      "classes": [
-        "java-weekly",
-        "private-tutoring"
-      ],
-      "category": [
-        "group-classes"
-      ]
-    },
-    "cta": [],
     "slug": "java-programming",
     "image": "java.png",
+    "cta": [],
     "topics": [
       "programming"
     ],
@@ -82,24 +51,9 @@
     "content": "Through Robot Riot and Tech Arcade labs learners prototype and program robots, wire sensors and actuators, and iterate on real-world engineering challenges in an energetic studio environment. AI Agents workshops introduce fundamental artificial intelligence concepts like perception, decision making, and responsible automation using approachable tools and experiments. The program emphasizes creativity, teamwork, and problem-solving while showing how robotics, machine learning, and emerging technologies intersect across industries—from manufacturing and healthcare to art and entertainment.\n\n- Prototype robots with sensors, actuators, and custom attachments\n- Explore AI Agents workshops focused on ethical and responsible automation\n- Collaborate in a studio environment that rewards experimentation and teamwork",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "technology",
-      "image": "robot_garage_kids.png",
-      "topics": [
-        "technology"
-      ],
-      "classes": [
-        "robot-riot",
-        "tech-arcade",
-        "ai-agents"
-      ],
-      "category": [
-        "group-classes"
-      ]
-    },
-    "cta": [],
     "slug": "technology",
     "image": "robot_garage_kids.png",
+    "cta": [],
     "topics": [
       "technology"
     ],
@@ -119,34 +73,8 @@
     "content": "These 60-90 minute sessions introduce students in grades 3-12 to\nprogramming through hands-on projects in Python, Java, robotics, and\nelectronics. With a less than 10:1 student-to-teacher ratio and no cost to\nfamilies, Tech Club removes barriers to computer science education. Many\nstudents who start in Tech Club later transition to our paid weekly classes as\nthey advance, but Tech Club provides valuable programming experience regardless\nof whether students continue. Classes run year-round at various locations.\n\n- Multiple weekly meetups hosted across San Diego County\n- Volunteer mentors and alumni support for personalized guidance\n- Hands-on explorations in Python, Java, robotics, and electronics\n- Accessible entry point that feeds into our full course pathway",
     "enroll": "Join the Tech Club Meetup group to RSVP for upcoming workshops and get\nlocation updates. Older students can also join the Code Clinic meetup for\nadvanced topics and pathways into Robot Garage and League Labs.",
     "curriculum": "",
-    "meta": {
-      "slug": "tech-club",
-      "image": "robot_riot.png",
-      "topics": [
-        "programming",
-        "robotics",
-        "electronics",
-        "games"
-      ],
-      "classes": [
-        "intro-python",
-        "robot-riot",
-        "motors-clinic",
-        "soldering-clinic",
-        "makecode-arcade"
-      ],
-      "category": [
-        "tech-club"
-      ],
-      "meetup": "tech-club",
-      "cta": [
-        {
-          "type": "meetup",
-          "label": "Join the Tech Club",
-          "url": "https://www.meetup.com/the-league-tech-club"
-        }
-      ]
-    },
+    "slug": "tech-club",
+    "image": "robot_riot.png",
     "cta": [
       {
         "type": "meetup",
@@ -154,8 +82,6 @@
         "url": "https://www.meetup.com/the-league-tech-club"
       }
     ],
-    "slug": "tech-club",
-    "image": "robot_riot.png",
     "topics": [
       "programming",
       "robotics",
@@ -181,28 +107,8 @@
     "content": "Students in League Labs function as apprentices, working on substantial\nresearch projects, contributing to open-source software, or developing their own\nambitious applications. With guidance from professional developers and computer\nscientists, students learn advanced topics like machine learning, systems\nprogramming, algorithm design, or specialized domains they're passionate about.\nLeague Lab students often present their work at conferences, publish papers, or\nlaunch real products. This program develops the independent learning and\nproblem-solving skills essential for success in computer science careers and\nresearch.\n\n- Apprenticeship-style mentorship with experienced engineers and researchers\n- Opportunities to contribute to open-source and real-world software projects\n- Exposure to advanced topics tailored to each student's interests and goals\n\nTo prepare for projects, students can take free short classes in our Code CLinic\nmeetup.  Classes cover topics like version control systems, professional\ndevelopment environments, software testing, debugging strategies, and\nindustry-standard practices that professional programmers use daily. Code Clinic\nhelps bridge the gap between learning syntax and working like a professional\ndeveloper, preparing students for internships, jobs, and university-level\ncomputer science. These classes are offered free as part of our mission to\nprepare youth for technology careers.\n\n- Weekly online masterclasses led by professional engineers\n- Focus on emerging technologies such as machine learning and containerization\n- Applied practice with testing, deployment, and collaborative workflows\n\nLeague Labs operates like a studio: students apply, select a specialty team,\nand commit to weekly standups, sprint demos, and collaborative build sessions.\nMentors guide apprentices through research design, version control, testing,\nand technical writing so they graduate ready for internships, college labs, or\nopen-source contributions. League Labs projects often feed into our Code Clinic\nclasses and public workshops, giving students a platform to teach what they\nbuild.",
     "enroll": "League Labs runs by semester an over the summer, with an application process that is open a few times a year. Follow the linkk below to be added to the interest list for the next cohort.",
     "curriculum": "",
-    "meta": {
-      "slug": "league-labs",
-      "image": "league_labs.png",
-      "topics": [
-        "programming",
-        "robotics",
-        "electronics",
-        "career",
-        "projects"
-      ],
-      "category": [
-        "league-labs"
-      ],
-      "meetup": "league-labs",
-      "cta": [
-        {
-          "type": "page",
-          "label": "Register Interest in League Labs",
-          "url": "https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform"
-        }
-      ]
-    },
+    "slug": "league-labs",
+    "image": "league_labs.png",
     "cta": [
       {
         "type": "page",
@@ -210,8 +116,6 @@
         "url": "https://docs.google.com/forms/d/e/1FAIpQLSem_gx5qIJiHGuHKsX5h7RyCyz9IqIpSt5KYmwRjGaYdg8Z8w/viewform"
       }
     ],
-    "slug": "league-labs",
-    "image": "league_labs.png",
     "topics": [
       "programming",
       "robotics",
@@ -231,28 +135,9 @@
     "content": "Students learn the detailed functioning of motor signals and power\nsystems, basic electrical circuits, how servos and stepper motors work at a\ntechnical level, 3D printing for custom robot parts, and soldering electronics.\nSpecial projects might include the beginnings of robotic navigation, working\nwith sensors like sonar, infrared distance sensors, and April Tags for robot\nawareness and positioning. Projects become more ambitious and student-directed,\nallowing learners to pursue their specific interests whether that's competition\nrobotics, practical automation, or creative robotic art. The course prepares\nstudents for participation in robotics competitions and provides skills directly\napplicable to careers in robotics engineering, automation, and mechatronics.\n\n- Deep dives into motor control, sensors, and power systems\n- Fabrication practice with 3D printing and soldering\n- Project tracks for competition robotics, automation, and creative builds",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "robot-garage",
-      "image": "robot_garage.png",
-      "topics": [
-        "programming",
-        "robotics",
-        "electronics"
-      ],
-      "classes": [
-        "robot-riot",
-        "motors-clinic",
-        "soldering-clinic",
-        "hour-of-microbit"
-      ],
-      "category": [
-        "league-labs"
-      ],
-      "meetup": "tech-club"
-    },
-    "cta": [],
     "slug": "robot-garage",
     "image": "robot_garage.png",
+    "cta": [],
     "topics": [
       "programming",
       "robotics",

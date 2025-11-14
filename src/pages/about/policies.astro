@@ -40,7 +40,7 @@ const toButtonVariant = (value?: string): "primary" | "secondary" | "outline" | 
 
 const processedPolicies = await Promise.all(
   rawPolicies.map(async (policy, index) => {
-    const baseSlug = policy.slug ?? policy.meta?.slug ?? slugify(policy.title ?? "");
+    const baseSlug = policy.slug ?? slugify(policy.title ?? "");
     const fallbackId = `policy-${index + 1}`;
     const id = (baseSlug ? slugify(baseSlug) : slugify(policy.title ?? "")) || fallbackId;
 
@@ -48,11 +48,7 @@ const processedPolicies = await Promise.all(
     const contentHtml = policy.content ? await marked.parse(policy.content) : "";
     const summaryText = (policy.blurb ?? descriptionParagraphs[0] ?? "").trim();
 
-    const rawCtas = Array.isArray(policy.cta)
-      ? policy.cta
-      : Array.isArray(policy.meta?.cta)
-        ? policy.meta.cta
-        : [];
+    const rawCtas = Array.isArray(policy.cta) ? policy.cta : [];
 
     const ctas = rawCtas
       .filter((action): action is StructuredCta => Boolean(action?.label && action?.url))

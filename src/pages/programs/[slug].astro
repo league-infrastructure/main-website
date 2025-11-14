@@ -13,6 +13,7 @@ import {
   getClassesData,
   getCategoriesData,
   getStructuredContent,
+  getForCategoryList,
 } from "../../utils/markdown.js";
 import type { StructuredContentRecord, StructuredCta } from "../../types/content";
 
@@ -28,71 +29,43 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const classes = getClassesData();
   const categories = getCategoriesData();
   const contentEntries = getStructuredContent("content") as StructuredContentRecord[];
-  const extractGuideCategories = (record?: StructuredContentRecord): string[] => {
-    if (!record) {
-      return [];
-    }
-
-    const rawValue =
-      (record.meta?.["for_category"] as unknown) ??
-      (record["for_category"] as unknown) ??
-      (record.meta?.["_for_category"] as unknown) ??
-      (record["_for_category"] as unknown);
-
-    if (!rawValue) {
-      return [];
-    }
-
-    if (Array.isArray(rawValue)) {
-      return rawValue
-        .map((item) => (typeof item === "string" ? item.trim() : String(item).trim()))
-        .filter((item) => item.length > 0);
-    }
-
-    if (typeof rawValue === "string") {
-      return rawValue
-        .split(",")
-        .map((item) => item.trim())
-        .filter((item) => item.length > 0);
-    }
-
-    return [];
-  };
   const enrollmentGuides = contentEntries.filter(
-    (entry) => (entry.meta?.slug ?? entry.slug) === "enrollment-instructions",
+    (entry) => entry.slug === "enrollment-instructions",
   );
   return programs
     .map((entry) => {
-      const slug = entry.meta?.slug ?? entry.slug;
+      const slug = entry.slug;
       if (!slug) {
         return undefined;
       }
 
-      const classSlugs = entry.meta?.classes ?? entry.classes ?? [];
+      const classSlugs = entry.classes ?? [];
       const relatedClasses = classSlugs
         .map((classSlug: string) =>
-          classes.find((classItem) => (classItem.meta?.slug ?? classItem.slug) === classSlug),
+          classes.find((classItem) => classItem.slug === classSlug),
         )
         .filter(Boolean) as StructuredContentRecord[];
 
-      const categorySlugs = Array.isArray(entry.meta?.category)
-        ? entry.meta.category
-        : Array.isArray(entry.category)
-          ? entry.category
-          : [];
+      const rawCategorySlugs = Array.isArray(entry.category) ? entry.category : [];
+
+      const categorySlugs = rawCategorySlugs
+        .map((categorySlug: string) =>
+          typeof categorySlug === "string" && categorySlug.trim().length > 0
+            ? categorySlug.trim()
+            : undefined,
+        )
+        .filter((value: string | undefined): value is string => typeof value === "string" && value.length > 0);
 
       const matchedCategories = categorySlugs
         .map((categorySlug: string) =>
-          categories.find(
-            (categoryEntry) => (categoryEntry.meta?.slug ?? categoryEntry.slug) === categorySlug,
-          ),
+          categories.find((categoryEntry) => categoryEntry.slug === categorySlug),
         )
         .filter(Boolean) as StructuredContentRecord[];
       const enrollmentGuide = enrollmentGuides.find((guide) => {
         if (categorySlugs.length === 0) {
           return false;
         }
-        const guideCategories = extractGuideCategories(guide);
+        const guideCategories = getForCategoryList(guide);
         return guideCategories.some((category) => categorySlugs.includes(category));
       });
 
@@ -112,13 +85,13 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 const { programData, relatedClasses, categoryData, enrollmentGuide: enrollmentGuideRecord } =
   Astro.props as unknown as RouteProps;
 
-const programSlug = programData.meta?.slug ?? programData.slug;
+const programSlug = programData.slug;
 
 if (!programData || !programSlug) {
   throw new Error("Program data not found for requested slug");
 }
 
-const heroImageSource = programData.meta?.image ?? programData.image;
+const heroImageSource = programData.image;
 const heroImage = heroImageSource
   ? `/images/cards/${heroImageSource}`
   : "/images/cards/programs.png";
@@ -130,7 +103,7 @@ const descriptionParagraphs = descriptionText
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
   .filter((paragraph) => paragraph.length > 0);
-const topics = programData.meta?.topics ?? programData.topics ?? [];
+const topics = programData.topics ?? [];
 const hasContent = Boolean(programData.content && programData.content.trim().length > 0);
 const renderedContent = hasContent ? await marked.parse(programData.content ?? "") : undefined;
 const programEnrollContent =
@@ -139,23 +112,13 @@ const categoryEntries = Array.isArray(categoryData) ? categoryData : [];
 const categoryEnrollSections = categoryEntries
   .map((entry) => (typeof entry.enroll === "string" ? entry.enroll.trim() : ""))
   .filter((content) => content.length > 0);
-const categoryCtas = categoryEntries.flatMap((entry) => {
-  if (Array.isArray(entry.cta)) {
-    return entry.cta;
-  }
-  if (Array.isArray(entry.meta?.cta)) {
-    return entry.meta?.cta as StructuredCta[];
-  }
-  return [];
-});
+const categoryCtas = categoryEntries.flatMap((entry) => (Array.isArray(entry.cta) ? entry.cta : []));
 const sanitizedCategoryCtas = categoryCtas.filter(
   (action): action is StructuredCta => Boolean(action?.label && action?.url),
 );
 const programCtas = Array.isArray(programData.cta)
   ? (programData.cta as StructuredCta[])
-  : Array.isArray(programData.meta?.cta)
-    ? (programData.meta.cta as StructuredCta[])
-    : [];
+  : [];
 const sanitizedProgramCtas = programCtas.filter(
   (action): action is StructuredCta => Boolean(action?.label && action?.url),
 );
@@ -197,7 +160,7 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
         {heroDescription && <p class="program-hero__lead">{heroDescription}</p>}
         {topics.length > 0 && (
           <div class="program-hero__topics">
-            {topics.map((topic) => (
+            {topics.map((topic: string) => (
               <span class="topic-pill">{topic}</span>
             ))}
           </div>
@@ -235,9 +198,9 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
       <div class="program-classes">
         {relatedClasses
           .map((classItem) => {
-            const classSlug = classItem.meta?.slug ?? classItem.slug;
-            const classImage = classItem.meta?.image ?? classItem.image;
-            const classLevel = classItem.meta?.level ?? classItem.level;
+            const classSlug = classItem.slug;
+            const classImage = classItem.image;
+            const classLevel = classItem.level;
 
             if (!classSlug || !classImage) {
               console.warn(`Related class "${classItem.title}" is missing slug or image.`);
@@ -270,7 +233,7 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
         <h2>How to Enroll</h2>
       </SectionHeader>
 
-      <div class="program-enroll">
+      <div class={`program-enroll${showEnrollmentGuide && enrollmentGuideHtml ? " program-enroll--with-guide" : ""}`}>
         <div class="program-enroll__primary">
           {effectiveEnrollContent && (
             <div
@@ -397,7 +360,7 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
   }
 
   @media (min-width: 960px) {
-    .program-enroll {
+    .program-enroll--with-guide {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }

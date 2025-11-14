@@ -6,11 +6,8 @@
     "content": "## TUITION\n\n<a href=\"https://jtl.pike13.com/membership_products/615316\">Tuition plans</a>\noffer one class per week. Tuition is due on the 1st of each month. Monthly\ntuition remains the same whether it is a long (5-week) or short (3-week) month\nand regardless of absences, vacations, or holidays. There are no make-up classes\nfor holidays, as they are built into the cost of tuition.\n\n## MEMBERSHIP\n\n<a href=\"https://jtl.pike13.com/membership_products/590552\">Membership plans</a>\noffer 6 visits per month, and up to 2 unused visits in one month will roll over\nto the next month. You are responsible for enrolling and cancelling your\nstudents; no-shows will be charged a visit. If you expect to miss a class,\ncancel your attendance in the class and enroll in another one. You can enroll in\nany class that is allowed for the Membership plan, even in multiple classes per\nweek.  There are no refunds issued for missed classes that do not roll over; you\nare responsible for putting a hold on your membership if you expect to miss many\nclasses.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "membership-plans-and-passes"
-    },
-    "cta": [],
-    "slug": "membership-plans-and-passes"
+    "slug": "membership-plans-and-passes",
+    "cta": []
   },
   {
     "title": "Payment Options",
@@ -19,11 +16,8 @@
     "content": "<strong>PAYMENT OPTIONS</strong> Tuition is only accepted through our\nAuto-pay program. A valid credit card must be connected at the time of\nenrollment to auto-draft. You must set up auto-pay by adding your credit card to\nthe Parent Portal, which will be charged on the 1st of each month. To add your\ncard to the Parent Portal, login to https://jtl.pike13.com/accounts/sign_in and\nfollow the steps below:\n\n1. At the top of the page, tap ​Your Stuff​.\n2. In the right menu, tap ​Payment Methods​.\n3. Tap ​Add New Card​.\n4. Enter payment information, and then tap ​Save​.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "payment-options"
-    },
-    "cta": [],
-    "slug": "payment-options"
+    "slug": "payment-options",
+    "cta": []
   },
   {
     "title": "Makeup Classes",
@@ -32,11 +26,8 @@
     "content": "While makeups are not mandatory, they are highly encouraged. At The\nLeague, we strongly encourage all students to attend their classes consistently,\nin order to develop their programming skills.\n\nAfter you cancel a class, you will be issued a <strong>Make-up Pass, </strong>\nwhich you can use on another visit. Return to the scheduling page for the class\nyou want to enroll in, and enroll in the class. For \"Which pass or plan do you\nwant to use for this?\" select the pass you wish to use.\n\nWe no longer offer Make Up classes as separate labs. Instead, you can simply\nenroll your student in another class, during the same week, or a different week.\nYou can schedule makeup classes in the same way as any other class. Just enroll\nyour student in a class that offers the same topic and similar level as the\nclass your student normally attends.\n\nVisit your <a href=\"https://jtl.pike13.com/me\">LEAGUE profile </a>to find and\nschedule your classes.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "makeup-classes"
-    },
-    "cta": [],
-    "slug": "makeup-classes"
+    "slug": "makeup-classes",
+    "cta": []
   },
   {
     "title": "Refund Policies",
@@ -45,11 +36,8 @@
     "content": "## REFUNDS\n\nTuition is non-refundable and\nnon-transferable. There are no credits, refunds, roll overs or adjustments for\nabsences or school closure.\n\n## LATE FEE\n\nIf tuition is received after the 1st of each month, a $25 late fee will be\nautomatically charged to your account. It is the client’s responsibility to pay\nNo Exceptions.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "refund-policies"
-    },
-    "cta": [],
-    "slug": "refund-policies"
+    "slug": "refund-policies",
+    "cta": []
   },
   {
     "title": "Cancellation",
@@ -58,11 +46,8 @@
     "content": "Please cancel classes if your student can make them. If you do not\ncancel, a visit will be deducted from your plan or pass.\n\n<ol>\n \t<li>Sign in to the Client Portal.</li>\n \t<li>Under <strong>Upcoming</strong>, click the name of the appointment you wish to cancel your registration for.</li>\n \t<li>Click <strong>Cancel Registration</strong>, and then choose <strong>OK</strong>.</li>\n</ol>\n\nSee our <a href=\"https://www.jointheleague.org/about/policies/enroll/\">Guide to\nEnrollment</a> for more details.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "cancellation"
-    },
-    "cta": [],
-    "slug": "cancellation"
+    "slug": "cancellation",
+    "cta": []
   },
   {
     "title": "Enrolling in Classes",
@@ -71,11 +56,8 @@
     "content": "You can enroll in classes from your <a href=\"https://jtl.pike13.com/me\">LEAGUE Parent Portal. </a>\n\nTo enroll you will need to:\n\n<ul>\n \t<li>Create an account, for both you and your children</li>\n \t<li>Purchase a plan or passes</li>\n \t<li>Enroll in the first class from the website.</li>\n \t<li>Let us or an instructor know you'd like to enroll in all classes of the same date and time.</li>\n</ul>\n\nSee our <a href=\"https://www.jointheleague.org/about/policies/enroll/\">Guide to\nEnrollment</a> for more details.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "enrolling-in-classes"
-    },
-    "cta": [],
-    "slug": "enrolling-in-classes"
+    "slug": "enrolling-in-classes",
+    "cta": []
   },
   {
     "title": "Privacy Policy",
@@ -84,24 +66,14 @@
     "content": "The League of Amazing Programmers limits the personal data we collect to\ninformation that supports instruction, safety, and account management. Parent or\nguardian contact details, student names, and limited demographic information are\nstored in secure systems that comply with federal and state privacy regulations.\nAccess to this data is restricted to authorized staff and mentors who need it to\nsupport students.\n\nFamilies can review our detailed commitment to student privacy, including how we\nmanage third-party tools, by reading the full policy on our site.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "privacy-policy",
-      "cta": [
-        {
-          "type": "page",
-          "label": "Read the Privacy Policy",
-          "url": "/about/policies/privacy/"
-        }
-      ]
-    },
+    "slug": "privacy-policy",
     "cta": [
       {
         "type": "page",
         "label": "Read the Privacy Policy",
         "url": "/about/policies/privacy/"
       }
-    ],
-    "slug": "privacy-policy"
+    ]
   },
   {
     "title": "Non-discrimination Policy",
@@ -110,23 +82,13 @@
     "content": "Creating a welcoming learning environment means actively preventing\ndiscrimination, harassment, and retaliation. The League provides equal access to\nprograms regardless of race, color, national origin, gender identity, sexual\norientation, disability, religion, or any protected class. Students, mentors,\nand families are expected to uphold these standards in all classes and events.\n\nThe full policy explains how concerns can be reported, how incidents are\nreviewed, and the corrective steps taken to protect participants.",
     "enroll": "",
     "curriculum": "",
-    "meta": {
-      "slug": "non-discrimination-policy",
-      "cta": [
-        {
-          "type": "page",
-          "label": "Read the Non-discrimination Policy",
-          "url": "/about/policies/nondescrim/"
-        }
-      ]
-    },
+    "slug": "non-discrimination-policy",
     "cta": [
       {
         "type": "page",
         "label": "Read the Non-discrimination Policy",
         "url": "/about/policies/nondescrim/"
       }
-    ],
-    "slug": "non-discrimination-policy"
+    ]
   }
 ]
