@@ -1,28 +1,13 @@
 # Pike13 Services
 
-For these tasks, you will need to refer to the Pike13 API, https://developer.pike13.com/docs/api/v2, and use the `pike13_client_id` from `config.ts`
+- [DONE] Implement the Pike13Client as described in /docs/pike13_client.md
 
-- [DONE] Create a new component, `Pike13Occurrences`, which will take  a list of
-  `service_id` and fetch a service from `/api/v2/front/services` and event
-  occurrences from the `/api/v2/front/event_occurrences`. Fetch the events for
-  the dates from the beginning of today to the end of 90 days from now. Then
-  display the next 4 events. Initially, just display in a text format,
-  displaying: name, description, staff name, location name ( lookup in
-  `src/data/locations.json` ). Of course, do this only if the Content Record has
-  a `service` field, which lists the `service_ids`. Display the event
-  occurrances in class pages, below the Course overview and below the How to
-  Enroll section. 
+- [DONE] Let's create a  Component, `Pike13Events` that will run in the class pages to
+   get a list of the Events for a service. Get the service_id from the class
+   content record's `service` field. ( but this should be a parameter to the
+   component )  Dsplay these events in a Section as pretty-printed json records. 
 
-
-- [DONE] Display the Pike12 Event Occurrances in a <UL> in a Section, showing these
-  fields: name, start_at, instructor name, location name
-
-- [DONE] Display the next week of events. 
-
-- [DONE] Oh, this is supposed to be a Javascript component that fetches records from the client. 
-
-- [DONE] Let's create another Javascript component, `Pike13Events` that also uses the
-  `service` field to match services, but then gets the events, rather than
-  occurrances, using https://developer.pike13.com/docs/api/v2#endpoint-event. DIsplay these in the class pages, just before 'Upcoming Sessions'; call it "Upcomming Events". In this case, instead of the start_at, display the ical.rrule. Also display the name, start_time, instructor and location_name. 
-  
-- [DONE] For the `Pike13Events` component, filter out events that have an end_time in the past. 
+- [DONE] Create a new page for the url `/test/p13events/` that has a basic layout and
+   just the  `Pike13Events`, using the service_id 270616. Check that your
+   Pike13Events component is displaying events that have "Python" in their
+   names. 

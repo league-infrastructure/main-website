@@ -1,5 +1,11 @@
+import { pike13_client_id, pike13_base_url } from "../content/config";
+
+
+
+
+
 export interface Pike13ClientOptions {
-  baseUrl: string;
+  baseUrl?: string;
   clientId?: string | null;
   defaultHeaders?: Record<string, string>;
   services?: Array<number | string | null>;
@@ -80,33 +86,19 @@ export interface Pike13GetOccurrancesParams {
 }
 
 export class Pike13Client {
-  private readonly baseUrl: string;
-  private readonly clientId: string | null;
+
   private readonly defaultHeaders: Record<string, string>;
-  private serviceIds: number[];
 
-  constructor(options: Pike13ClientOptions) {
-    const baseUrl = options?.baseUrl?.trim() ?? "";
-    if (!baseUrl) {
-      throw new Error("Pike13Client requires a baseUrl");
-    }
+  constructor(options: Pike13ClientOptions = {}) {
 
-    this.baseUrl = baseUrl.replace(/\/$/, "");
-    this.clientId = options?.clientId?.trim() ? options.clientId.trim() : null;
     this.defaultHeaders = {
       Accept: "application/json",
       ...options?.defaultHeaders,
     };
-    this.serviceIds = this.normalizeIds(options?.services ?? []);
+
   }
 
-  setServices(values: Array<number | string | null | undefined>): void {
-    this.serviceIds = this.normalizeIds(values ?? []);
-  }
 
-  getServices(): number[] {
-    return [...this.serviceIds];
-  }
 
   async fetch<T = unknown>(path: string, options: Pike13FetchOptions = {}): Promise<Pike13FetchResult<T>> {
     const url = this.buildUrl(path, options.params ?? {}, options.includeClientId ?? true);
@@ -142,6 +134,17 @@ export class Pike13Client {
       data,
       raw,
     };
+  }
+
+  async fetchPage<T = unknown>(path: string, page?: number): Promise<Pike13FetchResult<T>> {
+    
+    const params = typeof page === "number" && Number.isFinite(page)
+      ? { page: Math.max(1, Math.trunc(page)) }
+      : undefined;
+
+    return this.fetch<T>(path, {
+      params,
+    });
   }
 
   async fetchPages<T = unknown>(path: string, options: Pike13FetchPagesOptions = {}): Promise<Pike13FetchPagesResult<T>> {
@@ -197,6 +200,16 @@ export class Pike13Client {
     delete query.includeClientId;
     delete query.maxPages;
 
+    if (query.start_at && !query.starts_after) {
+      query.starts_after = this.normalizeDateParam(query.start_at);
+      delete query.start_at;
+    }
+
+    if (query.end_at && !query.starts_before) {
+      query.starts_before = this.normalizeDateParam(query.end_at);
+      delete query.end_at;
+    }
+
     this.applyDefaultServices(query, "service_ids", "service_id");
 
     if (allPages) {
@@ -249,6 +262,99 @@ export class Pike13Client {
       params: query,
       includeClientId,
     });
+  }
+
+  async getServiceEvents(
+    serviceIds: Array<number | string | null | undefined>,
+    from?: string | Date | null,
+    to?: string | Date | null,
+  ): Promise<unknown[]> {
+    const normalizedIds = this.normalizeIds(serviceIds ?? []);
+    if (normalizedIds.length === 0) {
+      return [];
+    }
+
+    const params: Pike13GetEventsParams = {
+      service_ids: normalizedIds,
+      allPages: true,
+      includeClientId: true,
+    };
+
+    const startValue = this.normalizeDateParam(from ?? this.defaultDateOffset(-30));
+    const endValue = this.normalizeDateParam(to ?? this.defaultDateOffset(90));
+    if (startValue) {
+      params.starts_after = startValue;
+    }
+    if (endValue) {
+      params.starts_before = endValue;
+    }
+
+    const result = await this.getEvents(params);
+    const events = this.extractItemsFromResult(result, "events");
+    if (!result.ok && events.length === 0) {
+      throw new Error(`Failed to fetch Pike13 events (status ${result.status})`);
+    }
+    return events;
+  }
+
+  async getServiceOccurrrances(
+    serviceIds: Array<number | string | null | undefined>,
+    from?: string | Date | null,
+    to?: string | Date | null,
+  ): Promise<unknown[]> {
+    const normalizedIds = this.normalizeIds(serviceIds ?? []);
+    if (normalizedIds.length === 0) {
+      return [];
+    }
+
+    const params: Pike13GetOccurrancesParams = {
+      service_ids: normalizedIds,
+      allPages: true,
+      includeClientId: true,
+    };
+
+    const startValue = this.normalizeDateParam(from ?? this.defaultDateOffset(-30));
+    const endValue = this.normalizeDateParam(to ?? this.defaultDateOffset(90));
+    if (startValue) {
+      params.starts_after = startValue;
+    }
+    if (endValue) {
+      params.starts_before = endValue;
+    }
+
+    const result = await this.getOccurrances(params);
+    const occurrences = this.extractItemsFromResult(result, "event_occurrences");
+    if (!result.ok && occurrences.length === 0) {
+      throw new Error(`Failed to fetch Pike13 occurrences (status ${result.status})`);
+    }
+    return occurrences;
+  }
+
+  private defaultDateOffset(days: number): Date {
+    const offsetDays = Number.isFinite(days) ? Math.trunc(days) : 0;
+    const reference = new Date();
+    reference.setDate(reference.getDate() + offsetDays);
+    if (offsetDays >= 0) {
+      reference.setHours(23, 59, 59, 999);
+    } else {
+      reference.setHours(0, 0, 0, 0);
+    }
+    return reference;
+  }
+
+  private extractItemsFromResult<T>(
+    result: Pike13FetchPagesResult | Pike13FetchResult,
+    dataKey: string,
+  ): T[] {
+    if ("items" in result && Array.isArray((result as Pike13FetchPagesResult<T>).items)) {
+      return (result as Pike13FetchPagesResult<T>).items as T[];
+    }
+
+    if ("data" in result && result.data) {
+      return this.extractData<T>(result.data, dataKey);
+    }
+
+    return [];
   }
 
   private normalizeIds(values: Array<number | string | null | undefined>): number[] {
@@ -319,6 +425,26 @@ export class Pike13Client {
     }
 
     search.append(key, stringValue);
+  }
+
+  private normalizeDateParam(value: unknown): string | undefined {
+    if (value instanceof Date) {
+      return value.toISOString();
+    }
+
+    if (typeof value === "string" && value.trim().length > 0) {
+      const numeric = Date.parse(value);
+      if (Number.isNaN(numeric)) {
+        return value.trim();
+      }
+      return new Date(numeric).toISOString();
+    }
+
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return new Date(value).toISOString();
+    }
+
+    return undefined;
   }
 
   private applyDefaultServices(target: Record<string, unknown>, arrayKey: string, singleKey: string): void {

@@ -1,4 +1,5 @@
-import { pike13_base_url, pike13_client_id } from "../content/config";
+import { getPike13Config } from "../config/pike13";
+export { getPike13Config } from "../config/pike13";
 
 const USER_AGENT = "LeagueWebsite/1.0 (+https://www.jointheleague.org)";
 
@@ -50,15 +51,6 @@ interface RawServiceDetail {
 
 const occurrenceCache = new Map<string, Promise<Pike13Occurrence[]>>();
 const serviceDetailCache = new Map<number, Promise<Pike13ServiceDetail | null>>();
-
-export function getPike13Config(): Pike13Config {
-  const rawBase = typeof pike13_base_url === "string" ? pike13_base_url.trim() : "";
-  const rawClient = typeof pike13_client_id === "string" ? pike13_client_id.trim() : "";
-  return {
-    baseUrl: rawBase.length > 0 ? rawBase.replace(/\/$/, "") : null,
-    clientId: rawClient.length > 0 ? rawClient : null,
-  };
-}
 
 export async function fetchServiceOccurrences(
   serviceIds: number[],

@@ -7,7 +7,6 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
 import Pike13Events from "../../components/Pike13Events.astro";
-import Pike13Occurrences from "../../components/Pike13Occurrences.astro";
 import { marked } from "marked";
 import {
   getClassesData,
@@ -148,17 +147,34 @@ const fallbackCtas = categoryCtas.filter(
   (action) => action?.label && action?.url,
 );
 const resolvedCtas = primaryCtas.length > 0 ? primaryCtas : fallbackCtas;
-const serviceIds = Array.isArray(classData.services)
-  ? (classData.services as Array<number | string>).filter((value) => {
-      if (typeof value === "number" && Number.isFinite(value)) {
-        return true;
-      }
-      if (typeof value === "string") {
-        return value.trim().length > 0;
-      }
-      return false;
-    })
-  : [];
+const serviceValues: Array<number | string> = [];
+if (Array.isArray(classData.services)) {
+  for (const value of classData.services as Array<unknown>) {
+    if (typeof value === "number" || typeof value === "string") {
+      serviceValues.push(value);
+    }
+  }
+} else if (typeof classData.services === "number" || typeof classData.services === "string") {
+  serviceValues.push(classData.services as number | string);
+}
+
+if (typeof classData.service === "number" || typeof classData.service === "string") {
+  serviceValues.push(classData.service as number | string);
+}
+
+const normalizedServiceIds = serviceValues
+  .map((value) => {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return Math.trunc(value);
+    }
+    if (typeof value === "string" && value.trim().length > 0) {
+      return value.trim();
+    }
+    return null;
+  })
+  .filter((value): value is number | string => value !== null);
+
+const primaryServiceId = normalizedServiceIds.length > 0 ? normalizedServiceIds[0] : null;
 const enrollMessages: Array<{ content: string; source: "class" | "category" }> =
   [];
 
@@ -262,15 +278,9 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
       }
     </div>
   </Section>
-
-  {serviceIds.length > 0 && (
-    <Pike13Events serviceIds={serviceIds} />
+  {primaryServiceId && (
+    <Pike13Events serviceId={primaryServiceId} />
   )}
-
-  {serviceIds.length > 0 && (
-    <Pike13Occurrences serviceIds={serviceIds} heading="Upcoming Sessions" />
-  )}
-
   {
     hasEnrollSection && (
       <>
