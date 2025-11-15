@@ -11,3 +11,8 @@
    just the  `Pike13Events`, using the service_id 270616. Check that your
    Pike13Events component is displaying events that have "Python" in their
    names. 
+
+- [DONE] Update the Pike13Events to extract records from the returned data that have
+   name,  icals.day and icals.start_at. Retain only unique values. Convert the
+   start_at date to the `local_timezone` value (in config.ts). Convert icals.day
+   to Day names. Display the data as a list of: name, day, start time (HH:MM).

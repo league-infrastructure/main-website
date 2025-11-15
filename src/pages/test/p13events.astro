@@ -16,7 +16,12 @@ const serviceId = 270616;
       <p>This page renders Pike13 event data so we can confirm the integration is working.</p>
     </Section>
 
-    <Pike13Events serviceId={serviceId} heading="Service 270616 Events" />
+    <Pike13Events serviceId={serviceId} heading="Service 270616 Events (Custom)" >
+      <li class="custom-event-item">
+        <strong data-pike13-name></strong> -  <span data-pike13-day></span> at <span data-pike13-time></span>
+      </li>
+    </Pike13Events>
+
   </main>
 </BaseLayout>
 
@@ -30,5 +35,19 @@ const serviceId = 270616;
   .p13events-page p {
     font-size: 1rem;
     line-height: 1.6;
+  }
+
+  .custom-event-item {
+    padding: var(--space-md, 16px);
+    background: var(--color-surface, #fff);
+    border: 1px solid var(--color-border, #e5e5e5);
+    border-radius: var(--radius-md, 12px);
+    margin-bottom: var(--space-sm, 12px);
+    list-style: none;
+  }
+
+  .custom-event-item strong {
+    color: var(--color-primary, #f37121);
+    font-size: 1.125rem;
   }
 </style>
