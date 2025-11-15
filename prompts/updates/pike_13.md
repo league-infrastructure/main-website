@@ -25,3 +25,4 @@ For these tasks, you will need to refer to the Pike13 API, https://developer.pik
   `service` field to match services, but then gets the events, rather than
   occurrances, using https://developer.pike13.com/docs/api/v2#endpoint-event. DIsplay these in the class pages, just before 'Upcoming Sessions'; call it "Upcomming Events". In this case, instead of the start_at, display the ical.rrule. Also display the name, start_time, instructor and location_name. 
   
+- [DONE] For the `Pike13Events` component, filter out events that have an end_time in the past. 
