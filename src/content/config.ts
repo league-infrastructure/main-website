@@ -24,4 +24,4 @@ export const collections = {
 };
 
 export const pike13_base_url = 'https://jtl.pike13.com';
-export const pike13_client_id = process.env.PIKE13_CLIENT_ID ?? '';
+export const pike13_client_id = process.env.PIKE13_CLIENT_ID ?? 'NO_CLIENT_ID_SET';

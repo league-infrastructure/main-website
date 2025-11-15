@@ -1,76 +1,57 @@
-const FALLBACK_BASE_URL = "https://jtl.pike13.com";
+/**
+ * Pike13 configuration that works both server-side and client-side.
+ * 
+ * Server-side: Uses process.env
+ * Client-side: Uses import.meta.env (Astro injects PUBLIC_ prefixed env vars)
+ */
 
-const pickString = (...values: Array<unknown>): string | undefined => {
-  for (const value of values) {
-    if (typeof value === "string") {
-      const trimmed = value.trim();
-      if (trimmed.length > 0) {
-        return trimmed;
-      }
-    }
+export function getPike13BaseUrl(): string {
+  // Try client-side first (import.meta.env)
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    return import.meta.env.PUBLIC_PIKE13_BASE_URL || 'https://jtl.pike13.com';
   }
-  return undefined;
-};
-
-const readImportMetaEnv = (): Record<string, unknown> | undefined => {
-  if (typeof import.meta !== "undefined") {
-    const meta = import.meta as { env?: Record<string, unknown> };
-    if (meta && typeof meta.env === "object" && meta.env) {
-      return meta.env;
-    }
+  
+  // Fallback to server-side (process.env)
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env.PUBLIC_PIKE13_BASE_URL || 'https://jtl.pike13.com';
   }
-  return undefined;
-};
-
-const readProcessEnv = (): Record<string, unknown> | undefined => {
-  if (typeof process !== "undefined" && typeof process.env === "object") {
-    return process.env as Record<string, unknown>;
+  
+  // Global fallback (in case running in different context)
+  if (typeof globalThis !== 'undefined' && (globalThis as any).PIKE13_BASE_URL) {
+    return (globalThis as any).PIKE13_BASE_URL;
   }
-  return undefined;
-};
-
-const readGlobalEnv = (): Record<string, unknown> | undefined => {
-  if (typeof globalThis === "object" && globalThis) {
-    return globalThis as Record<string, unknown>;
-  }
-  return undefined;
-};
-
-export interface Pike13EnvConfig {
-  baseUrl: string | null;
-  clientId: string | null;
+  
+  return 'https://jtl.pike13.com';
 }
 
-export const getPike13BaseUrl = (): string => {
-  const importMetaEnv = readImportMetaEnv();
-  const processEnv = readProcessEnv();
-  const globalEnv = readGlobalEnv();
-  const base = pickString(
-    importMetaEnv?.PUBLIC_PIKE13_BASE_URL,
-    importMetaEnv?.PIKE13_BASE_URL,
-    processEnv?.PUBLIC_PIKE13_BASE_URL,
-    processEnv?.PIKE13_BASE_URL,
-    globalEnv?.__PIKE13_BASE_URL,
-  );
-  const resolved = base ?? FALLBACK_BASE_URL;
-  return resolved.replace(/\/$/, "");
-};
+export function getPike13ClientId(): string {
+  // Try client-side first (import.meta.env)
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    return import.meta.env.PUBLIC_PIKE13_CLIENT_ID || 'NO_CLIENT_ID_SET';
+  }
+  
+  // Fallback to server-side (process.env)
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env.PIKE13_CLIENT_ID || 'NO_CLIENT_ID_SET';
+  }
+  
+  // Global fallback
+  if (typeof globalThis !== 'undefined' && (globalThis as any).PIKE13_CLIENT_ID) {
+    return (globalThis as any).PIKE13_CLIENT_ID;
+  }
+  
+  return 'NO_CLIENT_ID_SET';
+}
 
-export const getPike13ClientId = (): string | null => {
-  const importMetaEnv = readImportMetaEnv();
-  const processEnv = readProcessEnv();
-  const globalEnv = readGlobalEnv();
-  const clientId = pickString(
-    importMetaEnv?.PUBLIC_PIKE13_CLIENT_ID,
-    importMetaEnv?.PIKE13_CLIENT_ID,
-    processEnv?.PUBLIC_PIKE13_CLIENT_ID,
-    processEnv?.PIKE13_CLIENT_ID,
-    globalEnv?.__PIKE13_CLIENT_ID,
-  );
-  return clientId ?? null;
-};
+export interface Pike13Config {
+  baseUrl: string;
+  clientId: string;
+}
 
-export const getPike13Config = (): Pike13EnvConfig => ({
-  baseUrl: getPike13BaseUrl(),
-  clientId: getPike13ClientId(),
-});
+export function getPike13Config(): Pike13Config {
+  return {
+    baseUrl: getPike13BaseUrl(),
+    clientId: getPike13ClientId(),
+  };
+}
+

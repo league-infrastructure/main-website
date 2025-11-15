@@ -1,15 +1,20 @@
 ---
 import Section from "./Section.astro";
 import SectionHeader from "./SectionHeader.astro";
+import { pike13_base_url, pike13_client_id } from "../content/config";
 
 interface Props {
   serviceId?: number | string | null;
   heading?: string;
+  baseUrl?: string;
+  clientId?: string;
 }
 
 const {
   serviceId = null,
   heading = "Pike13 Events",
+  baseUrl = pike13_base_url,
+  clientId = pike13_client_id,
 } = Astro.props as Props;
 
 const normalizedServiceId = (() => {
@@ -23,20 +28,24 @@ const normalizedServiceId = (() => {
 })();
 
 const initialMessage = normalizedServiceId ? "Loading events..." : "No Pike13 service configured.";
-const eventsScriptSrc = (await import("../scripts/pike13-events-client.ts?url")).default;
 ---
 
 <Section
   class="pike13-events"
   data-component="pike13-events"
   data-service-id={normalizedServiceId}
+  data-base-url={baseUrl}
+  data-client-id={clientId}
 >
   <SectionHeader>
     <h2>{heading}</h2>
   </SectionHeader>
   <pre class="pike13-events__output">{initialMessage}</pre>
-  <script type="module" src={eventsScriptSrc} is:inline></script>
 </Section>
+
+<script>
+  import "../scripts/pike13-events-client";
+</script>
 
 <style>
   .pike13-events__output {

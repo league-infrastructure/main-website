@@ -1,7 +1,4 @@
-import { pike13_client_id, pike13_base_url } from "../content/config";
-
-
-
+import { getPike13ClientId, getPike13BaseUrl } from "../config/pike13";
 
 
 export interface Pike13ClientOptions {
@@ -16,7 +13,6 @@ export interface Pike13FetchOptions {
   method?: string;
   body?: BodyInit | null;
   headers?: Record<string, string>;
-  includeClientId?: boolean;
   signal?: AbortSignal;
   parseJson?: boolean;
 }
@@ -87,9 +83,21 @@ export interface Pike13GetOccurrancesParams {
 
 export class Pike13Client {
 
+  private readonly baseUrl: string;
+  private readonly clientId: string | null;
   private readonly defaultHeaders: Record<string, string>;
+  private readonly serviceIds: number[];
 
   constructor(options: Pike13ClientOptions = {}) {
+    this.baseUrl = options.baseUrl ?? getPike13BaseUrl();
+    this.clientId = options.clientId ?? getPike13ClientId() ?? null;
+    this.serviceIds = this.normalizeIds(options.services ?? []);
+
+    console.log('[Pike13Client] Initialized:', {
+      baseUrl: this.baseUrl,
+      clientId: this.clientId ? `${this.clientId.substring(0, 8)}...` : 'null',
+      serviceIds: this.serviceIds,
+    });
 
     this.defaultHeaders = {
       Accept: "application/json",
@@ -101,7 +109,7 @@ export class Pike13Client {
 
 
   async fetch<T = unknown>(path: string, options: Pike13FetchOptions = {}): Promise<Pike13FetchResult<T>> {
-    const url = this.buildUrl(path, options.params ?? {}, options.includeClientId ?? true);
+    const url = this.buildUrl(path, options.params ?? {});
     const method = options.method ?? "GET";
     const headers = { ...this.defaultHeaders, ...(options.headers ?? {}) };
     const init: RequestInit = {
@@ -115,7 +123,9 @@ export class Pike13Client {
       delete init.body;
     }
 
+    console.log(`[Pike13Client] Fetching: ${method} ${url}`);
     const response = await fetch(url, init);
+    console.log(`[Pike13Client] Response: ${response.status} ${response.statusText}`);
     const raw = await response.text();
     let data: T | null = null;
 
@@ -187,82 +197,30 @@ export class Pike13Client {
     return {
       ok: Boolean(last?.ok),
       status: last?.status ?? 0,
-      url: last?.url ?? this.buildUrl(path, params, options.includeClientId ?? true),
+      url: last?.url ?? this.buildUrl(path, params),
       items,
       pages,
     };
   }
 
-  async getEvents(params: Pike13GetEventsParams = {}): Promise<Pike13FetchPagesResult | Pike13FetchResult> {
-    const { allPages = true, includeClientId = true, maxPages } = params;
-    const query = { ...params };
-    delete query.allPages;
-    delete query.includeClientId;
-    delete query.maxPages;
 
-    if (query.start_at && !query.starts_after) {
-      query.starts_after = this.normalizeDateParam(query.start_at);
-      delete query.start_at;
-    }
-
-    if (query.end_at && !query.starts_before) {
-      query.starts_before = this.normalizeDateParam(query.end_at);
-      delete query.end_at;
-    }
-
-    this.applyDefaultServices(query, "service_ids", "service_id");
-
-    if (allPages) {
-      return this.fetchPages("/api/v2/front/events.json", {
-        params: query,
-        includeClientId,
-        maxPages,
-        dataKey: "events",
-      });
-    }
-
-    return this.fetch("/api/v2/front/events.json", {
-      params: query,
-      includeClientId,
-    });
-  }
-
-  async getService(params: Pike13GetServiceParams): Promise<Pike13FetchResult> {
-    const { serviceId, includeClientId = true, ...rest } = params;
+  async getService(
+    serviceId: number | string,
+    options: {
+      include?: string | null;
+      fields?: string | null;
+    } = {}
+  ): Promise<Pike13FetchResult> {
     const id = this.normalizeId(serviceId);
     if (id === null) {
       throw new Error("getService requires a valid serviceId");
     }
 
     return this.fetch(`/api/v2/front/services/${id}.json`, {
-      params: rest,
-      includeClientId,
+      params: options,
     });
   }
 
-  async getOccurrances(params: Pike13GetOccurrancesParams = {}): Promise<Pike13FetchPagesResult | Pike13FetchResult> {
-    const { allPages = true, includeClientId = true, maxPages } = params;
-    const query = { ...params };
-    delete query.allPages;
-    delete query.includeClientId;
-    delete query.maxPages;
-
-    this.applyDefaultServices(query, "service_ids", "service_id");
-
-    if (allPages) {
-      return this.fetchPages("/api/v2/front/event_occurrences.json", {
-        params: query,
-        includeClientId,
-        maxPages,
-        dataKey: "event_occurrences",
-      });
-    }
-
-    return this.fetch("/api/v2/front/event_occurrences.json", {
-      params: query,
-      includeClientId,
-    });
-  }
 
   async getServiceEvents(
     serviceIds: Array<number | string | null | undefined>,
@@ -274,22 +232,28 @@ export class Pike13Client {
       return [];
     }
 
-    const params: Pike13GetEventsParams = {
-      service_ids: normalizedIds,
-      allPages: true,
-      includeClientId: true,
-    };
+    // Default window: 90 days total (-15 past, +75 future) to stay under API 120-day limit
+    const startValue = this.normalizeDateParam(from ?? this.startOfToday());
+    const endValue = this.normalizeDateParam(to ?? this.defaultDateOffset(56));
 
-    const startValue = this.normalizeDateParam(from ?? this.defaultDateOffset(-30));
-    const endValue = this.normalizeDateParam(to ?? this.defaultDateOffset(90));
+    const query: Record<string, unknown> = {};
+
+    // Always send service_ids as comma-separated string (even single ID)
+    query.service_ids = normalizedIds.join(",");
+
     if (startValue) {
-      params.starts_after = startValue;
-    }
-    if (endValue) {
-      params.starts_before = endValue;
+      query.from = startValue;
     }
 
-    const result = await this.getEvents(params);
+    if (endValue) {
+      query.to = endValue;
+    }
+
+    const result = await this.fetchPages("/api/v2/front/events", {
+      params: query,
+      dataKey: "events",
+    });
+    
     const events = this.extractItemsFromResult(result, "events");
     if (!result.ok && events.length === 0) {
       throw new Error(`Failed to fetch Pike13 events (status ${result.status})`);
@@ -307,22 +271,28 @@ export class Pike13Client {
       return [];
     }
 
-    const params: Pike13GetOccurrancesParams = {
-      service_ids: normalizedIds,
-      allPages: true,
-      includeClientId: true,
-    };
+    // Default window: 90 days total (-15 past, +75 future) to stay under API 120-day limit
+    const startValue = this.normalizeDateParam(from ?? this.startOfToday());
+    const endValue = this.normalizeDateParam(to ?? this.defaultDateOffset(56));
 
-    const startValue = this.normalizeDateParam(from ?? this.defaultDateOffset(-30));
-    const endValue = this.normalizeDateParam(to ?? this.defaultDateOffset(90));
+    const query: Record<string, unknown> = {};
+
+    // Always send service_ids as comma-separated string (even single ID)
+    query.service_ids = normalizedIds.join(",");
+
     if (startValue) {
-      params.starts_after = startValue;
-    }
-    if (endValue) {
-      params.starts_before = endValue;
+      query.from = startValue;
     }
 
-    const result = await this.getOccurrances(params);
+    if (endValue) {
+      query.to = endValue;
+    }
+
+    const result = await this.fetchPages("/api/v2/front/event_occurrences", {
+      params: query,
+      dataKey: "event_occurrences",
+    });
+    
     const occurrences = this.extractItemsFromResult(result, "event_occurrences");
     if (!result.ok && occurrences.length === 0) {
       throw new Error(`Failed to fetch Pike13 occurrences (status ${result.status})`);
@@ -340,6 +310,12 @@ export class Pike13Client {
       reference.setHours(0, 0, 0, 0);
     }
     return reference;
+  }
+
+  private startOfToday(): Date {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
   }
 
   private extractItemsFromResult<T>(
@@ -382,11 +358,11 @@ export class Pike13Client {
     return null;
   }
 
-  private buildUrl(path: string, params: Record<string, unknown>, includeClientId: boolean): string {
+  private buildUrl(path: string, params: Record<string, unknown>): string {
     const url = new URL(path, this.baseUrl);
     const search = url.searchParams;
 
-    if (includeClientId && this.clientId && !search.has("client_id")) {
+    if (this.clientId && !search.has("client_id")) {
       search.set("client_id", this.clientId);
     }
 
