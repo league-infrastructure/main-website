@@ -6,6 +6,8 @@ import Section from "../../components/Section.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 import ButtonGroup from "../../components/ButtonGroup.astro";
+import Pike13Events from "../../components/Pike13Events.astro";
+import Pike13Occurrences from "../../components/Pike13Occurrences.astro";
 import { marked } from "marked";
 import {
   getClassesData,
@@ -146,6 +148,17 @@ const fallbackCtas = categoryCtas.filter(
   (action) => action?.label && action?.url,
 );
 const resolvedCtas = primaryCtas.length > 0 ? primaryCtas : fallbackCtas;
+const serviceIds = Array.isArray(classData.services)
+  ? (classData.services as Array<number | string>).filter((value) => {
+      if (typeof value === "number" && Number.isFinite(value)) {
+        return true;
+      }
+      if (typeof value === "string") {
+        return value.trim().length > 0;
+      }
+      return false;
+    })
+  : [];
 const enrollMessages: Array<{ content: string; source: "class" | "category" }> =
   [];
 
@@ -250,58 +263,68 @@ const showEnrollmentGuide = Boolean(enrollmentGuideHtml);
     </div>
   </Section>
 
+  {serviceIds.length > 0 && (
+    <Pike13Events serviceIds={serviceIds} />
+  )}
+
+  {serviceIds.length > 0 && (
+    <Pike13Occurrences serviceIds={serviceIds} heading="Upcoming Sessions" />
+  )}
+
   {
     hasEnrollSection && (
-      <Section
-        startBgcolor="var(--color-surface-alt)"
-        endBgcolor="var(--color-primary-soft)"
-        class="class-enroll-section"
-      >
-        <SectionHeader>
-          <h2>How to Enroll</h2>
-        </SectionHeader>
+      <>
+        <Section
+          startBgcolor="var(--color-surface-alt)"
+          endBgcolor="var(--color-primary-soft)"
+          class="class-enroll-section"
+        >
+          <SectionHeader>
+            <h2>How to Enroll</h2>
+          </SectionHeader>
 
-        <div class={`class-enroll${showEnrollmentGuide && enrollmentGuideHtml ? " class-enroll--with-guide" : ""}`}>
-          <div class="class-enroll__primary">
-            {enrollMessages.map(({ content, source }) => (
-              <div
-                class={`class-enroll__text${source === "class" ? " class-enroll__text--class" : ""}`}
-                set:html={content}
-              />
-            ))}
-            {resolvedCtas.length > 0 && (
-              <ButtonGroup
-                class="class-enroll__buttons"
-                actions={resolvedCtas.map((action: StructuredCta) => {
-                  const isExternal = action.url
-                    ? /^https?:/i.test(action.url)
-                    : false;
-                  return {
-                    label: action.label ?? "Enroll",
-                    href: action.url ?? "#",
-                    variant: "primary",
-                    target: isExternal ? "_blank" : undefined,
-                    rel: isExternal ? "noopener noreferrer" : undefined,
-                  };
-                })}
-              />
+          <div class={`class-enroll${showEnrollmentGuide && enrollmentGuideHtml ? " class-enroll--with-guide" : ""}`}>
+            <div class="class-enroll__primary">
+              {enrollMessages.map(({ content, source }) => (
+                <div
+                  class={`class-enroll__text${source === "class" ? " class-enroll__text--class" : ""}`}
+                  set:html={content}
+                />
+              ))}
+              {resolvedCtas.length > 0 && (
+                <ButtonGroup
+                  class="class-enroll__buttons"
+                  actions={resolvedCtas.map((action: StructuredCta) => {
+                    const isExternal = action.url
+                      ? /^https?:/i.test(action.url)
+                      : false;
+                    return {
+                      label: action.label ?? "Enroll",
+                      href: action.url ?? "#",
+                      variant: "primary",
+                      target: isExternal ? "_blank" : undefined,
+                      rel: isExternal ? "noopener noreferrer" : undefined,
+                    };
+                  })}
+                />
+              )}
+            </div>
+            {showEnrollmentGuide && enrollmentGuideHtml && (
+              <CalloutCard
+                class="class-enroll__callout"
+                title=''
+                headingLevel={enrollmentGuideTitle ? 3 : 2}
+                cta={enrollmentGuideCta}
+              >
+                <div
+                  class="class-enroll__callout-content"
+                  set:html={enrollmentGuideHtml}
+                />
+              </CalloutCard>
             )}
           </div>
-          {showEnrollmentGuide && enrollmentGuideHtml && (
-            <CalloutCard
-              class="class-enroll__callout"
-              title=''
-              headingLevel={enrollmentGuideTitle ? 3 : 2}
-              cta={enrollmentGuideCta}
-            >
-              <div
-                class="class-enroll__callout-content"
-                set:html={enrollmentGuideHtml}
-              />
-            </CalloutCard>
-          )}
-        </div>
-      </Section>
+        </Section>
+      </>
     )
   }
 </ClassLayout>

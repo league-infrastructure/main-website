@@ -14,7 +14,7 @@
       "python",
       "programming"
     ],
-    "group": "python"
+    "group": "tech-club"
   },
   {
     "title": "Python Apprentice",
@@ -25,6 +25,9 @@
     "curriculum": "https://python-apprentice.jointheleague.org/",
     "slug": "python-apprentice",
     "image": "python.png",
+    "services": [
+      270616
+    ],
     "cta": [],
     "level": "intermediate",
     "topics": [

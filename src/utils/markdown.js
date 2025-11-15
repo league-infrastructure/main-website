@@ -23,7 +23,7 @@ function readJsonData(baseName) {
   }
 }
 
-const ARRAY_FIELDS = new Set(['topics', 'classes', 'category', 'forCategory', 'for_category']);
+const ARRAY_FIELDS = new Set(['topics', 'classes', 'category', 'services', 'forCategory', 'for_category']);
 const RECORD_LIST_FIELDS = new Set(['cta']);
 
 function applySimpleInterpolations(text, context) {
@@ -55,6 +55,14 @@ function normalizeListValue(value) {
       .split(',')
       .map((item) => item.trim())
       .filter((item) => item.length > 0);
+  }
+
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return [value];
+  }
+
+  if (typeof value === 'bigint') {
+    return [Number(value)];
   }
 
   return value;
@@ -290,6 +298,7 @@ export function normalizeContentRecords(entries) {
       icon: rawIcon,
       forCategory: rawForCategoryCamel,
       for_category: rawForCategorySnake,
+      services: rawServices,
       cta: rawCta,
       buttons,
       meta,
@@ -301,6 +310,7 @@ export function normalizeContentRecords(entries) {
     const cta = toActionList(rawCta ?? buttons ?? []);
     const icon = typeof rawIcon === 'string' ? rawIcon : rawIcon ?? '';
     const forCategory = normalizeListValue(rawForCategoryCamel ?? rawForCategorySnake ?? []);
+    const services = normalizeListValue(rawServices ?? []);
     const slug = typeof rawSlug === 'string' ? rawSlug : undefined;
     const image = typeof rawImage === 'string' ? rawImage : undefined;
 
@@ -315,6 +325,17 @@ export function normalizeContentRecords(entries) {
       image,
       icon: icon || undefined,
       forCategory: Array.isArray(forCategory) && forCategory.length > 0 ? forCategory : undefined,
+      services:
+        Array.isArray(services) && services.length > 0
+          ? services.map((value) => (typeof value === 'string' ? value.trim() : value)).filter(
+              (value) => {
+                if (typeof value === 'string') {
+                  return value.length > 0;
+                }
+                return value !== undefined && value !== null;
+              },
+            )
+          : undefined,
       cta,
       ...rest,
     };

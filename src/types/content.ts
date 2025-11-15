@@ -22,6 +22,7 @@ export interface StructuredContentRecord {
   classes?: string[];
   category?: string[];
   forCategory?: string[];
+  services?: (string | number)[];
   cta?: StructuredCta[];
   [key: string]: unknown;
 }
