@@ -62,7 +62,7 @@ applied to a category, program or class.
 The processing for meta is: 
 
 1) load the contents of the fenced block into a yaml dict
-2) For `topics`, `classes`, `for_category` and `category`, if the value is a string, convert it
+2) For `topics`, `classes`, `services`, `for_category` and `category`, if the value is a string, convert it
    to a list by splitting on ',' and stripping spaces
 3) Copy all of the values into the top level record. 
 
@@ -165,6 +165,7 @@ export interface ContentRecord {
     classes?: string[];
     category?: string[];
     for_category?: string[];
+    services?: (string | number)[];
     level?: string;
     meetup?: string;
     cta?: Record[]; // call-to-action buttons and links

@@ -20,7 +20,7 @@ slug: intro-python
 image: python.png
 level: beginner
 topics: python, programming
-group: python
+group: tech-club
 curriculum: https://league-curriculum.github.io/Python-Introduction/
 ```
 
@@ -51,6 +51,7 @@ image: python.png
 level: intermediate
 topics: python, programming, certification
 group: python
+services: 270616
 curriculum: https://python-apprentice.jointheleague.org/
 ```
 
