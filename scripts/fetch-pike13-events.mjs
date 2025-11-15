@@ -11,25 +11,26 @@ const DATA_DIR = path.resolve(__dirname, "../src/data/p13");
 const OUTPUT_PATH = path.join(DATA_DIR, "p13e-events.json");
 const ENV_PATH = path.resolve(__dirname, "../.env");
 
-const DESK_ENDPOINT_SUFFIXES = [
-  "/api/v2/desk/events.json",
-  "/api/v2/desk/events",
+const FRONT_EVENT_ENDPOINT_SUFFIXES = [
+  "/api/v2/front/events.json",
+  "/api/v2/front/events",
 ];
 
-const FRONT_ENDPOINT_SUFFIXES = [
+const FRONT_OCCURRENCE_ENDPOINT_SUFFIXES = [
   "/api/v2/front/event_occurrences.json",
   "/api/v2/front/event_occurrences",
 ];
 
-const DESK_RANGE_PARAM_VARIANTS = [
-  { start: "starts_at", end: "ends_at" },
-  { start: "start_at", end: "end_at" },
-  { start: "from", end: "to" },
-  { start: "start", end: "end" },
+const FRONT_EVENT_RANGE_PARAM_VARIANTS = [
+  { start: "starts_after", end: "starts_before" },
   { start: "starts_after", end: "ends_before" },
+  { start: "start_at", end: "end_at" },
+  { start: "starts_at", end: "ends_at" },
+  { start: "start", end: "end" },
+  { start: "from", end: "to" },
 ];
 
-const FRONT_RANGE_PARAM_VARIANTS = [
+const FRONT_OCCURRENCE_RANGE_PARAM_VARIANTS = [
   { start: "starts_after", end: "starts_before" },
   { start: "starts_after", end: "ends_before" },
   { start: "start", end: "end" },
@@ -130,92 +131,13 @@ function buildDateRange() {
 async function fetchEvents(baseUrl, clientId, range) {
   const failures = [];
 
-  for (const suffix of DESK_ENDPOINT_SUFFIXES) {
-    for (const variant of DESK_RANGE_PARAM_VARIANTS) {
-      const endpointUrl = new URL(suffix, baseUrl);
-      endpointUrl.searchParams.set("per_page", String(PER_PAGE));
-      endpointUrl.searchParams.set(variant.start, range.start);
-      endpointUrl.searchParams.set(variant.end, range.end);
-      if (clientId) {
-        endpointUrl.searchParams.set("client_id", clientId);
-      }
-
-      try {
-        const response = await fetch(endpointUrl, {
-          headers: {
-            Accept: "application/json",
-            "User-Agent": USER_AGENT,
-              "Client-Id": clientId ?? "",
-          },
-        });
-
-        if (!response.ok) {
-          const errorBody = await response.text();
-          throw new Error(
-            `${response.status} ${response.statusText}${errorBody ? ` - ${errorBody}` : ""}`
-          );
-        }
-
-        const bodyText = await response.text();
-        try {
-          const payload = JSON.parse(bodyText);
-          const events = extractEventsArray(payload);
-          const totalEntries = readTotalEntries(payload);
-          const totalPages = readTotalPages(payload);
-          return {
-            events,
-            params: variant,
-            source: "desk",
-            requests: [
-              {
-                endpoint: endpointUrl.toString(),
-                page: 1,
-                received: events.length,
-                total_entries: totalEntries,
-                total_pages: totalPages,
-              },
-            ],
-          };
-        } catch (parseError) {
-          throw new Error("Unexpected response payload while parsing JSON");
-        }
-      } catch (error) {
-        failures.push({
-          endpoint: suffix,
-          params: variant,
-          message: error instanceof Error ? error.message : String(error),
-        });
-      }
-    }
-  }
-
-  const hasAccessDenied = failures.some((entry) =>
-    /401/.test(entry.message) || entry.message.toLowerCase().includes("access denied")
-  );
-
-  if (hasAccessDenied) {
-    return fetchFrontEvents(baseUrl, clientId, range, failures);
-  }
-
-  const detail = failures
-    .map(
-      (entry) =>
-        `  • ${entry.endpoint} (${entry.params.start}/${entry.params.end}): ${entry.message}`
-    )
-    .join("\n");
-  throw new Error(`Failed to fetch Pike13 events via available endpoints:\n${detail}`);
-}
-
-async function fetchFrontEvents(baseUrl, clientId, range, previousFailures = []) {
-  const failures = [...previousFailures];
-
-  for (const suffix of FRONT_ENDPOINT_SUFFIXES) {
-    for (const variant of FRONT_RANGE_PARAM_VARIANTS) {
+  for (const suffix of FRONT_EVENT_ENDPOINT_SUFFIXES) {
+    for (const variant of FRONT_EVENT_RANGE_PARAM_VARIANTS) {
       const requests = [];
       const collectedEvents = [];
 
       try {
-        for (let page = 1; page <= MAX_PAGES; page++) {
+        for (let page = 1; page <= MAX_PAGES; page += 1) {
           const endpointUrl = new URL(suffix, baseUrl);
           endpointUrl.searchParams.set("per_page", String(PER_PAGE));
           endpointUrl.searchParams.set(variant.start, range.start);
@@ -275,7 +197,93 @@ async function fetchFrontEvents(baseUrl, clientId, range, previousFailures = [])
           return {
             events: collectedEvents,
             params: variant,
-            source: "front",
+            source: "front/events",
+            requests,
+          };
+        }
+      } catch (error) {
+        failures.push({
+          endpoint: suffix,
+          params: variant,
+          message: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+  }
+
+  return fetchFrontOccurrences(baseUrl, clientId, range, failures);
+}
+
+async function fetchFrontOccurrences(baseUrl, clientId, range, previousFailures = []) {
+  const failures = [...previousFailures];
+
+  for (const suffix of FRONT_OCCURRENCE_ENDPOINT_SUFFIXES) {
+    for (const variant of FRONT_OCCURRENCE_RANGE_PARAM_VARIANTS) {
+      const requests = [];
+      const collectedEvents = [];
+
+      try {
+        for (let page = 1; page <= MAX_PAGES; page += 1) {
+          const endpointUrl = new URL(suffix, baseUrl);
+          endpointUrl.searchParams.set("per_page", String(PER_PAGE));
+          endpointUrl.searchParams.set(variant.start, range.start);
+          endpointUrl.searchParams.set(variant.end, range.end);
+          endpointUrl.searchParams.set("page", String(page));
+          if (clientId) {
+            endpointUrl.searchParams.set("client_id", clientId);
+          }
+
+          const response = await fetch(endpointUrl, {
+            headers: {
+              Accept: "application/json",
+              "User-Agent": USER_AGENT,
+              "Client-Id": clientId ?? "",
+            },
+          });
+
+          if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(
+              `${response.status} ${response.statusText}${errorBody ? ` - ${errorBody}` : ""}`
+            );
+          }
+
+          const bodyText = await response.text();
+          let payload;
+          try {
+            payload = JSON.parse(bodyText);
+          } catch (parseError) {
+            throw new Error("Unexpected response payload while parsing JSON");
+          }
+
+          const pageEvents = extractEventsArray(payload);
+          collectedEvents.push(...pageEvents);
+          const totalEntries = readTotalEntries(payload);
+          const totalPages = readTotalPages(payload);
+          requests.push({
+            endpoint: endpointUrl.toString(),
+            page,
+            received: pageEvents.length,
+            total_entries: totalEntries,
+            total_pages: totalPages,
+          });
+
+          const hasMore = shouldRequestNextPage({
+            payload,
+            currentPage: page,
+            received: pageEvents.length,
+          });
+
+          if (!hasMore) {
+            break;
+          }
+        }
+
+        if (requests.length > 0) {
+          return {
+            events: collectedEvents,
+            params: variant,
+            source: "front/event_occurrences",
             requests,
           };
         }

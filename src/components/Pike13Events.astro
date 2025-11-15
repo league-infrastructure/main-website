@@ -2,381 +2,96 @@
 import Section from "./Section.astro";
 import SectionHeader from "./SectionHeader.astro";
 import { pike13_base_url, pike13_client_id } from "../content/config";
-import locationsData from "../data/locations.json";
+import eventsScript from "../scripts/pike13-events.ts?url";
 
 interface Props {
-  serviceIds?: Array<number | string>;
+  serviceId?: number | string | null;
+  serviceIds?: Array<number | string | null>;
   heading?: string | null;
 }
 
-const { serviceIds = [], heading = "Upcoming Events" } = Astro.props as Props;
+const { serviceId = null, serviceIds = [], heading = "Pike13 Debug" } = Astro.props as Props;
 
-function normalizeServiceIds(values: Array<number | string>): number[] {
-  return Array.from(
-    new Set(
-      values
-        .map((value) => {
-          if (typeof value === "number" && Number.isFinite(value)) {
-            return Math.trunc(value);
-          }
-          if (typeof value === "string") {
-            const trimmed = value.trim();
-            if (trimmed.length === 0) {
-              return null;
-            }
-            const parsed = Number.parseInt(trimmed, 10);
-            if (Number.isFinite(parsed)) {
-              return Math.trunc(parsed);
-            }
-          }
-          return null;
-        })
-        .filter((value): value is number => value !== null && value > 0),
-    ),
-  ).sort((a, b) => a - b);
-}
+const normalizedId = (() => {
+  const candidates: Array<number | string | null> = [];
+  candidates.push(serviceId);
+  if (Array.isArray(serviceIds)) {
+    candidates.push(...serviceIds);
+  }
 
-const normalizedIds = normalizeServiceIds(serviceIds ?? []);
-const baseUrlRaw = typeof pike13_base_url === "string" ? pike13_base_url.trim() : "";
-const baseUrl = baseUrlRaw.replace(/\/$/, "");
+  for (const candidate of candidates) {
+    if (typeof candidate === "number" && Number.isFinite(candidate)) {
+      return Math.trunc(candidate);
+    }
+    if (typeof candidate === "string") {
+      const parsed = Number.parseInt(candidate.trim(), 10);
+      if (Number.isFinite(parsed)) {
+        return Math.trunc(parsed);
+      }
+    }
+  }
+
+  return null;
+})();
+
+const baseUrl = typeof pike13_base_url === "string" ? pike13_base_url.replace(/\/$/, "").trim() : "";
 const clientId = typeof pike13_client_id === "string" ? pike13_client_id.trim() : "";
 
-const locationMap = Object.fromEntries(
-  (locationsData as Array<{ id?: number; name?: string }>)
-    .filter((entry) => entry && typeof entry.id === "number")
-    .map((entry) => {
-      const name = typeof entry.name === "string" && entry.name.trim().length > 0
-        ? entry.name.trim()
-        : "Location To Be Announced";
-      return [String(entry.id), name];
-    }),
-);
-
-const shouldRender = normalizedIds.length > 0 && baseUrl.length > 0;
-const serviceIdsJson = JSON.stringify(normalizedIds);
-const locationsJson = JSON.stringify(locationMap);
+const shouldRender = normalizedId !== null && baseUrl.length > 0;
+const serviceIdJson = JSON.stringify(normalizedId);
 ---
 {shouldRender ? (
   <Section
-    class="pike13-events"
-    data-component="pike13-events"
-    data-service-ids={serviceIdsJson}
+    class="pike13-events-debug"
+    data-component="pike13-events-debug"
+    data-service-id={serviceIdJson}
     data-base-url={baseUrl}
     data-client-id={clientId}
-    data-locations={locationsJson}
   >
     {heading !== null && (
       <SectionHeader>
         <h3>{heading}</h3>
       </SectionHeader>
     )}
-    <div class="pike13-events__status" data-role="status">Loading upcoming events…</div>
-    <ul class="pike13-events__list" data-role="list" hidden></ul>
-    <script is:inline>
-      const script = document.currentScript;
-      const section = script?.closest("section[data-component='pike13-events']");
-      if (!(section instanceof HTMLElement)) {
-        console.error("Pike13Events: host element not found");
-      } else {
-        const parseJson = (value, fallback) => {
-          if (!value) {
-            return fallback;
-          }
-          try {
-            return JSON.parse(value);
-          } catch (_error) {
-            return fallback;
-          }
-        };
-
-        const serviceIdsRaw = parseJson(section.dataset.serviceIds, []);
-        const serviceIds = Array.isArray(serviceIdsRaw)
-          ? serviceIdsRaw
-              .map((value) => {
-                const parsed = Number.parseInt(value, 10);
-                return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
-              })
-              .filter((value) => value !== null)
-          : [];
-        const serviceIdSet = new Set(serviceIds);
-
-        const baseUrl = section.dataset.baseUrl ?? "";
-        const clientId = section.dataset.clientId ?? "";
-        const locations = parseJson(section.dataset.locations, {});
-
-        const statusEl = section.querySelector('[data-role="status"]');
-        const listEl = section.querySelector('[data-role="list"]');
-
-        if (!Array.isArray(serviceIds) || serviceIds.length === 0 || !baseUrl) {
-          if (statusEl) {
-            statusEl.textContent = "No events available.";
-          }
-        } else {
-          const fetchEvents = async () => {
-            const perPage = 100;
-            const maxPages = 5;
-            const start = new Date();
-            start.setHours(0, 0, 0, 0);
-            const end = new Date(start);
-            end.setDate(start.getDate() + 14);
-            end.setHours(23, 59, 59, 999);
-            const startIso = start.toISOString();
-            const endIso = end.toISOString();
-
-            const events = [];
-            const seenIds = new Set();
-
-            for (let page = 1; page <= maxPages; page += 1) {
-              const url = new URL("/api/v2/front/events.json", baseUrl);
-              serviceIds.forEach((id) => {
-                url.searchParams.append("service_ids[]", String(id));
-              });
-              url.searchParams.set("starts_after", startIso);
-              url.searchParams.set("starts_before", endIso);
-              url.searchParams.set("per_page", String(perPage));
-              url.searchParams.set("page", String(page));
-              if (clientId) {
-                url.searchParams.set("client_id", clientId);
-              }
-
-              let payload;
-              try {
-                const response = await fetch(url.toString(), {
-                  headers: {
-                    Accept: "application/json",
-                  },
-                });
-                if (!response.ok) {
-                  break;
-                }
-                payload = await response.json();
-              } catch (_error) {
-                break;
-              }
-
-              const raw = Array.isArray(payload?.events)
-                ? payload.events
-                : Array.isArray(payload?.data)
-                ? payload.data
-                : Array.isArray(payload)
-                ? payload
-                : [];
-
-              let received = 0;
-
-              for (const entry of raw) {
-                if (!entry || typeof entry !== "object") {
-                  continue;
-                }
-
-                const rawServiceId = entry.service_id ?? entry.serviceId ?? entry.serviceID ?? null;
-                const serviceId = typeof rawServiceId === "number"
-                  ? Math.trunc(rawServiceId)
-                  : typeof rawServiceId === "string"
-                  ? Number.parseInt(rawServiceId, 10)
-                  : NaN;
-                if (!Number.isFinite(serviceId) || !serviceIdSet.has(serviceId)) {
-                  continue;
-                }
-
-                const rawId = entry.id ?? entry.event_id ?? null;
-                const eventId = typeof rawId === "number"
-                  ? Math.trunc(rawId)
-                  : typeof rawId === "string"
-                  ? Number.parseInt(rawId, 10)
-                  : NaN;
-                if (Number.isFinite(eventId) && seenIds.has(eventId)) {
-                  continue;
-                }
-                if (Number.isFinite(eventId)) {
-                  seenIds.add(eventId);
-                }
-
-                const name = typeof entry.name === "string" && entry.name.trim().length > 0
-                  ? entry.name.trim()
-                  : null;
-                const startTime = typeof entry.start_time === "string" && entry.start_time.trim().length > 0
-                  ? entry.start_time.trim()
-                  : null;
-                const rrule = entry?.ical?.rrule ?? null;
-                const rawLocationId = entry.location_id ?? entry.locationId ?? null;
-                const locationId = typeof rawLocationId === "number"
-                  ? Math.trunc(rawLocationId)
-                  : typeof rawLocationId === "string"
-                  ? Number.parseInt(rawLocationId, 10)
-                  : null;
-
-                const staffMembers = Array.isArray(entry.staff_members) ? entry.staff_members : [];
-                const instructor = staffMembers
-                  .map((member) => {
-                    const nameValue = member && typeof member === "object" ? member.name : null;
-                    return typeof nameValue === "string" ? nameValue.trim() : "";
-                  })
-                  .find((value) => value.length > 0) || null;
-
-                events.push({
-                  id: Number.isFinite(eventId) ? eventId : `${serviceId}-${page}-${received}`,
-                  name,
-                  startTime,
-                  rrule: typeof rrule === "string" ? rrule.trim() : null,
-                  locationId: Number.isFinite(locationId) ? Math.trunc(locationId) : null,
-                  instructor,
-                });
-
-                received += 1;
-              }
-
-              if (received < perPage || received === 0) {
-                break;
-              }
-            }
-
-            events.sort((a, b) => {
-              const timeA = a.startTime ? Date.parse(`1970-01-01T${a.startTime}Z`) : Number.POSITIVE_INFINITY;
-              const timeB = b.startTime ? Date.parse(`1970-01-01T${b.startTime}Z`) : Number.POSITIVE_INFINITY;
-              return timeA - timeB;
-            });
-
-            return events;
-          };
-
-          const renderEvents = (items) => {
-            if (!listEl) {
-              return;
-            }
-
-            listEl.innerHTML = "";
-
-            items.forEach((item) => {
-              const li = document.createElement("li");
-              li.className = "pike13-events__item";
-
-              if (item.name) {
-                const nameEl = document.createElement("p");
-                nameEl.className = "pike13-events__name";
-                nameEl.textContent = item.name;
-                li.appendChild(nameEl);
-              }
-
-              if (item.rrule) {
-                const rruleEl = document.createElement("p");
-                rruleEl.className = "pike13-events__meta";
-                const label = document.createElement("span");
-                label.className = "pike13-events__label";
-                label.textContent = "RRULE:";
-                rruleEl.appendChild(label);
-                rruleEl.append(" ");
-                rruleEl.append(item.rrule);
-                li.appendChild(rruleEl);
-              }
-
-              if (item.startTime) {
-                const startEl = document.createElement("p");
-                startEl.className = "pike13-events__meta";
-                const label = document.createElement("span");
-                label.className = "pike13-events__label";
-                label.textContent = "start_time:";
-                startEl.appendChild(label);
-                startEl.append(" ");
-                startEl.append(item.startTime);
-                li.appendChild(startEl);
-              }
-
-              const locationEl = document.createElement("p");
-              locationEl.className = "pike13-events__meta";
-              const locationLabel = document.createElement("span");
-              locationLabel.className = "pike13-events__label";
-              locationLabel.textContent = "Location:";
-              locationEl.appendChild(locationLabel);
-              locationEl.append(" ");
-              const lookupKey = item.locationId !== null ? String(item.locationId) : null;
-              const locationName = lookupKey && locations && typeof locations === "object" && lookupKey in locations
-                ? locations[lookupKey]
-                : "Location To Be Announced";
-              locationEl.append(locationName);
-              li.appendChild(locationEl);
-
-              if (item.instructor) {
-                const instructorEl = document.createElement("p");
-                instructorEl.className = "pike13-events__meta";
-                const instructorLabel = document.createElement("span");
-                instructorLabel.className = "pike13-events__label";
-                instructorLabel.textContent = "Instructor:";
-                instructorEl.appendChild(instructorLabel);
-                instructorEl.append(" ");
-                instructorEl.append(item.instructor);
-                li.appendChild(instructorEl);
-              }
-
-              listEl.appendChild(li);
-            });
-
-            listEl.hidden = items.length === 0;
-          };
-
-          (async () => {
-            if (statusEl) {
-              statusEl.textContent = "Loading upcoming events…";
-            }
-
-            try {
-              const events = await fetchEvents();
-              if (!events || events.length === 0) {
-                if (statusEl) {
-                  statusEl.textContent = "No recurring events scheduled.";
-                }
-                return;
-              }
-
-              if (statusEl) {
-                statusEl.remove();
-              }
-
-              renderEvents(events);
-            } catch (error) {
-              if (statusEl) {
-                statusEl.textContent = "Unable to load events right now.";
-              }
-              console.error("Pike13Events", error);
-            }
-          })();
-        }
-      }
-    </script>
+    <div class="pike13-events-debug__row">
+      <div class="pike13-events-debug__column">
+        <h4>Service Response</h4>
+        <pre data-role="service">Loading…</pre>
+      </div>
+      <div class="pike13-events-debug__column">
+        <h4>Events Response</h4>
+        <pre data-role="events">Loading…</pre>
+      </div>
+    </div>
+    <script is:inline type="module" src={eventsScript}></script>
   </Section>
 ) : null}
 
 <style>
-  .pike13-events {
-    margin-top: var(--space-xl);
-  }
-
-  .pike13-events__list {
-    list-style: none;
+  .pike13-events-debug__row {
     display: grid;
     gap: var(--space-lg);
-    padding: 0;
-    margin: 0;
   }
 
-  .pike13-events__item {
+  @media (min-width: 48rem) {
+    .pike13-events-debug__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .pike13-events-debug__column {
     display: grid;
     gap: var(--space-sm);
   }
 
-  .pike13-events__name {
-    font-size: 1.125rem;
-    font-weight: 600;
+  .pike13-events-debug__column pre {
     margin: 0;
-  }
-
-  .pike13-events__meta {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 0.95rem;
-  }
-
-  .pike13-events__label {
-    font-weight: 600;
+    padding: var(--space-md);
+    background-color: var(--color-surface-muted);
+    border-radius: var(--radius-md);
+    overflow: auto;
+    max-height: 24rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 </style>
